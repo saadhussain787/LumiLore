@@ -1,0 +1,19 @@
+version: 1
+applications:
+  - appRoot: frontend
+    frontend:
+      phases:
+        build:
+          commands:
+            # We are inside the 'frontend' folder, so we make a dist folder
+            - mkdir dist
+            # Copy all frontend files (like index.html) into dist
+            - cp -r * dist/
+            # Go up a directory to grab the public folder (images) and put it in dist
+            - cp -r ../public dist/
+      artifacts:
+        baseDirectory: dist
+        files:
+          - '**/*'
+      cache:
+        paths: []
