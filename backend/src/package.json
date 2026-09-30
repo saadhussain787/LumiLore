@@ -1,0 +1,7 @@
+{
+  "name": "lumilore-backend",
+  "version": "1.0.0",
+  "description": "LumiLore Backend API",
+  "main": "app.js",
+  "dependencies": {}
+}

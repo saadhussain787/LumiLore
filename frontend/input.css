@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@theme {
+  /* Stitch Design System - Colors */
+  --color-surface: #05070a;
+  --color-surface-dim: #030507;
+  --color-surface-bright: #0a0e14;
+  --color-surface-container-lowest: #010203;
+  --color-surface-container-low: #030507;
+  --color-surface-container: #05070a;
+  --color-surface-container-high: #0a0e14;
+  --color-surface-container-highest: #0f141e;
+  
+  --color-on-surface: #f1f5f9;
+  --color-on-surface-variant: #94a3b8;
+  
+  --color-outline: #1e293b;
+  --color-outline-variant: #334155;
+  
+  --color-primary: #00f2fe;
+  --color-on-primary: #001a1c;
+  --color-primary-container: #004a4f;
+  --color-on-primary-container: #ccfbff;
+  
+  --color-secondary: #6366f1;
+  --color-on-secondary: #0a0a2a;
+  --color-secondary-container: #31327a;
+  --color-on-secondary-container: #e0e0ff;
+  
+  --color-background: #05070a;
+  --color-on-background: #f1f5f9;
+
+  /* Legacy Aliases mapping to Design System */
+  --color-bg-dark: var(--color-background);
+  --color-surface-dark: var(--color-surface-container-highest);
+  --color-border-dark: var(--color-outline);
+  --color-cyan-glow: var(--color-primary);
+  --color-indigo-core: var(--color-secondary);
+  --color-titanium: var(--color-outline-variant);
+
+  /* Stitch Design System - Typography */
+  --font-headline: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+
+  --animate-aurora: aurora 15s linear infinite;
+  
+  @keyframes aurora {
+    0% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+    33% { transform: translate(30px, -50px) scale(1.1); opacity: 0.8; }
+    66% { transform: translate(-20px, 20px) scale(0.9); opacity: 0.6; }
+    100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    background-color: var(--color-surface-dark);
+    border: 1px solid var(--color-border-dark);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .circuit-border {
+    position: relative;
+    z-index: 1;
+  }
+  .circuit-border::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    background: linear-gradient(135deg, var(--color-cyan-glow), var(--color-indigo-core));
+    z-index: -1;
+    border-radius: inherit;
+    opacity: 0.8;
+  }
+  .circuit-border::after {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    background-color: var(--color-titanium);
+    z-index: -1;
+    border-radius: calc(inherit - 2px);
+  }
+
+  .glow-cta {
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+  }
+  .glow-cta:hover {
+    box-shadow: 0 0 25px rgba(0, 242, 254, 0.6);
+    transform: translateY(-1px);
+  }
+}
