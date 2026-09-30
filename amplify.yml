@@ -5,12 +5,14 @@ applications:
       phases:
         build:
           commands:
-            # We are inside the 'frontend' folder, so we make a dist folder
-            - mkdir dist
-            # Copy all frontend files (like index.html) into dist
-            - cp -r * dist/
-            # Go up a directory to grab the public folder (images) and put it in dist
-            - cp -r ../public dist/
+            # Create a build folder outside the current directory to avoid recursion
+            - mkdir ../dist
+            # Copy all frontend files into the build folder
+            - cp -r . ../dist/
+            # Copy the public assets into the build folder
+            - cp -r ../public ../dist/
+            # Move the build folder back inside frontend where Amplify expects it
+            - mv ../dist .
       artifacts:
         baseDirectory: dist
         files:
