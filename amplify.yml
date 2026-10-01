@@ -1,21 +1,13 @@
 version: 1
-applications:
-  - appRoot: frontend
-    frontend:
-      phases:
-        build:
-          commands:
-            # Create a build folder outside the current directory to avoid recursion
-            - mkdir ../dist
-            # Copy all frontend files into the build folder
-            - cp -r . ../dist/
-            # Copy the public assets into the build folder
-            - cp -r ../public ../dist/
-            # Move the build folder back inside frontend where Amplify expects it
-            - mv ../dist .
-      artifacts:
-        baseDirectory: dist
-        files:
-          - '**/*'
-      cache:
-        paths: []
+frontend:
+  phases:
+    build:
+      commands:
+        - npm install
+        - npm run build
+  artifacts:
+    baseDirectory: _site
+    files:
+      - '**/*'
+  cache:
+    paths: []
