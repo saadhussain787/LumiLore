@@ -43,7 +43,7 @@
 <body class="bg-background text-on-background font-body antialiased flex flex-col min-h-screen">
   
   <!-- Navigation -->
-  <header class="fixed top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-5xl z-50 glass-panel rounded-full border border-border-dark shadow-[0_10px_40px_-10px_rgba(0,242,254,0.15)] transition-all duration-300">
+  <header class="sticky top-4 mt-4 md:mt-0 mx-auto w-[95%] md:fixed md:top-6 md:left-1/2 md:-translate-x-1/2 max-w-5xl z-50 glass-panel rounded-full border border-border-dark shadow-[0_10px_40px_-10px_rgba(0,242,254,0.15)] transition-all duration-300">
     <div class="px-6 sm:px-8">
       <div class="flex justify-between items-center h-16">
         
@@ -82,18 +82,27 @@
 
         <!-- Mobile Menu Button -->
         <div class="md:hidden flex items-center">
-          <button type="button" class="text-slate-300 hover:text-white p-2" aria-controls="mobile-menu" aria-expanded="false">
+          <button id="mobile-menu-btn" type="button" class="text-slate-300 hover:text-white p-2" aria-controls="mobile-menu" aria-expanded="false">
             <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
             </svg>
           </button>
         </div>
       </div>
+      
+      <!-- Mobile Dropdown Menu -->
+      <div id="mobile-menu" class="hidden md:hidden border-t border-border-dark mt-2 pt-4 pb-4 space-y-2">
+        <a href="/#solutions" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white transition-colors hover:bg-white/5 rounded-lg">Solutions</a>
+        <a href="/#case-studies" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white transition-colors hover:bg-white/5 rounded-lg">Case Studies</a>
+        <a href="/#about" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white transition-colors hover:bg-white/5 rounded-lg">About</a>
+        <a href="/#contact" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white transition-colors hover:bg-white/5 rounded-lg">Contact</a>
+        <a href="/deploy" class="block mt-4 px-3 py-3 text-sm font-bold text-cyan-glow text-center border border-cyan-glow/30 rounded-full bg-cyan-glow/10 hover:bg-cyan-glow/20 transition-colors">Deploy System</a>
+      </div>
     </div>
   </header>
 
   <!-- Main Content Placeholder -->
-  <main class="flex-grow pt-24 pb-12 relative overflow-hidden">
+  <main class="flex-grow pt-4 md:pt-24 pb-12 relative overflow-hidden">
     <!-- Aurora Background -->
     <div class="absolute inset-0 z-[-1] pointer-events-none opacity-20">
       <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-indigo-core rounded-full mix-blend-screen filter blur-[100px] animate-aurora"></div>
@@ -330,6 +339,43 @@
               heroText.appendChild(span);
             }
           }
+        }
+      });
+    </script>
+
+    <!-- Mobile Menu Toggle Script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const header = document.querySelector('header');
+        
+        if (btn && menu && header) {
+          btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            const isHidden = menu.classList.contains('hidden');
+            btn.setAttribute('aria-expanded', !isHidden);
+            
+            // Fix the border radius so it doesn't look like a giant pill when expanded
+            if (isHidden) {
+              header.classList.add('rounded-full');
+              header.classList.remove('rounded-3xl');
+            } else {
+              header.classList.remove('rounded-full');
+              header.classList.add('rounded-3xl');
+            }
+          });
+
+          // Close menu when clicking a link
+          const links = menu.querySelectorAll('a');
+          links.forEach(link => {
+            link.addEventListener('click', () => {
+              menu.classList.add('hidden');
+              btn.setAttribute('aria-expanded', 'false');
+              header.classList.add('rounded-full');
+              header.classList.remove('rounded-3xl');
+            });
+          });
         }
       });
     </script>
