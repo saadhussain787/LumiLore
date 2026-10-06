@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "build:css": "npx @tailwindcss/cli -i ./frontend/input.css -o ./_site/style.css --minify",
-    "watch:css": "npx @tailwindcss/cli -i ./frontend/input.css -o ./_site/style.css --watch",
+    "watch:css": "npx @tailwindcss/cli -i ./frontend/input.css -o ./frontend/style.css --watch",
     "build": "npx @tailwindcss/cli -i ./frontend/input.css -o ./frontend/style.css --minify && npx @11ty/eleventy",
     "start": "npx @11ty/eleventy --serve"
   },
