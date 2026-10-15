@@ -322,3 +322,182 @@
   filter: grayscale(0) !important;
   transform: scale(1.1) !important;
 }
+
+/* ======================================================== */
+/* 3D Orbital Carousel Stage & Pre-Hydration Fallback (Phase 1 Task 1.4) */
+/* ======================================================== */
+.orbit-carousel-stage {
+  min-height: 640px;
+  perspective-origin: 50% 42%;
+  contain: layout style;
+  touch-action: pan-y;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: grab;
+}
+
+.orbit-carousel-stage.is-dragging,
+.orbit-carousel-stage.is-dragging * {
+  cursor: grabbing !important;
+}
+
+.orbital-reactor-core {
+  transform: translateY(16px) rotateX(8deg);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.orbit-carousel-ring {
+  transform-style: preserve-3d;
+  will-change: transform;
+  touch-action: pan-y;
+  transform: translateY(16px) rotateX(8deg);
+}
+
+.orbit-card {
+  position: absolute;
+  width: 90vw;
+  max-width: 290px;
+  height: 390px;
+  padding: 1.15rem;
+  background-color: #05070A;
+  transform-style: flat;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform, opacity;
+  touch-action: pan-y;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Tablet Mode Adaptations (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .orbit-carousel-stage {
+    height: 460px !important;
+  }
+  .orbit-card {
+    max-width: 270px;
+    height: 370px;
+    padding: 1rem;
+  }
+  .orbit-card-watermark {
+    font-size: 3rem;
+    right: 0.75rem;
+    top: 0.25rem;
+  }
+}
+
+/* Mobile Mode Adaptations (< 768px) */
+@media (max-width: 767px) {
+  .orbit-carousel-stage {
+    height: 440px !important;
+  }
+  .orbital-reactor-core {
+    transform: translateY(10px) rotateX(8deg) scale(0.70);
+  }
+  .orbit-card {
+    max-width: 255px;
+    height: 350px;
+    padding: 0.9rem;
+  }
+  .orbit-card-watermark {
+    font-size: 2.5rem;
+    right: 0.5rem;
+    top: 0.25rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .orbit-carousel-stage {
+    height: 410px !important;
+  }
+  .orbital-reactor-core {
+    transform: translateY(8px) rotateX(8deg) scale(0.60);
+  }
+  .orbit-card {
+    max-width: 240px;
+    height: 330px;
+    padding: 0.8rem;
+  }
+  .orbit-card-watermark {
+    font-size: 2rem;
+  }
+}
+
+/* Flashlight Spotlight Overlay (Phase 4 Task 4.2) */
+.orbit-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    380px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 255, 255, 0.08),
+    transparent 65%
+  );
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.orbit-card:hover::before {
+  opacity: 1;
+}
+
+.orbit-card.is-active-front {
+  border-color: rgba(255, 255, 255, 0.45) !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 45px rgba(0, 242, 254, 0.22) !important;
+}
+
+.orbit-card.is-active-front::before {
+  background: radial-gradient(
+    420px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 255, 255, 0.12),
+    transparent 70%
+  );
+}
+
+/* Brutalist Monospace Number Watermarks (Phase 4 Task 4.3) */
+.orbit-card-watermark {
+  position: absolute;
+  top: 0.5rem;
+  right: 1.25rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 5rem;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: -0.06em;
+  font-variant-numeric: tabular-nums;
+  color: rgba(255, 255, 255, 0.04);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  transition: color 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: color, transform;
+}
+
+.orbit-card:hover .orbit-card-watermark {
+  color: rgba(255, 255, 255, 0.09);
+  transform: translateY(-2px) scale(1.02);
+}
+
+.orbit-card.is-active-front .orbit-card-watermark {
+  color: rgba(255, 255, 255, 0.075);
+}
+
+/* Reduced motion preference fallback */
+@media (prefers-reduced-motion: reduce) {
+  .orbit-carousel-ring {
+    animation: none !important;
+    transition: none !important;
+  }
+  .orbit-card {
+    transition: opacity 0.3s ease !important;
+  }
+}
+
