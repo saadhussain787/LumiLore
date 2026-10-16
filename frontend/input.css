@@ -61,6 +61,9 @@
   --font-headline: "Space Grotesk", sans-serif;
   --font-body: "Inter", sans-serif;
 
+  /* Fluid Spring Physics Tokens (Layer 2: Apple/Linear Polish) */
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring-snappy: cubic-bezier(0.2, 0.8, 0.2, 1);
 
   --animate-aurora: aurora 15s linear infinite;
   --animate-float: float 6s ease-in-out infinite;
@@ -151,7 +154,7 @@
 
   .glow-cta {
     box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
-    transition: box-shadow 0.3s ease, transform 0.2s ease;
+    transition: box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .glow-cta:hover {
     box-shadow: 0 0 25px rgba(0, 242, 254, 0.6);
@@ -175,7 +178,7 @@
     z-index: 0;
     pointer-events: none;
     opacity: 0;
-    transition: opacity 0.5s ease;
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .glow-card:hover::before {
     opacity: 1;
@@ -193,7 +196,7 @@
   }
 
   .mesh-text-hover {
-    transition: all 0.5s ease;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
   
   .mesh-text-hover:hover {
@@ -387,7 +390,7 @@
 }
 
 .orbital-reactor-core {
-  transform: translateY(4px) rotateX(6deg);
+  transform: translateY(36px) rotateX(6deg);
   transform-style: preserve-3d;
   will-change: transform;
 }
@@ -396,15 +399,15 @@
   transform-style: preserve-3d;
   will-change: transform;
   touch-action: pan-y;
-  transform: translateY(4px) rotateX(6deg);
+  transform: translateY(36px) rotateX(6deg);
 }
 
 .orbit-card {
   position: absolute;
   width: 300px;
   max-width: 300px;
-  height: 410px;
-  padding: 1.25rem;
+  height: 388px;
+  padding: 1.15rem;
   background: linear-gradient(180deg, rgba(14, 18, 28, 0.94) 0%, rgba(8, 10, 15, 0.98) 100%);
   border: 1px solid var(--color-border-hairline);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75), inset 0 1px 0 0 var(--color-border-highlight);
@@ -492,8 +495,8 @@
   .orbit-card {
     width: 280px;
     max-width: 280px;
-    height: 395px;
-    padding: 1.1rem;
+    height: 382px;
+    padding: 1.05rem;
   }
   .orbit-card-watermark {
     font-size: 3.5rem;
@@ -508,13 +511,13 @@
     height: 450px !important;
   }
   .orbital-reactor-core {
-    transform: translateY(8px) rotateX(8deg) scale(0.70);
+    transform: translateY(28px) rotateX(8deg) scale(0.70);
   }
   .orbit-card {
     width: 86vw;
     max-width: 265px;
-    height: 380px;
-    padding: 1rem;
+    height: 370px;
+    padding: 0.95rem;
   }
   .orbit-card-watermark {
     font-size: 2.75rem;
@@ -528,13 +531,13 @@
     height: 430px !important;
   }
   .orbital-reactor-core {
-    transform: translateY(6px) rotateX(8deg) scale(0.60);
+    transform: translateY(24px) rotateX(8deg) scale(0.60);
   }
   .orbit-card {
     width: 88vw;
     max-width: 248px;
-    height: 360px;
-    padding: 0.85rem;
+    height: 350px;
+    padding: 0.8rem;
   }
   .orbit-card-watermark {
     font-size: 2.2rem;
@@ -758,24 +761,25 @@
   box-shadow: 0 0 14px rgba(244, 63, 94, 0.35) !important;
 }
 
-/* Card 1: Interactive Audio Waveform Player (Phase 3 Task 3.3) */
+/* Card 1: Interactive Audio Waveform Player (Layer 1: GPU Accelerated transform) */
 @keyframes soundWave {
   0% {
-    height: 4px;
+    transform: scaleY(0.3);
     opacity: 0.45;
   }
   50% {
-    height: 14px;
+    transform: scaleY(1.35);
     opacity: 1;
   }
   100% {
-    height: 6px;
+    transform: scaleY(0.5);
     opacity: 0.65;
   }
 }
 
 .audio-waveform-bars .bar {
   transform-origin: bottom;
+  will-change: transform;
 }
 
 #card-audio-btn.is-playing .audio-waveform-bars .bar:nth-child(1) {
@@ -979,4 +983,43 @@
   opacity: 1 !important;
   pointer-events: auto !important;
 }
+
+/* ======================================================== */
+/* Layer 1: Content Visibility (100/100 Web Vitals)         */
+/* ======================================================== */
+.cv-auto-section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto none auto 850px;
+}
+
+.cv-auto-footer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto none auto 180px;
+}
+
+/* ======================================================== */
+/* Layer 4: WCAG 2.1 AA Focus Rings & Keyboard Navigation   */
+/* ======================================================== */
+:focus:not(:focus-visible) {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(0, 242, 254, 0.9), 0 0 16px rgba(0, 242, 254, 0.45) !important;
+  border-radius: inherit;
+}
+
+.glow-amber-cta:focus-visible,
+#sticky-roi-cta:focus-visible,
+.roi-slider:focus-visible {
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.95), 0 0 18px rgba(245, 158, 11, 0.6) !important;
+}
+
 

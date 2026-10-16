@@ -79,7 +79,8 @@ layout: layout.html
 </section>
 
 <!-- Section 2: The Scroll-Scrubbed Manifesto -->
-<section id="manifesto-section" class="py-32 min-h-screen flex items-center justify-center relative z-10 w-full px-4 sm:px-6 lg:px-8 bg-transparent">
+<section id="manifesto-section" class="py-32 min-h-screen flex items-center justify-center relative z-10 w-full px-4 sm:px-6 lg:px-8 bg-transparent scroll-mt-28 md:scroll-mt-36">
+  <div id="about" class="absolute -top-32 pointer-events-none"></div>
   <div class="max-w-5xl mx-auto text-center">
     <h2 class="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight md:leading-tight lg:leading-tight tracking-tight">
       <span class="manifesto-word opacity-20 text-white">We</span>
@@ -108,30 +109,30 @@ layout: layout.html
 </section>
 
 <!-- Section: 3D Orbital Services Carousel (Phase 1 Task 1.1) -->
-<section id="services-orbit-section" class="relative pt-16 pb-8 md:pt-20 md:pb-12 w-full overflow-hidden bg-transparent z-20 scroll-mt-20" style="touch-action: pan-y;" aria-label="Autonomous Enterprise Services">
+<section id="services-orbit-section" class="relative pt-12 pb-12 md:pt-16 md:pb-16 w-full overflow-hidden bg-transparent z-20 scroll-mt-24 md:scroll-mt-28" style="touch-action: pan-y;" aria-label="Autonomous Enterprise Services">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col items-center">
     
     <!-- Section Header & Enterprise Status Banner -->
-    <div class="text-center flex flex-col items-center mb-8 md:mb-12 relative z-20 max-w-3xl">
+    <div class="text-center flex flex-col items-center mb-4 md:mb-6 relative z-20 max-w-3xl">
       <!-- Status Pill -->
-      <div class="mb-3 inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-cyan-500/30 bg-cyan-950/60 backdrop-blur-xl shadow-[0_0_20px_rgba(0,242,254,0.12)]">
+      <div class="mb-2 md:mb-3 inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-cyan-500/30 bg-cyan-950/70 backdrop-blur-xl shadow-[0_0_20px_rgba(0,242,254,0.15)]">
         <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.9)]"></span>
         <span id="services-status-pill-text" class="lens-morphable text-[10px] md:text-[11px] font-mono font-bold tracking-[0.2em] text-cyan-300 uppercase">06 Core Systems Operational // Enterprise Architecture</span>
       </div>
       
       <!-- Headline -->
-      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold font-headline tracking-tighter text-white mb-3 leading-tight">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-headline tracking-tight text-white mb-2 md:mb-2.5 leading-tight">
         Everything You Need to Run Your Business on <span class="text-transparent bg-clip-text bg-linear-to-r from-cyan-300 via-white to-indigo-300">Autopilot.</span>
       </h2>
       
       <!-- Subheadline -->
-      <p id="services-subheadline" class="lens-morphable text-sm md:text-base text-slate-300/90 font-normal max-w-xl mx-auto leading-relaxed">
+      <p id="services-subheadline" class="lens-morphable text-xs sm:text-sm md:text-base text-slate-300/90 font-normal max-w-xl mx-auto leading-relaxed">
         Certified autonomous systems engineered to eliminate busywork, capture every lead, and keep your enterprise scaling 24/7.
       </p>
     </div>
 
     <!-- Controls Toolbar: Industry Lens & 3D Orbit / Grid View Switcher (Phase 3 Tasks 3.1 & 3.4) -->
-    <div class="carousel-controls-toolbar flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-6 mb-8 md:mb-10 relative z-30 w-full max-w-4xl px-2">
+    <div class="carousel-controls-toolbar flex flex-col md:flex-row items-center justify-center gap-3 sm:gap-6 mb-12 md:mb-14 relative z-30 w-full max-w-4xl px-2">
       
       <!-- The "Industry Lens" Dual-Audience Toggle -->
       <div class="industry-lens-wrapper flex flex-col sm:flex-row items-center justify-center gap-2.5" role="toolbar" aria-label="Select industry lens for solutions">
@@ -191,7 +192,7 @@ layout: layout.html
     <div class="orbit-carousel-stage relative w-full h-117.5 md:h-122.5 flex items-center justify-center select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/50 focus-visible:rounded-3xl" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Autonomous Enterprise Systems 3D Carousel. Use Left and Right arrow keys to navigate between production systems." aria-live="polite" style="perspective: 1300px; perspective-origin: 50% 48%; touch-action: pan-y;">
       
       <!-- Central Orbital Reactor / Quantum Core Glow -->
-      <div class="orbital-reactor-core absolute inset-0 flex items-center justify-center pointer-events-none z-0" aria-hidden="true" style="transform: translateY(4px) rotateX(6deg); transform-style: preserve-3d;">
+      <div class="orbital-reactor-core absolute inset-0 flex items-center justify-center pointer-events-none z-0" aria-hidden="true" style="transform: translateY(36px) rotateX(6deg); transform-style: preserve-3d;">
         <!-- Ambient Radial Bloom (Softer nebula glow to maximize card text contrast) -->
         <div class="w-105 h-105 rounded-full bg-[radial-gradient(circle,rgba(0,242,254,0.12)_0%,rgba(99,102,241,0.06)_45%,transparent_70%)] blur-2xl animate-pulse" style="animation-duration: 6s;"></div>
         <!-- Concentric Orbital Gyro Ring 1 -->
@@ -204,7 +205,7 @@ layout: layout.html
       </div>
 
       <!-- 3D Rotating Ring Container -->
-      <div id="orbit-carousel-ring" class="orbit-carousel-ring relative w-full h-full flex items-center justify-center z-10" style="transform-style: preserve-3d; will-change: transform; touch-action: pan-y; transform: translateY(4px) rotateX(6deg) rotateY(0deg);">
+      <div id="orbit-carousel-ring" class="orbit-carousel-ring relative w-full h-full flex items-center justify-center z-10" style="transform-style: preserve-3d; will-change: transform; touch-action: pan-y; transform: translateY(36px) rotateX(6deg) rotateY(0deg);">
                 <!-- CARD 01: Multi-Agent Swarms & Voice (Task 2.1) -->
         <div class="orbit-card rounded-3xl bg-[#05070A] border border-white/12 hover:border-cyan-400/40 p-5 flex flex-col justify-between shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_30px_rgba(0,242,254,0.12)] relative overflow-hidden group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black transition-all" data-index="0" data-group="inbound" style="transform: rotateY(0deg) translateZ(360px); touch-action: pan-y;" role="group" aria-roledescription="slide" aria-label="Card 1 of 6: Autonomous Voice & Agent Swarms" aria-current="true" tabindex="0">
           <!-- Top Accent Light -->
@@ -336,7 +337,7 @@ layout: layout.html
           </div>
 
           <!-- CENTRAL TIER: Dual State Visual Stage (Autopilot vs. Chaos) -->
-          <div class="h-32 relative flex items-center justify-center z-10 my-1 overflow-hidden">
+          <div class="h-28 relative flex items-center justify-center z-10 my-0.5 overflow-hidden">
             <!-- STATE A: AUTOPILOT (Default Serene View) -->
             <div class="ba-view-autopilot absolute inset-0 flex flex-col items-center justify-center transition-all duration-300 opacity-100 scale-100 pointer-events-auto">
               <!-- Radial Ambient Bloom -->
@@ -423,7 +424,7 @@ layout: layout.html
           </div>
 
           <!-- CENTRAL TIER: Glowing Visual Vector Emblem -->
-          <div class="h-32 flex flex-col items-center justify-center relative z-10 my-1">
+          <div class="h-28 flex flex-col items-center justify-center relative z-10 my-0.5">
             <!-- Radial Ambient Bloom -->
             <div class="absolute w-28 h-28 rounded-full bg-amber-400/15 blur-xl pointer-events-none"></div>
             
@@ -484,7 +485,7 @@ layout: layout.html
           </div>
 
           <!-- CENTRAL TIER: Glowing Visual Vector Emblem -->
-          <div class="h-32 flex flex-col items-center justify-center relative z-10 my-1">
+          <div class="h-28 flex flex-col items-center justify-center relative z-10 my-0.5">
             <!-- Radial Ambient Bloom -->
             <div class="absolute w-28 h-28 rounded-full bg-cyan-400/15 blur-xl pointer-events-none"></div>
             
@@ -545,7 +546,7 @@ layout: layout.html
           </div>
 
           <!-- CENTRAL TIER: Glowing Visual Vector Emblem -->
-          <div class="h-32 flex flex-col items-center justify-center relative z-10 my-1">
+          <div class="h-28 flex flex-col items-center justify-center relative z-10 my-0.5">
             <!-- Radial Ambient Bloom -->
             <div class="absolute w-28 h-28 rounded-full bg-violet-400/15 blur-xl pointer-events-none"></div>
             
@@ -605,7 +606,7 @@ layout: layout.html
           </div>
 
           <!-- CENTRAL TIER: Glowing Visual Vector Emblem -->
-          <div class="h-32 flex flex-col items-center justify-center relative z-10 my-1">
+          <div class="h-28 flex flex-col items-center justify-center relative z-10 my-0.5">
             <!-- Radial Ambient Bloom -->
             <div class="absolute w-28 h-28 rounded-full bg-purple-400/15 blur-xl pointer-events-none"></div>
             
@@ -664,7 +665,7 @@ layout: layout.html
     </div>
 
     <!-- Interactive Pagination Dots Track (Task 3.3) -->
-    <div id="orbit-pagination" class="flex items-center justify-center gap-2.5 mt-5 select-none" role="tablist" aria-label="System slide selection">
+    <div id="orbit-pagination" class="flex items-center justify-center gap-2.5 mt-8 md:mt-10 select-none" role="tablist" aria-label="System slide selection">
       <button type="button" class="orbit-dot is-active" data-dot-index="0" role="tab" aria-selected="true" aria-label="Go to slide 1: AI Phone & Chat"></button>
       <button type="button" class="orbit-dot" data-dot-index="1" role="tab" aria-selected="false" aria-label="Go to slide 2: Automated Invoicing"></button>
       <button type="button" class="orbit-dot" data-dot-index="2" role="tab" aria-selected="false" aria-label="Go to slide 3: Paperless Forms"></button>
@@ -836,7 +837,8 @@ layout: layout.html
 </section>
 
 <!-- Section 4: Featured Deployments (Horizontal Scroll) -->
-<section id="portfolio-section" class="relative z-10 bg-transparent overflow-hidden">
+<section id="portfolio-section" class="relative z-10 bg-transparent overflow-hidden scroll-mt-28 md:scroll-mt-36">
+  <div id="case-studies" class="absolute -top-32 pointer-events-none"></div>
   <div class="portfolio-sticky h-screen flex flex-col justify-center">
     <div class="px-8 md:px-16 mb-12">
       <h2 class="text-4xl md:text-6xl font-bold font-headline text-white tracking-tighter">Featured Deployments</h2>
@@ -901,8 +903,8 @@ layout: layout.html
   </div>
 </section>
 
-<!-- Section 5: The ROI / Footer -->
-<section id="roi-section" class="py-32 relative z-10 bg-[#020617] border-t border-white/5 overflow-hidden">
+<!-- Section 5: The ROI / Footer (Layer 1: Content-Visibility Optimization) -->
+<section id="roi-section" class="cv-auto-section py-32 relative z-10 bg-[#020617] border-t border-white/5 overflow-hidden">
   <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-cyan-900/20 via-[#020617] to-[#020617]"></div>
   
   <div class="max-w-7xl mx-auto px-4 md:px-16 relative z-10 flex flex-col md:flex-row items-center justify-between gap-16">
@@ -926,8 +928,8 @@ layout: layout.html
         </div>
       </div>
       
-      <a href="#contact" class="group relative inline-flex items-center justify-center px-8 py-5 font-bold tracking-widest uppercase text-white bg-white/5 border border-white/10 rounded-full hover:bg-cyan-500/20 hover:border-cyan-400 transition-all overflow-hidden w-full md:w-auto">
-        <div class="absolute inset-0 w-0 bg-linear-to-r from-cyan-500 to-indigo-500 transition-all duration-500 ease-out group-hover:w-full -z-10"></div>
+      <a href="#contact" class="group relative inline-flex items-center justify-center px-8 py-5 font-bold tracking-widest uppercase text-white bg-white/5 border border-white/10 rounded-full hover:bg-cyan-500/20 hover:border-cyan-400 transition-all overflow-hidden w-full md:w-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400">
+        <div class="absolute inset-0 w-full bg-linear-to-r from-cyan-500 to-indigo-500 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] -z-10"></div>
         Deploy Your System
       </a>
     </div>
@@ -1084,8 +1086,8 @@ layout: layout.html
   </div>
 </aside>
 
-<!-- Super Minimalist Footer -->
-<footer id="contact" class="py-12 border-t border-white/5 bg-[#020617] relative z-10 text-center scroll-mt-10">
+<!-- Super Minimalist Footer (Layer 1: Content-Visibility Optimization) -->
+<footer id="contact" class="cv-auto-footer py-12 border-t border-white/5 bg-[#020617] relative z-10 text-center scroll-mt-28 md:scroll-mt-36">
   <div class="flex items-center justify-center gap-3 mb-6">
     <span class="text-white/50 font-bold tracking-widest uppercase text-sm">LumiLore Technologies</span>
   </div>
@@ -1093,7 +1095,7 @@ layout: layout.html
 </footer>
 </div>
 
-<!-- Cinematic Particle System Script (Phase 5 Task 5.1: 60fps Mobile Particle Throttling) -->
+<!-- Cinematic Particle System Script (Layer 1: Garbage Collection Safeguards & RAF Throttling) -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('webgl-container');
@@ -1171,7 +1173,7 @@ layout: layout.html
     }
 
     const initialCount = isMobile ? 8000 : 35000;
-    const geometry = createParticleGeometry(initialCount);
+    let geometry = createParticleGeometry(initialCount);
 
     // --- Custom Shader Material with Dynamic Point Size ---
     const material = new THREE.ShaderMaterial({
@@ -1248,38 +1250,59 @@ layout: layout.html
     
     scene.add(particles);
 
-    // --- Dynamic Rebuild Function ---
+    // --- Dynamic Rebuild Function with Strict Memory Disposal ---
     function updateParticleCount(newCount) {
       if (!particles) return;
       const oldGeo = particles.geometry;
       particles.geometry = createParticleGeometry(newCount);
-      if (oldGeo) oldGeo.dispose();
+      if (oldGeo) {
+        oldGeo.dispose();
+      }
       if (material && material.uniforms && material.uniforms.uPointSize) {
         material.uniforms.uPointSize.value = (newCount < 15000) ? 14.5 : 12.0;
       }
     }
 
-    // --- Expose for Phase 3 (GSAP) & Developer Verification ---
+    // --- Expose for GSAP & Developer Verification ---
     window.lumiParticleMaterial = material;
     window.lumiParticleSystem = particles;
     window.lumiParticleCount = initialCount;
     window.setLumiParticleCount = updateParticleCount;
 
-    // --- Animation Loop ---
+    // --- Animation Loop State & Energy Saver Guards ---
     const clock = new THREE.Clock();
-    
-    // Mouse tracking for subtle parallax on pointer devices
+    let isCanvasVisible = true;
+    let isTabVisible = !document.hidden;
+    let rafId = null;
     let mouseX = 0;
     let mouseY = 0;
+    let mouseTicking = false;
+
+    // Throttled mouse tracking (Layer 1: Decoupled from high-polling mouse events)
+    function onMouseMove(e) {
+      if (mouseTicking) return;
+      mouseTicking = true;
+      const cx = e.clientX;
+      const cy = e.clientY;
+      requestAnimationFrame(() => {
+        mouseX = (cx / window.innerWidth - 0.5) * 2;
+        mouseY = -(cy / window.innerHeight - 0.5) * 2;
+        mouseTicking = false;
+      });
+    }
+
     if (window.matchMedia('(pointer: fine)').matches) {
-      document.addEventListener('mousemove', (e) => {
-        mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
-        mouseY = -(e.clientY / window.innerHeight - 0.5) * 2;
-      }, { passive: true });
+      window.addEventListener('mousemove', onMouseMove, { passive: true });
     }
 
     function animate() {
-      requestAnimationFrame(animate);
+      // Automatic Energy Saver: Only render when canvas is in view and browser tab is active
+      if (!isCanvasVisible || !isTabVisible) {
+        rafId = null;
+        return;
+      }
+
+      rafId = requestAnimationFrame(animate);
       
       const time = clock.getElapsedTime();
       material.uniforms.uTime.value = time;
@@ -1290,11 +1313,82 @@ layout: layout.html
       
       renderer.render(scene, camera);
     }
-    animate();
+
+    function startLoop() {
+      if (!rafId && isCanvasVisible && isTabVisible) {
+        clock.start();
+        animate();
+      }
+    }
+
+    function stopLoop() {
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+    }
+
+    // Start initial animation loop
+    startLoop();
+
+    // --- Tab Visibility & Energy Management (Layer 1 Safeguard) ---
+    // The particle system is a fixed cinematic background that morphs across all sections.
+    // It stays active while the user is on the page and automatically sleeps when the tab is backgrounded.
+    document.addEventListener('visibilitychange', () => {
+      isTabVisible = !document.hidden;
+      if (isTabVisible && isCanvasVisible) {
+        startLoop();
+      } else {
+        stopLoop();
+      }
+    });
+
+    // --- Complete Three.js Garbage Collection Lifecycle Safeguard ---
+    function disposeThreeScene() {
+      stopLoop();
+      window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('resize', onResize);
+
+      if (particles) {
+        if (particles.geometry) particles.geometry.dispose();
+        if (particles.material) {
+          if (Array.isArray(particles.material)) {
+            particles.material.forEach(m => m.dispose());
+          } else {
+            particles.material.dispose();
+          }
+        }
+        scene.remove(particles);
+      }
+
+      scene.traverse((object) => {
+        if (object.geometry) object.geometry.dispose();
+        if (object.material) {
+          if (Array.isArray(object.material)) {
+            object.material.forEach(m => m.dispose());
+          } else {
+            object.material.dispose();
+          }
+        }
+      });
+
+      if (renderer) {
+        renderer.dispose();
+        if (typeof renderer.forceContextLoss === 'function') {
+          renderer.forceContextLoss();
+        }
+        if (renderer.domElement && renderer.domElement.parentNode) {
+          renderer.domElement.parentNode.removeChild(renderer.domElement);
+        }
+      }
+    }
+
+    window.disposeLumiParticleSystem = disposeThreeScene;
+    window.addEventListener('beforeunload', disposeThreeScene, { once: true });
 
     // --- Handle Resize with Cross-Breakpoint Adaptation ---
     let resizeTimer = null;
-    window.addEventListener('resize', () => {
+    function onResize() {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
@@ -1312,7 +1406,8 @@ layout: layout.html
           window.lumiParticleCount = targetCount;
         }, 150);
       }
-    }, { passive: true });
+    }
+    window.addEventListener('resize', onResize, { passive: true });
   });
 </script>
 
@@ -1753,18 +1848,20 @@ layout: layout.html
         card.style.zIndex = zIndex;
         card.style.filter = 'none';
 
-        // Active front spotlight state
+        // Active front spotlight state & WCAG 2.1 AA aria-current (Layer 4)
         if (isFront) {
           card.classList.add('is-active-front');
+          card.setAttribute('aria-current', 'true');
         } else {
           card.classList.remove('is-active-front');
+          card.setAttribute('aria-current', 'false');
         }
       });
     }
 
     function renderRing(angle) {
       if (isGridMode) return;
-      ring.style.transform = `translateY(4px) rotateX(6deg) rotateY(${angle.toFixed(3)}deg)`;
+      ring.style.transform = `translateY(36px) rotateX(6deg) rotateY(${angle.toFixed(3)}deg)`;
       updateCardDepths(angle);
       updatePaginationDots(getFrontCardIndex());
     }
