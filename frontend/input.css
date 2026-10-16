@@ -2,14 +2,14 @@
 @source "./**/*.html";
 @theme {
   /* Stitch Design System - Colors */
-  --color-surface: #05070a;
-  --color-surface-dim: #030507;
-  --color-surface-bright: #0a0e14;
-  --color-surface-container-lowest: #010203;
-  --color-surface-container-low: #030507;
-  --color-surface-container: #05070a;
-  --color-surface-container-high: #0a0e14;
-  --color-surface-container-highest: #0f141e;
+  --color-surface: #07080b;
+  --color-surface-dim: #040507;
+  --color-surface-bright: #0e1219;
+  --color-surface-container-lowest: #020305;
+  --color-surface-container-low: #040507;
+  --color-surface-container: #07080b;
+  --color-surface-container-high: #0b0e14;
+  --color-surface-container-highest: #10141f;
   
   --color-on-surface: #f1f5f9;
   --color-on-surface-variant: #94a3b8;
@@ -27,8 +27,27 @@
   --color-secondary-container: #31327a;
   --color-on-secondary-container: #e0e0ff;
   
-  --color-background: #05070a;
+  --color-background: #07080b;
   --color-on-background: #f1f5f9;
+
+  /* Prismatic Obsidian Palette Tokens (Task 1.1) */
+  --color-obsidian-base: #07080b;
+  --color-obsidian-subtle: #0b0d13;
+  --color-obsidian-card: #0d1018;
+  --color-glass-surface: rgba(16, 20, 31, 0.75);
+  
+  /* Signature Brand Accents */
+  --color-prism-amber: #f59e0b;
+  --color-prism-amber-glow: rgba(245, 158, 11, 0.4);
+  --color-prism-amber-dark: #d97706;
+  --color-prism-cyan: #00f2fe;
+  --color-prism-sapphire: #38bdf8;
+  --color-prism-violet: #8b5cf6;
+  --color-prism-emerald: #10b981;
+
+  /* Hairline Border Utilities */
+  --color-border-hairline: rgba(255, 255, 255, 0.08);
+  --color-border-highlight: rgba(255, 255, 255, 0.18);
 
   /* Legacy Aliases mapping to Design System */
   --color-bg-dark: var(--color-background);
@@ -76,10 +95,36 @@
 
 @layer utilities {
   .glass-panel {
-    background-color: var(--color-surface-dark);
-    border: 1px solid var(--color-border-dark);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    background: linear-gradient(180deg, rgba(16, 20, 31, 0.75) 0%, rgba(9, 12, 19, 0.85) 100%);
+    border: 1px solid var(--color-border-hairline);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 1px 0 0 var(--color-border-highlight);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .hairline-border {
+    border: 1px solid var(--color-border-hairline);
+  }
+
+  .hairline-border-t {
+    border-top: 1px solid var(--color-border-highlight);
+  }
+
+  .glow-amber-cta {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    box-shadow: 0 0 25px rgba(245, 158, 11, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .glow-amber-cta:hover {
+    box-shadow: 0 0 35px rgba(245, 158, 11, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    transform: translateY(-1px) scale(1.02);
+  }
+
+  .prism-amber-text {
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
   }
 
   .circuit-border {
@@ -360,8 +405,11 @@
   max-width: 300px;
   height: 410px;
   padding: 1.25rem;
-  background-color: #05070A;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: linear-gradient(180deg, rgba(14, 18, 28, 0.94) 0%, rgba(8, 10, 15, 0.98) 100%);
+  border: 1px solid var(--color-border-hairline);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75), inset 0 1px 0 0 var(--color-border-highlight);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: 1.5rem;
   transform-style: flat;
   backface-visibility: hidden;
@@ -377,6 +425,52 @@
   image-rendering: crisp-edges;
   contain: layout paint;
   transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* ======================================================== */
+/* 3 Semantic Functional Card Pairings (Task 1.2)           */
+/* ======================================================== */
+
+/* Group 1: Inbound Communication (Cards 1 & 4 - Phone & Scheduling) */
+.orbit-card[data-group="inbound"],
+.orbit-card[data-index="0"],
+.orbit-card[data-index="3"] {
+  --group-accent: var(--color-prism-cyan);
+  --group-accent-secondary: var(--color-prism-sapphire);
+}
+.orbit-card[data-group="inbound"]:hover,
+.orbit-card[data-index="0"]:hover,
+.orbit-card[data-index="3"]:hover {
+  border-color: rgba(56, 189, 248, 0.45) !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 35px rgba(0, 242, 254, 0.18) !important;
+}
+
+/* Group 2: Financial & Revenue Flow (Cards 2 & 3 - Invoicing & Intake) */
+.orbit-card[data-group="finance"],
+.orbit-card[data-index="1"],
+.orbit-card[data-index="2"] {
+  --group-accent: var(--color-prism-amber);
+  --group-accent-secondary: var(--color-prism-emerald);
+}
+.orbit-card[data-group="finance"]:hover,
+.orbit-card[data-index="1"]:hover,
+.orbit-card[data-index="2"]:hover {
+  border-color: rgba(245, 158, 11, 0.45) !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 35px rgba(245, 158, 11, 0.18) !important;
+}
+
+/* Group 3: Core Infrastructure (Cards 5 & 6 - Multi-App & Cloud Security) */
+.orbit-card[data-group="infra"],
+.orbit-card[data-index="4"],
+.orbit-card[data-index="5"] {
+  --group-accent: var(--color-prism-violet);
+  --group-accent-secondary: #c084fc;
+}
+.orbit-card[data-group="infra"]:hover,
+.orbit-card[data-index="4"]:hover,
+.orbit-card[data-index="5"]:hover {
+  border-color: rgba(139, 92, 246, 0.45) !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 35px rgba(139, 92, 246, 0.18) !important;
 }
 
 /* Enforce razor-sharp subpixel antialiasing & geometric precision across all internal card text */
@@ -447,7 +541,17 @@
   }
 }
 
-/* Flashlight Spotlight Overlay (Phase 4 Task 4.2) */
+/* ======================================================== */
+/* Dynamic Cursor Spotlight & Glow Overlay (Phase 5 Task 5.2) */
+/* ======================================================== */
+
+.portfolio-card,
+.roi-controls-card {
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+}
+
+/* Flashlight Surface Glow for 3D Orbit Cards */
 .orbit-card::before {
   content: "";
   position: absolute;
@@ -479,6 +583,29 @@
     rgba(255, 255, 255, 0.12),
     transparent 70%
   );
+}
+
+/* Dynamic Spotlight for Portfolio & ROI Cards */
+.portfolio-card::before,
+.roi-controls-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    420px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 255, 255, 0.06),
+    transparent 65%
+  );
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.portfolio-card:hover::before,
+.roi-controls-card:hover::before {
+  opacity: 1;
 }
 
 /* Brutalist Monospace Number Watermarks (Phase 4 Task 4.3) */
@@ -563,6 +690,293 @@
   .orbit-dot {
     transition: none !important;
   }
+  .lens-morphable {
+    transition: none !important;
+  }
 }
 
+/* Industry Lens Cross-Fade Transitions & Glider Styles (Phase 3 Task 3.1) */
+.lens-morphable {
+  transition: opacity 0.18s cubic-bezier(0.16, 1, 0.3, 1), transform 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.lens-morphable.is-fading {
+  opacity: 0 !important;
+  transform: translateY(-4px) !important;
+}
+
+.lens-indicator-corporate {
+  background: linear-gradient(135deg, rgba(0, 242, 254, 0.20), rgba(99, 102, 241, 0.24));
+  border: 1px solid rgba(0, 242, 254, 0.55);
+  box-shadow: 0 0 25px rgba(0, 242, 254, 0.35), inset 0 0 14px rgba(0, 242, 254, 0.15);
+}
+
+.lens-indicator-trades {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.22), rgba(16, 185, 129, 0.24));
+  border: 1px solid rgba(245, 158, 11, 0.60);
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.35), inset 0 0 14px rgba(245, 158, 11, 0.15);
+}
+
+/* Card 2: Before vs. Autopilot Chaos State Styles (Phase 3 Task 3.2) */
+.orbit-card[data-ba-active="chaos"] {
+  border-color: rgba(244, 63, 94, 0.45) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 35px rgba(244, 63, 94, 0.22) !important;
+}
+
+.orbit-card[data-ba-active="chaos"] .card-top-light {
+  background: linear-gradient(to right, transparent, #f43f5e, transparent) !important;
+}
+
+.orbit-card[data-ba-active="chaos"] .card-metric-label {
+  color: #fda4af !important;
+  background-color: rgba(76, 5, 25, 0.85) !important;
+  border-color: rgba(244, 63, 94, 0.5) !important;
+  box-shadow: 0 0 14px rgba(244, 63, 94, 0.25) !important;
+}
+
+.orbit-card[data-ba-active="chaos"] .ba-status-dot {
+  background-color: #f43f5e !important;
+  box-shadow: 0 0 10px rgba(244, 63, 94, 0.9) !important;
+}
+
+.orbit-card[data-ba-active="chaos"] .ba-sys-tag {
+  color: #fda4af !important;
+}
+
+.ba-btn-autopilot.active-state {
+  color: #6ee7b7 !important;
+  background-color: rgba(16, 185, 129, 0.2) !important;
+  border-color: rgba(52, 211, 153, 0.45) !important;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.3) !important;
+}
+
+.ba-btn-chaos.active-state {
+  color: #fda4af !important;
+  background-color: rgba(244, 63, 94, 0.22) !important;
+  border-color: rgba(244, 63, 94, 0.5) !important;
+  box-shadow: 0 0 14px rgba(244, 63, 94, 0.35) !important;
+}
+
+/* Card 1: Interactive Audio Waveform Player (Phase 3 Task 3.3) */
+@keyframes soundWave {
+  0% {
+    height: 4px;
+    opacity: 0.45;
+  }
+  50% {
+    height: 14px;
+    opacity: 1;
+  }
+  100% {
+    height: 6px;
+    opacity: 0.65;
+  }
+}
+
+.audio-waveform-bars .bar {
+  transform-origin: bottom;
+}
+
+#card-audio-btn.is-playing .audio-waveform-bars .bar:nth-child(1) {
+  animation: soundWave 0.65s ease-in-out infinite alternate;
+}
+#card-audio-btn.is-playing .audio-waveform-bars .bar:nth-child(2) {
+  animation: soundWave 0.45s ease-in-out infinite alternate 0.15s;
+}
+#card-audio-btn.is-playing .audio-waveform-bars .bar:nth-child(3) {
+  animation: soundWave 0.75s ease-in-out infinite alternate 0.3s;
+}
+#card-audio-btn.is-playing .audio-waveform-bars .bar:nth-child(4) {
+  animation: soundWave 0.52s ease-in-out infinite alternate 0.08s;
+}
+#card-audio-btn.is-playing .audio-waveform-bars .bar:nth-child(5) {
+  animation: soundWave 0.62s ease-in-out infinite alternate 0.22s;
+}
+
+#card-audio-btn.is-playing {
+  border-color: rgba(0, 242, 254, 0.7) !important;
+  box-shadow: 0 0 20px rgba(0, 242, 254, 0.35) !important;
+  background-color: rgba(0, 242, 254, 0.16) !important;
+}
+
+/* ======================================================== */
+/* 3D Orbit / Compact Bento Grid View Switcher (Task 3.4)   */
+/* ======================================================== */
+
+.orbit-carousel-stage.is-grid-mode {
+  height: auto !important;
+  min-height: unset !important;
+  perspective: none !important;
+  display: block !important;
+  overflow: visible !important;
+  padding: 0.5rem 0 2rem 0 !important;
+}
+
+.orbit-carousel-stage.is-grid-mode .orbital-reactor-core {
+  display: none !important;
+}
+
+.orbit-carousel-stage.is-grid-mode #orbit-prev-btn,
+.orbit-carousel-stage.is-grid-mode #orbit-next-btn {
+  display: none !important;
+}
+
+.orbit-carousel-stage.is-grid-mode #orbit-carousel-ring {
+  display: grid !important;
+  grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+  gap: 1.5rem !important;
+  width: 100% !important;
+  max-width: 1240px !important;
+  margin: 0 auto !important;
+  height: auto !important;
+  transform: none !important;
+  transform-style: flat !important;
+  touch-action: auto !important;
+  position: static !important;
+}
+
+@media (min-width: 640px) {
+  .orbit-carousel-stage.is-grid-mode #orbit-carousel-ring {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 1.5rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .orbit-carousel-stage.is-grid-mode #orbit-carousel-ring {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 1.75rem !important;
+  }
+}
+
+.orbit-carousel-stage.is-grid-mode .orbit-card {
+  position: relative !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 100% !important;
+  min-height: 420px !important;
+  transform: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  z-index: 1 !important;
+  contain: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.orbit-carousel-stage.is-grid-mode .orbit-card:hover {
+  transform: translateY(-4px) !important;
+}
+
+#services-orbit-section.is-grid-mode #orbit-pagination,
+#services-orbit-section.is-grid-mode #orbit-interaction-hints {
+  display: none !important;
+}
+
+/* ======================================================== */
+/* Interactive ROI Range Sliders (Phase 4 Task 4.1)         */
+/* ======================================================== */
+
+.roi-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  outline: none;
+  transition: background 0.2s ease;
+}
+
+.roi-slider:focus-visible {
+  outline: 2px solid var(--color-prism-amber);
+  outline-offset: 4px;
+}
+
+/* WebKit (Chrome, Safari, Edge) Track & Thumb */
+.roi-slider::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 9999px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.roi-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 60%, #d97706 100%);
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 14px rgba(245, 158, 11, 0.7), 0 2px 6px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  margin-top: -8px;
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.15s ease;
+}
+
+.roi-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.18);
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.95), 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.roi-slider::-webkit-slider-thumb:active {
+  transform: scale(1.28);
+  box-shadow: 0 0 25px rgba(245, 158, 11, 1), 0 0 8px #ffffff;
+}
+
+/* Firefox Track & Thumb */
+.roi-slider::-moz-range-track {
+  height: 6px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.roi-slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 60%, #d97706 100%);
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 14px rgba(245, 158, 11, 0.7), 0 2px 6px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.15s ease;
+}
+
+.roi-slider::-moz-range-thumb:hover {
+  transform: scale(1.18);
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.95), 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.roi-slider::-moz-range-thumb:active {
+  transform: scale(1.28);
+  box-shadow: 0 0 25px rgba(245, 158, 11, 1), 0 0 8px #ffffff;
+}
+
+.roi-slider::-moz-range-progress {
+  background: linear-gradient(90deg, #f59e0b, #fbbf24);
+  height: 6px;
+  border-radius: 9999px;
+}
+
+/* ======================================================== */
+/* "Sticky ROI" CRO Conversion Bar (Phase 4 Task 4.3)       */
+/* ======================================================== */
+
+#sticky-roi-bar {
+  transform: translate(-50%, 140px);
+  will-change: transform, opacity;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+
+#sticky-roi-bar.is-visible {
+  transform: translate(-50%, 0) !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
 

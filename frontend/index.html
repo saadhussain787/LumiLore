@@ -19,7 +19,7 @@ layout: layout.html
     <!-- Using a sleek mix-blend mode and incredible size for a premium cinematic feel -->
     <h1 id="hero-text" class="text-7xl md:text-[9rem] lg:text-[11rem] font-bold tracking-tighter text-white leading-[0.85] pb-6 relative z-10" style="text-shadow: 0 20px 60px rgba(0,0,0,0.8);">
       Intelligent<br/>
-      <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 via-white to-indigo-300">Autonomy.</span>
+      <span class="text-transparent bg-clip-text bg-linear-to-r from-cyan-200 via-white to-indigo-300">Autonomy.</span>
     </h1>
     
     <!-- Subtle subheadline -->
@@ -27,10 +27,53 @@ layout: layout.html
       Pairing certified cloud architecture with multi-step AI agents to eliminate manual tasks and scale your enterprise infinitely.
     </p>
 
+    <!-- High-Conversion Action Anchors (Task 2.1) -->
+    <div class="mt-10 flex flex-wrap items-center justify-center gap-4 relative z-20">
+      <!-- Primary CTA: Experience Autopilot -->
+      <a href="#services-orbit-section" class="glow-amber-cta group inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full text-slate-950 text-sm md:text-base font-bold tracking-wide uppercase transition-all duration-300">
+        <span>Experience Autopilot</span>
+        <svg class="w-4 h-4 text-slate-950 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </a>
+
+      <!-- Secondary CTA: Calculate Your ROI -->
+      <a href="#roi-section" class="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full text-slate-200 hover:text-white text-sm md:text-base font-medium tracking-wide border border-white/15 bg-white/4 backdrop-blur-xl hover:bg-white/8 hover:border-white/30 transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.4)]">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span>Calculate Your ROI</span>
+        <span class="text-slate-400 group-hover:text-white transition-colors">→</span>
+      </a>
+    </div>
+
+    <!-- Live Capability & Trust Pill Strip (Task 2.2) -->
+    <div class="mt-8 inline-flex flex-wrap items-center justify-center gap-2 sm:gap-3 px-5 py-2.5 rounded-full border border-white/8 bg-white/3 backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.5),inset_0_1px_0_0_rgba(255,255,255,0.1)] relative z-20 max-w-full">
+      <div class="flex items-center gap-2">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.9)]"></span>
+        <span class="text-[11px] sm:text-xs font-medium text-slate-300 tracking-wide">Certified Cloud Architecture</span>
+      </div>
+      <span class="hidden sm:inline-block text-slate-600 text-xs">•</span>
+      <div class="flex items-center gap-1.5">
+        <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(0,242,254,0.8)]"></span>
+        <span class="text-[11px] sm:text-xs font-medium text-slate-300 tracking-wide">24/7 AI Phone Reception</span>
+      </div>
+      <span class="hidden sm:inline-block text-slate-600 text-xs">•</span>
+      <div class="flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        </svg>
+        <span class="text-[11px] sm:text-xs font-medium text-slate-300 tracking-wide">SOC-2 Ready</span>
+      </div>
+      <span class="hidden sm:inline-block text-slate-600 text-xs">•</span>
+      <div class="flex items-center gap-1.5">
+        <span class="text-[11px] sm:text-xs font-mono font-bold text-cyan-300 tracking-wider">99.99%</span>
+        <span class="text-[11px] sm:text-xs font-medium text-slate-300 tracking-wide">Uptime SLA</span>
+      </div>
+    </div>
+
     <!-- Scroll Indicator -->
     <div class="absolute bottom-[-10vh] left-1/2 -translate-x-1/2 flex flex-col items-center opacity-70">
       <span class="text-[10px] uppercase tracking-[0.3em] text-slate-400 mb-6">Explore</span>
-      <div class="w-[1px] h-24 bg-gradient-to-b from-cyan-400 to-transparent"></div>
+      <div class="w-px h-24 bg-linear-to-b from-cyan-400 to-transparent"></div>
     </div>
   </div>
 </section>
@@ -69,35 +112,92 @@ layout: layout.html
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col items-center">
     
     <!-- Section Header & Enterprise Status Banner -->
-    <div class="text-center flex flex-col items-center mb-12 md:mb-16 relative z-20 max-w-3xl">
+    <div class="text-center flex flex-col items-center mb-8 md:mb-12 relative z-20 max-w-3xl">
       <!-- Status Pill -->
       <div class="mb-3 inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-cyan-500/30 bg-cyan-950/60 backdrop-blur-xl shadow-[0_0_20px_rgba(0,242,254,0.12)]">
         <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.9)]"></span>
-        <span class="text-[10px] md:text-[11px] font-mono font-bold tracking-[0.2em] text-cyan-300 uppercase">06 Core Systems Operational // Built for Modern Businesses</span>
+        <span id="services-status-pill-text" class="lens-morphable text-[10px] md:text-[11px] font-mono font-bold tracking-[0.2em] text-cyan-300 uppercase">06 Core Systems Operational // Enterprise Architecture</span>
       </div>
       
       <!-- Headline -->
       <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold font-headline tracking-tighter text-white mb-3 leading-tight">
-        Everything You Need to Run Your Business on <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-white to-indigo-300">Autopilot.</span>
+        Everything You Need to Run Your Business on <span class="text-transparent bg-clip-text bg-linear-to-r from-cyan-300 via-white to-indigo-300">Autopilot.</span>
       </h2>
       
       <!-- Subheadline -->
-      <p class="text-sm md:text-base text-slate-300/90 font-normal max-w-xl mx-auto leading-relaxed">
-        Certified autonomous systems engineered to eliminate busywork, capture every lead, and keep your business growing 24/7.
+      <p id="services-subheadline" class="lens-morphable text-sm md:text-base text-slate-300/90 font-normal max-w-xl mx-auto leading-relaxed">
+        Certified autonomous systems engineered to eliminate busywork, capture every lead, and keep your enterprise scaling 24/7.
       </p>
     </div>
 
+    <!-- Controls Toolbar: Industry Lens & 3D Orbit / Grid View Switcher (Phase 3 Tasks 3.1 & 3.4) -->
+    <div class="carousel-controls-toolbar flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-6 mb-8 md:mb-10 relative z-30 w-full max-w-4xl px-2">
+      
+      <!-- The "Industry Lens" Dual-Audience Toggle -->
+      <div class="industry-lens-wrapper flex flex-col sm:flex-row items-center justify-center gap-2.5" role="toolbar" aria-label="Select industry lens for solutions">
+        <span class="text-[11px] font-mono font-bold uppercase tracking-widest text-slate-400 flex items-center gap-1.5 select-none">
+          <svg class="w-3.5 h-3.5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+          </svg>
+          Audience:
+        </span>
+        
+        <!-- Segmented Control Bar -->
+        <div id="industry-lens-toggle" class="relative inline-flex p-1 rounded-full bg-[#070A11]/90 backdrop-blur-2xl border border-white/12 shadow-[0_4px_30px_rgba(0,0,0,0.7),inset_0_1px_1px_rgba(255,255,255,0.1)] transition-all">
+          <!-- Animated Background Glider / Pill Indicator -->
+          <div id="lens-active-indicator" class="lens-indicator-corporate absolute top-1 bottom-1 rounded-full transition-all duration-300 ease-out pointer-events-none"></div>
+          
+          <!-- Option 1: Corporate & Tech (Default) -->
+          <button type="button" id="lens-btn-corporate" class="lens-toggle-btn relative z-10 px-3.5 sm:px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all duration-200 cursor-pointer flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 text-white" data-lens="corporate" aria-pressed="true">
+            <span class="text-sm">🏢</span>
+            <span class="font-headline font-bold">Corporate &amp; Tech</span>
+          </button>
+          
+          <!-- Option 2: Trades & Local Business -->
+          <button type="button" id="lens-btn-trades" class="lens-toggle-btn relative z-10 px-3.5 sm:px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all duration-200 cursor-pointer flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 text-slate-400 hover:text-slate-200" data-lens="trades" aria-pressed="false">
+            <span class="text-sm">🔧</span>
+            <span class="font-headline font-bold">Trades &amp; Local</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- View Mode Switcher: 3D Orbit vs Bento Grid View (Phase 3 Task 3.4) -->
+      <div class="view-mode-wrapper flex items-center gap-2" role="toolbar" aria-label="Select layout view mode">
+        <span class="text-[11px] font-mono font-bold uppercase tracking-widest text-slate-400 flex items-center gap-1 select-none">
+          Layout:
+        </span>
+        <div id="carousel-view-mode-toggle" class="relative inline-flex p-1 rounded-full bg-[#070A11]/90 backdrop-blur-2xl border border-white/12 shadow-[0_4px_30px_rgba(0,0,0,0.7),inset_0_1px_1px_rgba(255,255,255,0.1)] transition-all">
+          <!-- Animated Glider Indicator -->
+          <div id="view-mode-indicator" class="absolute top-1 bottom-1 rounded-full bg-linear-to-r from-cyan-500/25 to-indigo-500/25 border border-cyan-400/40 shadow-[0_0_15px_rgba(0,242,254,0.25)] transition-all duration-300 ease-out pointer-events-none"></div>
+
+          <!-- Option 1: 3D Orbit (Default) -->
+          <button type="button" id="view-btn-orbit" class="view-toggle-btn relative z-10 px-3 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all duration-200 cursor-pointer flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 text-white" data-view="orbit" aria-pressed="true">
+            <span class="text-xs text-cyan-300">✦</span>
+            <span class="font-mono text-[11px] font-bold">3D Orbit</span>
+          </button>
+
+          <!-- Option 2: Grid View -->
+          <button type="button" id="view-btn-grid" class="view-toggle-btn relative z-10 px-3 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all duration-200 cursor-pointer flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 text-slate-400 hover:text-slate-200" data-view="grid" aria-pressed="false">
+            <span class="text-xs">⊞</span>
+            <span class="font-mono text-[11px] font-bold">Grid View</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
     <!-- 3D Perspective Stage -->
-    <div class="orbit-carousel-stage relative w-full h-[470px] md:h-[490px] flex items-center justify-center select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/50 focus-visible:rounded-3xl" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Autonomous Enterprise Systems 3D Carousel. Use Left and Right arrow keys to navigate between production systems." aria-live="polite" style="perspective: 1300px; perspective-origin: 50% 48%; touch-action: pan-y;">
+    <div class="orbit-carousel-stage relative w-full h-117.5 md:h-122.5 flex items-center justify-center select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/50 focus-visible:rounded-3xl" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Autonomous Enterprise Systems 3D Carousel. Use Left and Right arrow keys to navigate between production systems." aria-live="polite" style="perspective: 1300px; perspective-origin: 50% 48%; touch-action: pan-y;">
       
       <!-- Central Orbital Reactor / Quantum Core Glow -->
       <div class="orbital-reactor-core absolute inset-0 flex items-center justify-center pointer-events-none z-0" aria-hidden="true" style="transform: translateY(4px) rotateX(6deg); transform-style: preserve-3d;">
         <!-- Ambient Radial Bloom (Softer nebula glow to maximize card text contrast) -->
-        <div class="w-[420px] h-[420px] rounded-full bg-[radial-gradient(circle,rgba(0,242,254,0.12)_0%,rgba(99,102,241,0.06)_45%,transparent_70%)] blur-2xl animate-pulse" style="animation-duration: 6s;"></div>
+        <div class="w-105 h-105 rounded-full bg-[radial-gradient(circle,rgba(0,242,254,0.12)_0%,rgba(99,102,241,0.06)_45%,transparent_70%)] blur-2xl animate-pulse" style="animation-duration: 6s;"></div>
         <!-- Concentric Orbital Gyro Ring 1 -->
-        <div class="absolute w-[320px] h-[320px] rounded-full border border-cyan-400/20 shadow-[0_0_30px_rgba(0,242,254,0.1)] animate-[spin_50s_linear_infinite]"></div>
+        <div class="absolute w-80 h-80 rounded-full border border-cyan-400/20 shadow-[0_0_30px_rgba(0,242,254,0.1)] animate-[spin_50s_linear_infinite]"></div>
         <!-- Concentric Orbital Gyro Ring 2 (Dashed Counter-Rotation) -->
-        <div class="absolute w-[220px] h-[220px] rounded-full border border-dashed border-indigo-400/30 animate-[spin_35s_linear_infinite_reverse]"></div>
+        <div class="absolute w-55 h-55 rounded-full border border-dashed border-indigo-400/30 animate-[spin_35s_linear_infinite_reverse]"></div>
         <!-- Center Quantum Singularity Dot -->
         <div class="absolute w-2.5 h-2.5 rounded-full bg-cyan-300 shadow-[0_0_20px_rgba(0,242,254,0.9)] animate-ping" style="animation-duration: 3s;"></div>
         <div class="absolute w-2 h-2 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,1)]"></div>
@@ -105,10 +205,10 @@ layout: layout.html
 
       <!-- 3D Rotating Ring Container -->
       <div id="orbit-carousel-ring" class="orbit-carousel-ring relative w-full h-full flex items-center justify-center z-10" style="transform-style: preserve-3d; will-change: transform; touch-action: pan-y; transform: translateY(4px) rotateX(6deg) rotateY(0deg);">
-                <!-- CARD 01: 24/7 AI Phone & Message Reception (Task 2.1) -->
-        <div class="orbit-card rounded-3xl bg-[#05070A] border border-white/12 hover:border-cyan-400/40 p-5 flex flex-col justify-between shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_30px_rgba(0,242,254,0.12)] relative overflow-hidden group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black transition-all" data-index="0" style="transform: rotateY(0deg) translateZ(360px); touch-action: pan-y;" role="group" aria-roledescription="slide" aria-label="Card 1 of 6: 24/7 AI Phone & Message Reception" aria-current="true" tabindex="0">
+                <!-- CARD 01: Multi-Agent Swarms & Voice (Task 2.1) -->
+        <div class="orbit-card rounded-3xl bg-[#05070A] border border-white/12 hover:border-cyan-400/40 p-5 flex flex-col justify-between shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_30px_rgba(0,242,254,0.12)] relative overflow-hidden group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black transition-all" data-index="0" data-group="inbound" style="transform: rotateY(0deg) translateZ(360px); touch-action: pan-y;" role="group" aria-roledescription="slide" aria-label="Card 1 of 6: Autonomous Voice & Agent Swarms" aria-current="true" tabindex="0">
           <!-- Top Accent Light -->
-          <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent"></div>
+          <div class="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-cyan-400 to-transparent"></div>
           <!-- Brutalist Monospace Watermark -->
           <div class="orbit-card-watermark" aria-hidden="true">01</div>
 
@@ -118,19 +218,19 @@ layout: layout.html
               <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.9)]"></span>
               <span class="text-xs font-mono font-bold tracking-wider text-cyan-300">SYS // 01</span>
             </div>
-            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold tracking-widest uppercase bg-cyan-500/15 text-cyan-300 border border-cyan-400/30">
-              AI PHONE & CHAT
+            <span class="card-badge-label lens-morphable px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold tracking-widest uppercase bg-cyan-500/15 text-cyan-300 border border-cyan-400/30">
+              AI AGENT SWARMS
             </span>
           </div>
 
           <!-- CENTRAL TIER: Glowing Visual Vector Emblem (Tooplate-Inspired Clean Poster) -->
-          <div class="h-32 flex flex-col items-center justify-center relative z-10 my-1">
+          <div class="h-28 flex flex-col items-center justify-center relative z-10 my-0.5">
             <!-- Radial Ambient Bloom -->
             <div class="absolute w-28 h-28 rounded-full bg-cyan-400/15 blur-xl pointer-events-none"></div>
             
             <!-- Sleek Vector Emblem -->
-            <div class="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-cyan-950/70 border border-cyan-400/40 flex items-center justify-center shadow-[0_0_25px_rgba(0,242,254,0.25)] group-hover:scale-105 transition-transform duration-300">
-              <svg class="w-8 h-8 text-cyan-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+            <div class="relative w-14 h-14 rounded-2xl bg-linear-to-br from-cyan-500/20 to-cyan-950/70 border border-cyan-400/40 flex items-center justify-center shadow-[0_0_25px_rgba(0,242,254,0.25)] group-hover:scale-105 transition-transform duration-300">
+              <svg class="w-7 h-7 text-cyan-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 7a4 4 0 014 4m-4-8a8 8 0 018 8" />
               </svg>
@@ -141,25 +241,62 @@ layout: layout.html
               </span>
             </div>
             <!-- Signal Label -->
-            <span class="mt-2 text-[10px] font-mono tracking-widest text-cyan-200/90 font-bold uppercase">
-              24/7 Live Answering
+            <span class="card-signal-label lens-morphable mt-1.5 text-[10px] font-mono tracking-widest text-cyan-200/90 font-bold uppercase">
+              Sub-800ms Voice Edge
             </span>
+          </div>
+
+          <!-- PLAYABLE MINI AUDIO WAVEFORM PREVIEW (Phase 3 Task 3.3) -->
+          <div class="audio-player-container my-1 relative z-20 flex flex-col items-center">
+            <button type="button" id="card-audio-btn" class="group/audio relative inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/80 hover:bg-cyan-900/90 border border-cyan-400/40 hover:border-cyan-300 shadow-[0_0_15px_rgba(0,242,254,0.15)] transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400" aria-label="Play 15 second voice assistant audio sample" aria-pressed="false">
+              <!-- Play / Pause Icon -->
+              <span id="audio-icon-play" class="w-3.5 h-3.5 rounded-full bg-cyan-400 text-slate-950 flex items-center justify-center text-[8px] font-black group-hover/audio:scale-110 transition-transform">
+                ▶
+              </span>
+              <span id="audio-icon-pause" class="hidden w-3.5 h-3.5 rounded-full bg-cyan-400 text-slate-950 items-center justify-center text-[8px] font-black">
+                ❚❚
+              </span>
+              
+              <!-- Label -->
+              <span id="audio-btn-label" class="text-[10px] font-mono font-bold tracking-wider text-cyan-200 uppercase">
+                15s Voice Sample
+              </span>
+
+              <!-- Live Equalizer Waveform Bars -->
+              <div class="audio-waveform-bars flex items-center gap-0.5 h-2.5 ml-1" aria-hidden="true">
+                <span class="bar w-0.5 h-1 bg-cyan-400 rounded-full"></span>
+                <span class="bar w-0.5 h-2.5 bg-cyan-400 rounded-full"></span>
+                <span class="bar w-0.5 h-1.5 bg-cyan-400 rounded-full"></span>
+                <span class="bar w-0.5 h-3 bg-cyan-400 rounded-full"></span>
+                <span class="bar w-0.5 h-1 bg-cyan-400 rounded-full"></span>
+              </div>
+
+              <!-- Time Counter -->
+              <span id="audio-time-counter" class="text-[9px] font-mono text-cyan-300/80 pl-1 border-l border-cyan-400/25">
+                0:15
+              </span>
+            </button>
+
+            <!-- Live Dialogue Transcript Pill (Appears smoothly when playing) -->
+            <div id="audio-transcript-pill" class="hidden mt-1 px-2.5 py-0.5 rounded-md bg-black/90 border border-cyan-400/30 text-[9px] font-mono text-cyan-200/90 text-center max-w-62.5 shadow-lg">
+              <span class="text-cyan-400 font-bold">AI:</span> <span id="audio-transcript-text">"Thanks for calling! We have a technician available tomorrow at 9 AM."</span>
+            </div>
           </div>
 
           <!-- TYPOGRAPHY TIER: Large, Razor-Sharp Headlines & Benefits -->
           <div class="flex flex-col relative z-10">
-            <h3 class="text-lg sm:text-xl font-bold font-headline text-white tracking-tight leading-snug mb-1.5 group-hover:text-cyan-200 transition-colors">
-              24/7 AI Phone & Message Reception
+            <h3 class="card-headline lens-morphable text-lg sm:text-xl font-bold font-headline text-white tracking-tight leading-snug mb-1.5 group-hover:text-cyan-200 transition-colors">
+              Autonomous Voice &amp; Agent Swarms
             </h3>
-            <p class="text-xs sm:text-sm text-slate-200 font-normal leading-relaxed mb-3">
-              Custom AI assistants that answer calls, texts, and chats 24/7, quote standard rates, and book jobs directly into your calendar.
+            <p class="card-subtext lens-morphable text-xs sm:text-sm text-slate-200 font-normal leading-relaxed mb-3">
+              Ultra-low latency conversational AI deployed on serverless edge runtimes, executing complex customer inquiries, quoting, and CRM sync at scale.
             </p>
           </div>
 
           <!-- BOTTOM TIER: High-Contrast Outcome Metric & Action Link -->
           <div class="flex items-center justify-between pt-2.5 border-t border-white/10 relative z-10">
-            <span class="text-[11px] font-mono font-bold text-cyan-300 bg-cyan-950/70 px-2.5 py-1 rounded-md border border-cyan-500/30">
-              Never Miss a Call • Saves 15+ Hrs
+            <span class="card-metric-label lens-morphable text-[11px] font-mono font-bold text-cyan-300 bg-cyan-950/70 px-2.5 py-1 rounded-md border border-cyan-500/30">
+              &lt;800ms Latency • 100% Call Deflection
             </span>
             <a href="#contact" class="inline-flex items-center gap-1 text-xs font-bold text-cyan-400 hover:text-white transition-colors shrink-0">
               <span>Deploy</span> <span>→</span>
@@ -167,60 +304,99 @@ layout: layout.html
           </div>
         </div>
 
-        <!-- CARD 02: Automated Invoicing & Fast Payments (Task 2.1) -->
-        <div class="orbit-card rounded-3xl bg-[#05070A] border border-white/12 hover:border-emerald-400/40 p-5 flex flex-col justify-between shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_30px_rgba(16,185,129,0.12)] relative overflow-hidden group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black transition-all" data-index="1" style="transform: rotateY(60deg) translateZ(360px); touch-action: pan-y;" role="group" aria-roledescription="slide" aria-label="Card 2 of 6: Automated Invoicing & Fast Payments" aria-current="false" tabindex="0">
+        <!-- CARD 02: Automated Invoicing & Fast Payments (Task 2.1 & 3.2) -->
+        <div id="orbit-card-finance" class="orbit-card rounded-3xl bg-[#05070A] border border-white/12 hover:border-emerald-400/40 p-5 flex flex-col justify-between shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_30px_rgba(16,185,129,0.12)] relative overflow-hidden group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black transition-all" data-index="1" data-group="finance" data-ba-active="autopilot" style="transform: rotateY(60deg) translateZ(360px); touch-action: pan-y;" role="group" aria-roledescription="slide" aria-label="Card 2 of 6: Autonomous Billing & Revenue Workflows" aria-current="false" tabindex="0">
           <!-- Top Accent Light -->
-          <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-emerald-400 to-transparent"></div>
+          <div class="card-top-light absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-emerald-400 to-transparent transition-all duration-300"></div>
           <!-- Brutalist Monospace Watermark -->
           <div class="orbit-card-watermark" aria-hidden="true">02</div>
 
           <!-- TOP TIER: System Badge & Operational Status -->
           <div class="flex items-center justify-between relative z-10">
             <div class="flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.9)]"></span>
-              <span class="text-xs font-mono font-bold tracking-wider text-emerald-300">SYS // 02</span>
+              <span class="ba-status-dot w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.9)] transition-colors duration-300"></span>
+              <span class="ba-sys-tag text-xs font-mono font-bold tracking-wider text-emerald-300 transition-colors duration-300">SYS // 02</span>
             </div>
-            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold tracking-widest uppercase bg-emerald-500/15 text-emerald-300 border border-emerald-400/30">
-              BILLING & PAYMENTS
+            <span class="card-badge-label lens-morphable px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold tracking-widest uppercase bg-emerald-500/15 text-emerald-300 border border-emerald-400/30">
+              PROGRAMMABLE AR ENGINE
             </span>
           </div>
 
-          <!-- CENTRAL TIER: Glowing Visual Vector Emblem -->
-          <div class="h-32 flex flex-col items-center justify-center relative z-10 my-1">
-            <!-- Radial Ambient Bloom -->
-            <div class="absolute w-28 h-28 rounded-full bg-emerald-400/15 blur-xl pointer-events-none"></div>
-            
-            <!-- Sleek Vector Emblem -->
-            <div class="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-emerald-950/70 border border-emerald-400/40 flex items-center justify-center shadow-[0_0_25px_rgba(16,185,129,0.25)] group-hover:scale-105 transition-transform duration-300">
-              <svg class="w-8 h-8 text-emerald-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <!-- Verified Paid Badge -->
-              <span class="absolute -bottom-2 px-2 py-0.5 rounded-full bg-emerald-500 text-black text-[9px] font-black uppercase tracking-wider shadow-[0_0_10px_rgba(16,185,129,0.8)]">
-                PAID
-              </span>
+          <!-- BEFORE VS. AUTOPILOT INTERACTIVE SWITCH (Phase 3 Task 3.2) -->
+          <div class="flex items-center justify-between my-1 relative z-20">
+            <span class="text-[9px] font-mono uppercase tracking-widest text-slate-400 font-bold">MODE:</span>
+            <div class="ba-switch-pill inline-flex p-0.5 rounded-full bg-black/80 border border-white/12 backdrop-blur-md shadow-inner" role="group" aria-label="Compare Autopilot vs Life Without LumiLore">
+              <button type="button" class="ba-btn-autopilot active-state px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold transition-all duration-200 cursor-pointer text-emerald-300 bg-emerald-500/20 border border-emerald-400/40 shadow-[0_0_10px_rgba(16,185,129,0.3)]" data-ba="autopilot" aria-pressed="true">
+                ⚡ Autopilot
+              </button>
+              <button type="button" class="ba-btn-chaos px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold transition-all duration-200 cursor-pointer text-slate-400 hover:text-rose-300 border border-transparent" data-ba="chaos" aria-pressed="false">
+                ⚠️ Without Us
+              </button>
             </div>
-            <!-- Signal Label -->
-            <span class="mt-2 text-[10px] font-mono tracking-widest text-emerald-200/90 font-bold uppercase">
-              Auto-AR & Cash Recovery
-            </span>
+          </div>
+
+          <!-- CENTRAL TIER: Dual State Visual Stage (Autopilot vs. Chaos) -->
+          <div class="h-32 relative flex items-center justify-center z-10 my-1 overflow-hidden">
+            <!-- STATE A: AUTOPILOT (Default Serene View) -->
+            <div class="ba-view-autopilot absolute inset-0 flex flex-col items-center justify-center transition-all duration-300 opacity-100 scale-100 pointer-events-auto">
+              <!-- Radial Ambient Bloom -->
+              <div class="absolute w-28 h-28 rounded-full bg-emerald-400/15 blur-xl pointer-events-none"></div>
+              
+              <!-- Sleek Vector Emblem -->
+              <div class="relative w-14 h-14 rounded-2xl bg-linear-to-br from-emerald-500/20 to-emerald-950/70 border border-emerald-400/40 flex items-center justify-center shadow-[0_0_25px_rgba(16,185,129,0.25)] group-hover:scale-105 transition-transform duration-300">
+                <svg class="w-7 h-7 text-emerald-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <!-- Verified Paid Badge -->
+                <span class="absolute -bottom-1.5 px-2 py-0.5 rounded-full bg-emerald-500 text-black text-[9px] font-black uppercase tracking-wider shadow-[0_0_10px_rgba(16,185,129,0.8)]">
+                  PAID
+                </span>
+              </div>
+              <!-- Signal Label -->
+              <span class="card-signal-label lens-morphable mt-2 text-[10px] font-mono tracking-widest text-emerald-200/90 font-bold uppercase">
+                Real-Time Ledger Sync
+              </span>
+              <span class="text-[9px] font-mono text-emerald-400/75 mt-0.5 tracking-wider">✓ 0 Manual Follow-ups</span>
+            </div>
+
+            <!-- STATE B: CHAOS ("Life Without LumiLore") -->
+            <div class="ba-view-chaos absolute inset-0 flex flex-col items-center justify-center transition-all duration-300 opacity-0 scale-95 pointer-events-none">
+              <!-- Radial Urgent Crimson Bloom -->
+              <div class="absolute w-28 h-28 rounded-full bg-rose-500/25 blur-xl pointer-events-none animate-pulse"></div>
+              
+              <!-- Distressed Vector Emblem -->
+              <div class="relative w-14 h-14 rounded-2xl bg-linear-to-br from-rose-500/25 to-rose-950/80 border border-rose-400/50 flex items-center justify-center shadow-[0_0_25px_rgba(244,63,94,0.35)]">
+                <svg class="w-7 h-7 text-rose-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+                <!-- Overdue Alert Badge -->
+                <span class="absolute -bottom-1.5 px-2 py-0.5 rounded-full bg-rose-500 text-white text-[9px] font-black uppercase tracking-wider shadow-[0_0_10px_rgba(244,63,94,0.9)] animate-pulse">
+                  18D LATE
+                </span>
+              </div>
+              <!-- Chaos Pain Points -->
+              <div class="ba-chaos-tags mt-1.5 flex flex-col items-center gap-0.5 text-[9px] font-mono font-bold text-rose-300">
+                <span class="ba-chaos-tag-1">❌ Missing PDF Attachment</span>
+                <span class="ba-chaos-tag-2 text-amber-300">⌛ Invoice #1042: 18 Days Late</span>
+              </div>
+            </div>
           </div>
 
           <!-- TYPOGRAPHY TIER: Large, Razor-Sharp Headlines & Benefits -->
           <div class="flex flex-col relative z-10">
-            <h3 class="text-lg sm:text-xl font-bold font-headline text-white tracking-tight leading-snug mb-1.5 group-hover:text-emerald-200 transition-colors">
-              Automated Invoicing & Fast Payments
+            <h3 class="card-headline lens-morphable text-lg sm:text-xl font-bold font-headline text-white tracking-tight leading-snug mb-1.5 group-hover:text-emerald-200 transition-colors">
+              Autonomous Billing &amp; Revenue Workflows
             </h3>
-            <p class="text-xs sm:text-sm text-slate-200 font-normal leading-relaxed mb-3">
-              Automated billing systems that send professional invoices, follow up on unpaid balances automatically via text & email, and sync with your books.
+            <p class="card-subtext lens-morphable text-xs sm:text-sm text-slate-200 font-normal leading-relaxed mb-3">
+              Event-driven invoice orchestration with programmatic payment reconciliations, smart collections escalation, and bidirectional ERP synchronization.
             </p>
           </div>
 
           <!-- BOTTOM TIER: High-Contrast Outcome Metric & Action Link -->
           <div class="flex items-center justify-between pt-2.5 border-t border-white/10 relative z-10">
-            <span class="text-[11px] font-mono font-bold text-emerald-300 bg-emerald-950/70 px-2.5 py-1 rounded-md border border-emerald-500/30">
-              94% Faster • Zero Awkward Calls
+            <span class="card-metric-label lens-morphable text-[11px] font-mono font-bold text-emerald-300 bg-emerald-950/70 px-2.5 py-1 rounded-md border border-emerald-500/30 transition-all duration-300">
+              99.4% Auto-Reconciled • Zero Leakage
             </span>
             <a href="#contact" class="inline-flex items-center gap-1 text-xs font-bold text-emerald-400 hover:text-white transition-colors shrink-0">
               <span>Deploy</span> <span>→</span>
@@ -229,9 +405,9 @@ layout: layout.html
         </div>
 
         <!-- CARD 03: Paperless Forms & Instant Client Intake (Task 2.1) -->
-        <div class="orbit-card rounded-3xl bg-[#05070A] border border-white/12 hover:border-blue-400/40 p-5 flex flex-col justify-between shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_30px_rgba(59,130,246,0.12)] relative overflow-hidden group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black transition-all" data-index="2" style="transform: rotateY(120deg) translateZ(360px); touch-action: pan-y;" role="group" aria-roledescription="slide" aria-label="Card 3 of 6: Paperless Forms & Instant Client Intake" aria-current="false" tabindex="0">
+        <div class="orbit-card rounded-3xl bg-[#05070A] border border-white/12 hover:border-amber-400/40 p-5 flex flex-col justify-between shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_30px_rgba(245,158,11,0.12)] relative overflow-hidden group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black transition-all" data-index="2" data-group="finance" style="transform: rotateY(120deg) translateZ(360px); touch-action: pan-y;" role="group" aria-roledescription="slide" aria-label="Card 3 of 6: Dynamic Client Intake & Compliance Portals" aria-current="false" tabindex="0">
           <!-- Top Accent Light -->
-          <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-blue-400 to-transparent"></div>
+          <div class="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-amber-400 to-transparent"></div>
           <!-- Brutalist Monospace Watermark -->
           <div class="orbit-card-watermark" aria-hidden="true">03</div>
 
@@ -239,71 +415,10 @@ layout: layout.html
           <div class="flex items-center justify-between relative z-10">
             <div class="flex items-center gap-2">
               <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.9)]"></span>
-              <span class="text-xs font-mono font-bold tracking-wider text-blue-300">SYS // 03</span>
+              <span class="text-xs font-mono font-bold tracking-wider text-amber-300">SYS // 03</span>
             </div>
-            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold tracking-widest uppercase bg-blue-500/15 text-blue-300 border border-blue-400/30">
-              PAPERLESS INTAKE
-            </span>
-          </div>
-
-          <!-- CENTRAL TIER: Glowing Visual Vector Emblem -->
-          <div class="h-32 flex flex-col items-center justify-center relative z-10 my-1">
-            <!-- Radial Ambient Bloom -->
-            <div class="absolute w-28 h-28 rounded-full bg-blue-400/15 blur-xl pointer-events-none"></div>
-            
-            <!-- Sleek Vector Emblem -->
-            <div class="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500/20 to-blue-950/70 border border-blue-400/40 flex items-center justify-center shadow-[0_0_25px_rgba(59,130,246,0.25)] group-hover:scale-105 transition-transform duration-300">
-              <svg class="w-8 h-8 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15 13l2 2 4-4" />
-              </svg>
-              <!-- Verified Signed Badge -->
-              <span class="absolute -bottom-2 px-2 py-0.5 rounded-full bg-blue-500 text-white text-[9px] font-black uppercase tracking-wider shadow-[0_0_10px_rgba(59,130,246,0.8)]">
-                E-SIGNED
-              </span>
-            </div>
-            <!-- Signal Label -->
-            <span class="mt-2 text-[10px] font-mono tracking-widest text-blue-200/90 font-bold uppercase">
-              100% Mobile Client Intake
-            </span>
-          </div>
-
-          <!-- TYPOGRAPHY TIER: Large, Razor-Sharp Headlines & Benefits -->
-          <div class="flex flex-col relative z-10">
-            <h3 class="text-lg sm:text-xl font-bold font-headline text-white tracking-tight leading-snug mb-1.5 group-hover:text-blue-200 transition-colors">
-              Paperless Forms & Instant Client Intake
-            </h3>
-            <p class="text-xs sm:text-sm text-slate-200 font-normal leading-relaxed mb-3">
-              Turn messy paperwork and contracts into clean digital questionnaires that customers complete and e-sign on their phones before you arrive.
-            </p>
-          </div>
-
-          <!-- BOTTOM TIER: High-Contrast Outcome Metric & Action Link -->
-          <div class="flex items-center justify-between pt-2.5 border-t border-white/10 relative z-10">
-            <span class="text-[11px] font-mono font-bold text-blue-300 bg-blue-950/70 px-2.5 py-1 rounded-md border border-blue-500/30">
-              100% Paperless • Legally Binding
-            </span>
-            <a href="#contact" class="inline-flex items-center gap-1 text-xs font-bold text-blue-400 hover:text-white transition-colors shrink-0">
-              <span>Deploy</span> <span>→</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- CARD 04: Smart Scheduling & Appointment Dispatch (Task 2.1) -->
-        <div class="orbit-card rounded-3xl bg-[#05070A] border border-white/12 hover:border-amber-400/40 p-5 flex flex-col justify-between shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_30px_rgba(245,158,11,0.12)] relative overflow-hidden group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black transition-all" data-index="3" style="transform: rotateY(180deg) translateZ(360px); touch-action: pan-y;" role="group" aria-roledescription="slide" aria-label="Card 4 of 6: Smart Scheduling & Appointment Dispatch" aria-current="false" tabindex="0">
-          <!-- Top Accent Light -->
-          <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
-          <!-- Brutalist Monospace Watermark -->
-          <div class="orbit-card-watermark" aria-hidden="true">04</div>
-
-          <!-- TOP TIER: System Badge & Operational Status -->
-          <div class="flex items-center justify-between relative z-10">
-            <div class="flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.9)]"></span>
-              <span class="text-xs font-mono font-bold tracking-wider text-amber-300">SYS // 04</span>
-            </div>
-            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold tracking-widest uppercase bg-amber-500/15 text-amber-300 border border-amber-400/30">
-              SCHEDULING & DISPATCH
+            <span class="card-badge-label lens-morphable px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold tracking-widest uppercase bg-amber-500/15 text-amber-300 border border-amber-400/30">
+              ZERO-TRUST DATA INGEST
             </span>
           </div>
 
@@ -313,36 +428,36 @@ layout: layout.html
             <div class="absolute w-28 h-28 rounded-full bg-amber-400/15 blur-xl pointer-events-none"></div>
             
             <!-- Sleek Vector Emblem -->
-            <div class="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-500/20 to-amber-950/70 border border-amber-400/40 flex items-center justify-center shadow-[0_0_25px_rgba(245,158,11,0.25)] group-hover:scale-105 transition-transform duration-300">
+            <div class="relative w-16 h-16 rounded-2xl bg-linear-to-br from-amber-500/20 to-amber-950/70 border border-amber-400/40 flex items-center justify-center shadow-[0_0_25px_rgba(245,158,11,0.25)] group-hover:scale-105 transition-transform duration-300">
               <svg class="w-8 h-8 text-amber-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                <circle cx="12" cy="15" r="2" fill="currentColor" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 13l2 2 4-4" />
               </svg>
-              <!-- Synced Badge -->
+              <!-- Verified Signed Badge -->
               <span class="absolute -bottom-2 px-2 py-0.5 rounded-full bg-amber-500 text-black text-[9px] font-black uppercase tracking-wider shadow-[0_0_10px_rgba(245,158,11,0.8)]">
-                SYNCED
+                E-SIGNED
               </span>
             </div>
             <!-- Signal Label -->
-            <span class="mt-2 text-[10px] font-mono tracking-widest text-amber-200/90 font-bold uppercase">
-              Conflict-Free Availability
+            <span class="card-signal-label lens-morphable mt-2 text-[10px] font-mono tracking-widest text-amber-200/90 font-bold uppercase">
+              Cryptographic Audit Trail
             </span>
           </div>
 
           <!-- TYPOGRAPHY TIER: Large, Razor-Sharp Headlines & Benefits -->
           <div class="flex flex-col relative z-10">
-            <h3 class="text-lg sm:text-xl font-bold font-headline text-white tracking-tight leading-snug mb-1.5 group-hover:text-amber-200 transition-colors">
-              Smart Scheduling & Appointment Dispatch
+            <h3 class="card-headline lens-morphable text-lg sm:text-xl font-bold font-headline text-white tracking-tight leading-snug mb-1.5 group-hover:text-amber-200 transition-colors">
+              Dynamic Client Intake &amp; Compliance Portals
             </h3>
-            <p class="text-xs sm:text-sm text-slate-200 font-normal leading-relaxed mb-3">
-              Intelligent booking systems that let clients schedule open times, send automatic text reminders, and prevent double-booking.
+            <p class="card-subtext lens-morphable text-xs sm:text-sm text-slate-200 font-normal leading-relaxed mb-3">
+              High-fidelity digital onboarding pipelines with cryptographic e-signatures, automated document verification, and SOC-2 compliant tenant isolation.
             </p>
           </div>
 
           <!-- BOTTOM TIER: High-Contrast Outcome Metric & Action Link -->
           <div class="flex items-center justify-between pt-2.5 border-t border-white/10 relative z-10">
-            <span class="text-[11px] font-mono font-bold text-amber-300 bg-amber-950/70 px-2.5 py-1 rounded-md border border-amber-500/30">
-              Zero Conflicts • Auto SMS Alerts
+            <span class="card-metric-label lens-morphable text-[11px] font-mono font-bold text-amber-300 bg-amber-950/70 px-2.5 py-1 rounded-md border border-amber-500/30">
+              SOC-2 Type II Ready • Instant Ingest
             </span>
             <a href="#contact" class="inline-flex items-center gap-1 text-xs font-bold text-amber-400 hover:text-white transition-colors shrink-0">
               <span>Deploy</span> <span>→</span>
@@ -350,10 +465,71 @@ layout: layout.html
           </div>
         </div>
 
-        <!-- CARD 05: Custom Software & App Connections (Task 2.1) -->
-        <div class="orbit-card rounded-3xl bg-[#05070A] border border-white/12 hover:border-rose-400/40 p-5 flex flex-col justify-between shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_30px_rgba(244,63,94,0.12)] relative overflow-hidden group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black transition-all" data-index="4" style="transform: rotateY(240deg) translateZ(360px); touch-action: pan-y;" role="group" aria-roledescription="slide" aria-label="Card 5 of 6: Custom Software & App Connections" aria-current="false" tabindex="0">
+        <!-- CARD 04: Smart Scheduling & Appointment Dispatch (Task 2.1) -->
+        <div class="orbit-card rounded-3xl bg-[#05070A] border border-white/12 hover:border-cyan-400/40 p-5 flex flex-col justify-between shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_30px_rgba(0,242,254,0.12)] relative overflow-hidden group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black transition-all" data-index="3" data-group="inbound" style="transform: rotateY(180deg) translateZ(360px); touch-action: pan-y;" role="group" aria-roledescription="slide" aria-label="Card 4 of 6: Predictive Dispatch & Calendar Orchestration" aria-current="false" tabindex="0">
           <!-- Top Accent Light -->
-          <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-rose-400 to-transparent"></div>
+          <div class="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-cyan-400 to-transparent"></div>
+          <!-- Brutalist Monospace Watermark -->
+          <div class="orbit-card-watermark" aria-hidden="true">04</div>
+
+          <!-- TOP TIER: System Badge & Operational Status -->
+          <div class="flex items-center justify-between relative z-10">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.9)]"></span>
+              <span class="text-xs font-mono font-bold tracking-wider text-cyan-300">SYS // 04</span>
+            </div>
+            <span class="card-badge-label lens-morphable px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold tracking-widest uppercase bg-cyan-500/15 text-cyan-300 border border-cyan-400/30">
+              RESOURCE ALLOCATION ENGINE
+            </span>
+          </div>
+
+          <!-- CENTRAL TIER: Glowing Visual Vector Emblem -->
+          <div class="h-32 flex flex-col items-center justify-center relative z-10 my-1">
+            <!-- Radial Ambient Bloom -->
+            <div class="absolute w-28 h-28 rounded-full bg-cyan-400/15 blur-xl pointer-events-none"></div>
+            
+            <!-- Sleek Vector Emblem -->
+            <div class="relative w-16 h-16 rounded-2xl bg-linear-to-br from-cyan-500/20 to-cyan-950/70 border border-cyan-400/40 flex items-center justify-center shadow-[0_0_25px_rgba(0,242,254,0.25)] group-hover:scale-105 transition-transform duration-300">
+              <svg class="w-8 h-8 text-cyan-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                <circle cx="12" cy="15" r="2" fill="currentColor" />
+              </svg>
+              <!-- Synced Badge -->
+              <span class="absolute -bottom-2 px-2 py-0.5 rounded-full bg-cyan-400 text-black text-[9px] font-black uppercase tracking-wider shadow-[0_0_10px_rgba(0,242,254,0.8)]">
+                SYNCED
+              </span>
+            </div>
+            <!-- Signal Label -->
+            <span class="card-signal-label lens-morphable mt-2 text-[10px] font-mono tracking-widest text-cyan-200/90 font-bold uppercase">
+              Distributed Calendar Sync
+            </span>
+          </div>
+
+          <!-- TYPOGRAPHY TIER: Large, Razor-Sharp Headlines & Benefits -->
+          <div class="flex flex-col relative z-10">
+            <h3 class="card-headline lens-morphable text-lg sm:text-xl font-bold font-headline text-white tracking-tight leading-snug mb-1.5 group-hover:text-cyan-200 transition-colors">
+              Predictive Dispatch &amp; Calendar Orchestration
+            </h3>
+            <p class="card-subtext lens-morphable text-xs sm:text-sm text-slate-200 font-normal leading-relaxed mb-3">
+              Algorithmic calendar management and high-throughput dispatch engines utilizing real-time availability buffers and bidirectional Webhook triggers.
+            </p>
+          </div>
+
+          <!-- BOTTOM TIER: High-Contrast Outcome Metric & Action Link -->
+          <div class="flex items-center justify-between pt-2.5 border-t border-white/10 relative z-10">
+            <span class="card-metric-label lens-morphable text-[11px] font-mono font-bold text-cyan-300 bg-cyan-950/70 px-2.5 py-1 rounded-md border border-cyan-500/30">
+              Zero Double-Booking • Instant Webhooks
+            </span>
+            <a href="#contact" class="inline-flex items-center gap-1 text-xs font-bold text-cyan-400 hover:text-white transition-colors shrink-0">
+              <span>Deploy</span> <span>→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- CARD 05: Custom Software & App Connections (Task 2.1) -->
+        <div class="orbit-card rounded-3xl bg-[#05070A] border border-white/12 hover:border-violet-400/40 p-5 flex flex-col justify-between shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_30px_rgba(139,92,246,0.12)] relative overflow-hidden group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black transition-all" data-index="4" data-group="infra" style="transform: rotateY(240deg) translateZ(360px); touch-action: pan-y;" role="group" aria-roledescription="slide" aria-label="Card 5 of 6: Unified Multi-Cloud API & ETL Pipelines" aria-current="false" tabindex="0">
+          <!-- Top Accent Light -->
+          <div class="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-violet-400 to-transparent"></div>
           <!-- Brutalist Monospace Watermark -->
           <div class="orbit-card-watermark" aria-hidden="true">05</div>
 
@@ -361,59 +537,59 @@ layout: layout.html
           <div class="flex items-center justify-between relative z-10">
             <div class="flex items-center gap-2">
               <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.9)]"></span>
-              <span class="text-xs font-mono font-bold tracking-wider text-rose-300">SYS // 05</span>
+              <span class="text-xs font-mono font-bold tracking-wider text-violet-300">SYS // 05</span>
             </div>
-            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold tracking-widest uppercase bg-rose-500/15 text-rose-300 border border-rose-400/30">
-              SYSTEM INTEGRATION
+            <span class="card-badge-label lens-morphable px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold tracking-widest uppercase bg-violet-500/15 text-violet-300 border border-violet-400/30">
+              EVENT-DRIVEN INTEGRATION
             </span>
           </div>
 
           <!-- CENTRAL TIER: Glowing Visual Vector Emblem -->
           <div class="h-32 flex flex-col items-center justify-center relative z-10 my-1">
             <!-- Radial Ambient Bloom -->
-            <div class="absolute w-28 h-28 rounded-full bg-rose-400/15 blur-xl pointer-events-none"></div>
+            <div class="absolute w-28 h-28 rounded-full bg-violet-400/15 blur-xl pointer-events-none"></div>
             
             <!-- Sleek Vector Emblem -->
-            <div class="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-rose-500/20 to-rose-950/70 border border-rose-400/40 flex items-center justify-center shadow-[0_0_25px_rgba(244,63,94,0.25)] group-hover:scale-105 transition-transform duration-300">
-              <svg class="w-8 h-8 text-rose-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+            <div class="relative w-16 h-16 rounded-2xl bg-linear-to-br from-violet-500/20 to-violet-950/70 border border-violet-400/40 flex items-center justify-center shadow-[0_0_25px_rgba(139,92,246,0.25)] group-hover:scale-105 transition-transform duration-300">
+              <svg class="w-8 h-8 text-violet-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
               <!-- Linked Hub Badge -->
-              <span class="absolute -bottom-2 px-2 py-0.5 rounded-full bg-rose-500 text-white text-[9px] font-black uppercase tracking-wider shadow-[0_0_10px_rgba(244,63,94,0.8)]">
+              <span class="absolute -bottom-2 px-2 py-0.5 rounded-full bg-violet-500 text-white text-[9px] font-black uppercase tracking-wider shadow-[0_0_10px_rgba(139,92,246,0.8)]">
                 LINKED
               </span>
             </div>
             <!-- Signal Label -->
-            <span class="mt-2 text-[10px] font-mono tracking-widest text-rose-200/90 font-bold uppercase">
-              Multi-App Pipeline Hub
+            <span class="card-signal-label lens-morphable mt-2 text-[10px] font-mono tracking-widest text-violet-200/90 font-bold uppercase">
+              Low-Latency API Mesh
             </span>
           </div>
 
           <!-- TYPOGRAPHY TIER: Large, Razor-Sharp Headlines & Benefits -->
           <div class="flex flex-col relative z-10">
-            <h3 class="text-lg sm:text-xl font-bold font-headline text-white tracking-tight leading-snug mb-1.5 group-hover:text-rose-200 transition-colors">
-              Custom Software & App Connections
+            <h3 class="card-headline lens-morphable text-lg sm:text-xl font-bold font-headline text-white tracking-tight leading-snug mb-1.5 group-hover:text-violet-200 transition-colors">
+              Unified Multi-Cloud API &amp; ETL Pipelines
             </h3>
-            <p class="text-xs sm:text-sm text-slate-200 font-normal leading-relaxed mb-3">
-              We connect your CRM, accounting, email, and trade software into one seamless workflow so your team stops typing things twice.
+            <p class="card-subtext lens-morphable text-xs sm:text-sm text-slate-200 font-normal leading-relaxed mb-3">
+              Enterprise middleware unifying legacy databases, modern SaaS APIs, and real-time streaming queues into deterministic, resilient data pipelines.
             </p>
           </div>
 
           <!-- BOTTOM TIER: High-Contrast Outcome Metric & Action Link -->
           <div class="flex items-center justify-between pt-2.5 border-t border-white/10 relative z-10">
-            <span class="text-[11px] font-mono font-bold text-rose-300 bg-rose-950/70 px-2.5 py-1 rounded-md border border-rose-500/30">
-              Zero Double Entry • All Tools Synced
+            <span class="card-metric-label lens-morphable text-[11px] font-mono font-bold text-violet-300 bg-violet-950/70 px-2.5 py-1 rounded-md border border-violet-500/30">
+              100% Idempotent • Sub-5ms Mesh
             </span>
-            <a href="#contact" class="inline-flex items-center gap-1 text-xs font-bold text-rose-400 hover:text-white transition-colors shrink-0">
+            <a href="#contact" class="inline-flex items-center gap-1 text-xs font-bold text-violet-400 hover:text-white transition-colors shrink-0">
               <span>Deploy</span> <span>→</span>
             </a>
           </div>
         </div>
 
         <!-- CARD 06: Managed Cloud & Bulletproof Security (Task 2.1) -->
-        <div class="orbit-card rounded-3xl bg-[#05070A] border border-white/12 hover:border-purple-400/40 p-5 flex flex-col justify-between shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_30px_rgba(168,85,247,0.12)] relative overflow-hidden group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black transition-all" data-index="5" style="transform: rotateY(300deg) translateZ(360px); touch-action: pan-y;" role="group" aria-roledescription="slide" aria-label="Card 6 of 6: Managed Cloud & Bulletproof Security" aria-current="false" tabindex="0">
+        <div class="orbit-card rounded-3xl bg-[#05070A] border border-white/12 hover:border-purple-400/40 p-5 flex flex-col justify-between shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_30px_rgba(168,85,247,0.12)] relative overflow-hidden group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black transition-all" data-index="5" data-group="infra" style="transform: rotateY(300deg) translateZ(360px); touch-action: pan-y;" role="group" aria-roledescription="slide" aria-label="Card 6 of 6: Mission-Critical Serverless Cloud & Security" aria-current="false" tabindex="0">
           <!-- Top Accent Light -->
-          <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-purple-400 to-transparent"></div>
+          <div class="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-purple-400 to-transparent"></div>
           <!-- Brutalist Monospace Watermark -->
           <div class="orbit-card-watermark" aria-hidden="true">06</div>
 
@@ -423,8 +599,8 @@ layout: layout.html
               <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.9)]"></span>
               <span class="text-xs font-mono font-bold tracking-wider text-purple-300">SYS // 06</span>
             </div>
-            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold tracking-widest uppercase bg-purple-500/15 text-purple-300 border border-purple-400/30">
-              CLOUD & SECURITY
+            <span class="card-badge-label lens-morphable px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold tracking-widest uppercase bg-purple-500/15 text-purple-300 border border-purple-400/30">
+              ISOLATED CLOUD MESH
             </span>
           </div>
 
@@ -434,7 +610,7 @@ layout: layout.html
             <div class="absolute w-28 h-28 rounded-full bg-purple-400/15 blur-xl pointer-events-none"></div>
             
             <!-- Sleek Vector Emblem -->
-            <div class="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500/20 to-purple-950/70 border border-purple-400/40 flex items-center justify-center shadow-[0_0_25px_rgba(168,85,247,0.25)] group-hover:scale-105 transition-transform duration-300">
+            <div class="relative w-16 h-16 rounded-2xl bg-linear-to-br from-purple-500/20 to-purple-950/70 border border-purple-400/40 flex items-center justify-center shadow-[0_0_25px_rgba(168,85,247,0.25)] group-hover:scale-105 transition-transform duration-300">
               <svg class="w-8 h-8 text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
@@ -444,25 +620,25 @@ layout: layout.html
               </span>
             </div>
             <!-- Signal Label -->
-            <span class="mt-2 text-[10px] font-mono tracking-widest text-purple-200/90 font-bold uppercase">
-              Cloud Vault & Encryption
+            <span class="card-signal-label lens-morphable mt-2 text-[10px] font-mono tracking-widest text-purple-200/90 font-bold uppercase">
+              Zero-Trust Edge Perimeter
             </span>
           </div>
 
           <!-- TYPOGRAPHY TIER: Large, Razor-Sharp Headlines & Benefits -->
           <div class="flex flex-col relative z-10">
-            <h3 class="text-lg sm:text-xl font-bold font-headline text-white tracking-tight leading-snug mb-1.5 group-hover:text-purple-200 transition-colors">
-              Managed Cloud & Bulletproof Security
+            <h3 class="card-headline lens-morphable text-lg sm:text-xl font-bold font-headline text-white tracking-tight leading-snug mb-1.5 group-hover:text-purple-200 transition-colors">
+              Mission-Critical Serverless Cloud &amp; Security
             </h3>
-            <p class="text-xs sm:text-sm text-slate-200 font-normal leading-relaxed mb-3">
-              Enterprise-grade cloud hosting, automated daily backups, and bank-grade data security that keeps your business software safe and online.
+            <p class="card-subtext lens-morphable text-xs sm:text-sm text-slate-200 font-normal leading-relaxed mb-3">
+              High-availability multi-region cloud architectures with automated blue-green rollouts, immutable encrypted backups, and 99.99% operational SLA.
             </p>
           </div>
 
           <!-- BOTTOM TIER: High-Contrast Outcome Metric & Action Link -->
           <div class="flex items-center justify-between pt-2.5 border-t border-white/10 relative z-10">
-            <span class="text-[11px] font-mono font-bold text-purple-300 bg-purple-950/70 px-2.5 py-1 rounded-md border border-purple-500/30">
-              99.99% Uptime • Daily Backups
+            <span class="card-metric-label lens-morphable text-[11px] font-mono font-bold text-purple-300 bg-purple-950/70 px-2.5 py-1 rounded-md border border-purple-500/30">
+              99.99% Uptime SLA • Multi-Region Vault
             </span>
             <a href="#contact" class="inline-flex items-center gap-1 text-xs font-bold text-purple-400 hover:text-white transition-colors shrink-0">
               <span>Deploy</span> <span>→</span>
@@ -498,21 +674,24 @@ layout: layout.html
     </div>
 
     <!-- Desktop, Tablet & Mobile Interaction Hints -->
-    <div class="hidden lg:flex items-center justify-center gap-3 mt-3 text-xs font-mono text-slate-500 select-none">
-      <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span> Drag or click any card</span>
-      <span class="text-slate-700">•</span>
-      <span>Use <kbd class="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-slate-300">←</kbd> <kbd class="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-slate-300">→</kbd> keys</span>
-    </div>
+    <div id="orbit-interaction-hints" class="w-full flex flex-col items-center">
+      <div class="hidden lg:flex items-center justify-center gap-3 mt-3 text-xs font-mono text-slate-500 select-none">
+        <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span> Drag or click any card</span>
+        <span class="text-slate-700">•</span>
+        <span>Use <kbd class="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-slate-300">←</kbd> <kbd class="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-slate-300">→</kbd> keys</span>
+      </div>
 
-    <div class="hidden md:flex lg:hidden items-center justify-center gap-2 mt-3 text-xs font-mono text-slate-500 select-none">
-      <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
-      <span>Swipe or tap any card or dot to explore</span>
-    </div>
+      <div class="hidden md:flex lg:hidden items-center justify-center gap-2 mt-3 text-xs font-mono text-slate-500 select-none">
+        <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+        <span>Swipe or tap any card or dot to explore</span>
+      </div>
 
-    <div class="flex md:hidden items-center justify-center gap-2 mt-3 text-[11px] font-mono text-slate-500 select-none">
-      <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
-      <span>Swipe left or right to explore systems</span>
+      <div class="flex md:hidden items-center justify-center gap-2 mt-3 text-[11px] font-mono text-slate-500 select-none">
+        <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+        <span>Swipe left or right to explore systems</span>
+      </div>
     </div>
+  </div>
 </section>
 
 <!-- Section 3: Pinned Solutions Showcase -->
@@ -520,7 +699,7 @@ layout: layout.html
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col md:flex-row items-center justify-between gap-12">
     
     <!-- Left: Text content -->
-    <div class="w-full md:w-1/2 relative h-[300px]">
+    <div class="w-full md:w-1/2 relative h-75">
       
       <!-- Feature 1 -->
       <div class="solution-text absolute inset-0 flex flex-col justify-center">
@@ -543,7 +722,7 @@ layout: layout.html
     </div>
 
     <!-- Right: Visual Container -->
-    <div class="w-full md:w-1/2 relative h-[400px] md:h-[500px] flex items-center justify-center">
+    <div class="w-full md:w-1/2 relative h-100 md:h-125 flex items-center justify-center">
       <div class="absolute inset-0 bg-[#05070A]/60 border border-white/20 rounded-3xl backdrop-blur-2xl flex items-center justify-center overflow-hidden shadow-[0_0_80px_rgba(0,0,0,0.8)]">
         
         <!-- Visual 1: Multi-Agent Swarms -->
@@ -581,13 +760,13 @@ layout: layout.html
     </div>
     
     <!-- 3D Stack Wrapper -->
-    <div class="arch-stack-wrapper relative w-[90vw] max-w-4xl h-[160px] md:h-[220px] mt-24 transition-transform duration-1000 ease-out" style="transform-style: preserve-3d; transform: rotateX(50deg) translateZ(0px);">
+    <div class="arch-stack-wrapper relative w-[90vw] max-w-4xl h-40 md:h-55 mt-24 transition-transform duration-1000 ease-out" style="transform-style: preserve-3d; transform: rotateX(50deg) translateZ(0px);">
       
       <!-- Layer 4: Data (Bottom) -->
       <div class="arch-layer absolute inset-0 bg-rose-950/60 border border-rose-500/40 backdrop-blur-md rounded-3xl shadow-[0_0_50px_rgba(244,63,94,0.1)] flex items-center justify-between p-8 md:p-12 transition-all duration-300" style="transform-style: preserve-3d; transform: translateZ(0px) translateY(0px);" data-target-z="-300" data-target-y="180">
         <!-- Glowing accent -->
-        <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-rose-400 to-transparent opacity-50"></div>
-        <div class="absolute inset-0 bg-[linear-gradient(rgba(244,63,94,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(244,63,94,0.05)_1px,transparent_1px)] bg-[size:20px_20px] rounded-3xl"></div>
+        <div class="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-rose-400 to-transparent opacity-50"></div>
+        <div class="absolute inset-0 bg-[linear-gradient(rgba(244,63,94,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(244,63,94,0.05)_1px,transparent_1px)] bg-size-[20px_20px] rounded-3xl"></div>
         
         <div class="relative z-10 w-full flex items-center justify-between opacity-0 arch-layer-content">
            <div class="flex-1">
@@ -603,8 +782,8 @@ layout: layout.html
 
       <!-- Layer 3: Compute -->
       <div class="arch-layer absolute inset-0 bg-purple-950/60 border border-purple-500/40 backdrop-blur-md rounded-3xl shadow-[0_0_50px_rgba(168,85,247,0.1)] flex items-center justify-between p-8 md:p-12 transition-all duration-300" style="transform-style: preserve-3d; transform: translateZ(0px) translateY(0px);" data-target-z="-100" data-target-y="60">
-        <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-purple-400 to-transparent opacity-50"></div>
-        <div class="absolute inset-0 bg-[linear-gradient(rgba(168,85,247,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(168,85,247,0.05)_1px,transparent_1px)] bg-[size:20px_20px] rounded-3xl"></div>
+        <div class="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-purple-400 to-transparent opacity-50"></div>
+        <div class="absolute inset-0 bg-[linear-gradient(rgba(168,85,247,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(168,85,247,0.05)_1px,transparent_1px)] bg-size-[20px_20px] rounded-3xl"></div>
         
         <div class="relative z-10 w-full flex items-center justify-between opacity-0 arch-layer-content">
            <div class="flex-1">
@@ -620,8 +799,8 @@ layout: layout.html
 
       <!-- Layer 2: Edge -->
       <div class="arch-layer absolute inset-0 bg-indigo-950/60 border border-indigo-500/40 backdrop-blur-md rounded-3xl shadow-[0_0_50px_rgba(99,102,241,0.1)] flex items-center justify-between p-8 md:p-12 transition-all duration-300" style="transform-style: preserve-3d; transform: translateZ(0px) translateY(0px);" data-target-z="100" data-target-y="-60">
-        <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-indigo-400 to-transparent opacity-50"></div>
-        <div class="absolute inset-0 bg-[linear-gradient(rgba(99,102,241,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(99,102,241,0.05)_1px,transparent_1px)] bg-[size:20px_20px] rounded-3xl"></div>
+        <div class="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-indigo-400 to-transparent opacity-50"></div>
+        <div class="absolute inset-0 bg-[linear-gradient(rgba(99,102,241,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(99,102,241,0.05)_1px,transparent_1px)] bg-size-[20px_20px] rounded-3xl"></div>
         
         <div class="relative z-10 w-full flex items-center justify-between opacity-0 arch-layer-content">
            <div class="flex-1">
@@ -637,8 +816,8 @@ layout: layout.html
 
       <!-- Layer 1: Client (Top) -->
       <div class="arch-layer absolute inset-0 bg-cyan-950/60 border border-cyan-500/40 backdrop-blur-md rounded-3xl shadow-[0_0_50px_rgba(34,211,238,0.1)] flex items-center justify-between p-8 md:p-12 transition-all duration-300" style="transform-style: preserve-3d; transform: translateZ(0px) translateY(0px);" data-target-z="300" data-target-y="-180">
-        <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-50"></div>
-        <div class="absolute inset-0 bg-[linear-gradient(rgba(34,211,238,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(34,211,238,0.05)_1px,transparent_1px)] bg-[size:20px_20px] rounded-3xl"></div>
+        <div class="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-cyan-400 to-transparent opacity-50"></div>
+        <div class="absolute inset-0 bg-[linear-gradient(rgba(34,211,238,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(34,211,238,0.05)_1px,transparent_1px)] bg-size-[20px_20px] rounded-3xl"></div>
         
         <div class="relative z-10 w-full flex items-center justify-between opacity-0 arch-layer-content">
            <div class="flex-1">
@@ -666,9 +845,9 @@ layout: layout.html
     
     <div class="portfolio-container flex gap-10 px-8 md:px-16 w-[300vw] md:w-[200vw]">
       <!-- Card 1 -->
-      <div class="portfolio-card w-[85vw] md:w-[60vw] flex-shrink-0 h-[50vh] md:h-[60vh] glass-panel rounded-[2rem] border border-cyan-500/20 overflow-hidden relative group shadow-2xl">
-        <div class="absolute inset-0 bg-gradient-to-br from-slate-900 to-cyan-950/50"></div>
-        <img src="/assets/certified_infrastructure.jpg" class="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-overlay group-hover:scale-105 transition-transform duration-1000" />
+      <div class="portfolio-card w-[85vw] md:w-[60vw] shrink-0 h-[50vh] md:h-[60vh] glass-panel rounded-4xl border border-cyan-500/20 overflow-hidden relative group shadow-2xl">
+        <div class="absolute inset-0 bg-linear-to-br from-slate-900 to-cyan-950/50"></div>
+        <img src="/assets/certified_infrastructure.jpg" alt="FiscalX FinTech Cloud Infrastructure Dashboard" class="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-overlay group-hover:scale-105 transition-transform duration-1000" />
         <div class="absolute inset-0 p-10 md:p-16 flex flex-col justify-between">
           <div class="flex justify-between items-start">
             <h3 class="text-4xl md:text-6xl font-black text-white">FiscalX</h3>
@@ -684,9 +863,9 @@ layout: layout.html
       </div>
 
       <!-- Card 2 -->
-      <div class="portfolio-card w-[85vw] md:w-[60vw] flex-shrink-0 h-[50vh] md:h-[60vh] glass-panel rounded-[2rem] border border-emerald-500/20 overflow-hidden relative group shadow-2xl">
-        <div class="absolute inset-0 bg-gradient-to-br from-slate-900 to-emerald-950/50"></div>
-        <img src="/assets/multi_agent_swarms.jpg" class="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-overlay group-hover:scale-105 transition-transform duration-1000" />
+      <div class="portfolio-card w-[85vw] md:w-[60vw] shrink-0 h-[50vh] md:h-[60vh] glass-panel rounded-4xl border border-emerald-500/20 overflow-hidden relative group shadow-2xl">
+        <div class="absolute inset-0 bg-linear-to-br from-slate-900 to-emerald-950/50"></div>
+        <img src="/assets/multi_agent_swarms.jpg" alt="My Choice Auto AI Appointment Scheduling System" class="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-overlay group-hover:scale-105 transition-transform duration-1000" />
         <div class="absolute inset-0 p-10 md:p-16 flex flex-col justify-between">
           <div class="flex justify-between items-start">
             <h3 class="text-4xl md:text-6xl font-black text-white">My Choice Auto</h3>
@@ -702,9 +881,9 @@ layout: layout.html
       </div>
 
       <!-- Card 3 -->
-      <div class="portfolio-card w-[85vw] md:w-[60vw] flex-shrink-0 h-[50vh] md:h-[60vh] glass-panel rounded-[2rem] border border-purple-500/20 overflow-hidden relative group shadow-2xl">
-        <div class="absolute inset-0 bg-gradient-to-br from-slate-900 to-purple-950/50"></div>
-        <img src="/assets/real_time_observability.jpg" class="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-overlay group-hover:scale-105 transition-transform duration-1000" />
+      <div class="portfolio-card w-[85vw] md:w-[60vw] shrink-0 h-[50vh] md:h-[60vh] glass-panel rounded-4xl border border-purple-500/20 overflow-hidden relative group shadow-2xl">
+        <div class="absolute inset-0 bg-linear-to-br from-slate-900 to-purple-950/50"></div>
+        <img src="/assets/real_time_observability.jpg" alt="HealthSync AI Autonomous Document Processing Pipeline" class="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-overlay group-hover:scale-105 transition-transform duration-1000" />
         <div class="absolute inset-0 p-10 md:p-16 flex flex-col justify-between">
           <div class="flex justify-between items-start">
             <h3 class="text-4xl md:text-6xl font-black text-white">HealthSync AI</h3>
@@ -724,13 +903,13 @@ layout: layout.html
 
 <!-- Section 5: The ROI / Footer -->
 <section id="roi-section" class="py-32 relative z-10 bg-[#020617] border-t border-white/5 overflow-hidden">
-  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-cyan-900/20 via-[#020617] to-[#020617]"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-cyan-900/20 via-[#020617] to-[#020617]"></div>
   
   <div class="max-w-7xl mx-auto px-4 md:px-16 relative z-10 flex flex-col md:flex-row items-center justify-between gap-16">
     
     <div class="flex-1">
       <h2 class="text-5xl md:text-7xl font-bold font-headline text-white tracking-tighter mb-8 leading-tight">
-        The Cost of<br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-orange-500">Inaction.</span>
+        The Cost of<br/><span class="text-transparent bg-clip-text bg-linear-to-r from-rose-500 to-orange-500">Inaction.</span>
       </h2>
       <p class="text-slate-400 text-xl md:text-2xl font-light mb-12 max-w-xl leading-relaxed">
         Every day without autonomous systems is revenue left on the table. Legacy workflows are a tax on your margins.
@@ -748,27 +927,126 @@ layout: layout.html
       </div>
       
       <a href="#contact" class="group relative inline-flex items-center justify-center px-8 py-5 font-bold tracking-widest uppercase text-white bg-white/5 border border-white/10 rounded-full hover:bg-cyan-500/20 hover:border-cyan-400 transition-all overflow-hidden w-full md:w-auto">
-        <div class="absolute inset-0 w-0 bg-gradient-to-r from-cyan-500 to-indigo-500 transition-all duration-500 ease-out group-hover:w-full -z-10"></div>
+        <div class="absolute inset-0 w-0 bg-linear-to-r from-cyan-500 to-indigo-500 transition-all duration-500 ease-out group-hover:w-full -z-10"></div>
         Deploy Your System
       </a>
     </div>
 
-    <!-- Terminal Visual -->
-    <div class="flex-1 w-full max-w-xl">
-      <div class="glass-panel rounded-2xl border border-white/10 overflow-hidden shadow-2xl bg-black/80">
+    <!-- Terminal Visual & Interactive ROI Console (Phase 4 Tasks 4.1 & 4.2) -->
+    <div class="flex-1 w-full max-w-xl flex flex-col gap-6">
+      
+      <!-- Interactive ROI Input Controls (Phase 4 Task 4.1) -->
+      <div class="roi-controls-card rounded-2xl border border-white/12 bg-slate-950/80 backdrop-blur-xl p-5 md:p-6 shadow-[0_20px_50px_rgba(0,0,0,0.8),inset_0_1px_1px_rgba(255,255,255,0.1)] relative overflow-hidden">
+        <!-- Ambient subtle glow -->
+        <div class="absolute -top-12 -right-12 w-32 h-32 rounded-full bg-amber-500/10 blur-2xl pointer-events-none"></div>
+
+        <div class="flex items-center justify-between mb-5 border-b border-white/10 pb-3">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse shadow-[0_0_8px_rgba(245,158,11,0.8)]"></span>
+            <span class="text-xs font-mono font-bold tracking-widest text-amber-300 uppercase">Input Business Variables</span>
+          </div>
+          <span class="text-[11px] font-mono text-slate-400">Live Simulation</span>
+        </div>
+
+        <div class="space-y-5">
+          <!-- Slider 1: Weekly Inbound Inquiries -->
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <label for="roi-slider-inquiries" class="text-xs sm:text-sm font-headline font-semibold text-slate-200 flex items-center gap-1.5 select-none">
+                <span>📞 Weekly Inbound Inquiries / Calls</span>
+              </label>
+              <span id="roi-val-inquiries" class="text-xs font-mono font-bold text-amber-300 bg-amber-950/60 border border-amber-500/30 px-2.5 py-0.5 rounded-full shadow-[0_0_10px_rgba(245,158,11,0.15)]">
+                25 calls/wk
+              </span>
+            </div>
+            
+            <div class="relative flex items-center">
+              <input type="range" id="roi-slider-inquiries" min="5" max="100" step="1" value="25" class="roi-slider w-full cursor-pointer" aria-label="Weekly Inbound Inquiries / Calls slider" aria-valuemin="5" aria-valuemax="100" aria-valuenow="25">
+            </div>
+
+            <div class="flex justify-between text-[10px] font-mono text-slate-500 select-none">
+              <span>5 / wk (Boutique)</span>
+              <span>50 / wk</span>
+              <span>100+ / wk (High-Volume)</span>
+            </div>
+          </div>
+
+          <!-- Slider 2: Average Customer / Job Value -->
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <label for="roi-slider-ticket" class="text-xs sm:text-sm font-headline font-semibold text-slate-200 flex items-center gap-1.5 select-none">
+                <span>💎 Average Deal / Job Value</span>
+              </label>
+              <span id="roi-val-ticket" class="text-xs font-mono font-bold text-amber-300 bg-amber-950/60 border border-amber-500/30 px-2.5 py-0.5 rounded-full shadow-[0_0_10px_rgba(245,158,11,0.15)]">
+                $650 / deal
+              </span>
+            </div>
+            
+            <div class="relative flex items-center">
+              <input type="range" id="roi-slider-ticket" min="150" max="5000" step="50" value="650" class="roi-slider w-full cursor-pointer" aria-label="Average Deal or Job Value slider" aria-valuemin="150" aria-valuemax="5000" aria-valuenow="650">
+            </div>
+
+            <div class="flex justify-between text-[10px] font-mono text-slate-500 select-none">
+              <span>$150 (Retail/Micro)</span>
+              <span>$2,500</span>
+              <span>$5,000+ (Enterprise/Commercial)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Terminal Visual -->
+      <div id="roi-terminal-visual" class="glass-panel rounded-2xl border border-white/10 overflow-hidden shadow-2xl bg-black/80">
         <div class="h-10 border-b border-white/10 flex items-center px-4 gap-2 bg-white/5">
           <div class="w-3 h-3 rounded-full bg-rose-500/80"></div>
           <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
           <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
-          <div class="ml-4 text-xs font-mono text-slate-500">root@lumilore:~</div>
+          <div class="ml-4 text-xs font-mono text-slate-500">root@lumilore:~/roi-calculator</div>
         </div>
-        <div class="p-8 font-mono text-sm text-cyan-400 leading-loose h-[300px] flex flex-col justify-end">
-          <p class="text-slate-500">> Executing ROI calculation...</p>
-          <p class="text-slate-300">> Analyzing operational overhead...</p>
-          <p class="text-emerald-400">> Bottlenecks identified: 4</p>
-          <p class="text-slate-300">> Projecting autonomous savings...</p>
-          <p class="text-white text-lg mt-4 font-bold border-l-2 border-cyan-400 pl-4">ANNUAL SAVINGS: $120,000+</p>
-          <p class="text-white mt-4 flex items-center gap-2">> SYSTEM READY <span class="w-2 h-5 bg-white animate-pulse inline-block"></span></p>
+        <!-- Terminal Body (Phase 4 Task 4.2) -->
+        <div id="roi-terminal-body" class="p-5 md:p-7 font-mono text-xs sm:text-sm text-cyan-300 leading-relaxed min-h-67.5 flex flex-col justify-between">
+          
+          <div class="space-y-2">
+            <p class="text-slate-500 flex items-center gap-2">
+              <span class="text-cyan-400">></span> [QUANT-KERNEL] Autonomous Yield Engine v4.2 active
+            </p>
+            <p class="text-slate-300 flex items-center gap-2">
+              <span class="text-cyan-400">></span> Parameters: <span id="term-param-inquiries" class="text-amber-300 font-bold">25 calls/wk</span> • Ticket: <span id="term-param-ticket" class="text-amber-300 font-bold">$650/deal</span>
+            </p>
+            <p class="text-slate-400 flex items-center gap-2">
+              <span class="text-cyan-400">></span> Missed Inbound Opportunity: ~<span id="term-missed-leads" class="text-rose-400 font-bold">8.8 calls/wk</span> <span class="text-[10px] text-slate-500">(35% industry drop)</span>
+            </p>
+            <p class="text-slate-300 flex items-center gap-2">
+              <span class="text-cyan-400">></span> Projected Monthly Recovery: <span id="term-monthly-rev" class="text-cyan-200 font-bold">$24,646 / mo</span>
+            </p>
+          </div>
+
+          <!-- Highlight Annual Savings Banner -->
+          <div class="my-3 p-3.5 sm:p-4 rounded-xl bg-linear-to-r from-emerald-950/70 via-slate-900/90 to-cyan-950/70 border border-emerald-500/40 shadow-[0_0_25px_rgba(16,185,129,0.15)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+            <div>
+              <div class="text-[10px] font-mono uppercase tracking-widest text-emerald-300/80 font-bold">
+                Recoverable Annual Revenue
+              </div>
+              <div class="text-[11px] text-slate-400">
+                100% automated capture • Zero new headcount
+              </div>
+            </div>
+            <div id="term-annual-rev" class="text-2xl sm:text-3xl font-bold font-mono text-emerald-400 tracking-tight transition-all duration-200" style="text-shadow: 0 0 16px rgba(52,211,153,0.5);">
+              $295,750
+            </div>
+          </div>
+
+          <!-- Terminal Status Footer -->
+          <div class="flex items-center justify-between text-[11px] text-slate-400 border-t border-white/10 pt-2.5">
+            <span class="flex items-center gap-1.5 text-emerald-400 font-bold">
+              <span>●</span> <span id="term-status-text">STATUS: AUTONOMOUS GAINS VERIFIED</span>
+            </span>
+            <span class="text-slate-500 font-mono flex items-center gap-1">
+              <span>READY</span>
+              <span class="w-1.5 h-3.5 bg-cyan-400 animate-pulse inline-block"></span>
+            </span>
+          </div>
+
         </div>
       </div>
     </div>
@@ -776,8 +1054,38 @@ layout: layout.html
   </div>
 </section>
 
+<!-- The "Sticky ROI" CRO Conversion Bar (Phase 4 Task 4.3) -->
+<aside id="sticky-roi-bar" class="fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-4xl rounded-2xl sm:rounded-full bg-[#05070A]/95 backdrop-blur-2xl border border-amber-500/35 p-3 sm:px-6 sm:py-3.5 shadow-[0_20px_50px_rgba(0,0,0,0.9),0_0_35px_rgba(245,158,11,0.22)] flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 translate-y-36 opacity-0 pointer-events-none transition-all duration-500 ease-out select-none" role="complementary" aria-label="Recoverable Revenue Notification">
+  <!-- Left: Warning & Dynamic Value Message -->
+  <div class="flex items-center gap-3 text-left w-full sm:w-auto">
+    <div class="w-8 h-8 rounded-full bg-amber-500/20 border border-amber-500/40 flex items-center justify-center shrink-0 shadow-[0_0_12px_rgba(245,158,11,0.3)]">
+      <span class="text-sm">⚠️</span>
+    </div>
+    <div class="text-xs sm:text-sm text-slate-200 font-headline leading-tight">
+      <span>You are leaving</span>
+      <span id="sticky-roi-val" class="font-bold text-amber-300 font-mono text-sm sm:text-base underline decoration-amber-500/60 decoration-2 underline-offset-4 px-1">$295,750</span>
+      <span>on the table annually.</span>
+      <span class="hidden md:inline text-slate-400 font-normal">Let's eliminate the bottleneck.</span>
+    </div>
+  </div>
+
+  <!-- Right: Direct CTA & Dismiss Button -->
+  <div class="flex items-center justify-end gap-2.5 w-full sm:w-auto shrink-0">
+    <a href="#contact" id="sticky-roi-cta" class="glow-amber-cta group inline-flex items-center justify-center gap-2 px-5 py-2 sm:py-2.5 rounded-full text-slate-950 text-xs sm:text-sm font-bold tracking-wide uppercase transition-all whitespace-nowrap shadow-[0_0_20px_rgba(245,158,11,0.4)] hover:shadow-[0_0_30px_rgba(245,158,11,0.7)] w-full sm:w-auto">
+      <span>Schedule Deployment</span>
+      <span class="group-hover:translate-x-0.5 transition-transform">→</span>
+    </a>
+
+    <button type="button" id="sticky-roi-dismiss" class="p-1.5 rounded-full text-slate-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 shrink-0" aria-label="Dismiss revenue notification">
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+</aside>
+
 <!-- Super Minimalist Footer -->
-<footer class="py-12 border-t border-white/5 bg-[#020617] relative z-10 text-center">
+<footer id="contact" class="py-12 border-t border-white/5 bg-[#020617] relative z-10 text-center scroll-mt-10">
   <div class="flex items-center justify-center gap-3 mb-6">
     <span class="text-white/50 font-bold tracking-widest uppercase text-sm">LumiLore Technologies</span>
   </div>
@@ -785,11 +1093,16 @@ layout: layout.html
 </footer>
 </div>
 
-<!-- Cinematic Particle System Script -->
+<!-- Cinematic Particle System Script (Phase 5 Task 5.1: 60fps Mobile Particle Throttling) -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('webgl-container');
     if (!container || typeof THREE === 'undefined') return;
+
+    // --- Viewport & Device Diagnostics ---
+    const isMobile = window.innerWidth < 768;
+    let currentIsMobile = isMobile;
+    const maxDPR = isMobile ? 1.5 : 2.0;
 
     // --- Scene Setup ---
     const scene = new THREE.Scene();
@@ -798,79 +1111,81 @@ layout: layout.html
 
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: "high-performance" });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // Cap at 2 for performance
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, maxDPR));
     container.appendChild(renderer.domElement);
 
-    // --- Geometry & Particles ---
-    const particleCount = 35000;
-    const geometry = new THREE.BufferGeometry();
+    // --- Dynamic Particle Geometry Generator ---
+    function createParticleGeometry(count) {
+      const geo = new THREE.BufferGeometry();
+      const pos1 = new Float32Array(count * 3);
+      const pos2 = new Float32Array(count * 3);
+      const pos3 = new Float32Array(count * 3);
+      const pos4 = new Float32Array(count * 3);
 
-    const position1 = new Float32Array(particleCount * 3); // Sphere
-    const position2 = new Float32Array(particleCount * 3); // Galaxy
-    const position3 = new Float32Array(particleCount * 3); // Torus Knot
-    const position4 = new Float32Array(particleCount * 3); // Ring
+      for (let i = 0; i < count; i++) {
+        const i3 = i * 3;
 
-    for (let i = 0; i < particleCount; i++) {
-      const i3 = i * 3;
-      
-      // 1. Sphere (Hero)
-      const u = Math.random();
-      const v = Math.random();
-      const theta = u * 2.0 * Math.PI;
-      const phi = Math.acos(2.0 * v - 1.0);
-      const r = 2.5 + (Math.random() * 0.2); // slight thickness
-      position1[i3] = r * Math.sin(phi) * Math.cos(theta);
-      position1[i3 + 1] = r * Math.sin(phi) * Math.sin(theta);
-      position1[i3 + 2] = r * Math.cos(phi);
+        // 1. Sphere (Hero)
+        const u = Math.random();
+        const v = Math.random();
+        const theta = u * 2.0 * Math.PI;
+        const phi = Math.acos(2.0 * v - 1.0);
+        const r = 2.5 + (Math.random() * 0.2);
+        pos1[i3] = r * Math.sin(phi) * Math.cos(theta);
+        pos1[i3 + 1] = r * Math.sin(phi) * Math.sin(theta);
+        pos1[i3 + 2] = r * Math.cos(phi);
 
-      // 2. Galaxy (Solutions)
-      const arm = Math.floor(Math.random() * 3);
-      const dist = Math.random() * 5;
-      const angle = dist * 1.5 + (arm * Math.PI * 2 / 3);
-      const spread = (5 - dist) * 0.2 * (Math.random() - 0.5);
-      position2[i3] = Math.cos(angle) * dist + spread;
-      position2[i3 + 1] = (Math.random() - 0.5) * 0.5; // Flatter Y
-      position2[i3 + 2] = Math.sin(angle) * dist + spread;
+        // 2. Galaxy (Solutions)
+        const arm = Math.floor(Math.random() * 3);
+        const dist = Math.random() * 5;
+        const angle = dist * 1.5 + (arm * Math.PI * 2 / 3);
+        const spread = (5 - dist) * 0.2 * (Math.random() - 0.5);
+        pos2[i3] = Math.cos(angle) * dist + spread;
+        pos2[i3 + 1] = (Math.random() - 0.5) * 0.5;
+        pos2[i3 + 2] = Math.sin(angle) * dist + spread;
 
-      // 3. Torus Knot (Architecture) - approximating points around a knot
-      const t = Math.random() * Math.PI * 2;
-      const p = 2;
-      const q = 3;
-      const rKnot = 0.8 + (Math.random() * 0.4);
-      const xKnot = rKnot * (2 + Math.cos(q * t)) * Math.cos(p * t);
-      const yKnot = rKnot * (2 + Math.cos(q * t)) * Math.sin(p * t);
-      const zKnot = rKnot * Math.sin(q * t);
-      position3[i3] = xKnot;
-      position3[i3 + 1] = yKnot;
-      position3[i3 + 2] = zKnot;
+        // 3. Torus Knot (Architecture)
+        const t = Math.random() * Math.PI * 2;
+        const p = 2;
+        const q = 3;
+        const rKnot = 0.8 + (Math.random() * 0.4);
+        pos3[i3] = rKnot * (2 + Math.cos(q * t)) * Math.cos(p * t);
+        pos3[i3 + 1] = rKnot * (2 + Math.cos(q * t)) * Math.sin(p * t);
+        pos3[i3 + 2] = rKnot * Math.sin(q * t);
 
-      // 4. Ring (ROI / End)
-      const ringAngle = Math.random() * Math.PI * 2;
-      const ringRadius = 4.0 + (Math.random() * 1.5);
-      position4[i3] = Math.cos(ringAngle) * ringRadius;
-      position4[i3 + 1] = (Math.random() - 0.5) * 0.2;
-      position4[i3 + 2] = Math.sin(ringAngle) * ringRadius;
+        // 4. Ring (ROI / End)
+        const ringAngle = Math.random() * Math.PI * 2;
+        const ringRadius = 4.0 + (Math.random() * 1.5);
+        pos4[i3] = Math.cos(ringAngle) * ringRadius;
+        pos4[i3 + 1] = (Math.random() - 0.5) * 0.2;
+        pos4[i3 + 2] = Math.sin(ringAngle) * ringRadius;
+      }
+
+      geo.setAttribute('position', new THREE.BufferAttribute(pos1, 3));
+      geo.setAttribute('position1', new THREE.BufferAttribute(pos1, 3));
+      geo.setAttribute('position2', new THREE.BufferAttribute(pos2, 3));
+      geo.setAttribute('position3', new THREE.BufferAttribute(pos3, 3));
+      geo.setAttribute('position4', new THREE.BufferAttribute(pos4, 3));
+
+      return geo;
     }
 
-    // Assign attributes
-    // position is required by Three.js shader, we'll use position1 as default
-    geometry.setAttribute('position', new THREE.BufferAttribute(position1, 3)); 
-    geometry.setAttribute('position1', new THREE.BufferAttribute(position1, 3));
-    geometry.setAttribute('position2', new THREE.BufferAttribute(position2, 3));
-    geometry.setAttribute('position3', new THREE.BufferAttribute(position3, 3));
-    geometry.setAttribute('position4', new THREE.BufferAttribute(position4, 3));
+    const initialCount = isMobile ? 8000 : 35000;
+    const geometry = createParticleGeometry(initialCount);
 
-    // --- Custom Shader Material ---
+    // --- Custom Shader Material with Dynamic Point Size ---
     const material = new THREE.ShaderMaterial({
       uniforms: {
         uProgress: { value: 0.0 },
         uTime: { value: 0.0 },
+        uPointSize: { value: isMobile ? 14.5 : 12.0 },
         uColor1: { value: new THREE.Color('#00F2FE') }, // Vibrant Cyan
         uColor2: { value: new THREE.Color('#6366F1') }  // Vibrant Indigo
       },
       vertexShader: `
         uniform float uProgress;
         uniform float uTime;
+        uniform float uPointSize;
         attribute vec3 position1;
         attribute vec3 position2;
         attribute vec3 position3;
@@ -899,8 +1214,8 @@ layout: layout.html
           vec4 mvPosition = modelViewMatrix * vec4(finalPos, 1.0);
           gl_Position = projectionMatrix * mvPosition;
           
-          // Size attenuation based on distance
-          gl_PointSize = (12.0 / -mvPosition.z);
+          // Size attenuation based on distance and device point size
+          gl_PointSize = (uPointSize / -mvPosition.z);
           
           // Color mixing based on depth and position
           float mixFactor = clamp((finalPos.x + finalPos.z) * 0.2 + 0.5, 0.0, 1.0);
@@ -926,27 +1241,42 @@ layout: layout.html
 
     const particles = new THREE.Points(geometry, material);
     
-    // Make the particle sphere MASSIVE to fill the background
+    // Scale particle sphere to fill background
     particles.position.x = 0; 
     particles.position.y = 0;
-    particles.scale.set(2.0, 2.0, 2.0); // 200% size
+    particles.scale.set(2.0, 2.0, 2.0);
     
     scene.add(particles);
 
-    // --- Expose for Phase 3 (GSAP) ---
+    // --- Dynamic Rebuild Function ---
+    function updateParticleCount(newCount) {
+      if (!particles) return;
+      const oldGeo = particles.geometry;
+      particles.geometry = createParticleGeometry(newCount);
+      if (oldGeo) oldGeo.dispose();
+      if (material && material.uniforms && material.uniforms.uPointSize) {
+        material.uniforms.uPointSize.value = (newCount < 15000) ? 14.5 : 12.0;
+      }
+    }
+
+    // --- Expose for Phase 3 (GSAP) & Developer Verification ---
     window.lumiParticleMaterial = material;
     window.lumiParticleSystem = particles;
+    window.lumiParticleCount = initialCount;
+    window.setLumiParticleCount = updateParticleCount;
 
     // --- Animation Loop ---
     const clock = new THREE.Clock();
     
-    // Mouse tracking for subtle parallax
+    // Mouse tracking for subtle parallax on pointer devices
     let mouseX = 0;
     let mouseY = 0;
-    document.addEventListener('mousemove', (e) => {
-      mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
-      mouseY = -(e.clientY / window.innerHeight - 0.5) * 2;
-    });
+    if (window.matchMedia('(pointer: fine)').matches) {
+      document.addEventListener('mousemove', (e) => {
+        mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+        mouseY = -(e.clientY / window.innerHeight - 0.5) * 2;
+      }, { passive: true });
+    }
 
     function animate() {
       requestAnimationFrame(animate);
@@ -954,20 +1284,35 @@ layout: layout.html
       const time = clock.getElapsedTime();
       material.uniforms.uTime.value = time;
       
-      // Gentle system rotation
-      particles.rotation.y = time * 0.05 + (mouseX * 0.2);
-      particles.rotation.x = (mouseY * 0.2);
+      // Gentle system rotation with smooth dampening
+      particles.rotation.y = time * 0.05 + (mouseX * 0.15);
+      particles.rotation.x = (mouseY * 0.15);
       
       renderer.render(scene, camera);
     }
     animate();
 
-    // --- Handle Resize ---
+    // --- Handle Resize with Cross-Breakpoint Adaptation ---
+    let resizeTimer = null;
     window.addEventListener('resize', () => {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
-    });
+
+      const isNowMobile = window.innerWidth < 768;
+      const targetDPR = isNowMobile ? 1.5 : 2.0;
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, targetDPR));
+
+      if (isNowMobile !== currentIsMobile) {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+          currentIsMobile = isNowMobile;
+          const targetCount = isNowMobile ? 8000 : 35000;
+          updateParticleCount(targetCount);
+          window.lumiParticleCount = targetCount;
+        }, 150);
+      }
+    }, { passive: true });
   });
 </script>
 
@@ -1220,6 +1565,7 @@ layout: layout.html
     });
 
     // Core Physics & State Variables
+    let isGridMode = false;
     let currentAngle = 0;          // Current rendered visual angle in degrees
     let targetAngle = 0;           // Target angle during spring/ease transitions
     let angularVelocity = 0;       // Velocity in deg/frame for inertia
@@ -1321,6 +1667,7 @@ layout: layout.html
     stage.style.perspectiveOrigin = '50% 48%';
 
     window.addEventListener('resize', () => {
+      if (isGridMode) return;
       responsiveConfig = getResponsiveConfig();
       orbitalRadius = responsiveConfig.radius;
       stage.style.perspective = `${responsiveConfig.perspective}px`;
@@ -1355,30 +1702,41 @@ layout: layout.html
 
     // --- Real-Time Dynamic Depth Sorting & Continuous Orbital Optics (Task 3.2) ---
     function updateCardDepths(ringAngle) {
+      if (isGridMode) return;
       cards.forEach((card, i) => {
         const baseAngle = i * 60;
         const totalAngle = baseAngle + ringAngle;
         const rad = (totalAngle * Math.PI) / 180;
         const zNorm = Math.cos(rad); // -1.0 (far rear) to +1.0 (front center)
 
-        // Continuous 360° Depth & Opacity Gradient (Task 3.2: Zero Culling / Zero Popping)
-        card.style.visibility = 'visible';
-
         const isFront = zNorm > 0.85;
-        const depthFactor = (zNorm + 1) / 2; // 0.0 (far rear) to 1.0 (front center)
+        const isRear = zNorm < 0.15;
 
-        // Smooth cosine-based opacity falloff:
-        // Front: 1.0, Flanks (~0.5 zNorm): ~0.70, Rear (-0.5 to -1.0 zNorm): 0.20 to 0.30
-        const opacity = isFront ? '1.0' : (0.20 + 0.80 * Math.pow(Math.max(0, depthFactor), 1.5)).toFixed(3);
+        // Front: 1.0. Flanks (zNorm ~0.5): ~0.70.
+        // Rear cards (zNorm < 0.15): fade to 0 and hide completely to eliminate bleed-through and overlap
+        let opacity = '0';
+        if (isFront) {
+          opacity = '1.0';
+        } else if (!isRear) {
+          const flankRatio = (zNorm - 0.15) / 0.70;
+          opacity = (0.30 + 0.55 * flankRatio).toFixed(3);
+        }
 
-        // Lock front-facing card scale strictly to 1.0 (Task 2.2 anti-blur); smooth scale falloff to 0.83 at rear
-        const scale = isFront ? '1.0' : (0.83 + 0.13 * Math.max(0, depthFactor)).toFixed(3);
+        // Lock front-facing card scale strictly to 1.0; smooth scale falloff to 0.86 at flanks
+        const scale = isFront ? '1.0' : (0.86 + 0.10 * Math.max(0, zNorm)).toFixed(3);
 
-        // Z-Index ordering: Front = 100, Flanks = ~75, Rear = ~0-25
+        // Z-Index ordering: Front = 100, Flanks = ~75, Rear = ~0
         const zIndex = Math.round((zNorm + 1) * 50);
 
-        // Interactive threshold: front & flank cards receive pointer events; rear cards pass through
-        card.style.pointerEvents = zNorm >= 0.15 ? 'auto' : 'none';
+        if (isRear) {
+          card.style.visibility = 'hidden';
+          card.style.opacity = '0';
+          card.style.pointerEvents = 'none';
+        } else {
+          card.style.visibility = 'visible';
+          card.style.opacity = opacity;
+          card.style.pointerEvents = zNorm >= 0.35 ? 'auto' : 'none';
+        }
 
         // 360° Amphitheater Yaw:
         // Constrain card world yaw to within [-26°, +26°] so all 6 cards continuously face the viewer
@@ -1405,12 +1763,14 @@ layout: layout.html
     }
 
     function renderRing(angle) {
+      if (isGridMode) return;
       ring.style.transform = `translateY(4px) rotateX(6deg) rotateY(${angle.toFixed(3)}deg)`;
       updateCardDepths(angle);
       updatePaginationDots(getFrontCardIndex());
     }
 
     function updateOrbit(now) {
+      if (isGridMode) return;
       // Delta time normalization (ensures identical rotational speed on 60Hz, 120Hz ProMotion, 144Hz+)
       const delta = Math.min((now - lastTimestamp) / 16.667, 2.0);
       lastTimestamp = now;
@@ -1511,6 +1871,7 @@ layout: layout.html
 
     // --- Pointer Drag Physics Engine (Task 3.4) ---
     stage.addEventListener('pointerdown', (e) => {
+      if (isGridMode) return;
       // Only handle primary button / primary touch point
       if (e.button !== 0 && e.pointerType === 'mouse') return;
       
@@ -1663,6 +2024,7 @@ layout: layout.html
 
     cards.forEach((card, index) => {
       card.addEventListener('click', (e) => {
+        if (isGridMode) return;
         // Ignore clicks triggered immediately after dragging or swiping
         if (performance.now() < suppressClickUntil) {
           e.preventDefault();
@@ -1688,21 +2050,7 @@ layout: layout.html
       });
     });
 
-    // --- Cursor Flashlight Glow Tracker (Phase 4 Task 4.2) ---
-    cards.forEach((card) => {
-      card.addEventListener('pointermove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        card.style.setProperty('--mouse-x', `${x.toFixed(1)}px`);
-        card.style.setProperty('--mouse-y', `${y.toFixed(1)}px`);
-      });
-
-      card.addEventListener('pointerleave', () => {
-        card.style.setProperty('--mouse-x', '50%');
-        card.style.setProperty('--mouse-y', '50%');
-      });
-    });
+    // (Note: Cursor spotlight & specular border reflections are managed globally by initCardSpotlightSystem with RAF throttling)
 
     // --- Dynamic Card Target Computation Engine ---
     function getFrontCardIndexForAngle(angle) {
@@ -1740,6 +2088,7 @@ layout: layout.html
 
     // Arrow keys, Home, End, Enter, Space keyboard navigation
     stage.addEventListener('keydown', (e) => {
+      if (isGridMode) return;
       const isStageOrCardFocused = stage === document.activeElement || Array.from(cards).some(c => c === document.activeElement || c.contains(document.activeElement));
       if (!isStageOrCardFocused) return;
 
@@ -1906,6 +2255,41 @@ layout: layout.html
 
     // Global Public Controller API
     window.lumiOrbitCarousel = {
+      get isGridMode() { return isGridMode; },
+      setMode(mode) {
+        if (mode === 'grid') {
+          isGridMode = true;
+          window.isOrbitGridMode = true;
+          stopRenderLoop();
+          cards.forEach(card => {
+            card.style.transform = '';
+            card.style.opacity = '';
+            card.style.zIndex = '';
+            card.style.pointerEvents = '';
+            card.style.filter = '';
+            card.classList.remove('is-active-front');
+          });
+          ring.style.transform = '';
+          stage.classList.add('is-grid-mode');
+          const sec = document.getElementById('services-orbit-section');
+          if (sec) sec.classList.add('is-grid-mode');
+          if (typeof ScrollTrigger !== 'undefined') {
+            ScrollTrigger.refresh();
+          }
+        } else {
+          isGridMode = false;
+          window.isOrbitGridMode = false;
+          stage.classList.remove('is-grid-mode');
+          const sec = document.getElementById('services-orbit-section');
+          if (sec) sec.classList.remove('is-grid-mode');
+          stage.style.perspective = `${responsiveConfig.perspective}px`;
+          renderRing(currentAngle);
+          checkExecutionState();
+          if (typeof ScrollTrigger !== 'undefined') {
+            ScrollTrigger.refresh();
+          }
+        }
+      },
       get currentAngle() { return currentAngle; },
       get targetAngle() { return targetAngle; },
       get isPaused() { return isPaused; },
@@ -1992,4 +2376,1056 @@ layout: layout.html
     };
   });
 </script>
+
+<!-- 3D Orbit / Bento Grid View Switcher Controller (Phase 3 Task 3.4) -->
+<script>
+  (function initCarouselViewMode() {
+    function setupViewMode() {
+      const toggleContainer = document.getElementById('carousel-view-mode-toggle');
+      if (!toggleContainer) return;
+
+      const orbitBtn = document.getElementById('view-btn-orbit');
+      const gridBtn = document.getElementById('view-btn-grid');
+      const indicator = document.getElementById('view-mode-indicator');
+      if (!orbitBtn || !gridBtn || !indicator) return;
+
+      let currentMode = 'orbit';
+
+      function applyViewMode(mode, immediate = false) {
+        currentMode = mode;
+        const isOrbit = mode === 'orbit';
+        const activeBtn = isOrbit ? orbitBtn : gridBtn;
+
+        // Animate glider pill indicator
+        indicator.style.left = activeBtn.offsetLeft + 'px';
+        indicator.style.width = activeBtn.offsetWidth + 'px';
+
+        // Update ARIA and styling
+        orbitBtn.setAttribute('aria-pressed', isOrbit ? 'true' : 'false');
+        gridBtn.setAttribute('aria-pressed', (!isOrbit).toString());
+
+        orbitBtn.classList.toggle('text-white', isOrbit);
+        orbitBtn.classList.toggle('text-slate-400', !isOrbit);
+        gridBtn.classList.toggle('text-white', !isOrbit);
+        gridBtn.classList.toggle('text-slate-400', isOrbit);
+
+        // Apply mode to 3D carousel engine
+        if (window.lumiOrbitCarousel && typeof window.lumiOrbitCarousel.setMode === 'function') {
+          window.lumiOrbitCarousel.setMode(mode);
+        } else {
+          window.isOrbitGridMode = !isOrbit;
+          const stage = document.querySelector('.orbit-carousel-stage');
+          const sec = document.getElementById('services-orbit-section');
+          if (stage) stage.classList.toggle('is-grid-mode', !isOrbit);
+          if (sec) sec.classList.toggle('is-grid-mode', !isOrbit);
+        }
+
+        try {
+          localStorage.setItem('lumilore_carousel_view', mode);
+        } catch (e) {}
+
+        if (typeof ScrollTrigger !== 'undefined') {
+          setTimeout(() => { ScrollTrigger.refresh(); }, 120);
+        }
+      }
+
+      orbitBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (currentMode === 'orbit') return;
+        applyViewMode('orbit');
+      });
+
+      gridBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (currentMode === 'grid') return;
+        applyViewMode('grid');
+      });
+
+      // Align glider on resize
+      window.addEventListener('resize', () => {
+        const activeBtn = currentMode === 'orbit' ? orbitBtn : gridBtn;
+        if (indicator && activeBtn) {
+          indicator.style.left = activeBtn.offsetLeft + 'px';
+          indicator.style.width = activeBtn.offsetWidth + 'px';
+        }
+      });
+
+      // Check saved preference or default to orbit
+      let initialMode = 'orbit';
+      try {
+        const saved = localStorage.getItem('lumilore_carousel_view');
+        if (saved === 'grid' || saved === 'orbit') {
+          initialMode = saved;
+        }
+      } catch (e) {}
+
+      // Initial alignment
+      requestAnimationFrame(() => {
+        applyViewMode(initialMode, true);
+      });
+
+      // Expose globally
+      window.setCarouselViewMode = applyViewMode;
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setupViewMode);
+    } else {
+      setupViewMode();
+    }
+  })();
+</script>
+
+<!-- Industry Lens Dual-Audience Switcher Engine (Phase 3 Task 3.1) -->
+<script>
+  (function initIndustryLens() {
+    const LENS_DATA = {
+      corporate: {
+        themeClass: 'lens-indicator-corporate',
+        statusPill: '06 Core Systems Operational // Enterprise Architecture',
+        subheadline: 'Certified autonomous systems engineered to eliminate busywork, capture every lead, and keep your enterprise scaling 24/7.',
+        cards: [
+          {
+            badge: 'AI AGENT SWARMS',
+            signal: 'Sub-800ms Voice Edge',
+            headline: 'Autonomous Voice & Agent Swarms',
+            subtext: 'Ultra-low latency conversational AI deployed on serverless edge runtimes, executing complex customer inquiries, quoting, and CRM sync at scale.',
+            metric: '<800ms Latency • 100% Call Deflection',
+            dotLabel: 'AI Agent Swarms'
+          },
+          {
+            badge: 'PROGRAMMABLE AR ENGINE',
+            signal: 'Real-Time Ledger Sync',
+            headline: 'Autonomous Billing & Revenue Workflows',
+            subtext: 'Event-driven invoice orchestration with programmatic payment reconciliations, smart collections escalation, and bidirectional ERP synchronization.',
+            metric: '99.4% Auto-Reconciled • Zero Leakage',
+            dotLabel: 'Billing & Revenue'
+          },
+          {
+            badge: 'ZERO-TRUST DATA INGEST',
+            signal: 'Cryptographic Audit Trail',
+            headline: 'Dynamic Client Intake & Compliance Portals',
+            subtext: 'High-fidelity digital onboarding pipelines with cryptographic e-signatures, automated document verification, and SOC-2 compliant tenant isolation.',
+            metric: 'SOC-2 Type II Ready • Instant Ingest',
+            dotLabel: 'Client Intake'
+          },
+          {
+            badge: 'RESOURCE ALLOCATION ENGINE',
+            signal: 'Distributed Calendar Sync',
+            headline: 'Predictive Dispatch & Calendar Orchestration',
+            subtext: 'Algorithmic calendar management and high-throughput dispatch engines utilizing real-time availability buffers and bidirectional Webhook triggers.',
+            metric: 'Zero Double-Booking • Instant Webhooks',
+            dotLabel: 'Predictive Dispatch'
+          },
+          {
+            badge: 'EVENT-DRIVEN INTEGRATION',
+            signal: 'Low-Latency API Mesh',
+            headline: 'Unified Multi-Cloud API & ETL Pipelines',
+            subtext: 'Enterprise middleware unifying legacy databases, modern SaaS APIs, and real-time streaming queues into deterministic, resilient data pipelines.',
+            metric: '100% Idempotent • Sub-5ms Mesh',
+            dotLabel: 'API & ETL Pipelines'
+          },
+          {
+            badge: 'ISOLATED CLOUD MESH',
+            signal: 'Zero-Trust Edge Perimeter',
+            headline: 'Mission-Critical Serverless Cloud & Security',
+            subtext: 'High-availability multi-region cloud architectures with automated blue-green rollouts, immutable encrypted backups, and 99.99% operational SLA.',
+            metric: '99.99% Uptime SLA • Multi-Region Vault',
+            dotLabel: 'Cloud Architecture'
+          }
+        ]
+      },
+      trades: {
+        themeClass: 'lens-indicator-trades',
+        statusPill: '06 Proven Systems // Built for Field & Local Business',
+        subheadline: 'Automated systems engineered for contractors and local businesses to stop chasing unpaid bills, answer every phone call, and cut busywork.',
+        cards: [
+          {
+            badge: '24/7 AI RECEPTIONIST',
+            signal: 'Never Miss a Customer Call',
+            headline: '24/7 AI Phone & Message Reception',
+            subtext: 'Custom AI phone assistants that answer customer calls, texts, and emergency inquiries 24/7, quote standard pricing, and book jobs straight into your schedule.',
+            metric: 'Never Miss a Job • Saves 15+ Hrs/Wk',
+            dotLabel: '24/7 AI Phone Reception'
+          },
+          {
+            badge: 'AUTO-TEXT BILLING',
+            signal: 'Get Paid in Minutes',
+            headline: 'Auto-Text Clients to Pay Overdue Bills',
+            subtext: 'Automated billing systems that send professional digital invoices and auto-text gentle payment links to clients until invoices are paid in full.',
+            metric: '94% Faster Pay • No Awkward Calls',
+            dotLabel: 'Overdue Bill Recovery'
+          },
+          {
+            badge: 'PAPERLESS FORMS',
+            signal: 'Zero Lost Paperwork',
+            headline: 'Replace Messy Paper Forms & Contracts',
+            subtext: 'Turn lost clipboards, paper receipts, and change-orders into slick mobile forms clients fill out and sign right on their smartphones before work starts.',
+            metric: '100% Mobile E-Sign • Zero Lost Forms',
+            dotLabel: 'Paperless Mobile Forms'
+          },
+          {
+            badge: 'CREW DISPATCH',
+            signal: 'Smart Route Scheduling',
+            headline: 'Smart Crew Scheduling & Job Dispatch',
+            subtext: 'Intelligent booking systems that let homeowners schedule open slots, send automated SMS arrival alerts, and keep your truck routes organized.',
+            metric: 'Zero Conflicts • Auto-SMS Reminders',
+            dotLabel: 'Smart Crew Dispatch'
+          },
+          {
+            badge: 'ALL-IN-ONE SYNC',
+            signal: 'Connect All Your Apps',
+            headline: 'Connect QuickBooks, Jobber & Your Phone',
+            subtext: 'We connect your CRM, accounting, email, and trade software into one smooth machine so your crew never has to type the same customer info twice.',
+            metric: 'Zero Double Data Entry • 100% Synced',
+            dotLabel: 'Trade App Connections'
+          },
+          {
+            badge: 'BULLETPROOF BACKUPS',
+            signal: 'Always Safe & Online',
+            headline: 'Bulletproof Cloud Storage & Business Security',
+            subtext: 'Secure cloud hosting and automated daily backups that protect your customer records, job photos, and billing history from computer crashes or theft.',
+            metric: '99.99% Uptime • Automated Daily Backups',
+            dotLabel: 'Cloud & Backups'
+          }
+        ]
+      }
+    };
+
+    let currentLens = 'corporate';
+    let isTransitioning = false;
+
+    function applyLens(lensKey, immediate = false) {
+      if (!LENS_DATA[lensKey]) return;
+      currentLens = lensKey;
+      const data = LENS_DATA[lensKey];
+
+      const indicator = document.getElementById('lens-active-indicator');
+      const corporateBtn = document.getElementById('lens-btn-corporate');
+      const tradesBtn = document.getElementById('lens-btn-trades');
+      const activeBtn = lensKey === 'corporate' ? corporateBtn : tradesBtn;
+      const inactiveBtn = lensKey === 'corporate' ? tradesBtn : corporateBtn;
+
+      // Update Glider Pill Indicator position & glow
+      if (indicator && activeBtn) {
+        indicator.style.left = activeBtn.offsetLeft + 'px';
+        indicator.style.width = activeBtn.offsetWidth + 'px';
+        indicator.className = `absolute top-1 bottom-1 rounded-full transition-all duration-300 ease-out pointer-events-none ${data.themeClass}`;
+      }
+
+      // Update Button state
+      if (activeBtn && inactiveBtn) {
+        activeBtn.setAttribute('aria-pressed', 'true');
+        inactiveBtn.setAttribute('aria-pressed', 'false');
+        activeBtn.classList.remove('text-slate-400');
+        activeBtn.classList.add('text-white');
+        inactiveBtn.classList.remove('text-white');
+        inactiveBtn.classList.add('text-slate-400');
+      }
+
+      // Card elements & Section Header Elements
+      const morphables = document.querySelectorAll('.lens-morphable');
+      const statusPill = document.getElementById('services-status-pill-text');
+      const subheadline = document.getElementById('services-subheadline');
+      const cards = document.querySelectorAll('#orbit-carousel-ring .orbit-card');
+      const dots = document.querySelectorAll('.orbit-dot');
+
+      function updateContent() {
+        if (statusPill) statusPill.textContent = data.statusPill;
+        if (subheadline) subheadline.textContent = data.subheadline;
+
+        cards.forEach((card, idx) => {
+          const cardData = data.cards[idx];
+          if (!cardData) return;
+
+          const badge = card.querySelector('.card-badge-label');
+          const signal = card.querySelector('.card-signal-label');
+          const headline = card.querySelector('.card-headline');
+          const subtext = card.querySelector('.card-subtext');
+          const metric = card.querySelector('.card-metric-label');
+
+          if (badge) badge.textContent = cardData.badge;
+          if (signal) signal.textContent = cardData.signal;
+          if (headline) headline.textContent = cardData.headline;
+          if (subtext) subtext.textContent = cardData.subtext;
+          if (metric) metric.textContent = cardData.metric;
+
+          // Update card accessibility label
+          card.setAttribute('aria-label', `Card ${idx + 1} of 6: ${cardData.headline}`);
+        });
+
+        // Update pagination dot labels
+        dots.forEach((dot, idx) => {
+          if (data.cards[idx]) {
+            dot.setAttribute('aria-label', `Go to slide ${idx + 1}: ${data.cards[idx].dotLabel}`);
+          }
+        });
+
+        // Re-sync ScrollTrigger offsets
+        if (typeof ScrollTrigger !== 'undefined') {
+          ScrollTrigger.refresh();
+        }
+
+        // Re-sync Card 2 Before vs Autopilot state
+        if (typeof window.refreshCard2BeforeAfter === 'function') {
+          window.refreshCard2BeforeAfter();
+        }
+
+        // Re-sync Card 1 Audio Player sample info
+        if (typeof window.refreshCard1AudioPlayer === 'function') {
+          window.refreshCard1AudioPlayer(lensKey);
+        }
+      }
+
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (immediate || prefersReducedMotion) {
+        updateContent();
+      } else {
+        isTransitioning = true;
+        morphables.forEach(el => el.classList.add('is-fading'));
+        setTimeout(() => {
+          updateContent();
+          morphables.forEach(el => el.classList.remove('is-fading'));
+          isTransitioning = false;
+        }, 180);
+      }
+
+      try {
+        localStorage.setItem('lumilore_industry_lens', lensKey);
+      } catch (e) {}
+    }
+
+    function setupListeners() {
+      const toggleContainer = document.getElementById('industry-lens-toggle');
+      if (!toggleContainer) return;
+
+      const corporateBtn = document.getElementById('lens-btn-corporate');
+      const tradesBtn = document.getElementById('lens-btn-trades');
+
+      if (corporateBtn) {
+        corporateBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          if (currentLens === 'corporate' || isTransitioning) return;
+          applyLens('corporate');
+        });
+      }
+
+      if (tradesBtn) {
+        tradesBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          if (currentLens === 'trades' || isTransitioning) return;
+          applyLens('trades');
+        });
+      }
+
+      // Check saved preference or default to corporate
+      let initialLens = 'corporate';
+      try {
+        const saved = localStorage.getItem('lumilore_industry_lens');
+        if (saved === 'trades' || saved === 'corporate') {
+          initialLens = saved;
+        }
+      } catch (e) {}
+
+      // Initial alignment
+      requestAnimationFrame(() => {
+        applyLens(initialLens, initialLens === 'corporate');
+      });
+
+      // Window resize re-alignment
+      window.addEventListener('resize', () => {
+        const activeBtn = currentLens === 'corporate' ? corporateBtn : tradesBtn;
+        const indicator = document.getElementById('lens-active-indicator');
+        if (indicator && activeBtn) {
+          indicator.style.left = activeBtn.offsetLeft + 'px';
+          indicator.style.width = activeBtn.offsetWidth + 'px';
+        }
+      });
+
+      // Expose globally for testing or console control
+      window.setIndustryLens = applyLens;
+      window.getIndustryLensData = (lens) => LENS_DATA[lens];
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setupListeners);
+    } else {
+      setupListeners();
+    }
+  })();
+</script>
+
+<!-- Card 2: Before vs. Autopilot Chaos Controller (Phase 3 Task 3.2) -->
+<script>
+  (function initCardBeforeAfter() {
+    function setupCard2() {
+      const card = document.getElementById('orbit-card-finance');
+      if (!card) return;
+
+      const btnAutopilot = card.querySelector('.ba-btn-autopilot');
+      const btnChaos = card.querySelector('.ba-btn-chaos');
+      const viewAutopilot = card.querySelector('.ba-view-autopilot');
+      const viewChaos = card.querySelector('.ba-view-chaos');
+      const tag1 = card.querySelector('.ba-chaos-tag-1');
+      const tag2 = card.querySelector('.ba-chaos-tag-2');
+      const metricChip = card.querySelector('.card-metric-label');
+      const headline = card.querySelector('.card-headline');
+      const subtext = card.querySelector('.card-subtext');
+
+      let isChaosLocked = false;
+
+      const CHAOS_COPY = {
+        corporate: {
+          headline: "High DSO & Manual Reconciliation Bottlenecks",
+          subtext: "Manual ERP reconciliations fail silently, trailing AR balloons past 45 days, and financial leaders lose visibility into company cash velocity.",
+          tag1: "❌ ERP Reconciliation Discrepancy",
+          tag2: "⌛ $84,000 Trapped in Aging Invoices",
+          metric: "-$84,000 Trapped Capital • DSO +28 Days"
+        },
+        trades: {
+          headline: "Unpaid Invoices & Awkward Collection Calls",
+          subtext: "Forgotten clipboards, lost paper receipts, and late-night calls chasing homeowners who 'never got the invoice' choke your business cash flow.",
+          tag1: "❌ 3 Unread Voicemails / Chasing Calls",
+          tag2: "⌛ Invoice #1042: $14,200 (18 Days Late)",
+          metric: "-$14,200 Trapped Cash • Chasing Daily"
+        }
+      };
+
+      function renderBAState(state) {
+        const isChaos = state === 'chaos';
+        card.setAttribute('data-ba-active', isChaos ? 'chaos' : 'autopilot');
+
+        if (btnAutopilot && btnChaos) {
+          btnAutopilot.classList.toggle('active-state', !isChaos);
+          btnChaos.classList.toggle('active-state', isChaos);
+          btnAutopilot.setAttribute('aria-pressed', (!isChaos).toString());
+          btnChaos.setAttribute('aria-pressed', isChaos.toString());
+        }
+
+        if (viewAutopilot && viewChaos) {
+          if (isChaos) {
+            viewAutopilot.style.opacity = '0';
+            viewAutopilot.style.transform = 'scale(0.95)';
+            viewAutopilot.style.pointerEvents = 'none';
+
+            viewChaos.style.opacity = '1';
+            viewChaos.style.transform = 'scale(1)';
+            viewChaos.style.pointerEvents = 'auto';
+          } else {
+            viewChaos.style.opacity = '0';
+            viewChaos.style.transform = 'scale(0.95)';
+            viewChaos.style.pointerEvents = 'none';
+
+            viewAutopilot.style.opacity = '1';
+            viewAutopilot.style.transform = 'scale(1)';
+            viewAutopilot.style.pointerEvents = 'auto';
+          }
+        }
+
+        // Check active industry lens ('corporate' or 'trades')
+        let activeLens = 'corporate';
+        try {
+          const saved = localStorage.getItem('lumilore_industry_lens');
+          if (saved === 'trades') activeLens = 'trades';
+        } catch (e) {}
+
+        if (isChaos) {
+          const copy = CHAOS_COPY[activeLens];
+          if (tag1) tag1.textContent = copy.tag1;
+          if (tag2) tag2.textContent = copy.tag2;
+          if (metricChip) metricChip.textContent = copy.metric;
+          if (headline) headline.textContent = copy.headline;
+          if (subtext) subtext.textContent = copy.subtext;
+        } else {
+          if (window.getIndustryLensData) {
+            const data = window.getIndustryLensData(activeLens);
+            if (data && data.cards[1]) {
+              const cardData = data.cards[1];
+              if (headline) headline.textContent = cardData.headline;
+              if (subtext) subtext.textContent = cardData.subtext;
+              if (metricChip) metricChip.textContent = cardData.metric;
+            }
+          }
+        }
+      }
+
+      // Click / Tap events (Locks state)
+      if (btnAutopilot) {
+        btnAutopilot.addEventListener('click', (e) => {
+          e.stopPropagation();
+          isChaosLocked = false;
+          renderBAState('autopilot');
+        });
+      }
+
+      if (btnChaos) {
+        btnChaos.addEventListener('click', (e) => {
+          e.stopPropagation();
+          isChaosLocked = true;
+          renderBAState('chaos');
+        });
+
+        // Desktop hover preview on Chaos button
+        btnChaos.addEventListener('mouseenter', () => {
+          if (!isChaosLocked) renderBAState('chaos');
+        });
+
+        btnChaos.addEventListener('mouseleave', () => {
+          if (!isChaosLocked) renderBAState('autopilot');
+        });
+      }
+
+      // Expose for external coordination with Industry Lens
+      window.refreshCard2BeforeAfter = () => {
+        renderBAState(isChaosLocked ? 'chaos' : 'autopilot');
+      };
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setupCard2);
+    } else {
+      setupCard2();
+    }
+  })();
+</script>
+
+<!-- Card 1: Playable Mini Audio Waveform Preview Controller (Phase 3 Task 3.3) -->
+<script>
+  (function initCardAudioPlayer() {
+    function setupAudioPlayer() {
+      const audioBtn = document.getElementById('card-audio-btn');
+      if (!audioBtn) return;
+
+      const iconPlay = document.getElementById('audio-icon-play');
+      const iconPause = document.getElementById('audio-icon-pause');
+      const label = document.getElementById('audio-btn-label');
+      const timer = document.getElementById('audio-time-counter');
+      const transcriptPill = document.getElementById('audio-transcript-pill');
+      const transcriptText = document.getElementById('audio-transcript-text');
+
+      let isPlaying = false;
+      let countdownTimer = null;
+      let remainingSeconds = 8;
+
+      const SAMPLES = {
+        corporate: {
+          label: "8s AI Voice Sample",
+          durationText: "0:08",
+          durationSec: 8,
+          dialogue: "LumiLore voice cluster online. Sub-800 millisecond edge latency verified. Connecting your session now.",
+          transcript: "LumiLore voice cluster online. Sub-800ms edge latency verified."
+        },
+        trades: {
+          label: "10s Dispatch Sample",
+          durationText: "0:10",
+          durationSec: 10,
+          dialogue: "Hi! Thanks for calling Apex Services. We have a licensed technician available in your area tomorrow at 9 AM. Can I reserve that for you?",
+          transcript: "Hi! Thanks for calling Apex Services. Technician available tomorrow at 9 AM."
+        }
+      };
+
+      function getActiveLens() {
+        try {
+          const saved = localStorage.getItem('lumilore_industry_lens');
+          if (saved === 'trades') return 'trades';
+        } catch (e) {}
+        return 'corporate';
+      }
+
+      function playCarrierChime() {
+        try {
+          const AudioContext = window.AudioContext || window.webkitAudioContext;
+          if (!AudioContext) return;
+          const ctx = new AudioContext();
+          if (ctx.state === 'suspended') {
+            ctx.resume();
+          }
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(587.33, ctx.currentTime); // D5
+          osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.1); // A5
+          gain.gain.setValueAtTime(0.06, ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.25);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start();
+          osc.stop(ctx.currentTime + 0.28);
+        } catch (e) {}
+      }
+
+      function stopPlayback() {
+        isPlaying = false;
+        if (countdownTimer) {
+          clearInterval(countdownTimer);
+          countdownTimer = null;
+        }
+        if ('speechSynthesis' in window) {
+          try { window.speechSynthesis.cancel(); } catch (e) {}
+        }
+
+        audioBtn.classList.remove('is-playing');
+        audioBtn.setAttribute('aria-pressed', 'false');
+
+        if (iconPlay) iconPlay.classList.remove('hidden');
+        if (iconPause) {
+          iconPause.classList.add('hidden');
+          iconPause.classList.remove('flex');
+        }
+        if (transcriptPill) transcriptPill.classList.add('hidden');
+
+        const activeLens = getActiveLens();
+        const sample = SAMPLES[activeLens];
+        if (timer) timer.textContent = sample.durationText;
+        if (label) label.textContent = sample.label;
+      }
+
+      function startPlayback() {
+        stopPlayback(); // Reset any existing stream
+        isPlaying = true;
+
+        const activeLens = getActiveLens();
+        const sample = SAMPLES[activeLens];
+
+        audioBtn.classList.add('is-playing');
+        audioBtn.setAttribute('aria-pressed', 'true');
+
+        if (iconPlay) iconPlay.classList.add('hidden');
+        if (iconPause) {
+          iconPause.classList.remove('hidden');
+          iconPause.classList.add('flex');
+        }
+
+        if (transcriptText) transcriptText.textContent = `"${sample.transcript}"`;
+        if (transcriptPill) transcriptPill.classList.remove('hidden');
+
+        playCarrierChime();
+
+        remainingSeconds = sample.durationSec;
+        if (timer) timer.textContent = `0:${remainingSeconds.toString().padStart(2, '0')}`;
+
+        countdownTimer = setInterval(() => {
+          remainingSeconds--;
+          if (remainingSeconds <= 0) {
+            stopPlayback();
+          } else {
+            if (timer) timer.textContent = `0:${remainingSeconds.toString().padStart(2, '0')}`;
+          }
+        }, 1000);
+
+        if ('speechSynthesis' in window) {
+          try {
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(sample.dialogue);
+            utterance.rate = 1.05;
+            utterance.pitch = 1.0;
+
+            const voices = window.speechSynthesis.getVoices();
+            const preferred = voices.find(v => (v.name.includes('Natural') || v.name.includes('Google') || v.name.includes('Samantha') || v.name.includes('Ava') || v.name.includes('Jenny') || v.name.includes('Zira')) && v.lang.startsWith('en')) || voices.find(v => v.lang.startsWith('en'));
+            if (preferred) utterance.voice = preferred;
+
+            utterance.onend = () => {
+              if (remainingSeconds <= 2) {
+                stopPlayback();
+              }
+            };
+            utterance.onerror = () => {
+              // Timer will continue fallback smoothly
+            };
+            window.speechSynthesis.speak(utterance);
+          } catch (e) {}
+        }
+      }
+
+      // Isolate click from parent 3D orbit carousel card
+      audioBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (isPlaying) {
+          stopPlayback();
+        } else {
+          startPlayback();
+        }
+      });
+
+      // Synchronize with Industry Lens toggle
+      window.refreshCard1AudioPlayer = (lens) => {
+        const sample = SAMPLES[lens] || SAMPLES.corporate;
+        if (isPlaying) {
+          startPlayback();
+        } else {
+          if (timer) timer.textContent = sample.durationText;
+          if (label) label.textContent = sample.label;
+          if (transcriptText) transcriptText.textContent = `"${sample.transcript}"`;
+        }
+      };
+
+      // Set initial values
+      const initialSample = SAMPLES[getActiveLens()];
+      if (timer) timer.textContent = initialSample.durationText;
+      if (label) label.textContent = initialSample.label;
+      if (transcriptText) transcriptText.textContent = `"${initialSample.transcript}"`;
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setupAudioPlayer);
+    } else {
+      setupAudioPlayer();
+    }
+  })();
+</script>
+
+<!-- Interactive ROI Sliders Engine (Phase 4 Task 4.1) -->
+<script>
+  (function initROISliders() {
+    function setupSliders() {
+      const inquiriesSlider = document.getElementById('roi-slider-inquiries');
+      const ticketSlider = document.getElementById('roi-slider-ticket');
+      const inquiriesVal = document.getElementById('roi-val-inquiries');
+      const ticketVal = document.getElementById('roi-val-ticket');
+
+      if (!inquiriesSlider || !ticketSlider || !inquiriesVal || !ticketVal) return;
+
+      function updateSliderProgress(slider, min, max, value) {
+        const pct = ((value - min) / (max - min)) * 100;
+        slider.style.background = `linear-gradient(to right, #f59e0b 0%, #fbbf24 ${pct}%, rgba(255, 255, 255, 0.12) ${pct}%, rgba(255, 255, 255, 0.12) 100%)`;
+      }
+
+      function handleInquiriesUpdate() {
+        const val = parseInt(inquiriesSlider.value, 10);
+        inquiriesVal.textContent = `${val} calls/wk`;
+        inquiriesSlider.setAttribute('aria-valuenow', val.toString());
+        updateSliderProgress(inquiriesSlider, 5, 100, val);
+
+        if (typeof window.onROISliderChange === 'function') {
+          window.onROISliderChange();
+        }
+      }
+
+      function handleTicketUpdate() {
+        const val = parseInt(ticketSlider.value, 10);
+        ticketVal.textContent = `$${val.toLocaleString()} / deal`;
+        ticketSlider.setAttribute('aria-valuenow', val.toString());
+        updateSliderProgress(ticketSlider, 150, 5000, val);
+
+        if (typeof window.onROISliderChange === 'function') {
+          window.onROISliderChange();
+        }
+      }
+
+      inquiriesSlider.addEventListener('input', handleInquiriesUpdate);
+      ticketSlider.addEventListener('input', handleTicketUpdate);
+
+      // Initial track background fill
+      handleInquiriesUpdate();
+      handleTicketUpdate();
+
+      // Expose globally for Task 4.2 (Terminal engine) and Task 4.3 (Sticky CRO bar)
+      window.getROISliderValues = () => ({
+        inquiries: parseInt(inquiriesSlider.value, 10),
+        ticket: parseInt(ticketSlider.value, 10)
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setupSliders);
+    } else {
+      setupSliders();
+    }
+  })();
+</script>
+
+<!-- Dynamic ROI Terminal Engine (Phase 4 Task 4.2) -->
+<script>
+  (function initROITerminalEngine() {
+    function setupTerminal() {
+      const termInquiries = document.getElementById('term-param-inquiries');
+      const termTicket = document.getElementById('term-param-ticket');
+      const termMissed = document.getElementById('term-missed-leads');
+      const termMonthly = document.getElementById('term-monthly-rev');
+      const termAnnual = document.getElementById('term-annual-rev');
+      const termStatus = document.getElementById('term-status-text');
+
+      if (!termInquiries || !termTicket || !termMissed || !termMonthly || !termAnnual) return;
+
+      let settleTimeout = null;
+
+      function playTactileTick() {
+        try {
+          const AudioContext = window.AudioContext || window.webkitAudioContext;
+          if (!AudioContext) return;
+          if (!window.__roiTickCtx) {
+            window.__roiTickCtx = new AudioContext();
+          }
+          const ctx = window.__roiTickCtx;
+          if (ctx.state === 'suspended') ctx.resume();
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(1400, ctx.currentTime);
+          gain.gain.setValueAtTime(0.012, ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.025);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start();
+          osc.stop(ctx.currentTime + 0.025);
+        } catch (e) {}
+      }
+
+      function computeAndRenderROI(inquiries, ticket) {
+        // Industry benchmark: 35% of inbound business inquiries drop/fail to convert without 24/7 autonomous agents
+        const missedPerWeek = inquiries * 0.35;
+        const weeklyLoss = missedPerWeek * ticket;
+        const annualLoss = Math.round(weeklyLoss * 52);
+        const monthlyLoss = Math.round(annualLoss / 12);
+
+        const data = {
+          inquiries,
+          ticket,
+          missedWeekly: missedPerWeek.toFixed(1),
+          monthlyLoss,
+          annualLoss,
+          formattedMonthly: '$' + monthlyLoss.toLocaleString(),
+          formattedAnnual: '$' + annualLoss.toLocaleString()
+        };
+
+        // Update DOM elements
+        termInquiries.textContent = `${inquiries} calls/wk`;
+        termTicket.textContent = `$${ticket.toLocaleString()}/deal`;
+        termMissed.textContent = `${data.missedWeekly} calls/wk`;
+        termMonthly.textContent = `${data.formattedMonthly} / mo`;
+        termAnnual.textContent = `${data.formattedAnnual}`;
+
+        // Global State & Local Storage persistence (for Task 4.3 Sticky CRO Bar)
+        window.LumiLoreROI = data;
+        try {
+          localStorage.setItem('lumilore_calculated_roi', JSON.stringify(data));
+        } catch (e) {}
+
+        // Notify downstream listeners (Sticky CRO Bar)
+        window.dispatchEvent(new CustomEvent('lumilore:roi-updated', { detail: data }));
+
+        // Dynamic micro-animation status state
+        if (termStatus) {
+          termStatus.textContent = 'CALCULATING PIPELINE YIELD...';
+          termStatus.className = 'text-amber-400 font-bold';
+        }
+
+        termAnnual.style.transform = 'scale(1.05)';
+        termAnnual.style.color = '#38bdf8'; // Flash cyan/amber
+
+        clearTimeout(settleTimeout);
+        settleTimeout = setTimeout(() => {
+          if (termStatus) {
+            termStatus.textContent = 'STATUS: AUTONOMOUS GAINS VERIFIED';
+            termStatus.className = 'text-emerald-400 font-bold';
+          }
+          termAnnual.style.transform = 'scale(1)';
+          termAnnual.style.color = '#34d399'; // Settle back to emerald glow
+        }, 180);
+      }
+
+      // Connect to slider change events
+      window.onROISliderChange = () => {
+        if (typeof window.getROISliderValues === 'function') {
+          const vals = window.getROISliderValues();
+          computeAndRenderROI(vals.inquiries, vals.ticket);
+          playTactileTick();
+        }
+      };
+
+      // Initial execution
+      if (typeof window.getROISliderValues === 'function') {
+        const initialVals = window.getROISliderValues();
+        computeAndRenderROI(initialVals.inquiries, initialVals.ticket);
+      } else {
+        computeAndRenderROI(25, 650);
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setupTerminal);
+    } else {
+      setupTerminal();
+    }
+  })();
+</script>
+
+<!-- Sticky ROI CRO Conversion Bar Controller (Phase 4 Task 4.3) -->
+<script>
+  (function initStickyROIBar() {
+    function setupStickyBar() {
+      const bar = document.getElementById('sticky-roi-bar');
+      const valEl = document.getElementById('sticky-roi-val');
+      const dismissBtn = document.getElementById('sticky-roi-dismiss');
+      const roiSection = document.getElementById('roi-section');
+      if (!bar || !valEl || !roiSection) return;
+
+      let isDismissed = false;
+      try {
+        if (sessionStorage.getItem('lumilore_roi_dismissed') === 'true') {
+          isDismissed = true;
+        }
+      } catch (e) {}
+
+      let hasSeenROI = false;
+
+      function updateBarValue(formattedVal) {
+        if (valEl && formattedVal) {
+          valEl.textContent = formattedVal;
+        }
+      }
+
+      // Restore value from local storage or global scope
+      try {
+        const saved = localStorage.getItem('lumilore_calculated_roi');
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (parsed && parsed.formattedAnnual) {
+            updateBarValue(parsed.formattedAnnual);
+          }
+        } else if (window.LumiLoreROI && window.LumiLoreROI.formattedAnnual) {
+          updateBarValue(window.LumiLoreROI.formattedAnnual);
+        }
+      } catch (e) {}
+
+      // Real-time listener for ROI calculation updates
+      window.addEventListener('lumilore:roi-updated', (e) => {
+        if (e.detail && e.detail.formattedAnnual) {
+          updateBarValue(e.detail.formattedAnnual);
+          hasSeenROI = true;
+        }
+      });
+
+      // Dismissal button interaction
+      if (dismissBtn) {
+        dismissBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          isDismissed = true;
+          bar.classList.remove('is-visible');
+          try {
+            sessionStorage.setItem('lumilore_roi_dismissed', 'true');
+          } catch (e) {}
+        });
+      }
+
+      // Dynamic viewport visibility detection
+      function checkVisibility() {
+        if (isDismissed) {
+          bar.classList.remove('is-visible');
+          return;
+        }
+
+        const rect = roiSection.getBoundingClientRect();
+        const vh = window.innerHeight;
+
+        // User reached or interacted with the ROI section
+        if (rect.top < vh * 0.85) {
+          hasSeenROI = true;
+        }
+
+        if (!hasSeenROI) {
+          bar.classList.remove('is-visible');
+          return;
+        }
+
+        // When actively inside ROI section, hide so it doesn't obstruct interactive sliders & terminal
+        const isInsideROI = (rect.top <= vh * 0.4 && rect.bottom >= vh * 0.45);
+        if (isInsideROI) {
+          bar.classList.remove('is-visible');
+        } else if (window.scrollY > 300) {
+          bar.classList.add('is-visible');
+        } else {
+          bar.classList.remove('is-visible');
+        }
+      }
+
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            checkVisibility();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+
+      setTimeout(checkVisibility, 400);
+
+      // Testing hooks
+      window.showStickyROIBar = () => {
+        isDismissed = false;
+        bar.classList.add('is-visible');
+      };
+      window.hideStickyROIBar = () => {
+        bar.classList.remove('is-visible');
+      };
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setupStickyBar);
+    } else {
+      setupStickyBar();
+    }
+  })();
+</script>
+
+<!-- Universal Card Cursor Spotlight & Specular Border Reflection Controller (Phase 5 Task 5.2) -->
+<script>
+  (function initCardSpotlightSystem() {
+    function setupSpotlights() {
+      // Check for fine pointer (mouse/trackpad); bypass on purely touch-screen devices for maximum battery and 60fps
+      if (!window.matchMedia('(pointer: fine)').matches) return;
+
+      const spotlightTargets = document.querySelectorAll(
+        '.orbit-card, .portfolio-card, .roi-controls-card'
+      );
+
+      spotlightTargets.forEach((card) => {
+        if (card.dataset.spotlightBound === 'true') return;
+        card.dataset.spotlightBound = 'true';
+
+        let rafId = null;
+        let pendingX = 0;
+        let pendingY = 0;
+
+        card.addEventListener('pointermove', (e) => {
+          const rect = card.getBoundingClientRect();
+          pendingX = e.clientX - rect.left;
+          pendingY = e.clientY - rect.top;
+
+          if (!rafId) {
+            rafId = requestAnimationFrame(() => {
+              card.style.setProperty('--mouse-x', `${pendingX.toFixed(1)}px`);
+              card.style.setProperty('--mouse-y', `${pendingY.toFixed(1)}px`);
+              rafId = null;
+            });
+          }
+        }, { passive: true });
+
+        card.addEventListener('pointerleave', () => {
+          if (rafId) {
+            cancelAnimationFrame(rafId);
+            rafId = null;
+          }
+          card.style.setProperty('--mouse-x', '50%');
+          card.style.setProperty('--mouse-y', '50%');
+        });
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setupSpotlights);
+    } else {
+      setupSpotlights();
+    }
+
+    // Expose for dynamic re-binding during view transitions
+    window.rebindCardSpotlights = setupSpotlights;
+  })();
+</script>
+
+
 
