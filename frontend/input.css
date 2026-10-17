@@ -390,7 +390,7 @@
 }
 
 .orbital-reactor-core {
-  transform: translateY(36px) rotateX(6deg);
+  transform: translateY(28px) rotateX(6deg);
   transform-style: preserve-3d;
   will-change: transform;
 }
@@ -399,20 +399,19 @@
   transform-style: preserve-3d;
   will-change: transform;
   touch-action: pan-y;
-  transform: translateY(36px) rotateX(6deg);
+  transform: translateY(28px) rotateX(6deg);
 }
 
 .orbit-card {
   position: absolute;
-  width: 300px;
-  max-width: 300px;
-  height: 388px;
-  padding: 1.15rem;
-  background: linear-gradient(180deg, rgba(14, 18, 28, 0.94) 0%, rgba(8, 10, 15, 0.98) 100%);
+  width: 275px;
+  max-width: 275px;
+  height: 340px;
+  padding: 1rem;
+  background: #07090e;
+  background: linear-gradient(180deg, #0e121c 0%, #05070a 100%);
   border: 1px solid var(--color-border-hairline);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75), inset 0 1px 0 0 var(--color-border-highlight);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   border-radius: 1.5rem;
   transform-style: flat;
   backface-visibility: hidden;
@@ -490,16 +489,16 @@
 /* Tablet Mode Adaptations (768px - 1023px) */
 @media (min-width: 768px) and (max-width: 1023px) {
   .orbit-carousel-stage {
-    height: 470px !important;
+    height: 440px !important;
   }
   .orbit-card {
-    width: 280px;
-    max-width: 280px;
-    height: 382px;
-    padding: 1.05rem;
+    width: 260px;
+    max-width: 260px;
+    height: 335px;
+    padding: 0.95rem;
   }
   .orbit-card-watermark {
-    font-size: 3.5rem;
+    font-size: 3rem;
     right: 0.75rem;
     top: 0.25rem;
   }
@@ -508,19 +507,19 @@
 /* Mobile Mode Adaptations (< 768px) */
 @media (max-width: 767px) {
   .orbit-carousel-stage {
-    height: 450px !important;
+    height: 420px !important;
   }
   .orbital-reactor-core {
-    transform: translateY(28px) rotateX(8deg) scale(0.70);
+    transform: translateY(24px) rotateX(8deg) scale(0.68);
   }
   .orbit-card {
-    width: 86vw;
-    max-width: 265px;
-    height: 370px;
-    padding: 0.95rem;
+    width: 84vw;
+    max-width: 250px;
+    height: 330px;
+    padding: 0.85rem;
   }
   .orbit-card-watermark {
-    font-size: 2.75rem;
+    font-size: 2.5rem;
     right: 0.5rem;
     top: 0.25rem;
   }
@@ -528,19 +527,19 @@
 
 @media (max-width: 380px) {
   .orbit-carousel-stage {
-    height: 430px !important;
+    height: 400px !important;
   }
   .orbital-reactor-core {
-    transform: translateY(24px) rotateX(8deg) scale(0.60);
+    transform: translateY(20px) rotateX(8deg) scale(0.58);
   }
   .orbit-card {
-    width: 88vw;
-    max-width: 248px;
-    height: 350px;
-    padding: 0.8rem;
+    width: 86vw;
+    max-width: 235px;
+    height: 315px;
+    padding: 0.75rem;
   }
   .orbit-card-watermark {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
 }
 
@@ -808,6 +807,14 @@
 /* 3D Orbit / Compact Bento Grid View Switcher (Task 3.4)   */
 /* ======================================================== */
 
+#services-orbit-section {
+  isolation: isolate;
+}
+
+#services-orbit-section.is-grid-mode {
+  overflow: visible !important;
+}
+
 .orbit-carousel-stage.is-grid-mode {
   height: auto !important;
   min-height: unset !important;
@@ -829,7 +836,7 @@
 .orbit-carousel-stage.is-grid-mode #orbit-carousel-ring {
   display: grid !important;
   grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
-  gap: 1.5rem !important;
+  gap: 1.25rem !important;
   width: 100% !important;
   max-width: 1240px !important;
   margin: 0 auto !important;
@@ -838,19 +845,20 @@
   transform-style: flat !important;
   touch-action: auto !important;
   position: static !important;
+  overflow: visible !important;
 }
 
 @media (min-width: 640px) {
   .orbit-carousel-stage.is-grid-mode #orbit-carousel-ring {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 1.5rem !important;
+    gap: 1.25rem !important;
   }
 }
 
 @media (min-width: 1024px) {
   .orbit-carousel-stage.is-grid-mode #orbit-carousel-ring {
     grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    gap: 1.75rem !important;
+    gap: 1.25rem !important;
   }
 }
 
@@ -859,7 +867,8 @@
   width: 100% !important;
   max-width: 100% !important;
   height: 100% !important;
-  min-height: 420px !important;
+  min-height: 340px !important;
+  padding: 1rem !important;
   transform: none !important;
   opacity: 1 !important;
   visibility: visible !important;
