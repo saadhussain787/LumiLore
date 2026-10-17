@@ -695,57 +695,8 @@ layout: layout.html
   </div>
 </section>
 
-<!-- Section 3: Pinned Solutions Showcase -->
-<section id="solutions-section" class="py-24 md:py-32 w-full flex relative overflow-hidden bg-transparent z-20">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col md:flex-row items-center justify-between gap-12">
-    
-    <!-- Left: Text content -->
-    <div class="w-full md:w-1/2 relative h-75">
-      
-      <!-- Feature 1 -->
-      <div class="solution-text absolute inset-0 flex flex-col justify-center" data-solution-index="0">
-        <h3 class="solution-title lens-morphable text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">Multi-Agent Swarms.</h3>
-        <p class="solution-desc lens-morphable text-lg md:text-xl text-slate-400 font-light leading-relaxed">Deploy specialized AI agents that collaborate to execute complex, multi-step enterprise workflows seamlessly.</p>
-      </div>
 
-      <!-- Feature 2 -->
-      <div class="solution-text absolute inset-0 flex flex-col justify-center" data-solution-index="1">
-        <h3 class="solution-title lens-morphable text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">Certified Infrastructure.</h3>
-        <p class="solution-desc lens-morphable text-lg md:text-xl text-slate-400 font-light leading-relaxed">Built on highly secure, SOC2-compliant cloud architecture designed for mission-critical enterprise payloads.</p>
-      </div>
 
-      <!-- Feature 3 -->
-      <div class="solution-text absolute inset-0 flex flex-col justify-center" data-solution-index="2">
-        <h3 class="solution-title lens-morphable text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">Real-Time Observability.</h3>
-        <p class="solution-desc lens-morphable text-lg md:text-xl text-slate-400 font-light leading-relaxed">Monitor agent decisions, track token usage, and audit every autonomous action through a central command dashboard.</p>
-      </div>
-
-    </div>
-
-    <!-- Right: Visual Container -->
-    <div class="w-full md:w-1/2 relative h-100 md:h-125 flex items-center justify-center">
-      <div class="absolute inset-0 bg-[#05070A]/60 border border-white/20 rounded-3xl backdrop-blur-2xl flex items-center justify-center overflow-hidden shadow-[0_0_80px_rgba(0,0,0,0.8)]">
-        
-        <!-- Visual 1: Multi-Agent Swarms -->
-        <div class="solution-visual absolute inset-0 flex items-center justify-center" data-solution-index="0">
-          <img src="/assets/multi_agent_swarms.jpg" class="solution-img w-full h-full object-cover rounded-[1.8rem] opacity-90 shadow-2xl" alt="Multi-Agent Swarms" />
-        </div>
-
-        <!-- Visual 2: Certified Infrastructure -->
-        <div class="solution-visual absolute inset-0 flex items-center justify-center" data-solution-index="1">
-          <img src="/assets/certified_infrastructure.jpg" class="solution-img w-full h-full object-cover rounded-[1.8rem] opacity-90 shadow-2xl" alt="Certified Infrastructure" />
-        </div>
-
-        <!-- Visual 3: Real-Time Observability -->
-        <div class="solution-visual absolute inset-0 flex items-center justify-center" data-solution-index="2">
-          <img src="/assets/real_time_observability.jpg" class="solution-img w-full h-full object-cover rounded-[1.8rem] opacity-90 shadow-2xl" alt="Real-Time Observability" />
-        </div>
-
-      </div>
-    </div>
-    
-  </div>
-</section>
 
 
 
@@ -1452,7 +1403,7 @@ layout: layout.html
     });
 
     // 2. Cinematic Entrance Animations for Content Sections (Protected from 3D Flattening)
-    const contentBlocks = gsap.utils.toArray('section:not(#solutions-section):not(#services-orbit-section) > div');
+    const contentBlocks = gsap.utils.toArray('section:not(#services-orbit-section) > div');
     contentBlocks.forEach((block, i) => {
       // Hero content fades in gracefully on load
       if (i === 0) {
@@ -1497,40 +1448,7 @@ layout: layout.html
       });
     }
 
-    // 4. Phase 3: Pinned Solutions Timeline
-    const texts = gsap.utils.toArray('.solution-text');
-    const visuals = gsap.utils.toArray('.solution-visual');
-    
-    if (texts.length > 0) {
-      // Force initial states via GSAP so they don't conflict with Tailwind transforms
-      gsap.set(texts.slice(1), { opacity: 0, y: 50 });
-      gsap.set(visuals.slice(1), { opacity: 0, scale: 0.5 });
 
-      const pinTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: "#solutions-section",
-          start: "center center", // Pin when the center of the section reaches the center of the screen
-          end: "+=300%",    // Keep it pinned for 3x the viewport height
-          pin: true,        // Lock the screen
-          scrub: 1          // Smooth scrub timeline
-        }
-      });
-
-      // Step 1: Feature 1 -> Feature 2
-      pinTl.to(texts[0], { opacity: 0, y: -50, duration: 1 })
-           .to(visuals[0], { opacity: 0, scale: 1.5, duration: 1 }, "<")
-           .to(texts[1], { opacity: 1, y: 0, duration: 1 }, "<0.5")
-           .to(visuals[1], { opacity: 1, scale: 1, duration: 1 }, "<");
-
-      // Step 2: Feature 2 -> Feature 3
-      pinTl.to(texts[1], { opacity: 0, y: -50, duration: 1 })
-           .to(visuals[1], { opacity: 0, scale: 1.5, duration: 1 }, "<")
-           .to(texts[2], { opacity: 1, y: 0, duration: 1 }, "<0.5")
-           .to(visuals[2], { opacity: 1, scale: 1, duration: 1 }, "<");
-           
-      // Hold at the end slightly before unpinning
-      pinTl.to({}, {duration: 0.5});
-    }
 
     // 5. Phase 4: 3D Isometric Architecture Sequence
     const archSection = document.querySelector('#architecture-section');
@@ -2326,7 +2244,7 @@ layout: layout.html
     renderRing(currentAngle);
 
     // Downstream GSAP ScrollTrigger Synchronization (Phase 6 Task 6.2)
-    // Synchronize pinned offsets for #solutions-section, #architecture-section, and #portfolio-section
+    // Synchronize pinned offsets for #architecture-section and #portfolio-section
     if (typeof ScrollTrigger !== 'undefined') {
       requestAnimationFrame(() => {
         ScrollTrigger.refresh();
@@ -2653,22 +2571,6 @@ layout: layout.html
             dotLabel: 'Cloud Architecture'
           }
         ],
-        solutions: {
-          items: [
-            {
-              title: 'Multi-Agent Swarms.',
-              desc: 'Deploy specialized AI agents that collaborate to execute complex, multi-step enterprise workflows seamlessly.'
-            },
-            {
-              title: 'Certified Infrastructure.',
-              desc: 'Built on highly secure, SOC2-compliant cloud architecture designed for mission-critical enterprise payloads.'
-            },
-            {
-              title: 'Real-Time Observability.',
-              desc: 'Monitor agent decisions, track token usage, and audit every autonomous action through a central command dashboard.'
-            }
-          ]
-        },
         architecture: {
           title: 'The Blueprint.',
           subtitle: 'An elegant, multi-layered serverless architecture designed for absolute scale.',
@@ -2750,22 +2652,6 @@ layout: layout.html
             dotLabel: 'Cloud & Backups'
           }
         ],
-        solutions: {
-          items: [
-            {
-              title: 'Never Miss a Call.',
-              desc: '24/7 AI phone assistants answer emergency customer calls, quote standard pricing, and book jobs straight to your calendar while you work on-site.'
-            },
-            {
-              title: 'Auto-Text Invoicing.',
-              desc: 'Stop chasing overdue customer checks. Automated text-to-pay reminders deliver instant invoices and get jobs paid in minutes from smartphones.'
-            },
-            {
-              title: 'Smart Crew Dispatch.',
-              desc: 'Automate daily truck routes, send live arrival alerts to homeowners, and prevent double-booking across your technicians with zero friction.'
-            }
-          ]
-        },
         architecture: {
           title: 'The Field Machine.',
           subtitle: 'A proven, 4-step automated pipeline built to run your trade business without the paperwork headaches.',
@@ -2864,18 +2750,7 @@ layout: layout.html
           }
         });
 
-        // Update Solutions Showcase Section
-        if (data.solutions && data.solutions.items) {
-          const solutionTexts = document.querySelectorAll('#solutions-section .solution-text');
-          solutionTexts.forEach((st, idx) => {
-            const item = data.solutions.items[idx];
-            if (!item) return;
-            const titleEl = st.querySelector('.solution-title');
-            const descEl = st.querySelector('.solution-desc');
-            if (titleEl) titleEl.textContent = item.title;
-            if (descEl) descEl.textContent = item.desc;
-          });
-        }
+
 
         // Update Technical Architecture Section (The Blueprint vs The Field Machine)
         if (data.architecture) {
