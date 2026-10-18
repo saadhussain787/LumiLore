@@ -1115,4 +1115,91 @@ textarea:focus-visible,
   box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.95), 0 0 18px rgba(245, 158, 11, 0.6) !important;
 }
 
+/* ======================================================== */
+/* Horizontal Architecture & Automation Pipeline Styles     */
+/* ======================================================== */
+.arch-card-flare-cyan {
+  border-color: rgba(34, 211, 238, 0.85) !important;
+  box-shadow: 0 0 45px rgba(34, 211, 238, 0.35), inset 0 0 20px rgba(34, 211, 238, 0.15) !important;
+  transform: translateY(-4px) scale(1.01);
+}
 
+.arch-card-flare-indigo {
+  border-color: rgba(99, 102, 241, 0.85) !important;
+  box-shadow: 0 0 45px rgba(99, 102, 241, 0.35), inset 0 0 20px rgba(99, 102, 241, 0.15) !important;
+  transform: translateY(-4px) scale(1.01);
+}
+
+.arch-card-flare-purple {
+  border-color: rgba(168, 85, 247, 0.85) !important;
+  box-shadow: 0 0 45px rgba(168, 85, 247, 0.35), inset 0 0 20px rgba(168, 85, 247, 0.15) !important;
+  transform: translateY(-4px) scale(1.01);
+}
+
+.arch-card-flare-rose {
+  border-color: rgba(244, 63, 94, 0.85) !important;
+  box-shadow: 0 0 45px rgba(244, 63, 94, 0.35), inset 0 0 20px rgba(244, 63, 94, 0.15) !important;
+  transform: translateY(-4px) scale(1.01);
+}
+
+.arch-layer {
+  transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.arch-tier-desc {
+  text-wrap: balance;
+}
+
+.arch-chevron-connector {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+
+.arch-chevron-connector svg {
+  animation: chevronNudge 2.2s ease-in-out infinite;
+}
+
+@keyframes chevronNudge {
+  0%, 100% {
+    transform: translateX(0);
+    opacity: 0.75;
+  }
+  50% {
+    transform: translateX(2px);
+    opacity: 1;
+  }
+}
+
+.arch-chevron-active {
+  box-shadow: 0 0 24px currentColor, inset 0 0 8px currentColor !important;
+  border-color: currentColor !important;
+}
+
+.arch-chevron-active svg {
+  animation: none !important;
+  transform: translateX(1.5px) scale(1.1) !important;
+  filter: drop-shadow(0 0 6px currentColor);
+}
+
+.arch-dock-port {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+}
+
+.arch-mid-bridge {
+  pointer-events: none;
+}
+
+.arch-bridge-pulse {
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arch-chevron-connector svg {
+    animation: none !important;
+  }
+  .arch-card-flare-cyan,
+  .arch-card-flare-indigo,
+  .arch-card-flare-purple,
+  .arch-card-flare-rose {
+    transform: none !important;
+  }
+}
