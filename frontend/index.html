@@ -109,11 +109,11 @@ layout: layout.html
 </section>
 
 <!-- Section: 3D Orbital Services Carousel (Phase 1 Task 1.1) -->
-<section id="services-orbit-section" class="relative pt-12 pb-12 md:pt-16 md:pb-16 w-full overflow-hidden bg-transparent z-20 scroll-mt-24 md:scroll-mt-28" style="touch-action: pan-y; isolation: isolate;" aria-label="Autonomous Enterprise Services">
+<section class="relative pt-12 pb-12 md:pt-16 md:pb-16 w-full overflow-hidden bg-transparent z-20" style="touch-action: pan-y; isolation: isolate;" aria-label="Autonomous Enterprise Services">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col items-center">
     
     <!-- Section Header & Enterprise Status Banner -->
-    <div class="text-center flex flex-col items-center mb-4 md:mb-6 relative z-20 max-w-3xl">
+    <div id="services-orbit-section" class="text-center flex flex-col items-center mb-4 md:mb-6 relative z-20 max-w-3xl scroll-mt-28 md:scroll-mt-32">
       <!-- Status Pill -->
       <div class="mb-2 md:mb-3 inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-cyan-500/30 bg-cyan-950/70 backdrop-blur-xl shadow-[0_0_20px_rgba(0,242,254,0.15)]">
         <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.9)]"></span>
@@ -877,71 +877,188 @@ layout: layout.html
   </div>
 </section>
 
-<!-- Section 4: Featured Deployments (Bento Showcase Grid) -->
-<section id="portfolio-section" class="py-24 md:py-32 relative z-10 bg-transparent overflow-hidden scroll-mt-28 md:scroll-mt-36">
-  <div id="case-studies" class="absolute -top-32 pointer-events-none"></div>
+<!-- Section 4: Featured Deployments (Case Studies) -->
+<section id="case-studies-section" class="py-24 md:py-32 relative z-10 bg-transparent overflow-hidden">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="mb-12 md:mb-16">
-      <h2 class="text-4xl md:text-6xl font-bold font-headline text-white tracking-tighter">Featured Deployments</h2>
-      <p class="text-cyan-400 mt-4 text-xl font-mono tracking-widest uppercase">Select Case Studies</p>
+    <!-- Narrative Hook & Header -->
+    <div id="case-studies" class="mb-8 md:mb-10 max-w-4xl scroll-mt-28 md:scroll-mt-32">
+      <!-- Eyebrow Badge -->
+      <div class="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)]">
+        <span id="case-studies-eyebrow" class="lens-morphable text-[11px] sm:text-xs font-mono font-semibold tracking-wider text-slate-200 uppercase">
+          🏛️ ENTERPRISE ARCHITECTURE // PROVEN AT SCALE
+        </span>
+      </div>
+      
+      <!-- Headline -->
+      <h2 id="case-studies-headline" class="lens-morphable text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-headline text-white tracking-tight leading-tight">
+        Real Deployments. <span class="text-transparent bg-clip-text bg-linear-to-r from-cyan-300 via-white to-indigo-300">Quantifiable Growth.</span>
+      </h2>
+      
+      <!-- Subhead -->
+      <p id="case-studies-subhead" class="lens-morphable text-slate-300/90 text-sm sm:text-base md:text-lg font-normal max-w-3xl leading-relaxed mt-4">
+        High-availability client portals, automated receivables engines, and lightning-fast customer acquisition systems built for modern enterprises.
+      </p>
     </div>
     
-    <div class="portfolio-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-      <!-- Card 1 -->
-      <div class="portfolio-card glass-panel rounded-3xl md:rounded-4xl border border-cyan-500/20 overflow-hidden relative group shadow-2xl flex flex-col justify-between min-h-[390px] sm:min-h-[440px] md:min-h-[490px]">
-        <div class="absolute inset-0 bg-linear-to-br from-slate-900 to-cyan-950/50"></div>
-        <img src="/assets/certified_infrastructure.jpg" alt="FiscalX FinTech Cloud Infrastructure Dashboard" class="absolute inset-0 w-full h-full object-cover opacity-35 mix-blend-overlay group-hover:scale-105 transition-transform duration-700 pointer-events-none" />
-        <div class="relative z-10 p-6 md:p-8 flex flex-col justify-between h-full">
+    <div class="portfolio-container grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12">
+      <!-- Card 1: FiscalX (The Enterprise Flagship) -->
+      <div class="portfolio-card relative col-span-1 h-full rounded-3xl p-7 sm:p-9 lg:p-10 bg-[#0B0F19] border border-white/[0.08] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1),0_20px_50px_rgba(0,0,0,0.6)] transition-all duration-500 ease-out hover:-translate-y-1 hover:border-white/[0.15] overflow-hidden flex flex-col justify-between group min-h-[500px]">
+        <!-- Subtle Background Radial Gradient -->
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(8,145,178,0.10),transparent_70%)] pointer-events-none"></div>
+        <div class="relative z-10 flex flex-col justify-between h-full">
           <div>
-            <div class="flex justify-between items-start gap-4 mb-6">
-              <h3 class="text-2xl md:text-3xl font-black text-white tracking-tight">FiscalX</h3>
-              <span class="px-3 py-1 rounded-full border border-cyan-400/50 text-cyan-300 font-mono text-xs tracking-widest bg-cyan-500/10 backdrop-blur-md shrink-0">FIN-TECH</span>
+            <!-- Prominent Brand Header: FiscalX -->
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-6 pb-5 border-b border-white/[0.08]">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-linear-to-br from-cyan-500/20 to-cyan-950/80 border border-cyan-500/30 flex items-center justify-center text-cyan-300 font-headline font-bold text-sm shadow-[0_0_15px_rgba(6,182,212,0.2)]">
+                  FX
+                </div>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <h4 class="text-xl sm:text-2xl font-bold font-headline text-white tracking-tight">FiscalX</h4>
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.9)]" title="System Live"></span>
+                  </div>
+                  <span id="fiscalx-brand-sub" class="lens-morphable text-[10px] font-mono tracking-widest text-cyan-400 font-semibold uppercase">Accounting &amp; Tax OS</span>
+                </div>
+              </div>
+              
+              <div class="flex items-center gap-2">
+                <span id="fiscalx-badge" class="lens-morphable inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-cyan-950/60 text-cyan-300 border border-cyan-500/30 shadow-[0_0_12px_rgba(6,182,212,0.15)]">
+                  fiscalx.ca
+                </span>
+              </div>
             </div>
-            <p class="text-white/80 text-sm md:text-base leading-relaxed mb-6 font-light">Automated accounts-receivable workflows and a seamless client portal deployed using AWS Lambda and React, reducing overdue invoices by 40%.</p>
+            <h3 id="fiscalx-title" class="lens-morphable text-2xl sm:text-3xl lg:text-4xl font-bold font-headline text-white tracking-tight leading-snug mb-3">
+              Enterprise Client Portal &amp; Operations Suite.
+            </h3>
+            <p id="fiscalx-desc" class="lens-morphable text-slate-300/90 text-sm sm:text-base leading-relaxed mb-6 font-normal">
+              Engineered a centralized operations platform unifying dynamic client intake, a secure client lobby, project Kanban boards, synchronized scheduling, and autonomous receivables recovery.
+            </p>
+            
+            <!-- Built Production Suite Modules -->
+            <div class="mb-6">
+              <span class="block text-[10px] font-mono uppercase tracking-widest text-slate-400 font-semibold mb-2.5">
+                Built Platform Modules:
+              </span>
+              <div id="fiscalx-features" class="lens-morphable flex flex-wrap items-center gap-2" aria-label="FiscalX Platform Modules">
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-mono text-slate-200 bg-white/5 border border-white/10 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] hover:border-cyan-400/40 transition-colors">
+                  <span class="text-cyan-400">📝</span> Digital Intake Forms
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-mono text-slate-200 bg-white/5 border border-white/10 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] hover:border-cyan-400/40 transition-colors">
+                  <span class="text-cyan-400">🏛️</span> Client Lobby &amp; Portal
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-mono text-slate-200 bg-white/5 border border-white/10 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] hover:border-cyan-400/40 transition-colors">
+                  <span class="text-cyan-400">📋</span> Project Kanban Board
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-mono text-slate-200 bg-white/5 border border-white/10 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] hover:border-cyan-400/40 transition-colors">
+                  <span class="text-cyan-400">📅</span> Scheduling Calendar
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-mono text-slate-200 bg-white/5 border border-white/10 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] hover:border-cyan-400/40 transition-colors">
+                  <span class="text-cyan-400">⚡</span> Auto-Invoice Recovery
+                </span>
+              </div>
+            </div>
           </div>
-          <div class="pt-4 border-t border-white/10">
-            <a href="#" class="inline-flex items-center gap-2.5 text-cyan-400 hover:text-white font-bold text-sm tracking-wider uppercase transition-colors group/link py-2">
-              Read Case Study <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          <!-- Outcome Hook & Live Deployment CTA -->
+          <div class="pt-6 border-t border-white/[0.08] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-auto">
+            <!-- Outcome Hook Metric -->
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-400/20 flex items-center justify-center shrink-0 text-cyan-300">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                </svg>
+              </div>
+              <p id="fiscalx-outcome" class="lens-morphable text-xs sm:text-sm font-medium text-slate-200">
+                <span class="text-cyan-300 font-bold">Outcome:</span> Recovered 5% of outstanding AR &amp; eliminated 15+ manual admin hours weekly.
+              </p>
+            </div>
+
+            <!-- CTA Button -->
+            <a href="https://www.fiscalx.ca/" target="_blank" rel="noopener noreferrer" aria-label="Visit FiscalX live production deployment at fiscalx.ca (opens in a new tab)" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-400/30 text-cyan-300 hover:text-white font-mono text-xs font-bold uppercase tracking-wider transition-all duration-300 group/btn shadow-[0_0_20px_rgba(6,182,212,0.15)] hover:shadow-[0_0_25px_rgba(6,182,212,0.3)] shrink-0">
+              <span>View Live Deployment</span>
+              <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
             </a>
           </div>
         </div>
       </div>
 
-      <!-- Card 2 -->
-      <div class="portfolio-card glass-panel rounded-3xl md:rounded-4xl border border-emerald-500/20 overflow-hidden relative group shadow-2xl flex flex-col justify-between min-h-[390px] sm:min-h-[440px] md:min-h-[490px]">
-        <div class="absolute inset-0 bg-linear-to-br from-slate-900 to-emerald-950/50"></div>
-        <img src="/assets/multi_agent_swarms.jpg" alt="My Choice Auto AI Appointment Scheduling System" class="absolute inset-0 w-full h-full object-cover opacity-35 mix-blend-overlay group-hover:scale-105 transition-transform duration-700 pointer-events-none" />
-        <div class="relative z-10 p-6 md:p-8 flex flex-col justify-between h-full">
+      <!-- Card 2: My Choice Auto (The Field Engine) -->
+      <div class="portfolio-card relative col-span-1 h-full rounded-3xl p-7 sm:p-9 lg:p-10 bg-[#0B0F19] border border-white/[0.08] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1),0_20px_50px_rgba(0,0,0,0.6)] transition-all duration-500 ease-out hover:-translate-y-1 hover:border-white/[0.15] overflow-hidden flex flex-col justify-between group min-h-[500px]">
+        <!-- Subtle Background Radial Gradient -->
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(5,150,105,0.10),transparent_70%)] pointer-events-none"></div>
+        <div class="relative z-10 flex flex-col justify-between h-full">
           <div>
-            <div class="flex justify-between items-start gap-4 mb-6">
-              <h3 class="text-2xl md:text-3xl font-black text-white tracking-tight">My Choice Auto</h3>
-              <span class="px-3 py-1 rounded-full border border-emerald-400/50 text-emerald-300 font-mono text-xs tracking-widest bg-emerald-500/10 backdrop-blur-md shrink-0">AUTOMOTIVE</span>
+            <!-- Prominent Brand Header: My Choice Auto -->
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-6 pb-5 border-b border-white/[0.08]">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-linear-to-br from-emerald-500/20 to-emerald-950/80 border border-emerald-500/30 flex items-center justify-center text-emerald-300 font-headline font-bold text-sm shadow-[0_0_15px_rgba(16,185,129,0.2)]">
+                  MCA
+                </div>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <h4 class="text-xl sm:text-2xl font-bold font-headline text-white tracking-tight">My Choice Auto</h4>
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.9)]" title="System Live"></span>
+                  </div>
+                  <span id="mychoice-brand-sub" class="lens-morphable text-[10px] font-mono tracking-widest text-emerald-400 font-semibold uppercase">Auto Repair &amp; Dispatch</span>
+                </div>
+              </div>
+              
+              <div class="flex items-center gap-2">
+                <span id="mychoice-badge" class="lens-morphable inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-emerald-950/60 text-emerald-300 border border-emerald-500/30 shadow-[0_0_12px_rgba(16,185,129,0.15)]">
+                  mychoiceautoservices.com
+                </span>
+              </div>
             </div>
-            <p class="text-white/80 text-sm md:text-base leading-relaxed mb-6 font-light">AI scheduling system integrating with SMS/Twilio and Google Calendar. Boosted appointment bookings by 25% with zero human touch.</p>
+            <h3 id="mychoice-title" class="lens-morphable text-2xl sm:text-3xl lg:text-4xl font-bold font-headline text-white tracking-tight leading-snug mb-3">
+              Sub-Second Lead Routing &amp; Field Dispatch.
+            </h3>
+            <p id="mychoice-desc" class="lens-morphable text-slate-300/90 text-sm sm:text-base leading-relaxed mb-6 font-normal">
+              Transformed customer acquisition with an ultra-fast mobile booking engine that routes incoming service appointments directly to lead mechanics' phones via automated SMS dispatch—eliminating front-desk friction.
+            </p>
+            
+            <!-- Built Operations Suite Modules -->
+            <div class="mb-6">
+              <span class="block text-[10px] font-mono uppercase tracking-widest text-slate-400 font-semibold mb-2.5">
+                Built Platform Modules:
+              </span>
+              <div id="mychoice-features" class="lens-morphable flex flex-wrap items-center gap-2" aria-label="My Choice Auto Platform Modules">
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-mono text-slate-200 bg-white/5 border border-white/10 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] hover:border-emerald-400/40 transition-colors">
+                  <span class="text-emerald-400">📱</span> Instant Mobile Booking
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-mono text-slate-200 bg-white/5 border border-white/10 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] hover:border-emerald-400/40 transition-colors">
+                  <span class="text-emerald-400">📲</span> Mechanic SMS Dispatch
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-mono text-slate-200 bg-white/5 border border-white/10 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] hover:border-emerald-400/40 transition-colors">
+                  <span class="text-emerald-400">⚡</span> Live Work Order Sync
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-mono text-slate-200 bg-white/5 border border-white/10 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] hover:border-emerald-400/40 transition-colors">
+                  <span class="text-emerald-400">🚀</span> 100/100 Core Web Vitals
+                </span>
+              </div>
+            </div>
           </div>
-          <div class="pt-4 border-t border-white/10">
-            <a href="#" class="inline-flex items-center gap-2.5 text-emerald-400 hover:text-white font-bold text-sm tracking-wider uppercase transition-colors group/link py-2">
-              Read Case Study <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-            </a>
-          </div>
-        </div>
-      </div>
+          <!-- Outcome Hook & Live Deployment CTA -->
+          <div class="pt-6 border-t border-white/[0.08] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-auto">
+            <!-- Outcome Hook Metric -->
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-400/20 flex items-center justify-center shrink-0 text-emerald-300">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <p id="mychoice-outcome" class="lens-morphable text-xs sm:text-sm font-medium text-slate-200">
+                <span class="text-emerald-300 font-bold">Outcome:</span> Instant lead dispatch in &lt;60s &amp; 100/100 Core Web Vitals speed.
+              </p>
+            </div>
 
-      <!-- Card 3 -->
-      <div class="portfolio-card glass-panel rounded-3xl md:rounded-4xl border border-purple-500/20 overflow-hidden relative group shadow-2xl flex flex-col justify-between min-h-[390px] sm:min-h-[440px] md:min-h-[490px]">
-        <div class="absolute inset-0 bg-linear-to-br from-slate-900 to-purple-950/50"></div>
-        <img src="/assets/real_time_observability.jpg" alt="HealthSync AI Autonomous Document Processing Pipeline" class="absolute inset-0 w-full h-full object-cover opacity-35 mix-blend-overlay group-hover:scale-105 transition-transform duration-700 pointer-events-none" />
-        <div class="relative z-10 p-6 md:p-8 flex flex-col justify-between h-full">
-          <div>
-            <div class="flex justify-between items-start gap-4 mb-6">
-              <h3 class="text-2xl md:text-3xl font-black text-white tracking-tight">HealthSync AI</h3>
-              <span class="px-3 py-1 rounded-full border border-purple-400/50 text-purple-300 font-mono text-xs tracking-widest bg-purple-500/10 backdrop-blur-md shrink-0">HEALTHCARE</span>
-            </div>
-            <p class="text-white/80 text-sm md:text-base leading-relaxed mb-6 font-light">HIPAA-compliant autonomous data processing pipeline using Google Cloud DocumentAI to extract and categorize patient intake forms instantly.</p>
-          </div>
-          <div class="pt-4 border-t border-white/10">
-            <a href="#" class="inline-flex items-center gap-2.5 text-purple-400 hover:text-white font-bold text-sm tracking-wider uppercase transition-colors group/link py-2">
-              Read Case Study <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            <!-- CTA Button -->
+            <a href="https://www.mychoiceautoservices.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit My Choice Auto live production deployment at mychoiceautoservices.com (opens in a new tab)" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 hover:text-white font-mono text-xs font-bold uppercase tracking-wider transition-all duration-300 group/btn shadow-[0_0_20px_rgba(16,185,129,0.15)] hover:shadow-[0_0_25px_rgba(16,185,129,0.3)] shrink-0">
+              <span>View Live Deployment</span>
+              <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
             </a>
           </div>
         </div>
@@ -1492,8 +1609,8 @@ layout: layout.html
       }
     });
 
-    // 2. Cinematic Entrance Animations for Content Sections (Protected from 3D Flattening)
-    const contentBlocks = gsap.utils.toArray('section:not(#services-orbit-section) > div');
+    // 2. Cinematic Entrance Animations for Content Sections (Protected from 3D Flattening & Anchor Drift)
+    const contentBlocks = gsap.utils.toArray('section:not(#services-orbit-section):not(#case-studies-section):not(#architecture-section) > div');
     contentBlocks.forEach((block, i) => {
       // Hero content fades in gracefully on load
       if (i === 0) {
@@ -1521,6 +1638,24 @@ layout: layout.html
         }
       );
     });
+
+    // Case Studies Section Entrance (Pure Opacity Fade - Zero Y-Displacement to preserve anchor alignment)
+    const caseStudiesSec = document.querySelector('#case-studies-section');
+    if (caseStudiesSec) {
+      gsap.fromTo(caseStudiesSec,
+        { opacity: 0 },
+        {
+          opacity: 1,
+          duration: 1.2,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: caseStudiesSec,
+            start: "top 85%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+    }
 
     // 3. Phase 2: Manifesto Word Highlighting
     const words = gsap.utils.toArray('.manifesto-word');
@@ -2778,6 +2913,38 @@ layout: layout.html
               ticker: 'Vector DB: Synced'
             }
           ]
+        },
+        caseStudies: {
+          eyebrow: '🏛️ ENTERPRISE ARCHITECTURE // PROVEN AT SCALE',
+          headline: 'Real Deployments. <span class="text-transparent bg-clip-text bg-linear-to-r from-cyan-300 via-white to-indigo-300">Quantifiable Growth.</span>',
+          subhead: 'High-availability client portals, automated receivables engines, and lightning-fast customer acquisition systems built for modern enterprises.',
+          fiscalx: {
+            brandSub: 'Accounting & Tax OS',
+            badge: 'fiscalx.ca',
+            title: 'Enterprise Client Portal & Operations Suite.',
+            desc: 'Engineered a centralized operations platform unifying dynamic client intake, a secure client lobby, project Kanban boards, synchronized scheduling, and autonomous receivables recovery.',
+            features: [
+              { icon: '📝', label: 'Digital Intake Forms' },
+              { icon: '🏛️', label: 'Client Lobby & Portal' },
+              { icon: '📋', label: 'Project Kanban Board' },
+              { icon: '📅', label: 'Scheduling Calendar' },
+              { icon: '⚡', label: 'Auto-Invoice Recovery' }
+            ],
+            outcome: 'Recovered 5% of outstanding AR & eliminated 15+ manual admin hours weekly.'
+          },
+          myChoice: {
+            brandSub: 'Auto Repair & Dispatch',
+            badge: 'mychoiceautoservices.com',
+            title: 'Sub-Second Lead Routing & Field Dispatch.',
+            desc: "Transformed customer acquisition with an ultra-fast mobile booking engine that routes incoming service appointments directly to lead mechanics' phones via automated SMS dispatch—eliminating front-desk friction.",
+            features: [
+              { icon: '📱', label: 'Instant Mobile Booking' },
+              { icon: '📲', label: 'Mechanic SMS Dispatch' },
+              { icon: '⚡', label: 'Live Work Order Sync' },
+              { icon: '🚀', label: '100/100 Core Web Vitals' }
+            ],
+            outcome: 'Instant lead dispatch in <60s & 100/100 Core Web Vitals speed.'
+          }
         }
       },
       trades: {
@@ -2867,6 +3034,38 @@ layout: layout.html
               ticker: 'Text-to-Pay • Synced'
             }
           ]
+        },
+        caseStudies: {
+          eyebrow: '🔧 PROVEN FIELD WORKFLOWS // BUILT FOR CONTRACTORS & SHOPS',
+          headline: 'Built for Real Businesses. <span class="text-transparent bg-clip-text bg-linear-to-r from-amber-300 via-white to-amber-200">No Tech Fluff.</span>',
+          subhead: 'See how real local businesses eliminate paper clipboards, stop chasing unpaid bills, and get jobs scheduled without front-desk chaos.',
+          fiscalx: {
+            brandSub: 'Paperless Office & Cash Flow',
+            badge: 'fiscalx.ca',
+            title: 'All-In-One Customer Portal, Job Board & Auto-Billing.',
+            desc: 'Replaced paper chaos with online intake forms, a client portal lobby, visual drag-and-drop job boards, crew scheduling calendars, and automated text messages that get unpaid invoices paid fast.',
+            features: [
+              { icon: '📝', label: 'Mobile Intake Forms' },
+              { icon: '🏛️', label: 'Client Portal Lobby' },
+              { icon: '📋', label: 'Visual Job Board' },
+              { icon: '📅', label: 'Crew Schedule Calendar' },
+              { icon: '⚡', label: 'Auto-Text Bill Pay' }
+            ],
+            outcome: 'Zero lost paperwork • Unpaid bills recovered on autopilot without awkward phone calls.'
+          },
+          myChoice: {
+            brandSub: 'Shop Dispatch & Booking',
+            badge: 'mychoiceautoservices.com',
+            title: 'Direct-to-Phone Mechanic Dispatch & Instant Booking.',
+            desc: "Built a fast mobile booking site that sends incoming customer repair requests straight to the mechanic's phone as an instant text alert—bypassing front-desk delays completely.",
+            features: [
+              { icon: '📱', label: '1-Tap Customer Booking' },
+              { icon: '📲', label: 'Direct Mechanic Text Alert' },
+              { icon: '⚡', label: 'Digital Work Order Tickets' },
+              { icon: '🚀', label: 'Zero Phone Tag Delays' }
+            ],
+            outcome: 'Never miss a repair customer • Instant text alerts sent straight to mechanics on the shop floor.'
+          }
         }
       }
     };
@@ -2970,6 +3169,70 @@ layout: layout.html
 
               layer.setAttribute('aria-label', `Step ${layerData.step || (idx + 1)}: ${layerData.title} - ${layerData.desc}`);
             });
+          }
+        }
+
+        // Update Case Studies / Featured Deployments Section
+        if (data.caseStudies) {
+          const cs = data.caseStudies;
+          const csEyebrow = document.getElementById('case-studies-eyebrow');
+          const csHeadline = document.getElementById('case-studies-headline');
+          const csSubhead = document.getElementById('case-studies-subhead');
+
+          if (csEyebrow) csEyebrow.textContent = cs.eyebrow;
+          if (csHeadline) csHeadline.innerHTML = cs.headline;
+          if (csSubhead) csSubhead.textContent = cs.subhead;
+
+          // Card 1: FiscalX
+          if (cs.fiscalx) {
+            const fxBrandSub = document.getElementById('fiscalx-brand-sub');
+            const fxBadge = document.getElementById('fiscalx-badge');
+            const fxTitle = document.getElementById('fiscalx-title');
+            const fxDesc = document.getElementById('fiscalx-desc');
+            const fxFeatures = document.getElementById('fiscalx-features');
+            const fxOutcome = document.getElementById('fiscalx-outcome');
+
+            if (fxBrandSub) fxBrandSub.textContent = cs.fiscalx.brandSub;
+            if (fxBadge) fxBadge.textContent = cs.fiscalx.badge;
+            if (fxTitle) fxTitle.textContent = cs.fiscalx.title;
+            if (fxDesc) fxDesc.textContent = cs.fiscalx.desc;
+            if (fxOutcome) {
+              fxOutcome.innerHTML = `<span class="text-cyan-300 font-bold">Outcome:</span> ${cs.fiscalx.outcome}`;
+            }
+
+            if (fxFeatures && Array.isArray(cs.fiscalx.features)) {
+              fxFeatures.innerHTML = cs.fiscalx.features.map(f => `
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-mono text-slate-200 bg-white/5 border border-white/10 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] hover:border-cyan-400/40 transition-colors">
+                  <span class="text-cyan-400">${f.icon}</span> ${f.label}
+                </span>
+              `).join('');
+            }
+          }
+
+          // Card 2: My Choice Auto
+          if (cs.myChoice) {
+            const mcaBrandSub = document.getElementById('mychoice-brand-sub');
+            const mcaBadge = document.getElementById('mychoice-badge');
+            const mcaTitle = document.getElementById('mychoice-title');
+            const mcaDesc = document.getElementById('mychoice-desc');
+            const mcaFeatures = document.getElementById('mychoice-features');
+            const mcaOutcome = document.getElementById('mychoice-outcome');
+
+            if (mcaBrandSub) mcaBrandSub.textContent = cs.myChoice.brandSub;
+            if (mcaBadge) mcaBadge.textContent = cs.myChoice.badge;
+            if (mcaTitle) mcaTitle.textContent = cs.myChoice.title;
+            if (mcaDesc) mcaDesc.textContent = cs.myChoice.desc;
+            if (mcaOutcome) {
+              mcaOutcome.innerHTML = `<span class="text-emerald-300 font-bold">Outcome:</span> ${cs.myChoice.outcome}`;
+            }
+
+            if (mcaFeatures && Array.isArray(cs.myChoice.features)) {
+              mcaFeatures.innerHTML = cs.myChoice.features.map(f => `
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-mono text-slate-200 bg-white/5 border border-white/10 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] hover:border-emerald-400/40 transition-colors">
+                  <span class="text-emerald-400">${f.icon}</span> ${f.label}
+                </span>
+              `).join('');
+            }
           }
         }
 

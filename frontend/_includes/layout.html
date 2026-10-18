@@ -380,6 +380,21 @@
           anchor.setAttribute('rel', (currentRel + ' noopener noreferrer').trim());
         }
       });
+
+      // Deterministic Smooth Scroll for In-Page Anchor Links (Zero Drift)
+      document.querySelectorAll('header a[href*="#"]').forEach(link => {
+        link.addEventListener('click', (e) => {
+          const href = link.getAttribute('href');
+          if (!href || !href.includes('#')) return;
+          const hash = href.substring(href.indexOf('#') + 1);
+          const target = document.getElementById(hash);
+          if (target) {
+            e.preventDefault();
+            history.pushState(null, '', `#${hash}`);
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
     });
   </script>
 
