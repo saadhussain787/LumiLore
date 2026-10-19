@@ -7,6 +7,41 @@
   <meta name="description" content="LumiLore Technologies - Cloud Architecture & AI Intelligent Systems">
   <link rel="icon" type="image/png" href="/public/favicon.png">
 
+  <!-- Pre-Paint Global Lens Bootstrapper (Zero-FOUC & URL Auto-Detection) -->
+  <script>
+    (function bootstrapGlobalLens() {
+      try {
+        var params = new URLSearchParams(window.location.search);
+        var rawLens = params.get('lens') || params.get('audience');
+        var lens = 'corporate';
+        if (rawLens) {
+          rawLens = rawLens.toLowerCase();
+          if (rawLens === 'trades' || rawLens === 'trade' || rawLens === 'field') {
+            lens = 'trades';
+          } else if (rawLens === 'corporate' || rawLens === 'corp' || rawLens === 'enterprise') {
+            lens = 'corporate';
+          }
+          localStorage.setItem('lumilore_master_lens', lens);
+        } else {
+          var saved = localStorage.getItem('lumilore_master_lens') || localStorage.getItem('lumilore_industry_lens');
+          if (saved === 'trades' || saved === 'corporate') {
+            lens = saved;
+          }
+        }
+        document.documentElement.setAttribute('data-lens', lens);
+        if (document.body) {
+          document.body.setAttribute('data-lens', lens);
+        } else {
+          document.addEventListener('DOMContentLoaded', function onDomReady() {
+            if (document.body) document.body.setAttribute('data-lens', lens);
+          }, { once: true });
+        }
+      } catch (e) {
+        document.documentElement.setAttribute('data-lens', 'corporate');
+      }
+    })();
+  </script>
+
   <!-- Open Graph / WhatsApp / Facebook / LinkedIn -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="LumiLore Technologies">
@@ -141,7 +176,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
 </head>
-<body class="bg-background text-on-background font-body antialiased flex flex-col min-h-screen relative">
+<body data-lens="corporate" class="bg-background text-on-background font-body antialiased flex flex-col min-h-screen relative">
   
   <!-- Subtle Tactile Film Grain Overlay (Layer 2: Eliminates Banding & Adds Matte Texture) -->
   <div class="fixed inset-0 pointer-events-none z-30 select-none overflow-hidden opacity-[0.032] mix-blend-overlay" aria-hidden="true">
@@ -157,7 +192,7 @@
   </div>
 
   <!-- Navigation -->
-  <header class="sticky top-4 mt-4 md:mt-0 mx-auto w-[95%] md:fixed md:top-6 md:left-1/2 md:-translate-x-1/2 max-w-5xl z-50 glass-panel rounded-full border border-border-dark shadow-[0_10px_40px_-10px_rgba(0,242,254,0.15)] transition-all duration-300">
+  <header class="sticky top-4 mt-4 md:mt-0 mx-auto w-[95%] md:fixed md:top-6 md:left-1/2 md:-translate-x-1/2 max-w-5xl lg:max-w-6xl xl:max-w-7xl z-50 glass-panel rounded-full border border-border-dark shadow-[0_10px_40px_-10px_rgba(0,242,254,0.15)] transition-all duration-300">
     <div class="px-6 sm:px-8">
       <div class="flex justify-between items-center h-16">
         
@@ -186,8 +221,21 @@
             Contact
             <span class="absolute bottom-0 left-0 w-full h-0.5 bg-cyan-glow scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] shadow-[0_0_8px_rgba(0,242,254,0.8)]"></span>
           </a>
+
+          <!-- Master Lens Segmented Control (Phase 2 Task 2.1) -->
+          <div id="master-lens-toggle" class="relative inline-flex items-center p-1 rounded-full bg-black/60 border border-white/12 backdrop-blur-xl shadow-inner select-none ml-1" role="group" aria-label="Audience Perspective Selector">
+            <!-- Sliding Active Indicator Pill -->
+            <div id="master-lens-indicator" class="absolute top-1 bottom-1 rounded-full bg-cyan-500/20 border border-cyan-400/40 shadow-[0_0_12px_rgba(0,242,254,0.3)] transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] pointer-events-none" style="left: 4px; width: 95px;"></div>
+            
+            <button id="master-btn-corporate" type="button" class="relative z-10 px-3 py-1 rounded-full text-xs font-mono font-bold tracking-wider transition-colors duration-200 cursor-pointer text-cyan-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 flex items-center gap-1.5" aria-pressed="true">
+              <span>🏢</span> <span>Corporate</span>
+            </button>
+            <button id="master-btn-trades" type="button" class="relative z-10 px-3 py-1 rounded-full text-xs font-mono font-bold tracking-wider transition-colors duration-200 cursor-pointer text-slate-400 hover:text-slate-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 flex items-center gap-1.5" aria-pressed="false">
+              <span>🔧</span> <span>Trades</span>
+            </button>
+          </div>
           
-          <a href="/deploy" class="relative overflow-hidden circuit-border glow-cta ml-4 px-6 py-2 rounded-full text-cyan-glow text-xs font-bold tracking-widest uppercase hover:text-white transition-all bg-surface-dark group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400">
+          <a href="/deploy" class="relative overflow-hidden circuit-border glow-cta ml-2 lg:ml-4 px-5 lg:px-6 py-2 rounded-full text-cyan-glow text-xs font-bold tracking-widest uppercase hover:text-white transition-all bg-surface-dark group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 shrink-0">
             <span class="relative z-10">Deploy System</span>
             <!-- Shimmer effect (GPU accelerated transform) -->
             <div class="absolute inset-0 bg-linear-to-r from-transparent via-cyan-glow/30 to-transparent w-full h-full pointer-events-none z-0 animate-[shimmer_3s_infinite_linear]"></div>
@@ -206,6 +254,20 @@
       
       <!-- Mobile Dropdown Menu -->
       <div id="mobile-menu" class="hidden md:hidden border-t border-border-dark mt-2 pt-4 pb-4 space-y-2" aria-hidden="true" role="region" aria-label="Mobile Navigation">
+        <!-- Mobile Master Audience Switcher (Phase 2 Task 2.2) -->
+        <div class="px-2 pb-3 mb-2 border-b border-white/10">
+          <p class="text-[10px] font-mono uppercase tracking-widest text-slate-400 font-bold mb-2 px-1">Audience Perspective:</p>
+          <div id="mobile-master-lens-toggle" class="relative flex items-center p-1 rounded-full bg-black/60 border border-white/12 backdrop-blur-xl shadow-inner select-none w-full" role="group" aria-label="Mobile Audience Selector">
+            <div id="mobile-master-lens-indicator" class="absolute top-1 bottom-1 rounded-full bg-cyan-500/20 border border-cyan-400/40 shadow-[0_0_12px_rgba(0,242,254,0.3)] transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] pointer-events-none" style="left: 4px; width: calc(50% - 4px);"></div>
+            <button id="mobile-master-btn-corporate" type="button" class="relative z-10 flex-1 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider transition-colors duration-200 cursor-pointer text-cyan-300 focus-visible:outline-none flex items-center justify-center gap-1.5" aria-pressed="true">
+              <span>🏢</span> <span>Corporate</span>
+            </button>
+            <button id="mobile-master-btn-trades" type="button" class="relative z-10 flex-1 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider transition-colors duration-200 cursor-pointer text-slate-400 hover:text-slate-200 focus-visible:outline-none flex items-center justify-center gap-1.5" aria-pressed="false">
+              <span>🔧</span> <span>Trades</span>
+            </button>
+          </div>
+        </div>
+
         <a href="/#services-orbit-section" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white transition-colors hover:bg-white/5 rounded-lg">Services</a>
         <a href="/#case-studies" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white transition-colors hover:bg-white/5 rounded-lg">Case Studies</a>
         <a href="/#about" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white transition-colors hover:bg-white/5 rounded-lg">About</a>
@@ -578,6 +640,190 @@
         } else {
           initPrefetcher();
         }
+      })();
+    </script>
+
+    <!-- Central Master Audience Lens State Controller (Phase 2 Task 2.3) -->
+    <script>
+      (function initMasterLensController() {
+        var currentLens = document.documentElement.getAttribute('data-lens') || 'corporate';
+
+        function updateSwitcherUI(lens) {
+          // 1. Desktop Switcher elements
+          var corpBtn = document.getElementById('master-btn-corporate');
+          var tradeBtn = document.getElementById('master-btn-trades');
+          var indicator = document.getElementById('master-lens-indicator');
+
+          if (corpBtn && tradeBtn && indicator) {
+            var isCorp = lens === 'corporate';
+            corpBtn.setAttribute('aria-pressed', isCorp ? 'true' : 'false');
+            tradeBtn.setAttribute('aria-pressed', isCorp ? 'false' : 'true');
+
+            if (isCorp) {
+              corpBtn.classList.add('text-cyan-300');
+              corpBtn.classList.remove('text-slate-400');
+              tradeBtn.classList.add('text-slate-400');
+              tradeBtn.classList.remove('text-cyan-300');
+              indicator.style.left = corpBtn.offsetLeft + 'px';
+              indicator.style.width = corpBtn.offsetWidth + 'px';
+            } else {
+              tradeBtn.classList.add('text-cyan-300');
+              tradeBtn.classList.remove('text-slate-400');
+              corpBtn.classList.add('text-slate-400');
+              corpBtn.classList.remove('text-cyan-300');
+              indicator.style.left = tradeBtn.offsetLeft + 'px';
+              indicator.style.width = tradeBtn.offsetWidth + 'px';
+            }
+          }
+
+          // 2. Mobile Switcher elements
+          var mCorpBtn = document.getElementById('mobile-master-btn-corporate');
+          var mTradeBtn = document.getElementById('mobile-master-btn-trades');
+          var mIndicator = document.getElementById('mobile-master-lens-indicator');
+
+          if (mCorpBtn && mTradeBtn && mIndicator) {
+            var mIsCorp = lens === 'corporate';
+            mCorpBtn.setAttribute('aria-pressed', mIsCorp ? 'true' : 'false');
+            mTradeBtn.setAttribute('aria-pressed', mIsCorp ? 'false' : 'true');
+
+            if (mIsCorp) {
+              mCorpBtn.classList.add('text-cyan-300');
+              mCorpBtn.classList.remove('text-slate-400');
+              mTradeBtn.classList.add('text-slate-400');
+              mTradeBtn.classList.remove('text-cyan-300');
+              mIndicator.style.left = '4px';
+              mIndicator.style.width = 'calc(50% - 4px)';
+            } else {
+              mTradeBtn.classList.add('text-cyan-300');
+              mTradeBtn.classList.remove('text-slate-400');
+              mCorpBtn.classList.add('text-slate-400');
+              mCorpBtn.classList.remove('text-cyan-300');
+              mIndicator.style.left = '50%';
+              mIndicator.style.width = 'calc(50% - 4px)';
+            }
+          }
+        }
+
+        function setMasterLens(lensKey, updateUrl) {
+          if (lensKey !== 'corporate' && lensKey !== 'trades') return;
+          currentLens = lensKey;
+
+          // Set attributes for pure CSS toggling
+          document.documentElement.setAttribute('data-lens', lensKey);
+          if (document.body) {
+            document.body.setAttribute('data-lens', lensKey);
+          }
+
+          // Persist to storage
+          try {
+            localStorage.setItem('lumilore_master_lens', lensKey);
+            localStorage.setItem('lumilore_industry_lens', lensKey);
+          } catch (e) {}
+
+          // Update URL query parameter cleanly without reload (Phase 6 Task 6.2)
+          if (updateUrl && window.history && window.history.replaceState) {
+            try {
+              var url = new URL(window.location.href);
+              url.searchParams.delete('audience');
+              url.searchParams.set('lens', lensKey);
+              window.history.replaceState({ lens: lensKey }, '', url.pathname + url.search + url.hash);
+            } catch (e) {}
+          }
+
+          // Update UI on all navbar switchers
+          updateSwitcherUI(lensKey);
+
+          // Synchronize in-section toggle if present (Phase 6 / legacy interoperability)
+          if (typeof window.setIndustryLens === 'function') {
+            try { window.setIndustryLens(lensKey, false); } catch (e) {}
+          }
+
+          // Dispatch global custom event for any listeners (ROI Calculator, Audio Player, etc.)
+          window.dispatchEvent(new CustomEvent('lenschange', { detail: { lens: lensKey } }));
+        }
+
+        // Attach listeners to buttons
+        function attachListeners() {
+          var corpBtn = document.getElementById('master-btn-corporate');
+          var tradeBtn = document.getElementById('master-btn-trades');
+          var mCorpBtn = document.getElementById('mobile-master-btn-corporate');
+          var mTradeBtn = document.getElementById('mobile-master-btn-trades');
+
+          if (corpBtn) {
+            corpBtn.addEventListener('click', function(e) {
+              e.preventDefault();
+              setMasterLens('corporate', true);
+            });
+          }
+          if (tradeBtn) {
+            tradeBtn.addEventListener('click', function(e) {
+              e.preventDefault();
+              setMasterLens('trades', true);
+            });
+          }
+          if (mCorpBtn) {
+            mCorpBtn.addEventListener('click', function(e) {
+              e.preventDefault();
+              setMasterLens('corporate', true);
+            });
+          }
+          if (mTradeBtn) {
+            mTradeBtn.addEventListener('click', function(e) {
+              e.preventDefault();
+              setMasterLens('trades', true);
+            });
+          }
+
+          // Prime initial history state
+          if (window.history && window.history.replaceState && !window.history.state) {
+            try {
+              window.history.replaceState({ lens: currentLens }, '', window.location.href);
+            } catch (e) {}
+          }
+
+          // Handle browser Back/Forward navigation (PopState)
+          window.addEventListener('popstate', function(e) {
+            var targetLens = null;
+            if (e.state && e.state.lens) {
+              targetLens = e.state.lens;
+            } else {
+              try {
+                var p = new URLSearchParams(window.location.search);
+                var raw = p.get('lens') || p.get('audience');
+                if (raw) {
+                  targetLens = (raw.toLowerCase() === 'trades' || raw.toLowerCase() === 'trade' || raw.toLowerCase() === 'field') ? 'trades' : 'corporate';
+                } else {
+                  targetLens = localStorage.getItem('lumilore_master_lens') || 'corporate';
+                }
+              } catch (err) {
+                targetLens = 'corporate';
+              }
+            }
+            if (targetLens && targetLens !== currentLens) {
+              setMasterLens(targetLens, false);
+            }
+          });
+
+          // Recalculate indicator position on resize
+          window.addEventListener('resize', function() {
+            updateSwitcherUI(currentLens);
+          }, { passive: true });
+
+          // Initial UI alignment
+          requestAnimationFrame(function() {
+            updateSwitcherUI(currentLens);
+          });
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', attachListeners);
+        } else {
+          attachListeners();
+        }
+
+        // Expose globally
+        window.setMasterLens = setMasterLens;
+        window.getMasterLens = function() { return currentLens; };
       })();
     </script>
 </body>

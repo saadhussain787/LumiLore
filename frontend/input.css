@@ -1244,3 +1244,58 @@ textarea:focus-visible,
     transform: none !important;
   }
 }
+
+/* ==========================================================================
+   GLOBAL AUDIENCE LENS & CSS TOGGLING ENGINE (Phase 1 Task 1.2)
+   ========================================================================== */
+
+/* Pure CSS Zero-Lag Visibility Toggling */
+[data-lens="corporate"] .lens-trade,
+html[data-lens="corporate"] .lens-trade {
+  display: none !important;
+}
+
+[data-lens="trades"] .lens-corp,
+html[data-lens="trades"] .lens-corp {
+  display: none !important;
+}
+
+/* GPU-Accelerated Text & Element Morph Transition */
+.lens-morphable {
+  transition: opacity 180ms cubic-bezier(0.16, 1, 0.3, 1), transform 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.lens-morphable.is-fading {
+  opacity: 0 !important;
+  transform: translateY(3px) scale(0.99);
+}
+
+/* Dynamic Case Studies Grid Re-ordering (Phase 4 Hook) */
+[data-lens="corporate"] #case-study-fiscalx,
+html[data-lens="corporate"] #case-study-fiscalx {
+  order: 1;
+}
+
+[data-lens="corporate"] #case-study-mychoice,
+html[data-lens="corporate"] #case-study-mychoice {
+  order: 2;
+}
+
+[data-lens="trades"] #case-study-mychoice,
+html[data-lens="trades"] #case-study-mychoice {
+  order: 1;
+}
+
+[data-lens="trades"] #case-study-fiscalx,
+html[data-lens="trades"] #case-study-fiscalx {
+  order: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lens-morphable {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
