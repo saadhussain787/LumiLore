@@ -196,51 +196,63 @@
     <div class="px-6 sm:px-8">
       <div class="flex justify-between items-center h-16">
         
-        <!-- Logo -->
-        <div class="shrink-0 flex items-center">
-          <a href="/" class="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-full">
+        <!-- Left Cluster: Logo & Navigation Links -->
+        <div class="flex items-center gap-6 lg:gap-8">
+          <a href="/" class="shrink-0 flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-full">
             <img class="h-8 md:h-10 w-auto object-contain transition-transform duration-300 hover:scale-105" style="filter: drop-shadow(0 0 15px rgba(0, 242, 254, 0.4));" src="/public/logo.webp" onerror="this.onerror=null; this.src='/frontend/logo.webp';" alt="LumiLore Technologies">
           </a>
+
+          <!-- Desktop Navigation Links -->
+          <nav class="hidden md:flex items-center space-x-6 lg:space-x-8" aria-label="Main Navigation">
+            <a href="/#services-orbit-section" class="group relative text-sm font-medium text-slate-300 hover:text-white transition-colors py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded">
+              Services
+              <span class="absolute bottom-0 left-0 w-full h-0.5 bg-cyan-glow scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] shadow-[0_0_8px_rgba(0,242,254,0.8)]"></span>
+            </a>
+            <a href="/#case-studies" class="group relative text-sm font-medium text-slate-300 hover:text-white transition-colors py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded">
+              Case Studies
+              <span class="absolute bottom-0 left-0 w-full h-0.5 bg-cyan-glow scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] shadow-[0_0_8px_rgba(0,242,254,0.8)]"></span>
+            </a>
+            <a href="/#about" class="group relative text-sm font-medium text-slate-300 hover:text-white transition-colors py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded">
+              About
+              <span class="absolute bottom-0 left-0 w-full h-0.5 bg-cyan-glow scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] shadow-[0_0_8px_rgba(0,242,254,0.8)]"></span>
+            </a>
+            <a href="/#contact" class="group relative text-sm font-medium text-slate-300 hover:text-white transition-colors py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded">
+              Contact
+              <span class="absolute bottom-0 left-0 w-full h-0.5 bg-cyan-glow scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] shadow-[0_0_8px_rgba(0,242,254,0.8)]"></span>
+            </a>
+          </nav>
         </div>
 
-        <!-- Desktop Navigation -->
-        <nav class="hidden md:flex space-x-8 items-center" aria-label="Main Navigation">
-          <a href="/#services-orbit-section" class="group relative text-sm font-medium text-slate-300 hover:text-white transition-colors py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded">
-            Services
-            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-cyan-glow scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] shadow-[0_0_8px_rgba(0,242,254,0.8)]"></span>
-          </a>
-          <a href="/#case-studies" class="group relative text-sm font-medium text-slate-300 hover:text-white transition-colors py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded">
-            Case Studies
-            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-cyan-glow scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] shadow-[0_0_8px_rgba(0,242,254,0.8)]"></span>
-          </a>
-          <a href="/#about" class="group relative text-sm font-medium text-slate-300 hover:text-white transition-colors py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded">
-            About
-            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-cyan-glow scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] shadow-[0_0_8px_rgba(0,242,254,0.8)]"></span>
-          </a>
-          <a href="/#contact" class="group relative text-sm font-medium text-slate-300 hover:text-white transition-colors py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded">
-            Contact
-            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-cyan-glow scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] shadow-[0_0_8px_rgba(0,242,254,0.8)]"></span>
-          </a>
-
+        <!-- Right Cluster: Audience Switcher & Action CTA -->
+        <div class="hidden md:flex items-center gap-3 lg:gap-4 shrink-0">
           <!-- Master Lens Segmented Control (Phase 2 Task 2.1) -->
-          <div id="master-lens-toggle" class="relative inline-flex items-center p-1 rounded-full bg-black/60 border border-white/12 backdrop-blur-xl shadow-inner select-none ml-1" role="group" aria-label="Audience Perspective Selector">
+          <div id="master-lens-toggle" class="relative inline-flex items-center p-1 rounded-full lens-toggle-gold-frame select-none" role="group" aria-label="Audience Perspective Selector">
+            <span class="text-[10px] font-mono tracking-widest text-amber-300 uppercase font-bold pl-2.5 pr-1.5 select-none flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse shadow-[0_0_8px_rgba(251,191,36,0.8)]"></span>
+              <span>Lens:</span>
+            </span>
             <!-- Sliding Active Indicator Pill -->
-            <div id="master-lens-indicator" class="absolute top-1 bottom-1 rounded-full bg-cyan-500/20 border border-cyan-400/40 shadow-[0_0_12px_rgba(0,242,254,0.3)] transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] pointer-events-none" style="left: 4px; width: 95px;"></div>
+            <div id="master-lens-indicator" class="absolute top-1 bottom-1 rounded-full lens-indicator-gold transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] pointer-events-none opacity-0" style="left: 4px; width: 95px;"></div>
             
-            <button id="master-btn-corporate" type="button" class="relative z-10 px-3 py-1 rounded-full text-xs font-mono font-bold tracking-wider transition-colors duration-200 cursor-pointer text-cyan-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 flex items-center gap-1.5" aria-pressed="true">
+            <button id="master-btn-corporate" type="button" class="relative z-10 px-3 py-1 rounded-full text-xs font-mono tracking-wider transition-colors duration-200 cursor-pointer lens-btn-gold-active focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-amber-400 flex items-center gap-1.5" aria-pressed="true">
               <span>🏢</span> <span>Corporate</span>
             </button>
-            <button id="master-btn-trades" type="button" class="relative z-10 px-3 py-1 rounded-full text-xs font-mono font-bold tracking-wider transition-colors duration-200 cursor-pointer text-slate-400 hover:text-slate-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 flex items-center gap-1.5" aria-pressed="false">
+            <button id="master-btn-trades" type="button" class="relative z-10 px-3 py-1 rounded-full text-xs font-mono tracking-wider transition-colors duration-200 cursor-pointer lens-btn-gold-inactive focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-amber-400 flex items-center gap-1.5" aria-pressed="false">
               <span>🔧</span> <span>Trades</span>
             </button>
+
+            <!-- First-Visit Dismissible Micro-Tooltip (Phase 4 Task 4.1) -->
+            <div id="lens-first-visit-tooltip" class="absolute top-full mt-2.5 left-1/2 -translate-x-1/2 whitespace-nowrap px-3 py-1 rounded-full bg-slate-950/90 border border-amber-400/40 text-[10px] font-mono font-medium text-amber-200 backdrop-blur-xl shadow-[0_10px_25px_rgba(0,0,0,0.8),0_0_12px_rgba(245,158,11,0.25)] pointer-events-none transition-all duration-500 opacity-0 translate-y-1 z-50 flex items-center gap-1.5">
+              <span>✨ Switch between Corporate &amp; Trades</span>
+            </div>
           </div>
           
-          <a href="/deploy" class="relative overflow-hidden circuit-border glow-cta ml-2 lg:ml-4 px-5 lg:px-6 py-2 rounded-full text-cyan-glow text-xs font-bold tracking-widest uppercase hover:text-white transition-all bg-surface-dark group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 shrink-0">
+          <a href="/deploy" class="relative overflow-hidden circuit-border glow-cta px-5 lg:px-6 py-2 rounded-full text-cyan-glow text-xs font-bold tracking-widest uppercase hover:text-white transition-all bg-surface-dark group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 shrink-0">
             <span class="relative z-10">Deploy System</span>
             <!-- Shimmer effect (GPU accelerated transform) -->
             <div class="absolute inset-0 bg-linear-to-r from-transparent via-cyan-glow/30 to-transparent w-full h-full pointer-events-none z-0 animate-[shimmer_3s_infinite_linear]"></div>
           </a>
-        </nav>
+        </div>
 
         <!-- Mobile Menu Button -->
         <div class="md:hidden flex items-center">
@@ -256,13 +268,16 @@
       <div id="mobile-menu" class="hidden md:hidden border-t border-border-dark mt-2 pt-4 pb-4 space-y-2" aria-hidden="true" role="region" aria-label="Mobile Navigation">
         <!-- Mobile Master Audience Switcher (Phase 2 Task 2.2) -->
         <div class="px-2 pb-3 mb-2 border-b border-white/10">
-          <p class="text-[10px] font-mono uppercase tracking-widest text-slate-400 font-bold mb-2 px-1">Audience Perspective:</p>
-          <div id="mobile-master-lens-toggle" class="relative flex items-center p-1 rounded-full bg-black/60 border border-white/12 backdrop-blur-xl shadow-inner select-none w-full" role="group" aria-label="Mobile Audience Selector">
-            <div id="mobile-master-lens-indicator" class="absolute top-1 bottom-1 rounded-full bg-cyan-500/20 border border-cyan-400/40 shadow-[0_0_12px_rgba(0,242,254,0.3)] transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] pointer-events-none" style="left: 4px; width: calc(50% - 4px);"></div>
-            <button id="mobile-master-btn-corporate" type="button" class="relative z-10 flex-1 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider transition-colors duration-200 cursor-pointer text-cyan-300 focus-visible:outline-none flex items-center justify-center gap-1.5" aria-pressed="true">
+          <p class="text-[10px] font-mono uppercase tracking-widest text-amber-300 font-bold mb-2 px-1 flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+            <span>Audience Lens:</span>
+          </p>
+          <div id="mobile-master-lens-toggle" class="relative flex items-center p-1 rounded-full lens-toggle-gold-frame select-none w-full" role="group" aria-label="Mobile Audience Selector">
+            <div id="mobile-master-lens-indicator" class="absolute top-1 bottom-1 rounded-full lens-indicator-gold transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] pointer-events-none" style="left: 4px; width: calc(50% - 4px);"></div>
+            <button id="mobile-master-btn-corporate" type="button" class="relative z-10 flex-1 py-1.5 rounded-full text-xs font-mono tracking-wider transition-colors duration-200 cursor-pointer lens-btn-gold-active focus-visible:outline-none flex items-center justify-center gap-1.5" aria-pressed="true">
               <span>🏢</span> <span>Corporate</span>
             </button>
-            <button id="mobile-master-btn-trades" type="button" class="relative z-10 flex-1 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider transition-colors duration-200 cursor-pointer text-slate-400 hover:text-slate-200 focus-visible:outline-none flex items-center justify-center gap-1.5" aria-pressed="false">
+            <button id="mobile-master-btn-trades" type="button" class="relative z-10 flex-1 py-1.5 rounded-full text-xs font-mono tracking-wider transition-colors duration-200 cursor-pointer lens-btn-gold-inactive focus-visible:outline-none flex items-center justify-center gap-1.5" aria-pressed="false">
               <span>🔧</span> <span>Trades</span>
             </button>
           </div>
@@ -419,6 +434,9 @@
           } else {
             header.classList.remove('rounded-full');
             header.classList.add('rounded-3xl');
+            if (typeof window.updateMasterSwitcherUI === 'function') {
+              requestAnimationFrame(window.updateMasterSwitcherUI);
+            }
           }
         });
 
@@ -655,22 +673,23 @@
           var indicator = document.getElementById('master-lens-indicator');
 
           if (corpBtn && tradeBtn && indicator) {
+            indicator.classList.remove('opacity-0');
             var isCorp = lens === 'corporate';
             corpBtn.setAttribute('aria-pressed', isCorp ? 'true' : 'false');
             tradeBtn.setAttribute('aria-pressed', isCorp ? 'false' : 'true');
 
             if (isCorp) {
-              corpBtn.classList.add('text-cyan-300');
-              corpBtn.classList.remove('text-slate-400');
-              tradeBtn.classList.add('text-slate-400');
-              tradeBtn.classList.remove('text-cyan-300');
+              corpBtn.classList.add('lens-btn-gold-active');
+              corpBtn.classList.remove('lens-btn-gold-inactive');
+              tradeBtn.classList.add('lens-btn-gold-inactive');
+              tradeBtn.classList.remove('lens-btn-gold-active');
               indicator.style.left = corpBtn.offsetLeft + 'px';
               indicator.style.width = corpBtn.offsetWidth + 'px';
             } else {
-              tradeBtn.classList.add('text-cyan-300');
-              tradeBtn.classList.remove('text-slate-400');
-              corpBtn.classList.add('text-slate-400');
-              corpBtn.classList.remove('text-cyan-300');
+              tradeBtn.classList.add('lens-btn-gold-active');
+              tradeBtn.classList.remove('lens-btn-gold-inactive');
+              corpBtn.classList.add('lens-btn-gold-inactive');
+              corpBtn.classList.remove('lens-btn-gold-active');
               indicator.style.left = tradeBtn.offsetLeft + 'px';
               indicator.style.width = tradeBtn.offsetWidth + 'px';
             }
@@ -687,17 +706,17 @@
             mTradeBtn.setAttribute('aria-pressed', mIsCorp ? 'false' : 'true');
 
             if (mIsCorp) {
-              mCorpBtn.classList.add('text-cyan-300');
-              mCorpBtn.classList.remove('text-slate-400');
-              mTradeBtn.classList.add('text-slate-400');
-              mTradeBtn.classList.remove('text-cyan-300');
+              mCorpBtn.classList.add('lens-btn-gold-active');
+              mCorpBtn.classList.remove('lens-btn-gold-inactive');
+              mTradeBtn.classList.add('lens-btn-gold-inactive');
+              mTradeBtn.classList.remove('lens-btn-gold-active');
               mIndicator.style.left = '4px';
               mIndicator.style.width = 'calc(50% - 4px)';
             } else {
-              mTradeBtn.classList.add('text-cyan-300');
-              mTradeBtn.classList.remove('text-slate-400');
-              mCorpBtn.classList.add('text-slate-400');
-              mCorpBtn.classList.remove('text-cyan-300');
+              mTradeBtn.classList.add('lens-btn-gold-active');
+              mTradeBtn.classList.remove('lens-btn-gold-inactive');
+              mCorpBtn.classList.add('lens-btn-gold-inactive');
+              mCorpBtn.classList.remove('lens-btn-gold-active');
               mIndicator.style.left = '50%';
               mIndicator.style.width = 'calc(50% - 4px)';
             }
@@ -738,12 +757,53 @@
             try { window.setIndustryLens(lensKey, false); } catch (e) {}
           }
 
+          // Dismiss first-visit hint
+          dismissTooltip();
+
           // Dispatch global custom event for any listeners (ROI Calculator, Audio Player, etc.)
           window.dispatchEvent(new CustomEvent('lenschange', { detail: { lens: lensKey } }));
         }
 
+        function dismissTooltip() {
+          var tooltip = document.getElementById('lens-first-visit-tooltip');
+          if (tooltip) {
+            tooltip.classList.add('opacity-0', 'translate-y-1');
+            tooltip.classList.remove('opacity-100', 'translate-y-0');
+            setTimeout(function() {
+              if (tooltip && tooltip.parentNode) tooltip.parentNode.removeChild(tooltip);
+            }, 600);
+          }
+          try {
+            localStorage.setItem('lumilore_lens_hint_seen', 'true');
+          } catch (e) {}
+        }
+
+        function initFirstVisitTooltip() {
+          try {
+            var seen = localStorage.getItem('lumilore_lens_hint_seen');
+            if (seen === 'true') {
+              var el = document.getElementById('lens-first-visit-tooltip');
+              if (el && el.parentNode) el.parentNode.removeChild(el);
+              return;
+            }
+          } catch (e) {}
+
+          var tooltip = document.getElementById('lens-first-visit-tooltip');
+          if (!tooltip) return;
+
+          setTimeout(function() {
+            tooltip.classList.remove('opacity-0', 'translate-y-1');
+            tooltip.classList.add('opacity-100', 'translate-y-0');
+          }, 900);
+
+          setTimeout(function() {
+            dismissTooltip();
+          }, 6000);
+        }
+
         // Attach listeners to buttons
         function attachListeners() {
+          initFirstVisitTooltip();
           var corpBtn = document.getElementById('master-btn-corporate');
           var tradeBtn = document.getElementById('master-btn-trades');
           var mCorpBtn = document.getElementById('mobile-master-btn-corporate');
@@ -771,6 +831,23 @@
             mTradeBtn.addEventListener('click', function(e) {
               e.preventDefault();
               setMasterLens('trades', true);
+            });
+          }
+
+          // In-Hero Quick Switcher Buttons (Phase 5 Task 5.2)
+          var heroSwitchToTrades = document.getElementById('hero-quick-switch-to-trades');
+          var heroSwitchToCorp = document.getElementById('hero-quick-switch-to-corp');
+
+          if (heroSwitchToTrades) {
+            heroSwitchToTrades.addEventListener('click', function(e) {
+              e.preventDefault();
+              setMasterLens('trades', true);
+            });
+          }
+          if (heroSwitchToCorp) {
+            heroSwitchToCorp.addEventListener('click', function(e) {
+              e.preventDefault();
+              setMasterLens('corporate', true);
             });
           }
 
@@ -824,6 +901,7 @@
         // Expose globally
         window.setMasterLens = setMasterLens;
         window.getMasterLens = function() { return currentLens; };
+        window.updateMasterSwitcherUI = function() { updateSwitcherUI(currentLens); };
       })();
     </script>
 </body>
