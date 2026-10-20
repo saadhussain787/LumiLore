@@ -14,17 +14,17 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
       <!-- System Intake Glassmorphic Eyebrow Badge -->
       <div class="mb-6 inline-flex items-center gap-2.5 px-5 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_0_25px_rgba(16,185,129,0.15)]">
         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_10px_rgba(52,211,153,0.8)]"></span>
-        <span class="text-xs font-mono font-bold tracking-[0.2em] text-emerald-300 uppercase">⚡ SYSTEM ARCHITECTURE INTAKE // DIRECT ARCHITECT ACCESS</span>
+        <span id="hero-lens-eyebrow" class="text-xs font-mono font-bold tracking-[0.2em] text-emerald-300 uppercase transition-opacity duration-200">⚡ SYSTEM ARCHITECTURE INTAKE // DIRECT ARCHITECT ACCESS</span>
       </div>
 
       <!-- Master Headline (Space Grotesk) -->
-      <h1 class="font-headline text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white leading-[1.08] max-w-4xl mx-auto" style="text-shadow: 0 10px 40px rgba(0,0,0,0.8);">
+      <h1 id="hero-lens-headline" class="font-headline text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white leading-[1.08] max-w-4xl mx-auto transition-opacity duration-200" style="text-shadow: 0 10px 40px rgba(0,0,0,0.8);">
         Initialize Your<br/>
         <span class="text-transparent bg-clip-text bg-linear-to-r from-cyan-300 via-white to-amber-300 drop-shadow-[0_0_35px_rgba(0,242,254,0.2)]">System Architecture.</span>
       </h1>
 
       <!-- Subtitle Card -->
-      <p class="text-base sm:text-lg md:text-xl text-slate-300 font-normal max-w-3xl mx-auto mt-6 leading-relaxed bg-black/40 backdrop-blur-md p-5 sm:p-6 rounded-2xl border border-white/[0.08] shadow-[0_15px_35px_-5px_rgba(0,0,0,0.5)]">
+      <p id="hero-lens-subtitle" class="text-base sm:text-lg md:text-xl text-slate-300 font-normal max-w-3xl mx-auto mt-6 leading-relaxed bg-black/40 backdrop-blur-md p-5 sm:p-6 rounded-2xl border border-white/[0.08] shadow-[0_15px_35px_-5px_rgba(0,0,0,0.5)] transition-opacity duration-200">
         Configure your technical parameters, identify your existing infrastructure stack, and reserve a dedicated engineering session with our principal leadership.
       </p>
 
@@ -38,6 +38,9 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
       <!-- Unified Architecture Intake Form -->
       <form id="architecture-intake-form" class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start" novalidate>
         
+        <!-- Hidden Lens Input for Form Submission & Webhook Routing (Micro-Step 1.3) -->
+        <input type="hidden" name="audienceLens" id="audienceLensInput" value="corporate" />
+        
         <!-- Left Column: The Scoping Engine (lg:col-span-7) -->
         <div class="lg:col-span-7 flex flex-col gap-8" id="scoping-engine-col">
           
@@ -50,16 +53,16 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
             <div class="flex items-center justify-between mb-4">
               <div class="inline-flex items-center gap-2 text-xs font-mono font-semibold tracking-widest text-cyan-400 uppercase">
                 <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
-                <span>// STEP 01: SELECT PRIMARY OBJECTIVE</span>
+                <span id="step01-lens-eyebrow" class="transition-opacity duration-200">// STEP 01: SELECT PRIMARY OBJECTIVE</span>
               </div>
               <span class="text-[10px] font-mono tracking-wider text-slate-500 uppercase px-2 py-0.5 rounded-md bg-white/5 border border-white/10">STAGE 1 OF 3</span>
             </div>
 
             <!-- Title & Description -->
-            <h2 class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-tight">
+            <h2 id="step01-lens-title" class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-tight transition-opacity duration-200">
               What are we building?
             </h2>
-            <p class="text-sm text-slate-300 mt-2 font-normal leading-relaxed">
+            <p id="step01-lens-desc" class="text-sm text-slate-300 mt-2 font-normal leading-relaxed transition-opacity duration-200">
               Choose the principal architectural focus for your systems engagement. This will intelligently pair you with the corresponding lead architect.
             </p>
 
@@ -67,55 +70,55 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
             <div class="mt-6" role="radiogroup" aria-label="Select Primary Objective">
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5" id="objective-pill-group">
                 
-                <!-- Option 1: Agentic AI (Default Selected) -->
+                <!-- Option 1: Agentic AI / AI Dispatch -->
                 <label class="objective-card group relative flex flex-col justify-between p-4 rounded-2xl border border-cyan-400 bg-cyan-500/15 text-white shadow-[0_0_20px_rgba(0,242,254,0.25)] cursor-pointer transition-all duration-300 focus-within:ring-2 focus-within:ring-cyan-400" data-value="ai-workflows" data-lead="saad">
-                  <input type="radio" name="objective" value="Agentic AI & Workflows" class="sr-only" checked />
+                  <input type="radio" name="objective" id="obj-radio-0" value="Agentic AI & Workflows" class="sr-only" checked />
                   <div class="flex items-start justify-between">
                     <span class="text-2xl mb-2">⚡</span>
                     <span class="text-[10px] font-mono tracking-wider text-cyan-300 uppercase px-2 py-0.5 rounded-full bg-cyan-950/60 border border-cyan-500/30">LEAD: SAAD</span>
                   </div>
                   <div>
-                    <span class="block text-sm sm:text-base font-semibold text-white group-hover:text-cyan-200 transition-colors">Agentic AI &amp; Workflows</span>
-                    <span class="block text-xs font-mono text-slate-400 mt-1">Autonomous Lead Capture &amp; LLM Pipelines</span>
+                    <span id="obj-title-0" class="block text-sm sm:text-base font-semibold text-white group-hover:text-cyan-200 transition-opacity duration-200">Agentic AI &amp; Workflows</span>
+                    <span id="obj-desc-0" class="block text-xs font-mono text-slate-400 mt-1 transition-opacity duration-200">Autonomous Lead Capture &amp; LLM Pipelines</span>
                   </div>
                 </label>
 
-                <!-- Option 2: Secure Client Portals -->
+                <!-- Option 2: Secure Client Portals / Customer Hubs -->
                 <label class="objective-card group relative flex flex-col justify-between p-4 rounded-2xl border border-white/10 bg-white/[0.02] text-slate-300 hover:border-white/20 hover:bg-white/[0.05] cursor-pointer transition-all duration-300 focus-within:ring-2 focus-within:ring-cyan-400" data-value="client-portals" data-lead="saad">
-                  <input type="radio" name="objective" value="Secure Client Portals" class="sr-only" />
+                  <input type="radio" name="objective" id="obj-radio-1" value="Secure Client Portals" class="sr-only" />
                   <div class="flex items-start justify-between">
                     <span class="text-2xl mb-2">🛡️</span>
                     <span class="text-[10px] font-mono tracking-wider text-cyan-300 uppercase px-2 py-0.5 rounded-full bg-cyan-950/60 border border-cyan-500/30">LEAD: SAAD</span>
                   </div>
                   <div>
-                    <span class="block text-sm sm:text-base font-semibold text-white group-hover:text-cyan-200 transition-colors">Secure Client Portals</span>
-                    <span class="block text-xs font-mono text-slate-400 mt-1">Zero-Trust IAM &amp; Encrypted Data Vaults</span>
+                    <span id="obj-title-1" class="block text-sm sm:text-base font-semibold text-white group-hover:text-cyan-200 transition-opacity duration-200">Secure Client Portals</span>
+                    <span id="obj-desc-1" class="block text-xs font-mono text-slate-400 mt-1 transition-opacity duration-200">Zero-Trust IAM &amp; Encrypted Data Vaults</span>
                   </div>
                 </label>
 
-                <!-- Option 3: Serverless Cloud Migration -->
+                <!-- Option 3: Serverless Migration / Field Software Sync -->
                 <label class="objective-card group relative flex flex-col justify-between p-4 rounded-2xl border border-white/10 bg-white/[0.02] text-slate-300 hover:border-white/20 hover:bg-white/[0.05] cursor-pointer transition-all duration-300 focus-within:ring-2 focus-within:ring-cyan-400" data-value="cloud-migration" data-lead="saad">
-                  <input type="radio" name="objective" value="Serverless Cloud Migration" class="sr-only" />
+                  <input type="radio" name="objective" id="obj-radio-2" value="Serverless Cloud Migration" class="sr-only" />
                   <div class="flex items-start justify-between">
                     <span class="text-2xl mb-2">☁️</span>
                     <span class="text-[10px] font-mono tracking-wider text-cyan-300 uppercase px-2 py-0.5 rounded-full bg-cyan-950/60 border border-cyan-500/30">LEAD: SAAD</span>
                   </div>
                   <div>
-                    <span class="block text-sm sm:text-base font-semibold text-white group-hover:text-cyan-200 transition-colors">Serverless Cloud Migration</span>
-                    <span class="block text-xs font-mono text-slate-400 mt-1">AWS Lambda, S3, CloudFront &amp; DynamoDB</span>
+                    <span id="obj-title-2" class="block text-sm sm:text-base font-semibold text-white group-hover:text-cyan-200 transition-opacity duration-200">Serverless Cloud Migration</span>
+                    <span id="obj-desc-2" class="block text-xs font-mono text-slate-400 mt-1 transition-opacity duration-200">AWS Lambda, S3, CloudFront &amp; DynamoDB</span>
                   </div>
                 </label>
 
-                <!-- Option 4: Fiscal Ops & Cash Recovery -->
+                <!-- Option 4: Fiscal Ops / Cash Recovery -->
                 <label class="objective-card group relative flex flex-col justify-between p-4 rounded-2xl border border-white/10 bg-white/[0.02] text-slate-300 hover:border-white/20 hover:bg-white/[0.05] cursor-pointer transition-all duration-300 focus-within:ring-2 focus-within:ring-amber-400" data-value="fiscal-ops" data-lead="arfa">
-                  <input type="radio" name="objective" value="Fiscal Ops & Cash Recovery" class="sr-only" />
+                  <input type="radio" name="objective" id="obj-radio-3" value="Fiscal Ops & Cash Recovery" class="sr-only" />
                   <div class="flex items-start justify-between">
                     <span class="text-2xl mb-2">⚖️</span>
                     <span class="text-[10px] font-mono tracking-wider text-amber-300 uppercase px-2 py-0.5 rounded-full bg-amber-950/60 border border-amber-500/30">LEAD: ARFA</span>
                   </div>
                   <div>
-                    <span class="block text-sm sm:text-base font-semibold text-white group-hover:text-amber-200 transition-colors">Fiscal Ops &amp; Cash Recovery</span>
-                    <span class="block text-xs font-mono text-slate-400 mt-1">AR Chasing, Unit Margins &amp; SLA Controls</span>
+                    <span id="obj-title-3" class="block text-sm sm:text-base font-semibold text-white group-hover:text-amber-200 transition-opacity duration-200">Fiscal Ops &amp; Cash Recovery</span>
+                    <span id="obj-desc-3" class="block text-xs font-mono text-slate-400 mt-1 transition-opacity duration-200">AR Chasing, Unit Margins &amp; SLA Controls</span>
                   </div>
                 </label>
 
@@ -127,7 +130,7 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
               <div class="flex items-center justify-between mb-3">
                 <div class="inline-flex items-center gap-2 text-xs font-mono font-semibold tracking-widest text-amber-400 uppercase">
                   <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
-                  <span>// TARGET DEPLOYMENT VELOCITY</span>
+                  <span id="step01-velocity-title" class="transition-opacity duration-200">// TARGET DEPLOYMENT VELOCITY</span>
                 </div>
                 <span class="text-[10px] font-mono text-slate-400">TIMELINE PRIORITY</span>
               </div>
@@ -136,28 +139,25 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
                 
                 <!-- Velocity 1: Rapid Sprint (Default Selected) -->
                 <label class="velocity-card group flex items-center justify-center p-3 rounded-xl border border-amber-400 bg-amber-500/15 text-white shadow-[0_0_15px_rgba(245,158,11,0.2)] cursor-pointer text-center transition-all duration-300 focus-within:ring-2 focus-within:ring-amber-400" data-value="rapid-sprint">
-                  <input type="radio" name="velocity" value="Rapid Sprint (< 14 Days)" class="sr-only" checked />
-                  <div class="flex flex-col items-center">
-                    <span class="text-xs font-semibold text-white group-hover:text-amber-200 transition-colors">⚡ Rapid Sprint</span>
-                    <span class="text-[11px] font-mono text-amber-300 mt-0.5">&lt; 14 Days Turnaround</span>
+                  <input type="radio" name="velocity" id="velocity-radio-0" value="Rapid Sprint (< 14 Days)" class="sr-only" checked />
+                  <div id="velocity-content-0" class="flex flex-col items-center text-xs font-semibold text-white group-hover:text-amber-200 transition-opacity duration-200">
+                    ⚡ Rapid Sprint <span class="text-[10px] block text-slate-400">&lt; 14 Days Turnaround</span>
                   </div>
                 </label>
 
                 <!-- Velocity 2: Planned Production -->
                 <label class="velocity-card group flex items-center justify-center p-3 rounded-xl border border-white/10 bg-white/[0.02] text-slate-300 hover:border-white/20 hover:bg-white/[0.05] cursor-pointer text-center transition-all duration-300 focus-within:ring-2 focus-within:ring-amber-400" data-value="planned-production">
-                  <input type="radio" name="velocity" value="Planned Production (30-60 Days)" class="sr-only" />
-                  <div class="flex flex-col items-center">
-                    <span class="text-xs font-semibold text-white group-hover:text-amber-200 transition-colors">🗓️ Planned Production</span>
-                    <span class="text-[11px] font-mono text-slate-400 mt-0.5">30–60 Days Roadmap</span>
+                  <input type="radio" name="velocity" id="velocity-radio-1" value="Planned Production (30-60 Days)" class="sr-only" />
+                  <div id="velocity-content-1" class="flex flex-col items-center text-xs font-semibold text-white group-hover:text-amber-200 transition-opacity duration-200">
+                    🗓️ Planned Production <span class="text-[10px] block text-slate-400">30–60 Days Roadmap</span>
                   </div>
                 </label>
 
                 <!-- Velocity 3: Feasibility & Audit -->
                 <label class="velocity-card group flex items-center justify-center p-3 rounded-xl border border-white/10 bg-white/[0.02] text-slate-300 hover:border-white/20 hover:bg-white/[0.05] cursor-pointer text-center transition-all duration-300 focus-within:ring-2 focus-within:ring-amber-400" data-value="feasibility-audit">
-                  <input type="radio" name="velocity" value="Feasibility & Architecture Audit" class="sr-only" />
-                  <div class="flex flex-col items-center">
-                    <span class="text-xs font-semibold text-white group-hover:text-amber-200 transition-colors">🔍 Architecture Audit</span>
-                    <span class="text-[11px] font-mono text-slate-400 mt-0.5">Evaluation &amp; Discovery</span>
+                  <input type="radio" name="velocity" id="velocity-radio-2" value="Feasibility & Architecture Audit" class="sr-only" />
+                  <div id="velocity-content-2" class="flex flex-col items-center text-xs font-semibold text-white group-hover:text-amber-200 transition-opacity duration-200">
+                    🔍 Architecture Audit <span class="text-[10px] block text-slate-400">Evaluation &amp; Discovery</span>
                   </div>
                 </label>
 
@@ -188,25 +188,25 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
             <div class="flex items-center justify-between mb-4">
               <div class="inline-flex items-center gap-2 text-xs font-mono font-semibold tracking-widest text-amber-400 uppercase">
                 <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
-                <span>// STEP 02: EXISTING INFRASTRUCTURE (MULTI-SELECT)</span>
+                <span id="step02-lens-eyebrow" class="transition-opacity duration-200">// STEP 02: INFRASTRUCTURE PARAMETERS</span>
               </div>
               <span class="text-[10px] font-mono tracking-wider text-slate-500 uppercase px-2 py-0.5 rounded-md bg-white/5 border border-white/10">STAGE 2 OF 3</span>
             </div>
 
             <!-- Title & Description -->
-            <h2 class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-tight">
-              Current Tech Stack &amp; Ecosystem
+            <h2 id="step02-lens-title" class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-tight transition-opacity duration-200">
+              Current Tech Stack &amp; Integrations
             </h2>
-            <p class="text-sm text-slate-300 mt-2 font-normal leading-relaxed">
-              Select the platforms and tools currently operating within your business environment. We design non-destructive integration bridges without operational downtime.
+            <p id="step02-lens-desc" class="text-sm text-slate-300 mt-2 font-normal leading-relaxed transition-opacity duration-200">
+              Select the foundational systems currently running in your environment. Multi-select all that apply.
             </p>
 
             <!-- Stack Checkbox Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mt-6" id="stack-checkbox-group">
               
-              <!-- Stack Item 1: QuickBooks -->
+              <!-- Stack Item 1: QuickBooks / ServiceTitan -->
               <label class="stack-card group relative flex items-center justify-between p-4 rounded-2xl border border-white/10 bg-white/[0.02] text-slate-300 hover:border-white/20 hover:bg-white/[0.05] cursor-pointer transition-all duration-300 focus-within:ring-2 focus-within:ring-amber-400" data-stack="QuickBooks Online">
-                <input type="checkbox" name="stack[]" value="QuickBooks Online" class="sr-only" />
+                <input type="checkbox" name="stack[]" id="stack-checkbox-0" value="QuickBooks Online / Accounting ERP" class="sr-only" />
                 <div class="flex items-center gap-3">
                   <div class="checkbox-indicator w-5 h-5 rounded-md border border-white/20 bg-black/40 flex items-center justify-center transition-all">
                     <svg class="check-icon w-3.5 h-3.5 text-amber-400 opacity-0 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -214,16 +214,16 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
                     </svg>
                   </div>
                   <div>
-                    <span class="block text-sm font-semibold text-white group-hover:text-amber-200 transition-colors">QuickBooks Online</span>
-                    <span class="block text-[11px] font-mono text-slate-400">Accounting &amp; Ledger ERP</span>
+                    <span id="stack-title-0" class="block text-sm font-semibold text-white group-hover:text-amber-200 transition-opacity duration-200">QuickBooks Online / Accounting ERP</span>
+                    <span id="stack-desc-0" class="block text-[11px] font-mono text-slate-400 transition-opacity duration-200">General ledger, invoicing, chart of accounts &amp; balance sheet synchronization.</span>
                   </div>
                 </div>
-                <span class="text-[10px] font-mono tracking-wider text-amber-300 uppercase px-2 py-0.5 rounded-full bg-amber-950/60 border border-amber-500/30">API VERIFIED</span>
+                <span id="stack-tag-0" class="text-[10px] font-mono tracking-wider text-amber-300 uppercase px-2 py-0.5 rounded-full bg-amber-950/60 border border-amber-500/30 transition-opacity duration-200">API VERIFIED</span>
               </label>
 
-              <!-- Stack Item 2: Stripe -->
+              <!-- Stack Item 2: Stripe / Jobber -->
               <label class="stack-card group relative flex items-center justify-between p-4 rounded-2xl border border-white/10 bg-white/[0.02] text-slate-300 hover:border-white/20 hover:bg-white/[0.05] cursor-pointer transition-all duration-300 focus-within:ring-2 focus-within:ring-amber-400" data-stack="Stripe">
-                <input type="checkbox" name="stack[]" value="Stripe" class="sr-only" />
+                <input type="checkbox" name="stack[]" id="stack-checkbox-1" value="Stripe / Financial Infrastructure" class="sr-only" />
                 <div class="flex items-center gap-3">
                   <div class="checkbox-indicator w-5 h-5 rounded-md border border-white/20 bg-black/40 flex items-center justify-center transition-all">
                     <svg class="check-icon w-3.5 h-3.5 text-amber-400 opacity-0 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -231,16 +231,16 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
                     </svg>
                   </div>
                   <div>
-                    <span class="block text-sm font-semibold text-white group-hover:text-amber-200 transition-colors">Stripe</span>
-                    <span class="block text-[11px] font-mono text-slate-400">Financial Infrastructure &amp; Billing</span>
+                    <span id="stack-title-1" class="block text-sm font-semibold text-white group-hover:text-amber-200 transition-opacity duration-200">Stripe / Financial Infrastructure</span>
+                    <span id="stack-desc-1" class="block text-[11px] font-mono text-slate-400 transition-opacity duration-200">Payment processing, customer vaults, subscriptions &amp; reconciliation.</span>
                   </div>
                 </div>
-                <span class="text-[10px] font-mono tracking-wider text-cyan-300 uppercase px-2 py-0.5 rounded-full bg-cyan-950/60 border border-cyan-500/30">DIRECT WEBHOOK</span>
+                <span id="stack-tag-1" class="text-[10px] font-mono tracking-wider text-cyan-300 uppercase px-2 py-0.5 rounded-full bg-cyan-950/60 border border-cyan-500/30 transition-opacity duration-200">WEBHOOK READY</span>
               </label>
 
-              <!-- Stack Item 3: Microsoft 365 -->
+              <!-- Stack Item 3: Microsoft 365 / QuickBooks Xero -->
               <label class="stack-card group relative flex items-center justify-between p-4 rounded-2xl border border-white/10 bg-white/[0.02] text-slate-300 hover:border-white/20 hover:bg-white/[0.05] cursor-pointer transition-all duration-300 focus-within:ring-2 focus-within:ring-amber-400" data-stack="Microsoft 365">
-                <input type="checkbox" name="stack[]" value="Microsoft 365" class="sr-only" />
+                <input type="checkbox" name="stack[]" id="stack-checkbox-2" value="Microsoft 365 / Graph API" class="sr-only" />
                 <div class="flex items-center gap-3">
                   <div class="checkbox-indicator w-5 h-5 rounded-md border border-white/20 bg-black/40 flex items-center justify-center transition-all">
                     <svg class="check-icon w-3.5 h-3.5 text-amber-400 opacity-0 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -248,16 +248,16 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
                     </svg>
                   </div>
                   <div>
-                    <span class="block text-sm font-semibold text-white group-hover:text-amber-200 transition-colors">Microsoft 365</span>
-                    <span class="block text-[11px] font-mono text-slate-400">Graph API &amp; Azure AD SSO</span>
+                    <span id="stack-title-2" class="block text-sm font-semibold text-white group-hover:text-amber-200 transition-opacity duration-200">Microsoft 365 / Graph API</span>
+                    <span id="stack-desc-2" class="block text-[11px] font-mono text-slate-400 transition-opacity duration-200">Azure AD, Exchange, SharePoint, Teams &amp; unified communication hubs.</span>
                   </div>
                 </div>
-                <span class="text-[10px] font-mono tracking-wider text-emerald-300 uppercase px-2 py-0.5 rounded-full bg-emerald-950/60 border border-emerald-500/30">ENTERPRISE SSO</span>
+                <span id="stack-tag-2" class="text-[10px] font-mono tracking-wider text-emerald-300 uppercase px-2 py-0.5 rounded-full bg-emerald-950/60 border border-emerald-500/30 transition-opacity duration-200">ENTERPRISE IAM</span>
               </label>
 
-              <!-- Stack Item 4: AWS -->
+              <!-- Stack Item 4: AWS / Twilio Leads -->
               <label class="stack-card group relative flex items-center justify-between p-4 rounded-2xl border border-white/10 bg-white/[0.02] text-slate-300 hover:border-white/20 hover:bg-white/[0.05] cursor-pointer transition-all duration-300 focus-within:ring-2 focus-within:ring-amber-400" data-stack="AWS Services">
-                <input type="checkbox" name="stack[]" value="AWS Services" class="sr-only" />
+                <input type="checkbox" name="stack[]" id="stack-checkbox-3" value="AWS / Cloud Infrastructure" class="sr-only" />
                 <div class="flex items-center gap-3">
                   <div class="checkbox-indicator w-5 h-5 rounded-md border border-white/20 bg-black/40 flex items-center justify-center transition-all">
                     <svg class="check-icon w-3.5 h-3.5 text-amber-400 opacity-0 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -265,16 +265,16 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
                     </svg>
                   </div>
                   <div>
-                    <span class="block text-sm font-semibold text-white group-hover:text-amber-200 transition-colors">AWS Services</span>
-                    <span class="block text-[11px] font-mono text-slate-400">S3, IAM, Lambda, DynamoDB</span>
+                    <span id="stack-title-3" class="block text-sm font-semibold text-white group-hover:text-amber-200 transition-opacity duration-200">AWS / Cloud Infrastructure</span>
+                    <span id="stack-desc-3" class="block text-[11px] font-mono text-slate-400 transition-opacity duration-200">Lambda, DynamoDB, S3, ECS, CloudFront, Step Functions or RDS.</span>
                   </div>
                 </div>
-                <span class="text-[10px] font-mono tracking-wider text-cyan-300 uppercase px-2 py-0.5 rounded-full bg-cyan-950/60 border border-cyan-500/30">ZERO-TRUST READY</span>
+                <span id="stack-tag-3" class="text-[10px] font-mono tracking-wider text-cyan-300 uppercase px-2 py-0.5 rounded-full bg-cyan-950/60 border border-cyan-500/30 transition-opacity duration-200">NATIVE CLOUD</span>
               </label>
 
               <!-- Stack Item 5: Legacy Monolith / Custom CMS (Full Width on 2-col grid) -->
               <label class="stack-card group relative flex items-center justify-between p-4 rounded-2xl border border-white/10 bg-white/[0.02] text-slate-300 hover:border-white/20 hover:bg-white/[0.05] cursor-pointer transition-all duration-300 focus-within:ring-2 focus-within:ring-amber-400 sm:col-span-2" data-stack="Legacy Monolith">
-                <input type="checkbox" name="stack[]" value="Legacy Monolith" class="sr-only" />
+                <input type="checkbox" name="stack[]" id="stack-checkbox-4" value="Legacy Monolith / Custom CMS" class="sr-only" />
                 <div class="flex items-center gap-3">
                   <div class="checkbox-indicator w-5 h-5 rounded-md border border-white/20 bg-black/40 flex items-center justify-center transition-all">
                     <svg class="check-icon w-3.5 h-3.5 text-amber-400 opacity-0 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -282,11 +282,11 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
                     </svg>
                   </div>
                   <div>
-                    <span class="block text-sm font-semibold text-white group-hover:text-amber-200 transition-colors">Legacy Monolith / Custom CMS</span>
-                    <span class="block text-[11px] font-mono text-slate-400">WordPress, Drupal, Custom PHP, or On-Premise Server</span>
+                    <span id="stack-title-4" class="block text-sm font-semibold text-white group-hover:text-amber-200 transition-opacity duration-200">Legacy Monolith / Custom CMS</span>
+                    <span id="stack-desc-4" class="block text-[11px] font-mono text-slate-400 transition-opacity duration-200">Traditional on-prem, PHP/Node servers, custom databases, or proprietary CMS.</span>
                   </div>
                 </div>
-                <span class="text-[10px] font-mono tracking-wider text-amber-300 uppercase px-2 py-0.5 rounded-full bg-amber-950/60 border border-amber-500/30">MIGRATION TARGET</span>
+                <span id="stack-tag-4" class="text-[10px] font-mono tracking-wider text-amber-300 uppercase px-2 py-0.5 rounded-full bg-amber-950/60 border border-amber-500/30 transition-opacity duration-200">AUDIT REQUIRED</span>
               </label>
 
             </div>
@@ -302,17 +302,17 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
             <div class="flex items-center justify-between mb-4">
               <div class="inline-flex items-center gap-2 text-xs font-mono font-semibold tracking-widest text-emerald-400 uppercase">
                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span>// STEP 03: ARCHITECTURAL AUTHENTICATION</span>
+                <span id="step03-lens-eyebrow" class="transition-opacity duration-200">// STEP 03: ARCHITECTURAL AUTHENTICATION</span>
               </div>
               <span class="text-[10px] font-mono tracking-wider text-slate-500 uppercase px-2 py-0.5 rounded-md bg-white/5 border border-white/10">STAGE 3 OF 3</span>
             </div>
 
             <!-- Title & Description -->
-            <h2 class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-tight">
-              Corporate Telemetry &amp; Direct Contact
+            <h2 id="step03-lens-title" class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-tight transition-opacity duration-200">
+              Identity &amp; Direct Telemetry
             </h2>
-            <p class="text-sm text-slate-300 mt-2 font-normal leading-relaxed">
-              Enterprise credentials required for NDA enforcement, calendar provisioning, and delivery of your customized system architecture blueprint.
+            <p id="step03-lens-desc" class="text-sm text-slate-300 mt-2 font-normal leading-relaxed transition-opacity duration-200">
+              Direct engineering channels for session verification and NDA-governed architecture blueprints.
             </p>
 
             <!-- Form Input Fields (Micro-Step 3.3) -->
@@ -321,7 +321,7 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
               <!-- Field 1: Full Name -->
               <div>
                 <label for="fullName" class="block text-xs font-mono text-slate-300 font-medium mb-1.5 flex items-center justify-between">
-                  <span>FULL NAME</span>
+                  <span id="label-field-name" class="transition-opacity duration-200">Principal Engineering Sponsor</span>
                   <span class="text-cyan-400 text-[10px]">* REQUIRED</span>
                 </label>
                 <input 
@@ -330,7 +330,7 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
                   name="fullName" 
                   autocomplete="name"
                   required 
-                  placeholder="e.g. Alexander Vance"
+                  placeholder="Jane Doe, VP of Engineering"
                   class="w-full bg-[#07080b]/90 border border-white/15 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 text-white text-sm font-mono placeholder:text-slate-500 rounded-xl px-4 py-3 outline-none transition-all"
                 />
               </div>
@@ -338,7 +338,7 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
               <!-- Field 2: Corporate Email -->
               <div>
                 <label for="email" class="block text-xs font-mono text-slate-300 font-medium mb-1.5 flex items-center justify-between">
-                  <span>CORPORATE EMAIL</span>
+                  <span id="label-field-email" class="transition-opacity duration-200">Corporate Work Email</span>
                   <span class="text-cyan-400 text-[10px]">* REQUIRED</span>
                 </label>
                 <input 
@@ -347,7 +347,7 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
                   name="email" 
                   autocomplete="email"
                   required 
-                  placeholder="alexander@enterprise.com"
+                  placeholder="j.doe@enterprise.io"
                   class="w-full bg-[#07080b]/90 border border-white/15 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 text-white text-sm font-mono placeholder:text-slate-500 rounded-xl px-4 py-3 outline-none transition-all"
                 />
               </div>
@@ -355,7 +355,7 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
               <!-- Field 3: Direct Phone / WhatsApp -->
               <div>
                 <label for="phone" class="block text-xs font-mono text-slate-300 font-medium mb-1.5 flex items-center justify-between">
-                  <span>PHONE / WHATSAPP</span>
+                  <span id="label-field-phone" class="transition-opacity duration-200">Direct Telemetry Channel (Cell / Signal)</span>
                   <span class="text-cyan-400 text-[10px]">* REQUIRED</span>
                 </label>
                 <input 
@@ -372,7 +372,7 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
               <!-- Field 4: Organization / Domain -->
               <div>
                 <label for="organization" class="block text-xs font-mono text-slate-300 font-medium mb-1.5 flex items-center justify-between">
-                  <span>ORGANIZATION / DOMAIN</span>
+                  <span id="label-field-org" class="transition-opacity duration-200">Enterprise Organization &amp; Primary Domain</span>
                   <span class="text-cyan-400 text-[10px]">* REQUIRED</span>
                 </label>
                 <input 
@@ -381,7 +381,7 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
                   name="organization" 
                   autocomplete="organization"
                   required 
-                  placeholder="enterprise.com"
+                  placeholder="acmecloud.com"
                   class="w-full bg-[#07080b]/90 border border-white/15 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 text-white text-sm font-mono placeholder:text-slate-500 rounded-xl px-4 py-3 outline-none transition-all"
                 />
               </div>
@@ -391,14 +391,14 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
             <!-- Operational Notes Area (Micro-Step 3.4) -->
             <div class="mt-4">
               <label for="notes" class="block text-xs font-mono text-slate-300 font-medium mb-1.5 flex items-center justify-between">
-                <span>SYSTEM REQUIREMENTS &amp; OPERATIONAL BOTTLENECKS</span>
+                <span id="label-field-notes" class="transition-opacity duration-200">Infrastructure Bottlenecks &amp; Critical Specs (Optional)</span>
                 <span class="text-slate-500 text-[10px]">OPTIONAL</span>
               </label>
               <textarea 
                 id="notes" 
                 name="notes" 
                 rows="3" 
-                placeholder="Describe your primary system pain points, data volume, compliance standards, or architectural goals..."
+                placeholder="Outline current scaling constraints, data velocity, or security mandates..."
                 class="w-full bg-[#07080b]/90 border border-white/15 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 text-white text-sm font-mono placeholder:text-slate-500 rounded-xl px-4 py-3 outline-none transition-all resize-y"
               ></textarea>
             </div>
@@ -422,16 +422,16 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
               <div class="flex items-center justify-between mb-4">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/30 bg-emerald-950/60 shadow-[0_0_15px_rgba(16,185,129,0.15)] text-[11px] font-mono font-semibold text-emerald-300 uppercase">
                   <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.8)]"></span>
-                  <span>LIVE ARCHITECT AVAILABILITY</span>
+                  <span id="console-lens-eyebrow" class="transition-opacity duration-200">LIVE ARCHITECT AVAILABILITY</span>
                 </div>
                 <span class="text-[10px] font-mono text-slate-500 uppercase tracking-widest">TLS 1.3 SYNC</span>
               </div>
 
               <!-- Master Booking Title & Subtitle -->
-              <h3 class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-tight leading-tight">
+              <h3 id="console-lens-title" class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-tight leading-tight transition-opacity duration-200">
                 Select Consultation Window
               </h3>
-              <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+              <p id="console-lens-subtitle" class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed transition-opacity duration-200">
                 Direct architectural evaluation conducted by executive leadership. Zero junior intermediaries.
               </p>
 
@@ -601,8 +601,7 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
 
               <!-- Security & SLA Guarantee Badge -->
               <div class="mt-5 pt-4 border-t border-white/[0.08] text-center text-[10px] font-mono text-slate-400 flex items-center justify-center gap-1.5">
-                <span class="text-emerald-400">🔒</span>
-                <span>TLS 1.3 / 256-BIT ENCRYPTED // 0% PUBLIC AI TRAINING</span>
+                <span id="console-lens-security" class="transition-opacity duration-200">🔒 TLS 1.3 / 256-BIT ENCRYPTED // 0% PUBLIC AI TRAINING</span>
               </div>
 
               <!-- Primary Action CTA Button -->
@@ -612,7 +611,7 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
                   id="submit-intake-btn" 
                   class="w-full py-4 px-6 rounded-2xl bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-bold font-mono text-xs uppercase tracking-wider shadow-[0_0_30px_rgba(0,242,254,0.35)] hover:shadow-[0_0_40px_rgba(0,242,254,0.5)] transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
                 >
-                  <span id="btn-label-text">Secure Consultation &amp; Lock Slot</span>
+                  <span id="btn-label-text" class="transition-opacity duration-200">Secure Consultation &amp; Lock Slot</span>
                   <span class="group-hover:translate-x-1 transition-transform" id="btn-arrow-icon">→</span>
                 </button>
               </div>
@@ -686,6 +685,386 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
   <!-- Interactive Console Engine Scripts -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      // --- Micro-Step 1.1: Centralized Dual-Lens Translation Dictionary ---
+      const contactLensData = {
+        corporate: {
+          hero: {
+            eyebrow: "⚡ SYSTEM ARCHITECTURE INTAKE // DIRECT ARCHITECT ACCESS",
+            headline: "Initialize Your<br/><span class=\"text-transparent bg-clip-text bg-linear-to-r from-cyan-300 via-white to-amber-300 drop-shadow-[0_0_35px_rgba(0,242,254,0.2)]\">System Architecture.</span>",
+            subtitle: "Configure your technical parameters, identify your existing infrastructure stack, and reserve a dedicated engineering session with our principal leadership."
+          },
+          step1: {
+            eyebrow: "// STEP 01: SELECT PRIMARY OBJECTIVE",
+            title: "What are we building?",
+            description: "Choose the principal architectural focus for your systems engagement. This will intelligently pair you with the corresponding lead architect.",
+            objectives: [
+              {
+                title: "Agentic AI &amp; Workflows",
+                desc: "Autonomous Lead Capture &amp; LLM Pipelines"
+              },
+              {
+                title: "Secure Client Portals",
+                desc: "Zero-Trust IAM &amp; Encrypted Data Vaults"
+              },
+              {
+                title: "Serverless Cloud Migration",
+                desc: "AWS Lambda, S3, CloudFront &amp; DynamoDB"
+              },
+              {
+                title: "Fiscal Ops &amp; Cash Recovery",
+                desc: "AR Chasing, Unit Margins &amp; SLA Controls"
+              }
+            ],
+            velocityTitle: "// TARGET DEPLOYMENT VELOCITY",
+            velocityOptions: [
+              "⚡ Rapid Sprint <span class=\"text-[10px] block text-slate-400\">&lt; 14 Days Turnaround</span>",
+              "🗓️ Planned Production <span class=\"text-[10px] block text-slate-400\">30–60 Days Roadmap</span>",
+              "🔍 Architecture Audit <span class=\"text-[10px] block text-slate-400\">Evaluation &amp; Discovery</span>"
+            ]
+          },
+          step2: {
+            eyebrow: "// STEP 02: INFRASTRUCTURE PARAMETERS",
+            title: "Current Tech Stack &amp; Integrations",
+            description: "Select the foundational systems currently running in your environment. Multi-select all that apply.",
+            stackOptions: [
+              {
+                title: "QuickBooks Online / Accounting ERP",
+                desc: "General ledger, invoicing, chart of accounts &amp; balance sheet synchronization.",
+                tag: "API VERIFIED"
+              },
+              {
+                title: "Stripe / Financial Infrastructure",
+                desc: "Payment processing, customer vaults, subscriptions &amp; reconciliation.",
+                tag: "WEBHOOK READY"
+              },
+              {
+                title: "Microsoft 365 / Graph API",
+                desc: "Azure AD, Exchange, SharePoint, Teams &amp; unified communication hubs.",
+                tag: "ENTERPRISE IAM"
+              },
+              {
+                title: "AWS / Cloud Infrastructure",
+                desc: "Lambda, DynamoDB, S3, ECS, CloudFront, Step Functions or RDS.",
+                tag: "NATIVE CLOUD"
+              },
+              {
+                title: "Legacy Monolith / Custom CMS",
+                desc: "Traditional on-prem, PHP/Node servers, custom databases, or proprietary CMS.",
+                tag: "AUDIT REQUIRED"
+              }
+            ]
+          },
+          step3: {
+            eyebrow: "// STEP 03: ARCHITECTURAL AUTHENTICATION",
+            title: "Identity &amp; Direct Telemetry",
+            description: "Direct engineering channels for session verification and NDA-governed architecture blueprints.",
+            labels: {
+              name: "Principal Engineering Sponsor",
+              namePlaceholder: "Jane Doe, VP of Engineering",
+              email: "Corporate Work Email",
+              emailPlaceholder: "j.doe@enterprise.io",
+              phone: "Direct Telemetry Channel (Cell / Signal)",
+              phonePlaceholder: "+1 (555) 019-2834",
+              org: "Enterprise Organization &amp; Primary Domain",
+              orgPlaceholder: "acmecloud.com",
+              notes: "Infrastructure Bottlenecks &amp; Critical Specs (Optional)",
+              notesPlaceholder: "Outline current scaling constraints, data velocity, or security mandates..."
+            }
+          },
+          console: {
+            eyebrow: "LIVE ARCHITECT AVAILABILITY",
+            title: "Select Consultation Window",
+            subtitle: "Direct architectural evaluation conducted by executive leadership. Zero junior intermediaries.",
+            ctaBtn: "SECURE CONSULTATION &amp; LOCK SLOT →",
+            securityNote: "🔒 TLS 1.3 / 256-BIT ENCRYPTED // 0% PUBLIC AI TRAINING"
+          },
+          telemetry: {
+            streamPrefix: "SYS_INTAKE // AUDIENCE: CORPORATE"
+          }
+        },
+        trades: {
+          hero: {
+            eyebrow: "⚡ FIELD AUTOMATION INTAKE // DIRECT ARCHITECT ACCESS",
+            headline: "Automate Your<br/><span class=\"text-transparent bg-clip-text bg-linear-to-r from-amber-300 via-white to-cyan-300 drop-shadow-[0_0_35px_rgba(245,158,11,0.2)]\">Field Operations &amp; Dispatch.</span>",
+            subtitle: "Eliminate missed customer calls, automate after-hours dispatching, speed up job cash flow, and reserve an operational strategy session with our principal leadership."
+          },
+          step1: {
+            eyebrow: "// STEP 01: SELECT OPERATIONAL FOCUS",
+            title: "Where is your business losing time or jobs?",
+            description: "Choose your primary operational focus. We will pair you directly with the lead architect for trade automation or cash flow.",
+            objectives: [
+              {
+                title: "24/7 AI Call Dispatch &amp; Intake",
+                desc: "Instant after-hours call answering &amp; emergency quote capture"
+              },
+              {
+                title: "Customer Job &amp; Estimate Hubs",
+                desc: "Self-serve job tracking, photo documentation &amp; digital sign-offs"
+              },
+              {
+                title: "Field Dispatch &amp; Software Sync",
+                desc: "Connecting trucks, schedules, inventory, and office tools into one hub"
+              },
+              {
+                title: "Cash Recovery &amp; Automated Invoicing",
+                desc: "Automated overdue invoice chasing, parts markup &amp; payroll margins"
+              }
+            ],
+            velocityTitle: "// TARGET ROLLOUT TIMELINE",
+            velocityOptions: [
+              "⚡ Emergency Rollout <span class=\"text-[10px] block text-slate-400\">&lt; 48 Hours Activation</span>",
+              "🗓️ Standard Deployment <span class=\"text-[10px] block text-slate-400\">14 Days Implementation</span>",
+              "🔍 Dispatch &amp; Workflow Audit <span class=\"text-[10px] block text-slate-400\">Full Operations Review</span>"
+            ]
+          },
+          step2: {
+            eyebrow: "// STEP 02: FIELD OPERATIONS &amp; SOFTWARE SETUP",
+            title: "Current Field Tools &amp; Office Systems",
+            description: "Select the software and tools your business uses today. Multi-select all that apply.",
+            stackOptions: [
+              {
+                title: "ServiceTitan / FieldEdge",
+                desc: "Full-scale enterprise residential or commercial trade management platform.",
+                tag: "ENTERPRISE FSM"
+              },
+              {
+                title: "Jobber / Housecall Pro",
+                desc: "Mobile job scheduling, field estimates, dispatching, and payments.",
+                tag: "DISPATCH APPS"
+              },
+              {
+                title: "QuickBooks Online / Xero",
+                desc: "General bookkeeping, parts billing, supplier POs &amp; payroll accounting.",
+                tag: "ACCOUNTING"
+              },
+              {
+                title: "Twilio / RingCentral / Google LSA",
+                desc: "Business phone numbers, call forwarding, and Google Local Services Ads leads.",
+                tag: "PHONES &amp; LEADS"
+              },
+              {
+                title: "Manual Paper &amp; Spreadsheets",
+                desc: "Whiteboards, notebooks, paper work orders, or manual spreadsheets.",
+                tag: "LEGACY PROCESS"
+              }
+            ]
+          },
+          step3: {
+            eyebrow: "// STEP 03: TRADE BUSINESS VERIFICATION",
+            title: "Business Details &amp; Direct Contact",
+            description: "Direct contact channels for your operational audit and workflow blueprints.",
+            labels: {
+              name: "Owner / General Manager Name",
+              namePlaceholder: "Mike Johnson, Owner",
+              email: "Business Email",
+              emailPlaceholder: "mike@johnsonplumbing.ca",
+              phone: "Direct Mobile / Dispatch Cell",
+              phonePlaceholder: "+1 (555) 019-2834",
+              org: "Company Name &amp; Primary Trade (HVAC, Plumbing, etc.)",
+              orgPlaceholder: "Johnson Plumbing &amp; HVAC Ltd.",
+              notes: "Biggest Operational Bottleneck (Optional)",
+              notesPlaceholder: "e.g. Missing after-hours emergency calls, late invoice payments, messy dispatch schedules..."
+            }
+          },
+          console: {
+            eyebrow: "LIVE DISPATCH CONSULTANT AVAILABILITY",
+            title: "Lock In Your Operational Audit",
+            subtitle: "Direct workflow evaluation conducted with Principal Leadership. Zero junior sales reps.",
+            ctaBtn: "SECURE MY DISPATCH AUDIT &amp; LOCK SLOT →",
+            securityNote: "🔒 PRIVATE SYSTEM // 100% CANADIAN DATA COMPLIANT"
+          },
+          telemetry: {
+            streamPrefix: "FIELD_OPS // AUDIENCE: TRADES &amp; CONTRACTORS"
+          }
+        }
+      };
+
+      // --- Micro-Step 1.2: Lens Event Listener & Init Hook ---
+      let currentContactLens = 'corporate';
+
+      // Reusable zero-CLS cross-fade content updater
+      function morphElementContent(el, newHTML) {
+        if (!el || el.innerHTML === newHTML) return;
+        el.style.opacity = '0';
+        setTimeout(() => {
+          el.innerHTML = newHTML;
+          el.style.opacity = '1';
+        }, 120);
+      }
+
+      function applyContactLens(lensKey) {
+        if (!lensKey || (lensKey !== 'corporate' && lensKey !== 'trades')) {
+          lensKey = 'corporate';
+        }
+        currentContactLens = lensKey;
+
+        // Synchronize hidden input for form serialization (Micro-Step 1.3)
+        const audienceLensInput = document.getElementById('audienceLensInput');
+        if (audienceLensInput) {
+          audienceLensInput.value = lensKey;
+        }
+
+        const data = contactLensData[lensKey] || contactLensData.corporate;
+
+        // --- Micro-Step 2.1: Hero Section Morphing ---
+        const heroEyebrow = document.getElementById('hero-lens-eyebrow');
+        const heroHeadline = document.getElementById('hero-lens-headline');
+        const heroSubtitle = document.getElementById('hero-lens-subtitle');
+
+        if (heroEyebrow) morphElementContent(heroEyebrow, data.hero.eyebrow);
+        if (heroHeadline) morphElementContent(heroHeadline, data.hero.headline);
+        if (heroSubtitle) morphElementContent(heroSubtitle, data.hero.subtitle);
+
+        // --- Micro-Step 2.2: Step 01 Objectives Morphing ---
+        const step01Eyebrow = document.getElementById('step01-lens-eyebrow');
+        const step01Title = document.getElementById('step01-lens-title');
+        const step01Desc = document.getElementById('step01-lens-desc');
+
+        if (step01Eyebrow) morphElementContent(step01Eyebrow, data.step1.eyebrow);
+        if (step01Title) morphElementContent(step01Title, data.step1.title);
+        if (step01Desc) morphElementContent(step01Desc, data.step1.description);
+
+        if (data.step1 && Array.isArray(data.step1.objectives)) {
+          data.step1.objectives.forEach((obj, idx) => {
+            const titleEl = document.getElementById(`obj-title-${idx}`);
+            const descEl = document.getElementById(`obj-desc-${idx}`);
+            const radioEl = document.getElementById(`obj-radio-${idx}`);
+
+            if (titleEl) morphElementContent(titleEl, obj.title);
+            if (descEl) morphElementContent(descEl, obj.desc);
+            if (radioEl) radioEl.value = obj.title.replace(/&amp;/g, '&');
+          });
+        }
+
+        // --- Micro-Step 2.3: Deployment Velocity Selector Morphing ---
+        const velocityTitle = document.getElementById('step01-velocity-title');
+        if (velocityTitle && data.step1 && data.step1.velocityTitle) {
+          morphElementContent(velocityTitle, data.step1.velocityTitle);
+        }
+
+        if (data.step1 && Array.isArray(data.step1.velocityOptions)) {
+          data.step1.velocityOptions.forEach((optHtml, idx) => {
+            const contentEl = document.getElementById(`velocity-content-${idx}`);
+            const radioEl = document.getElementById(`velocity-radio-${idx}`);
+            if (contentEl) morphElementContent(contentEl, optHtml);
+            if (radioEl) {
+              if (idx === 0) radioEl.value = lensKey === 'trades' ? 'Emergency Rollout (< 48 Hours)' : 'Rapid Sprint (< 14 Days)';
+              else if (idx === 1) radioEl.value = lensKey === 'trades' ? 'Standard Deployment (14 Days)' : 'Planned Production (30-60 Days)';
+              else if (idx === 2) radioEl.value = lensKey === 'trades' ? 'Dispatch & Workflow Audit' : 'Feasibility & Architecture Audit';
+            }
+          });
+        }
+
+        // --- Micro-Step 3.1: Step 02 Header & Eyebrow Morphing ---
+        const step02Eyebrow = document.getElementById('step02-lens-eyebrow');
+        const step02Title = document.getElementById('step02-lens-title');
+        const step02Desc = document.getElementById('step02-lens-desc');
+
+        if (step02Eyebrow && data.step2 && data.step2.eyebrow) {
+          morphElementContent(step02Eyebrow, data.step2.eyebrow);
+        }
+        if (step02Title && data.step2 && data.step2.title) {
+          morphElementContent(step02Title, data.step2.title);
+        }
+        if (step02Desc && data.step2 && data.step2.description) {
+          morphElementContent(step02Desc, data.step2.description);
+        }
+
+        // --- Micro-Step 3.2: Checkbox Stack Cards Morphing ---
+        if (data.step2 && Array.isArray(data.step2.stackOptions)) {
+          data.step2.stackOptions.forEach((opt, idx) => {
+            const titleEl = document.getElementById(`stack-title-${idx}`);
+            const descEl = document.getElementById(`stack-desc-${idx}`);
+            const tagEl = document.getElementById(`stack-tag-${idx}`);
+            const checkboxEl = document.getElementById(`stack-checkbox-${idx}`);
+
+            if (titleEl) morphElementContent(titleEl, opt.title);
+            if (descEl) morphElementContent(descEl, opt.desc);
+            if (tagEl) morphElementContent(tagEl, opt.tag);
+            if (checkboxEl) checkboxEl.value = opt.title.replace(/&amp;/g, '&');
+          });
+        }
+
+        // --- Micro-Step 4.1: Step 03 Header & Contact Input Labels/Placeholders ---
+        const step03Eyebrow = document.getElementById('step03-lens-eyebrow');
+        const step03Title = document.getElementById('step03-lens-title');
+        const step03Desc = document.getElementById('step03-lens-desc');
+
+        if (step03Eyebrow && data.step3 && data.step3.eyebrow) {
+          morphElementContent(step03Eyebrow, data.step3.eyebrow);
+        }
+        if (step03Title && data.step3 && data.step3.title) {
+          morphElementContent(step03Title, data.step3.title);
+        }
+        if (step03Desc && data.step3 && data.step3.description) {
+          morphElementContent(step03Desc, data.step3.description);
+        }
+
+        if (data.step3 && data.step3.labels) {
+          const lblName = document.getElementById('label-field-name');
+          const inputName = document.getElementById('fullName');
+          if (lblName) morphElementContent(lblName, data.step3.labels.name);
+          if (inputName && data.step3.labels.namePlaceholder) inputName.placeholder = data.step3.labels.namePlaceholder;
+
+          const lblEmail = document.getElementById('label-field-email');
+          const inputEmail = document.getElementById('email');
+          if (lblEmail) morphElementContent(lblEmail, data.step3.labels.email);
+          if (inputEmail && data.step3.labels.emailPlaceholder) inputEmail.placeholder = data.step3.labels.emailPlaceholder;
+
+          const lblPhone = document.getElementById('label-field-phone');
+          const inputPhone = document.getElementById('phone');
+          if (lblPhone) morphElementContent(lblPhone, data.step3.labels.phone);
+          if (inputPhone && data.step3.labels.phonePlaceholder) inputPhone.placeholder = data.step3.labels.phonePlaceholder;
+
+          const lblOrg = document.getElementById('label-field-org');
+          const inputOrg = document.getElementById('organization');
+          if (lblOrg) morphElementContent(lblOrg, data.step3.labels.org);
+          if (inputOrg && data.step3.labels.orgPlaceholder) inputOrg.placeholder = data.step3.labels.orgPlaceholder;
+
+          // --- Micro-Step 4.2: Operational Notes & Bottlenecks ---
+          const lblNotes = document.getElementById('label-field-notes');
+          const inputNotes = document.getElementById('notes');
+          if (lblNotes) morphElementContent(lblNotes, data.step3.labels.notes);
+          if (inputNotes && data.step3.labels.notesPlaceholder) inputNotes.placeholder = data.step3.labels.notesPlaceholder;
+        }
+
+        // --- Micro-Step 5.1: Console Header & Subtitle Morphing ---
+        const consoleEyebrow = document.getElementById('console-lens-eyebrow');
+        const consoleTitle = document.getElementById('console-lens-title');
+        const consoleSubtitle = document.getElementById('console-lens-subtitle');
+
+        if (consoleEyebrow && data.console && data.console.eyebrow) {
+          morphElementContent(consoleEyebrow, data.console.eyebrow);
+        }
+        if (consoleTitle && data.console && data.console.title) {
+          morphElementContent(consoleTitle, data.console.title);
+        }
+        if (consoleSubtitle && data.console && data.console.subtitle) {
+          morphElementContent(consoleSubtitle, data.console.subtitle);
+        }
+
+        // --- Micro-Step 5.2: Architect Role Titles Alignment ---
+        if (typeof setLeadArchitect === 'function') {
+          setLeadArchitect(currentLeadKey);
+        }
+
+        // --- Micro-Step 5.3: CTA Button & Trust Pill Morphing ---
+        const consoleSecurity = document.getElementById('console-lens-security');
+        const btnLabel = document.getElementById('btn-label-text');
+
+        if (consoleSecurity && data.console && data.console.securityNote) {
+          morphElementContent(consoleSecurity, data.console.securityNote);
+        }
+        if (btnLabel && data.console && data.console.ctaBtn) {
+          const cleanBtnText = data.console.ctaBtn.replace(/→/g, '').trim();
+          morphElementContent(btnLabel, cleanBtnText);
+        }
+
+        if (typeof updateTelemetryStream === 'function') {
+          updateTelemetryStream();
+        }
+      }
+
       // --- Micro-Step 5.2: Objective-to-Architect Routing Engine ---
       const objectiveCards = document.querySelectorAll('.objective-card');
       const architectAvatar = document.getElementById('architect-avatar-img');
@@ -696,33 +1075,51 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
       const assignedArchitectInput = document.getElementById('assignedArchitectInput');
       const telemetryLeadBadge = document.getElementById('telemetry-lead-badge');
 
+      let currentLeadKey = 'saad';
+
       const architectData = {
         saad: {
           name: 'Saad Sayed',
-          title: '// Founder & Principal Cloud Architect',
+          corporate: {
+            title: '// Founder & Principal Cloud Architect',
+            badge: '☁️ AWS Certified',
+            inputVal: 'Saad Sayed (Principal Cloud Architect)'
+          },
+          trades: {
+            title: '// Founder & Systems Automation Architect',
+            badge: '⚡ Systems Automation Lead',
+            inputVal: 'Saad Sayed (Systems Automation Architect)'
+          },
           titleClass: 'text-[11px] sm:text-xs font-mono text-cyan-300 font-medium tracking-tight',
-          badge: '☁️ AWS Certified',
           badgeClass: 'bg-cyan-950/60 border-cyan-500/30 text-cyan-200',
           avatar: '/public/saad-profile.jpg',
           glowColor: 'bg-cyan-glow/15',
-          inputVal: 'Saad Sayed (Principal Cloud Architect)',
           leadBadgeText: 'SAAD SAYED'
         },
         arfa: {
           name: 'Arfa Sayeed Syeda',
-          title: '// The Financial & Operations Architect',
+          corporate: {
+            title: '// The Financial & Operations Architect',
+            badge: '💳 Fiscal & Ops Lead',
+            inputVal: 'Arfa Sayeed Syeda (Financial & Operations Architect)'
+          },
+          trades: {
+            title: '// The Cash Flow & Field Operations Architect',
+            badge: '💳 Cash Flow & Ops Lead',
+            inputVal: 'Arfa Sayeed Syeda (Cash Flow & Field Operations Architect)'
+          },
           titleClass: 'text-[11px] sm:text-xs font-mono text-amber-300 font-medium tracking-tight',
-          badge: '💳 Fiscal & Ops Lead',
           badgeClass: 'bg-amber-950/60 border-amber-500/30 text-amber-200',
           avatar: '/public/arfa-profile.jpg',
           glowColor: 'bg-amber-400/15',
-          inputVal: 'Arfa Sayeed Syeda (Financial & Operations Architect)',
           leadBadgeText: 'ARFA SAYEED SYEDA'
         }
       };
 
       function setLeadArchitect(leadKey) {
-        const arch = architectData[leadKey] || architectData.saad;
+        if (leadKey) currentLeadKey = leadKey;
+        const arch = architectData[currentLeadKey] || architectData.saad;
+        const lensProfile = (currentContactLens === 'trades') ? arch.trades : arch.corporate;
         
         if (architectAvatar) {
           architectAvatar.style.opacity = '0.3';
@@ -733,18 +1130,46 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
         }
         if (architectName) architectName.textContent = arch.name;
         if (architectTitle) {
-          architectTitle.textContent = arch.title;
+          morphElementContent(architectTitle, lensProfile.title);
           architectTitle.className = arch.titleClass;
         }
         if (architectBadge) {
-          architectBadge.textContent = arch.badge;
+          morphElementContent(architectBadge, lensProfile.badge);
           architectBadge.className = `px-2.5 py-1 rounded-full text-[10px] font-mono font-semibold border shadow-sm ${arch.badgeClass}`;
         }
         if (architectGlow) {
           architectGlow.className = `absolute -right-10 -bottom-10 w-28 h-28 rounded-full blur-[35px] pointer-events-none transition-all duration-500 ${arch.glowColor}`;
         }
-        if (assignedArchitectInput) assignedArchitectInput.value = arch.inputVal;
+        if (assignedArchitectInput) assignedArchitectInput.value = lensProfile.inputVal;
         if (telemetryLeadBadge) telemetryLeadBadge.textContent = arch.leadBadgeText;
+      }
+
+      // Listen for global audience lens switch event dispatched by master navbar
+      window.addEventListener('lenschange', (e) => {
+        if (e && e.detail && e.detail.lens) {
+          applyContactLens(e.detail.lens);
+        }
+      });
+
+      // Initial audience lens detection on page load (URL param -> localStorage -> data-lens -> fallback)
+      try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const rawLens = (urlParams.get('lens') || urlParams.get('audience') || '').toLowerCase();
+        let initialLens = 'corporate';
+        if (rawLens === 'trades' || rawLens === 'trade' || rawLens === 'field') {
+          initialLens = 'trades';
+        } else if (rawLens === 'corporate' || rawLens === 'corp' || rawLens === 'enterprise') {
+          initialLens = 'corporate';
+        } else {
+          const storedLens = localStorage.getItem('lumilore_master_lens') || localStorage.getItem('lumilore_industry_lens');
+          const docLens = document.documentElement.getAttribute('data-lens');
+          if (storedLens === 'trades' || docLens === 'trades') {
+            initialLens = 'trades';
+          }
+        }
+        applyContactLens(initialLens);
+      } catch (err) {
+        applyContactLens('corporate');
       }
 
       objectiveCards.forEach(card => {
@@ -760,6 +1185,7 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
 
           // Activate clicked card
           const lead = card.getAttribute('data-lead') || 'saad';
+          currentLeadKey = lead;
           if (lead === 'arfa') {
             card.classList.remove('border-white/10', 'bg-white/[0.02]', 'text-slate-300');
             card.classList.add('border-amber-400', 'bg-amber-500/15', 'text-white', 'shadow-[0_0_20px_rgba(245,158,11,0.25)]');
@@ -929,6 +1355,8 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
         let velLabel = '<14 DAYS';
         if (checkedVel) {
           if (checkedVel.value.includes('Planned')) velLabel = '30-60 DAYS';
+          else if (checkedVel.value.includes('Standard')) velLabel = '14 DAYS';
+          else if (checkedVel.value.includes('Emergency') || checkedVel.value.includes('48 Hours')) velLabel = '<48 HOURS';
           else if (checkedVel.value.includes('Audit')) velLabel = 'AUDIT';
         }
 
@@ -937,7 +1365,12 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
         if (checkedStacks.length === 0) stackLabel = 'NO LEGACY STACK';
         else if (checkedStacks.length === 1) stackLabel = checkedStacks[0].value.toUpperCase();
 
-        telemetryStreamText.textContent = `OBJ: ${objLabel} // SPRINT: ${velLabel} // STACK: ${stackLabel}`;
+        const activeLensData = contactLensData[currentContactLens] || contactLensData.corporate;
+        const prefix = (activeLensData.telemetry && activeLensData.telemetry.streamPrefix)
+          ? activeLensData.telemetry.streamPrefix.replace(/&amp;/g, '&')
+          : 'SYS_INTAKE // AUDIENCE: CORPORATE';
+
+        telemetryStreamText.textContent = `${prefix} // OBJ: ${objLabel} // SPRINT: ${velLabel} // STACK: ${stackLabel}`;
       }
 
       // Velocity card click handling
@@ -1071,6 +1504,7 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
         const telemetryPayload = {
           intakeId,
           timestamp,
+          audienceLens: currentContactLens,
           clientProfile: {
             fullName,
             email,
@@ -1127,6 +1561,7 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
         }
 
         function injectMissionPassHTML() {
+          const isTrades = payload.audienceLens === 'trades';
           const architectDisplayName = payload.sessionSchedule.assignedArchitect.split('(')[0].trim();
           
           const passHTML = `
@@ -1136,17 +1571,17 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
               <div class="flex items-center justify-between mb-4">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/40 bg-emerald-950/80 shadow-[0_0_20px_rgba(16,185,129,0.3)] text-[11px] font-mono font-bold text-emerald-300 uppercase">
                   <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.9)]"></span>
-                  <span>CONSULTATION CONFIRMED</span>
+                  <span>${isTrades ? 'OPERATIONAL AUDIT LOCKED' : 'CONSULTATION CONFIRMED'}</span>
                 </div>
                 <span class="text-xs font-mono font-bold text-cyan-300 tracking-wider">${payload.intakeId}</span>
               </div>
 
               <!-- Master Pass Title -->
               <h3 class="font-headline text-2xl sm:text-3xl font-bold text-white tracking-tight leading-tight">
-                Architecture Session Reserved.
+                ${isTrades ? 'Field Automation Audit Reserved.' : 'Architecture Session Reserved.'}
               </h3>
               <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
-                Your dedicated systems consultation is locked on our live calendar. Zero junior intermediaries.
+                ${isTrades ? 'Your dedicated operational strategy consultation is locked on our live calendar. Zero junior sales reps.' : 'Your dedicated systems consultation is locked on our live calendar. Zero junior intermediaries.'}
               </p>
 
               <!-- Mission Telemetry Data Grid -->
@@ -1172,13 +1607,13 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
 
                 <!-- Scope -->
                 <div class="flex items-center justify-between border-b border-white/[0.08] pb-2.5">
-                  <span class="text-slate-400 text-[11px]">PRIMARY SCOPE:</span>
+                  <span class="text-slate-400 text-[11px]">${isTrades ? 'PRIMARY FOCUS:' : 'PRIMARY SCOPE:'}</span>
                   <span class="text-cyan-300 text-right truncate max-w-[190px]">${payload.architectureScope.objective}</span>
                 </div>
 
                 <!-- Client Email -->
                 <div class="flex items-center justify-between">
-                  <span class="text-slate-400 text-[11px]">ATTENDEE DISPATCH:</span>
+                  <span class="text-slate-400 text-[11px]">${isTrades ? 'CONFIRMATION DISPATCH:' : 'ATTENDEE DISPATCH:'}</span>
                   <span class="text-amber-300 text-right truncate max-w-[190px]">${payload.clientProfile.email}</span>
                 </div>
 
@@ -1187,7 +1622,7 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
               <!-- Bridge Notification Alert -->
               <div class="mt-4 p-3 rounded-xl bg-cyan-950/40 border border-cyan-500/20 text-[11px] font-mono text-cyan-200 flex items-start gap-2.5">
                 <span class="text-base shrink-0">🛰️</span>
-                <span>Encrypted Google Meet bridge credentials and intake dossier have been dispatched to your corporate email.</span>
+                <span>${isTrades ? 'Encrypted Google Meet bridge credentials and field strategy blueprint have been dispatched to your business email.' : 'Encrypted Google Meet bridge credentials and intake dossier have been dispatched to your corporate email.'}</span>
               </div>
 
               <!-- Calendar Action Buttons Container (Micro-Step 6.4) -->
@@ -1221,10 +1656,17 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
         const actionsContainer = document.getElementById('mission-pass-calendar-actions');
         if (!actionsContainer) return;
 
+        const isTrades = payload.audienceLens === 'trades';
         const architectName = payload.sessionSchedule.assignedArchitect.split('(')[0].trim();
-        const eventTitle = `LumiLore System Architecture Session // ${architectName}`;
-        const eventDescription = `LumiLore Architecture Intake Session\nIntake ID: ${payload.intakeId}\nAssigned Architect: ${payload.sessionSchedule.assignedArchitect}\nObjective: ${payload.architectureScope.objective}\nTarget Velocity: ${payload.architectureScope.velocity}\nExisting Stack: ${payload.architectureScope.techStack.join(', ') || 'None'}\nAttendee: ${payload.clientProfile.fullName} (${payload.clientProfile.email})\n\nGoogle Meet encrypted bridge link will be shared via calendar invitation.\nWebsite: https://lumilore.ca`;
-        const eventLocation = 'Google Meet (Encrypted Video Bridge) // LumiLore Technologies';
+        const eventTitle = isTrades
+          ? `LumiLore Field Automation Audit // ${architectName}`
+          : `LumiLore System Architecture Session // ${architectName}`;
+        const eventDescription = isTrades
+          ? `LumiLore Field Automation Strategy Session\nAudit ID: ${payload.intakeId}\nAssigned Architect: ${payload.sessionSchedule.assignedArchitect}\nOperational Focus: ${payload.architectureScope.objective}\nRollout Timeline: ${payload.architectureScope.velocity}\nField Tools: ${payload.architectureScope.techStack.join(', ') || 'None'}\nOwner / Attendee: ${payload.clientProfile.fullName} (${payload.clientProfile.email})\n\nGoogle Meet encrypted bridge link will be shared via calendar invitation.\nWebsite: https://lumilore.ca`
+          : `LumiLore Architecture Intake Session\nIntake ID: ${payload.intakeId}\nAssigned Architect: ${payload.sessionSchedule.assignedArchitect}\nObjective: ${payload.architectureScope.objective}\nTarget Velocity: ${payload.architectureScope.velocity}\nExisting Stack: ${payload.architectureScope.techStack.join(', ') || 'None'}\nAttendee: ${payload.clientProfile.fullName} (${payload.clientProfile.email})\n\nGoogle Meet encrypted bridge link will be shared via calendar invitation.\nWebsite: https://lumilore.ca`;
+        const eventLocation = isTrades
+          ? 'Google Meet (Private Video Strategy Session) // LumiLore Technologies'
+          : 'Google Meet (Encrypted Video Bridge) // LumiLore Technologies';
 
         // Compute dynamic ISO UTC timestamp from selected date and slot
         let sessionStartDate = new Date();
