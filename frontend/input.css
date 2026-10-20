@@ -1,4 +1,7 @@
 @import "tailwindcss";
+@source "./frontend/*.html";
+@source "./frontend/**/*.html";
+@source "./*.html";
 @source "./**/*.html";
 @theme {
   /* Stitch Design System - Colors */
