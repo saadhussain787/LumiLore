@@ -7,7 +7,7 @@ eleventyExcludeFromCollections: true
 {%- for page in collections.all %}
   {%- if page.url %}
   <url>
-    <loc>https://lumilore.com{{ page.url | url }}</loc>
+    <loc>https://lumilore.ca{{ page.url | url }}</loc>
     <changefreq>weekly</changefreq>
     <priority>{% if page.url == '/' %}1.0{% else %}0.8{% endif %}</priority>
   </url>
