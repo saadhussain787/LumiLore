@@ -6,3 +6,4 @@ scratch/
 *.docx
 repomix-output.txt
 repomixM-output.txt
+.aws-sam/

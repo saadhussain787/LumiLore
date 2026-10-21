@@ -1605,6 +1605,37 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
         applyContactLens('corporate');
       }
 
+      // --- Micro-Step 4.1: Query Parameters Auto-Scoping (source, service) ---
+      try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const rawService = (urlParams.get('service') || '').toLowerCase();
+
+        // Dynamic Form Auto-Scoping:
+        if (rawService === 'field_audit') {
+          applyContactLens('trades');
+          if (velocityCards && velocityCards[2] && typeof selectVelocityCard === 'function') {
+            selectVelocityCard(velocityCards[2]);
+          }
+        } else if (rawService === 'cloud_audit') {
+          if (velocityCards && velocityCards[2] && typeof selectVelocityCard === 'function') {
+            selectVelocityCard(velocityCards[2]);
+          }
+        } else if (rawService === 'roadmap') {
+          if (objectiveCards && objectiveCards[0] && typeof selectObjectiveCard === 'function') {
+            selectObjectiveCard(objectiveCards[0]);
+          }
+          if (velocityCards && velocityCards[0] && typeof selectVelocityCard === 'function') {
+            selectVelocityCard(velocityCards[0]);
+          }
+        } else if (rawService === 'poc_sprint') {
+          if (velocityCards && velocityCards[0] && typeof selectVelocityCard === 'function') {
+            selectVelocityCard(velocityCards[0]);
+          }
+        }
+      } catch (autoScopeErr) {
+        console.warn('[LumiLore Auto-Scope Notice]', autoScopeErr);
+      }
+
       // --- Micro-Step 5.3: Date & Slot Selection State Management ---
       
       // 1. Timezone Auto-Detection & Live Clock Sync (Micro-Step 5.1)
@@ -1715,22 +1746,71 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
       // Synchronize initial telemetry on load
       updateTelemetryStream();
 
-      // --- Micro-Step 6.1: Native Validation & Submission Interceptor ---
+      // --- Micro-Step 4.2 & 6.1: Submission Interceptor, Anti-Double Submit Lock & Transitions ---
+      let isSubmitting = false;
+
+      function showSubmissionToast(message, type = 'error') {
+        let toast = document.getElementById('intake-status-toast');
+        if (!toast) {
+          toast = document.createElement('div');
+          toast.id = 'intake-status-toast';
+          document.body.appendChild(toast);
+        }
+        const isErr = type === 'error';
+        toast.className = `fixed bottom-24 right-6 z-50 flex items-center gap-3 px-4 py-3 rounded-2xl text-xs font-mono backdrop-blur-xl border shadow-2xl transition-all duration-300 transform translate-y-0 opacity-100 ${
+          isErr 
+            ? 'border-red-500/30 bg-red-950/90 text-red-200 shadow-[0_10px_30px_rgba(239,68,68,0.3)]' 
+            : 'border-emerald-500/30 bg-emerald-950/90 text-emerald-200 shadow-[0_10px_30px_rgba(16,185,129,0.3)]'
+        }`;
+        toast.innerHTML = `<span class="w-2 h-2 rounded-full ${isErr ? 'bg-red-400 animate-pulse' : 'bg-emerald-400'}"></span><span>${message}</span>`;
+        setTimeout(() => {
+          toast.classList.remove('translate-y-0', 'opacity-100');
+          toast.classList.add('translate-y-8', 'opacity-0');
+        }, 5000);
+      }
+      window.showSubmissionToast = showSubmissionToast;
+
+      function resetSubmitButton() {
+        isSubmitting = false;
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.classList.remove('opacity-80', 'cursor-not-allowed');
+        }
+        if (btnLabelText) {
+          const activeLensData = contactLensData[currentContactLens] || contactLensData.corporate;
+          const originalText = (activeLensData.console && activeLensData.console.ctaBtn)
+            ? activeLensData.console.ctaBtn.replace(/→/g, '').trim()
+            : 'Secure Consultation & Lock Slot';
+          btnLabelText.textContent = originalText;
+        }
+        if (btnArrowIcon) btnArrowIcon.style.display = 'inline-block';
+        if (bookingCard) bookingCard.classList.remove('ring-1', 'ring-cyan-400');
+      }
+      window.resetSubmitButton = resetSubmitButton;
+
       if (intakeForm) {
         intakeForm.addEventListener('submit', (e) => {
           e.preventDefault();
+
+          // Anti-Double Submit Guard
+          if (isSubmitting) {
+            console.warn('[LumiLore Intake] Submission already in flight. Secondary click suppressed.');
+            return;
+          }
 
           if (!intakeForm.checkValidity()) {
             intakeForm.reportValidity();
             return;
           }
 
+          isSubmitting = true;
+
           // Transform button to processing state
           if (submitBtn) {
             submitBtn.disabled = true;
             submitBtn.classList.add('opacity-80', 'cursor-not-allowed');
             if (btnLabelText) {
-              btnLabelText.innerHTML = '<span class="inline-block w-3.5 h-3.5 border-2 border-slate-950 border-t-transparent rounded-full animate-spin mr-1.5"></span> Securing Slot...';
+              btnLabelText.innerHTML = '<span class="inline-block w-3.5 h-3.5 border-2 border-slate-950 border-t-transparent rounded-full animate-spin mr-2"></span> Transmitting Dossier...';
             }
             if (btnArrowIcon) btnArrowIcon.style.display = 'none';
           }
@@ -1739,17 +1819,23 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
             bookingCard.classList.add('ring-1', 'ring-cyan-400');
           }
 
-          // Proceed to assemble telemetry & transition in Micro-Steps 6.2 - 6.4
-          setTimeout(() => {
-            if (window.handleLumiLoreSubmission) {
-              window.handleLumiLoreSubmission();
+          // Proceed to assemble telemetry & transition
+          setTimeout(async () => {
+            try {
+              if (window.handleLumiLoreSubmission) {
+                await window.handleLumiLoreSubmission();
+              }
+            } catch (submissionErr) {
+              console.error('[LumiLore Intake Submission Error]', submissionErr);
+              resetSubmitButton();
+              showSubmissionToast('Transmission failed. Console re-enabled, please try again.');
             }
-          }, 800);
+          }, 600);
         });
       }
 
-      // --- Micro-Step 6.2: Telemetry JSON Assembler ---
-      window.handleLumiLoreSubmission = function() {
+      // --- Micro-Step 6.2: Telemetry JSON Assembler & Live API Dispatch ---
+      window.handleLumiLoreSubmission = async function() {
         const checkedObj = document.querySelector('input[name="objective"]:checked');
         const checkedVel = document.querySelector('input[name="velocity"]:checked');
         const checkedStacks = Array.from(document.querySelectorAll('input[name="stack[]"]:checked')).map(el => el.value);
@@ -1764,13 +1850,21 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
         const timeSlot = document.getElementById('timeSlotInput')?.value || '10:30 AM – 11:15 AM EST';
         const assignedArchitect = document.getElementById('assignedArchitectInput')?.value || 'Saad Sayed (Principal Cloud Architect)';
         
-        // Generate cryptographic-styled unique Intake ID
-        const intakeId = `#LUMI-${Math.floor(1000 + Math.random() * 9000)}-${['X', 'Z', 'A', 'K'][Math.floor(Math.random() * 4)]}`;
+        // Generate cryptographic-styled unique Intake ID (local fallback)
+        let intakeId = `#LUMI-${Math.floor(1000 + Math.random() * 9000)}-${['X', 'Z', 'A', 'K'][Math.floor(Math.random() * 4)]}`;
         const timestamp = new Date().toISOString();
         let userTimezone = 'EST';
         try {
           userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
         } catch (e) {}
+
+        const currentUrlParams = new URLSearchParams(window.location.search);
+        const attribution = {
+          source: currentUrlParams.get('source') || (document.referrer.includes(window.location.hostname) ? 'internal_nav' : 'direct'),
+          service: currentUrlParams.get('service') || 'general_consultation',
+          lens: currentContactLens,
+          referrer: document.referrer || 'direct'
+        };
 
         const telemetryPayload = {
           intakeId,
@@ -1794,6 +1888,7 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
             timeSlot,
             assignedArchitect
           },
+          attribution,
           compliance: {
             tlsEncryption: 'TLS 1.3',
             cipherSuite: 'AES-256-GCM',
@@ -1801,6 +1896,38 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
             publicAiTrainingBlocked: true
           }
         };
+
+        // Live API Dispatch to AWS Serverless Backend (/api/intake)
+        try {
+          const apiBase = window.LUMILORE_API_BASE || 'https://bhsahnzaqb.execute-api.ca-central-1.amazonaws.com';
+          const intakeResponse = await fetch(`${apiBase}/api/intake`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify(telemetryPayload),
+            signal: AbortSignal.timeout(12000)
+          });
+
+          let isOfflineOrFailed = false;
+
+          if (intakeResponse.ok) {
+            const resultData = await intakeResponse.json();
+            if (resultData && resultData.intakeId) {
+              telemetryPayload.intakeId = resultData.intakeId;
+              intakeId = resultData.intakeId;
+            }
+          } else {
+            console.warn('[LumiLore Intake API] Non-200 response received from backend:', intakeResponse.status);
+            isOfflineOrFailed = true;
+          }
+        } catch (fetchErr) {
+          console.warn('[LumiLore Intake API] Network or offline dispatch notice (fallback intake preserved):', fetchErr);
+          isOfflineOrFailed = true;
+        }
+
+        telemetryPayload.isOfflineFallback = isOfflineOrFailed;
 
         // Emit clean, formatted structured audit telemetry to browser console
         console.log('%c[LUMILORE INTAKE TELEMETRY DISPATCHED]', 'color: #00f2fe; font-weight: bold; background: #07080b; padding: 4px 8px; border-radius: 4px; border: 1px solid #00f2fe;', telemetryPayload);
@@ -1813,7 +1940,7 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
         }
       };
 
-      // --- Micro-Step 6.3: Mission Pass Receipt Card ---
+      // --- Micro-Step 6.3 & 4.3: Mission Pass Receipt Card & Offline Safeguard ---
       window.renderMissionPass = function(payload) {
         const bookingInterfaceState = document.getElementById('booking-interface-state');
         const bookingCard = document.getElementById('booking-card');
@@ -1833,16 +1960,50 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
 
         function injectMissionPassHTML() {
           const isTrades = payload.audienceLens === 'trades';
+          const isOffline = !!payload.isOfflineFallback;
           const architectDisplayName = payload.sessionSchedule.assignedArchitect.split('(')[0].trim();
           
+          // Construct pre-filled email transmission link for offline emergency safety net
+          const emergencySubject = encodeURIComponent(`[LumiLore Intake Dossier] ${payload.intakeId} - ${payload.clientProfile.organization || payload.clientProfile.fullName}`);
+          const emergencyBody = encodeURIComponent(
+`LUMILORE SYSTEMS ARCHITECTURE INTAKE DOSSIER
+Reference: ${payload.intakeId}
+Audience Lens: ${payload.audienceLens.toUpperCase()}
+
+CLIENT PROFILE:
+Name: ${payload.clientProfile.fullName}
+Email: ${payload.clientProfile.email}
+Phone: ${payload.clientProfile.phone || 'N/A'}
+Organization: ${payload.clientProfile.organization || 'N/A'}
+Operational Notes: ${payload.clientProfile.notes || 'N/A'}
+
+ENGAGEMENT SCOPE:
+Primary Focus: ${payload.architectureScope.objective}
+Target Velocity: ${payload.architectureScope.velocity}
+Current Stack: ${payload.architectureScope.techStack.join(', ') || 'None selected'}
+
+REQUESTED WINDOW:
+Date: ${payload.sessionSchedule.bookingDate}
+Time Slot: ${payload.sessionSchedule.timeSlot}
+Assigned Architect: ${payload.sessionSchedule.assignedArchitect}
+
+ATTRIBUTION:
+Source: ${payload.attribution?.source || 'direct'}
+Service: ${payload.attribution?.service || 'general'}
+Referrer: ${payload.attribution?.referrer || 'direct'}
+
+(Encrypted payload generated via LumiLore Offline Lead Safety Net)`
+          );
+          const emergencyMailtoUrl = `mailto:info@lumilore.ca?subject=${emergencySubject}&body=${emergencyBody}`;
+
           const passHTML = `
             <div id="mission-pass-container" class="relative z-10 transition-all duration-700 ease-out opacity-0 translate-y-3">
               
               <!-- Confirmation Badge -->
               <div class="flex items-center justify-between mb-4">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/40 bg-emerald-950/80 shadow-[0_0_20px_rgba(16,185,129,0.3)] text-[11px] font-mono font-bold text-emerald-300 uppercase">
-                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.9)]"></span>
-                  <span>${isTrades ? 'OPERATIONAL AUDIT LOCKED' : 'CONSULTATION CONFIRMED'}</span>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border ${isOffline ? 'border-amber-500/40 bg-amber-950/80 shadow-[0_0_20px_rgba(245,158,11,0.3)] text-amber-300' : 'border-emerald-500/40 bg-emerald-950/80 shadow-[0_0_20px_rgba(16,185,129,0.3)] text-emerald-300'} text-[11px] font-mono font-bold uppercase">
+                  <span class="w-2 h-2 rounded-full ${isOffline ? 'bg-amber-400 animate-pulse shadow-[0_0_8px_rgba(245,158,11,0.9)]' : 'bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.9)]'}"></span>
+                  <span>${isOffline ? (isTrades ? 'AUDIT PARAMETERS SAVED (OFFLINE)' : 'CONSULTATION SAVED (OFFLINE)') : (isTrades ? 'OPERATIONAL AUDIT LOCKED' : 'CONSULTATION CONFIRMED')}</span>
                 </div>
                 <span class="text-xs font-mono font-bold text-cyan-300 tracking-wider">${payload.intakeId}</span>
               </div>
@@ -1890,11 +2051,34 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
 
               </div>
 
+              ${isOffline ? `
+              <!-- Offline Lead Safety Net Banner -->
+              <div class="mt-4 p-3.5 rounded-xl bg-amber-950/60 border border-amber-500/40 text-[11px] font-mono text-amber-200 flex flex-col gap-2.5 shadow-lg">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+                    <span class="font-bold uppercase tracking-wider text-amber-300">OFFLINE SAFETY NET ACTIVE</span>
+                  </div>
+                  <span class="text-[10px] text-amber-400/80">DISPATCH READY</span>
+                </div>
+                <p class="text-[11px] text-slate-300 leading-relaxed font-sans">
+                  We saved your mission parameters locally. Click below to transmit your encrypted intake dossier directly to our architects via 1-click email.
+                </p>
+                <a 
+                  href="${emergencyMailtoUrl}" 
+                  class="w-full py-2.5 px-4 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold font-mono text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(245,158,11,0.35)] flex items-center justify-center gap-2 transition-all cursor-pointer"
+                >
+                  <span>⚡ TRANSMIT VIA EMAIL BACKUP</span>
+                  <span>→</span>
+                </a>
+              </div>
+              ` : `
               <!-- Bridge Notification Alert -->
               <div class="mt-4 p-3 rounded-xl bg-cyan-950/40 border border-cyan-500/20 text-[11px] font-mono text-cyan-200 flex items-start gap-2.5">
                 <span class="text-base shrink-0">🛰️</span>
                 <span>${isTrades ? 'Encrypted Google Meet bridge credentials and field strategy blueprint have been dispatched to your business email.' : 'Encrypted Google Meet bridge credentials and intake dossier have been dispatched to your corporate email.'}</span>
               </div>
+              `}
 
               <!-- Calendar Action Buttons Container (Micro-Step 6.4) -->
               <div class="mt-5 space-y-2.5" id="mission-pass-calendar-actions">

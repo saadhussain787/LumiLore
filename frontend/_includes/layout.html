@@ -346,6 +346,491 @@
     </div>
   </footer>
 
+  <!-- Floating LumiBot AI Solutions Architect Launcher & Terminal (Stage 5) -->
+  <div class="fixed bottom-6 right-6 z-50 flex items-center gap-3">
+    <!-- Hover Tooltip -->
+    <div id="lumibot-launcher-tooltip" class="hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-cyan-400/30 text-[11px] font-mono text-cyan-200 shadow-[0_4px_20px_rgba(0,0,0,0.5)] backdrop-blur-md transition-all duration-300 opacity-0 translate-x-2 pointer-events-none group-hover:opacity-100 group-hover:translate-x-0">
+      <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+      <span>Ask LumiBot AI Architect</span>
+    </div>
+
+    <!-- Floating Launcher Trigger Button -->
+    <button 
+      type="button" 
+      id="lumibot-launcher-btn" 
+      aria-haspopup="dialog"
+      aria-expanded="false" 
+      aria-controls="lumibot-terminal-modal"
+      aria-label="Open LumiBot AI Solutions Architect Terminal"
+      class="relative group flex items-center justify-center w-14 h-14 rounded-2xl bg-slate-900/90 hover:bg-slate-850 border border-cyan-400/40 hover:border-cyan-300 text-white shadow-[0_8px_32px_rgba(0,242,254,0.3)] hover:shadow-[0_12px_40px_rgba(0,242,254,0.5)] backdrop-blur-xl transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 transform hover:-translate-y-1 active:translate-y-0"
+    >
+      <!-- Ambient Glow Ring -->
+      <div class="absolute -inset-1 rounded-2xl bg-cyan-400/20 blur-md group-hover:bg-cyan-400/35 transition-all duration-300 -z-10"></div>
+      
+      <!-- Pulsing Beacon Indicator -->
+      <span class="absolute -top-1 -right-1 flex h-3.5 w-3.5 pointer-events-none">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-cyan-400 shadow-[0_0_8px_rgba(0,242,254,0.9)] border-2 border-slate-950"></span>
+      </span>
+
+      <!-- Bot / Neural Icon SVG (Visible when closed) -->
+      <svg id="lumibot-launcher-icon-open" class="w-6 h-6 text-cyan-300 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+      </svg>
+
+      <!-- Close Icon SVG (Visible when open) -->
+      <svg id="lumibot-launcher-icon-close" class="w-6 h-6 text-slate-300 hidden group-hover:rotate-90 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- LumiBot AI Architect Terminal Drawer / Modal -->
+  <div 
+    id="lumibot-terminal-modal" 
+    role="dialog" 
+    aria-modal="true" 
+    aria-labelledby="lumibot-terminal-title"
+    aria-hidden="true"
+    class="fixed bottom-24 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] sm:w-[420px] max-h-[calc(100vh-7.5rem)] h-[620px] flex flex-col rounded-3xl bg-slate-950/95 backdrop-blur-2xl border border-white/12 shadow-[0_25px_65px_rgba(0,0,0,0.85),0_0_35px_rgba(0,242,254,0.15)] overflow-hidden transition-all duration-300 origin-bottom-right transform scale-95 opacity-0 pointer-events-none translate-y-4"
+  >
+    <!-- Terminal Header -->
+    <div class="p-4 border-b border-white/10 bg-white/3 flex items-center justify-between shrink-0">
+      <div class="flex items-center gap-2.5">
+        <div class="relative flex items-center justify-center w-8 h-8 rounded-xl bg-cyan-950/80 border border-cyan-500/30 text-cyan-300 font-mono font-bold text-xs shadow-inner">
+          <span>LB</span>
+          <span class="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-400 animate-pulse border border-slate-950"></span>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h3 id="lumibot-terminal-title" class="font-headline text-sm font-bold text-white tracking-tight">LumiBot AI</h3>
+            <span class="text-[9px] font-mono uppercase tracking-wider px-1.5 py-0.5 rounded bg-cyan-950/70 border border-cyan-500/30 text-cyan-300 font-semibold">BEDROCK ACTIVE</span>
+          </div>
+          <p class="text-[10px] font-mono text-slate-400">Principal AI Solutions Architect</p>
+        </div>
+      </div>
+
+      <!-- Action Controls -->
+      <div class="flex items-center gap-1.5">
+        <!-- Reset Chat History Button -->
+        <button 
+          type="button" 
+          id="lumibot-reset-btn" 
+          title="Restart Conversation" 
+          aria-label="Restart Conversation"
+          class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-colors text-xs font-mono cursor-pointer"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+          </svg>
+        </button>
+        <!-- Close Button -->
+        <button 
+          type="button" 
+          id="lumibot-close-btn" 
+          title="Close Terminal" 
+          aria-label="Close Terminal"
+          class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-colors text-xs font-mono cursor-pointer"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Quick-Prompt Chips Container -->
+    <div class="px-4 py-2.5 bg-black/40 border-b border-white/5 shrink-0 overflow-x-auto scrollbar-none flex items-center gap-2" id="lumibot-quick-pills">
+      <button 
+        type="button" 
+        class="lumibot-quick-pill shrink-0 px-2.5 py-1 rounded-full bg-white/5 hover:bg-cyan-500/15 border border-white/10 hover:border-cyan-400/40 text-[10px] font-mono text-slate-300 hover:text-cyan-200 transition-all cursor-pointer"
+        data-prompt="What is your AWS Serverless stack?"
+      >
+        ⚡ AWS Serverless Stack
+      </button>
+      <button 
+        type="button" 
+        class="lumibot-quick-pill shrink-0 px-2.5 py-1 rounded-full bg-white/5 hover:bg-amber-500/15 border border-white/10 hover:border-amber-400/40 text-[10px] font-mono text-slate-300 hover:text-amber-200 transition-all cursor-pointer"
+        data-prompt="How does AI Voice Dispatch work for contractors?"
+      >
+        📞 AI Voice Dispatch
+      </button>
+      <button 
+        type="button" 
+        class="lumibot-quick-pill shrink-0 px-2.5 py-1 rounded-full bg-white/5 hover:bg-cyan-500/15 border border-white/10 hover:border-cyan-400/40 text-[10px] font-mono text-slate-300 hover:text-cyan-200 transition-all cursor-pointer"
+        data-prompt="Claim 48-Hour Architecture Roadmap"
+      >
+        🗓️ 48-Hr Roadmap
+      </button>
+    </div>
+
+    <!-- Chat Messages Transcript Area -->
+    <div id="lumibot-chat-transcript" class="lumibot-custom-scroll grow overflow-y-auto p-4 space-y-3.5 scrollbar-thin">
+      <!-- Initial Greeting Message -->
+      <div class="flex items-start gap-2.5">
+        <div class="w-7 h-7 rounded-lg bg-cyan-950/80 border border-cyan-500/30 flex items-center justify-center shrink-0 text-cyan-300 text-xs font-mono font-bold">
+          LB
+        </div>
+        <div class="p-3.5 rounded-2xl rounded-tl-sm bg-white/5 border border-white/10 text-xs text-slate-200 leading-relaxed font-sans shadow-sm">
+          <div class="text-[10px] font-mono font-semibold text-cyan-300 uppercase tracking-wider mb-1">
+            LumiBot // Principal AI Solutions Architect
+          </div>
+          <p>
+            Greetings. I am LumiBot, Principal AI Solutions Architect at LumiLore. Whether you are exploring event-driven AWS serverless architecture or deploying 24/7 autonomous voice dispatch for trade operations, I can assist. What are we architecting today?
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Typing Indicator (Hidden by default) -->
+    <div id="lumibot-typing-indicator" class="hidden px-4 py-2 bg-black/40 border-t border-white/5 items-center gap-2 text-[11px] font-mono text-cyan-300">
+      <span class="flex items-center gap-1">
+        <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-bounce"></span>
+        <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-bounce" style="animation-delay: 0.15s"></span>
+        <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-bounce" style="animation-delay: 0.3s"></span>
+      </span>
+      <span>LumiBot is architecting a solution...</span>
+    </div>
+
+    <!-- Chat Input Form -->
+    <form id="lumibot-chat-form" class="p-3 bg-black/60 border-t border-white/10 flex items-center gap-2 shrink-0">
+      <input 
+        type="text" 
+        id="lumibot-chat-input" 
+        placeholder="Ask about cloud architecture, AI dispatch..." 
+        autocomplete="off" 
+        class="grow py-2.5 px-3.5 rounded-xl bg-white/5 border border-white/10 focus:border-cyan-400 focus:bg-white/10 text-xs font-sans text-white placeholder-slate-500 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 transition-colors"
+      />
+      <button 
+        type="submit" 
+        id="lumibot-send-btn" 
+        aria-label="Send message" 
+        class="p-2.5 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-bold transition-all disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer shadow-[0_0_15px_rgba(0,242,254,0.3)]"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </button>
+    </form>
+
+    <!-- Terminal Footer Compliance & Region SLA -->
+    <div class="px-4 py-1.5 bg-black/80 text-[9px] font-mono text-slate-500 flex items-center justify-between shrink-0 border-t border-white/5">
+      <span class="flex items-center gap-1">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+        <span>100% PRIVATE • ZERO TRAINING</span>
+      </span>
+      <span>AWS BEDROCK • US-EAST-1</span>
+    </div>
+  </div>
+
+  <!-- LumiBot Terminal Interactive Controller Script (Stage 5.1 & 5.2) -->
+  <script>
+    (function initLumiBotTerminal() {
+      const launcherBtn = document.getElementById('lumibot-launcher-btn');
+      const tooltip = document.getElementById('lumibot-launcher-tooltip');
+      const modal = document.getElementById('lumibot-terminal-modal');
+      const closeBtn = document.getElementById('lumibot-close-btn');
+      const resetBtn = document.getElementById('lumibot-reset-btn');
+      const iconOpen = document.getElementById('lumibot-launcher-icon-open');
+      const iconClose = document.getElementById('lumibot-launcher-icon-close');
+      const chatForm = document.getElementById('lumibot-chat-form');
+      const chatInput = document.getElementById('lumibot-chat-input');
+      const sendBtn = document.getElementById('lumibot-send-btn');
+      const transcript = document.getElementById('lumibot-chat-transcript');
+      const typingIndicator = document.getElementById('lumibot-typing-indicator');
+      const quickPills = document.querySelectorAll('.lumibot-quick-pill');
+
+      const INITIAL_GREETING_HTML = `
+        <div class="flex items-start gap-2.5">
+          <div class="w-7 h-7 rounded-lg bg-cyan-950/80 border border-cyan-500/30 flex items-center justify-center shrink-0 text-cyan-300 text-xs font-mono font-bold">
+            LB
+          </div>
+          <div class="p-3.5 rounded-2xl rounded-tl-sm bg-white/5 border border-white/10 text-xs text-slate-200 leading-relaxed font-sans shadow-sm">
+            <div class="text-[10px] font-mono font-semibold text-cyan-300 uppercase tracking-wider mb-1">
+              LumiBot // Principal AI Solutions Architect
+            </div>
+            <p>
+              Greetings. I am LumiBot, Principal AI Solutions Architect at LumiLore. Whether you are exploring event-driven AWS serverless architecture or deploying 24/7 autonomous voice dispatch for trade operations, I can assist. What are we architecting today?
+            </p>
+          </div>
+        </div>
+      `;
+
+      let isOpen = false;
+      let isGenerating = false;
+      const conversationHistory = [];
+
+      function scrollToBottom() {
+        if (transcript) {
+          requestAnimationFrame(() => {
+            transcript.scrollTop = transcript.scrollHeight;
+          });
+        }
+      }
+
+      function showTypingIndicator(show) {
+        if (!typingIndicator) return;
+        if (show) {
+          typingIndicator.classList.remove('hidden');
+          typingIndicator.classList.add('flex');
+          scrollToBottom();
+        } else {
+          typingIndicator.classList.remove('flex');
+          typingIndicator.classList.add('hidden');
+        }
+      }
+
+      // Safe Markdown-style Link & Typography Parser (TASK-5.5.2)
+      function formatLumiBotReply(text) {
+        if (!text) return '';
+        let safeText = text
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;');
+
+        // Convert bold: **text** -> <strong>
+        safeText = safeText.replace(/\*\*(.*?)\*\*/g, '<strong class="text-white font-semibold">$1</strong>');
+
+        // Convert inline code: `code` -> <code>
+        safeText = safeText.replace(/`([^`]+)`/g, '<code class="px-1.5 py-0.5 rounded bg-black/60 border border-white/10 font-mono text-[10px] text-cyan-300">$1</code>');
+
+        // Convert markdown links: [Label](url) -> High-contrast action pill buttons
+        safeText = safeText.replace(/\[([^\]]+)\]\(([^)]+)\)/g, function(match, label, url) {
+          const isInternal = url.startsWith('/') || url.includes('lumilore.ca');
+          const targetAttr = isInternal ? '' : 'target="_blank" rel="noopener noreferrer"';
+          return `<a href="${url}" ${targetAttr} class="inline-flex items-center gap-1 px-2.5 py-1 my-1 rounded-lg bg-cyan-500/20 hover:bg-cyan-400 text-cyan-200 hover:text-slate-950 border border-cyan-400/40 font-mono text-[11px] font-bold transition-all shadow-sm"><span>${label}</span><span class="text-[9px]">↗</span></a>`;
+        });
+
+        // Convert double & single line breaks
+        safeText = safeText.replace(/\n\n/g, '<div class="h-2"></div>').replace(/\n/g, '<br/>');
+
+        return safeText;
+      }
+
+      function appendUserMessage(text) {
+        if (!transcript) return;
+        const bubble = document.createElement('div');
+        bubble.className = 'flex items-start justify-end gap-2.5';
+        const safeText = text
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/\n/g, '<br/>');
+
+        bubble.innerHTML = `
+          <div class="p-3.5 rounded-2xl rounded-tr-sm bg-cyan-500/15 border border-cyan-400/30 text-xs text-white leading-relaxed font-sans shadow-sm max-w-[85%]">
+            <div class="text-[9px] font-mono text-cyan-300/80 uppercase tracking-wider mb-1 text-right">
+              YOU
+            </div>
+            <p>${safeText}</p>
+          </div>
+          <div class="w-7 h-7 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center shrink-0 text-white text-xs font-mono font-bold">
+            👤
+          </div>
+        `;
+        transcript.appendChild(bubble);
+        scrollToBottom();
+      }
+
+      function appendLumiBotMessage(rawText, mode = 'bedrock') {
+        if (!transcript) return;
+        const formatted = formatLumiBotReply(rawText);
+        const bubble = document.createElement('div');
+        bubble.className = 'flex items-start gap-2.5';
+        const badgeText = mode === 'resilience' ? 'RESILIENCE' : 'BEDROCK';
+        const badgeClass = mode === 'resilience' ? 'text-amber-300 border-amber-500/30' : 'text-cyan-300 border-cyan-500/30';
+
+        bubble.innerHTML = `
+          <div class="w-7 h-7 rounded-lg bg-cyan-950/80 border border-cyan-500/30 flex items-center justify-center shrink-0 text-cyan-300 text-xs font-mono font-bold">
+            LB
+          </div>
+          <div class="p-3.5 rounded-2xl rounded-tl-sm bg-white/5 border border-white/10 text-xs text-slate-200 leading-relaxed font-sans shadow-sm max-w-[88%]">
+            <div class="flex items-center justify-between gap-2 mb-1.5 pb-1 border-b border-white/5">
+              <span class="text-[10px] font-mono font-semibold text-cyan-300 uppercase tracking-wider">
+                LumiBot AI
+              </span>
+              <span class="text-[8px] font-mono uppercase tracking-widest px-1.5 py-0.5 rounded bg-black/40 border ${badgeClass}">
+                ${badgeText}
+              </span>
+            </div>
+            <div class="leading-relaxed space-y-2">
+              ${formatted}
+            </div>
+          </div>
+        `;
+        transcript.appendChild(bubble);
+        scrollToBottom();
+      }
+
+      async function handleChatSubmit(e) {
+        if (e) e.preventDefault();
+        const text = (chatInput?.value || '').trim();
+        if (!text || isGenerating) return;
+
+        isGenerating = true;
+        if (chatInput) chatInput.value = '';
+        if (sendBtn) sendBtn.disabled = true;
+        if (chatInput) chatInput.disabled = true;
+
+        appendUserMessage(text);
+        showTypingIndicator(true);
+
+        const currentLens = document.documentElement.getAttribute('data-lens') || 'corporate';
+
+        try {
+          const apiBase = window.LUMILORE_API_BASE || 'https://bhsahnzaqb.execute-api.ca-central-1.amazonaws.com';
+          const response = await fetch(`${apiBase}/api/chat`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+              message: text,
+              history: conversationHistory,
+              lens: currentLens
+            }),
+            signal: AbortSignal.timeout(15000)
+          });
+
+          showTypingIndicator(false);
+
+          if (response.ok) {
+            const data = await response.json();
+            const reply = data.reply || 'Architecture evaluation complete.';
+            conversationHistory.push({ role: 'user', content: text });
+            conversationHistory.push({ role: 'assistant', content: reply });
+            appendLumiBotMessage(reply, data.mode || 'bedrock');
+          } else {
+            appendLumiBotMessage(
+              "I encountered a temporary service limitation connecting to Amazon Bedrock. Our human principal architects are on standby: email info@lumilore.ca or [Schedule an Architecture Consultation](/contact/?source=lumibot_chat).",
+              "resilience"
+            );
+          }
+        } catch (err) {
+          showTypingIndicator(false);
+          console.warn('[LumiBot Live Chat Notice]', err);
+          appendLumiBotMessage(
+            "Connection to cloud runtime unavailable in current environment. You can reach our engineering leadership directly at info@lumilore.ca or [Reserve a Guaranteed Discovery Session](/contact/?source=lumibot_offline).",
+            "resilience"
+          );
+        } finally {
+          isGenerating = false;
+          if (sendBtn) sendBtn.disabled = false;
+          if (chatInput) {
+            chatInput.disabled = false;
+            chatInput.focus();
+          }
+        }
+      }
+
+      function openTerminal() {
+        if (!modal) return;
+        isOpen = true;
+        modal.classList.remove('scale-95', 'opacity-0', 'pointer-events-none', 'translate-y-4');
+        modal.classList.add('scale-100', 'opacity-100', 'pointer-events-auto', 'translate-y-0');
+        modal.setAttribute('aria-hidden', 'false');
+        if (launcherBtn) launcherBtn.setAttribute('aria-expanded', 'true');
+        if (iconOpen) iconOpen.classList.add('hidden');
+        if (iconClose) iconClose.classList.remove('hidden');
+        if (tooltip) tooltip.classList.add('hidden');
+        setTimeout(() => {
+          if (chatInput) chatInput.focus();
+        }, 150);
+      }
+
+      function closeTerminal() {
+        if (!modal) return;
+        isOpen = false;
+        modal.classList.remove('scale-100', 'opacity-100', 'pointer-events-auto', 'translate-y-0');
+        modal.classList.add('scale-95', 'opacity-0', 'pointer-events-none', 'translate-y-4');
+        modal.setAttribute('aria-hidden', 'true');
+        if (launcherBtn) {
+          launcherBtn.setAttribute('aria-expanded', 'false');
+          launcherBtn.focus();
+        }
+        if (iconOpen) iconOpen.classList.remove('hidden');
+        if (iconClose) iconClose.classList.add('hidden');
+        if (tooltip) tooltip.classList.remove('hidden');
+      }
+
+      function toggleTerminal() {
+        if (isOpen) {
+          closeTerminal();
+        } else {
+          openTerminal();
+        }
+      }
+
+      if (launcherBtn) {
+        launcherBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          toggleTerminal();
+        });
+      }
+
+      if (closeBtn) {
+        closeBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          closeTerminal();
+        });
+      }
+
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+          conversationHistory.length = 0;
+          if (transcript) {
+            transcript.innerHTML = INITIAL_GREETING_HTML;
+          }
+          if (chatInput) {
+            chatInput.value = '';
+            chatInput.focus();
+          }
+        });
+      }
+
+      if (chatForm) {
+        chatForm.addEventListener('submit', handleChatSubmit);
+      }
+
+      // Close on Escape key press
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && isOpen) {
+          closeTerminal();
+        }
+      });
+
+      // Close when clicking outside of modal & launcher
+      document.addEventListener('click', (e) => {
+        if (!isOpen) return;
+        if (modal && !modal.contains(e.target) && launcherBtn && !launcherBtn.contains(e.target)) {
+          closeTerminal();
+        }
+      });
+
+      // Quick pills auto-populate and dispatch
+      quickPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          const prompt = pill.getAttribute('data-prompt');
+          if (prompt) {
+            if (chatInput) chatInput.value = prompt;
+            handleChatSubmit();
+          }
+        });
+      });
+
+      // Expose globally for cross-module integration
+      window.openLumiBot = openTerminal;
+      window.closeLumiBot = closeTerminal;
+      window.toggleLumiBot = toggleTerminal;
+      window.sendLumiBotMessage = function(msg) {
+        if (!isOpen) openTerminal();
+        if (chatInput) chatInput.value = msg;
+        handleChatSubmit();
+      };
+    })();
+  </script>
+
   <!-- Swiper JS & Lenis JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>

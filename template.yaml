@@ -1,31 +1,119 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: >
-  LumiLore Backend API
+  LumiLore Production Serverless Backend: Intake, CRO Attribution, SES Dual-Routing & Bedrock Agentic AI
 
 Globals:
+  HttpApi:
+    CorsConfiguration:
+      AllowOrigins:
+        - "*"
+      AllowHeaders:
+        - "Content-Type"
+        - "Authorization"
+        - "X-Requested-With"
+      AllowMethods:
+        - "GET"
+        - "POST"
+        - "OPTIONS"
   Function:
-    Timeout: 10
-    MemorySize: 128
+    Timeout: 25
+    MemorySize: 512
 
 Resources:
-  # The Serverless API Lambda Function
-  LumiLoreApiFunction:
+  LumiLoreFunction:
     Type: AWS::Serverless::Function
     Properties:
       CodeUri: backend/src/
       Handler: app.lambdaHandler
-      Runtime: nodejs20.x
+      Runtime: nodejs22.x
       Architectures:
         - x86_64
+      Environment:
+        Variables:
+          TABLE_NAME: !Ref LumiLoreIntakeTable
+          SES_SOURCE_EMAIL: "info@lumilore.ca"
+          FOUNDER_SAAD_EMAIL: "info@lumilore.ca"
+          FOUNDER_ARFA_EMAIL: "info@lumilore.ca"
+          BEDROCK_REGION: "us-east-1"
+          BEDROCK_MODEL_ID: "us.anthropic.claude-3-haiku-20240307-v1:0"
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref LumiLoreIntakeTable
+        - SESCrudPolicy:
+            IdentityName: "info@lumilore.ca"
+        - Statement:
+            - Effect: Allow
+              Action:
+                - bedrock:Converse
+                - bedrock:InvokeModel
+              Resource:
+                - "arn:aws:bedrock:*::foundation-model/*"
+                - "arn:aws:bedrock:*:*:inference-profile/*"
       Events:
-        ApiEvent:
-          Type: Api
+        IntakeRoute:
+          Type: HttpApi
+          Properties:
+            Path: /api/intake
+            Method: post
+        ChatRoute:
+          Type: HttpApi
+          Properties:
+            Path: /api/chat
+            Method: post
+        StatusRoute:
+          Type: HttpApi
           Properties:
             Path: /api/status
             Method: get
+        OptionsRoute:
+          Type: HttpApi
+          Properties:
+            Path: /api/{proxy+}
+            Method: options
+
+  LumiLoreIntakeTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: LumiLore_Intake
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: intakeId
+          AttributeType: S
+        - AttributeName: timestamp
+          AttributeType: S
+        - AttributeName: audienceLens
+          AttributeType: S
+      KeySchema:
+        - AttributeName: intakeId
+          KeyType: HASH
+        - AttributeName: timestamp
+          KeyType: RANGE
+      GlobalSecondaryIndexes:
+        - IndexName: AudienceLensIndex
+          KeySchema:
+            - AttributeName: audienceLens
+              KeyType: HASH
+            - AttributeName: timestamp
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+      PointInTimeRecoverySpecification:
+        PointInTimeRecoveryEnabled: true
 
 Outputs:
-  LumiLoreApiUrl:
-    Description: "API Gateway endpoint URL for Prod stage"
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/api/status"
+  HttpApiUrl:
+    Description: "API Gateway HTTP API Endpoint URL"
+    Value: !Sub "https://${ServerlessHttpApi}.execute-api.${AWS::Region}.amazonaws.com"
+  LumiLoreFunctionArn:
+    Description: "LumiLore Core Lambda Function ARN"
+    Value: !GetAtt LumiLoreFunction.Arn
+  LumiLoreFunctionName:
+    Description: "LumiLore Core Lambda Function Name"
+    Value: !Ref LumiLoreFunction
+  LumiLoreIntakeTableArn:
+    Description: "LumiLore Intake DynamoDB Table ARN"
+    Value: !GetAtt LumiLoreIntakeTable.Arn
+  LumiLoreIntakeTableName:
+    Description: "LumiLore Intake DynamoDB Table Name"
+    Value: !Ref LumiLoreIntakeTable

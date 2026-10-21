@@ -1,0 +1,20 @@
+version = 0.1
+
+[default]
+[default.global.parameters]
+stack_name = "lumilore-backend"
+
+[default.build.parameters]
+cached = true
+parallel = true
+
+[default.validate.parameters]
+lint = true
+
+[default.deploy.parameters]
+capabilities = "CAPABILITY_IAM"
+confirm_changeset = false
+resolve_s3 = true
+s3_prefix = "lumilore-backend"
+region = "ca-central-1"
+image_repositories = []
