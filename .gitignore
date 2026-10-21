@@ -1,14 +1,8 @@
-
 node_modules/
 _site/
 dist/
+scratch/
 *.mp4
+*.docx
 repomix-output.txt
 repomixM-output.txt
-Profile Picture.jpeg
-Saad's Resume.docx
-Arfa profile pic 1.jpeg
-Arfa profile pic 2.jpeg
-Arfa AI Pic.jpg
-Arfa AI pic 2.jpg
-
