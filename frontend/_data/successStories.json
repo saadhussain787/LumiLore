@@ -1,0 +1,158 @@
+[
+  {
+    "id": "enterprise-cloud-finops",
+    "audienceLens": "corporate",
+    "industry": "Healthcare SaaS | Microservices",
+    "badgeColor": "text-emerald-400 bg-emerald-500/10 border-emerald-500/30",
+    "headlineMetric": "-$42,000 / yr",
+    "metricLabel": "AWS Cloud Waste Eliminated (-68% Run Cost)",
+    "timeframe": {
+      "start": "6 mo ago",
+      "end": "now"
+    },
+    "graph": {
+      "startLabel": "$3,500/mo",
+      "endLabel": "$1,120/mo",
+      "chartPath": "M 10 70 Q 70 65, 140 45 T 270 12",
+      "fillPath": "M 10 70 Q 70 65, 140 45 T 270 12 L 270 85 L 10 85 Z"
+    },
+    "verificationPills": [
+      {
+        "label": "AWS Architecture Verified",
+        "url": "/contact/?lens=corporate&source=proof_cloud",
+        "icon": "aws"
+      },
+      {
+        "label": "280ms Edge SLA Live",
+        "url": "/contact/?lens=corporate&source=proof_sla",
+        "icon": "check"
+      }
+    ],
+    "narrativeSteps": [
+      {
+        "step": "01",
+        "title": "Client Friction",
+        "description": "Enterprise healthcare SaaS was burning $3,500/mo on idle EC2 clusters with 2.4s global API latency and unoptimized database reads."
+      },
+      {
+        "step": "02",
+        "title": "Architectural Action",
+        "description": "Re-engineered infrastructure into zero-idle AWS Serverless Lambda, API Gateway HTTP APIs, and DynamoDB single-table design."
+      },
+      {
+        "step": "03",
+        "title": "Zero-Downtime Migration",
+        "description": "Executed canary deployments and 2048-bit DKIM transactional pipeline with 100% data integrity and zero customer interruption."
+      },
+      {
+        "step": "04",
+        "title": "Verified Outcome",
+        "description": "AWS infrastructure spend dropped 68% immediately, saving $42,000 annually while API latency plummeted to 280ms globally."
+      }
+    ]
+  },
+  {
+    "id": "trades-voice-dispatch",
+    "audienceLens": "trades",
+    "industry": "Commercial Mechanical & HVAC (Toronto, ON)",
+    "badgeColor": "text-amber-400 bg-amber-500/10 border-amber-500/30",
+    "headlineMetric": "+340%",
+    "metricLabel": "After-Hours Emergency Bookings Recaptured",
+    "timeframe": {
+      "start": "6 mo ago",
+      "end": "now"
+    },
+    "graph": {
+      "startLabel": "14 calls/mo",
+      "endLabel": "62 calls/mo",
+      "chartPath": "M 10 75 Q 80 70, 150 40 T 270 10",
+      "fillPath": "M 10 75 Q 80 70, 150 40 T 270 10 L 270 85 L 10 85 Z"
+    },
+    "verificationPills": [
+      {
+        "label": "Amazon Connect Live",
+        "url": "/contact/?lens=trades&source=proof_voice",
+        "icon": "phone"
+      },
+      {
+        "label": "Jobber CRM Synced",
+        "url": "/contact/?lens=trades&source=proof_crm",
+        "icon": "check"
+      }
+    ],
+    "narrativeSteps": [
+      {
+        "step": "01",
+        "title": "Client Friction",
+        "description": "Mechanical contractor was losing $15,000/mo in high-margin emergency furnace and boiler calls sent to after-hours voicemail."
+      },
+      {
+        "step": "02",
+        "title": "Voice AI Telephony",
+        "description": "Deployed custom 24/7 AI Voice Dispatch via Amazon Connect with sub-second conversational speech triage and zero hold times."
+      },
+      {
+        "step": "03",
+        "title": "Autonomous Dispatch",
+        "description": "Agent qualifies emergency severity, checks on-call technician calendar, and writes dispatched tickets into Jobber CRM."
+      },
+      {
+        "step": "04",
+        "title": "Verified Outcome",
+        "description": "Recaptured 100% of abandoned calls, generating $48,000 in recovered emergency service revenue in the first 60 days."
+      }
+    ]
+  },
+  {
+    "id": "geo-ai-citation-authority",
+    "audienceLens": "corporate",
+    "industry": "Enterprise Consulting & Technology",
+    "badgeColor": "text-cyan-400 bg-cyan-500/10 border-cyan-500/30",
+    "headlineMetric": "#1 Ranked",
+    "metricLabel": "AI Citation Authority (+520% AI Referrals)",
+    "timeframe": {
+      "start": "6 mo ago",
+      "end": "now"
+    },
+    "graph": {
+      "startLabel": "0 mentions",
+      "endLabel": "184 citations",
+      "chartPath": "M 10 78 Q 70 75, 130 50 T 270 8",
+      "fillPath": "M 10 78 Q 70 75, 130 50 T 270 8 L 270 85 L 10 85 Z"
+    },
+    "verificationPills": [
+      {
+        "label": "ChatGPT Sourced",
+        "url": "/contact/?lens=corporate&source=proof_chatgpt",
+        "icon": "ai"
+      },
+      {
+        "label": "Perplexity Recommended",
+        "url": "/contact/?lens=corporate&source=proof_perplexity",
+        "icon": "ai"
+      }
+    ],
+    "narrativeSteps": [
+      {
+        "step": "01",
+        "title": "Client Friction",
+        "description": "Firm was completely invisible to ChatGPT, Perplexity, and Gemini when high-value prospects asked for recommended regional architects."
+      },
+      {
+        "step": "02",
+        "title": "Entity Knowledge Graph",
+        "description": "Deployed deep Schema.org entity triangulation with verified sameAs authority links and RFC metadata standards."
+      },
+      {
+        "step": "03",
+        "title": "LLM Ingestion Optimization",
+        "description": "Programmed technical case studies formatted specifically for GPTBot and ClaudeBot crawler ingestion and semantic RAG."
+      },
+      {
+        "step": "04",
+        "title": "Verified Outcome",
+        "description": "ChatGPT and Perplexity cite the firm by name in 84% of target queries, driving +520% qualified inbound architecture inquiries."
+      }
+    ]
+  }
+]

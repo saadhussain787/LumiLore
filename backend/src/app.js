@@ -13,6 +13,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { calendar } from '@googleapis/calendar';
 import { JWT } from 'google-auth-library';
+import { auditDomain } from './services/geoAudit.js';
 
 export const CORS_HEADERS = {
   'Access-Control-Allow-Origin': '*',
@@ -441,6 +442,9 @@ export function buildExecutiveEmailHtml(intakeRecord) {
   } else if (attribution?.source === 'lumibot_chat') {
     originLabel = 'LUMIBOT AI INTERACTIVE TERMINAL';
     originIcon = '🤖';
+  } else if (attribution?.source?.startsWith('geo_tier_') || attribution?.service === 'geo_engine') {
+    originLabel = 'AUTONOMOUS SEO & GEO PRODUCT TIER';
+    originIcon = '⚡';
   }
 
   // Founder Routing & Lead Designation: Saad Sayed conducts all client meetings
@@ -656,6 +660,8 @@ export async function sendExecutiveAlertEmail(intakeRecord) {
 
   let originBadge = 'DIRECT';
   if (intakeRecord.attribution?.source === 'hero_primary') originBadge = 'HERO CTA';
+  else if (intakeRecord.attribution?.source === 'geo_audit_modal') originBadge = 'GEO AUDIT';
+  else if (intakeRecord.attribution?.source?.startsWith('geo_tier_') || intakeRecord.attribution?.service === 'geo_engine') originBadge = 'GEO ENGINE';
   else if (intakeRecord.attribution?.service === 'roadmap') originBadge = '48H ROADMAP';
   else if (intakeRecord.attribution?.service === 'field_audit') originBadge = 'FIELD AUDIT';
   else if (intakeRecord.attribution?.service === 'cloud_audit') originBadge = 'CLOUD AUDIT';
@@ -2022,6 +2028,50 @@ export async function bookGoogleCalendarEvent({ clientProfile = {}, sessionSched
   }
 }
 
+/**
+ * Handle Autonomous SEO & GEO Domain Audit (POST /api/audit)
+ * @param {object} body Request body containing url or domain
+ * @param {object} event Raw API Gateway event
+ * @returns {object} Structured evaluation report and 0-100 score
+ */
+export async function handleGeoAudit(body = {}, event = {}) {
+  const targetUrl = body?.url || body?.domain;
+  if (!targetUrl) {
+    return {
+      statusCode: 400,
+      headers: CORS_HEADERS,
+      body: JSON.stringify({
+        success: false,
+        error: 'MISSING_URL',
+        message: 'A target URL or domain is required (e.g. yourcompany.com).'
+      })
+    };
+  }
+
+  try {
+    const report = await auditDomain(targetUrl);
+    return {
+      statusCode: 200,
+      headers: CORS_HEADERS,
+      body: JSON.stringify({
+        success: true,
+        report,
+        timestamp: new Date().toISOString()
+      })
+    };
+  } catch (auditError) {
+    console.warn(`[LumiLore GEO Audit Notice] Audit failed for input "${targetUrl}": ${auditError.message}`);
+    return {
+      statusCode: 400,
+      headers: CORS_HEADERS,
+      body: JSON.stringify({
+        success: false,
+        error: 'AUDIT_FAILED',
+        message: auditError.message || 'Unable to complete automated GEO audit on target domain.'
+      })
+    };
+  }
+}
 
 /**
  * System Health & Telemetry Probe Handler (GET /api/status)
@@ -2136,6 +2186,10 @@ export const lambdaHandler = async (event, context) => {
 
     if (path === '/api/chat' && method === 'POST') {
       return await handleChatConversation(body, event);
+    }
+
+    if (path === '/api/audit' && method === 'POST') {
+      return await handleGeoAudit(body, event);
     }
 
     // Unmatched Route: 404 Resource Not Found

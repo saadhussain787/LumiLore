@@ -4,4 +4,44 @@ eleventyExcludeFromCollections: true
 ---
 User-agent: *
 Allow: /
+Disallow: /api/
+
+# OpenAI Search & Foundation Crawlers
+User-agent: GPTBot
+Allow: /
+Disallow: /api/
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /api/
+
+# Anthropic Claude Crawlers
+User-agent: ClaudeBot
+Allow: /
+Disallow: /api/
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /api/
+
+# Perplexity AI Search Crawler
+User-agent: PerplexityBot
+Allow: /
+Disallow: /api/
+
+# Google Gemini & Extended AI Crawler
+User-agent: Google-Extended
+Allow: /
+Disallow: /api/
+
+# Apple Intelligence Crawler
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /api/
+
+# Common Crawl (Foundational Open-Source LLMs)
+User-agent: CCBot
+Allow: /
+Disallow: /api/
+
 Sitemap: https://lumilore.ca/sitemap.xml

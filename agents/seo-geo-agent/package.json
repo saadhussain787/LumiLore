@@ -1,0 +1,9 @@
+{
+  "name": "lumilore-seo-geo-agent",
+  "version": "1.0.0",
+  "description": "LumiLore Autonomous SEO & GEO Agent Ecosystem",
+  "type": "module",
+  "scripts": {
+    "run": "node run.js"
+  }
+}

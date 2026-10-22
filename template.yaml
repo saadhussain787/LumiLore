@@ -62,6 +62,11 @@ Resources:
           Properties:
             Path: /api/chat
             Method: post
+        AuditRoute:
+          Type: HttpApi
+          Properties:
+            Path: /api/audit
+            Method: post
         AvailabilityRoute:
           Type: HttpApi
           Properties:

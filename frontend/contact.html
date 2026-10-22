@@ -44,6 +44,37 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
         <!-- Left Column: The Scoping Engine (lg:col-span-7) -->
         <div class="lg:col-span-7 flex flex-col gap-8" id="scoping-engine-col">
           
+          <!-- Instant AI Audit Dossier Integration Banner (Phase 4 Micro-Step 4.3) -->
+          <div id="geo-audit-dossier-banner" class="hidden rounded-3xl p-5 sm:p-6 bg-[#070E1A]/90 backdrop-blur-2xl border border-cyan-400/40 shadow-[0_15px_40px_rgba(0,0,0,0.6),0_0_30px_rgba(0,242,254,0.15)] relative overflow-hidden transition-all duration-300">
+            <div class="absolute -top-12 -right-12 w-40 h-40 bg-cyan-400/15 rounded-full blur-2xl pointer-events-none"></div>
+            <div class="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div class="space-y-1">
+                <div class="flex items-center gap-2">
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider text-cyan-300 bg-cyan-950/80 border border-cyan-400/30">
+                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                    <span>AI Audit Dossier Linked</span>
+                  </span>
+                  <span class="text-[10px] font-mono text-slate-400 uppercase tracking-wider">Priority Triage</span>
+                </div>
+                <h3 class="text-sm sm:text-base font-bold text-white tracking-tight flex items-center gap-2 mt-1">
+                  <span>Domain:</span>
+                  <span id="geo-banner-domain" class="font-mono text-cyan-300">domain.com</span>
+                  <span class="text-slate-500">•</span>
+                  <span>Score:</span>
+                  <span id="geo-banner-score" class="font-mono text-amber-300">--/100 GEO</span>
+                </h3>
+                <p class="text-xs text-slate-300 font-light leading-relaxed">
+                  Your AI visibility report has been pre-attached. Your 10-minute architecture session with Saad Sayed will focus directly on remediating your identified crawler and schema gaps.
+                </p>
+              </div>
+              <div class="shrink-0">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-cyan-500/10 border border-cyan-400/30 text-[11px] font-mono text-cyan-200">
+                  <span>⚡ 10-Min Session Held</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
           <!-- Step 01: Primary Objective & Velocity (Micro-Step 2.1) -->
           <div class="glass-panel rounded-3xl p-6 sm:p-8 border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.4)] relative overflow-hidden group" id="step-01-container">
             <!-- Subtle Ambient Cyan Backlight -->
@@ -1804,6 +1835,90 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
             selectVelocityCard(velocityCards[0]);
           }
         }
+
+        // --- Micro-Step 4.3 & 5.2: GEO Scorecard & Product Tier Integration ---
+        const geoDomain = urlParams.get('domain');
+        const geoScore = urlParams.get('score');
+        const geoSource = urlParams.get('source');
+        const geoTier = urlParams.get('tier');
+        const isGeoEngine = rawService === 'geo_engine' || (geoSource && geoSource.startsWith('geo_tier_')) || geoTier;
+
+        if (geoDomain || geoSource === 'geo_audit_modal') {
+          // 1. Auto-fill Organization / Domain
+          const orgInput = document.getElementById('organization');
+          if (orgInput && geoDomain && !orgInput.value) {
+            orgInput.value = geoDomain;
+          }
+
+          // 2. Auto-select Agentic AI & Workflows + Architecture Audit Velocity
+          if (objectiveCards && objectiveCards[0] && typeof selectObjectiveCard === 'function') {
+            selectObjectiveCard(objectiveCards[0]);
+          }
+          if (velocityCards && velocityCards[2] && typeof selectVelocityCard === 'function') {
+            selectVelocityCard(velocityCards[2]);
+          }
+
+          // 3. Prepend / set notes with Audit telemetry
+          const notesInput = document.getElementById('notes');
+          if (notesInput && !notesInput.value) {
+            const scoreLabel = geoScore ? `${geoScore}/100 GEO` : 'Audited';
+            notesInput.value = `[AI Search Visibility Audit] Domain: ${geoDomain || 'N/A'} • Score: ${scoreLabel} • Priority triage to resolve frontier LLM crawler blockers, JSON-LD schema entity gaps, and citation authority.`;
+          }
+
+          // 4. Reveal the Audit Dossier Banner
+          const dossierBanner = document.getElementById('geo-audit-dossier-banner');
+          const bannerDomain = document.getElementById('geo-banner-domain');
+          const bannerScore = document.getElementById('geo-banner-score');
+          if (dossierBanner) {
+            if (bannerDomain && geoDomain) bannerDomain.textContent = geoDomain;
+            if (bannerScore && geoScore) bannerScore.textContent = `${geoScore}/100 GEO`;
+            dossierBanner.classList.remove('hidden');
+          }
+
+          // 5. Update Telemetry HUD stream
+          if (telemetryStreamText) {
+            const scoreLabel = geoScore ? `${geoScore}/100` : 'PENDING';
+            telemetryStreamText.textContent = `GEO_TRIAGE // DOMAIN: ${(geoDomain || 'UNKNOWN').toUpperCase()} // SCORE: ${scoreLabel} // SPRINT: 10-MIN AUDIT // ARCHITECT: SAAD SAYED`;
+          }
+        } else if (isGeoEngine) {
+          // Auto-select Agentic AI & Workflows
+          if (objectiveCards && objectiveCards[0] && typeof selectObjectiveCard === 'function') {
+            selectObjectiveCard(objectiveCards[0]);
+          }
+
+          // Select Velocity based on Tier
+          if (velocityCards && typeof selectVelocityCard === 'function') {
+            if (geoTier === 'starter') {
+              if (velocityCards[2]) selectVelocityCard(velocityCards[2]); // Architecture Audit
+            } else if (geoTier === 'retainer') {
+              if (velocityCards[1]) selectVelocityCard(velocityCards[1]); // Active Retainer
+            } else if (geoTier === 'enterprise') {
+              if (velocityCards[0]) selectVelocityCard(velocityCards[0]); // Immediate Sprint
+            } else {
+              if (velocityCards[2]) selectVelocityCard(velocityCards[2]);
+            }
+          }
+
+          // Pre-fill Notes with Tier Details
+          const notesInput = document.getElementById('notes');
+          if (notesInput && !notesInput.value) {
+            if (geoTier === 'starter') {
+              notesInput.value = '[SEO & GEO Engine // Starter Tier: $2,500 One-Time Sprint] Requesting full 5-layer Schema.org JSON-LD graph architecture, LLM bot crawler protocol configuration, and Google Indexing API setup.';
+            } else if (geoTier === 'retainer') {
+              notesInput.value = '[SEO & GEO Engine // Autonomous Growth Retainer: $950/mo] Requesting active retainer: 2 monthly flagship architectural articles, real-time citation radar, competitor citation hijacking, and automated Google Indexing API webhook.';
+            } else if (geoTier === 'enterprise') {
+              notesInput.value = '[SEO & GEO Engine // Enterprise Multi-Agent Swarm: $10,000+] Requesting enterprise multi-agent swarm deployment into private AWS account, custom vector RAG ingestion, and multi-brand citation network.';
+            } else {
+              notesInput.value = '[SEO & GEO Engine Discovery] Architectural discovery session to dominate frontier AI search citations (ChatGPT, Perplexity, Claude) and deploy autonomous Schema.org entity graphs.';
+            }
+          }
+
+          // Update Telemetry HUD stream
+          if (telemetryStreamText) {
+            const tierLabel = geoTier ? geoTier.toUpperCase() : 'DISCOVERY';
+            telemetryStreamText.textContent = `GEO_ENGINE // TIER: ${tierLabel} // SPRINT: ARCHITECTURE // LEAD ARCHITECT: SAAD SAYED`;
+          }
+        }
       } catch (autoScopeErr) {
         console.warn('[LumiLore Auto-Scope Notice]', autoScopeErr);
       }
@@ -2040,7 +2155,9 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
           source: currentUrlParams.get('source') || (document.referrer.includes(window.location.hostname) ? 'internal_nav' : 'direct'),
           service: currentUrlParams.get('service') || 'general_consultation',
           lens: currentContactLens,
-          referrer: document.referrer || 'direct'
+          referrer: document.referrer || 'direct',
+          geoDomain: currentUrlParams.get('domain') || null,
+          geoScore: currentUrlParams.get('score') || null
         };
 
         const telemetryPayload = {

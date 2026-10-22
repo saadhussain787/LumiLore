@@ -5,7 +5,9 @@
     "build:css": "npx @tailwindcss/cli -i ./frontend/input.css -o ./_site/style.css --minify",
     "watch:css": "npx @tailwindcss/cli -i ./frontend/input.css -o ./frontend/style.css --watch",
     "build": "npx @tailwindcss/cli -i ./frontend/input.css -o ./frontend/style.css --minify && npx @11ty/eleventy",
-    "start": "npx @11ty/eleventy --serve"
+    "start": "npx @11ty/eleventy --serve",
+    "geo:run": "node agents/seo-geo-agent/run.js",
+    "geo:run:dry": "node agents/seo-geo-agent/run.js --dry-run"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
