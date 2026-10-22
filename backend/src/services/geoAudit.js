@@ -111,13 +111,14 @@ export async function auditDomain(rawUrl) {
     }
   }
 
-  // 2. Fetch robots.txt with 3-second timeout
+  // 2. Fetch robots.txt with 3-second timeout (follow redirects)
   try {
     const robotsRes = await fetch(`${targetOrigin}/robots.txt`, {
       method: 'GET',
       headers: {
         'User-Agent': 'Mozilla/5.0 (compatible; LumiLore-GEO-Inspector/1.0; +https://lumilore.ca)'
       },
+      redirect: 'follow',
       signal: AbortSignal.timeout(3000)
     });
     if (robotsRes.ok) {
@@ -134,17 +135,20 @@ export async function auditDomain(rawUrl) {
   let perplexityBotAllowed = true;
 
   if (robotsTxtContent) {
-    // Simple heuristic check for Disallow rules on frontier bots
-    const lowerRobots = robotsTxtContent.toLowerCase();
-    if (lowerRobots.includes('gptbot') && lowerRobots.includes('disallow: /')) {
-      gptBotAllowed = false;
-    }
-    if (lowerRobots.includes('claudebot') && lowerRobots.includes('disallow: /')) {
-      claudeBotAllowed = false;
-    }
-    if (lowerRobots.includes('perplexitybot') && lowerRobots.includes('disallow: /')) {
-      perplexityBotAllowed = false;
-    }
+    const isBotBlocked = (botName) => {
+      // Find block for this bot or generic '*'
+      const botRegex = new RegExp(`User-agent:\\s*${botName}[\\s\\S]*?(?=(?:\\r?\\n\\s*User-agent:)|$)`, 'i');
+      const match = robotsTxtContent.match(botRegex);
+      if (!match) return false;
+      const block = match[0];
+      const hasRootDisallow = /(?:^|\r?\n)\s*Disallow:\s*\/\s*(?:\r?\n|$)/i.test(block);
+      const hasRootAllow = /(?:^|\r?\n)\s*Allow:\s*\/\s*(?:\r?\n|$)/i.test(block);
+      return hasRootDisallow && !hasRootAllow;
+    };
+
+    if (isBotBlocked('GPTBot')) gptBotAllowed = false;
+    if (isBotBlocked('ClaudeBot')) claudeBotAllowed = false;
+    if (isBotBlocked('PerplexityBot')) perplexityBotAllowed = false;
   }
 
   // B. Machine-Readable Knowledge Graph & Schema

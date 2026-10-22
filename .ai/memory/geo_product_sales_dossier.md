@@ -79,7 +79,7 @@ LumiLore dogfoods this exact architecture as Customer Zero on `lumilore.ca`:
 
 Saad Sayed can license and sell this system across three standardized packages:
 
-### Tier 1: Starter GEO Audit & Schema Setup — $2,500 (One-Time)
+### Tier 1: Starter GEO Audit & Schema Setup — $2,500 CAD (One-Time)
 *Target: Businesses looking to fix their AI visibility gaps and establish machine-readable authority.*
 - **Deliverables:**
   - Full domain AI audit using the LumiLore Inspection Engine.
@@ -89,7 +89,7 @@ Saad Sayed can license and sell this system across three standardized packages:
   - Verification pass on Schema.org Validator and Google Rich Results Test.
   - Turnaround: 5 business days.
 
-### Tier 2: Autonomous Growth & Citation Retainer — $950 / month
+### Tier 2: Autonomous Growth & Citation Retainer — $950 CAD / month
 *Target: Growing practices and service companies that want ongoing search and AI dominance.*
 - **Deliverables:**
   - Everything in Tier 1.
@@ -99,7 +99,7 @@ Saad Sayed can license and sell this system across three standardized packages:
   - Monthly Community Authority Blueprint dispatch (Reddit/forum seeding blueprints).
   - Weekly Monday Executive Intelligence briefing delivered via email.
 
-### Tier 3: Enterprise Multi-Agent Swarm System — $10,000+ (Custom)
+### Tier 3: Enterprise Multi-Agent Swarm System — $10,000+ CAD (Custom)
 *Target: Multi-location practices, enterprise SaaS, high-volume contractors, and agencies.*
 - **Deliverables:**
   - Dedicated serverless backend deployment in AWS (`ca-central-1` or `us-east-1`).
@@ -128,8 +128,8 @@ Saad Sayed can license and sell this system across three standardized packages:
 - **Opening:** *"I reviewed the automated audit of client.com. Your technical foundation is solid, but right now ChatGPT and Claude have zero machine-readable data about your firm. If a prospect asks for the top provider in your market, the AI is recommending your competitors."*
 - **Showcase:** Show `https://www.lumilore.ca/products/geo-engine/` and demonstrate LumiLore's 98/100 score.
 - **Offer:**
-  - If they have internal developers: Offer the **$2,500 Setup**.
-  - If they want hands-free execution: Recommend the **$2,500 Setup + $950/mo Retainer**.
+  - If they have internal developers: Offer the **$2,500 CAD Setup**.
+  - If they want hands-free execution: Recommend the **$2,500 CAD Setup + $950 CAD/mo Retainer**.
 
 ### Step 3: Rapid Client Deployment Playbook
 When a client pays:

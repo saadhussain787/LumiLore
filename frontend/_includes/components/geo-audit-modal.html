@@ -255,8 +255,9 @@
     requestAnimationFrame(step);
   }
 
-  function renderAuditScorecard(data) {
-    if (!data) return;
+  function renderAuditScorecard(raw) {
+    if (!raw) return;
+    const data = raw.report || raw;
 
     const score = Number(data.score) || 0;
     const domain = data.domain || 'Domain';
@@ -361,8 +362,11 @@
     openModal();
   }
 
-  // Listen for the custom event dispatched by geo-audit-hero.html
+  // Listen for the custom event dispatched by geo-audit-hero.html (both standard names)
   window.addEventListener('geo-audit-complete', function(e) {
+    renderAuditScorecard(e.detail);
+  });
+  window.addEventListener('lumilore:geo-audit-completed', function(e) {
     renderAuditScorecard(e.detail);
   });
 

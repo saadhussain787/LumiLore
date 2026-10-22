@@ -128,7 +128,7 @@
               <span class="absolute bottom-0 left-0 w-full h-0.5 bg-cyan-glow scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-spring shadow-[0_0_8px_rgba(0,242,254,0.8)]"></span>
             </a>
 
-            <!-- Products Dropdown (Micro-Step 5.3) -->
+            <!-- Products Dropdown (Micro-Step 5.3 & Micro 9.1 Hardening) -->
             <div class="relative group" id="nav-products-dropdown">
               <button 
                 type="button" 
@@ -145,50 +145,153 @@
                 <span class="absolute bottom-0 left-0 w-full h-0.5 bg-cyan-glow scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-spring shadow-[0_0_8px_rgba(0,242,254,0.8)]"></span>
               </button>
 
-              <!-- Glassmorphic Dropdown Panel -->
+              <!-- Glassmorphic Dropdown Panel with Zero-Gap Hover Bridge -->
               <div 
-                class="absolute top-full left-0 mt-1 w-80 rounded-2xl bg-[#070E1A]/95 backdrop-blur-2xl border border-cyan-400/30 p-2 shadow-[0_20px_50px_rgba(0,0,0,0.85),0_0_30px_rgba(0,242,254,0.18)] opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-200 z-50 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto"
+                class="absolute top-full left-0 pt-2 w-80 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible data-[open=true]:opacity-100 data-[open=true]:visible transition-all duration-200 z-50 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto data-[open=true]:pointer-events-auto"
+                id="products-menu-panel"
                 role="menu"
                 aria-labelledby="products-menu-button"
               >
-                <a 
-                  href="/products/geo-engine/" 
-                  class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group/item focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400"
-                  role="menuitem"
-                >
-                  <div class="w-8 h-8 rounded-lg bg-cyan-950/80 border border-cyan-500/30 flex items-center justify-center text-cyan-300 text-sm shrink-0 mt-0.5">
-                    ⚡
-                  </div>
-                  <div>
-                    <div class="flex items-center gap-2">
-                      <span class="text-xs font-bold text-white group-hover/item:text-cyan-300 transition-colors">Autonomous SEO &amp; GEO Engine</span>
-                      <span class="text-[9px] font-mono text-emerald-400 font-bold uppercase">LIVE</span>
+                <!-- Inner Glassmorphic Card -->
+                <div class="relative rounded-2xl bg-[#070E1A]/95 backdrop-blur-2xl border border-cyan-400/30 p-2 shadow-[0_20px_50px_rgba(0,0,0,0.85),0_0_30px_rgba(0,242,254,0.18)] before:content-[''] before:absolute before:-top-3 before:left-0 before:w-full before:h-3 before:bg-transparent">
+                  <a 
+                    href="/products/geo-engine/" 
+                    class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group/item focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400"
+                    role="menuitem"
+                  >
+                    <div class="w-8 h-8 rounded-lg bg-cyan-950/80 border border-cyan-500/30 flex items-center justify-center text-cyan-300 text-sm shrink-0 mt-0.5">
+                      ⚡
                     </div>
-                    <p class="text-[11px] text-slate-400 font-light mt-0.5 leading-relaxed">
-                      Turn your brand into the definitive citation in ChatGPT, Perplexity, Claude &amp; Google Search.
-                    </p>
-                  </div>
-                </a>
+                    <div>
+                      <div class="flex items-center gap-2">
+                        <span class="text-xs font-bold text-white group-hover/item:text-cyan-300 transition-colors">Autonomous SEO &amp; GEO Engine</span>
+                        <span class="text-[9px] font-mono text-emerald-400 font-bold uppercase">LIVE</span>
+                      </div>
+                      <p class="text-[11px] text-slate-400 font-light mt-0.5 leading-relaxed">
+                        Turn your brand into the definitive citation in ChatGPT, Perplexity, Claude &amp; Google Search.
+                      </p>
+                    </div>
+                  </a>
 
-                <div class="my-1 border-t border-white/5"></div>
+                  <div class="my-1 border-t border-white/5"></div>
 
-                <a 
-                  href="/#hero-geo-audit-container" 
-                  class="flex items-center justify-between px-3 py-2 rounded-lg text-[11px] font-mono text-cyan-300 hover:bg-cyan-950/50 transition-colors"
-                  role="menuitem"
-                >
-                  <span class="flex items-center gap-1.5">
-                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
-                    <span>Instant AI Audit (4-Sec Free Check)</span>
-                  </span>
-                  <span>→</span>
-                </a>
+                  <a 
+                    href="/#hero-geo-audit-container" 
+                    class="flex items-center justify-between px-3 py-2 rounded-lg text-[11px] font-mono text-cyan-300 hover:bg-cyan-950/50 transition-colors"
+                    role="menuitem"
+                  >
+                    <span class="flex items-center gap-1.5">
+                      <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                      <span>Instant AI Audit (4-Sec Free Check)</span>
+                    </span>
+                    <span>→</span>
+                  </a>
+                </div>
               </div>
             </div>
-            <a href="/#case-studies" class="group relative text-sm font-medium text-slate-300 hover:text-white transition-colors py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded">
-              Case Studies
-              <span class="absolute bottom-0 left-0 w-full h-0.5 bg-cyan-glow scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-spring shadow-[0_0_8px_rgba(0,242,254,0.8)]"></span>
-            </a>
+            <!-- Case Studies & Insights Dropdown (Micro 9.3) -->
+            <div class="relative group" id="nav-insights-dropdown">
+              <button 
+                type="button" 
+                class="group relative text-sm font-medium text-slate-300 hover:text-white transition-colors py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded inline-flex items-center gap-1.5 cursor-pointer"
+                aria-expanded="false"
+                aria-haspopup="true"
+                id="insights-menu-button"
+              >
+                <span>Case Studies</span>
+                <svg class="w-3.5 h-3.5 text-slate-400 group-hover:text-cyan-300 transition-transform duration-200 group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+                <span class="absolute bottom-0 left-0 w-full h-0.5 bg-cyan-glow scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-spring shadow-[0_0_8px_rgba(0,242,254,0.8)]"></span>
+              </button>
+
+              <!-- Glassmorphic Dropdown Panel with Zero-Gap Hover Bridge -->
+              <div 
+                class="absolute top-full left-0 pt-2 w-80 sm:w-96 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible data-[open=true]:opacity-100 data-[open=true]:visible transition-all duration-200 z-50 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto data-[open=true]:pointer-events-auto"
+                id="insights-menu-panel"
+                role="menu"
+                aria-labelledby="insights-menu-button"
+              >
+                <!-- Inner Glassmorphic Card -->
+                <div class="relative rounded-2xl bg-[#070E1A]/95 backdrop-blur-2xl border border-cyan-400/30 p-2 shadow-[0_20px_50px_rgba(0,0,0,0.85),0_0_30px_rgba(0,242,254,0.18)] before:content-[''] before:absolute before:-top-3 before:left-0 before:w-full before:h-3 before:bg-transparent space-y-1">
+                  
+                  <!-- Item 1: Success Stories & Proof Dashboard -->
+                  <a 
+                    href="/success-stories/" 
+                    class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group/item focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400"
+                    role="menuitem"
+                  >
+                    <div class="w-8 h-8 rounded-lg bg-emerald-950/80 border border-emerald-500/30 flex items-center justify-center text-emerald-300 text-sm shrink-0 mt-0.5">
+                      📊
+                    </div>
+                    <div>
+                      <div class="flex items-center gap-2">
+                        <span class="text-xs font-bold text-white group-hover/item:text-cyan-300 transition-colors">Success Stories &amp; Proof</span>
+                        <span class="text-[9px] font-mono text-emerald-400 font-bold uppercase">METRICS</span>
+                      </div>
+                      <p class="text-[11px] text-slate-400 font-light mt-0.5 leading-relaxed">
+                        Verified client outcomes, ROI scorecards, and interactive corporate vs. trades proof grid.
+                      </p>
+                    </div>
+                  </a>
+
+                  <!-- Item 2: Article 1 - Cutting AWS Cloud Waste -->
+                  <a 
+                    href="/insights/cutting-aws-cloud-waste-serverless-architecture/" 
+                    class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group/item focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400"
+                    role="menuitem"
+                  >
+                    <div class="w-8 h-8 rounded-lg bg-indigo-950/80 border border-indigo-500/30 flex items-center justify-center text-indigo-300 text-sm shrink-0 mt-0.5">
+                      ☁️
+                    </div>
+                    <div>
+                      <div class="flex items-center gap-2">
+                        <span class="text-xs font-bold text-white group-hover/item:text-cyan-300 transition-colors">Cutting AWS Cloud Waste by 68%</span>
+                        <span class="text-[9px] font-mono text-indigo-300 font-bold uppercase">FINOPS</span>
+                      </div>
+                      <p class="text-[11px] text-slate-400 font-light mt-0.5 leading-relaxed">
+                        Enterprise case study: Serverless re-architecture, Graviton3 migration &amp; telemetry.
+                      </p>
+                    </div>
+                  </a>
+
+                  <!-- Item 3: Article 2 - 24/7 AI Voice Dispatch -->
+                  <a 
+                    href="/insights/autonomous-247-ai-voice-dispatch-mechanical-trades/" 
+                    class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group/item focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400"
+                    role="menuitem"
+                  >
+                    <div class="w-8 h-8 rounded-lg bg-amber-950/80 border border-amber-500/30 flex items-center justify-center text-amber-300 text-sm shrink-0 mt-0.5">
+                      🎙️
+                    </div>
+                    <div>
+                      <div class="flex items-center gap-2">
+                        <span class="text-xs font-bold text-white group-hover/item:text-cyan-300 transition-colors">24/7 AI Voice Dispatch for Trades</span>
+                        <span class="text-[9px] font-mono text-amber-300 font-bold uppercase">DISPATCH</span>
+                      </div>
+                      <p class="text-[11px] text-slate-400 font-light mt-0.5 leading-relaxed">
+                        HVAC &amp; mechanical triage: Instant emergency routing and ServiceTitan integration.
+                      </p>
+                    </div>
+                  </a>
+
+                  <div class="my-1 border-t border-white/5"></div>
+
+                  <!-- Item 4: Jump to Homepage Proof Grid -->
+                  <a 
+                    href="/#case-studies" 
+                    class="flex items-center justify-between px-3 py-2 rounded-lg text-[11px] font-mono text-cyan-300 hover:bg-cyan-950/50 transition-colors"
+                    role="menuitem"
+                  >
+                    <span class="flex items-center gap-1.5">
+                      <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                      <span>View Homepage Proof Grid</span>
+                    </span>
+                    <span>↓</span>
+                  </a>
+                </div>
+              </div>
+            </div>
             <a href="/about/" class="group relative text-sm font-medium text-slate-300 hover:text-white transition-colors py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded">
               About
               <span class="absolute bottom-0 left-0 w-full h-0.5 bg-cyan-glow scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-spring shadow-[0_0_8px_rgba(0,242,254,0.8)]"></span>
@@ -282,7 +385,37 @@
         </div>
 
         <a href="/#services-orbit-section" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white transition-colors hover:bg-white/5 rounded-lg">Services</a>
-        <a href="/#case-studies" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white transition-colors hover:bg-white/5 rounded-lg">Case Studies</a>
+        <!-- Mobile Case Studies & Insights Section (Micro 9.3) -->
+        <div class="px-2 py-1.5 border-b border-white/10 mb-2">
+          <div class="flex items-center justify-between px-1 mb-1.5">
+            <span class="text-[10px] font-mono uppercase tracking-widest text-cyan-400 font-bold flex items-center gap-1.5">
+              <span>📚</span> <span>Case Studies &amp; Insights:</span>
+            </span>
+          </div>
+          <div class="space-y-1">
+            <a href="/success-stories/" class="flex items-center justify-between px-3 py-2 text-sm font-medium text-white hover:text-cyan-300 transition-colors bg-white/5 hover:bg-white/10 rounded-xl border border-white/10">
+              <span class="flex items-center gap-2">
+                <span class="text-emerald-400 text-sm">📊</span>
+                <span>Success Stories &amp; Proof Dashboard</span>
+              </span>
+              <span class="text-xs text-cyan-400 font-mono">→</span>
+            </a>
+            <a href="/insights/cutting-aws-cloud-waste-serverless-architecture/" class="flex items-center justify-between px-3 py-2 text-sm font-medium text-white hover:text-cyan-300 transition-colors bg-white/5 hover:bg-white/10 rounded-xl border border-white/10">
+              <span class="flex items-center gap-2">
+                <span class="text-indigo-400 text-sm">☁️</span>
+                <span>FinOps: Cutting AWS Cloud Waste (68%)</span>
+              </span>
+              <span class="text-xs text-cyan-400 font-mono">→</span>
+            </a>
+            <a href="/insights/autonomous-247-ai-voice-dispatch-mechanical-trades/" class="flex items-center justify-between px-3 py-2 text-sm font-medium text-white hover:text-cyan-300 transition-colors bg-white/5 hover:bg-white/10 rounded-xl border border-white/10">
+              <span class="flex items-center gap-2">
+                <span class="text-amber-400 text-sm">🎙️</span>
+                <span>Trades: 24/7 AI Voice Dispatch</span>
+              </span>
+              <span class="text-xs text-cyan-400 font-mono">→</span>
+            </a>
+          </div>
+        </div>
         <a href="/about/" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white transition-colors hover:bg-white/5 rounded-lg">About</a>
         <a href="/contact/" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white transition-colors hover:bg-white/5 rounded-lg">Contact</a>
         <a href="/contact/" class="flex items-center justify-center gap-2 mt-4 px-4 py-3 text-sm font-bold text-center border border-cyan-glow/40 rounded-full bg-cyan-glow/10 hover:bg-cyan-glow/20 transition-colors text-white shadow-[0_0_20px_rgba(0,242,254,0.2)]">
@@ -1433,6 +1566,51 @@
         window.setMasterLens = setMasterLens;
         window.getMasterLens = function() { return currentLens; };
         window.updateMasterSwitcherUI = function() { updateSwitcherUI(currentLens); };
+
+        // Dropdown Controllers (Products & Insights) (Micro 9.1 & 9.3 Hardening)
+        (function() {
+          const dropdowns = [
+            { btn: document.getElementById('products-menu-button'), panel: document.getElementById('products-menu-panel') },
+            { btn: document.getElementById('insights-menu-button'), panel: document.getElementById('insights-menu-panel') }
+          ].filter(item => item.btn && item.panel);
+
+          function closeAll() {
+            dropdowns.forEach(({ btn, panel }) => {
+              panel.removeAttribute('data-open');
+              btn.setAttribute('aria-expanded', 'false');
+            });
+          }
+
+          dropdowns.forEach(({ btn, panel }) => {
+            btn.addEventListener('click', function(e) {
+              e.stopPropagation();
+              const isOpen = panel.getAttribute('data-open') === 'true';
+              closeAll();
+              if (!isOpen) {
+                panel.setAttribute('data-open', 'true');
+                btn.setAttribute('aria-expanded', 'true');
+              }
+            });
+          });
+
+          document.addEventListener('click', function(e) {
+            let clickedInside = false;
+            dropdowns.forEach(({ btn, panel }) => {
+              if (btn.contains(e.target) || panel.contains(e.target)) {
+                clickedInside = true;
+              }
+            });
+            if (!clickedInside) {
+              closeAll();
+            }
+          });
+
+          document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+              closeAll();
+            }
+          });
+        })();
       })();
     </script>
 </body>

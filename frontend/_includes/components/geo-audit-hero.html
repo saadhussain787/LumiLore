@@ -239,17 +239,21 @@
       });
 
       const data = await response.json();
+      const report = data.report || data;
 
-      if (!response.ok || !data.domain) {
-        throw new Error(data.error || 'Server inspection encountered a network error.');
+      if (!response.ok || !report.domain) {
+        throw new Error(data.message || data.error || 'Server inspection encountered a network error.');
       }
 
       // Store result globally for consumption by Modal & Calendar components
-      window.__LUMILORE_LAST_GEO_AUDIT = data;
+      window.__LUMILORE_LAST_GEO_AUDIT = report;
 
-      // Dispatch event for Scorecard Modal (Micro-Step 4.2)
+      // Dispatch event for Scorecard Modal (Micro 4.2 & Micro 9.2)
       window.dispatchEvent(new CustomEvent('geo-audit-complete', {
-        detail: data
+        detail: report
+      }));
+      window.dispatchEvent(new CustomEvent('lumilore:geo-audit-completed', {
+        detail: report
       }));
 
       stopScanningUI();
