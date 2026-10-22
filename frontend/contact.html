@@ -554,14 +554,16 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
                     <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
                     <span>// 2. SELECT TIME WINDOW</span>
                   </div>
-                  <span class="text-[11px] font-mono text-slate-400">45 MIN DISCOVERY</span>
+                  <span class="text-[11px] font-mono text-slate-400" id="slot-duration-label">45 MIN DISCOVERY</span>
                 </div>
 
                 <!-- Hidden Input for Form Submission -->
                 <input type="hidden" name="timeSlot" id="timeSlotInput" value="10:30 AM – 11:15 AM EST" required />
+                <input type="hidden" name="slotStart" id="slotStartInput" value="" />
+                <input type="hidden" name="slotEnd" id="slotEndInput" value="" />
 
                 <!-- 2x2 Time Slot Grid (Micro-Step 6.2) -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2" id="time-slot-grid" role="radiogroup" aria-label="Select Consultation Time Window">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 min-h-[96px]" id="time-slot-grid" role="radiogroup" aria-label="Select Consultation Time Window">
                   
                   <!-- Slot 1 (Default Selected) -->
                   <button type="button" class="time-slot-btn py-3 px-3 rounded-xl border border-emerald-400 bg-emerald-500/15 text-white shadow-[0_0_15px_rgba(16,185,129,0.25)] text-xs font-mono font-bold cursor-pointer transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 flex items-center justify-between sm:justify-center gap-2" data-slot="10:30 AM – 11:15 AM EST" aria-checked="true" role="radio">
@@ -1304,7 +1306,14 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
         }
 
         const selectedDate = pill.getAttribute('data-date');
+        const isoDate = pill.getAttribute('data-iso-date');
         if (bookingDateInput && selectedDate) bookingDateInput.value = selectedDate;
+        
+        // Trigger live calendar availability fetch
+        if (isoDate) {
+          loadAvailableSlots(isoDate);
+        }
+
         if (typeof startSlotCountdown === 'function') {
           startSlotCountdown(600);
         }
@@ -1313,7 +1322,8 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
       // 11. Time Slot Selection Engine (Micro-Step 6.2)
       function selectTimeSlot(btn) {
         if (!btn) return;
-        timeSlotBtns.forEach(b => {
+        const allSlotBtns = document.querySelectorAll('#time-slot-grid .time-slot-btn');
+        allSlotBtns.forEach(b => {
           b.classList.remove('border-emerald-400', 'bg-emerald-500/15', 'text-white', 'shadow-[0_0_15px_rgba(16,185,129,0.25)]');
           b.classList.add('border-white/10', 'bg-white/[0.02]', 'text-slate-300');
           b.setAttribute('aria-checked', 'false');
@@ -1334,9 +1344,164 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
 
         const slotVal = btn.getAttribute('data-slot');
         if (timeSlotInput && slotVal) timeSlotInput.value = slotVal;
+
+        const startVal = btn.getAttribute('data-start');
+        const endVal = btn.getAttribute('data-end');
+        const slotStartInput = document.getElementById('slotStartInput');
+        const slotEndInput = document.getElementById('slotEndInput');
+        if (slotStartInput && startVal) slotStartInput.value = startVal;
+        if (slotEndInput && endVal) slotEndInput.value = endVal;
+
         if (typeof startSlotCountdown === 'function') {
           startSlotCountdown(600);
         }
+      }
+
+      // --- Micro-Step 6.1: Live Calendar Availability Engine & Skeletons ---
+      let slotFetchAbortCtrl = null;
+
+      async function loadAvailableSlots(isoDate) {
+        if (!isoDate) {
+          const activePill = document.querySelector('.date-pill[aria-checked="true"]');
+          isoDate = activePill ? activePill.getAttribute('data-iso-date') : null;
+        }
+        if (!isoDate) return;
+
+        const slotGrid = document.getElementById('time-slot-grid');
+        const slotDurationLabel = document.getElementById('slot-duration-label');
+        const isTrades = currentContactLens === 'trades';
+
+        if (slotDurationLabel) {
+          slotDurationLabel.textContent = isTrades ? '30 MIN AUDIT' : '45 MIN DISCOVERY';
+        }
+
+        if (slotFetchAbortCtrl) {
+          slotFetchAbortCtrl.abort();
+        }
+        slotFetchAbortCtrl = new AbortController();
+
+        if (slotGrid) {
+          slotGrid.innerHTML = `
+            <div class="h-11 rounded-xl bg-white/[0.03] border border-white/10 animate-pulse flex items-center justify-center gap-2 text-xs font-mono text-slate-400">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+              <span>SYNCHRONIZING CALENDAR...</span>
+            </div>
+            <div class="h-11 rounded-xl bg-white/[0.03] border border-white/10 animate-pulse hidden sm:flex items-center justify-center gap-2 text-xs font-mono text-slate-500">
+              <span>CHECKING GOOGLE CALENDAR...</span>
+            </div>
+          `;
+        }
+
+        try {
+          const apiBase = window.LUMILORE_API_BASE || 'https://bhsahnzaqb.execute-api.ca-central-1.amazonaws.com';
+          const url = `${apiBase}/api/calendar/availability?date=${encodeURIComponent(isoDate)}&lens=${encodeURIComponent(currentContactLens)}`;
+          
+          const response = await fetch(url, {
+            method: 'GET',
+            headers: { 'Accept': 'application/json' },
+            signal: slotFetchAbortCtrl.signal
+          });
+
+          if (!response.ok) {
+            throw new Error(`Calendar API returned HTTP ${response.status}`);
+          }
+
+          const data = await response.json();
+          renderAvailableSlots(data.availableSlots || [], isoDate);
+        } catch (err) {
+          if (err.name === 'AbortError') return;
+          console.warn('[LumiLore Calendar Notice] Using resilient local fallback slots for date:', isoDate, err.message);
+          renderFallbackSlots(isoDate);
+        }
+      }
+
+      function renderAvailableSlots(slots, isoDate) {
+        const slotGrid = document.getElementById('time-slot-grid');
+        if (!slotGrid) return;
+        slotGrid.innerHTML = '';
+
+        if (!slots || slots.length === 0) {
+          slotGrid.innerHTML = `
+            <div class="col-span-full py-4 px-3 rounded-xl border border-amber-500/20 bg-amber-500/5 text-amber-300 text-xs font-mono text-center flex items-center justify-center gap-2">
+              <span>⚠️ All slots reserved for this date. Please select another weekday above.</span>
+            </div>
+          `;
+          if (timeSlotInput) timeSlotInput.value = '';
+          const slotStartInput = document.getElementById('slotStartInput');
+          const slotEndInput = document.getElementById('slotEndInput');
+          if (slotStartInput) slotStartInput.value = '';
+          if (slotEndInput) slotEndInput.value = '';
+          return;
+        }
+
+        slots.forEach((slot, idx) => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'time-slot-btn py-3 px-3 rounded-xl border border-white/10 bg-white/[0.02] text-slate-300 hover:border-white/20 hover:bg-white/5 text-xs font-mono font-bold cursor-pointer transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 flex items-center justify-between sm:justify-center gap-2';
+          btn.setAttribute('data-slot', slot.display || `${slot.time} EST`);
+          btn.setAttribute('data-start', slot.start);
+          btn.setAttribute('data-end', slot.end);
+          btn.setAttribute('aria-checked', 'false');
+          btn.setAttribute('role', 'radio');
+
+          btn.innerHTML = `
+            <span>${slot.display || slot.time}</span>
+            <span class="text-[10px] text-slate-400 slot-tz-label">LIVE</span>
+          `;
+
+          btn.addEventListener('click', () => selectTimeSlot(btn));
+          slotGrid.appendChild(btn);
+        });
+
+        // Attach keyboard navigation across newly rendered buttons
+        const renderedBtns = slotGrid.querySelectorAll('.time-slot-btn');
+        renderedBtns.forEach((btn, idx) => {
+          btn.addEventListener('keydown', (e) => {
+            let targetBtn = null;
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+              e.preventDefault();
+              targetBtn = renderedBtns[(idx + 1) % renderedBtns.length];
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+              e.preventDefault();
+              targetBtn = renderedBtns[(idx - 1 + renderedBtns.length) % renderedBtns.length];
+            }
+            if (targetBtn) {
+              targetBtn.focus();
+              selectTimeSlot(targetBtn);
+            }
+          });
+        });
+
+        // Automatically select first available slot
+        if (renderedBtns.length > 0) {
+          selectTimeSlot(renderedBtns[0]);
+        }
+      }
+
+      function renderFallbackSlots(isoDate) {
+        const isTrades = currentContactLens === 'trades';
+        const slotTimes = isTrades
+          ? [
+              { start: '10:00:00', end: '10:30:00', label: '10:00 AM – 10:30 AM EST' },
+              { start: '11:30:00', end: '12:00:00', label: '11:30 AM – 12:00 PM EST' },
+              { start: '02:00:00', end: '02:30:00', label: '02:00 PM – 02:30 PM EST' },
+              { start: '03:45:00', end: '04:15:00', label: '03:45 PM – 04:15 PM EST' }
+            ]
+          : [
+              { start: '10:30:00', end: '11:15:00', label: '10:30 AM – 11:15 AM EST' },
+              { start: '01:00:00', end: '01:45:00', label: '01:00 PM – 01:45 PM EST' },
+              { start: '03:30:00', end: '04:15:00', label: '03:30 PM – 04:15 PM EST' },
+              { start: '05:00:00', end: '05:45:00', label: '05:00 PM – 05:45 PM EST' }
+            ];
+
+        const calculatedSlots = slotTimes.map(t => ({
+          display: t.label,
+          start: `${isoDate}T${t.start}-04:00`,
+          end: `${isoDate}T${t.end}-04:00`,
+          time: t.label.split(' – ')[0]
+        }));
+
+        renderAvailableSlots(calculatedSlots, isoDate);
       }
 
       function applyContactLens(lensKey) {
@@ -1541,6 +1706,13 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
         if (typeof updateSlotCountdownDisplay === 'function') {
           updateSlotCountdownDisplay();
         }
+
+        // Refresh slot duration & available slots for newly selected lens (Micro-Step 6.1)
+        const activeDatePill = document.querySelector('.date-pill[aria-checked="true"]');
+        if (activeDatePill && typeof loadAvailableSlots === 'function') {
+          const isoDate = activeDatePill.getAttribute('data-iso-date');
+          loadAvailableSlots(isoDate);
+        }
       }
 
       // --- Objective, Velocity, and Stack Event Listeners ---
@@ -1669,8 +1841,13 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
           const weekdayShort = d.toLocaleDateString('en-US', { weekday: 'short' }).toUpperCase();
           const dayNum = String(d.getDate()).padStart(2, '0');
           const fullDateStr = d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
+          const year = d.getFullYear();
+          const month = String(d.getMonth() + 1).padStart(2, '0');
+          const day = String(d.getDate()).padStart(2, '0');
+          const isoDateStr = `${year}-${month}-${day}`;
           
           pill.setAttribute('data-date', fullDateStr);
+          pill.setAttribute('data-iso-date', isoDateStr);
           pill.setAttribute('title', fullDateStr);
 
           const spans = pill.querySelectorAll('span');
@@ -1886,6 +2063,8 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
           sessionSchedule: {
             bookingDate,
             timeSlot,
+            slotStart: document.getElementById('slotStartInput')?.value || null,
+            slotEnd: document.getElementById('slotEndInput')?.value || null,
             assignedArchitect
           },
           attribution,
@@ -1917,6 +2096,15 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
             if (resultData && resultData.intakeId) {
               telemetryPayload.intakeId = resultData.intakeId;
               intakeId = resultData.intakeId;
+            }
+            if (resultData && resultData.meetingUrl) {
+              telemetryPayload.meetingUrl = resultData.meetingUrl;
+            }
+            if (resultData && resultData.googleEventId) {
+              telemetryPayload.googleEventId = resultData.googleEventId;
+            }
+            if (resultData && resultData.calendarStatus) {
+              telemetryPayload.calendarStatus = resultData.calendarStatus;
             }
           } else {
             console.warn('[LumiLore Intake API] Non-200 response received from backend:', intakeResponse.status);
@@ -2119,9 +2307,10 @@ Referrer: ${payload.attribution?.referrer || 'direct'}
         const eventDescription = isTrades
           ? `LumiLore Field Automation Strategy Session\nAudit ID: ${payload.intakeId}\nAssigned Architect: ${payload.sessionSchedule.assignedArchitect}\nOperational Focus: ${payload.architectureScope.objective}\nRollout Timeline: ${payload.architectureScope.velocity}\nField Tools: ${payload.architectureScope.techStack.join(', ') || 'None'}\nOwner / Attendee: ${payload.clientProfile.fullName} (${payload.clientProfile.email})\n\nGoogle Meet encrypted bridge link will be shared via calendar invitation.\nWebsite: https://lumilore.ca`
           : `LumiLore Architecture Intake Session\nIntake ID: ${payload.intakeId}\nAssigned Architect: ${payload.sessionSchedule.assignedArchitect}\nObjective: ${payload.architectureScope.objective}\nTarget Velocity: ${payload.architectureScope.velocity}\nExisting Stack: ${payload.architectureScope.techStack.join(', ') || 'None'}\nAttendee: ${payload.clientProfile.fullName} (${payload.clientProfile.email})\n\nGoogle Meet encrypted bridge link will be shared via calendar invitation.\nWebsite: https://lumilore.ca`;
-        const eventLocation = isTrades
+        const meetUrl = payload.meetingUrl || null;
+        const eventLocation = meetUrl || (isTrades
           ? 'Google Meet (Private Video Strategy Session) // LumiLore Technologies'
-          : 'Google Meet (Encrypted Video Bridge) // LumiLore Technologies';
+          : 'Google Meet (Encrypted Video Bridge) // LumiLore Technologies');
 
         // Compute dynamic ISO UTC timestamp from selected date and slot with timezone-resilient UTC positioning
         const now = new Date();
@@ -2170,9 +2359,16 @@ Referrer: ${payload.attribution?.referrer || 'direct'}
         const startHourUTC = localStartHour + easternOffsetHours;
         const startMinUTC = localStartMin;
 
-        // Construct UTC Date via Date.UTC to guarantee selected calendar date never shifts across international timezones
-        const sessionStartDate = new Date(Date.UTC(year, month, day, startHourUTC, startMinUTC, 0, 0));
-        const sessionEndDate = new Date(sessionStartDate.getTime() + 45 * 60 * 1000); // Exact 45-minute architectural consultation
+        // Construct UTC Date via slotStart/slotEnd if present, or compute
+        let sessionStartDate;
+        let sessionEndDate;
+        if (payload.sessionSchedule && payload.sessionSchedule.slotStart && payload.sessionSchedule.slotEnd) {
+          sessionStartDate = new Date(payload.sessionSchedule.slotStart);
+          sessionEndDate = new Date(payload.sessionSchedule.slotEnd);
+        } else {
+          sessionStartDate = new Date(Date.UTC(year, month, day, startHourUTC, startMinUTC, 0, 0));
+          sessionEndDate = new Date(sessionStartDate.getTime() + (isTrades ? 30 : 45) * 60 * 1000);
+        }
 
         function formatCalDate(d) {
           return d.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
@@ -2180,9 +2376,10 @@ Referrer: ${payload.attribution?.referrer || 'direct'}
 
         const startTimestamp = formatCalDate(sessionStartDate);
         const endTimestamp = formatCalDate(sessionEndDate);
+        const fullEventDesc = meetUrl ? `${eventDescription}\n\nGoogle Meet Video Room: ${meetUrl}` : eventDescription;
 
         // 1. Google Calendar URL anchored to Toronto Eastern Time
-        const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventTitle)}&dates=${startTimestamp}/${endTimestamp}&details=${encodeURIComponent(eventDescription)}&location=${encodeURIComponent(eventLocation)}&ctz=America/Toronto`;
+        const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventTitle)}&dates=${startTimestamp}/${endTimestamp}&details=${encodeURIComponent(fullEventDesc)}&location=${encodeURIComponent(eventLocation)}&ctz=America/Toronto`;
 
         // 2. Client-side ICS Blob Generator
         function downloadICS() {
@@ -2199,7 +2396,7 @@ Referrer: ${payload.attribution?.referrer || 'direct'}
             `DTSTART:${startTimestamp}`,
             `DTEND:${endTimestamp}`,
             `SUMMARY:${eventTitle}`,
-            `DESCRIPTION:${eventDescription.replace(/\n/g, '\\n')}`,
+            `DESCRIPTION:${fullEventDesc.replace(/\n/g, '\\n')}`,
             `LOCATION:${eventLocation}`,
             'STATUS:CONFIRMED',
             'SEQUENCE:0',
@@ -2223,12 +2420,25 @@ Referrer: ${payload.attribution?.referrer || 'direct'}
 
         // 3. Render Interactive Calendar Buttons
         actionsContainer.innerHTML = `
+          ${meetUrl ? `
+          <!-- Google Meet Room Direct Access CTA -->
+          <a 
+            href="${meetUrl}" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="w-full py-3.5 px-4 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-bold font-mono text-xs uppercase tracking-wider shadow-[0_0_25px_rgba(0,242,254,0.4)] transition-all flex items-center justify-center gap-2 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
+          >
+            <span>📹 Enter Google Meet Room</span>
+            <span class="group-hover:translate-x-0.5 transition-transform">↗</span>
+          </a>
+          ` : ''}
+
           <!-- Google Calendar CTA -->
           <a 
             href="${gcalUrl}" 
             target="_blank" 
             rel="noopener noreferrer" 
-            class="w-full py-3 px-4 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-bold font-mono text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(0,242,254,0.3)] transition-all flex items-center justify-center gap-2 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
+            class="w-full py-3 px-4 rounded-xl ${meetUrl ? 'bg-white/5 hover:bg-white/10 border border-white/15 text-white' : 'bg-cyan-400 hover:bg-cyan-300 text-slate-950 shadow-[0_0_20px_rgba(0,242,254,0.3)]'} font-bold font-mono text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
           >
             <span>📅 Add to Google Calendar</span>
             <span class="group-hover:translate-x-0.5 transition-transform">↗</span>

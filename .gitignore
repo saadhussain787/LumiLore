@@ -7,3 +7,7 @@ scratch/
 repomix-output.txt
 repomixM-output.txt
 .aws-sam/
+google-service-account.json
+backend/google-service-account.json
+backend/src/google-service-account.json
+credentials/

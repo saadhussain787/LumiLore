@@ -15,8 +15,9 @@
 ## Active Serverless Cloud Infrastructure
 - **SAM Stack Name:** `lumilore-backend` (`ca-central-1`)
 - **API Gateway HTTP API:** `https://bhsahnzaqb.execute-api.ca-central-1.amazonaws.com`
-  - `POST /api/intake` (Lead intake, CRO attribution, DynamoDB persistence, SES dual routing)
-  - `POST /api/chat` (LumiBot agentic chat with Bedrock & Architect Resilience Shield)
+  - `POST /api/intake` (Lead intake, CRO attribution, DynamoDB persistence, SES dual routing, Google Calendar sync)
+  - `POST /api/chat` (LumiBot agentic chat with Bedrock & Autonomous Calendar Booking tools)
+  - `GET /api/calendar/availability` (Real-time Google Calendar freebusy query & 15m buffer slot generator)
   - `GET /api/status` (Zero-trust operational health telemetry probe)
   - `OPTIONS /api/{proxy+}` (Global CORS preflight)
 - **DynamoDB Table:** `LumiLore_Intake` (Pay-per-request, Point-In-Time Recovery, GSI: `AudienceLensIndex`)
@@ -25,5 +26,9 @@
 ---
 
 ## Master Implementation Plan
-- Artifact: [phase_5_implementation_plan.md](file:///C:/Users/saadh/.gemini/antigravity-ide/brain/2ba4a694-e5df-43f9-8b57-736cd21cb863/phase_5_implementation_plan.md) (Version 2.1.0 — 100% Complete)
-- **All 16 micro-steps from TASK-5.1.1 through TASK-5.6.3 are completed, deployed, and verified.**
+- Artifact: [phase_5_implementation_plan.md](file:///C:/Users/saadh/.gemini/antigravity-ide/brain/2ba4a694-e5df-43f9-8b57-736cd21cb863/phase_5_implementation_plan.md) (Phase 5 — 100% Complete)
+- Artifact: [phase_6_ai_calendar_booking_agent_plan.md](file:///C:/Users/saadh/.gemini/antigravity-ide/brain/2ba4a694-e5df-43f9-8b57-736cd21cb863/phase_6_ai_calendar_booking_agent_plan.md) (Phase 6 Autonomous Calendar & Booking Agent — 100% Complete & Live Verified)
+  - Stages 1-4 Complete: Google Calendar API Client, Availability Engine (Working Hours, Buffer Math, Weekend Filtering), Google Meet Video Bridge, DynamoDB Persistence, SES Dual Confirmation Emails with RFC 5545 `.ics` & 1-Hour Pre-Flight Reminders.
+  - Stage 5 Complete: Bedrock Conversational Booking Tool Calling (`check_calendar_availability`, `book_calendar_session`) with Architect Resilience Engine.
+  - Stage 6 Complete: Dynamic Slot Picker on `/contact/` with real-time Google Calendar query, 10-minute slot reservation countdown, Mission Pass with glowing Google Meet CTA, SAM packaging optimization (reduced from 255MB to 21MB), live AWS deployment (`UPDATE_COMPLETE`), and verified end-to-end live booking (`#LUMI-20261022-3AB0`).
+
