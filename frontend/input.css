@@ -877,7 +877,7 @@
   max-width: 100% !important;
   height: 100% !important;
   min-height: 220px !important;
-  max-height: 245px !important;
+  max-height: none !important;
   padding: 0.85rem !important;
   transform: none !important;
   opacity: 1 !important;
@@ -1345,4 +1345,130 @@ html[data-lens="trades"] #case-study-fiscalx {
 .lumibot-custom-scroll::-webkit-scrollbar-thumb:hover {
   background: rgba(0, 242, 254, 0.4);
 }
+
+/* ==========================================================================
+   Legal Shield Typography & Prose Subsystem (Sprint 1 Micro-Step 1.1)
+   ========================================================================== */
+.prose-legal {
+  color: #cbd5e1;
+  font-family: var(--font-body, "Inter", sans-serif);
+  line-height: 1.85;
+  font-size: 0.95rem;
+}
+
+.prose-legal h1 {
+  font-family: var(--font-headline, "Space Grotesk", sans-serif);
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.025em;
+  margin-bottom: 1.5rem;
+}
+
+.prose-legal h2 {
+  font-family: var(--font-headline, "Space Grotesk", sans-serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  letter-spacing: -0.015em;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.prose-legal h3 {
+  font-family: var(--font-headline, "Space Grotesk", sans-serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #38bdf8;
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose-legal p {
+  margin-bottom: 1.25rem;
+  color: #cbd5e1;
+}
+
+.prose-legal ul {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.prose-legal ol {
+  list-style-type: decimal;
+  margin-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.prose-legal li {
+  margin-bottom: 0.5rem;
+  color: #cbd5e1;
+}
+
+.prose-legal strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.prose-legal a {
+  color: #00f2fe;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.prose-legal a:hover {
+  color: #38bdf8;
+}
+
+.prose-legal .legal-callout {
+  background: rgba(16, 20, 31, 0.85);
+  border: 1px solid rgba(0, 242, 254, 0.25);
+  border-left: 3px solid #00f2fe;
+  padding: 1.25rem 1.5rem;
+  border-radius: 0.75rem;
+  margin: 1.75rem 0;
+  box-shadow: 0 4px 20px -2px rgba(0, 242, 254, 0.05);
+}
+
+.prose-legal .legal-callout-warning {
+  background: rgba(24, 18, 12, 0.85);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-left: 3px solid #f59e0b;
+  padding: 1.25rem 1.5rem;
+  border-radius: 0.75rem;
+  margin: 1.75rem 0;
+  box-shadow: 0 4px 20px -2px rgba(245, 158, 11, 0.05);
+}
+
+.prose-legal table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.75rem 0;
+  font-size: 0.875rem;
+}
+
+.prose-legal th {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  background: rgba(16, 20, 31, 0.95);
+  color: #f1f5f9;
+  font-family: var(--font-headline, "Space Grotesk", sans-serif);
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.prose-legal td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  color: #94a3b8;
+}
+
+.prose-legal tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
 
