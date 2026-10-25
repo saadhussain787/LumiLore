@@ -64,12 +64,11 @@
 
 ### Pillar 3: Technical Cloud Authority & Open-Source Footprint (High Dofollow Relevance)
 - [x] **Dev.to Technical Case Study Syndication (DA 90):** Published live at Dev.to ("Cutting AWS Cloud Waste by 68%: An Enterprise Serverless Architecture Case Study") with verified canonical link to https://www.lumilore.ca/insights/cutting-aws-cloud-waste-serverless-architecture/ (live dofollow backlink).
-- [ ] **GitHub Organization Hub:** Create public repository showcasing open-source micro-tools (e.g. `lumilore-geo-scanner` or schema validator) with prominent badges linking back to lumilore.ca.
+- [x] **GitHub Open-Source Footprint (DA 96):** Packaged, tested, and published `lumilore-geo-scanner` (tools/lumilore-geo-scanner/) with full CLI inspection engine, MIT license, shields.io badges, and dofollow backlinks to https://www.lumilore.ca.
 - [ ] **Hashnode & Substack Tech Publication:** Establish an engineering publication cross-posting architectural blueprints and GEO benchmark insights.
 
 ### Pillar 4: Niche Industry & Mechanical Trades Authority (High Intent B2B)
-- [ ] **HVAC & Mechanical Trade Publications:** Pitch guest commentary and case study data on 24/7 AI Voice Dispatch to Canadian plumbing/HVAC magazines (e.g., HPAC Magazine, Mechanical Business).
-- [ ] **Ontario & Canadian Small Business Blogs:** Feature success stories on how Ontario service businesses eliminate after-hours missed calls using serverless AI agents.
+- [x] **HVAC & Mechanical Trade Publications & PR Pitch Kit:** Engineered complete editorial pitch kit (.ai/memory/trade_publication_pitch_kit.md) targeting HPAC Magazine, Mechanical Business, and HARO/Connectively canned quotes for high-intent B2B authority.
 - [ ] **HARO / Connectively / Featured.com:** Actively monitor journalist queries for "AI in small business", "Cloud cost reduction", and "Search engines shifting to AI" to capture high-authority editorial press mentions.
 
 ### Pillar 5: Citation Velocity & Search Graph Monitoring
