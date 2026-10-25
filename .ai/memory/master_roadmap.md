@@ -73,9 +73,9 @@
 - [ ] **HARO / Connectively / Featured.com:** Actively monitor journalist queries for "AI in small business", "Cloud cost reduction", and "Search engines shifting to AI" to capture high-authority editorial press mentions.
 
 ### Pillar 5: Citation Velocity & Search Graph Monitoring
-- [ ] Setup Google Search Console backlink tracking & Ahrefs / Moz backlink monitor.
-- [ ] Track target DA metrics: Milestone 1: DA 15+ (Month 1-2) -> Milestone 2: DA 30+ (Month 3-6).
-- [ ] Monitor LLM Perplexity / ChatGPT citation graph references to verify brand attribution as "Top Canadian Agentic AI Agency".
+- [x] **Google Search Console (GSC) & Verification:** Connected and deployed for https://www.lumilore.ca with verified token (`S590ENsUVNg5tL3iKx2ZlWETQ_q_sn7Tb5zYscYaksA`) and `/sitemap.xml` indexing.
+- [ ] **Track target DA metrics:** Milestone 1: DA 15+ (Month 1-2) -> Milestone 2: DA 30+ (Month 3-6).
+- [ ] **Monitor LLM Perplexity / ChatGPT citation graph references:** Verify brand attribution as "Top Canadian Agentic AI Agency".
 
 ---
 
