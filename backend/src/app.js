@@ -424,6 +424,21 @@ export function buildExecutiveEmailHtml(intakeRecord) {
   if (attribution?.source === 'hero_primary') {
     originLabel = 'HERO PRIMARY DISCOVERY CTA';
     originIcon = '🎯';
+  } else if (attribution?.service === 'autonomous-booking' || attribution?.service === 'autonomous_booking' || attribution?.source?.startsWith('booking_')) {
+    originLabel = 'AUTONOMOUS CALENDAR & BOOKING AGENT';
+    originIcon = '📅';
+  } else if (attribution?.service === 'voice-dispatch' || attribution?.service === 'voice_dispatch' || attribution?.source?.startsWith('voice_')) {
+    originLabel = '24/7 AI VOICE DISPATCH & RECEPTIONIST';
+    originIcon = '🎙️';
+  } else if (attribution?.service === 'geo-engine' || attribution?.service === 'geo_engine' || attribution?.source?.startsWith('geo_tier_')) {
+    originLabel = 'AUTONOMOUS SEO & GEO OPTIMIZATION ENGINE';
+    originIcon = '⚡';
+  } else if (attribution?.service === 'web-modernization' || attribution?.service === 'web_modernization' || attribution?.source?.startsWith('web_')) {
+    originLabel = 'SUB-150MS WEB MODERNIZATION & SPEED ENGINE';
+    originIcon = '🚀';
+  } else if (attribution?.service === 'custom-enterprise' || attribution?.service === 'custom_enterprise') {
+    originLabel = 'CUSTOM MULTI-AGENT ENTERPRISE SUITE';
+    originIcon = '🏢';
   } else if (attribution?.source === 'interceptor_roadmap' || attribution?.service === 'roadmap') {
     originLabel = '48-HOUR BESPOKE ARCHITECTURE ROADMAP';
     originIcon = '⚡';
@@ -442,9 +457,6 @@ export function buildExecutiveEmailHtml(intakeRecord) {
   } else if (attribution?.source === 'lumibot_chat') {
     originLabel = 'LUMIBOT AI INTERACTIVE TERMINAL';
     originIcon = '🤖';
-  } else if (attribution?.source?.startsWith('geo_tier_') || attribution?.service === 'geo_engine') {
-    originLabel = 'AUTONOMOUS SEO & GEO PRODUCT TIER';
-    originIcon = '⚡';
   }
 
   // Founder Routing & Lead Designation: Saad Sayed conducts all client meetings
@@ -661,7 +673,11 @@ export async function sendExecutiveAlertEmail(intakeRecord) {
   let originBadge = 'DIRECT';
   if (intakeRecord.attribution?.source === 'hero_primary') originBadge = 'HERO CTA';
   else if (intakeRecord.attribution?.source === 'geo_audit_modal') originBadge = 'GEO AUDIT';
-  else if (intakeRecord.attribution?.source?.startsWith('geo_tier_') || intakeRecord.attribution?.service === 'geo_engine') originBadge = 'GEO ENGINE';
+  else if (intakeRecord.attribution?.service === 'autonomous-booking' || intakeRecord.attribution?.service === 'autonomous_booking' || intakeRecord.attribution?.source?.startsWith('booking_')) originBadge = 'BOOKING';
+  else if (intakeRecord.attribution?.service === 'voice-dispatch' || intakeRecord.attribution?.service === 'voice_dispatch' || intakeRecord.attribution?.source?.startsWith('voice_')) originBadge = 'VOICE DISPATCH';
+  else if (intakeRecord.attribution?.service === 'geo-engine' || intakeRecord.attribution?.service === 'geo_engine' || intakeRecord.attribution?.source?.startsWith('geo_tier_')) originBadge = 'GEO ENGINE';
+  else if (intakeRecord.attribution?.service === 'web-modernization' || intakeRecord.attribution?.service === 'web_modernization' || intakeRecord.attribution?.source?.startsWith('web_')) originBadge = 'WEB SPEED';
+  else if (intakeRecord.attribution?.service === 'custom-enterprise' || intakeRecord.attribution?.service === 'custom_enterprise') originBadge = 'ENTERPRISE';
   else if (intakeRecord.attribution?.service === 'roadmap') originBadge = '48H ROADMAP';
   else if (intakeRecord.attribution?.service === 'field_audit') originBadge = 'FIELD AUDIT';
   else if (intakeRecord.attribution?.service === 'cloud_audit') originBadge = 'CLOUD AUDIT';
@@ -803,9 +819,23 @@ export function buildClientConfirmationEmailHtml(intakeRecord) {
     ? 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)' 
     : 'linear-gradient(135deg, #00f2fe 0%, #4facfe 100%)';
 
-  const sessionTitle = isTrades
+  let serviceTitle = null;
+  const svc = intakeRecord.attribution?.service || intakeRecord.architectureScope?.serviceSlug;
+  if (svc === 'autonomous-booking' || svc === 'autonomous_booking') {
+    serviceTitle = isTrades ? 'Trades Autonomous Booking Architecture' : 'Autonomous Calendar & Booking Architecture';
+  } else if (svc === 'voice-dispatch' || svc === 'voice_dispatch') {
+    serviceTitle = isTrades ? 'Trades 24/7 AI Voice Dispatch Consultation' : '24/7 AI Voice Dispatch Architecture';
+  } else if (svc === 'geo-engine' || svc === 'geo_engine') {
+    serviceTitle = isTrades ? 'Local SEO & Trade Map Pack Strategy' : 'Autonomous SEO & GEO Engine Architecture';
+  } else if (svc === 'web-modernization' || svc === 'web_modernization') {
+    serviceTitle = isTrades ? 'Sub-Second Contractor Web Speed Audit' : 'Sub-150ms Web Modernization Architecture';
+  } else if (svc === 'custom-enterprise' || svc === 'custom_enterprise') {
+    serviceTitle = 'Custom Multi-Agent Enterprise Suite Discovery';
+  }
+
+  const sessionTitle = serviceTitle || (isTrades
     ? 'Trades AI Voice & Dispatch Audit'
-    : 'Executive Cloud Architecture Roadmap Discovery';
+    : 'Executive Cloud Architecture Roadmap Discovery');
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -947,9 +977,23 @@ export async function sendClientConfirmationEmail(intakeRecord) {
     return { success: false, error: 'INVALID_CLIENT_EMAIL' };
   }
 
-  const sessionTitle = isTrades
+  let serviceTitle = null;
+  const svc = intakeRecord.attribution?.service || intakeRecord.architectureScope?.serviceSlug;
+  if (svc === 'autonomous-booking' || svc === 'autonomous_booking') {
+    serviceTitle = isTrades ? 'Trades Autonomous Booking Architecture' : 'Autonomous Calendar & Booking Architecture';
+  } else if (svc === 'voice-dispatch' || svc === 'voice_dispatch') {
+    serviceTitle = isTrades ? 'Trades 24/7 AI Voice Dispatch Consultation' : '24/7 AI Voice Dispatch Architecture';
+  } else if (svc === 'geo-engine' || svc === 'geo_engine') {
+    serviceTitle = isTrades ? 'Local SEO & Trade Map Pack Strategy' : 'Autonomous SEO & GEO Engine Architecture';
+  } else if (svc === 'web-modernization' || svc === 'web_modernization') {
+    serviceTitle = isTrades ? 'Sub-Second Contractor Web Speed Audit' : 'Sub-150ms Web Modernization Architecture';
+  } else if (svc === 'custom-enterprise' || svc === 'custom_enterprise') {
+    serviceTitle = 'Custom Multi-Agent Enterprise Suite Discovery';
+  }
+
+  const sessionTitle = serviceTitle || (isTrades
     ? 'LumiLore Trades AI Voice & Dispatch Audit'
-    : 'LumiLore Executive Cloud Architecture Discovery';
+    : 'LumiLore Executive Cloud Architecture Discovery');
 
   const subject = `Confirmed: ${sessionTitle} with Saad Sayed (${sessionSchedule.bookingDate || 'Scheduled'})`;
   const htmlBody = buildClientConfirmationEmailHtml(intakeRecord);
@@ -1247,6 +1291,7 @@ export async function handleLeadIntake(body, event) {
   const attribution = {
     source: body?.attribution?.source || 'direct',
     service: body?.attribution?.service || 'general_intake',
+    tier: body?.attribution?.tier || body?.architectureScope?.tier || null,
     lens: body?.attribution?.lens || body?.audienceLens || 'corporate',
     referrer: body?.attribution?.referrer || 'direct',
     userAgent: event?.requestContext?.http?.userAgent || event?.headers?.['user-agent'] || 'unknown',
@@ -1257,6 +1302,8 @@ export async function handleLeadIntake(body, event) {
   const audienceLens = (body?.audienceLens === 'trades' || attribution.lens === 'trades') ? 'trades' : 'corporate';
   const architectureScope = {
     objective: body?.architectureScope?.objective || (audienceLens === 'trades' ? 'Field Dispatch Automation' : 'Serverless Cloud Architecture'),
+    serviceSlug: body?.architectureScope?.serviceSlug || attribution.service || null,
+    tier: body?.architectureScope?.tier || attribution.tier || null,
     velocity: body?.architectureScope?.velocity || 'Standard Deployment (14 Days)',
     techStack: Array.isArray(body?.architectureScope?.techStack) ? body.architectureScope.techStack : []
   };

@@ -18,7 +18,7 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
       </div>
 
       <!-- Master Headline (Space Grotesk) -->
-      <h1 id="hero-lens-headline" class="font-headline text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white leading-[1.08] max-w-4xl mx-auto transition-opacity duration-200" style="text-shadow: 0 10px 40px rgba(0,0,0,0.8);">
+      <h1 id="hero-lens-headline" class="font-headline text-3xl min-[380px]:text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white leading-[1.08] max-w-4xl mx-auto transition-opacity duration-200 break-words" style="text-shadow: 0 10px 40px rgba(0,0,0,0.8);">
         Initialize Your<br/>
         <span class="text-transparent bg-clip-text bg-linear-to-r from-cyan-300 via-white to-amber-300 drop-shadow-[0_0_35px_rgba(0,242,254,0.2)]">System Architecture.</span>
       </h1>
@@ -59,7 +59,7 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
                 <h3 class="text-sm sm:text-base font-bold text-white tracking-tight flex items-center gap-2 mt-1">
                   <span>Domain:</span>
                   <span id="geo-banner-domain" class="font-mono text-cyan-300">domain.com</span>
-                  <span class="text-slate-500">•</span>
+                  <span class="text-slate-500 select-none" aria-hidden="true">•</span>
                   <span>Score:</span>
                   <span id="geo-banner-score" class="font-mono text-amber-300">--/100 GEO</span>
                 </h3>
@@ -70,6 +70,39 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
               <div class="shrink-0">
                 <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-cyan-500/10 border border-cyan-400/30 text-[11px] font-mono text-cyan-200">
                   <span>⚡ 10-Min Session Held</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contextual Inbound Scoping Banner (Sprint 3 Micro-Step 2.2) -->
+          <div id="service-scoping-banner" class="hidden rounded-3xl p-5 sm:p-6 bg-[#070E1A]/90 backdrop-blur-2xl border border-cyan-400/40 shadow-[0_15px_40px_rgba(0,0,0,0.6),0_0_30px_rgba(0,242,254,0.15)] relative overflow-hidden transition-all duration-300">
+            <div class="absolute -top-12 -right-12 w-40 h-40 bg-cyan-400/15 rounded-full blur-2xl pointer-events-none"></div>
+            <div class="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div class="space-y-1">
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider text-cyan-300 bg-cyan-950/80 border border-cyan-400/30">
+                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                    <span id="service-scoping-badge">Service Focus Identified</span>
+                  </span>
+                  <span id="service-scoping-tier-pill" class="text-[10px] font-mono text-amber-300 uppercase tracking-wider px-2 py-0.5 rounded bg-amber-950/50 border border-amber-500/30 hidden">PRO TIER</span>
+                  <span class="text-[10px] font-mono text-slate-400 uppercase tracking-wider">Product Catalog Scoped</span>
+                </div>
+                <h3 class="text-sm sm:text-base font-bold text-white tracking-tight flex flex-wrap items-center gap-2 mt-1">
+                  <span>🎯 Target Architecture:</span>
+                  <span id="service-scoping-title" class="font-mono text-cyan-300">Autonomous Calendar &amp; Booking Agent</span>
+                </h3>
+                <p id="service-scoping-desc" class="text-xs text-slate-300 font-light leading-relaxed">
+                  Pre-scoped from product catalog. Your 15-minute engineering session with Saad Sayed will focus directly on this deployment architecture.
+                </p>
+              </div>
+              <div class="shrink-0 flex items-center gap-2">
+                <button type="button" id="service-scoping-change-btn" class="min-h-[44px] inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 text-[11px] font-mono text-slate-300 hover:text-white transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400">
+                  <span>Change Service</span>
+                  <span class="text-xs">↓</span>
+                </button>
+                <span class="min-h-[44px] inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-cyan-500/10 border border-cyan-400/30 text-[11px] font-mono text-cyan-200">
+                  <span>⚡ 15-Min Lead Held</span>
                 </span>
               </div>
             </div>
@@ -86,7 +119,7 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
                 <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
                 <span id="step01-lens-eyebrow" class="transition-opacity duration-200">// STEP 01: SELECT PRIMARY OBJECTIVE</span>
               </div>
-              <span class="text-[10px] font-mono tracking-wider text-slate-500 uppercase px-2 py-0.5 rounded-md bg-white/5 border border-white/10">STAGE 1 OF 3</span>
+              <span class="text-[10px] font-mono tracking-wider text-slate-400 uppercase px-2 py-0.5 rounded-md bg-white/5 border border-white/10">STAGE 1 OF 3</span>
             </div>
 
             <!-- Title & Description -->
@@ -97,59 +130,87 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
               Choose the principal architectural focus for your systems engagement. This will intelligently pair you with the corresponding lead architect.
             </p>
 
-            <!-- Objective Pill Radios (Micro-Step 2.2) -->
+            <!-- Objective Pill Radios (Micro-Step 1.1: 4 Flagship Pillars + Custom Enterprise) -->
             <div class="mt-6" role="radiogroup" aria-label="Select Primary Objective">
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5" id="objective-pill-group">
                 
-                <!-- Option 1: Agentic AI / AI Dispatch -->
-                <label class="objective-card group relative flex flex-col justify-between p-4 rounded-2xl border border-cyan-400 bg-cyan-500/15 text-white shadow-[0_0_20px_rgba(0,242,254,0.25)] cursor-pointer transition-all duration-300 focus-within:ring-2 focus-within:ring-cyan-400" data-value="ai-workflows" data-lead="saad">
-                  <input type="radio" name="objective" id="obj-radio-0" value="Agentic AI & Workflows" class="sr-only" checked />
-                  <div class="flex items-start justify-between">
-                    <span class="text-2xl mb-2">⚡</span>
+                <!-- Option 1: Autonomous Calendar & Booking Agent -->
+                <label class="objective-card group relative flex flex-col justify-between p-4 rounded-2xl border border-cyan-400 bg-cyan-500/15 text-white shadow-[0_0_20px_rgba(0,242,254,0.25)] cursor-pointer transition-all duration-300 focus-within:ring-2 focus-within:ring-cyan-400" data-value="autonomous-booking" data-lead="saad">
+                  <input type="radio" name="objective" id="obj-radio-0" value="Autonomous Calendar & Booking Agent" class="sr-only" checked />
+                  <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center gap-2">
+                      <span class="text-xl">📅</span>
+                      <span id="obj-price-0" class="text-[10px] font-mono font-bold tracking-wider text-emerald-300 uppercase px-2 py-0.5 rounded-full bg-emerald-950/60 border border-emerald-500/30 shadow-[0_0_10px_rgba(16,185,129,0.15)]">FROM $1,500</span>
+                    </div>
                     <span class="text-[10px] font-mono tracking-wider text-cyan-300 uppercase px-2 py-0.5 rounded-full bg-cyan-950/60 border border-cyan-500/30">LEAD: SAAD</span>
                   </div>
                   <div>
-                    <span id="obj-title-0" class="block text-sm sm:text-base font-semibold text-white group-hover:text-cyan-200 transition-opacity duration-200">Agentic AI &amp; Workflows</span>
-                    <span id="obj-desc-0" class="block text-xs font-mono text-slate-400 mt-1 transition-opacity duration-200">Autonomous Lead Capture &amp; LLM Pipelines</span>
+                    <span id="obj-title-0" class="block text-sm sm:text-base font-bold text-white group-hover:text-cyan-200 transition-opacity duration-200">Autonomous Calendar &amp; Booking Agent</span>
+                    <span id="obj-desc-0" class="block text-xs font-mono text-slate-400 mt-1 transition-opacity duration-200 leading-relaxed">Direct Google Calendar slot generator, SMS buffer rules, and zero double-bookings.</span>
                   </div>
                 </label>
 
-                <!-- Option 2: Secure Client Portals / Customer Hubs -->
-                <label class="objective-card group relative flex flex-col justify-between p-4 rounded-2xl border border-white/10 bg-white/2 text-slate-300 hover:border-white/20 hover:bg-white/5 cursor-pointer transition-all duration-300 focus-within:ring-2 focus-within:ring-cyan-400" data-value="client-portals" data-lead="saad">
-                  <input type="radio" name="objective" id="obj-radio-1" value="Secure Client Portals" class="sr-only" />
-                  <div class="flex items-start justify-between">
-                    <span class="text-2xl mb-2">🛡️</span>
+                <!-- Option 2: 24/7 AI Voice Dispatch & Inbound Receptionist -->
+                <label class="objective-card group relative flex flex-col justify-between p-4 rounded-2xl border border-white/10 bg-white/[0.03] text-slate-300 hover:border-white/20 hover:bg-white/5 cursor-pointer transition-all duration-300 focus-within:ring-2 focus-within:ring-cyan-400" data-value="voice-dispatch" data-lead="saad">
+                  <input type="radio" name="objective" id="obj-radio-1" value="24/7 AI Voice Dispatch & Inbound Receptionist" class="sr-only" />
+                  <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center gap-2">
+                      <span class="text-xl">🎙️</span>
+                      <span id="obj-price-1" class="text-[10px] font-mono font-bold tracking-wider text-emerald-300 uppercase px-2 py-0.5 rounded-full bg-emerald-950/60 border border-emerald-500/30 shadow-[0_0_10px_rgba(16,185,129,0.15)]">FROM $2,500</span>
+                    </div>
                     <span class="text-[10px] font-mono tracking-wider text-cyan-300 uppercase px-2 py-0.5 rounded-full bg-cyan-950/60 border border-cyan-500/30">LEAD: SAAD</span>
                   </div>
                   <div>
-                    <span id="obj-title-1" class="block text-sm sm:text-base font-semibold text-white group-hover:text-cyan-200 transition-opacity duration-200">Secure Client Portals</span>
-                    <span id="obj-desc-1" class="block text-xs font-mono text-slate-400 mt-1 transition-opacity duration-200">Zero-Trust IAM &amp; Encrypted Data Vaults</span>
+                    <span id="obj-title-1" class="block text-sm sm:text-base font-bold text-white group-hover:text-cyan-200 transition-opacity duration-200">24/7 AI Voice Dispatch &amp; Receptionist</span>
+                    <span id="obj-desc-1" class="block text-xs font-mono text-slate-400 mt-1 transition-opacity duration-200 leading-relaxed">Sub-second conversational voice agent, instant emergency triage, and CRM dispatch.</span>
                   </div>
                 </label>
 
-                <!-- Option 3: Serverless Migration / Field Software Sync -->
-                <label class="objective-card group relative flex flex-col justify-between p-4 rounded-2xl border border-white/10 bg-white/2 text-slate-300 hover:border-white/20 hover:bg-white/5 cursor-pointer transition-all duration-300 focus-within:ring-2 focus-within:ring-cyan-400" data-value="cloud-migration" data-lead="saad">
-                  <input type="radio" name="objective" id="obj-radio-2" value="Serverless Cloud Migration" class="sr-only" />
-                  <div class="flex items-start justify-between">
-                    <span class="text-2xl mb-2">☁️</span>
+                <!-- Option 3: Autonomous SEO & GEO Optimization Engine -->
+                <label class="objective-card group relative flex flex-col justify-between p-4 rounded-2xl border border-white/10 bg-white/[0.03] text-slate-300 hover:border-white/20 hover:bg-white/5 cursor-pointer transition-all duration-300 focus-within:ring-2 focus-within:ring-cyan-400" data-value="geo-engine" data-lead="saad">
+                  <input type="radio" name="objective" id="obj-radio-2" value="Autonomous SEO & GEO Optimization Engine" class="sr-only" />
+                  <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center gap-2">
+                      <span class="text-xl">🌐</span>
+                      <span id="obj-price-2" class="text-[10px] font-mono font-bold tracking-wider text-emerald-300 uppercase px-2 py-0.5 rounded-full bg-emerald-950/60 border border-emerald-500/30 shadow-[0_0_10px_rgba(16,185,129,0.15)]">FROM $2,500</span>
+                    </div>
                     <span class="text-[10px] font-mono tracking-wider text-cyan-300 uppercase px-2 py-0.5 rounded-full bg-cyan-950/60 border border-cyan-500/30">LEAD: SAAD</span>
                   </div>
                   <div>
-                    <span id="obj-title-2" class="block text-sm sm:text-base font-semibold text-white group-hover:text-cyan-200 transition-opacity duration-200">Serverless Cloud Migration</span>
-                    <span id="obj-desc-2" class="block text-xs font-mono text-slate-400 mt-1 transition-opacity duration-200">AWS Lambda, S3, CloudFront &amp; DynamoDB</span>
+                    <span id="obj-title-2" class="block text-sm sm:text-base font-bold text-white group-hover:text-cyan-200 transition-opacity duration-200">Autonomous SEO &amp; GEO Engine</span>
+                    <span id="obj-desc-2" class="block text-xs font-mono text-slate-400 mt-1 transition-opacity duration-200 leading-relaxed">5-layer Schema.org JSON-LD graph, frontier LLM crawler setup, and Indexing API.</span>
                   </div>
                 </label>
 
-                <!-- Option 4: Fiscal Ops / Cash Recovery -->
-                <label class="objective-card group relative flex flex-col justify-between p-4 rounded-2xl border border-white/10 bg-white/2 text-slate-300 hover:border-white/20 hover:bg-white/5 cursor-pointer transition-all duration-300 focus-within:ring-2 focus-within:ring-amber-400" data-value="fiscal-ops" data-lead="arfa">
-                  <input type="radio" name="objective" id="obj-radio-3" value="Fiscal Ops & Cash Recovery" class="sr-only" />
-                  <div class="flex items-start justify-between">
-                    <span class="text-2xl mb-2">⚖️</span>
-                    <span class="text-[10px] font-mono tracking-wider text-amber-300 uppercase px-2 py-0.5 rounded-full bg-amber-950/60 border border-amber-500/30">LEAD: ARFA</span>
+                <!-- Option 4: Sub-150ms Web Modernization & Speed Engine -->
+                <label class="objective-card group relative flex flex-col justify-between p-4 rounded-2xl border border-white/10 bg-white/[0.03] text-slate-300 hover:border-white/20 hover:bg-white/5 cursor-pointer transition-all duration-300 focus-within:ring-2 focus-within:ring-cyan-400" data-value="web-modernization" data-lead="saad">
+                  <input type="radio" name="objective" id="obj-radio-3" value="Sub-150ms Web Modernization & Speed Engine" class="sr-only" />
+                  <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center gap-2">
+                      <span class="text-xl">⚡</span>
+                      <span id="obj-price-3" class="text-[10px] font-mono font-bold tracking-wider text-emerald-300 uppercase px-2 py-0.5 rounded-full bg-emerald-950/60 border border-emerald-500/30 shadow-[0_0_10px_rgba(16,185,129,0.15)]">FROM $1,800</span>
+                    </div>
+                    <span class="text-[10px] font-mono tracking-wider text-cyan-300 uppercase px-2 py-0.5 rounded-full bg-cyan-950/60 border border-cyan-500/30">LEAD: SAAD</span>
                   </div>
                   <div>
-                    <span id="obj-title-3" class="block text-sm sm:text-base font-semibold text-white group-hover:text-amber-200 transition-opacity duration-200">Fiscal Ops &amp; Cash Recovery</span>
-                    <span id="obj-desc-3" class="block text-xs font-mono text-slate-400 mt-1 transition-opacity duration-200">AR Chasing, Unit Margins &amp; SLA Controls</span>
+                    <span id="obj-title-3" class="block text-sm sm:text-base font-bold text-white group-hover:text-cyan-200 transition-opacity duration-200">Sub-150ms Web Modernization</span>
+                    <span id="obj-desc-3" class="block text-xs font-mono text-slate-400 mt-1 transition-opacity duration-200 leading-relaxed">Serverless AWS Jamstack migration, 100/100 Core Web Vitals, and zero-maintenance architecture.</span>
+                  </div>
+                </label>
+
+                <!-- Option 5: Custom Multi-Agent Enterprise Suite (Fallback / Spanning 2 Cols) -->
+                <label class="objective-card group relative flex flex-col justify-between p-4 rounded-2xl border border-white/10 bg-white/[0.03] text-slate-300 hover:border-white/20 hover:bg-white/5 cursor-pointer transition-all duration-300 focus-within:ring-2 focus-within:ring-cyan-400 sm:col-span-2" data-value="custom-enterprise" data-lead="saad">
+                  <input type="radio" name="objective" id="obj-radio-4" value="Custom Multi-Agent Enterprise Suite" class="sr-only" />
+                  <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center gap-2">
+                      <span class="text-xl">🏢</span>
+                      <span id="obj-price-4" class="text-[10px] font-mono font-bold tracking-wider text-emerald-300 uppercase px-2 py-0.5 rounded-full bg-emerald-950/60 border border-emerald-500/30 shadow-[0_0_10px_rgba(16,185,129,0.15)]">FROM $10,000+</span>
+                    </div>
+                    <span class="text-[10px] font-mono tracking-wider text-cyan-300 uppercase px-2 py-0.5 rounded-full bg-cyan-950/60 border border-cyan-500/30">LEAD: SAAD</span>
+                  </div>
+                  <div>
+                    <span id="obj-title-4" class="block text-sm sm:text-base font-bold text-white group-hover:text-cyan-200 transition-opacity duration-200">Custom Multi-Agent Enterprise Suite</span>
+                    <span id="obj-desc-4" class="block text-xs font-mono text-slate-400 mt-1 transition-opacity duration-200 leading-relaxed">Bespoke multi-agent swarm architecture, private AWS VPC deployment, custom RAG vector databases, and SOC2-aligned zero-trust guardrails.</span>
                   </div>
                 </label>
 
@@ -203,7 +264,7 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
                 <span class="text-white" id="telemetry-stream-text">SYS_INTAKE // AUDIENCE: CORPORATE // OBJ: AGENTIC AI &amp; WORKFLOWS // SPRINT: &lt;14 DAYS // STACK: NO LEGACY STACK</span>
               </div>
               <div class="flex items-center gap-2 text-[11px] text-slate-400">
-                <span class="text-slate-500">ROUTING:</span>
+                <span class="text-slate-400">ROUTING:</span>
                 <span class="text-emerald-300 font-semibold uppercase px-2 py-0.5 rounded bg-emerald-950/60 border border-emerald-500/30" id="telemetry-lead-badge">SAAD SAYED</span>
               </div>
             </div>
@@ -221,7 +282,7 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
                 <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
                 <span id="step02-lens-eyebrow" class="transition-opacity duration-200">// STEP 02: INFRASTRUCTURE PARAMETERS</span>
               </div>
-              <span class="text-[10px] font-mono tracking-wider text-slate-500 uppercase px-2 py-0.5 rounded-md bg-white/5 border border-white/10">STAGE 2 OF 3</span>
+              <span class="text-[10px] font-mono tracking-wider text-slate-400 uppercase px-2 py-0.5 rounded-md bg-white/5 border border-white/10">STAGE 2 OF 3</span>
             </div>
 
             <!-- Title & Description -->
@@ -335,7 +396,7 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                 <span id="step03-lens-eyebrow" class="transition-opacity duration-200">// STEP 03: ARCHITECTURAL AUTHENTICATION</span>
               </div>
-              <span class="text-[10px] font-mono tracking-wider text-slate-500 uppercase px-2 py-0.5 rounded-md bg-white/5 border border-white/10">STAGE 3 OF 3</span>
+              <span class="text-[10px] font-mono tracking-wider text-slate-400 uppercase px-2 py-0.5 rounded-md bg-white/5 border border-white/10">STAGE 3 OF 3</span>
             </div>
 
             <!-- Title & Description -->
@@ -362,7 +423,7 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
                   autocomplete="name"
                   required 
                   placeholder="Jane Doe, VP of Engineering"
-                  class="w-full bg-[#07080b]/90 border border-white/15 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 text-white text-sm font-mono placeholder:text-slate-500 rounded-xl px-4 py-3 outline-none transition-all"
+                  class="w-full bg-[#07080b]/90 border border-white/15 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 text-white text-sm font-mono placeholder:text-slate-400 rounded-xl px-4 py-3 outline-none transition-all"
                 />
               </div>
 
@@ -379,7 +440,7 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
                   autocomplete="email"
                   required 
                   placeholder="j.doe@enterprise.io"
-                  class="w-full bg-[#07080b]/90 border border-white/15 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 text-white text-sm font-mono placeholder:text-slate-500 rounded-xl px-4 py-3 outline-none transition-all"
+                  class="w-full bg-[#07080b]/90 border border-white/15 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 text-white text-sm font-mono placeholder:text-slate-400 rounded-xl px-4 py-3 outline-none transition-all"
                 />
               </div>
 
@@ -396,7 +457,7 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
                   autocomplete="tel"
                   required 
                   placeholder="+1 (555) 019-2834"
-                  class="w-full bg-[#07080b]/90 border border-white/15 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 text-white text-sm font-mono placeholder:text-slate-500 rounded-xl px-4 py-3 outline-none transition-all"
+                  class="w-full bg-[#07080b]/90 border border-white/15 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 text-white text-sm font-mono placeholder:text-slate-400 rounded-xl px-4 py-3 outline-none transition-all"
                 />
               </div>
 
@@ -413,7 +474,7 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
                   autocomplete="organization"
                   required 
                   placeholder="acmecloud.com"
-                  class="w-full bg-[#07080b]/90 border border-white/15 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 text-white text-sm font-mono placeholder:text-slate-500 rounded-xl px-4 py-3 outline-none transition-all"
+                  class="w-full bg-[#07080b]/90 border border-white/15 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 text-white text-sm font-mono placeholder:text-slate-400 rounded-xl px-4 py-3 outline-none transition-all"
                 />
               </div>
 
@@ -423,14 +484,14 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
             <div class="mt-4">
               <label for="notes" class="text-xs font-mono text-slate-300 font-medium mb-1.5 flex items-center justify-between">
                 <span id="label-field-notes" class="transition-opacity duration-200">Infrastructure Bottlenecks &amp; Critical Specs (Optional)</span>
-                <span class="text-slate-500 text-[10px]">OPTIONAL</span>
+                <span class="text-slate-400 text-[10px]">OPTIONAL</span>
               </label>
               <textarea 
                 id="notes" 
                 name="notes" 
                 rows="3" 
                 placeholder="Outline current scaling constraints, data velocity, or security mandates..."
-                class="w-full bg-[#07080b]/90 border border-white/15 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 text-white text-sm font-mono placeholder:text-slate-500 rounded-xl px-4 py-3 outline-none transition-all resize-y"
+                class="w-full bg-[#07080b]/90 border border-white/15 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 text-white text-sm font-mono placeholder:text-slate-400 rounded-xl px-4 py-3 outline-none transition-all resize-y"
               ></textarea>
             </div>
 
@@ -455,7 +516,7 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
                   <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.8)]"></span>
                   <span id="console-lens-eyebrow" class="transition-opacity duration-200">LIVE ARCHITECT AVAILABILITY</span>
                 </div>
-                <span class="text-[10px] font-mono text-slate-500 uppercase tracking-widest">TLS 1.3 SYNC</span>
+                <span class="text-[10px] font-mono text-slate-400 uppercase tracking-widest">TLS 1.3 SYNC</span>
               </div>
 
               <!-- Master Booking Title & Subtitle -->
@@ -538,28 +599,28 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
                   <button type="button" class="date-pill flex flex-col items-center justify-center py-2.5 px-0.5 sm:px-1 rounded-xl border border-white/10 bg-white/2 text-slate-300 hover:border-white/20 hover:bg-white/5 cursor-pointer transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400" data-date="+2 Days" aria-checked="false" role="radio">
                     <span class="text-[9px] sm:text-[10px] font-mono text-slate-400 uppercase tracking-wider">DAY 2</span>
                     <span class="text-base sm:text-lg font-bold font-headline text-white mt-0.5">+2D</span>
-                    <span class="text-[9px] font-mono text-slate-500 uppercase">OPEN</span>
+                    <span class="text-[9px] font-mono text-slate-400 uppercase">OPEN</span>
                   </button>
 
                   <!-- Day 3 -->
                   <button type="button" class="date-pill flex flex-col items-center justify-center py-2.5 px-0.5 sm:px-1 rounded-xl border border-white/10 bg-white/2 text-slate-300 hover:border-white/20 hover:bg-white/5 cursor-pointer transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400" data-date="+3 Days" aria-checked="false" role="radio">
                     <span class="text-[9px] sm:text-[10px] font-mono text-slate-400 uppercase tracking-wider">DAY 3</span>
                     <span class="text-base sm:text-lg font-bold font-headline text-white mt-0.5">+3D</span>
-                    <span class="text-[9px] font-mono text-slate-500 uppercase">OPEN</span>
+                    <span class="text-[9px] font-mono text-slate-400 uppercase">OPEN</span>
                   </button>
 
                   <!-- Day 4 -->
                   <button type="button" class="date-pill flex flex-col items-center justify-center py-2.5 px-0.5 sm:px-1 rounded-xl border border-white/10 bg-white/2 text-slate-300 hover:border-white/20 hover:bg-white/5 cursor-pointer transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400" data-date="+4 Days" aria-checked="false" role="radio">
                     <span class="text-[9px] sm:text-[10px] font-mono text-slate-400 uppercase tracking-wider">DAY 4</span>
                     <span class="text-base sm:text-lg font-bold font-headline text-white mt-0.5">+4D</span>
-                    <span class="text-[9px] font-mono text-slate-500 uppercase">OPEN</span>
+                    <span class="text-[9px] font-mono text-slate-400 uppercase">OPEN</span>
                   </button>
 
                   <!-- Day 5 -->
                   <button type="button" class="date-pill flex flex-col items-center justify-center py-2.5 px-0.5 sm:px-1 rounded-xl border border-white/10 bg-white/2 text-slate-300 hover:border-white/20 hover:bg-white/5 cursor-pointer transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400" data-date="+5 Days" aria-checked="false" role="radio">
                     <span class="text-[9px] sm:text-[10px] font-mono text-slate-400 uppercase tracking-wider">DAY 5</span>
                     <span class="text-base sm:text-lg font-bold font-headline text-white mt-0.5">+5D</span>
-                    <span class="text-[9px] font-mono text-slate-500 uppercase">OPEN</span>
+                    <span class="text-[9px] font-mono text-slate-400 uppercase">OPEN</span>
                   </button>
 
                 </div>
@@ -573,7 +634,7 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
                   <span class="text-white font-medium" id="user-local-tz">AUTO-DETECTING</span>
                 </div>
                 <div class="flex items-center gap-1.5 text-slate-400">
-                  <span class="text-slate-500">HQ:</span>
+                  <span class="text-slate-400">HQ:</span>
                   <span class="text-amber-300 font-medium">TORONTO (EST)</span>
                 </div>
               </div>
@@ -685,7 +746,7 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
             <!-- Systems / Engineering -->
             <a 
               href="mailto:info@lumilore.ca" 
-              class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-mono font-medium text-slate-200 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 hover:border-cyan-400/50 shadow-sm transition-all group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400" 
+              class="min-h-[44px] inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-mono font-medium text-slate-200 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 hover:border-cyan-400/50 shadow-sm transition-all group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400" 
               title="Direct Cloud Engineering & Systems"
             >
               <span class="text-cyan-400 font-bold">⚡</span>
@@ -694,7 +755,7 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
             <!-- Governance / Retainers -->
             <a 
               href="mailto:operations@lumilore.ca" 
-              class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-mono font-medium text-slate-200 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 hover:border-amber-400/50 shadow-sm transition-all group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400" 
+              class="min-h-[44px] inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-mono font-medium text-slate-200 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 hover:border-amber-400/50 shadow-sm transition-all group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400" 
               title="Operational Governance, SLAs & Retainers"
             >
               <span class="text-amber-400 font-bold">⚖️</span>
@@ -703,7 +764,7 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
             <!-- Invoicing / Disbursements -->
             <a 
               href="mailto:payments@lumilore.ca" 
-              class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-mono font-medium text-slate-200 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 hover:border-emerald-400/50 shadow-sm transition-all group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400" 
+              class="min-h-[44px] inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-mono font-medium text-slate-200 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 hover:border-emerald-400/50 shadow-sm transition-all group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400" 
               title="Billing & Invoicing"
             >
               <span class="text-emerald-400 font-bold">💳</span>
@@ -765,20 +826,29 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
             description: "Choose the principal architectural focus for your systems engagement. This will intelligently pair you with the corresponding lead architect.",
             objectives: [
               {
-                title: "Agentic AI &amp; Workflows",
-                desc: "Autonomous Lead Capture &amp; LLM Pipelines"
+                title: "Autonomous Calendar &amp; Booking Agent",
+                desc: "Executive time recovery, two-way CRM pipeline sync, and automated calendar guardrails.",
+                price: "FROM $1,500"
               },
               {
-                title: "Secure Client Portals",
-                desc: "Zero-Trust IAM &amp; Encrypted Data Vaults"
+                title: "24/7 AI Voice Dispatch &amp; Receptionist",
+                desc: "Sub-second conversational voice AI, SOC2-aligned call routing, and enterprise PBX sync.",
+                price: "FROM $2,500"
               },
               {
-                title: "Serverless Cloud Migration",
-                desc: "AWS Lambda, S3, CloudFront &amp; DynamoDB"
+                title: "Autonomous SEO &amp; GEO Engine",
+                desc: "Frontier AI search dominance (ChatGPT, Claude, Perplexity) &amp; automated Indexing API.",
+                price: "FROM $2,500"
               },
               {
-                title: "Fiscal Ops &amp; Cash Recovery",
-                desc: "AR Chasing, Unit Margins &amp; SLA Controls"
+                title: "Sub-150ms Web Modernization",
+                desc: "Sub-150ms TTFB global edge CDNs, serverless AWS re-architecture, and 100/100 CWV.",
+                price: "FROM $1,800"
+              },
+              {
+                title: "Custom Multi-Agent Enterprise Suite",
+                desc: "Bespoke multi-agent swarm architecture, private AWS VPC deployment, and zero-trust IAM.",
+                price: "FROM $10,000+"
               }
             ],
             velocityTitle: "// TARGET DEPLOYMENT VELOCITY",
@@ -856,24 +926,33 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
           },
           step1: {
             eyebrow: "// STEP 01: SELECT OPERATIONAL FOCUS",
-            title: "Where is your business losing time or jobs?",
-            description: "Choose your primary operational focus. We will pair you directly with the lead architect for trade automation or cash flow.",
+            title: "Where is your field business losing time or jobs?",
+            description: "Choose your primary trade automation focus. We will pair you directly with our Principal Architect to eliminate operational waste.",
             objectives: [
               {
-                title: "24/7 AI Call Dispatch &amp; Intake",
-                desc: "Instant after-hours call answering &amp; emergency quote capture"
+                title: "Automated Job Booking &amp; Tech Scheduling",
+                desc: "Instant customer self-scheduling, Jobber/ServiceTitan sync, and zero double-booked trucks.",
+                price: "FROM $1,500"
               },
               {
-                title: "Customer Job &amp; Estimate Hubs",
-                desc: "Self-serve job tracking, photo documentation &amp; digital sign-offs"
+                title: "24/7 HVAC &amp; Trades AI Call Dispatch",
+                desc: "Zero missed emergency calls, instant after-hours dispatching, and live tech transfer.",
+                price: "FROM $2,500"
               },
               {
-                title: "Field Dispatch &amp; Software Sync",
-                desc: "Connecting trucks, schedules, inventory, and office tools into one hub"
+                title: "Local Trades SEO &amp; Google Map Pack Engine",
+                desc: "Dominate local Google 3-pack &amp; AI answers for high-ticket emergency repair jobs.",
+                price: "FROM $2,500"
               },
               {
-                title: "Cash Recovery &amp; Automated Invoicing",
-                desc: "Automated overdue invoice chasing, parts markup &amp; payroll margins"
+                title: "High-Speed Contractor Site &amp; Speed Engine",
+                desc: "Lightning-fast mobile quote booking, zero WordPress plugin bloat, and sub-150ms speed.",
+                price: "FROM $1,800"
+              },
+              {
+                title: "Multi-Location Commercial Trades Suite",
+                desc: "Custom multi-fleet dispatch automation, automated supplier PO sync, and enterprise billing.",
+                price: "FROM $10,000+"
               }
             ],
             velocityTitle: "// TARGET ROLLOUT TIMELINE",
@@ -1067,11 +1146,9 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
 
         // 1. Objective safe reading and normalization
         const checkedObj = document.querySelector('input[name="objective"]:checked');
-        let objLabel = 'AGENTIC AI';
+        let objLabel = (currentContactLens === 'trades') ? 'AUTOMATED JOB BOOKING' : 'AUTONOMOUS CALENDAR AGENT';
         if (checkedObj && checkedObj.value) {
           objLabel = checkedObj.value.replace(/&amp;/g, '&').trim().toUpperCase();
-        } else if (currentContactLens === 'trades') {
-          objLabel = '24/7 AI CALL DISPATCH';
         }
 
         // 2. Rollout Velocity safe reading and pattern matching
@@ -1229,13 +1306,13 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
             'shadow-[0_0_20px_rgba(0,242,254,0.25)]',
             'shadow-[0_0_20px_rgba(245,158,11,0.25)]'
           );
-          c.classList.add('border-white/10', 'bg-white/[0.02]', 'text-slate-300');
+          c.classList.add('border-white/10', 'bg-white/[0.03]', 'text-slate-300');
         });
 
         // Activate selected card
         const lead = card.getAttribute('data-lead') || 'saad';
         currentLeadKey = lead;
-        card.classList.remove('border-white/10', 'bg-white/[0.02]', 'text-slate-300');
+        card.classList.remove('border-white/10', 'bg-white/[0.02]', 'bg-white/[0.03]', 'text-slate-300');
         if (lead === 'arfa') {
           card.classList.add('border-amber-400', 'bg-amber-500/15', 'text-white', 'shadow-[0_0_20px_rgba(245,158,11,0.25)]');
         } else {
@@ -1322,7 +1399,7 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
           const spans = p.querySelectorAll('span');
           if (spans.length >= 3) {
             spans[0].className = 'text-[9px] sm:text-[10px] font-mono text-slate-400 uppercase tracking-wider';
-            spans[2].className = 'text-[9px] font-mono text-slate-500 uppercase';
+            spans[2].className = 'text-[9px] font-mono text-slate-400 uppercase';
           }
         });
 
@@ -1417,7 +1494,7 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
               <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
               <span>SYNCHRONIZING CALENDAR...</span>
             </div>
-            <div class="h-11 rounded-xl bg-white/[0.03] border border-white/10 animate-pulse hidden sm:flex items-center justify-center gap-2 text-xs font-mono text-slate-500">
+            <div class="h-11 rounded-xl bg-white/[0.03] border border-white/10 animate-pulse hidden sm:flex items-center justify-center gap-2 text-xs font-mono text-slate-400">
               <span>CHECKING GOOGLE CALENDAR...</span>
             </div>
           `;
@@ -1571,10 +1648,12 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
           data.step1.objectives.forEach((obj, idx) => {
             const titleEl = document.getElementById(`obj-title-${idx}`);
             const descEl = document.getElementById(`obj-desc-${idx}`);
+            const priceEl = document.getElementById(`obj-price-${idx}`);
             const radioEl = document.getElementById(`obj-radio-${idx}`);
 
             if (titleEl) morphElementContent(titleEl, obj.title);
             if (descEl) morphElementContent(descEl, obj.desc);
+            if (priceEl && obj.price) morphElementContent(priceEl, obj.price);
             if (radioEl) radioEl.value = obj.title.replace(/&amp;/g, '&');
           });
         }
@@ -1747,7 +1826,7 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
       }
 
       // --- Objective, Velocity, and Stack Event Listeners ---
-      objectiveCards.forEach(card => {
+      objectiveCards.forEach((card, idx) => {
         const radio = card.querySelector('input[type="radio"]');
         if (radio) {
           radio.addEventListener('change', () => {
@@ -1756,6 +1835,21 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
         }
         card.addEventListener('click', (e) => {
           selectObjectiveCard(card);
+        });
+        card.addEventListener('keydown', (e) => {
+          let targetCard = null;
+          if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+            e.preventDefault();
+            targetCard = objectiveCards[(idx + 1) % objectiveCards.length];
+          } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+            e.preventDefault();
+            targetCard = objectiveCards[(idx - 1 + objectiveCards.length) % objectiveCards.length];
+          }
+          if (targetCard) {
+            const r = targetCard.querySelector('input[type="radio"]');
+            if (r) r.focus();
+            selectObjectiveCard(targetCard);
+          }
         });
       });
 
@@ -1788,32 +1882,182 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
       });
 
       // Initial audience lens detection on page load (URL param -> localStorage -> data-lens -> fallback)
+      let currentParsedLens = 'corporate';
       try {
         const urlParams = new URLSearchParams(window.location.search);
         const rawLens = (urlParams.get('lens') || urlParams.get('audience') || '').toLowerCase();
-        let initialLens = 'corporate';
         if (rawLens === 'trades' || rawLens === 'trade' || rawLens === 'field') {
-          initialLens = 'trades';
+          currentParsedLens = 'trades';
         } else if (rawLens === 'corporate' || rawLens === 'corp' || rawLens === 'enterprise') {
-          initialLens = 'corporate';
+          currentParsedLens = 'corporate';
         } else {
           const storedLens = localStorage.getItem('lumilore_master_lens') || localStorage.getItem('lumilore_industry_lens');
           const docLens = document.documentElement.getAttribute('data-lens');
           if (storedLens === 'trades' || docLens === 'trades') {
-            initialLens = 'trades';
+            currentParsedLens = 'trades';
           }
         }
-        applyContactLens(initialLens);
+        applyContactLens(currentParsedLens);
+        document.documentElement.setAttribute('data-lens', currentParsedLens);
+        try {
+          localStorage.setItem('lumilore_master_lens', currentParsedLens);
+        } catch (e) {}
       } catch (err) {
         applyContactLens('corporate');
       }
 
-      // --- Micro-Step 4.1: Query Parameters Auto-Scoping (source, service) ---
+      // --- Micro-Step 2.1: Query Parameters Ingestion (?service, ?tier, ?lens) ---
       try {
         const urlParams = new URLSearchParams(window.location.search);
-        const rawService = (urlParams.get('service') || '').toLowerCase();
+        const rawService = (urlParams.get('service') || '').toLowerCase().trim();
+        const rawTier = (urlParams.get('tier') || '').toLowerCase().trim();
+        const rawDomain = urlParams.get('domain');
+        const rawScore = urlParams.get('score');
+        const rawSource = urlParams.get('source');
 
-        // Dynamic Form Auto-Scoping:
+        // Service Slug Normalization map
+        const serviceMap = {
+          'autonomous-booking': 'autonomous-booking',
+          'autonomous_booking': 'autonomous-booking',
+          'booking': 'autonomous-booking',
+          'calendar': 'autonomous-booking',
+          'voice-dispatch': 'voice-dispatch',
+          'voice_dispatch': 'voice-dispatch',
+          'voice': 'voice-dispatch',
+          'receptionist': 'voice-dispatch',
+          'geo-engine': 'geo-engine',
+          'geo_engine': 'geo-engine',
+          'geo': 'geo-engine',
+          'seo': 'geo-engine',
+          'web-modernization': 'web-modernization',
+          'web_modernization': 'web-modernization',
+          'web': 'web-modernization',
+          'speed': 'web-modernization',
+          'modernization': 'web-modernization',
+          'custom-enterprise': 'custom-enterprise',
+          'custom_enterprise': 'custom-enterprise',
+          'enterprise': 'custom-enterprise',
+          // Legacy campaign aliases
+          'roadmap': 'custom-enterprise',
+          'poc_sprint': 'custom-enterprise',
+          'poc': 'custom-enterprise',
+          'cloud_audit': 'web-modernization',
+          'field_audit': 'voice-dispatch',
+          'audit': 'voice-dispatch'
+        };
+
+        const canonicalService = serviceMap[rawService] || null;
+
+        // Auto-select matching objective card
+        if (canonicalService) {
+          const matchingCard = Array.from(objectiveCards).find(c => 
+            c.getAttribute('data-value') === canonicalService
+          );
+          if (matchingCard && typeof selectObjectiveCard === 'function') {
+            selectObjectiveCard(matchingCard);
+          }
+        }
+
+        // Tier Velocity Auto-Selection
+        if (rawTier && velocityCards) {
+          if (['starter', 'audit', 'audit_sprint', 'essential'].includes(rawTier)) {
+            if (velocityCards[2] && typeof selectVelocityCard === 'function') {
+              selectVelocityCard(velocityCards[2]); // Architecture Audit / Discovery
+            }
+          } else if (['pro', 'field-pro', 'fieldpro', 'retainer', 'full', 'full_rearchitecture'].includes(rawTier)) {
+            if (velocityCards[1] && typeof selectVelocityCard === 'function') {
+              selectVelocityCard(velocityCards[1]); // Planned Production / Standard Deployment
+            }
+          } else if (['enterprise', 'enterprise_custom', 'immediate'].includes(rawTier)) {
+            if (velocityCards[0] && typeof selectVelocityCard === 'function') {
+              selectVelocityCard(velocityCards[0]); // Rapid Sprint / Emergency Rollout
+            }
+          }
+        }
+
+        // Pre-fill scoping notes if empty
+        const notesInput = document.getElementById('notes');
+        if (notesInput && !notesInput.value && canonicalService) {
+          const tierSuffix = rawTier ? ` // Tier: ${rawTier.toUpperCase()}` : '';
+          const scopingNotes = {
+            'autonomous-booking': `[Autonomous Calendar & Booking Agent${tierSuffix}] Pre-scoped from product catalog for real-time calendar synchronization, SMS buffer rules, and zero double-bookings.`,
+            'voice-dispatch': `[24/7 AI Voice Dispatch & Inbound Receptionist${tierSuffix}] Pre-scoped from product catalog for sub-second conversational AI answering, emergency triage, and CRM dispatching.`,
+            'geo-engine': `[Autonomous SEO & GEO Engine${tierSuffix}] Pre-scoped from product catalog for 5-layer Schema.org JSON-LD architecture, frontier LLM crawler setup, and Indexing API automation.`,
+            'web-modernization': `[Sub-150ms Web Modernization & Speed Engine${tierSuffix}] Pre-scoped from product catalog for AWS serverless Jamstack re-architecture, global CloudFront CDN, and 100/100 Core Web Vitals.`,
+            'custom-enterprise': `[Custom Multi-Agent Enterprise Suite${tierSuffix}] Pre-scoped for bespoke multi-agent swarm architecture, private AWS VPC deployment, and zero-trust IAM governance.`
+          };
+          if (scopingNotes[canonicalService]) {
+            notesInput.value = scopingNotes[canonicalService];
+          }
+        }
+
+        // Existing GEO Scorecard / Instant AI Audit Magnet banner handling (preserved 100%)
+        if (rawDomain || rawSource === 'geo_audit_modal') {
+          const orgInput = document.getElementById('organization');
+          if (orgInput && rawDomain && !orgInput.value) {
+            orgInput.value = rawDomain;
+          }
+          const geoCard = Array.from(objectiveCards).find(c => c.getAttribute('data-value') === 'geo-engine');
+          if (geoCard && typeof selectObjectiveCard === 'function') {
+            selectObjectiveCard(geoCard);
+          }
+          if (velocityCards && velocityCards[2] && typeof selectVelocityCard === 'function') {
+            selectVelocityCard(velocityCards[2]);
+          }
+          if (notesInput && (!notesInput.value || notesInput.value.includes('SEO & GEO Engine'))) {
+            const scoreLabel = rawScore ? `${rawScore}/100 GEO` : 'Audited';
+            notesInput.value = `[AI Search Visibility Audit] Domain: ${rawDomain || 'N/A'} • Score: ${scoreLabel} • Priority triage to resolve frontier LLM crawler blockers, JSON-LD schema entity gaps, and citation authority.`;
+          }
+          const dossierBanner = document.getElementById('geo-audit-dossier-banner');
+          const bannerDomain = document.getElementById('geo-banner-domain');
+          const bannerScore = document.getElementById('geo-banner-score');
+          if (dossierBanner) {
+            if (bannerDomain && rawDomain) bannerDomain.textContent = rawDomain;
+            if (bannerScore && rawScore) bannerScore.textContent = `${rawScore}/100 GEO`;
+            dossierBanner.classList.remove('hidden');
+          }
+        }
+
+        // Contextual Inbound Scoping Banner (Sprint 3 Micro-Step 2.2)
+        if (canonicalService && !rawDomain && rawSource !== 'geo_audit_modal') {
+          const serviceScopingBanner = document.getElementById('service-scoping-banner');
+          const scopingTitle = document.getElementById('service-scoping-title');
+          const tierPill = document.getElementById('service-scoping-tier-pill');
+          const changeBtn = document.getElementById('service-scoping-change-btn');
+
+          const friendlyServiceTitles = {
+            'autonomous-booking': 'Autonomous Calendar & Booking Agent',
+            'voice-dispatch': '24/7 AI Voice Dispatch & Inbound Receptionist',
+            'geo-engine': 'Autonomous SEO & GEO Engine',
+            'web-modernization': 'Sub-150ms Web Modernization & Speed Engine',
+            'custom-enterprise': 'Custom Multi-Agent Enterprise Suite'
+          };
+
+          if (scopingTitle && friendlyServiceTitles[canonicalService]) {
+            scopingTitle.textContent = friendlyServiceTitles[canonicalService];
+          }
+
+          if (tierPill && rawTier) {
+            tierPill.textContent = `${rawTier.toUpperCase()} TIER`;
+            tierPill.classList.remove('hidden');
+          }
+
+          if (serviceScopingBanner) {
+            serviceScopingBanner.classList.remove('hidden');
+          }
+
+          if (changeBtn) {
+            changeBtn.addEventListener('click', (e) => {
+              e.preventDefault();
+              const step01 = document.getElementById('step-01-container');
+              if (step01) {
+                step01.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }
+            });
+          }
+        }
+
+        // Legacy service parameter backward compatibility
         if (rawService === 'field_audit') {
           applyContactLens('trades');
           if (velocityCards && velocityCards[2] && typeof selectVelocityCard === 'function') {
@@ -1823,101 +2067,15 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
           if (velocityCards && velocityCards[2] && typeof selectVelocityCard === 'function') {
             selectVelocityCard(velocityCards[2]);
           }
-        } else if (rawService === 'roadmap') {
-          if (objectiveCards && objectiveCards[0] && typeof selectObjectiveCard === 'function') {
-            selectObjectiveCard(objectiveCards[0]);
-          }
-          if (velocityCards && velocityCards[0] && typeof selectVelocityCard === 'function') {
-            selectVelocityCard(velocityCards[0]);
-          }
-        } else if (rawService === 'poc_sprint') {
+        } else if (rawService === 'roadmap' || rawService === 'poc_sprint') {
           if (velocityCards && velocityCards[0] && typeof selectVelocityCard === 'function') {
             selectVelocityCard(velocityCards[0]);
           }
         }
 
-        // --- Micro-Step 4.3 & 5.2: GEO Scorecard & Product Tier Integration ---
-        const geoDomain = urlParams.get('domain');
-        const geoScore = urlParams.get('score');
-        const geoSource = urlParams.get('source');
-        const geoTier = urlParams.get('tier');
-        const isGeoEngine = rawService === 'geo_engine' || (geoSource && geoSource.startsWith('geo_tier_')) || geoTier;
-
-        if (geoDomain || geoSource === 'geo_audit_modal') {
-          // 1. Auto-fill Organization / Domain
-          const orgInput = document.getElementById('organization');
-          if (orgInput && geoDomain && !orgInput.value) {
-            orgInput.value = geoDomain;
-          }
-
-          // 2. Auto-select Agentic AI & Workflows + Architecture Audit Velocity
-          if (objectiveCards && objectiveCards[0] && typeof selectObjectiveCard === 'function') {
-            selectObjectiveCard(objectiveCards[0]);
-          }
-          if (velocityCards && velocityCards[2] && typeof selectVelocityCard === 'function') {
-            selectVelocityCard(velocityCards[2]);
-          }
-
-          // 3. Prepend / set notes with Audit telemetry
-          const notesInput = document.getElementById('notes');
-          if (notesInput && !notesInput.value) {
-            const scoreLabel = geoScore ? `${geoScore}/100 GEO` : 'Audited';
-            notesInput.value = `[AI Search Visibility Audit] Domain: ${geoDomain || 'N/A'} • Score: ${scoreLabel} • Priority triage to resolve frontier LLM crawler blockers, JSON-LD schema entity gaps, and citation authority.`;
-          }
-
-          // 4. Reveal the Audit Dossier Banner
-          const dossierBanner = document.getElementById('geo-audit-dossier-banner');
-          const bannerDomain = document.getElementById('geo-banner-domain');
-          const bannerScore = document.getElementById('geo-banner-score');
-          if (dossierBanner) {
-            if (bannerDomain && geoDomain) bannerDomain.textContent = geoDomain;
-            if (bannerScore && geoScore) bannerScore.textContent = `${geoScore}/100 GEO`;
-            dossierBanner.classList.remove('hidden');
-          }
-
-          // 5. Update Telemetry HUD stream
-          if (telemetryStreamText) {
-            const scoreLabel = geoScore ? `${geoScore}/100` : 'PENDING';
-            telemetryStreamText.textContent = `GEO_TRIAGE // DOMAIN: ${(geoDomain || 'UNKNOWN').toUpperCase()} // SCORE: ${scoreLabel} // SPRINT: 10-MIN AUDIT // ARCHITECT: SAAD SAYED`;
-          }
-        } else if (isGeoEngine) {
-          // Auto-select Agentic AI & Workflows
-          if (objectiveCards && objectiveCards[0] && typeof selectObjectiveCard === 'function') {
-            selectObjectiveCard(objectiveCards[0]);
-          }
-
-          // Select Velocity based on Tier
-          if (velocityCards && typeof selectVelocityCard === 'function') {
-            if (geoTier === 'starter') {
-              if (velocityCards[2]) selectVelocityCard(velocityCards[2]); // Architecture Audit
-            } else if (geoTier === 'retainer') {
-              if (velocityCards[1]) selectVelocityCard(velocityCards[1]); // Active Retainer
-            } else if (geoTier === 'enterprise') {
-              if (velocityCards[0]) selectVelocityCard(velocityCards[0]); // Immediate Sprint
-            } else {
-              if (velocityCards[2]) selectVelocityCard(velocityCards[2]);
-            }
-          }
-
-          // Pre-fill Notes with Tier Details
-          const notesInput = document.getElementById('notes');
-          if (notesInput && !notesInput.value) {
-            if (geoTier === 'starter') {
-              notesInput.value = '[SEO & GEO Engine // Starter Tier: $2,500 CAD One-Time Sprint] Requesting full 5-layer Schema.org JSON-LD graph architecture, LLM bot crawler protocol configuration, and Google Indexing API setup.';
-            } else if (geoTier === 'retainer') {
-              notesInput.value = '[SEO & GEO Engine // Autonomous Growth Retainer: $950 CAD / Month] Requesting active retainer: 2 monthly flagship architectural articles, real-time citation radar, competitor citation hijacking, and automated Google Indexing API webhook.';
-            } else if (geoTier === 'enterprise') {
-              notesInput.value = '[SEO & GEO Engine // Enterprise Multi-Agent Swarm: $10,000+ CAD] Requesting enterprise multi-agent swarm deployment into private AWS account, custom vector RAG ingestion, and multi-brand citation network.';
-            } else {
-              notesInput.value = '[SEO & GEO Engine Discovery] Architectural discovery session to dominate frontier AI search citations (ChatGPT, Perplexity, Claude) and deploy autonomous Schema.org entity graphs.';
-            }
-          }
-
-          // Update Telemetry HUD stream
-          if (telemetryStreamText) {
-            const tierLabel = geoTier ? geoTier.toUpperCase() : 'DISCOVERY';
-            telemetryStreamText.textContent = `GEO_ENGINE // TIER: ${tierLabel} // SPRINT: ARCHITECTURE // LEAD ARCHITECT: SAAD SAYED`;
-          }
+        // Refresh telemetry stream with pre-selected parameters
+        if (typeof updateTelemetryStream === 'function') {
+          updateTelemetryStream();
         }
       } catch (autoScopeErr) {
         console.warn('[LumiLore Auto-Scope Notice]', autoScopeErr);
@@ -2151,19 +2309,83 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
         } catch (e) {}
 
         const currentUrlParams = new URLSearchParams(window.location.search);
+        
+        // Resolve Canonical Service Slug
+        const serviceSlugMap = {
+          'autonomous-booking': 'autonomous-booking',
+          'autonomous_booking': 'autonomous-booking',
+          'booking': 'autonomous-booking',
+          'calendar': 'autonomous-booking',
+          'voice-dispatch': 'voice-dispatch',
+          'voice_dispatch': 'voice-dispatch',
+          'voice': 'voice-dispatch',
+          'receptionist': 'voice-dispatch',
+          'geo-engine': 'geo-engine',
+          'geo_engine': 'geo-engine',
+          'geo': 'geo-engine',
+          'seo': 'geo-engine',
+          'web-modernization': 'web-modernization',
+          'web_modernization': 'web-modernization',
+          'web': 'web-modernization',
+          'speed': 'web-modernization',
+          'modernization': 'web-modernization',
+          'custom-enterprise': 'custom-enterprise',
+          'custom_enterprise': 'custom-enterprise',
+          'enterprise': 'custom-enterprise'
+        };
+
+        const checkedObjCard = checkedObj ? checkedObj.closest('.objective-card') : null;
+        const rawUrlService = (currentUrlParams.get('service') || '').toLowerCase().trim();
+        const selectedServiceSlug = (checkedObjCard ? checkedObjCard.getAttribute('data-value') : null)
+          || serviceSlugMap[rawUrlService]
+          || 'autonomous-booking';
+
+        // Resolve Selected Tier
+        let rawTier = (currentUrlParams.get('tier') || '').toLowerCase().trim();
+        if (!rawTier && checkedVel) {
+          const velVal = checkedVel.closest('.velocity-card')?.getAttribute('data-value');
+          if (velVal === 'feasibility-audit') rawTier = 'starter';
+          else if (velVal === 'planned-production') rawTier = 'pro';
+          else if (velVal === 'rapid-sprint') rawTier = 'enterprise';
+        }
+        const tierSlugMap = {
+          'starter': 'starter',
+          'audit': 'starter',
+          'audit_sprint': 'starter',
+          'essential': 'starter',
+          'pro': 'pro',
+          'field-pro': 'pro',
+          'fieldpro': 'pro',
+          'retainer': 'pro',
+          'full': 'pro',
+          'full_rearchitecture': 'pro',
+          'enterprise': 'enterprise',
+          'enterprise_custom': 'enterprise',
+          'immediate': 'enterprise'
+        };
+        const selectedTier = tierSlugMap[rawTier] || (rawTier ? rawTier : 'starter');
+
+        const activeLens = (currentContactLens === 'trades') ? 'trades' : 'corporate';
+
         const attribution = {
           source: currentUrlParams.get('source') || (document.referrer.includes(window.location.hostname) ? 'internal_nav' : 'direct'),
-          service: currentUrlParams.get('service') || 'general_consultation',
-          lens: currentContactLens,
+          service: selectedServiceSlug,
+          tier: selectedTier,
+          lens: activeLens,
           referrer: document.referrer || 'direct',
           geoDomain: currentUrlParams.get('domain') || null,
           geoScore: currentUrlParams.get('score') || null
         };
 
+        const objectiveBase = checkedObj ? checkedObj.value : 'Autonomous Calendar & Booking Agent';
+        const objectiveWithTier = selectedTier 
+          ? `${objectiveBase} // Tier: ${selectedTier.toUpperCase()}`
+          : objectiveBase;
+
         const telemetryPayload = {
           intakeId,
           timestamp,
-          audienceLens: currentContactLens,
+          audienceLens: activeLens,
           clientProfile: {
             fullName,
             email,
@@ -2173,7 +2395,9 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
             userTimezone
           },
           architectureScope: {
-            objective: checkedObj ? checkedObj.value : 'Agentic AI & Workflows',
+            objective: objectiveWithTier,
+            serviceSlug: selectedServiceSlug,
+            tier: selectedTier,
             velocity: checkedVel ? checkedVel.value : 'Rapid Sprint (< 14 Days)',
             techStack: checkedStacks
           },
