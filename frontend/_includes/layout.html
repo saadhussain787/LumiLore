@@ -97,6 +97,9 @@
 </head>
 <body data-lens="corporate" class="bg-background text-on-background font-body antialiased flex flex-col min-h-screen relative overflow-x-hidden max-w-full">
   
+  <!-- Universal Cinematic WebGL Particle Background (Layer -10) -->
+  <div id="webgl-container" class="fixed inset-0 pointer-events-none w-full h-full -z-10" style="z-index: -10;"></div>
+
   <!-- Subtle Tactile Film Grain Overlay (Layer 2: Eliminates Banding & Adds Matte Texture) -->
   <div class="fixed inset-0 pointer-events-none z-30 select-none overflow-hidden opacity-[0.032] mix-blend-overlay" aria-hidden="true">
     <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
@@ -1073,7 +1076,6 @@
         document.body.appendChild(script);
       }
     })();
-  </script>
 
     // Initialize Card Flip Logic (Layer 4: WCAG 2.1 AA ARIA Compliance)
     document.querySelectorAll('.origin-card').forEach(card => {
@@ -1680,6 +1682,9 @@
         })();
       })();
     </script>
+
+  <!-- Universal Ambient Three.js Particle Field -->
+  {% include "components/particle-field.html" %}
 </body>
 
 </html>
