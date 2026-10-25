@@ -1,0 +1,27 @@
+{
+  "name": "lumilore-geo-scanner",
+  "version": "1.0.0",
+  "description": "High-performance Generative Engine Optimization (GEO) scanner for AI answer engines (GPTBot, ClaudeBot, PerplexityBot)",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "geo-scanner": "./bin/cli.js"
+  },
+  "keywords": [
+    "geo",
+    "seo",
+    "generative-engine-optimization",
+    "ai-search",
+    "gptbot",
+    "claudebot",
+    "perplexity",
+    "answer-engine-optimization"
+  ],
+  "author": "Saad Hussain Sayed <info@lumilore.ca> (https://www.lumilore.ca)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/saadhussain787/lumilore-geo-scanner.git"
+  },
+  "homepage": "https://www.lumilore.ca"
+}
