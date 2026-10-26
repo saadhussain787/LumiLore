@@ -1,0 +1,59 @@
+{
+  "timestamp": "2026-10-26T04:23:30.798Z",
+  "mode": "DRY-RUN (SIMULATION)",
+  "totalArticles": 2,
+  "platforms": [
+    "devto",
+    "medium"
+  ],
+  "devto": [
+    {
+      "success": true,
+      "platform": "devto",
+      "slug": "autonomous-247-ai-voice-dispatch-mechanical-trades",
+      "title": "Autonomous 24/7 AI Voice Dispatch for Mechanical Trades: Systems Architecture & Telephony Triage",
+      "mode": "dry-run",
+      "canonicalUrl": "https://lumilore.ca/insights/autonomous-247-ai-voice-dispatch-mechanical-trades/",
+      "savedPath": "C:\\Users\\saadh\\Desktop\\Saad Documents\\Cloud\\LumiLore\\.ai\\memory\\marketing_output\\syndication\\devto_autonomous-247-ai-voice-dispatch-mechanical-trades.md",
+      "savedMdPath": "C:\\Users\\saadh\\Desktop\\Saad Documents\\Cloud\\LumiLore\\.ai\\memory\\marketing_output\\syndication\\devto_autonomous-247-ai-voice-dispatch-mechanical-trades.md",
+      "reason": "Executed in dry-run mode"
+    },
+    {
+      "success": true,
+      "platform": "devto",
+      "slug": "cutting-aws-cloud-waste-serverless-architecture",
+      "title": "Cutting AWS Cloud Waste by 68%: An Enterprise Serverless Architecture Case Study",
+      "mode": "dry-run",
+      "canonicalUrl": "https://lumilore.ca/insights/cutting-aws-cloud-waste-serverless-architecture/",
+      "savedPath": "C:\\Users\\saadh\\Desktop\\Saad Documents\\Cloud\\LumiLore\\.ai\\memory\\marketing_output\\syndication\\devto_cutting-aws-cloud-waste-serverless-architecture.md",
+      "savedMdPath": "C:\\Users\\saadh\\Desktop\\Saad Documents\\Cloud\\LumiLore\\.ai\\memory\\marketing_output\\syndication\\devto_cutting-aws-cloud-waste-serverless-architecture.md",
+      "reason": "Executed in dry-run mode"
+    }
+  ],
+  "medium": [
+    {
+      "success": true,
+      "platform": "medium",
+      "slug": "autonomous-247-ai-voice-dispatch-mechanical-trades",
+      "title": "Autonomous 24/7 AI Voice Dispatch for Mechanical Trades: Systems Architecture & Telephony Triage",
+      "mode": "dry-run",
+      "canonicalUrl": "https://lumilore.ca/insights/autonomous-247-ai-voice-dispatch-mechanical-trades/",
+      "publishStatus": "draft",
+      "savedMdPath": "C:\\Users\\saadh\\Desktop\\Saad Documents\\Cloud\\LumiLore\\.ai\\memory\\marketing_output\\syndication\\medium_autonomous-247-ai-voice-dispatch-mechanical-trades.md",
+      "savedJsonPath": "C:\\Users\\saadh\\Desktop\\Saad Documents\\Cloud\\LumiLore\\.ai\\memory\\marketing_output\\syndication\\medium_autonomous-247-ai-voice-dispatch-mechanical-trades.json",
+      "reason": "Executed in dry-run mode"
+    },
+    {
+      "success": true,
+      "platform": "medium",
+      "slug": "cutting-aws-cloud-waste-serverless-architecture",
+      "title": "Cutting AWS Cloud Waste by 68%: An Enterprise Serverless Architecture Case Study",
+      "mode": "dry-run",
+      "canonicalUrl": "https://lumilore.ca/insights/cutting-aws-cloud-waste-serverless-architecture/",
+      "publishStatus": "draft",
+      "savedMdPath": "C:\\Users\\saadh\\Desktop\\Saad Documents\\Cloud\\LumiLore\\.ai\\memory\\marketing_output\\syndication\\medium_cutting-aws-cloud-waste-serverless-architecture.md",
+      "savedJsonPath": "C:\\Users\\saadh\\Desktop\\Saad Documents\\Cloud\\LumiLore\\.ai\\memory\\marketing_output\\syndication\\medium_cutting-aws-cloud-waste-serverless-architecture.json",
+      "reason": "Executed in dry-run mode"
+    }
+  ]
+}

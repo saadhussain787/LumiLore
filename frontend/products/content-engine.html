@@ -1,0 +1,965 @@
+---
+layout: layout.html
+title: "Autonomous Content & Omnichannel Distribution Engine | LumiLore Technologies"
+description: "Turn deep technical case studies into viral LinkedIn leadership posts, 8-tweet technical breakdowns, and syndicated high-DA publications across Dev.to & Medium on autopilot."
+---
+
+<!-- Cinematic Ambient Glow Containers -->
+<div class="relative z-10 min-h-screen pt-28 pb-32 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+
+    <!-- Breadcrumb & Cross-Pillar Quick Navigation -->
+    <div class="mb-10 flex flex-wrap items-center justify-between gap-4 text-xs font-mono">
+      <div class="flex items-center gap-2 text-slate-400">
+        <a href="/" class="hover:text-purple-300 transition-colors">Home</a>
+        <span class="text-slate-500 select-none" aria-hidden="true">/</span>
+        <span class="text-slate-400">Products</span>
+        <span class="text-slate-500 select-none" aria-hidden="true">/</span>
+        <span class="text-purple-300 font-bold">Autonomous Content Engine</span>
+      </div>
+      <div class="flex flex-wrap items-center gap-3">
+        <span class="text-slate-400 uppercase tracking-wider text-[10px]">Agency Pillars:</span>
+        <a href="/products/geo-engine/" class="text-slate-400 hover:text-cyan-300 transition-colors flex items-center gap-1">
+          <span>🔍</span> <span>GEO Engine</span>
+        </a>
+        <span class="text-slate-700">•</span>
+        <a href="/products/voice-dispatch/" class="text-slate-400 hover:text-amber-300 transition-colors flex items-center gap-1">
+          <span>🎙️</span> <span>Voice Dispatch</span>
+        </a>
+        <span class="text-slate-700">•</span>
+        <a href="/products/autonomous-booking/" class="text-slate-400 hover:text-emerald-300 transition-colors flex items-center gap-1">
+          <span>📅</span> <span>Booking Agent</span>
+        </a>
+        <span class="text-slate-700">•</span>
+        <a href="/products/web-modernization/" class="text-slate-400 hover:text-indigo-300 transition-colors flex items-center gap-1">
+          <span>⚡</span> <span>Speed Engine</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Section 1: Hero Header -->
+    <div class="text-center max-w-4xl mx-auto mb-16">
+      
+      <!-- Eyebrow Pill -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-purple-500/30 bg-purple-950/50 backdrop-blur-xl mb-6 shadow-[0_0_20px_rgba(168,85,247,0.15)]">
+        <span class="w-2 h-2 rounded-full bg-purple-400 animate-pulse shadow-[0_0_8px_rgba(168,85,247,0.8)]"></span>
+        <span class="text-xs font-mono font-bold tracking-widest text-purple-300 uppercase">
+          AUTONOMOUS REVENUE ENGINE // OMNICHANNEL DISTRIBUTION
+        </span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="text-3xl min-[380px]:text-4xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight leading-[1.05] mb-6 font-display break-words">
+        Engineered for Thought Leadership.<br/>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-300 to-indigo-400">
+          One Technical Blueprint. Infinite High-DA Reach.
+        </span>
+      </h1>
+
+      <!-- Audience Perspective Selector -->
+      <div class="inline-flex p-1 rounded-2xl bg-slate-900/90 border border-slate-700/60 backdrop-blur-xl mb-8 shadow-2xl">
+        <button 
+          id="lens-btn-corporate" 
+          onclick="switchHeroLens('corporate')" 
+          class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-mono font-bold transition-all cursor-pointer bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg shadow-purple-500/25"
+        >
+          🏢 Corporate B2B &amp; CTO Lens
+        </button>
+        <button 
+          id="lens-btn-trades" 
+          onclick="switchHeroLens('trades')" 
+          class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-mono font-bold transition-all cursor-pointer text-slate-400 hover:text-white"
+        >
+          🔧 Mechanical Trades &amp; Fleet Lens
+        </button>
+      </div>
+
+      <!-- Dynamic Lens Narrative Subheadline -->
+      <div id="lens-narrative-container">
+        <!-- Corporate Narrative (Default) -->
+        <div id="lens-corporate-content" class="transition-opacity duration-300">
+          <p class="text-base sm:text-xl text-slate-300 font-light leading-relaxed max-w-3xl mx-auto mb-10">
+            Enterprise CTOs and Cloud Architects ignore generic AI copy. The LumiLore Content Engine ingests deep architectural source code and serverless benchmarks, autonomously decomposing them into viral LinkedIn leadership posts, 8-tweet technical breakdowns, and syndicated publications across Dev.to &amp; Medium—with 100% canonical SEO protection.
+          </p>
+        </div>
+
+        <!-- Trades Narrative (Hidden by default) -->
+        <div id="lens-trades-content" class="hidden transition-opacity duration-300">
+          <p class="text-base sm:text-xl text-slate-300 font-light leading-relaxed max-w-3xl mx-auto mb-10">
+            Commercial HVAC, plumbing, and electrical fleet owners don't need buzzwords—they need booked jobs. The LumiLore Content Engine turns real field dispatch workflows and after-hours call recovery case studies into high-converting LinkedIn stories and local industry authority that wins commercial service agreements.
+          </p>
+        </div>
+      </div>
+
+      <!-- Primary Action Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a 
+          href="/contact/?service=content-engine&lens=corporate" 
+          id="hero-primary-cta"
+          class="glow-purple-cta w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-500 hover:from-purple-400 hover:to-indigo-400 text-white font-bold text-sm tracking-wide uppercase transition-all shadow-[0_0_25px_rgba(168,85,247,0.35)] hover:shadow-[0_0_35px_rgba(168,85,247,0.6)] cursor-pointer select-none"
+        >
+          <span>Deploy Your Content Engine</span>
+          <svg class="w-4 h-4 text-white transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+
+        <a 
+          href="#live-hook-demo" 
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full text-slate-200 hover:text-white text-sm font-mono border border-white/15 bg-white/4 backdrop-blur-xl hover:bg-white/8 hover:border-purple-400/40 transition-all shadow-[0_10px_30px_rgba(0,0,0,0.4)] cursor-pointer"
+        >
+          <span class="w-2 h-2 rounded-full bg-purple-400 animate-pulse"></span>
+          <span>Test Live Hook Generator</span>
+          <span class="text-purple-400">↓</span>
+        </a>
+      </div>
+
+      <!-- Trust Sub-Strip -->
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-3 text-xs font-mono text-slate-400">
+        <span class="flex items-center gap-1.5"><strong class="text-white">Zero</strong> Generic AI Fluff</span>
+        <span>•</span>
+        <span class="flex items-center gap-1.5"><strong class="text-purple-400">100%</strong> Grounded Metrics</span>
+        <span>•</span>
+        <span class="flex items-center gap-1.5"><strong class="text-pink-400">&le; 280 Char</strong> Twitter Strictness</span>
+        <span>•</span>
+        <span class="flex items-center gap-1.5"><strong class="text-emerald-400">Canonical First</strong> SEO Protection</span>
+      </div>
+
+    </div>
+
+    <!-- Section 2: Interactive "Live Social Hook Generator" Demo Widget -->
+    <div id="live-hook-demo" class="mb-24 scroll-mt-28">
+      <div class="max-w-4xl mx-auto rounded-3xl p-6 sm:p-10 bg-slate-900/90 border border-purple-500/30 backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.7),0_0_50px_rgba(168,85,247,0.15)] relative overflow-hidden">
+        
+        <!-- Glow accent -->
+        <div class="absolute -top-24 -right-24 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-pink-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 pb-6 border-b border-slate-800">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono font-semibold uppercase tracking-wider text-purple-300 bg-purple-950/60 border border-purple-500/30 mb-2">
+              INTERACTIVE DEMO // DOGFOODED CUSTOMER ZERO ENGINE
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight font-display">
+              Live Social Hook &amp; Proof Engine
+            </h2>
+            <p class="text-xs text-slate-400 mt-1">
+              Select your target audience and hook strategy to experience the autonomous conversion formulas in real time.
+            </p>
+          </div>
+          <span class="shrink-0 text-xs font-mono px-3 py-1.5 rounded-lg bg-purple-950/80 border border-purple-500/40 text-purple-300 self-start sm:self-auto">
+            ⚡ &lt; 50ms Generation
+          </span>
+        </div>
+
+        <!-- Interactive Controls -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+          <div>
+            <label class="block text-xs font-mono font-bold uppercase text-slate-300 mb-2">Select Target Audience:</label>
+            <select id="demo-audience-select" onchange="generateDemoHook()" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white font-mono focus:border-purple-400 focus:outline-none">
+              <option value="corporate">🏢 Corporate B2B (CTOs, Cloud Architects, VPs)</option>
+              <option value="trades">🔧 Mechanical Trades (HVAC, Plumbing, Electrical)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-mono font-bold uppercase text-slate-300 mb-2">Select Strategic Hook Angle:</label>
+            <select id="demo-hook-style" onchange="generateDemoHook()" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white font-mono focus:border-purple-400 focus:outline-none">
+              <option value="contrarian">🔥 Contrarian Cloud Waste / Industry Truth</option>
+              <option value="revenue">💸 The After-Hours Revenue Leak ($295k/yr)</option>
+              <option value="architectural">⚙️ Event-Driven Serverless vs. Monoliths</option>
+              <option value="finops">📈 FinOps Margin Recovery &amp; Speed</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Generated Output Display Box -->
+        <div class="rounded-2xl bg-slate-950/90 border border-slate-800 p-5 mb-6 relative">
+          <div class="flex items-center justify-between mb-3 text-xs font-mono text-slate-400">
+            <span class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span id="demo-platform-label">Generated LinkedIn Hook &amp; Proof Block:</span>
+            </span>
+            <span id="demo-char-count" class="text-purple-400 font-bold">122 Chars (Hook)</span>
+          </div>
+
+          <!-- Hook Box -->
+          <div class="mb-4 p-4 rounded-xl bg-purple-950/30 border border-purple-500/20">
+            <span class="text-[10px] font-mono text-purple-300 uppercase tracking-widest block mb-1">Viral Opening Hook (Under 140 Chars):</span>
+            <p id="demo-hook-text" class="text-sm sm:text-base text-white font-medium leading-relaxed font-sans">
+              "Most enterprise AWS bills are 60%+ idle waste. Here is the exact architecture we used to slash monthly cloud spend by 68%:"
+            </p>
+          </div>
+
+          <!-- Proof Block Box -->
+          <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 font-mono text-xs text-slate-300 leading-relaxed whitespace-pre-line" id="demo-proof-text">
+The Verified Engineering Proof:
+• Before: Over-provisioned EC2 clusters running 24/7 at 100% billing for 4% utilization
+• After: Event-driven AWS Lambda on ARM64 Graviton3 + DynamoDB on-demand
+• Net Outcome: Verified 68% reduction in monthly cloud infrastructure spend
+• Edge Latency: sub-150ms global response times via CloudFront
+          </div>
+
+          <!-- Action buttons inside demo -->
+          <div class="mt-4 flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-800/80">
+            <button 
+              id="copy-hook-btn" 
+              onclick="copyDemoHook()" 
+              class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-mono text-white transition-all cursor-pointer"
+            >
+              <span>📋</span> <span id="copy-btn-text">Copy Post to Clipboard</span>
+            </button>
+            <span class="text-[11px] font-mono text-slate-500">
+              Generated by <code class="text-purple-300">agents/marketing-agent/</code>
+            </span>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <p class="text-xs text-slate-400 font-mono">
+            Want this running autonomously on your company's technical case studies? <a href="/contact/?service=content-engine" class="text-purple-400 hover:text-purple-300 underline underline-offset-2">Book a 15-Minute Architecture Strategy Call →</a>
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Section 3: The 6 System Architecture Pillars -->
+    <div class="mb-24">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono font-semibold uppercase tracking-wider text-purple-300 bg-purple-950/60 border border-purple-500/30 mb-3">
+          SYSTEM ARCHITECTURE &amp; CAPABILITIES
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-bold text-white tracking-tight font-display">
+          How the Autonomous Content Engine Works
+        </h2>
+        <p class="text-base text-slate-400 mt-3 font-light leading-relaxed">
+          Inspired by Tencent WeKnora knowledge extraction and Panniantong Agent-Reach social listening patterns, deployed as a zero-bloat standalone Node.js ESM agent.
+        </p>
+      </div>
+
+      <!-- 6 Pillars Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Pillar 1 -->
+        <div class="rounded-3xl p-7 bg-slate-900/60 border border-slate-800 hover:border-purple-500/40 transition-all duration-300 backdrop-blur-xl group hover:shadow-[0_10px_30px_rgba(168,85,247,0.15)] flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">
+              🧠
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2 font-display">
+              1. WeKnora Knowledge Extractor
+            </h3>
+            <p class="text-xs text-slate-400 leading-relaxed font-light mb-4">
+              Parses long-form engineering blogs and technical case studies. Automatically extracts grounded empirical metrics (68% cost cut, sub-150ms TTFB, $295k/yr revenue impact), architecture diagrams, code blocks, and FAQ entity graphs.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-purple-300">
+            <span>Zero Hallucinations</span>
+            <span>DOM + AST Regex</span>
+          </div>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="rounded-3xl p-7 bg-slate-900/60 border border-slate-800 hover:border-purple-500/40 transition-all duration-300 backdrop-blur-xl group hover:shadow-[0_10px_30px_rgba(168,85,247,0.15)] flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">
+              💼
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2 font-display">
+              2. LinkedIn B2B Story Engine
+            </h3>
+            <p class="text-xs text-slate-400 leading-relaxed font-light mb-4">
+              Constructs 3 high-retention B2B story formats: CTO Cloud Waste, Commercial Trades Revenue Leak, and Event-Driven Serverless vs. Monoliths. Features aggressive opening hooks (&lt;140 chars), mathematical proof blocks, and subtle conversion CTAs.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-purple-300">
+            <span>C-Suite Native Voice</span>
+            <span>Dual-Lens Targeting</span>
+          </div>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="rounded-3xl p-7 bg-slate-900/60 border border-slate-800 hover:border-purple-500/40 transition-all duration-300 backdrop-blur-xl group hover:shadow-[0_10px_30px_rgba(168,85,247,0.15)] flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">
+              🐦
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2 font-display">
+              3. Twitter/X Architecture Threader
+            </h3>
+            <p class="text-xs text-slate-400 leading-relaxed font-light mb-4">
+              Decomposes complex technical systems into sequenced 8-tweet viral threads. Enforces strict &le; 280-character limits, generates Twitter-optimized ASCII architecture diagrams, and includes terminal retention bookmark prompts with canonical backlinks.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-purple-300">
+            <span>100% Char Compliance</span>
+            <span>ASCII Diagrams</span>
+          </div>
+        </div>
+
+        <!-- Pillar 4 -->
+        <div class="rounded-3xl p-7 bg-slate-900/60 border border-slate-800 hover:border-purple-500/40 transition-all duration-300 backdrop-blur-xl group hover:shadow-[0_10px_30px_rgba(168,85,247,0.15)] flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">
+              📡
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2 font-display">
+              4. Community Radar (Agent-Reach)
+            </h3>
+            <p class="text-xs text-slate-400 leading-relaxed font-light mb-4">
+              Monitors high-intent subreddits (r/aws, r/HVAC, r/Plumbing, r/smallbusiness, r/webdev). Scores buyer urgency and drafts expert, value-first response proposals under a strict human-in-the-loop <code class="text-purple-300 text-[10px]">draftsOnly</code> guardrail to eliminate spam.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-purple-300">
+            <span>Intent Scoring Heuristics</span>
+            <span>Zero-Spam Guardrail</span>
+          </div>
+        </div>
+
+        <!-- Pillar 5 -->
+        <div class="rounded-3xl p-7 bg-slate-900/60 border border-slate-800 hover:border-purple-500/40 transition-all duration-300 backdrop-blur-xl group hover:shadow-[0_10px_30px_rgba(168,85,247,0.15)] flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">
+              🚀
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2 font-display">
+              5. High-DA Syndication Publisher
+            </h3>
+            <p class="text-xs text-slate-400 leading-relaxed font-light mb-4">
+              Transforms HTML insights into high-DA markdown payloads for Dev.to (DA 90) and Medium (DA 95). Enforces strict canonical URL attribution to protect your root domain's SEO equity while borrowing third-party domain authority for instant ranking.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-purple-300">
+            <span>Dev.to &amp; Medium API</span>
+            <span>Strict Canonical SEO</span>
+          </div>
+        </div>
+
+        <!-- Pillar 6 -->
+        <div class="rounded-3xl p-7 bg-slate-900/60 border border-slate-800 hover:border-purple-500/40 transition-all duration-300 backdrop-blur-xl group hover:shadow-[0_10px_30px_rgba(168,85,247,0.15)] flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">
+              📊
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2 font-display">
+              6. Local Vault &amp; Master Orchestrator
+            </h3>
+            <p class="text-xs text-slate-400 leading-relaxed font-light mb-4">
+              Controlled via unified CLI (<code class="text-purple-300 text-[10px]">npm run marketing:run</code>). Persists formatted copy-ready Markdown, JSON API payloads, and consolidated execution run summaries directly into your local Git repository vault.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-purple-300">
+            <span>Sub-25ms Execution</span>
+            <span>Version-Controlled Vault</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Section 4: Traditional Agency vs. Autonomous Content Engine Comparison -->
+    <div class="mb-24">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight font-display">
+          Why Traditional Content Agencies Fail Technical Brands
+        </h2>
+        <p class="text-sm text-slate-400 mt-2 font-light">
+          Generalist freelance copywriters do not understand ARM64 Graviton3, DynamoDB single-table schema, or HVAC emergency psychrometrics.
+        </p>
+      </div>
+
+      <div class="rounded-3xl border border-slate-800 bg-slate-950/80 overflow-hidden shadow-2xl backdrop-blur-xl">
+        <div class="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-slate-800">
+          
+          <!-- Traditional Agency Column -->
+          <div class="p-8 sm:p-10 bg-rose-950/10">
+            <div class="flex items-center gap-2 mb-4 text-xs font-mono text-rose-400 uppercase tracking-widest font-bold">
+              <span>✕</span> <span>Traditional Content Marketing Agency</span>
+            </div>
+            <ul class="space-y-4 text-xs sm:text-sm text-slate-400 font-light">
+              <li class="flex items-start gap-3">
+                <span class="text-rose-400 font-bold shrink-0">✕</span>
+                <span><strong>$6,000–$10,000/mo Retainers:</strong> Bloated account managers and slow 3-week turnaround cycles for a single blog post.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-rose-400 font-bold shrink-0">✕</span>
+                <span><strong>Generic ChatGPT Fluff:</strong> Superficial listicles ("10 Best Cloud Tips") that technical CTOs and contractors immediately dismiss.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-rose-400 font-bold shrink-0">✕</span>
+                <span><strong>No Architectural Grounding:</strong> Inability to read system architecture, analyze latency logs, or write verifiable code snippets.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-rose-400 font-bold shrink-0">✕</span>
+                <span><strong>Manual Copy-Pasting:</strong> Social distribution is treated as an afterthought; threads break character limits and lack tracking.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-rose-400 font-bold shrink-0">✕</span>
+                <span><strong>Duplicate Content Risk:</strong> Carelessly copy-pasting to Medium without canonical headers damages your search ranking.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- LumiLore Autonomous Engine Column -->
+          <div class="p-8 sm:p-10 bg-purple-950/20">
+            <div class="flex items-center gap-2 mb-4 text-xs font-mono text-purple-300 uppercase tracking-widest font-bold">
+              <span>✓</span> <span>LumiLore Autonomous Content Engine</span>
+            </div>
+            <ul class="space-y-4 text-xs sm:text-sm text-slate-200 font-light">
+              <li class="flex items-start gap-3">
+                <span class="text-purple-400 font-bold shrink-0">✓</span>
+                <span><strong>Fraction of the Cost:</strong> Transparent flat-rate packages starting at $1,800 CAD with continuous automated syndication.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-purple-400 font-bold shrink-0">✓</span>
+                <span><strong>100% Grounded Empirical Proof:</strong> Strict WeKnora metric triple extraction ensures every claim is backed by real engineering data.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-purple-400 font-bold shrink-0">✓</span>
+                <span><strong>Architectural Mastery:</strong> Ingests AWS CloudFormation, Node.js code, DynamoDB indexes, and ServiceTitan telephony logs.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-purple-400 font-bold shrink-0">✓</span>
+                <span><strong>Full Omnichannel Automation:</strong> In under 2 seconds, generates 3 LinkedIn stories, 2 viral Twitter threads, and 2 syndication drafts.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-purple-400 font-bold shrink-0">✓</span>
+                <span><strong>Strict Canonical Protection:</strong> Dev.to and Medium payloads automatically embed your root domain as the authoritative source.</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 5: Commercial Deployment Packages / Pricing Tiers -->
+    <div id="pricing-tiers" class="mb-24">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono font-semibold uppercase tracking-wider text-purple-300 bg-purple-950/60 border border-purple-500/30 mb-3">
+          TRANSPARENT ARCHITECTURAL ENGAGEMENT
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-bold text-white tracking-tight font-display">
+          Commercial Deployment Packages
+        </h2>
+        <p class="text-base text-slate-400 mt-3 font-light leading-relaxed">
+          Choose the engagement model that matches your growth stage—from a turn-key foundational setup to full autonomous multi-channel distribution.
+        </p>
+      </div>
+
+      <!-- 3 Tier Cards Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch max-w-7xl mx-auto">
+        
+        <!-- Tier 1: Starter Launch Sprint -->
+        <div class="rounded-3xl p-8 bg-[#070B14]/80 border border-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-xl flex flex-col justify-between relative shadow-[0_15px_40px_rgba(0,0,0,0.5)]">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-mono font-bold tracking-wider text-slate-400 uppercase">TIER 01 // FOUNDATION</span>
+              <span class="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-white/5 border border-white/10 text-slate-400">14-DAY SPRINT</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white tracking-tight font-display">
+              Starter Launch Sprint
+            </h3>
+            <p class="text-xs text-slate-400 mt-2 font-light leading-relaxed">
+              Complete setup of your brand's autonomous marketing engine, custom persona configuration, and transformation of your first 2 flagship case studies.
+            </p>
+
+            <!-- Price Callout -->
+            <div class="mt-6 mb-8 pt-6 border-t border-white/10">
+              <div class="flex items-baseline gap-1">
+                <span class="text-4xl font-extrabold text-white font-mono">$1,800</span>
+                <span class="text-xs font-mono text-slate-400 uppercase tracking-wider">CAD // One-Time</span>
+              </div>
+              <p class="text-[11px] font-mono text-purple-400 mt-1">Guaranteed 14-day delivery to local Git vault</p>
+            </div>
+
+            <!-- Deliverables List -->
+            <ul class="space-y-3.5 text-xs text-slate-300 font-light">
+              <li class="flex items-start gap-2.5">
+                <span class="text-purple-400 font-bold shrink-0">✓</span>
+                <span><strong>Custom Multi-Channel Persona Engine:</strong> Tailored to your founder or technical brand voice.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-purple-400 font-bold shrink-0">✓</span>
+                <span><strong>2 Flagship Case Studies Processed:</strong> Extracted metrics, JSON-LD graphs, and architecture teardowns.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-purple-400 font-bold shrink-0">✓</span>
+                <span><strong>6 B2B LinkedIn Leadership Stories:</strong> Ready to copy-paste with hooks and empirical proof blocks.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-purple-400 font-bold shrink-0">✓</span>
+                <span><strong>2 Viral Twitter/X Threads (16 Tweets):</strong> Strict &le; 280-char compliance with ASCII diagrams.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-purple-400 font-bold shrink-0">✓</span>
+                <span><strong>Dev.to &amp; Medium Syndication Payloads:</strong> Pre-formatted with strict canonical backlinks.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-purple-400 font-bold shrink-0">✓</span>
+                <span><strong>Local Git Vault Setup:</strong> Offline output files, batch manifests, and CLI runner.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-white/10">
+            <a 
+              href="/contact/?service=content-engine&tier=starter" 
+              class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border border-white/15 bg-white/5 hover:bg-white/10 text-white font-mono text-xs font-bold uppercase tracking-wider transition-all cursor-pointer"
+            >
+              <span>Reserve Starter Sprint</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Tier 2: Autonomous Growth & Omnichannel Retainer (FEATURED / MOST POPULAR) -->
+        <div class="rounded-3xl p-8 bg-[#0E0A1E]/95 border-2 border-purple-500/60 transition-all duration-300 backdrop-blur-2xl flex flex-col justify-between relative shadow-[0_20px_60px_rgba(0,0,0,0.8),0_0_40px_rgba(168,85,247,0.2)] scale-100 lg:-translate-y-2">
+          <!-- Featured Badge -->
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white font-mono text-[10px] font-extrabold uppercase tracking-widest shadow-[0_0_20px_rgba(168,85,247,0.6)]">
+            MOST POPULAR // CONTINUOUS REACH
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between mb-4 mt-2">
+              <span class="text-xs font-mono font-bold tracking-wider text-purple-300 uppercase">TIER 02 // REVENUE ENGINE</span>
+              <span class="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-purple-950/80 border border-purple-500/40 text-purple-300">ACTIVE RETAINER</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white tracking-tight font-display">
+              Autonomous Growth Retainer
+            </h3>
+            <p class="text-xs text-slate-300 mt-2 font-light leading-relaxed">
+              Our flagship continuous distribution engine: 2 new technical case studies authored and distributed across LinkedIn, Twitter, Reddit, Dev.to, and Medium every month.
+            </p>
+
+            <!-- Price Callout -->
+            <div class="mt-6 mb-8 pt-6 border-t border-purple-500/30">
+              <div class="flex items-baseline gap-1">
+                <span class="text-4xl font-extrabold text-purple-300 font-mono">$3,500</span>
+                <span class="text-xs font-mono text-slate-400 uppercase tracking-wider">CAD // Month</span>
+              </div>
+              <p class="text-[11px] font-mono text-pink-300 mt-1">($1,800 setup fee waived with 6-month commitment)</p>
+            </div>
+
+            <!-- Deliverables List -->
+            <ul class="space-y-3.5 text-xs text-slate-200 font-light">
+              <li class="flex items-start gap-2.5">
+                <span class="text-purple-400 font-bold shrink-0">✓</span>
+                <span><strong>Everything in Starter Tier Included.</strong></span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-purple-400 font-bold shrink-0">✓</span>
+                <span><strong>2 Flagship Engineering Articles Monthly:</strong> Authored in collaboration with your systems team.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-purple-400 font-bold shrink-0">✓</span>
+                <span><strong>8 Bespoke LinkedIn Leadership Posts Monthly:</strong> Continuous weekly founder presence.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-purple-400 font-bold shrink-0">✓</span>
+                <span><strong>4 Viral Twitter/X Threads (32 Tweets):</strong> Sequenced architecture breakdowns with diagrams.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-purple-400 font-bold shrink-0">✓</span>
+                <span><strong>Weekly Community Radar Intercepts:</strong> High-intent inquiry drafts for Reddit (r/aws, r/HVAC, etc.).</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-purple-400 font-bold shrink-0">✓</span>
+                <span><strong>Guaranteed Dev.to &amp; Medium Syndication:</strong> Instant backlink authority to your root domain.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-purple-400 font-bold shrink-0">✓</span>
+                <span><strong>Monthly Performance &amp; Attribution Briefing:</strong> Reach, clicks, and booked pipeline calls.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-purple-500/30">
+            <a 
+              href="/contact/?service=content-engine&tier=growth" 
+              class="glow-purple-cta w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-400 hover:to-indigo-500 text-white font-mono text-xs font-bold uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(168,85,247,0.4)] cursor-pointer"
+            >
+              <span>Activate Growth Retainer</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Tier 3: Custom Enterprise & Trades Fleet Swarm -->
+        <div class="rounded-3xl p-8 bg-[#070B14]/80 border border-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-xl flex flex-col justify-between relative shadow-[0_15px_40px_rgba(0,0,0,0.5)]">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-mono font-bold tracking-wider text-slate-400 uppercase">TIER 03 // SCALE</span>
+              <span class="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-white/5 border border-white/10 text-slate-400">ENTERPRISE</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white tracking-tight font-display">
+              Custom Enterprise Swarm
+            </h3>
+            <p class="text-xs text-slate-400 mt-2 font-light leading-relaxed">
+              For high-growth software enterprises or large multi-location mechanical contractors requiring dedicated private infrastructure, custom CRM integrations, and multi-brand distribution.
+            </p>
+
+            <!-- Price Callout -->
+            <div class="mt-6 mb-8 pt-6 border-t border-white/10">
+              <div class="flex items-baseline gap-1">
+                <span class="text-4xl font-extrabold text-white font-mono">$8,500+</span>
+                <span class="text-xs font-mono text-slate-400 uppercase tracking-wider">CAD // Custom Scope</span>
+              </div>
+              <p class="text-[11px] font-mono text-cyan-400 mt-1">Dedicated private VPC deployment</p>
+            </div>
+
+            <!-- Deliverables List -->
+            <ul class="space-y-3.5 text-xs text-slate-300 font-light">
+              <li class="flex items-start gap-2.5">
+                <span class="text-cyan-400 font-bold shrink-0">✓</span>
+                <span><strong>Multi-Brand / Multi-Fleet Support:</strong> Manage separate voices across corporate entities or trades subsidiaries.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-cyan-400 font-bold shrink-0">✓</span>
+                <span><strong>Private AWS / GCP Cloud Deployment:</strong> Runs in your security perimeter with dedicated IAM roles.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-cyan-400 font-bold shrink-0">✓</span>
+                <span><strong>Custom Telephony &amp; CRM Webhooks:</strong> Real-time extraction from ServiceTitan, Jobber, Salesforce, or HubSpot.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-cyan-400 font-bold shrink-0">✓</span>
+                <span><strong>Dedicated Systems Architect:</strong> Weekly engineering syncs and prioritized feature enhancements.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-cyan-400 font-bold shrink-0">✓</span>
+                <span><strong>Private Slack / Teams Channel:</strong> Direct real-time collaboration with Saad Sayed and engineering leads.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-white/10">
+            <a 
+              href="/contact/?service=content-engine&tier=enterprise" 
+              class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border border-white/15 bg-white/5 hover:bg-white/10 text-white font-mono text-xs font-bold uppercase tracking-wider transition-all cursor-pointer"
+            >
+              <span>Schedule Enterprise Briefing</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Section 6: Technical FAQ Accordion -->
+    <div class="mb-24 max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight font-display">
+          Frequently Asked Questions
+        </h2>
+        <p class="text-sm text-slate-400 mt-2 font-light">
+          Technical, operational, and SEO details about the LumiLore Autonomous Content Engine.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        
+        <!-- FAQ 1 -->
+        <details class="group rounded-2xl bg-slate-900/60 border border-slate-800 p-6 transition-all duration-200 open:border-purple-500/40 open:bg-slate-900/90">
+          <summary class="flex items-center justify-between font-medium text-white cursor-pointer list-none text-base">
+            <span>How does this engine avoid sounding like generic, repetitive ChatGPT copy?</span>
+            <span class="text-purple-400 transition-transform duration-200 group-open:rotate-180">↓</span>
+          </summary>
+          <div class="mt-4 text-xs sm:text-sm text-slate-300 font-light leading-relaxed pt-4 border-t border-slate-800/80">
+            Generic AI content fails because it starts with generic prompts. The LumiLore Content Engine starts with <strong>grounded empirical triples</strong> extracted directly from your production architecture, git commits, latency logs, and financial metrics via our WeKnora parser. It uses deterministic mathematical proof formulas and persona constraints (e.g., Saad Sayed's authoritative B2B tone) that forbid generic buzzwords ("in today's fast-paced digital world").
+          </div>
+        </details>
+
+        <!-- FAQ 2 -->
+        <details class="group rounded-2xl bg-slate-900/60 border border-slate-800 p-6 transition-all duration-200 open:border-purple-500/40 open:bg-slate-900/90">
+          <summary class="flex items-center justify-between font-medium text-white cursor-pointer list-none text-base">
+            <span>Will syndicating to Dev.to and Medium cause duplicate content Google penalties?</span>
+            <span class="text-purple-400 transition-transform duration-200 group-open:rotate-180">↓</span>
+          </summary>
+          <div class="mt-4 text-xs sm:text-sm text-slate-300 font-light leading-relaxed pt-4 border-t border-slate-800/80">
+            <strong>No, absolutely not.</strong> We enforce cross-domain canonical URL attribution on every syndicated post via Dev.to's <code class="text-purple-300 text-xs">canonical_url</code> frontmatter and Medium's API <code class="text-purple-300 text-xs">canonicalUrl</code> parameter. Search engines explicitly recognize your root domain (<code class="text-purple-300 text-xs">lumilore.ca</code> or your company URL) as the original authoritative source, while allowing you to legally borrow high-DA domain authority to reach new developer and enterprise audiences.
+          </div>
+        </details>
+
+        <!-- FAQ 3 -->
+        <details class="group rounded-2xl bg-slate-900/60 border border-slate-800 p-6 transition-all duration-200 open:border-purple-500/40 open:bg-slate-900/90">
+          <summary class="flex items-center justify-between font-medium text-white cursor-pointer list-none text-base">
+            <span>Does the agent publish autonomously, or do we review drafts before they go live?</span>
+            <span class="text-purple-400 transition-transform duration-200 group-open:rotate-180">↓</span>
+          </summary>
+          <div class="mt-4 text-xs sm:text-sm text-slate-300 font-light leading-relaxed pt-4 border-t border-slate-800/80">
+            By default, all operations run under a <strong>strict human-in-the-loop guardrail</strong>. Social posts are formatted into copy-ready Markdown files, syndication articles are pushed in <code class="text-purple-300 text-xs">draft</code> mode, and community radar responses are saved to a review file. When your team is confident in the outputs, automated dispatches can be scheduled or triggered with a single CLI flag.
+          </div>
+        </details>
+
+        <!-- FAQ 4 -->
+        <details class="group rounded-2xl bg-slate-900/60 border border-slate-800 p-6 transition-all duration-200 open:border-purple-500/40 open:bg-slate-900/90">
+          <summary class="flex items-center justify-between font-medium text-white cursor-pointer list-none text-base">
+            <span>How does the Community Radar find buyers without being flagged as spam?</span>
+            <span class="text-purple-400 transition-transform duration-200 group-open:rotate-180">↓</span>
+          </summary>
+          <div class="mt-4 text-xs sm:text-sm text-slate-300 font-light leading-relaxed pt-4 border-t border-slate-800/80">
+            Our radar utilizes the <strong>value-first engineering principle</strong>. Rather than posting unsolicited sales pitches, it scores genuine community questions (e.g., someone asking how to optimize AWS DynamoDB costs or manage after-hours HVAC call surges). The generated response provides the complete, working technical solution directly in the thread first, only mentioning your case study as an optional benchmark reference at the very end.
+          </div>
+        </details>
+
+        <!-- FAQ 5 -->
+        <details class="group rounded-2xl bg-slate-900/60 border border-slate-800 p-6 transition-all duration-200 open:border-purple-500/40 open:bg-slate-900/90">
+          <summary class="flex items-center justify-between font-medium text-white cursor-pointer list-none text-base">
+            <span>Can this engine adapt to mechanical trades, home services, and non-software businesses?</span>
+            <span class="text-purple-400 transition-transform duration-200 group-open:rotate-180">↓</span>
+          </summary>
+          <div class="mt-4 text-xs sm:text-sm text-slate-300 font-light leading-relaxed pt-4 border-t border-slate-800/80">
+            <strong>Yes.</strong> Half our business is specifically tailored for commercial HVAC, plumbing, refrigeration, and electrical contractors. The engine ingests field metrics—such as $1,500-$4,500 emergency repair ticket sizes, after-hours dispatch response times, and ServiceTitan/Jobber CRM data—and drafts pragmatic, revenue-focused content that speaks directly to business owners and facility managers.
+          </div>
+        </details>
+
+      </div>
+    </div>
+
+    <!-- Section 7: Bottom Conversion Anchor & CTA -->
+    <div class="rounded-3xl p-8 sm:p-14 bg-gradient-to-br from-purple-950/80 via-slate-900/90 to-indigo-950/80 border border-purple-500/40 shadow-[0_20px_70px_rgba(0,0,0,0.8),0_0_50px_rgba(168,85,247,0.2)] text-center max-w-5xl mx-auto backdrop-blur-2xl relative overflow-hidden">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono font-semibold uppercase tracking-wider text-purple-300 bg-purple-950/80 border border-purple-500/30 mb-6">
+        DIRECT ACCESS // SYSTEMS ARCHITECT CONSULTATION
+      </div>
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight font-display mb-4">
+        Stop Wasting Capital on Superficial Content Agencies.
+      </h2>
+      <p class="text-sm sm:text-lg text-slate-300 font-light max-w-2xl mx-auto mb-8 leading-relaxed">
+        Let our autonomous multi-channel distribution engine turn your real engineering breakthroughs and operational case studies into an unstoppable B2B revenue pipeline.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a 
+          href="/contact/?service=content-engine&source=bottom_cta" 
+          class="glow-purple-cta w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-500 hover:from-purple-400 hover:to-indigo-400 text-white font-bold text-sm tracking-wide uppercase transition-all shadow-[0_0_25px_rgba(168,85,247,0.4)] hover:shadow-[0_0_35px_rgba(168,85,247,0.6)] cursor-pointer"
+        >
+          <span>Schedule an Architecture Strategy Call</span>
+          <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+
+        <a 
+          href="/success-stories/" 
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full text-slate-200 hover:text-white text-sm font-mono border border-white/15 bg-white/5 hover:bg-white/10 transition-all cursor-pointer"
+        >
+          <span>Explore Client Case Studies</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <div class="mt-8 text-xs font-mono text-slate-400">
+        Lead Architect: <span class="text-white font-bold">Saad Sayed</span> • Markham, Ontario • Response SLA &lt; 15 Minutes
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Interactive Client-Side JavaScript for Dual-Lens & Hook Generator Demo -->
+<script>
+  // 1. Dual-Lens Switcher Logic
+  function switchHeroLens(lens) {
+    const corpBtn = document.getElementById('lens-btn-corporate');
+    const tradesBtn = document.getElementById('lens-btn-trades');
+    const corpContent = document.getElementById('lens-corporate-content');
+    const tradesContent = document.getElementById('lens-trades-content');
+    const primaryCta = document.getElementById('hero-primary-cta');
+    const audienceSelect = document.getElementById('demo-audience-select');
+
+    if (lens === 'corporate') {
+      corpBtn.className = "px-5 py-2.5 rounded-xl text-xs sm:text-sm font-mono font-bold transition-all cursor-pointer bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg shadow-purple-500/25";
+      tradesBtn.className = "px-5 py-2.5 rounded-xl text-xs sm:text-sm font-mono font-bold transition-all cursor-pointer text-slate-400 hover:text-white";
+      corpContent.classList.remove('hidden');
+      tradesContent.classList.add('hidden');
+      primaryCta.href = "/contact/?service=content-engine&lens=corporate";
+      if (audienceSelect) {
+        audienceSelect.value = 'corporate';
+        generateDemoHook();
+      }
+    } else {
+      tradesBtn.className = "px-5 py-2.5 rounded-xl text-xs sm:text-sm font-mono font-bold transition-all cursor-pointer bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg shadow-purple-500/25";
+      corpBtn.className = "px-5 py-2.5 rounded-xl text-xs sm:text-sm font-mono font-bold transition-all cursor-pointer text-slate-400 hover:text-white";
+      tradesContent.classList.remove('hidden');
+      corpContent.classList.add('hidden');
+      primaryCta.href = "/contact/?service=content-engine&lens=trades";
+      if (audienceSelect) {
+        audienceSelect.value = 'trades';
+        generateDemoHook();
+      }
+    }
+  }
+
+  // 2. Live Social Hook Generator Formulas
+  const HOOK_PRESETS = {
+    corporate: {
+      contrarian: {
+        hook: "Most enterprise AWS bills are 60%+ idle waste. Here is the exact architecture we used to slash monthly cloud spend by 68%:",
+        proof: "The Verified Engineering Proof:\n• Before: Over-provisioned EC2 clusters running 24/7 at 100% billing for 4% utilization\n• After: Event-driven AWS Lambda on ARM64 Graviton3 + DynamoDB on-demand\n• Net Outcome: Verified 68% reduction in monthly cloud infrastructure spend\n• Edge Latency: sub-150ms global response times via CloudFront"
+      },
+      revenue: {
+        hook: "How our client eliminated $42,000/month in cloud infrastructure leak while achieving sub-150ms global edge response times:",
+        proof: "The Financial & Architectural Breakdown:\n• Monthly Cloud Baseline: $62,000/mo across idle VM instances and unindexed RDS queries\n• Modernized Footprint: $19,840/mo with AWS EventBridge & Lambda ARM64 compute\n• Capital Repurposed: $505,000/yr redirected into product engineering velocity\n• Benchmark Case Study: https://lumilore.ca/insights/cutting-aws-cloud-waste-serverless-architecture/"
+      },
+      architectural: {
+        hook: "Most 'AI startups' are just fragile monolithic web servers wrapping someone else's API. Here is why that fails in production:",
+        proof: "The Systems Engineering Breakdown:\n• Antipattern: Synchronous blocking FastAPI / Express wrappers crashing on 30s timeouts\n• Resilient Pattern: Asynchronous AWS EventBridge queues + serverless worker pools\n• Telemetry: 99.99% uptime with zero connection pool starvation under 10,000 RPM bursts\n• Teardown: https://lumilore.ca/insights/cutting-aws-cloud-waste-serverless-architecture/"
+      },
+      finops: {
+        hook: "FinOps rule #1: If your compute spend doesn't drop to $0.00 when traffic hits zero at 3 AM, your systems architecture is broken.",
+        proof: "The Serverless FinOps Metrics:\n• Utilization Reality: Enterprise traffic fluctuates by 85% between 2:00 PM and 3:00 AM\n• The Fix: Serverless consumption billing metered to the exact millisecond\n• Verified Margin Impact: +68% infrastructure efficiency without performance degradation\n• Full Blueprint: https://lumilore.ca/insights/cutting-aws-cloud-waste-serverless-architecture/"
+      }
+    },
+    trades: {
+      contrarian: {
+        hook: "If you run an HVAC or commercial plumbing business, your biggest competitor isn't the company across town. It's your voicemail.",
+        proof: "The Field Economics & Mathematics:\n• Emergency Repair Average: $1,500 – $4,500 per dispatch\n• Weekly Dropped Calls: 3 to 4 after-hours emergency calls lost to voicemail\n• Verified Annual Loss: $295,750/yr in missed top-line revenue\n• Autonomous Dispatch: sub-800ms conversational latency answering on Ring 1"
+      },
+      revenue: {
+        hook: "The $295,000/year leak: Why unanswered phone calls are killing mechanical contractors (and how voice AI fixes it):",
+        proof: "The Commercial Mechanical Reality:\n• 84% of commercial callers with pipe bursts or heating outages hang up on voicemail\n• Traditional Answering Service: Costs $3,500–$5,000/mo with 3-minute hold times\n• Autonomous Solution: Sub-800ms full-duplex voice triage linking directly into ServiceTitan\n• Telephony Teardown: https://lumilore.ca/insights/autonomous-247-ai-voice-dispatch-mechanical-trades/"
+      },
+      architectural: {
+        hook: "Why off-the-shelf chatbot widgets fail for commercial trades (and how real-time WebSocket voice dispatch actually works):",
+        proof: "The Dispatch Architecture Flow:\n• Call Intake: Amazon Connect WebRTC stream with sub-800ms full-duplex speech synthesis\n• Real-Time GIS: Municipal address verification resolving against local property tax records\n• Instant Triage: Distinguishes emergency boiler gas leaks from routine quote requests\n• Job Scheduling: Direct API dispatch creating work orders in ServiceTitan & Jobber"
+      },
+      finops: {
+        hook: "How replacing an after-hours human call center with AI voice dispatch saved a 12-truck mechanical fleet $4,200/month:",
+        proof: "Operational ROI & Dispatch Efficiency:\n• Answering Service Bill: Cut from $4,200/mo to $0\n• False Alarm Dispatches: Dropped by 74% via semantic emergency triage\n• On-Call Tech Retention: Zero technicians woken up at 3:00 AM for non-emergency filter inquiries\n• Full Case Study: https://lumilore.ca/insights/autonomous-247-ai-voice-dispatch-mechanical-trades/"
+      }
+    }
+  };
+
+  function generateDemoHook() {
+    const audience = document.getElementById('demo-audience-select').value;
+    const style = document.getElementById('demo-hook-style').value;
+    const hookTextEl = document.getElementById('demo-hook-text');
+    const proofTextEl = document.getElementById('demo-proof-text');
+    const charCountEl = document.getElementById('demo-char-count');
+
+    const data = HOOK_PRESETS[audience]?.[style] || HOOK_PRESETS.corporate.contrarian;
+    hookTextEl.textContent = `"${data.hook}"`;
+    proofTextEl.textContent = data.proof;
+    charCountEl.textContent = `${data.hook.length} Chars (Hook)`;
+  }
+
+  function copyDemoHook() {
+    const hook = document.getElementById('demo-hook-text').textContent.replace(/^"|"$/g, '');
+    const proof = document.getElementById('demo-proof-text').textContent;
+    const caseStudyUrl = activeLens === 'trades' 
+      ? 'https://lumilore.ca/insights/autonomous-247-ai-voice-dispatch-mechanical-trades/'
+      : 'https://lumilore.ca/insights/cutting-aws-cloud-waste-serverless-architecture/';
+    const fullPost = `${hook}\n\n${proof}\n\nRead the full engineering breakdown:\n${caseStudyUrl}\n\n#LumiLore #CloudArchitecture #SystemsEngineering`;
+    
+    navigator.clipboard.writeText(fullPost).then(() => {
+      const btnText = document.getElementById('copy-btn-text');
+      const original = btnText.textContent;
+      btnText.textContent = "✓ Copied Full Post!";
+      setTimeout(() => {
+        btnText.textContent = original;
+      }, 2000);
+    });
+  }
+</script>
+
+<!-- Schema.org SoftwareApplication & Service JSON-LD Graph -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://lumilore.ca/products/content-engine/#software",
+      "name": "LumiLore Autonomous Content & Omnichannel Distribution Engine",
+      "url": "https://lumilore.ca/products/content-engine/",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All (Cloud/Serverless Node.js)",
+      "description": "Autonomous multi-channel marketing and distribution agent transforming technical blueprints and field dispatch case studies into viral LinkedIn leadership posts, 8-tweet technical breakdowns, and syndicated high-DA publications across Dev.to & Medium.",
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://lumilore.ca/#organization",
+        "name": "LumiLore Technologies",
+        "url": "https://lumilore.ca"
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Starter Launch Sprint",
+          "price": "1800",
+          "priceCurrency": "CAD",
+          "url": "https://lumilore.ca/contact/?service=content-engine&tier=starter"
+        },
+        {
+          "@type": "Offer",
+          "name": "Autonomous Growth Retainer",
+          "price": "3500",
+          "priceCurrency": "CAD",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "unitCode": "MON",
+            "price": "3500",
+            "priceCurrency": "CAD"
+          },
+          "url": "https://lumilore.ca/contact/?service=content-engine&tier=growth"
+        },
+        {
+          "@type": "Offer",
+          "name": "Custom Enterprise Swarm",
+          "price": "8500",
+          "priceCurrency": "CAD",
+          "url": "https://lumilore.ca/contact/?service=content-engine&tier=enterprise"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://lumilore.ca/products/content-engine/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does this engine avoid sounding like generic, repetitive ChatGPT copy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The LumiLore Content Engine starts with grounded empirical triples extracted directly from your production architecture, git commits, latency logs, and financial metrics via our WeKnora parser, using deterministic mathematical proof formulas that forbid generic corporate buzzwords."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will syndicating to Dev.to and Medium cause duplicate content Google penalties?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. We enforce strict cross-domain canonical URL attribution on every syndicated post via Dev.to canonical_url frontmatter and Medium API canonicalUrl parameters, guaranteeing your root domain is recognized as the sole authoritative source."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the agent publish autonomously, or do we review drafts before they go live?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "All operations run by default under a strict human-in-the-loop guardrail. Posts are generated into copy-ready Markdown files, syndication articles are pushed in draft mode, and community radar responses are saved to a review file."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does the Community Radar find buyers without being flagged as spam?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The radar scores genuine community questions on subreddits like r/aws and r/HVAC and provides the complete, working technical solution in the thread first, only mentioning your case study as an optional benchmark reference at the end."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can this engine adapt to mechanical trades, home services, and non-software businesses?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The engine ingests field metrics like emergency repair ticket sizes, after-hours dispatch response times, and ServiceTitan/Jobber CRM data to draft pragmatic, revenue-focused content for commercial contractors and facility managers."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>

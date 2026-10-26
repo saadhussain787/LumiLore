@@ -1,0 +1,57 @@
+{
+  "id": "thread-aws-cloud-waste",
+  "title": "Cutting AWS Cloud Waste by 68%: Serverless Architecture Breakdown",
+  "lens": "corporate",
+  "totalTweets": 8,
+  "generatedAt": "2026-10-26T04:23:30.795Z",
+  "tweets": [
+    {
+      "index": 1,
+      "text": "[1/8] Most enterprise AWS bills are 60%+ idle waste.\n\nWe re-architected a legacy client cluster into an event-driven serverless architecture on AWS.\n\nThe result: A verified 68% permanent reduction in monthly cloud compute spend.\n\nHere is the exact technical breakdown 🧵👇",
+      "characterCount": 272,
+      "withinLimit": true
+    },
+    {
+      "index": 2,
+      "text": "[2/8] The Antipattern:\n\nThe client ran persistent EC2 clusters 24/7/365 to survive daily 2-hour traffic spikes.\n\nOvernight and on weekends, server utilization was below 4%.\n\nYet AWS billed them for 100% capacity every second. Always-on servers for variable workloads burn capital.",
+      "characterCount": 280,
+      "withinLimit": true
+    },
+    {
+      "index": 3,
+      "text": "[3/8] Step 1: Event-Driven Compute\n\nWe replaced persistent VMs with AWS Lambda on ARM64 Graviton3.\n\n• Cold starts: Under 180ms\n• Billing: Metered to the exact millisecond\n• Zero traffic: Compute spend drops to exactly $0.00\n\nNo requests = zero infrastructure cost.",
+      "characterCount": 264,
+      "withinLimit": true
+    },
+    {
+      "index": 4,
+      "text": "[4/8] Step 2: Single-Table Storage\n\nWe migrated relational multi-table schemas to Amazon DynamoDB single-table design with On-Demand capacity.\n\n• Single-digit millisecond reads & writes\n• Zero connection pooling bottlenecks\n• Zero database server sizing headaches.",
+      "characterCount": 264,
+      "withinLimit": true
+    },
+    {
+      "index": 5,
+      "text": "[5/8] Step 3: Edge Routing & Caching\n\nWe routed traffic through Amazon CloudFront with origin request policies and Brotli compression.\n\n• Global edge response: sub-150ms\n• Dynamic payloads served from closest POP\n• Origin shield shielded Lambda from redundant hits.",
+      "characterCount": 265,
+      "withinLimit": true
+    },
+    {
+      "index": 6,
+      "text": "[6/8] Step 4: Asynchronous Decoupling\n\nAmazon EventBridge acts as our agentic nervous system.\n\nHeavy workflows execute asynchronously in background queues without blocking user HTTP threads.\n\nThe API returns instant 202 Accepted; workers process events in parallel.",
+      "characterCount": 265,
+      "withinLimit": true
+    },
+    {
+      "index": 7,
+      "text": "[7/8] Architecture Data Flow:\n\nClient Request\n  ↓ (sub-150ms)\nCloudFront Edge (Global POPs)\n  ↓ (HTTPS Gateway)\nAWS Lambda (ARM64 Graviton3)\n  ↓ (Sub-10ms)\nDynamoDB Single-Table + EventBridge\n\nZero idle servers. Millisecond metering. Zero waste.",
+      "characterCount": 245,
+      "withinLimit": true
+    },
+    {
+      "index": 8,
+      "text": "[8/8] Summary:\n• Cut monthly AWS bills by 68%\n• Sustained sub-150ms edge response\n• Ops overhead reduced by 85%\n\n🔖 Bookmark this thread.\n\nFull architecture blueprint:\nhttps://lumilore.ca/insights/cutting-aws-cloud-waste-serverless-architecture/",
+      "characterCount": 245,
+      "withinLimit": true
+    }
+  ]
+}

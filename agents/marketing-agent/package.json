@@ -1,0 +1,14 @@
+{
+  "name": "lumilore-marketing-agent",
+  "version": "1.0.0",
+  "description": "LumiLore Autonomous Marketing & Omnichannel Distribution Agent",
+  "type": "module",
+  "scripts": {
+    "run": "node run.js",
+    "run:dry": "node run.js --dry-run",
+    "linkedin": "node run.js --linkedin",
+    "twitter": "node run.js --twitter",
+    "radar": "node run.js --radar",
+    "syndicate": "node run.js --syndicate"
+  }
+}

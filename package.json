@@ -7,7 +7,13 @@
     "build": "npx @tailwindcss/cli -i ./frontend/input.css -o ./frontend/style.css --minify && npx @11ty/eleventy",
     "start": "npx @11ty/eleventy --serve",
     "geo:run": "node agents/seo-geo-agent/run.js",
-    "geo:run:dry": "node agents/seo-geo-agent/run.js --dry-run"
+    "geo:run:dry": "node agents/seo-geo-agent/run.js --dry-run",
+    "marketing:run": "node agents/marketing-agent/run.js --all",
+    "marketing:run:dry": "node agents/marketing-agent/run.js --all --dry-run",
+    "marketing:linkedin": "node agents/marketing-agent/run.js --linkedin",
+    "marketing:twitter": "node agents/marketing-agent/run.js --twitter",
+    "marketing:radar": "node agents/marketing-agent/run.js --radar",
+    "marketing:syndicate": "node agents/marketing-agent/run.js --syndicate"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",

@@ -1,0 +1,26 @@
+{
+  "batchId": "twitter-2026-10-26",
+  "generatedAt": "2026-10-26T04:23:30.795Z",
+  "author": "Saad Sayed",
+  "company": "LumiLore Technologies",
+  "totalThreads": 2,
+  "outputDir": "C:\\Users\\saadh\\Desktop\\Saad Documents\\Cloud\\LumiLore\\.ai\\memory\\marketing_output\\twitter",
+  "threads": [
+    {
+      "id": "thread-aws-cloud-waste",
+      "title": "Cutting AWS Cloud Waste by 68%: Serverless Architecture Breakdown",
+      "mdFile": "2026-10-26_01_thread-aws-cloud-waste.md",
+      "jsonFile": "2026-10-26_01_thread-aws-cloud-waste.json",
+      "filePath": "C:\\Users\\saadh\\Desktop\\Saad Documents\\Cloud\\LumiLore\\.ai\\memory\\marketing_output\\twitter\\2026-10-26_01_thread-aws-cloud-waste.md",
+      "totalTweets": 8
+    },
+    {
+      "id": "thread-voice-dispatch-trades",
+      "title": "Autonomous 24/7 Voice Dispatch for Mechanical Trades",
+      "mdFile": "2026-10-26_02_thread-voice-dispatch-trades.md",
+      "jsonFile": "2026-10-26_02_thread-voice-dispatch-trades.json",
+      "filePath": "C:\\Users\\saadh\\Desktop\\Saad Documents\\Cloud\\LumiLore\\.ai\\memory\\marketing_output\\twitter\\2026-10-26_02_thread-voice-dispatch-trades.md",
+      "totalTweets": 8
+    }
+  ]
+}

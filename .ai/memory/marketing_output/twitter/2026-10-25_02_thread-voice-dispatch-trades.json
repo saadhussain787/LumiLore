@@ -1,0 +1,57 @@
+{
+  "id": "thread-voice-dispatch-trades",
+  "title": "Autonomous 24/7 Voice Dispatch for Mechanical Trades",
+  "lens": "trades",
+  "totalTweets": 8,
+  "generatedAt": "2026-10-25T23:56:34.448Z",
+  "tweets": [
+    {
+      "index": 1,
+      "text": "[1/8] In mechanical trades (HVAC, plumbing), your biggest competitor is your voicemail.\n\nWhen a commercial boiler fails at 2:00 AM, customers dial down Google until someone answers.\n\nMissed emergency calls cost an average of $295,750/yr.\n\nHow we fixed it with Voice AI 🧵👇",
+      "characterCount": 273,
+      "withinLimit": true
+    },
+    {
+      "index": 2,
+      "text": "[2/8] The Problem with Answering Services:\n\nTraditional call centers charge $3,500–$5,000/mo, put callers on hold, and wake up on-call technicians for routine maintenance inquiries because they can't triage technical emergencies.\n\nDropped calls = lost $1,500+ jobs.",
+      "characterCount": 265,
+      "withinLimit": true
+    },
+    {
+      "index": 3,
+      "text": "[3/8] Step 1: Sub-Second Telephony\n\nWe deployed a serverless voice pipeline using Amazon Connect + WebSockets.\n\n• Latency: sub-800ms full-duplex speech\n• Answers on Ring 1 (24/7/365)\n• Zero hold times or queue backlogs\n\nCallers converse naturally without awkward robotic delays.",
+      "characterCount": 278,
+      "withinLimit": true
+    },
+    {
+      "index": 4,
+      "text": "[4/8] Step 2: Semantic Emergency Triage\n\nOur agent listens to caller intent and classifies severity in real time:\n\n• True Emergency: Active flooding, boiler failure, freezing risks $\\rightarrow$ Immediate triage\n• Routine: Filter change, pricing inquiries $\\rightarrow$...",
+      "characterCount": 272,
+      "withinLimit": true
+    },
+    {
+      "index": 5,
+      "text": "[5/8] Step 3: Real-Time Municipal GIS Validation\n\nWhile the caller speaks, the agent extracts their street address and validates it against local municipal GIS databases.\n\nIt verifies service territory and pulls customer account history in under 400 milliseconds.",
+      "characterCount": 263,
+      "withinLimit": true
+    },
+    {
+      "index": 6,
+      "text": "[6/8] Step 4: Instant CRM Booking\n\nThe voice agent calls ServiceTitan and Jobber REST APIs directly:\n\n• Creates dispatch ticket\n• Tags equipment specs & urgency\n• Sends SMS confirmation to caller\n• Dispatches on-call technician with full audio summary.",
+      "characterCount": 252,
+      "withinLimit": true
+    },
+    {
+      "index": 7,
+      "text": "[7/8] Field Telephony Pipeline:\n\nCaller (PSTN / Mobile)\n  ↓ (Ring 1)\nAmazon Connect Telephony\n  ↓ (WebSockets)\nAcoustic Speech Model (sub-800ms)\n  ↓ (Real-Time API)\nServiceTitan Ticket + Tech SMS Alert\n\nZero dropped calls. Zero lost revenue.",
+      "characterCount": 241,
+      "withinLimit": true
+    },
+    {
+      "index": 8,
+      "text": "[8/8] Summary:\n• Recovers estimated $295,750/yr in jobs\n• Replaces $4k/mo call center overhead\n• sub-800ms response on Ring 1\n\n🔖 Bookmark this thread.\n\nFull telephony architecture blueprint:\nhttps://lumilore.ca/insights/autonomous-247-ai-voice-dispatch-mechanical-trades/",
+      "characterCount": 272,
+      "withinLimit": true
+    }
+  ]
+}
