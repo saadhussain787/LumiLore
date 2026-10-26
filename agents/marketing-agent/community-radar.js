@@ -415,6 +415,128 @@ Good luck with the transition!`;
       drafts
     };
   }
+
+  /**
+   * Run Active Lead Scout to extract warm sales opportunities from community distress signals
+   * @param {Object} [options]
+   * @returns {Promise<Object>} Extracted and structured leads
+   */
+  async runLeadScout(options = {}) {
+    const isDryRun = options.dryRun ?? true;
+    const communities = this.getTargetCommunities();
+    const allRawInquiries = [];
+
+    for (const comm of communities) {
+      const inqs = await this.fetchCommunityInquiries(comm.normalizedName, { dryRun: isDryRun });
+      allRawInquiries.push(...inqs);
+    }
+
+    const scoredInquiries = allRawInquiries.map(inq => {
+      const scoring = this.scoreInquiry(inq);
+      return { inq, scoring };
+    });
+
+    // Filter leads with intentScore >= minScore (default 40 for lead scouting)
+    const minScore = options.minScore || 40;
+    const qualifiedLeads = scoredInquiries.filter(item => item.scoring.intentScore >= minScore);
+
+    const leads = qualifiedLeads.map((item, idx) => {
+      const { inq, scoring } = item;
+      const lens = scoring.primaryLens;
+      const text = `${inq.title} ${inq.body}`.toLowerCase();
+
+      let recommendedService = 'web-modernization';
+      let serviceName = 'Web Modernization & Speed Engine';
+      if (text.includes('answering') || text.includes('call') || text.includes('voice') || text.includes('servicetitan') || text.includes('receptionist')) {
+        recommendedService = 'voice-dispatch';
+        serviceName = 'Autonomous AI Voice Dispatch & Inbound Receptionist';
+      } else if (text.includes('calendar') || text.includes('booking') || text.includes('appointment')) {
+        recommendedService = 'autonomous-booking';
+        serviceName = 'Autonomous Calendar & Booking Agent';
+      } else if (text.includes('search') || text.includes('geo') || text.includes('chatgpt') || text.includes('ranking')) {
+        recommendedService = 'geo-engine';
+        serviceName = 'GEO & AI Answer Engine Optimization';
+      }
+
+      const bookingLink = `https://lumilore.ca/contact/?service=${recommendedService}&lens=${lens}&lead=${encodeURIComponent(inq.author || 'prospect')}`;
+      const draft = this.draftExpertResponse(scoring);
+
+      return {
+        leadId: `lead-${String(idx + 1).padStart(3, '0')}-${inq.community.replace('r/', '')}-${inq.author || 'unknown'}`,
+        prospectHandle: inq.author || 'anonymous_user',
+        platform: 'reddit',
+        community: inq.community,
+        threadTitle: inq.title,
+        threadUrl: inq.url,
+        intentScore: scoring.intentScore,
+        urgencyLevel: scoring.urgencyLevel,
+        lens,
+        matchedKeywords: scoring.matchedKeywords,
+        recommendedService,
+        serviceName,
+        distressSignal: inq.body.length > 200 ? `${inq.body.slice(0, 200)}...` : inq.body,
+        directBookingLink: bookingLink,
+        consultativeDraft: draft.suggestedReply
+      };
+    });
+
+    const scoutDir = this.config.paths.scoutDir || path.resolve(path.dirname(this.outputFile), 'scout');
+    if (!fs.existsSync(scoutDir)) {
+      fs.mkdirSync(scoutDir, { recursive: true });
+    }
+
+    const scoutFile = this.config.paths.scoutFile || path.join(scoutDir, 'latest_lead_scout.json');
+    const scoutPayload = {
+      timestamp: new Date().toISOString(),
+      mode: isDryRun ? 'DRY-RUN (SIMULATION)' : 'LIVE-SCOUT',
+      totalCommunitiesScanned: communities.length,
+      totalLeadsScouted: leads.length,
+      leads
+    };
+
+    fs.writeFileSync(scoutFile, JSON.stringify(scoutPayload, null, 2), 'utf-8');
+
+    // Also write executive Markdown summary
+    const mdFile = path.join(scoutDir, 'latest_scouted_leads.md');
+    let mdContent = `# 🎯 Active Lead Scout Intelligence Report
+**Generated At:** ${new Date().toISOString()}  
+**Monitored Communities:** ${communities.map(c => c.name).join(', ')}  
+**Total High-Intent Opportunities:** ${leads.length}
+
+---
+
+`;
+
+    leads.forEach((l, index) => {
+      const lensLabel = (l.lens || 'unclassified').toUpperCase();
+      const urgencyLabel = (l.urgencyLevel || 'normal').toUpperCase();
+      mdContent += `### Lead ${index + 1}: u/${l.prospectHandle} in ${l.community} (${lensLabel})
+- **Intent Score:** \`${l.intentScore}/100\` (${urgencyLabel} URGENCY)
+- **Thread:** [${l.threadTitle}](${l.threadUrl})
+- **Pain Point:** "${l.distressSignal}"
+- **Recommended Solution:** **${l.serviceName}**
+- **1-Click Booking Link:** [${l.directBookingLink}](${l.directBookingLink})
+
+#### Consultative Engineering Draft:
+\`\`\`text
+${l.consultativeDraft}
+\`\`\`
+
+---
+
+`;
+    });
+
+    fs.writeFileSync(mdFile, mdContent, 'utf-8');
+
+    return {
+      totalLeadsScouted: leads.length,
+      scoutFile,
+      markdownFile: mdFile,
+      leads
+    };
+  }
 }
 
 export default CommunityRadar;
+

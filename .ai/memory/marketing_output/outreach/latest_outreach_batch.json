@@ -1,0 +1,39 @@
+{
+  "generatedAt": "2026-10-26T18:54:09.317Z",
+  "totalSequences": 4,
+  "author": "Saad Sayed",
+  "sequences": [
+    {
+      "company": "Apex Mechanical Contractors",
+      "industry": "trades",
+      "targetName": "Dave Miller",
+      "targetTitle": "VP of Field Operations",
+      "stagesCount": 3,
+      "calendarLink": "https://lumilore.ca/contact/?service=voice-dispatch&tier=growth&lens=trades&prospect=Apex%20Mechanical%20Contractors"
+    },
+    {
+      "company": "DataFlow Systems",
+      "industry": "corporate",
+      "targetName": "Sarah Chen",
+      "targetTitle": "VP of Engineering",
+      "stagesCount": 3,
+      "calendarLink": "https://lumilore.ca/contact/?service=web-modernization&tier=growth&lens=corporate&prospect=DataFlow%20Systems"
+    },
+    {
+      "company": "Superior Plumbing & Heating",
+      "industry": "trades",
+      "targetName": "Mark Robertson",
+      "targetTitle": "Managing Partner",
+      "stagesCount": 3,
+      "calendarLink": "https://lumilore.ca/contact/?service=voice-dispatch&tier=growth&lens=trades&prospect=Superior%20Plumbing%20%26%20Heating"
+    },
+    {
+      "company": "Kinetix Media Cloud",
+      "industry": "corporate",
+      "targetName": "Alex Mercer",
+      "targetTitle": "Head of Infrastructure",
+      "stagesCount": 3,
+      "calendarLink": "https://lumilore.ca/contact/?service=web-modernization&tier=growth&lens=corporate&prospect=Kinetix%20Media%20Cloud"
+    }
+  ]
+}

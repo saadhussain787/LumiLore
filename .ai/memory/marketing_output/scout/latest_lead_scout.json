@@ -1,0 +1,131 @@
+{
+  "timestamp": "2026-10-26T18:54:09.328Z",
+  "mode": "DRY-RUN (SIMULATION)",
+  "totalCommunitiesScanned": 5,
+  "totalLeadsScouted": 6,
+  "leads": [
+    {
+      "leadId": "lead-001-aws-devops_lead_to",
+      "prospectHandle": "devops_lead_to",
+      "platform": "reddit",
+      "community": "r/aws",
+      "threadTitle": "Our monthly AWS bill doubled with low traffic. How are you all cutting cloud compute waste?",
+      "threadUrl": "https://reddit.com/r/aws/comments/mock_aws_bill/",
+      "intentScore": 100,
+      "urgencyLevel": "high",
+      "matchedKeywords": [
+        "aws bill",
+        "ec2",
+        "lambda",
+        "graviton",
+        "serverless"
+      ],
+      "recommendedService": "web-modernization",
+      "serviceName": "Web Modernization & Speed Engine",
+      "distressSignal": "We have 6 EC2 instances running 24/7 behind an ALB. Our traffic peaks during business hours, but we are paying full price at 3 AM. Looking into serverless or Lambda on Graviton, but worried about cold...",
+      "directBookingLink": "https://lumilore.ca/contact/?service=web-modernization&lens=undefined&lead=devops_lead_to",
+      "consultativeDraft": "Hey! Running 24/7 over-provisioned EC2 clusters to survive 2-hour daily traffic spikes is the #1 cloud waste driver we see in enterprise audits.\n\nIf your overnight utilization is under 10%, you are paying full price for idle compute. Here is how we tackled this:\n\n1. Lambda on ARM64 Graviton3: Cold starts are under 180ms for modern Node/Python runtimes. Compute is billed to the millisecond. When traffic drops to zero overnight, your compute bill is literally $0.00.\n2. CloudFront Edge Caching: Route public GET requests through CloudFront with Brotli compression. That drops TTFB to sub-150ms and shields your backend from redundant executions.\n3. Event-Driven Queues: Use EventBridge or SQS to process heavy workloads asynchronously so your API returns an instant 202 without blocking client connections.\n\nIn our last client migration, this exact topology cut net monthly AWS spend by 68% while sustaining sub-150ms edge responsiveness.\n\nWe wrote up the complete architectural teardown with CloudFormation templates here:\nhttps://lumilore.ca/insights/cutting-aws-cloud-waste-serverless-architecture/\n\nHappy to answer any specific questions on your ALB or migration path!"
+    },
+    {
+      "leadId": "lead-002-aws-cloud_architect_sam",
+      "prospectHandle": "cloud_architect_sam",
+      "platform": "reddit",
+      "community": "r/aws",
+      "threadTitle": "DynamoDB single table design vs RDS Postgres for high throughput APIs",
+      "threadUrl": "https://reddit.com/r/aws/comments/mock_dynamodb_rds/",
+      "intentScore": 65,
+      "urgencyLevel": "high",
+      "matchedKeywords": [
+        "dynamodb",
+        "single table",
+        "connection pool"
+      ],
+      "recommendedService": "web-modernization",
+      "serviceName": "Web Modernization & Speed Engine",
+      "distressSignal": "Running into connection pool starvation on our RDS Postgres instance during traffic spikes. Has anyone successfully migrated to DynamoDB single table design? What was the latency improvement?",
+      "directBookingLink": "https://lumilore.ca/contact/?service=web-modernization&lens=undefined&lead=cloud_architect_sam",
+      "consultativeDraft": "Hey! Running into RDS connection pool exhaustion under spiky traffic is a very common failure mode with relational databases.\n\nHere is what we found in our production migrations:\n1. Connection Overhead: Each Postgres connection consumes ~5-10MB RAM. Under sudden 1,000+ concurrency spikes, your database is spending more CPU managing TLS handshakes and connection pools than executing queries.\n2. The DynamoDB Fix: Single-table design (PK=ENTITY#id, SK=METADATA#timestamp) completely removes connection pools because requests are stateless HTTP HTTPS calls to AWS managed endpoints.\n3. Latency: P95 read/write latency drops to single-digit milliseconds (under 8ms).\n\nIf you are evaluating the switch, start by mapping out your access patterns first. DynamoDB requires designing for access patterns rather than relational normalization.\n\nWe published our complete single-table schema and benchmark latency results here if you want to inspect the architecture:\nhttps://lumilore.ca/insights/cutting-aws-cloud-waste-serverless-architecture/\n\nHope that helps point you in the right direction!"
+    },
+    {
+      "leadId": "lead-003-webdev-agency_frontend_dev",
+      "prospectHandle": "agency_frontend_dev",
+      "platform": "reddit",
+      "community": "r/webdev",
+      "threadTitle": "WordPress site TTFB is 3.5 seconds. Rebuilding on Jamstack vs caching plugins?",
+      "threadUrl": "https://reddit.com/r/webdev/comments/mock_wordpress_speed/",
+      "intentScore": 90,
+      "urgencyLevel": "high",
+      "matchedKeywords": [
+        "serverless",
+        "ttfb",
+        "wordpress",
+        "jamstack"
+      ],
+      "recommendedService": "web-modernization",
+      "serviceName": "Web Modernization & Speed Engine",
+      "distressSignal": "Client has a massive WooCommerce / Elementor site with terrible Core Web Vitals. TTFB is 3.5s. Caching plugins barely helped. Considering a static site generator or serverless edge backend.",
+      "directBookingLink": "https://lumilore.ca/contact/?service=web-modernization&lens=undefined&lead=agency_frontend_dev",
+      "consultativeDraft": "Hey! Running 24/7 over-provisioned EC2 clusters to survive 2-hour daily traffic spikes is the #1 cloud waste driver we see in enterprise audits.\n\nIf your overnight utilization is under 10%, you are paying full price for idle compute. Here is how we tackled this:\n\n1. Lambda on ARM64 Graviton3: Cold starts are under 180ms for modern Node/Python runtimes. Compute is billed to the millisecond. When traffic drops to zero overnight, your compute bill is literally $0.00.\n2. CloudFront Edge Caching: Route public GET requests through CloudFront with Brotli compression. That drops TTFB to sub-150ms and shields your backend from redundant executions.\n3. Event-Driven Queues: Use EventBridge or SQS to process heavy workloads asynchronously so your API returns an instant 202 without blocking client connections.\n\nIn our last client migration, this exact topology cut net monthly AWS spend by 68% while sustaining sub-150ms edge responsiveness.\n\nWe wrote up the complete architectural teardown with CloudFormation templates here:\nhttps://lumilore.ca/insights/cutting-aws-cloud-waste-serverless-architecture/\n\nHappy to answer any specific questions on your ALB or migration path!"
+    },
+    {
+      "leadId": "lead-004-smallbusiness-biz_owner_gta",
+      "prospectHandle": "biz_owner_gta",
+      "platform": "reddit",
+      "community": "r/smallbusiness",
+      "threadTitle": "Has anyone replaced their front-desk receptionist with voice AI?",
+      "threadUrl": "https://reddit.com/r/smallbusiness/comments/mock_receptionist_ai/",
+      "intentScore": 50,
+      "urgencyLevel": "medium",
+      "matchedKeywords": [
+        "voice ai",
+        "receptionist"
+      ],
+      "recommendedService": "voice-dispatch",
+      "serviceName": "Autonomous AI Voice Dispatch & Inbound Receptionist",
+      "distressSignal": "Looking to reduce overhead on phone intake. We get about 40 calls a day. Want something that sounds natural, checks calendar availability, and books appointments without human delays.",
+      "directBookingLink": "https://lumilore.ca/contact/?service=voice-dispatch&lens=undefined&lead=biz_owner_gta",
+      "consultativeDraft": "Hey! Transitioning from manual phone intake to automated voice and calendar dispatch is one of the highest-ROI moves a small business can make.\n\nThe key things you need to ensure before deploying:\n1. Sub-Second Latency: If the caller hears more than 800ms of silence, they assume it's a broken robot and hang up.\n2. Real-Time Anti-Double-Booking: The system must query your calendar's freebusy API live and enforce a 15-minute buffer so meetings never collide.\n3. Natural Triage: It should qualify what the caller needs before scheduling, so you only take high-value consultations.\n\nWe built an autonomous system that handles this with zero SaaS subscription fees (runs serverless on AWS). You can see the architecture and test how the availability slots work here:\nhttps://lumilore.ca/products/autonomous-booking/\n\nGood luck with the transition!"
+    },
+    {
+      "leadId": "lead-005-HVAC-ontario_hvac_boss",
+      "prospectHandle": "ontario_hvac_boss",
+      "platform": "reddit",
+      "community": "r/HVAC",
+      "threadTitle": "Answering services are robbing us blind and dropping after hours emergency calls",
+      "threadUrl": "https://reddit.com/r/HVAC/comments/mock_answering_service/",
+      "intentScore": 100,
+      "urgencyLevel": "high",
+      "matchedKeywords": [
+        "answering service",
+        "after hours",
+        "servicetitan",
+        "dispatch"
+      ],
+      "recommendedService": "voice-dispatch",
+      "serviceName": "Autonomous AI Voice Dispatch & Inbound Receptionist",
+      "distressSignal": "We pay $4,200/month for an answering service that puts callers on hold for 5 minutes. Last night we lost two commercial furnace calls because the caller just hung up and called the next guy. Does anyo...",
+      "directBookingLink": "https://lumilore.ca/contact/?service=voice-dispatch&lens=undefined&lead=ontario_hvac_boss",
+      "consultativeDraft": "You are 100% right about human answering services. They charge $3,500–$5,000/month, put callers on hold, and worst of all: they lack mechanical triage acumen. They will wake up your on-call tech at 3 AM for a routine quote inquiry, while a real commercial boiler emergency hangs up and calls your competitor.\n\nIn Ontario, an average emergency ticket is $1,500+. Missing just 3 calls a week is roughly $295k in lost revenue per year.\n\nHere is the architecture we deployed to fix this for mechanical contractors:\n1. Sub-800ms Voice Telephony: Using Amazon Connect SIP trunks streaming over full-duplex WebSockets directly to an acoustic model. It answers on Ring 1.\n2. Semantic Emergency Triage: The agent actually understands the difference between a furnace pilot blowout and a filter change.\n3. Live CRM Injection: It extracts the caller address, validates it against municipal GIS records, and writes the ticket directly into ServiceTitan / Jobber via REST API.\n4. On-Call Tech Alert: The tech only gets paged if it meets the verified emergency criteria, complete with an audio recording and structured transcript.\n\nZero hold times and zero dropped calls.\n\nWe documented the entire telephony pipeline and field results here for reference:\nhttps://lumilore.ca/insights/autonomous-247-ai-voice-dispatch-mechanical-trades/\n\nDefinitely worth exploring before you renew another year of call center fees."
+    },
+    {
+      "leadId": "lead-006-Plumbing-toronto_plumber_mike",
+      "prospectHandle": "toronto_plumber_mike",
+      "platform": "reddit",
+      "community": "r/Plumbing",
+      "threadTitle": "How do you handle 2 AM burst pipe calls without burning out technicians?",
+      "threadUrl": "https://reddit.com/r/Plumbing/comments/mock_plumbing_triage/",
+      "intentScore": 75,
+      "urgencyLevel": "high",
+      "matchedKeywords": [
+        "jobber",
+        "on-call",
+        "triage"
+      ],
+      "recommendedService": "voice-dispatch",
+      "serviceName": "Autonomous AI Voice Dispatch & Inbound Receptionist",
+      "distressSignal": "Our on-call rotation is hell. Half the calls are people asking for rough estimates on water heaters, while real basement flooding emergencies get mixed in. Need a triage system that filters out non-em...",
+      "directBookingLink": "https://lumilore.ca/contact/?service=voice-dispatch&lens=undefined&lead=toronto_plumber_mike",
+      "consultativeDraft": "Hey! Transitioning from manual phone intake to automated voice and calendar dispatch is one of the highest-ROI moves a small business can make.\n\nThe key things you need to ensure before deploying:\n1. Sub-Second Latency: If the caller hears more than 800ms of silence, they assume it's a broken robot and hang up.\n2. Real-Time Anti-Double-Booking: The system must query your calendar's freebusy API live and enforce a 15-minute buffer so meetings never collide.\n3. Natural Triage: It should qualify what the caller needs before scheduling, so you only take high-value consultations.\n\nWe built an autonomous system that handles this with zero SaaS subscription fees (runs serverless on AWS). You can see the architecture and test how the availability slots work here:\nhttps://lumilore.ca/products/autonomous-booking/\n\nGood luck with the transition!"
+    }
+  ]
+}

@@ -7,7 +7,7 @@ wordCount: 246
 characterCount: 1824
 canonicalUrl: "https://lumilore.ca/insights/cutting-aws-cloud-waste-serverless-architecture/"
 contactUrl: "https://lumilore.ca/contact/?service=web-modernization&lens=corporate"
-generatedAt: "2026-10-26T04:23:30.794Z"
+generatedAt: "2026-10-26T18:54:09.308Z"
 hashtags: ["#CloudArchitecture", "#Serverless", "#AWS", "#FinOps"]
 ---
 

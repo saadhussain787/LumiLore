@@ -4,7 +4,7 @@ title: "Cutting AWS Cloud Waste by 68%: Serverless Architecture Breakdown"
 lens: "corporate"
 totalTweets: 8
 allWithinLimit: true
-generatedAt: "2026-10-26T04:23:30.795Z"
+generatedAt: "2026-10-26T18:54:09.310Z"
 ---
 
 # Cutting AWS Cloud Waste by 68%: Serverless Architecture Breakdown

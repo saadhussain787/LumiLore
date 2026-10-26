@@ -1,0 +1,33 @@
+{
+  "domain": "apexmechanical.com",
+  "company": "Apexmechanical",
+  "lens": "trades",
+  "overallScore": 48,
+  "grade": "D+",
+  "speedPillar": {
+    "mobileTTFB": "2.8s (Monolithic CMS / Uncached)",
+    "targetTTFB": "120ms (LumiLore Edge Jamstack)",
+    "mobilePageSpeedScore": 42,
+    "mobileBounceRateRisk": "High (53% mobile traffic drop-off threshold breached)"
+  },
+  "geoSchemaPillar": {
+    "localBusinessSchema": "MISSING or Incomplete (No geo coordinates or opening hours)",
+    "serviceAreaSchema": "MISSING (AI engines cannot map local service radiuses)",
+    "aiSearchReadiness": "POOR (ChatGPT & Perplexity omit brand from local HVAC recommendations)",
+    "faqSpeakableSchema": "MISSING (No voice search indexing for emergency Siri/Google Assistant queries)"
+  },
+  "conversionPillar": {
+    "afterHoursIntake": "Voicemail Only (5:00 PM – 7:00 AM leak)",
+    "callTriageLatency": "> 4 hours for callback (Industry average)",
+    "bookingMethod": "Static form with no real-time availability confirmation",
+    "estimatedMissedCallsPerMonth": "12 to 18 emergency calls ($1,500 avg ticket)"
+  },
+  "estimatedAnnualLeak": "$180,000 – $295,750 / year",
+  "recommendations": [
+    "Deploy autonomous 24/7 AI voice dispatch receptionist answering on the 1st ring with sub-800ms conversational audio.",
+    "Inject complete Schema.org HVACBusiness & ServiceArea JSON-LD entity graph to capture local Google Map 3-Pack rankings.",
+    "Migrate static contact form to real-time calendar & technician dispatch booking."
+  ],
+  "calendarLink": "https://lumilore.ca/contact/?service=voice-dispatch&lens=trades&audit_domain=apexmechanical.com",
+  "generatedAt": "2026-10-26T18:54:09.327Z"
+}

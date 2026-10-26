@@ -4,7 +4,7 @@ title: "Autonomous 24/7 Voice Dispatch for Mechanical Trades"
 lens: "trades"
 totalTweets: 8
 allWithinLimit: true
-generatedAt: "2026-10-26T04:23:30.795Z"
+generatedAt: "2026-10-26T18:54:09.310Z"
 ---
 
 # Autonomous 24/7 Voice Dispatch for Mechanical Trades

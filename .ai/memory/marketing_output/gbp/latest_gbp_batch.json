@@ -1,0 +1,70 @@
+{
+  "generatedAt": "2026-10-26T18:54:09.315Z",
+  "totalPosts": 4,
+  "publisher": "LumiLore Autonomous GBP Publisher",
+  "persona": "Saad Sayed",
+  "serviceAreas": [
+    "Markham & York Region",
+    "Greater Toronto Area (GTA)",
+    "Mississauga & Peel Region",
+    "Richmond Hill & Vaughan"
+  ],
+  "posts": [
+    {
+      "id": "gbp-trades-after_hours_recovery-on",
+      "headline": "Stop Losing $1,500 After-Hours Calls in Markham & York Region",
+      "lens": "trades",
+      "location": "Markham & York Region",
+      "actionUrl": "https://lumilore.ca/contact/?service=voice-dispatch&lens=trades",
+      "tags": [
+        "#HVACMarkham",
+        "#GTAContractors",
+        "#AIVoiceDispatch",
+        "#ServiceTitanOntario",
+        "#CommercialPlumbing"
+      ]
+    },
+    {
+      "id": "gbp-corporate-aws_finops_cut-on",
+      "headline": "Slash AWS Cloud Waste by 50%–70% for Greater Toronto Area (GTA) Enterprises",
+      "lens": "corporate",
+      "location": "Greater Toronto Area (GTA)",
+      "actionUrl": "https://lumilore.ca/contact/?service=web-modernization&lens=corporate",
+      "tags": [
+        "#AWSCloudToronto",
+        "#MarkhamTech",
+        "#ServerlessArchitecture",
+        "#FinOpsOntario",
+        "#WebModernization"
+      ]
+    },
+    {
+      "id": "gbp-trades-voice_receptionist_missed_calls-on",
+      "headline": "24/7 AI Voice Dispatch for Mechanical Contractors in Mississauga & Peel Region",
+      "lens": "trades",
+      "location": "Mississauga & Peel Region",
+      "actionUrl": "https://lumilore.ca/contact/?service=voice-dispatch&lens=trades",
+      "tags": [
+        "#HVACMarkham",
+        "#GTAContractors",
+        "#AIVoiceDispatch",
+        "#ServiceTitanOntario",
+        "#CommercialPlumbing"
+      ]
+    },
+    {
+      "id": "gbp-corporate-speed_jamstack_modernization-on",
+      "headline": "Replace Bloated WordPress Monoliths with Sub-150ms Jamstack in Richmond Hill & Vaughan",
+      "lens": "corporate",
+      "location": "Richmond Hill & Vaughan",
+      "actionUrl": "https://lumilore.ca/contact/?service=web-modernization&lens=corporate",
+      "tags": [
+        "#AWSCloudToronto",
+        "#MarkhamTech",
+        "#ServerlessArchitecture",
+        "#FinOpsOntario",
+        "#WebModernization"
+      ]
+    }
+  ]
+}

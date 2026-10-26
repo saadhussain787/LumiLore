@@ -135,7 +135,12 @@ export const CONFIG = {
     linkedinDir: path.resolve(__dirname, '../../.ai/memory/marketing_output/linkedin'),
     twitterDir: path.resolve(__dirname, '../../.ai/memory/marketing_output/twitter'),
     syndicationDir: path.resolve(__dirname, '../../.ai/memory/marketing_output/syndication'),
+    gbpDir: path.resolve(__dirname, '../../.ai/memory/marketing_output/gbp'),
+    outreachDir: path.resolve(__dirname, '../../.ai/memory/marketing_output/outreach'),
+    auditDir: path.resolve(__dirname, '../../.ai/memory/marketing_output/audit'),
+    scoutDir: path.resolve(__dirname, '../../.ai/memory/marketing_output/scout'),
     radarDraftsFile: path.resolve(__dirname, '../../.ai/memory/marketing_output/community_radar_drafts.json'),
+    scoutFile: path.resolve(__dirname, '../../.ai/memory/marketing_output/scout/latest_lead_scout.json'),
     summaryReportFile: path.resolve(__dirname, '../../.ai/memory/marketing_output/latest_run_summary.json')
   },
 

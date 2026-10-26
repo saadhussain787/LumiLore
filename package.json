@@ -13,7 +13,11 @@
     "marketing:linkedin": "node agents/marketing-agent/run.js --linkedin",
     "marketing:twitter": "node agents/marketing-agent/run.js --twitter",
     "marketing:radar": "node agents/marketing-agent/run.js --radar",
-    "marketing:syndicate": "node agents/marketing-agent/run.js --syndicate"
+    "marketing:syndicate": "node agents/marketing-agent/run.js --syndicate",
+    "marketing:gbp": "node agents/marketing-agent/run.js --gbp",
+    "marketing:outreach": "node agents/marketing-agent/run.js --outreach",
+    "marketing:audit": "node agents/marketing-agent/run.js --audit",
+    "marketing:scout": "node agents/marketing-agent/run.js --scout"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",

@@ -7,7 +7,7 @@ wordCount: 254
 characterCount: 1865
 canonicalUrl: "https://lumilore.ca/insights/autonomous-247-ai-voice-dispatch-mechanical-trades/"
 contactUrl: "https://lumilore.ca/contact/?service=voice-dispatch&lens=trades"
-generatedAt: "2026-10-26T04:23:30.794Z"
+generatedAt: "2026-10-26T18:54:09.308Z"
 hashtags: ["#HVAC", "#Plumbing", "#MechanicalContractor", "#FieldServices"]
 ---
 

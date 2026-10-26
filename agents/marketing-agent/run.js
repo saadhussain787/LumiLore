@@ -25,6 +25,9 @@ import { LinkedInGenerator } from './linkedin-generator.js';
 import { TwitterThreader } from './twitter-threader.js';
 import { CommunityRadar } from './community-radar.js';
 import { SyndicationPublisher } from './syndication-publisher.js';
+import { GBPPublisher } from './gbp-publisher.js';
+import { OutreachGenerator } from './outreach-generator.js';
+import { TrojanAuditGenerator } from './trojan-audit.js';
 
 export class MarketingOrchestrator {
   constructor(customConfig = {}) {
@@ -34,6 +37,9 @@ export class MarketingOrchestrator {
     this.twitter = new TwitterThreader(this.config);
     this.radar = new CommunityRadar(this.config);
     this.syndication = new SyndicationPublisher(this.config);
+    this.gbp = new GBPPublisher(this.config);
+    this.outreach = new OutreachGenerator(this.config);
+    this.audit = new TrojanAuditGenerator(this.config);
   }
 
   /**
@@ -170,6 +176,136 @@ export class MarketingOrchestrator {
   }
 
   /**
+   * Run Google Business Profile (GBP) Local Map Pack Publisher
+   * @param {Object} [options]
+   * @returns {Object} Run metrics & generated posts
+   */
+  async runGBP(options = {}) {
+    const isDryRun = options.dryRun ?? true;
+    console.log('\n[5/8] 📍 Launching GBP Local Map Pack Publisher...');
+
+    const posts = this.gbp.generateWeeklyGBPPosts(options);
+    const saved = this.gbp.saveGBPPosts(posts, {
+      outputDir: this.config.paths.gbpDir
+    });
+
+    console.log(`  ✓ Generated ${posts.length} hyper-local Google Business Profile update posts`);
+    console.log(`  ✓ Geotargeted across 4 Ontario service areas (Markham, GTA, Mississauga, York)`);
+    console.log(`  ✓ Persisted batch manifest: ${path.basename(saved.manifestPath)}`);
+
+    return {
+      channel: 'gbp',
+      success: true,
+      dryRun: isDryRun,
+      totalPosts: posts.length,
+      manifestPath: saved.manifestPath,
+      savedFiles: saved.savedFiles,
+      posts
+    };
+  }
+
+  /**
+   * Run Personalized Cold Outreach Sequence Generator
+   * @param {Object} [options]
+   * @returns {Object} Run metrics & generated sequences
+   */
+  async runOutreach(options = {}) {
+    const isDryRun = options.dryRun ?? true;
+    console.log('\n[6/8] ✉️ Launching B2B Cold Outreach Generator...');
+
+    const sequences = options.prospect 
+      ? [this.outreach.generateSequence(options.prospect)]
+      : this.outreach.generateSampleBatch();
+
+    const saved = this.outreach.saveSequences(sequences, {
+      outputDir: this.config.paths.outreachDir
+    });
+
+    console.log(`  ✓ Generated ${sequences.length} 3-stage B2B cold outreach sequences (3 email stages + LinkedIn DM)`);
+    console.log(`  ✓ Injected empirical proof formulas and 1-click calendar reservation links`);
+    console.log(`  ✓ Persisted batch manifest: ${path.basename(saved.manifestPath)}`);
+
+    return {
+      channel: 'outreach',
+      success: true,
+      dryRun: isDryRun,
+      totalSequences: sequences.length,
+      manifestPath: saved.manifestPath,
+      savedFiles: saved.savedFiles,
+      sequences
+    };
+  }
+
+  /**
+   * Run Trojan Horse Diagnostic Client Audit Generator
+   * @param {Object} [options]
+   * @returns {Object} Run metrics & generated teardown
+   */
+  async runAudit(options = {}) {
+    const isDryRun = options.dryRun ?? true;
+    const targetUrl = options.url || 'https://apexmechanical.com';
+    const targetLens = options.lens || 'trades';
+    console.log(`\n[7/8] 🛡️ Launching Trojan Horse Diagnostic Client Audit for ${targetUrl}...`);
+
+    const result = this.audit.generateAudit({
+      url: targetUrl,
+      lens: targetLens,
+      companyName: options.companyName
+    });
+
+    const saved = this.audit.saveAudit(result, {
+      outputDir: this.config.paths.auditDir
+    });
+
+    console.log(`  ✓ Evaluated ${result.reportData.domain} across Speed, Schema.org AI Entities, and Intake Leaks`);
+    console.log(`  ✓ Diagnostic Score: ${result.reportData.overallScore}/100 (Grade: ${result.reportData.grade})`);
+    console.log(`  ✓ Estimated Revenue Leak: ${result.reportData.estimatedAnnualLeak}`);
+    console.log(`  ✓ Saved executive 1-page teardown: ${path.basename(saved.markdownPath)}`);
+
+    return {
+      channel: 'audit',
+      success: true,
+      dryRun: isDryRun,
+      domain: result.reportData.domain,
+      overallScore: result.reportData.overallScore,
+      overallGrade: result.reportData.grade,
+      estimatedAnnualLeak: result.reportData.estimatedAnnualLeak,
+      markdownPath: saved.markdownPath,
+      jsonPath: saved.jsonPath,
+      report: result.reportData
+    };
+  }
+
+  /**
+   * Run Active Community Lead Scout
+   * @param {Object} [options]
+   * @returns {Promise<Object>} Run metrics & scouted leads
+   */
+  async runScout(options = {}) {
+    const isDryRun = options.dryRun ?? true;
+    console.log('\n[8/8] 🎯 Launching Active Community Lead Scout (Distress Signals)...');
+
+    const result = await this.radar.runLeadScout({
+      dryRun: isDryRun,
+      minScore: options.minScore || 40
+    });
+
+    console.log(`  ✓ Scouted ${result.totalLeadsScouted} high-intent commercial leads from Reddit communities`);
+    console.log(`  ✓ Paired each lead with consultative engineering draft & direct booking link`);
+    console.log(`  ✓ Persisted lead scout database: ${path.basename(result.scoutFile)}`);
+
+    return {
+      channel: 'scout',
+      success: true,
+      dryRun: isDryRun,
+      totalLeads: result.totalLeadsScouted,
+      scoutFile: result.scoutFile,
+      markdownFile: result.markdownFile,
+      leads: result.leads
+    };
+  }
+
+  /**
    * Run all marketing & distribution engines sequentially
    * @param {Object} [options]
    * @returns {Object} Master run report
@@ -179,7 +315,7 @@ export class MarketingOrchestrator {
     const isDryRun = options.dryRun ?? true;
 
     console.log('╔══════════════════════════════════════════════════════════════════╗');
-    console.log('║  LUMILORE AUTONOMOUS MARKETING & OMNICHANNEL DISTRIBUTION ENGINE ║');
+    console.log('║  LUMILORE AUTONOMOUS MARKETING & ACQUISITION SUPER-AGENT SUITE   ║');
     console.log('║  Founder: Saad Sayed | Canonical: https://lumilore.ca            ║');
     console.log(`║  Execution Mode: ${isDryRun ? 'DRY-RUN (100% Non-Destructive Simulation)' : 'LIVE PRODUCTION'}      ║`);
     console.log('╚══════════════════════════════════════════════════════════════════╝');
@@ -220,6 +356,34 @@ export class MarketingOrchestrator {
       results.channels.syndication = { success: false, error: err.message };
     }
 
+    try {
+      results.channels.gbp = await this.runGBP(options);
+    } catch (err) {
+      console.error(`  ✕ GBP Error: ${err.message}`);
+      results.channels.gbp = { success: false, error: err.message };
+    }
+
+    try {
+      results.channels.outreach = await this.runOutreach(options);
+    } catch (err) {
+      console.error(`  ✕ Outreach Error: ${err.message}`);
+      results.channels.outreach = { success: false, error: err.message };
+    }
+
+    try {
+      results.channels.audit = await this.runAudit(options);
+    } catch (err) {
+      console.error(`  ✕ Audit Error: ${err.message}`);
+      results.channels.audit = { success: false, error: err.message };
+    }
+
+    try {
+      results.channels.scout = await this.runScout(options);
+    } catch (err) {
+      console.error(`  ✕ Scout Error: ${err.message}`);
+      results.channels.scout = { success: false, error: err.message };
+    }
+
     const elapsedMs = Date.now() - startTime;
     results.elapsedMs = elapsedMs;
 
@@ -232,7 +396,7 @@ export class MarketingOrchestrator {
     fs.writeFileSync(summaryPath, JSON.stringify(results, null, 2), 'utf-8');
 
     console.log('\n==================================================================');
-    console.log(`🏁 MASTER EXECUTION COMPLETE in ${elapsedMs}ms`);
+    console.log(`🏁 SUPER-AGENT SUITE EXECUTION COMPLETE in ${elapsedMs}ms`);
     console.log(`📁 Master summary persisted to: ${summaryPath}`);
     console.log('==================================================================\n');
 
@@ -245,27 +409,40 @@ export class MarketingOrchestrator {
  */
 function printHelp() {
   console.log(`
-LumiLore Marketing & Omnichannel Distribution Orchestrator
+LumiLore Marketing & Acquisition Super-Agent Orchestrator
 
 Usage:
   node agents/marketing-agent/run.js [options]
 
-Options:
-  --all           Execute all 4 marketing engines (LinkedIn, Twitter, Radar, Syndication)
+Core Distribution Options:
+  --all           Execute all 8 Super-Agent engines
   --linkedin      Generate B2B thought leadership stories (CTO, Trades Contractor, Architect)
   --twitter, --x  Generate viral 8-tweet technical architecture threads
   --radar         Run community intent radar scan and draft expert intercept responses
   --syndicate     Format and syndicate insights to Dev.to and Medium
+
+Super-Agent Acquisition Options:
+  --gbp           Generate Google Business Profile local Map Pack ranking posts
+  --outreach      Generate 3-stage personalized B2B cold email & LinkedIn DM sequences
+  --audit         Generate Trojan Horse 1-page executive diagnostic client teardown
+  --scout         Run active community lead scout on Reddit distress signals
+
+Targeting Parameters (for --audit and --outreach):
+  --url=<url>     Target domain or URL (e.g., --url=apexmechanical.com)
+  --lens=<lens>   Target lens: 'trades' | 'corporate' (Default: trades)
+  --company=<name> Target company display name
+
+Execution Flags:
   --dry-run       Run in safe dry-run simulation mode (Default: true)
   --live          Execute live API dispatches (Requires configured API tokens)
   --help, -h      Display this help menu
 
 Examples:
   node agents/marketing-agent/run.js --all
-  node agents/marketing-agent/run.js --linkedin --dry-run
-  node agents/marketing-agent/run.js --twitter
-  node agents/marketing-agent/run.js --radar
-  node agents/marketing-agent/run.js --syndicate
+  node agents/marketing-agent/run.js --gbp
+  node agents/marketing-agent/run.js --outreach
+  node agents/marketing-agent/run.js --audit --url=apexmechanical.com --lens=trades
+  node agents/marketing-agent/run.js --scout
 `);
 }
 
@@ -283,11 +460,31 @@ export async function main() {
   const isLive = args.includes('--live') || args.includes('--no-dry-run');
   const dryRun = !isLive; // Safe default
 
-  const runAll = args.includes('--all') || args.length === 0;
-  const runLinkedIn = args.includes('--linkedin') || runAll;
-  const runTwitter = args.includes('--twitter') || args.includes('--x') || runAll;
-  const runRadar = args.includes('--radar') || args.includes('--community') || runAll;
-  const runSyndication = args.includes('--syndicate') || args.includes('--publish') || runAll;
+  // Extract optional parameters
+  let targetUrl = '';
+  let targetLens = '';
+  let targetCompany = '';
+
+  for (const arg of args) {
+    if (arg.startsWith('--url=')) targetUrl = arg.split('=')[1];
+    if (arg.startsWith('--lens=')) targetLens = arg.split('=')[1];
+    if (arg.startsWith('--company=')) targetCompany = arg.split('=')[1];
+  }
+
+  const hasSpecificTarget = args.some(a => [
+    '--linkedin', '--twitter', '--x', '--radar', '--community', 
+    '--syndicate', '--publish', '--gbp', '--outreach', '--audit', '--scout'
+  ].includes(a));
+
+  const runAll = args.includes('--all') || (!hasSpecificTarget && args.length === 0);
+  const runLinkedIn = args.includes('--linkedin');
+  const runTwitter = args.includes('--twitter') || args.includes('--x');
+  const runRadar = args.includes('--radar') || args.includes('--community');
+  const runSyndication = args.includes('--syndicate') || args.includes('--publish');
+  const runGBP = args.includes('--gbp');
+  const runOutreach = args.includes('--outreach');
+  const runAudit = args.includes('--audit');
+  const runScout = args.includes('--scout');
 
   const orchestrator = new MarketingOrchestrator();
 
@@ -295,7 +492,7 @@ export async function main() {
     await orchestrator.runAll({ dryRun });
   } else {
     console.log('╔══════════════════════════════════════════════════════════════════╗');
-    console.log('║  LUMILORE TARGETED MARKETING ENGINE EXECUTION                    ║');
+    console.log('║  LUMILORE TARGETED SUPER-AGENT ENGINE EXECUTION                  ║');
     console.log(`║  Execution Mode: ${dryRun ? 'DRY-RUN (Simulation)' : 'LIVE PRODUCTION'}                               ║`);
     console.log('╚══════════════════════════════════════════════════════════════════╝');
 
@@ -303,8 +500,12 @@ export async function main() {
     if (runTwitter) await orchestrator.runTwitter({ dryRun });
     if (runRadar) await orchestrator.runRadar({ dryRun });
     if (runSyndication) await orchestrator.runSyndication({ dryRun });
+    if (runGBP) await orchestrator.runGBP({ dryRun });
+    if (runOutreach) await orchestrator.runOutreach({ dryRun });
+    if (runAudit) await orchestrator.runAudit({ dryRun, url: targetUrl, lens: targetLens, companyName: targetCompany });
+    if (runScout) await orchestrator.runScout({ dryRun });
 
-    console.log('\n✓ Targeted execution finished successfully.\n');
+    console.log('\n✓ Targeted Super-Agent execution finished successfully.\n');
   }
 }
 
