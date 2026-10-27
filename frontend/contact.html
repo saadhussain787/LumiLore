@@ -1941,6 +1941,9 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
         const rawCalcRev = urlParams.get('calc_revenue');
         const rawCalls = urlParams.get('calls');
         const rawTicket = urlParams.get('ticket');
+        const rawSeoScore = urlParams.get('seo_score');
+        const rawProspectUrl = urlParams.get('prospect_url');
+        const activeAuditedDomain = rawDomain || rawProspectUrl;
 
         const rawCompetitor = urlParams.get('competitor');
 
@@ -2027,8 +2030,34 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
           }
         }
 
+        // Sprint 12 Pillar 12.6: SEO & GEO Revenue Leakage Calculator Linkage
+        if (rawSource === 'seo_leakage_calc' || (rawCalcRev && rawSeoScore)) {
+          const orgInput = document.getElementById('organization');
+          if (orgInput && activeAuditedDomain && !orgInput.value) {
+            orgInput.value = activeAuditedDomain;
+          }
+          const webCard = Array.from(objectiveCards).find(c => c.getAttribute('data-value') === 'web-modernization');
+          if (webCard && typeof selectObjectiveCard === 'function') {
+            selectObjectiveCard(webCard);
+          }
+          if (velocityCards && velocityCards[1] && typeof selectVelocityCard === 'function') {
+            selectVelocityCard(velocityCards[1]);
+          }
+          const formattedLoss = Number(rawCalcRev).toLocaleString();
+          if (notesInput && (!notesInput.value || notesInput.value.includes('Web Modernization') || notesInput.value.includes('Revenue Recovery'))) {
+            notesInput.value = `[SEO & GEO Revenue Recovery Plan] Target Domain: ${activeAuditedDomain || 'N/A'} • SEO Score: ${rawSeoScore || 'N/A'}/100 • Forfeited Revenue: $${formattedLoss}/yr • Priority: AWS Serverless Modernization, Google Rich Snippets JSON-LD, Core Web Vitals optimization.`;
+          }
+          const dossierBanner = document.getElementById('geo-audit-dossier-banner');
+          const bannerDomain = document.getElementById('geo-banner-domain');
+          const bannerScore = document.getElementById('geo-banner-score');
+          if (dossierBanner) {
+            if (bannerDomain && activeAuditedDomain) bannerDomain.textContent = activeAuditedDomain;
+            if (bannerScore) bannerScore.textContent = `$${formattedLoss}/yr Leakage • ${rawSeoScore || 'N/A'}/100 SEO`;
+            dossierBanner.classList.remove('hidden');
+          }
+        }
         // Existing GEO Scorecard / Instant AI Audit Magnet banner handling (preserved 100%)
-        if (rawDomain || rawSource === 'geo_audit_modal' || rawSource === 'modal_radar') {
+        else if (rawDomain || rawSource === 'geo_audit_modal' || rawSource === 'modal_radar') {
           const orgInput = document.getElementById('organization');
           if (orgInput && rawDomain && !orgInput.value) {
             orgInput.value = rawDomain;

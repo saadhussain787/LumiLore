@@ -1,4 +1,4 @@
-<!-- Instant AI Visibility Audit Scorecard Modal (Micro-Step 4.2) -->
+<!-- Instant AI Visibility & Dual SEO/GEO Command Center Modal (Sprint 12 open-seo Superpowers) -->
 <div 
   id="geo-audit-modal" 
   class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-black/80 backdrop-blur-md transition-all duration-300 opacity-0 pointer-events-none"
@@ -10,14 +10,14 @@
   <!-- Modal Card Dialog -->
   <div 
     id="geo-modal-card" 
-    class="relative w-full max-w-2xl max-h-[92vh] flex flex-col rounded-3xl bg-[#070B14]/95 backdrop-blur-2xl border border-white/12 shadow-[0_25px_80px_rgba(0,0,0,0.9),0_0_50px_rgba(0,242,254,0.15)] overflow-hidden transition-all duration-300 transform scale-95"
+    class="relative w-full max-w-3xl max-h-[92vh] flex flex-col rounded-3xl bg-[#070B14]/95 backdrop-blur-2xl border border-white/12 shadow-[0_25px_80px_rgba(0,0,0,0.9),0_0_50px_rgba(0,242,254,0.15)] overflow-hidden transition-all duration-300 transform scale-95"
   >
     <!-- Ambient Radial Glow Effects -->
     <div class="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-cyan-500/15 blur-3xl pointer-events-none"></div>
     <div class="absolute -bottom-24 -right-24 w-72 h-72 rounded-full bg-indigo-500/15 blur-3xl pointer-events-none"></div>
 
     <!-- Modal Header -->
-    <div class="relative z-10 p-5 sm:p-6 border-b border-white/10 flex items-center justify-between gap-4 shrink-0 bg-white/2">
+    <div class="relative z-10 p-4 sm:p-5 border-b border-white/10 flex items-center justify-between gap-3 shrink-0 bg-white/2">
       <div class="flex flex-wrap items-center gap-2">
         <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-bold text-cyan-300 bg-cyan-950/70 border border-cyan-400/30">
           <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
@@ -38,6 +38,35 @@
           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
+    </div>
+
+    <!-- Dual-Lens Switcher Segmented Control (Sprint 12 Pillar 12.1) -->
+    <div class="relative z-10 px-4 sm:px-6 pt-4 pb-2 bg-[#090E1D]/90 border-b border-white/8 shrink-0">
+      <div class="flex items-center justify-between p-1 rounded-2xl bg-black/70 border border-white/10 shadow-inner">
+        <div class="grid grid-cols-2 gap-1.5 w-full">
+          <button 
+            type="button" 
+            id="audit-lens-btn-seo" 
+            class="audit-lens-tab flex items-center justify-center gap-2 py-2 px-3 sm:px-4 rounded-xl text-xs font-mono font-bold tracking-wide transition-all cursor-pointer select-none bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-300 border border-cyan-400/50 shadow-[0_0_15px_rgba(0,242,254,0.25)]"
+            data-lens="seo"
+          >
+            <span>🌐</span>
+            <span>Google Technical SEO</span>
+            <span id="lens-seo-score-pill" class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-cyan-950/90 border border-cyan-400/40 text-cyan-200">--/100</span>
+          </button>
+
+          <button 
+            type="button" 
+            id="audit-lens-btn-geo" 
+            class="audit-lens-tab flex items-center justify-center gap-2 py-2 px-3 sm:px-4 rounded-xl text-xs font-mono font-bold tracking-wide transition-all cursor-pointer select-none text-slate-400 hover:text-white hover:bg-white/5 border border-transparent"
+            data-lens="geo"
+          >
+            <span>🤖</span>
+            <span>Frontier AI Search GEO</span>
+            <span id="lens-geo-score-pill" class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-slate-400">--/100</span>
+          </button>
+        </div>
+      </div>
     </div>
 
     <!-- Scrollable Modal Body -->
@@ -81,7 +110,7 @@
           <!-- Inner Text Container -->
           <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
             <span id="geo-modal-score" class="text-3xl font-extrabold text-white font-mono tracking-tighter">0</span>
-            <span class="text-[10px] font-mono uppercase tracking-widest text-slate-400">/ 100 GEO</span>
+            <span id="geo-modal-score-suffix" class="text-[10px] font-mono uppercase tracking-widest text-slate-400">/ 100 SEO</span>
           </div>
         </div>
 
@@ -91,153 +120,530 @@
             <span id="geo-grade-text">Evaluating...</span>
           </div>
           <h2 id="geo-modal-title" class="text-lg font-bold text-white tracking-tight">
-            AI Search Visibility Diagnostic
+            Google Search Technical Diagnostic
           </h2>
           <p id="geo-modal-summary" class="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
-            Summary of LLM crawler access, Schema.org entity triangulation, and citations readiness.
+            Evaluating meta tag compliance, Google SERP truncation, heading hierarchy, and rich snippet eligibility.
           </p>
         </div>
       </div>
 
-      <!-- 3 Pillar Breakdown Cards -->
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-        <!-- Pillar 1: AI Crawler Readiness -->
-        <div class="p-3.5 rounded-xl bg-black/40 border border-white/8 space-y-1.5">
-          <div class="flex items-center justify-between text-xs">
-            <span class="font-medium text-slate-300">AI Crawler Access</span>
-            <span id="geo-pillar-1-score" class="font-mono font-bold text-cyan-300">0/35</span>
+      <!-- ============================================================== -->
+      <!-- LENS VIEW A: GOOGLE TECHNICAL SEO (Sprint 12 open-seo Powers)   -->
+      <!-- ============================================================== -->
+      <div id="lens-view-seo" class="space-y-6">
+
+        <!-- 4 SEO Pillar Breakdown Cards -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+          <!-- Pillar 1: Meta Compliance -->
+          <div class="p-3 rounded-xl bg-black/40 border border-white/8 space-y-1">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-medium text-slate-300 text-[11px]">Meta &amp; SERP</span>
+              <span id="seo-pillar-1-score" class="font-mono font-bold text-cyan-300 text-xs">0/35</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-white/10 overflow-hidden">
+              <div id="seo-pillar-1-bar" class="h-full bg-cyan-400 transition-all duration-700" style="width: 0%"></div>
+            </div>
+            <p class="text-[9px] font-mono text-slate-400">Title • Meta Desc • Icon</p>
           </div>
-          <div class="w-full h-1.5 rounded-full bg-white/10 overflow-hidden">
-            <div id="geo-pillar-1-bar" class="h-full bg-cyan-400 transition-all duration-700" style="width: 0%"></div>
+
+          <!-- Pillar 2: Heading Hierarchy -->
+          <div class="p-3 rounded-xl bg-black/40 border border-white/8 space-y-1">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-medium text-slate-300 text-[11px]">Heading Tree</span>
+              <span id="seo-pillar-2-score" class="font-mono font-bold text-indigo-300 text-xs">0/25</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-white/10 overflow-hidden">
+              <div id="seo-pillar-2-bar" class="h-full bg-indigo-400 transition-all duration-700" style="width: 0%"></div>
+            </div>
+            <p class="text-[9px] font-mono text-slate-400">H1 Uniqueness • Nesting</p>
           </div>
-          <p class="text-[10px] font-mono text-slate-400">GPTBot • Claude • Perplexity</p>
-          <p class="text-[10px] text-slate-400/90 leading-tight">Robots.txt allowances for AI crawlers to ingest your service pages.</p>
+
+          <!-- Pillar 3: Rich Snippets -->
+          <div class="p-3 rounded-xl bg-black/40 border border-white/8 space-y-1">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-medium text-slate-300 text-[11px]">Rich Snippets</span>
+              <span id="seo-pillar-3-score" class="font-mono font-bold text-emerald-300 text-xs">0/20</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-white/10 overflow-hidden">
+              <div id="seo-pillar-3-bar" class="h-full bg-emerald-400 transition-all duration-700" style="width: 0%"></div>
+            </div>
+            <p class="text-[9px] font-mono text-slate-400">Stars • FAQs • Crumbs</p>
+          </div>
+
+          <!-- Pillar 4: Technical Foundations -->
+          <div class="p-3 rounded-xl bg-black/40 border border-white/8 space-y-1">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-medium text-slate-300 text-[11px]">Edge Latency</span>
+              <span id="seo-pillar-4-score" class="font-mono font-bold text-amber-300 text-xs">0/20</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-white/10 overflow-hidden">
+              <div id="seo-pillar-4-bar" class="h-full bg-amber-400 transition-all duration-700" style="width: 0%"></div>
+            </div>
+            <p class="text-[9px] font-mono text-slate-400">HTTPS • Sub-1200ms</p>
+          </div>
         </div>
 
-        <!-- Pillar 2: Knowledge Graph Schema -->
-        <div class="p-3.5 rounded-xl bg-black/40 border border-white/8 space-y-1.5">
-          <div class="flex items-center justify-between text-xs">
-            <span class="font-medium text-slate-300">Entity Schema</span>
-            <span id="geo-pillar-2-score" class="font-mono font-bold text-indigo-300">0/30</span>
+        <!-- Pillar 12.2: Live Google SERP Snippet Preview & Meta Truncation Detector -->
+        <div class="p-4 sm:p-5 rounded-2xl bg-black/50 border border-white/10 space-y-3">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-mono font-bold uppercase tracking-wider text-slate-300 flex items-center gap-1.5">
+                <span>🔍</span> Google SERP Snippet Preview
+              </span>
+              <span class="text-[10px] font-mono text-slate-400">every-app / open-seo</span>
+            </div>
+
+            <!-- Viewport toggle -->
+            <div class="flex items-center gap-1 p-0.5 rounded-lg bg-white/5 border border-white/10 text-[10px] font-mono">
+              <button type="button" id="serp-toggle-desktop" class="px-2 py-0.5 rounded bg-cyan-950/80 text-cyan-300 border border-cyan-400/30 cursor-pointer">💻 Desktop</button>
+              <button type="button" id="serp-toggle-mobile" class="px-2 py-0.5 rounded text-slate-400 hover:text-white cursor-pointer">📱 Mobile</button>
+            </div>
           </div>
-          <div class="w-full h-1.5 rounded-full bg-white/10 overflow-hidden">
-            <div id="geo-pillar-2-bar" class="h-full bg-indigo-400 transition-all duration-700" style="width: 0%"></div>
+
+          <!-- Simulated Google Search Card Container -->
+          <div id="serp-card-container" class="p-4 rounded-xl bg-[#202124] border border-[#3c4043] space-y-1.5 font-sans transition-all max-w-full">
+            <!-- Top line: Favicon + Site Name + Breadcrumb Path -->
+            <div class="flex items-center gap-2 text-xs text-[#bdc1c6]">
+              <div class="w-4 h-4 rounded-full bg-[#303134] flex items-center justify-center overflow-hidden shrink-0">
+                <img id="serp-favicon-img" src="" alt="Favicon" class="w-3.5 h-3.5 object-contain hidden" onerror="this.classList.add('hidden')" />
+                <span id="serp-favicon-fallback" class="text-[10px]">🌐</span>
+              </div>
+              <span id="serp-site-name" class="font-medium text-[#dadce0] truncate max-w-[140px] sm:max-w-xs">domain.com</span>
+              <span class="text-[#9aa0a6] select-none">•</span>
+              <span id="serp-breadcrumb-url" class="text-[11px] text-[#bdc1c6] truncate">https://domain.com</span>
+            </div>
+
+            <!-- Title Link -->
+            <h3 id="serp-title-link" class="text-base sm:text-lg font-normal text-[#8ab4f8] hover:underline cursor-pointer leading-snug break-words">
+              Page Title
+            </h3>
+
+            <!-- Simulated Star Ratings Row (Conditional) -->
+            <div id="serp-stars-row" class="hidden flex items-center gap-1.5 text-xs text-[#fbbc04]">
+              <span id="serp-stars-icons">★★★★★</span>
+              <span id="serp-stars-rating" class="font-medium text-[#bdc1c6]">4.9 (48)</span>
+            </div>
+
+            <!-- Snippet Body -->
+            <p id="serp-snippet-desc" class="text-xs sm:text-sm text-[#bdc1c6] leading-relaxed break-words">
+              Meta description snippet will render here with simulated character clipping...
+            </p>
+
+            <!-- Simulated FAQ Sitelinks Accordion (Conditional) -->
+            <div id="serp-faq-row" class="hidden pt-1.5 space-y-1 text-xs text-[#8ab4f8] border-t border-[#3c4043]/60">
+              <div class="flex items-center gap-1 font-medium cursor-pointer">
+                <span>▼ What is Generative Engine Optimization?</span>
+              </div>
+              <p class="text-[11px] text-[#9aa0a6] pl-3">Generative Engine Optimization structures content for direct LLM answer quotation.</p>
+            </div>
           </div>
-          <p class="text-[10px] font-mono text-slate-400">JSON-LD Triples • sameAs</p>
-          <p class="text-[10px] text-slate-400/90 leading-tight">Machine-readable schema declaring business identity and services.</p>
+
+          <!-- Truncation Detector Metrics Bar -->
+          <div class="flex flex-wrap items-center justify-between gap-2 pt-1 text-[11px] font-mono">
+            <div class="flex items-center gap-2">
+              <span class="text-slate-400">Title Length:</span>
+              <span id="serp-title-badge" class="px-2 py-0.5 rounded text-[10px] bg-white/5 border border-white/10 text-slate-300">
+                -- / 60 chars
+              </span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-slate-400">Meta Description:</span>
+              <span id="serp-desc-badge" class="px-2 py-0.5 rounded text-[10px] bg-white/5 border border-white/10 text-slate-300">
+                -- / 160 chars
+              </span>
+            </div>
+          </div>
         </div>
 
-        <!-- Pillar 3: Technical Foundations -->
-        <div class="p-3.5 rounded-xl bg-black/40 border border-white/8 space-y-1.5">
-          <div class="flex items-center justify-between text-xs">
-            <span class="font-medium text-slate-300">Edge &amp; Latency</span>
-            <span id="geo-pillar-3-score" class="font-mono font-bold text-emerald-300">0/35</span>
+        <!-- Pillar 12.3: Social Card & Open Graph Simulator (LinkedIn, Twitter/X & Slack) -->
+        <div class="p-4 sm:p-5 rounded-2xl bg-black/50 border border-white/10 space-y-3">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-mono font-bold uppercase tracking-wider text-slate-300 flex items-center gap-1.5">
+                <span>📱</span> Social Card &amp; Open Graph Simulator
+              </span>
+              <span class="text-[10px] font-mono text-slate-400">LinkedIn • X • Slack</span>
+            </div>
+
+            <!-- Social tab switcher -->
+            <div class="flex items-center gap-1 p-0.5 rounded-lg bg-white/5 border border-white/10 text-[10px] font-mono">
+              <button type="button" id="social-tab-linkedin" class="social-tab-btn px-2.5 py-0.5 rounded bg-cyan-950/80 text-cyan-300 border border-cyan-400/30 cursor-pointer" data-social="linkedin">LinkedIn</button>
+              <button type="button" id="social-tab-twitter" class="social-tab-btn px-2.5 py-0.5 rounded text-slate-400 hover:text-white cursor-pointer" data-social="twitter">Twitter / X</button>
+              <button type="button" id="social-tab-slack" class="social-tab-btn px-2.5 py-0.5 rounded text-slate-400 hover:text-white cursor-pointer" data-social="slack">Slack</button>
+            </div>
           </div>
-          <div class="w-full h-1.5 rounded-full bg-white/10 overflow-hidden">
-            <div id="geo-pillar-3-bar" class="h-full bg-emerald-400 transition-all duration-700" style="width: 0%"></div>
+
+          <!-- Social Previews Container -->
+          <div id="social-card-viewport" class="space-y-3">
+            <!-- LinkedIn View -->
+            <div id="social-view-linkedin" class="social-preview-item rounded-xl bg-[#1b1f23] border border-[#383f47] overflow-hidden max-w-xl mx-auto shadow-lg">
+              <div class="aspect-[1.91/1] w-full bg-slate-900 flex items-center justify-center overflow-hidden relative" id="linkedin-img-wrap">
+                <img id="linkedin-preview-img" src="" alt="LinkedIn Social Preview" class="w-full h-full object-cover hidden" onerror="this.classList.add('hidden')" />
+                <div id="linkedin-img-fallback" class="p-6 text-center text-slate-500 font-mono text-xs">
+                  <span>🖼️ No og:image detected</span>
+                </div>
+              </div>
+              <div class="p-3 bg-[#24292e] space-y-1">
+                <span id="linkedin-preview-domain" class="text-[10px] font-mono uppercase text-slate-400">DOMAIN.COM</span>
+                <h4 id="linkedin-preview-title" class="text-xs sm:text-sm font-bold text-white line-clamp-2 leading-snug">Page Title</h4>
+                <p id="linkedin-preview-desc" class="text-[11px] text-slate-300 line-clamp-1">Page description summary...</p>
+              </div>
+            </div>
+
+            <!-- Twitter / X View -->
+            <div id="social-view-twitter" class="social-preview-item hidden rounded-2xl bg-black border border-[#2f3336] overflow-hidden max-w-xl mx-auto shadow-lg">
+              <div class="aspect-[1.91/1] w-full bg-slate-950 flex items-center justify-center overflow-hidden relative">
+                <img id="twitter-preview-img" src="" alt="Twitter Social Preview" class="w-full h-full object-cover hidden" onerror="this.classList.add('hidden')" />
+                <div id="twitter-img-fallback" class="p-6 text-center text-slate-500 font-mono text-xs">
+                  <span>🖼️ No twitter:image or og:image detected</span>
+                </div>
+                <div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-black/80 backdrop-blur-sm text-[10px] font-mono text-white" id="twitter-preview-domain">
+                  domain.com
+                </div>
+              </div>
+              <div class="p-3 bg-black space-y-0.5">
+                <h4 id="twitter-preview-title" class="text-xs sm:text-sm font-bold text-[#e7e9ea] line-clamp-2 leading-snug">Page Title</h4>
+                <p id="twitter-preview-desc" class="text-[11px] text-[#71767b] line-clamp-2">Page description snippet...</p>
+              </div>
+            </div>
+
+            <!-- Slack View -->
+            <div id="social-view-slack" class="social-preview-item hidden rounded-lg bg-[#1a1d21] border border-[#383f47] p-3 max-w-xl mx-auto border-l-4 border-l-cyan-400 space-y-1.5 shadow-lg">
+              <div class="flex items-center gap-1.5 text-[11px] text-slate-300 font-bold">
+                <span id="slack-preview-site">LumiLore</span>
+              </div>
+              <h4 id="slack-preview-title" class="text-xs sm:text-sm font-bold text-[#1d9bd1] hover:underline cursor-pointer">Page Title</h4>
+              <p id="slack-preview-desc" class="text-[11px] text-slate-300 line-clamp-2">Page description snippet...</p>
+              <div class="w-full max-h-48 rounded bg-black/40 overflow-hidden" id="slack-img-wrap">
+                <img id="slack-preview-img" src="" alt="Slack Social Preview" class="w-full h-36 object-cover hidden" onerror="this.classList.add('hidden')" />
+              </div>
+            </div>
+
+            <!-- Missing Media Alert Banner (Conditional) -->
+            <div id="social-missing-media-alert" class="hidden p-3 rounded-xl bg-amber-950/60 border border-amber-500/40 text-xs text-amber-200 flex items-start gap-2.5">
+              <span class="text-base">⚠️</span>
+              <div class="space-y-0.5">
+                <span class="font-bold text-amber-100">Missing Open Graph Social Image (<code class="font-mono text-[11px] text-amber-300">og:image</code>)</span>
+                <p class="text-[11px] text-amber-200/90 leading-relaxed">
+                  When prospects or clients share your link on LinkedIn or Slack, it renders as a blank, unclickable gray card without visual brand media.
+                </p>
+              </div>
+            </div>
           </div>
-          <p class="text-[10px] font-mono text-slate-400">HTTPS • TTFB • Meta Tags</p>
-          <p class="text-[10px] text-slate-400/90 leading-tight">Sub-150ms TTFB prevents AI retrieval agents from timing out.</p>
         </div>
+
+        <!-- Pillar 12.4: Visual Heading Tree & Semantic Hierarchy Inspector (H1–H6) -->
+        <div class="p-4 sm:p-5 rounded-2xl bg-black/50 border border-white/10 space-y-3">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <span class="text-xs font-mono font-bold uppercase tracking-wider text-slate-300 flex items-center gap-1.5">
+              <span>🌲</span> Semantic Heading Hierarchy (H1–H6)
+            </span>
+            <div id="heading-health-badge" class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-emerald-950/80 border border-emerald-400/40 text-emerald-300">
+              Optimal Hierarchy
+            </div>
+          </div>
+
+          <!-- Blunder Alert Box -->
+          <div id="heading-blunders-box" class="space-y-1.5 hidden">
+            <!-- Populated via JS -->
+          </div>
+
+          <!-- Interactive Nested Tree Outline -->
+          <div class="p-3.5 rounded-xl bg-black/60 border border-white/8 space-y-2 max-h-60 overflow-y-auto" id="heading-tree-container">
+            <!-- Headings items dynamically rendered -->
+          </div>
+        </div>
+
+        <!-- Pillar 12.5: Google Rich Snippet & Schema.org Eligibility Matrix -->
+        <div class="p-4 sm:p-5 rounded-2xl bg-black/50 border border-white/10 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono font-bold uppercase tracking-wider text-slate-300 flex items-center gap-1.5">
+              <span>⭐</span> Google Rich Results Eligibility Matrix
+            </span>
+            <span class="text-[10px] font-mono text-emerald-300">+35% CTR Boost</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            <!-- Rich Feature 1: Star Ratings -->
+            <div class="p-3 rounded-xl bg-black/40 border border-white/8 flex items-start gap-2.5">
+              <span class="text-lg">⭐</span>
+              <div class="flex-1 space-y-0.5">
+                <div class="flex items-center justify-between text-xs">
+                  <span class="font-bold text-white">Review Stars</span>
+                  <span id="rich-stars-status" class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-rose-950/70 border border-rose-400/40 text-rose-300">Missing</span>
+                </div>
+                <p class="text-[10px] text-slate-400">AggregateRating JSON-LD schema unlocks gold stars in Google SERPs.</p>
+              </div>
+            </div>
+
+            <!-- Rich Feature 2: Expandable FAQ Dropdowns -->
+            <div class="p-3 rounded-xl bg-black/40 border border-white/8 flex items-start gap-2.5">
+              <span class="text-lg">❓</span>
+              <div class="flex-1 space-y-0.5">
+                <div class="flex items-center justify-between text-xs">
+                  <span class="font-bold text-white">FAQ Dropdowns</span>
+                  <span id="rich-faq-status" class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-rose-950/70 border border-rose-400/40 text-rose-300">Missing</span>
+                </div>
+                <p class="text-[10px] text-slate-400">FAQPage schema claims expandable Q&amp;A real estate on Google.</p>
+              </div>
+            </div>
+
+            <!-- Rich Feature 3: Breadcrumb Navigation -->
+            <div class="p-3 rounded-xl bg-black/40 border border-white/8 flex items-start gap-2.5">
+              <span class="text-lg">🍞</span>
+              <div class="flex-1 space-y-0.5">
+                <div class="flex items-center justify-between text-xs">
+                  <span class="font-bold text-white">Breadcrumbs</span>
+                  <span id="rich-breadcrumb-status" class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-rose-950/70 border border-rose-400/40 text-rose-300">Missing</span>
+                </div>
+                <p class="text-[10px] text-slate-400">BreadcrumbList transforms ugly raw URLs into categorized site paths.</p>
+              </div>
+            </div>
+
+            <!-- Rich Feature 4: Local Map Pack & NAP -->
+            <div class="p-3 rounded-xl bg-black/40 border border-white/8 flex items-start gap-2.5">
+              <span class="text-lg">📍</span>
+              <div class="flex-1 space-y-0.5">
+                <div class="flex items-center justify-between text-xs">
+                  <span class="font-bold text-white">Local Pack / NAP</span>
+                  <span id="rich-local-status" class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-rose-950/70 border border-rose-400/40 text-rose-300">Missing</span>
+                </div>
+                <p class="text-[10px] text-slate-400">LocalBusiness schema ties domain to Google Map Pack &amp; verified phone.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pillar 12.6: The SEO Traffic & Revenue Leakage Calculator ($/yr Lost) -->
+        <div class="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-rose-950/40 via-black/60 to-amber-950/30 border border-rose-500/30 space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono font-bold uppercase tracking-wider text-rose-300 flex items-center gap-1.5">
+              <span>💸</span> SEO Traffic &amp; Revenue Leakage Calculator
+            </span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-rose-950/80 border border-rose-400/30 text-rose-300">Annual Forfeited Loss</span>
+          </div>
+
+          <p class="text-xs text-slate-300 font-light leading-relaxed">
+            Slow Core Web Vitals (LCP &gt; 2.5s) and missing Google Rich Snippets cause high bounce rates and forfeited search clicks:
+          </p>
+
+          <!-- Dual Sliders -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+            <!-- Slider 1: Monthly Visitors -->
+            <div class="space-y-1.5">
+              <div class="flex items-center justify-between text-xs font-mono">
+                <span class="text-slate-300">Monthly Organic Visitors:</span>
+                <span id="calc-visitors-val" class="text-cyan-300 font-bold">5,000</span>
+              </div>
+              <input 
+                type="range" 
+                id="calc-visitors-slider" 
+                min="500" 
+                max="100000" 
+                step="500" 
+                value="5000" 
+                class="w-full h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer accent-cyan-400"
+              />
+              <div class="flex justify-between text-[9px] font-mono text-slate-500">
+                <span>500</span>
+                <span>50,000</span>
+                <span>100,000+</span>
+              </div>
+            </div>
+
+            <!-- Slider 2: Average Deal Value -->
+            <div class="space-y-1.5">
+              <div class="flex items-center justify-between text-xs font-mono">
+                <span class="text-slate-300">Average Customer / Deal Value:</span>
+                <span id="calc-deal-val" class="text-amber-300 font-bold">$1,500</span>
+              </div>
+              <input 
+                type="range" 
+                id="calc-deal-slider" 
+                min="100" 
+                max="25000" 
+                step="100" 
+                value="1500" 
+                class="w-full h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer accent-amber-400"
+              />
+              <div class="flex justify-between text-[9px] font-mono text-slate-500">
+                <span>$100</span>
+                <span>$10,000</span>
+                <span>$25,000+</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dynamic Loss Output Banner -->
+          <div class="p-3.5 rounded-xl bg-black/60 border border-rose-500/40 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+            <div>
+              <span class="text-[10px] font-mono uppercase tracking-wider text-slate-400">Estimated Annual Revenue Leakage:</span>
+              <div id="calc-annual-loss" class="text-2xl sm:text-3xl font-extrabold text-rose-400 font-mono tracking-tight animate-pulse">
+                -$189,000 / yr
+              </div>
+              <span class="text-[10px] font-mono text-slate-400">Based on 22% bounce penalty + 20% rich snippet CTR penalty @ 2.5% avg conversion</span>
+            </div>
+
+            <div class="text-xs font-mono text-slate-300 space-y-1 bg-white/5 p-2 rounded-lg border border-white/10 shrink-0">
+              <div class="flex justify-between gap-4">
+                <span class="text-slate-400">Lost Traffic:</span>
+                <span id="calc-lost-visitors" class="text-rose-300 font-bold">-1,050 / mo</span>
+              </div>
+              <div class="flex justify-between gap-4">
+                <span class="text-slate-400">Lost Bookings:</span>
+                <span id="calc-lost-deals" class="text-amber-300 font-bold">-26 / mo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
 
-      <!-- Multi-LLM Citation Presence Radar (Sprint 8 Pillar 8.3 & Sprint 9 Phase 4) -->
-      <div class="space-y-3">
-        <div class="flex items-center justify-between">
-          <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-slate-300 flex items-center gap-2">
-            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-            Multi-LLM Citation Presence Radar
-          </h3>
-          <span class="text-[10px] font-mono text-cyan-300">Live OmniRoute Prober</span>
-        </div>
-        <p class="text-[11px] text-slate-400 font-light leading-relaxed">
-          Tests whether AI models quote your site in conversational answers. <strong class="text-emerald-400 font-normal">Indexed</strong> = direct quotation; <strong class="text-rose-400 font-normal">Excluded</strong> = competitors capture buyer leads.
-        </p>
-
-        <!-- OmniRoute Live Radar Scanning Ticker -->
-        <div id="radar-scan-ticker" class="flex items-center justify-between px-3 py-1.5 rounded-xl bg-cyan-950/40 border border-cyan-500/20 text-[11px] font-mono text-cyan-300">
-          <div class="flex items-center gap-2">
-            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
-            <span id="radar-ticker-text">OmniRoute: Standby for multi-LLM citation dispatch...</span>
-          </div>
-          <span class="text-[10px] font-mono text-slate-400 uppercase hidden sm:inline">every-app / open-seo</span>
-        </div>
-
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5" id="llm-radar-grid">
-          <!-- ChatGPT Search -->
-          <div class="p-3 rounded-xl bg-black/50 border border-white/8 space-y-1 text-center">
-            <div class="text-[10px] font-mono text-slate-400 uppercase">ChatGPT Search</div>
-            <div id="radar-chatgpt-badge" class="inline-flex items-center gap-1 text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-amber-950/60 border border-amber-500/30 text-amber-300">
-              <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
-              <span class="radar-status-text">Scanning</span>
+      <!-- ============================================================== -->
+      <!-- LENS VIEW B: FRONTIER AI GEO (Preserved 100% Intact)           -->
+      <!-- ============================================================== -->
+      <div id="lens-view-geo" class="space-y-6 hidden">
+        <!-- 3 Pillar Breakdown Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <!-- Pillar 1: AI Crawler Readiness -->
+          <div class="p-3.5 rounded-xl bg-black/40 border border-white/8 space-y-1.5">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-medium text-slate-300">AI Crawler Access</span>
+              <span id="geo-pillar-1-score" class="font-mono font-bold text-cyan-300">0/35</span>
             </div>
-            <div class="text-[9px] font-mono text-slate-400">OpenAI GPTBot</div>
-          </div>
-          <!-- Perplexity AI -->
-          <div class="p-3 rounded-xl bg-black/50 border border-white/8 space-y-1 text-center">
-            <div class="text-[10px] font-mono text-slate-400 uppercase">Perplexity AI</div>
-            <div id="radar-perplexity-badge" class="inline-flex items-center gap-1 text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-rose-950/60 border border-rose-500/30 text-rose-300">
-              <span class="w-1.5 h-1.5 rounded-full bg-rose-400"></span>
-              <span class="radar-status-text">Scanning</span>
+            <div class="w-full h-1.5 rounded-full bg-white/10 overflow-hidden">
+              <div id="geo-pillar-1-bar" class="h-full bg-cyan-400 transition-all duration-700" style="width: 0%"></div>
             </div>
-            <div class="text-[9px] font-mono text-slate-400">Sonar Citations</div>
+            <p class="text-[10px] font-mono text-slate-400">GPTBot • Claude • Perplexity</p>
+            <p class="text-[10px] text-slate-400/90 leading-tight">Robots.txt allowances for AI crawlers to ingest your service pages.</p>
           </div>
-          <!-- Claude Anthropic -->
-          <div class="p-3 rounded-xl bg-black/50 border border-white/8 space-y-1 text-center">
-            <div class="text-[10px] font-mono text-slate-400 uppercase">Claude Search</div>
-            <div id="radar-claude-badge" class="inline-flex items-center gap-1 text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-amber-950/60 border border-amber-500/30 text-amber-300">
-              <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
-              <span class="radar-status-text">Scanning</span>
-            </div>
-            <div class="text-[9px] font-mono text-slate-400">Anthropic Index</div>
-          </div>
-          <!-- Google AI Overviews -->
-          <div class="p-3 rounded-xl bg-black/50 border border-white/8 space-y-1 text-center">
-            <div class="text-[10px] font-mono text-slate-400 uppercase">Google AI Overviews</div>
-            <div id="radar-google-badge" class="inline-flex items-center gap-1 text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-emerald-950/60 border border-emerald-500/30 text-emerald-300">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-              <span class="radar-status-text">Scanning</span>
-            </div>
-            <div class="text-[9px] font-mono text-slate-400">Gemini Live SGE</div>
-          </div>
-        </div>
-      </div>
 
-      <!-- Critical AI Visibility Gaps (3 Indicators) -->
-      <div class="space-y-3">
-        <div class="flex items-center justify-between">
-          <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-slate-300 flex items-center gap-2">
-            <span class="w-2 h-2 rounded-full bg-rose-400"></span>
-            Critical AI Search Gaps Detected
-          </h3>
-          <span class="text-[10px] font-mono text-slate-400">Ranked by Model Impact</span>
+          <!-- Pillar 2: Knowledge Graph Schema -->
+          <div class="p-3.5 rounded-xl bg-black/40 border border-white/8 space-y-1.5">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-medium text-slate-300">Entity Schema</span>
+              <span id="geo-pillar-2-score" class="font-mono font-bold text-indigo-300">0/30</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-white/10 overflow-hidden">
+              <div id="geo-pillar-2-bar" class="h-full bg-indigo-400 transition-all duration-700" style="width: 0%"></div>
+            </div>
+            <p class="text-[10px] font-mono text-slate-400">JSON-LD Triples • sameAs</p>
+            <p class="text-[10px] text-slate-400/90 leading-tight">Machine-readable schema declaring business identity and services.</p>
+          </div>
+
+          <!-- Pillar 3: Technical Foundations -->
+          <div class="p-3.5 rounded-xl bg-black/40 border border-white/8 space-y-1.5">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-medium text-slate-300">Edge &amp; Latency</span>
+              <span id="geo-pillar-3-score" class="font-mono font-bold text-emerald-300">0/35</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-white/10 overflow-hidden">
+              <div id="geo-pillar-3-bar" class="h-full bg-emerald-400 transition-all duration-700" style="width: 0%"></div>
+            </div>
+            <p class="text-[10px] font-mono text-slate-400">HTTPS • TTFB • Meta Tags</p>
+            <p class="text-[10px] text-slate-400/90 leading-tight">Sub-150ms TTFB prevents AI retrieval agents from timing out.</p>
+          </div>
         </div>
 
-        <div id="geo-gaps-container" class="space-y-2.5">
-          <!-- Populated dynamically via JS -->
-        </div>
-      </div>
+        <!-- Multi-LLM Citation Presence Radar -->
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-slate-300 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+              Multi-LLM Citation Presence Radar
+            </h3>
+            <span class="text-[10px] font-mono text-cyan-300">Live OmniRoute Prober</span>
+          </div>
+          <p class="text-[11px] text-slate-400 font-light leading-relaxed">
+            Tests whether AI models quote your site in conversational answers. <strong class="text-emerald-400 font-normal">Indexed</strong> = direct quotation; <strong class="text-rose-400 font-normal">Excluded</strong> = competitors capture buyer leads.
+          </p>
 
-      <!-- Missing High-Intent Competitor Buyer Queries (Sprint 8 Pillar 8.3 & Sprint 9 Phase 4) -->
-      <div class="space-y-2.5 p-3.5 rounded-2xl bg-gradient-to-r from-amber-950/30 via-black/40 to-cyan-950/30 border border-amber-500/20" id="geo-competitor-gaps-box">
-        <div class="flex items-center justify-between">
-          <span class="text-[11px] font-mono font-bold text-amber-300 flex items-center gap-1.5 uppercase">
-            <span>🎯</span> Buyer Prompts Quoting Competitors
-          </span>
-          <span id="geo-competitor-leader" class="text-[10px] font-mono text-amber-200/80">Displaced by Category Leaders</span>
+          <!-- OmniRoute Live Radar Scanning Ticker -->
+          <div id="radar-scan-ticker" class="flex items-center justify-between px-3 py-1.5 rounded-xl bg-cyan-950/40 border border-cyan-500/20 text-[11px] font-mono text-cyan-300">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+              <span id="radar-ticker-text">OmniRoute: Standby for multi-LLM citation dispatch...</span>
+            </div>
+            <span class="text-[10px] font-mono text-slate-400 uppercase hidden sm:inline">every-app / open-seo</span>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5" id="llm-radar-grid">
+            <!-- ChatGPT Search -->
+            <div class="p-3 rounded-xl bg-black/50 border border-white/8 space-y-1 text-center">
+              <div class="text-[10px] font-mono text-slate-400 uppercase">ChatGPT Search</div>
+              <div id="radar-chatgpt-badge" class="inline-flex items-center gap-1 text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-amber-950/60 border border-amber-500/30 text-amber-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                <span class="radar-status-text">Scanning</span>
+              </div>
+              <div class="text-[9px] font-mono text-slate-400">OpenAI GPTBot</div>
+            </div>
+            <!-- Perplexity AI -->
+            <div class="p-3 rounded-xl bg-black/50 border border-white/8 space-y-1 text-center">
+              <div class="text-[10px] font-mono text-slate-400 uppercase">Perplexity AI</div>
+              <div id="radar-perplexity-badge" class="inline-flex items-center gap-1 text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-rose-950/60 border border-rose-500/30 text-rose-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-rose-400"></span>
+                <span class="radar-status-text">Scanning</span>
+              </div>
+              <div class="text-[9px] font-mono text-slate-400">Sonar Citations</div>
+            </div>
+            <!-- Claude Anthropic -->
+            <div class="p-3 rounded-xl bg-black/50 border border-white/8 space-y-1 text-center">
+              <div class="text-[10px] font-mono text-slate-400 uppercase">Claude Search</div>
+              <div id="radar-claude-badge" class="inline-flex items-center gap-1 text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-amber-950/60 border border-amber-500/30 text-amber-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                <span class="radar-status-text">Scanning</span>
+              </div>
+              <div class="text-[9px] font-mono text-slate-400">Anthropic Index</div>
+            </div>
+            <!-- Google AI Overviews -->
+            <div class="p-3 rounded-xl bg-black/50 border border-white/8 space-y-1 text-center">
+              <div class="text-[10px] font-mono text-slate-400 uppercase">Google AI Overviews</div>
+              <div id="radar-google-badge" class="inline-flex items-center gap-1 text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-emerald-950/60 border border-emerald-500/30 text-emerald-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                <span class="radar-status-text">Scanning</span>
+              </div>
+              <div class="text-[9px] font-mono text-slate-400">Gemini Live SGE</div>
+            </div>
+          </div>
         </div>
-        <p class="text-[11px] text-slate-300 font-light leading-relaxed">
-          When high-intent customers search for these services in ChatGPT or Perplexity, AI models recommend your competitor because their site has structured answer schema:
-        </p>
-        <div id="geo-keyword-tags" class="flex flex-wrap gap-1.5">
-          <!-- Populated dynamically via JS -->
+
+        <!-- Critical AI Visibility Gaps -->
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-slate-300 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+              Critical AI Search Gaps Detected
+            </h3>
+            <span class="text-[10px] font-mono text-slate-400">Ranked by Model Impact</span>
+          </div>
+
+          <div id="geo-gaps-container" class="space-y-2.5">
+            <!-- Populated dynamically via JS -->
+          </div>
+        </div>
+
+        <!-- Missing High-Intent Competitor Buyer Queries -->
+        <div class="space-y-2.5 p-3.5 rounded-2xl bg-gradient-to-r from-amber-950/30 via-black/40 to-cyan-950/30 border border-amber-500/20" id="geo-competitor-gaps-box">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-mono font-bold text-amber-300 flex items-center gap-1.5 uppercase">
+              <span>🎯</span> Buyer Prompts Quoting Competitors
+            </span>
+            <span id="geo-competitor-leader" class="text-[10px] font-mono text-amber-200/80">Displaced by Category Leaders</span>
+          </div>
+          <p class="text-[11px] text-slate-300 font-light leading-relaxed">
+            When high-intent customers search for these services in ChatGPT or Perplexity, AI models recommend your competitor because their site has structured answer schema:
+          </p>
+          <div id="geo-keyword-tags" class="flex flex-wrap gap-1.5">
+            <!-- Populated dynamically via JS -->
+          </div>
         </div>
       </div>
 
     </div>
 
     <!-- Modal Footer Actions (CTA Button) -->
-    <div class="relative z-10 p-5 sm:p-6 border-t border-white/10 bg-white/2 flex flex-col sm:flex-row items-center justify-between gap-3 shrink-0">
+    <div class="relative z-10 p-4 sm:p-5 border-t border-white/10 bg-white/2 flex flex-col sm:flex-row items-center justify-between gap-3 shrink-0">
       <p class="text-[11px] font-mono text-slate-400 text-center sm:text-left">
         🔒 Real-time serverless diagnostic. No data stored.
       </p>
@@ -255,7 +661,7 @@
           href="/contact/?source=geo_audit_modal" 
           class="glow-amber-cta flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-bold text-xs tracking-wider uppercase transition-all duration-200 shadow-[0_0_25px_rgba(245,158,11,0.35)] cursor-pointer select-none"
         >
-          <span>Fix These Gaps (10-Min Plan)</span>
+          <span id="geo-modal-cta-text">Fix These Gaps (10-Min Plan)</span>
           <svg class="w-3.5 h-3.5 text-slate-950" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
           </svg>
@@ -275,15 +681,37 @@
   const domainLabel = document.getElementById('geo-modal-domain');
   const latencyLabel = document.getElementById('geo-modal-latency');
   const scoreNum = document.getElementById('geo-modal-score');
+  const scoreSuffix = document.getElementById('geo-modal-score-suffix');
   const gaugeCircle = document.getElementById('geo-gauge-circle');
   const gradeBadge = document.getElementById('geo-grade-badge');
   const gradeText = document.getElementById('geo-grade-text');
   const summaryText = document.getElementById('geo-modal-summary');
+  const modalTitle = document.getElementById('geo-modal-title');
   const ctaBtn = document.getElementById('geo-modal-cta-btn');
+  const ctaText = document.getElementById('geo-modal-cta-text');
   const gapsContainer = document.getElementById('geo-gaps-container');
   const gradientStop1 = document.getElementById('geo-gradient-stop-1');
   const gradientStop2 = document.getElementById('geo-gradient-stop-2');
 
+  // Lens Switcher Tabs & Views
+  const btnSeo = document.getElementById('audit-lens-btn-seo');
+  const btnGeo = document.getElementById('audit-lens-btn-geo');
+  const viewSeo = document.getElementById('lens-view-seo');
+  const viewGeo = document.getElementById('lens-view-geo');
+  const seoScorePill = document.getElementById('lens-seo-score-pill');
+  const geoScorePill = document.getElementById('lens-geo-score-pill');
+
+  // SEO Pillars
+  const s1Score = document.getElementById('seo-pillar-1-score');
+  const s1Bar = document.getElementById('seo-pillar-1-bar');
+  const s2Score = document.getElementById('seo-pillar-2-score');
+  const s2Bar = document.getElementById('seo-pillar-2-bar');
+  const s3Score = document.getElementById('seo-pillar-3-score');
+  const s3Bar = document.getElementById('seo-pillar-3-bar');
+  const s4Score = document.getElementById('seo-pillar-4-score');
+  const s4Bar = document.getElementById('seo-pillar-4-bar');
+
+  // GEO Pillars
   const p1Score = document.getElementById('geo-pillar-1-score');
   const p1Bar = document.getElementById('geo-pillar-1-bar');
   const p2Score = document.getElementById('geo-pillar-2-score');
@@ -291,9 +719,57 @@
   const p3Score = document.getElementById('geo-pillar-3-score');
   const p3Bar = document.getElementById('geo-pillar-3-bar');
 
+  // SERP Preview Elements
+  const serpSiteName = document.getElementById('serp-site-name');
+  const serpBreadcrumb = document.getElementById('serp-breadcrumb-url');
+  const serpTitleLink = document.getElementById('serp-title-link');
+  const serpSnippetDesc = document.getElementById('serp-snippet-desc');
+  const serpFaviconImg = document.getElementById('serp-favicon-img');
+  const serpFaviconFallback = document.getElementById('serp-favicon-fallback');
+  const serpStarsRow = document.getElementById('serp-stars-row');
+  const serpStarsRating = document.getElementById('serp-stars-rating');
+  const serpFaqRow = document.getElementById('serp-faq-row');
+  const serpTitleBadge = document.getElementById('serp-title-badge');
+  const serpDescBadge = document.getElementById('serp-desc-badge');
+  const serpToggleDesktop = document.getElementById('serp-toggle-desktop');
+  const serpToggleMobile = document.getElementById('serp-toggle-mobile');
+  const serpCardContainer = document.getElementById('serp-card-container');
+
+  // Social Preview Elements
+  const socialTabLinkedin = document.getElementById('social-tab-linkedin');
+  const socialTabTwitter = document.getElementById('social-tab-twitter');
+  const socialTabSlack = document.getElementById('social-tab-slack');
+  const socialViewLinkedin = document.getElementById('social-view-linkedin');
+  const socialViewTwitter = document.getElementById('social-view-twitter');
+  const socialViewSlack = document.getElementById('social-view-slack');
+  const socialMissingAlert = document.getElementById('social-missing-media-alert');
+
+  // Headings Elements
+  const headingHealthBadge = document.getElementById('heading-health-badge');
+  const headingBlundersBox = document.getElementById('heading-blunders-box');
+  const headingTreeContainer = document.getElementById('heading-tree-container');
+
+  // Rich Snippets Elements
+  const richStarsStatus = document.getElementById('rich-stars-status');
+  const richFaqStatus = document.getElementById('rich-faq-status');
+  const richBreadcrumbStatus = document.getElementById('rich-breadcrumb-status');
+  const richLocalStatus = document.getElementById('rich-local-status');
+
+  // Revenue Leakage Calculator Elements
+  const calcVisitorsSlider = document.getElementById('calc-visitors-slider');
+  const calcVisitorsVal = document.getElementById('calc-visitors-val');
+  const calcDealSlider = document.getElementById('calc-deal-slider');
+  const calcDealVal = document.getElementById('calc-deal-val');
+  const calcAnnualLoss = document.getElementById('calc-annual-loss');
+  const calcLostVisitors = document.getElementById('calc-lost-visitors');
+  const calcLostDeals = document.getElementById('calc-lost-deals');
+
   if (!modal) return;
 
   const CIRCUMFERENCE = 326.72; // 2 * Math.PI * 52
+  let currentAuditData = null;
+  let activeLens = 'seo'; // 'seo' or 'geo'
+  let calculatedAnnualLoss = 189000;
 
   function closeModal() {
     modal.classList.remove('opacity-100');
@@ -319,12 +795,12 @@
 
   function animateScoreCountUp(target) {
     let current = 0;
-    const duration = 900;
+    const duration = 800;
     const startTime = performance.now();
 
     function step(now) {
       const progress = Math.min((now - startTime) / duration, 1);
-      const ease = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+      const ease = 1 - Math.pow(1 - progress, 3);
       current = Math.round(ease * target);
       if (scoreNum) scoreNum.textContent = current;
       if (progress < 1) {
@@ -336,67 +812,448 @@
     requestAnimationFrame(step);
   }
 
-  function renderAuditScorecard(raw) {
-    if (!raw) return;
-    const data = raw.report || raw;
-
-    const score = Number(data.score) || 0;
-    const domain = data.domain || 'Domain';
-    const latency = data.latencyMs ? `${data.latencyMs}ms TTFB` : 'Fast TTFB';
-
-    if (domainLabel) domainLabel.textContent = domain;
-    if (latencyLabel) latencyLabel.textContent = latency;
-
-    // 1. Animate circular gauge
+  function updateGauge(score, lens) {
     const offset = CIRCUMFERENCE - (score / 100) * CIRCUMFERENCE;
     if (gaugeCircle) {
       gaugeCircle.style.strokeDashoffset = offset;
     }
     animateScoreCountUp(score);
+    if (scoreSuffix) {
+      scoreSuffix.textContent = `/ 100 ${lens.toUpperCase()}`;
+    }
 
-    // 2. Grade coloring and text
     if (score >= 80) {
       if (gradeBadge) {
         gradeBadge.className = 'inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-emerald-950/80 border border-emerald-400/40 text-emerald-300';
       }
-      if (gradeText) gradeText.textContent = 'AI Search Optimized';
-      if (summaryText) summaryText.textContent = `${domain} possesses strong crawler accessibility and machine-readable schema for AI search citations.`;
+      if (gradeText) gradeText.textContent = lens === 'seo' ? 'Google Search Optimized' : 'AI Search Optimized';
       if (gradientStop1) gradientStop1.setAttribute('stop-color', '#10B981');
       if (gradientStop2) gradientStop2.setAttribute('stop-color', '#00F2FE');
     } else if (score >= 50) {
       if (gradeBadge) {
         gradeBadge.className = 'inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-amber-950/80 border border-amber-400/40 text-amber-300';
       }
-      if (gradeText) gradeText.textContent = 'Moderate AI Visibility';
-      if (summaryText) summaryText.textContent = `${domain} is indexed by search engines, but lacks verified entity triangulation and complete AI crawler allowances.`;
+      if (gradeText) gradeText.textContent = lens === 'seo' ? 'Moderate Search Health' : 'Moderate AI Visibility';
       if (gradientStop1) gradientStop1.setAttribute('stop-color', '#F59E0B');
       if (gradientStop2) gradientStop2.setAttribute('stop-color', '#FCD34D');
     } else {
       if (gradeBadge) {
         gradeBadge.className = 'inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-rose-950/80 border border-rose-400/40 text-rose-300';
       }
-      if (gradeText) gradeText.textContent = 'Critical AI Gaps Detected';
-      if (summaryText) summaryText.textContent = `${domain} is actively obstructed from ChatGPT, Claude, and Perplexity citation pipelines.`;
+      if (gradeText) gradeText.textContent = lens === 'seo' ? 'Critical SEO Gaps' : 'Critical AI Gaps';
       if (gradientStop1) gradientStop1.setAttribute('stop-color', '#EF4444');
       if (gradientStop2) gradientStop2.setAttribute('stop-color', '#F43F5E');
     }
+  }
 
-    // 3. Populate 3 Pillars
-    const b = data.breakdown || {};
-    const p1 = b.aiCrawlerReadiness || { score: 0, max: 35 };
-    const p2 = b.knowledgeGraphSchema || { score: 0, max: 30 };
-    const p3 = b.technicalFoundations || { score: 0, max: 35 };
+  function recalculateRevenueLeakage() {
+    if (!calcVisitorsSlider || !calcDealSlider || !currentAuditData) return;
+    const visitors = parseInt(calcVisitorsSlider.value, 10);
+    const dealVal = parseInt(calcDealSlider.value, 10);
+
+    if (calcVisitorsVal) calcVisitorsVal.textContent = visitors.toLocaleString();
+    if (calcDealVal) calcDealVal.textContent = `$${dealVal.toLocaleString()}`;
+
+    // Empirical Factors
+    const signals = currentAuditData.signals || {};
+    const rich = signals.richSnippets || {};
+    const latency = currentAuditData.latencyMs || 250;
+
+    const latencyPenaltyRate = latency > 1200 ? 0.22 : 0.08;
+    const missingRichPenaltyRate = (!rich.hasAggregateRating && !rich.hasFAQPage) ? 0.20 : 0.05;
+    const totalPenaltyRate = latencyPenaltyRate + missingRichPenaltyRate;
+
+    const monthlyLostVisitors = Math.round(visitors * totalPenaltyRate);
+    const monthlyLostDeals = Math.max(1, Math.round(monthlyLostVisitors * 0.025)); // 2.5% standard B2B/Trades conversion
+    const annualLoss = monthlyLostDeals * dealVal * 12;
+    calculatedAnnualLoss = annualLoss;
+
+    if (calcLostVisitors) calcLostVisitors.textContent = `-${monthlyLostVisitors.toLocaleString()} / mo`;
+    if (calcLostDeals) calcLostDeals.textContent = `-${monthlyLostDeals.toLocaleString()} / mo`;
+    if (calcAnnualLoss) calcAnnualLoss.textContent = `-$${annualLoss.toLocaleString()} / yr`;
+
+    updateCtaButton();
+  }
+
+  function updateCtaButton() {
+    if (!ctaBtn || !currentAuditData) return;
+    const domain = currentAuditData.domain || 'your domain';
+    const seoScore = currentAuditData.seoScore || currentAuditData.score || 0;
+    const geoScore = currentAuditData.geoScore || currentAuditData.score || 0;
+
+    if (activeLens === 'seo') {
+      ctaBtn.href = `/contact/?service=web-modernization&tier=re-architecture&calc_revenue=${calculatedAnnualLoss}&domain=${encodeURIComponent(domain)}&seo_score=${seoScore}&geo_score=${geoScore}&source=seo_leakage_calc`;
+      if (ctaText) {
+        ctaText.textContent = `Recover $${calculatedAnnualLoss.toLocaleString()}/yr Lost Revenue`;
+      }
+    } else {
+      const competitorLeader = currentAuditData.competitorLeader || 'Category Leaders';
+      ctaBtn.href = `/contact/?service=geo-engine&source=modal_radar&domain=${encodeURIComponent(domain)}&score=${geoScore}&competitor=${encodeURIComponent(competitorLeader)}`;
+      if (ctaText) {
+        ctaText.textContent = 'Fix These Gaps (10-Min Plan)';
+      }
+    }
+  }
+
+  function switchLens(targetLens) {
+    activeLens = targetLens;
+    if (!currentAuditData) return;
+
+    if (targetLens === 'seo') {
+      // Button states
+      btnSeo.className = 'audit-lens-tab flex items-center justify-center gap-2 py-2 px-3 sm:px-4 rounded-xl text-xs font-mono font-bold tracking-wide transition-all cursor-pointer select-none bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-300 border border-cyan-400/50 shadow-[0_0_15px_rgba(0,242,254,0.25)]';
+      btnGeo.className = 'audit-lens-tab flex items-center justify-center gap-2 py-2 px-3 sm:px-4 rounded-xl text-xs font-mono font-bold tracking-wide transition-all cursor-pointer select-none text-slate-400 hover:text-white hover:bg-white/5 border border-transparent';
+      
+      // View visibility
+      if (viewSeo) viewSeo.classList.remove('hidden');
+      if (viewGeo) viewGeo.classList.add('hidden');
+
+      // Title & Summary
+      if (modalTitle) modalTitle.textContent = 'Google Search Technical Diagnostic';
+      if (summaryText) summaryText.textContent = `Evaluating meta tag compliance, Google SERP truncation, heading hierarchy, and rich snippet eligibility for ${currentAuditData.domain}.`;
+
+      // Update Gauge
+      updateGauge(currentAuditData.seoScore || 70, 'seo');
+    } else {
+      // Button states
+      btnGeo.className = 'audit-lens-tab flex items-center justify-center gap-2 py-2 px-3 sm:px-4 rounded-xl text-xs font-mono font-bold tracking-wide transition-all cursor-pointer select-none bg-gradient-to-r from-indigo-500/20 to-purple-500/20 text-indigo-300 border border-indigo-400/50 shadow-[0_0_15px_rgba(99,102,241,0.25)]';
+      btnSeo.className = 'audit-lens-tab flex items-center justify-center gap-2 py-2 px-3 sm:px-4 rounded-xl text-xs font-mono font-bold tracking-wide transition-all cursor-pointer select-none text-slate-400 hover:text-white hover:bg-white/5 border border-transparent';
+
+      // View visibility
+      if (viewSeo) viewSeo.classList.add('hidden');
+      if (viewGeo) viewGeo.classList.remove('hidden');
+
+      // Title & Summary
+      if (modalTitle) modalTitle.textContent = 'AI Search Visibility Diagnostic';
+      if (summaryText) summaryText.textContent = `Summary of LLM crawler access, Schema.org entity triangulation, and citation readiness for ${currentAuditData.domain}.`;
+
+      // Update Gauge
+      updateGauge(currentAuditData.geoScore || currentAuditData.score || 70, 'geo');
+    }
+
+    updateCtaButton();
+  }
+
+  // Lens Switcher Click Handlers
+  if (btnSeo) btnSeo.addEventListener('click', () => switchLens('seo'));
+  if (btnGeo) btnGeo.addEventListener('click', () => switchLens('geo'));
+
+  // SERP Viewport Toggle Handlers
+  if (serpToggleDesktop && serpToggleMobile) {
+    serpToggleDesktop.addEventListener('click', () => {
+      serpToggleDesktop.className = 'px-2 py-0.5 rounded bg-cyan-950/80 text-cyan-300 border border-cyan-400/30 cursor-pointer';
+      serpToggleMobile.className = 'px-2 py-0.5 rounded text-slate-400 hover:text-white cursor-pointer';
+      if (serpCardContainer) serpCardContainer.style.maxWidth = '100%';
+    });
+    serpToggleMobile.addEventListener('click', () => {
+      serpToggleMobile.className = 'px-2 py-0.5 rounded bg-cyan-950/80 text-cyan-300 border border-cyan-400/30 cursor-pointer';
+      serpToggleDesktop.className = 'px-2 py-0.5 rounded text-slate-400 hover:text-white cursor-pointer';
+      if (serpCardContainer) serpCardContainer.style.maxWidth = '375px';
+    });
+  }
+
+  // Social Tab Switcher Handlers
+  const socialTabs = [
+    { btn: socialTabLinkedin, view: socialViewLinkedin },
+    { btn: socialTabTwitter, view: socialViewTwitter },
+    { btn: socialTabSlack, view: socialViewSlack }
+  ];
+
+  socialTabs.forEach(tab => {
+    if (!tab.btn) return;
+    tab.btn.addEventListener('click', () => {
+      socialTabs.forEach(t => {
+        if (!t.btn || !t.view) return;
+        t.btn.className = 'social-tab-btn px-2.5 py-0.5 rounded text-slate-400 hover:text-white cursor-pointer';
+        t.view.classList.add('hidden');
+      });
+      tab.btn.className = 'social-tab-btn px-2.5 py-0.5 rounded bg-cyan-950/80 text-cyan-300 border border-cyan-400/30 cursor-pointer';
+      if (tab.view) tab.view.classList.remove('hidden');
+    });
+  });
+
+  // Slider Input Handlers for Revenue Leakage Calculator
+  if (calcVisitorsSlider) calcVisitorsSlider.addEventListener('input', recalculateRevenueLeakage);
+  if (calcDealSlider) calcDealSlider.addEventListener('input', recalculateRevenueLeakage);
+
+  function renderAuditScorecard(raw) {
+    if (!raw) return;
+    const data = raw.report || raw;
+    currentAuditData = data;
+
+    const domain = data.domain || 'Domain';
+    const latency = data.latencyMs ? `${data.latencyMs}ms TTFB` : 'N/A';
+    const geoScore = Number(data.geoScore ?? data.score ?? 0);
+    const seoScore = Number(data.seoScore ?? 0);
+
+    data.geoScore = geoScore;
+    data.seoScore = seoScore;
+
+    if (domainLabel) domainLabel.textContent = domain;
+    if (latencyLabel) latencyLabel.textContent = latency;
+    if (seoScorePill) seoScorePill.textContent = `${seoScore}/100`;
+    if (geoScorePill) geoScorePill.textContent = `${geoScore}/100`;
+
+    // 1. Populate SEO Pillars (100% dynamic from seoBreakdown)
+    const sb = data.seoBreakdown || {};
+    const s1 = sb.metaCompliance || { score: 0, max: 35 };
+    const s2 = sb.headingHierarchy || { score: 0, max: 25 };
+    const s3 = sb.richSnippets || { score: 0, max: 20 };
+    const s4 = sb.technicalFoundations || { score: 0, max: 20 };
+
+    if (s1Score) s1Score.textContent = `${s1.score}/${s1.max}`;
+    if (s1Bar) s1Bar.style.width = `${Math.min(100, Math.round((s1.score / s1.max) * 100))}%`;
+    if (s2Score) s2Score.textContent = `${s2.score}/${s2.max}`;
+    if (s2Bar) s2Bar.style.width = `${Math.min(100, Math.round((s2.score / s2.max) * 100))}%`;
+    if (s3Score) s3Score.textContent = `${s3.score}/${s3.max}`;
+    if (s3Bar) s3Bar.style.width = `${Math.min(100, Math.round((s3.score / s3.max) * 100))}%`;
+    if (s4Score) s4Score.textContent = `${s4.score}/${s4.max}`;
+    if (s4Bar) s4Bar.style.width = `${Math.min(100, Math.round((s4.score / s4.max) * 100))}%`;
+
+    // 2. Populate GEO Pillars
+    const gb = data.geoBreakdown || data.breakdown || {};
+    const p1 = gb.aiCrawlerReadiness || { score: 0, max: 35 };
+    const p2 = gb.knowledgeGraphSchema || { score: 0, max: 30 };
+    const p3 = gb.technicalFoundations || { score: 0, max: 35 };
 
     if (p1Score) p1Score.textContent = `${p1.score}/${p1.max}`;
     if (p1Bar) p1Bar.style.width = `${Math.min(100, Math.round((p1.score / p1.max) * 100))}%`;
-
     if (p2Score) p2Score.textContent = `${p2.score}/${p2.max}`;
     if (p2Bar) p2Bar.style.width = `${Math.min(100, Math.round((p2.score / p2.max) * 100))}%`;
-
     if (p3Score) p3Score.textContent = `${p3.score}/${p3.max}`;
     if (p3Bar) p3Bar.style.width = `${Math.min(100, Math.round((p3.score / p3.max) * 100))}%`;
 
-    // 4. Populate 3 Critical AI Gap Indicators
+    // 3. Populate SERP Preview (open-seo)
+    const sig = data.signals || {};
+    const meta = sig.meta || {};
+    const titleText = meta.title || `${domain} — Official Homepage`;
+    const descText = meta.metaDescription || `Explore verified services, modern digital architecture, and solutions from ${domain}.`;
+    const faviconUrl = meta.faviconUrl || '';
+
+    if (serpSiteName) serpSiteName.textContent = domain;
+    if (serpBreadcrumb) serpBreadcrumb.textContent = `https://${domain}`;
+    
+    // Title truncation detector (60 chars)
+    if (serpTitleLink) {
+      if (titleText.length > 60) {
+        serpTitleLink.textContent = titleText.slice(0, 57) + '...';
+        serpTitleLink.title = titleText;
+      } else {
+        serpTitleLink.textContent = titleText;
+      }
+    }
+    if (serpTitleBadge) {
+      if (titleText.length > 60) {
+        serpTitleBadge.className = 'px-2 py-0.5 rounded text-[10px] bg-rose-950/80 border border-rose-500/40 text-rose-300 font-bold';
+        serpTitleBadge.textContent = `🚨 ${titleText.length}/60 chars (Truncated on Google)`;
+      } else if (titleText.length < 30) {
+        serpTitleBadge.className = 'px-2 py-0.5 rounded text-[10px] bg-amber-950/80 border border-amber-500/40 text-amber-300';
+        serpTitleBadge.textContent = `⚠️ ${titleText.length}/60 chars (Too short)`;
+      } else {
+        serpTitleBadge.className = 'px-2 py-0.5 rounded text-[10px] bg-emerald-950/80 border border-emerald-500/40 text-emerald-300';
+        serpTitleBadge.textContent = `✓ ${titleText.length}/60 chars (Optimal)`;
+      }
+    }
+
+    // Description truncation detector (160 chars)
+    if (serpSnippetDesc) {
+      if (descText.length > 160) {
+        serpSnippetDesc.textContent = descText.slice(0, 157) + '...';
+      } else {
+        serpSnippetDesc.textContent = descText;
+      }
+    }
+    if (serpDescBadge) {
+      if (descText.length > 160) {
+        serpDescBadge.className = 'px-2 py-0.5 rounded text-[10px] bg-rose-950/80 border border-rose-500/40 text-rose-300 font-bold';
+        serpDescBadge.textContent = `🚨 ${descText.length}/160 chars (Truncated)`;
+      } else if (descText.length < 70) {
+        serpDescBadge.className = 'px-2 py-0.5 rounded text-[10px] bg-amber-950/80 border border-amber-500/40 text-amber-300';
+        serpDescBadge.textContent = `⚠️ ${descText.length}/160 chars (Too short)`;
+      } else {
+        serpDescBadge.className = 'px-2 py-0.5 rounded text-[10px] bg-emerald-950/80 border border-emerald-500/40 text-emerald-300';
+        serpDescBadge.textContent = `✓ ${descText.length}/160 chars (Optimal)`;
+      }
+    }
+
+    // Favicon handling
+    if (faviconUrl && serpFaviconImg) {
+      serpFaviconImg.src = faviconUrl;
+      serpFaviconImg.classList.remove('hidden');
+      if (serpFaviconFallback) serpFaviconFallback.classList.add('hidden');
+    }
+
+    // Rich Microdata SERP Additions (100% dynamic from JSON-LD)
+    const rich = sig.richSnippets || {};
+    if (rich.hasAggregateRating && rich.ratingDetails && rich.ratingDetails.ratingValue && serpStarsRow) {
+      serpStarsRow.classList.remove('hidden');
+      const r = rich.ratingDetails;
+      if (serpStarsRating) {
+        serpStarsRating.textContent = r.reviewCount
+          ? `${r.ratingValue} (${r.reviewCount} reviews)`
+          : `${r.ratingValue}`;
+      }
+    } else if (serpStarsRow) {
+      serpStarsRow.classList.add('hidden');
+    }
+    if (rich.hasFAQPage && serpFaqRow) {
+      serpFaqRow.classList.remove('hidden');
+    } else if (serpFaqRow) {
+      serpFaqRow.classList.add('hidden');
+    }
+
+    // 4. Populate Social Cards
+    const soc = sig.social || {};
+    const ogImg = soc.ogImage || '';
+    const ogT = soc.ogTitle || titleText;
+    const ogD = soc.ogDescription || descText;
+
+    // LinkedIn
+    const liDomain = document.getElementById('linkedin-preview-domain');
+    const liTitle = document.getElementById('linkedin-preview-title');
+    const liDesc = document.getElementById('linkedin-preview-desc');
+    const liImg = document.getElementById('linkedin-preview-img');
+    const liFallback = document.getElementById('linkedin-img-fallback');
+    if (liDomain) liDomain.textContent = domain.toUpperCase();
+    if (liTitle) liTitle.textContent = ogT;
+    if (liDesc) liDesc.textContent = ogD;
+    if (ogImg && liImg) {
+      liImg.src = ogImg;
+      liImg.classList.remove('hidden');
+      if (liFallback) liFallback.classList.add('hidden');
+    } else if (liImg) {
+      liImg.classList.add('hidden');
+      if (liFallback) liFallback.classList.remove('hidden');
+    }
+
+    // Twitter
+    const twDomain = document.getElementById('twitter-preview-domain');
+    const twTitle = document.getElementById('twitter-preview-title');
+    const twDesc = document.getElementById('twitter-preview-desc');
+    const twImg = document.getElementById('twitter-preview-img');
+    const twFallback = document.getElementById('twitter-img-fallback');
+    if (twDomain) twDomain.textContent = domain;
+    if (twTitle) twTitle.textContent = soc.twitterTitle || ogT;
+    if (twDesc) twDesc.textContent = soc.twitterDescription || ogD;
+    const twImgUrl = soc.twitterImage || ogImg;
+    if (twImgUrl && twImg) {
+      twImg.src = twImgUrl;
+      twImg.classList.remove('hidden');
+      if (twFallback) twFallback.classList.add('hidden');
+    } else if (twImg) {
+      twImg.classList.add('hidden');
+      if (twFallback) twFallback.classList.remove('hidden');
+    }
+
+    // Slack
+    const slSite = document.getElementById('slack-preview-site');
+    const slTitle = document.getElementById('slack-preview-title');
+    const slDesc = document.getElementById('slack-preview-desc');
+    const slImg = document.getElementById('slack-preview-img');
+    if (slSite) slSite.textContent = soc.ogSiteName || domain;
+    if (slTitle) slTitle.textContent = ogT;
+    if (slDesc) slDesc.textContent = ogD;
+    if (ogImg && slImg) {
+      slImg.src = ogImg;
+      slImg.classList.remove('hidden');
+    } else if (slImg) {
+      slImg.classList.add('hidden');
+    }
+
+    // Missing media alert
+    if (!ogImg && socialMissingAlert) {
+      socialMissingAlert.classList.remove('hidden');
+    } else if (socialMissingAlert) {
+      socialMissingAlert.classList.add('hidden');
+    }
+
+    // 5. Populate Heading Tree & Blunders
+    const hasHeadingsData = Boolean(sig.headings);
+    const h = sig.headings || { tree: [], errors: [], h1Count: 1 };
+    const hTree = h.tree || [];
+    const hErrors = h.errors || [];
+
+    if (headingHealthBadge) {
+      if (!hasHeadingsData) {
+        headingHealthBadge.className = 'px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-amber-950/80 border border-amber-400/40 text-amber-300';
+        headingHealthBadge.textContent = 'Backend Updating...';
+      } else if (hErrors.length === 0) {
+        headingHealthBadge.className = 'px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-emerald-950/80 border border-emerald-400/40 text-emerald-300';
+        headingHealthBadge.textContent = '✓ Optimal Semantic Structure';
+      } else {
+        headingHealthBadge.className = 'px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-rose-950/80 border border-rose-400/40 text-rose-300';
+        headingHealthBadge.textContent = `🚨 ${hErrors.length} Structural Issue${hErrors.length > 1 ? 's' : ''}`;
+      }
+    }
+
+    if (headingBlundersBox) {
+      headingBlundersBox.innerHTML = '';
+      if (hErrors.length > 0) {
+        headingBlundersBox.classList.remove('hidden');
+        hErrors.forEach(err => {
+          const alert = document.createElement('div');
+          alert.className = 'p-2 rounded-lg bg-rose-950/60 border border-rose-500/30 text-[11px] text-rose-200 flex items-center gap-2';
+          alert.innerHTML = `<span>🚨</span><span class="font-mono">${err}</span>`;
+          headingBlundersBox.appendChild(alert);
+        });
+      } else {
+        headingBlundersBox.classList.add('hidden');
+      }
+    }
+
+    if (headingTreeContainer) {
+      headingTreeContainer.innerHTML = '';
+      if (!hasHeadingsData) {
+        headingTreeContainer.innerHTML = '<p class="text-xs text-amber-300/90 font-mono">⚡ Backend Lambda updating to Sprint 12. Deploy backend using <code>sam deploy</code> to enable live DOM heading trees.</p>';
+      } else if (hTree.length === 0) {
+        headingTreeContainer.innerHTML = '<p class="text-xs text-slate-500 font-mono">No H1–H6 headings detected in HTML document.</p>';
+      } else {
+        hTree.slice(0, 15).forEach(node => {
+          const item = document.createElement('div');
+          const indent = (node.level - 1) * 16;
+          item.className = 'flex items-center gap-2 text-xs font-mono';
+          item.style.paddingLeft = `${indent}px`;
+
+          let tagClass = 'bg-cyan-950/80 border-cyan-400/40 text-cyan-300';
+          if (node.level === 2) tagClass = 'bg-indigo-950/80 border-indigo-400/40 text-indigo-300';
+          if (node.level >= 3) tagClass = 'bg-slate-900 border-white/10 text-slate-400';
+
+          item.innerHTML = `
+            <span class="px-1.5 py-0.2 rounded text-[10px] font-bold border ${tagClass}">&lt;${node.tag.toUpperCase()}&gt;</span>
+            <span class="text-slate-300 truncate">${node.text}</span>
+          `;
+          headingTreeContainer.appendChild(item);
+        });
+        if (hTree.length > 15) {
+          const more = document.createElement('div');
+          more.className = 'pt-1 text-[10px] font-mono text-slate-500 italic';
+          more.textContent = `+ ${hTree.length - 15} more headings in document`;
+          headingTreeContainer.appendChild(more);
+        }
+      }
+    }
+
+    // 6. Populate Rich Results Matrix
+    const updateRichBadge = (el, active, textActive = 'Active') => {
+      if (!el) return;
+      if (active) {
+        el.className = 'text-[9px] font-mono px-1.5 py-0.5 rounded bg-emerald-950/80 border border-emerald-400/40 text-emerald-300';
+        el.textContent = `✓ ${textActive}`;
+      } else {
+        el.className = 'text-[9px] font-mono px-1.5 py-0.5 rounded bg-rose-950/70 border border-rose-400/40 text-rose-300';
+        el.textContent = 'Missing';
+      }
+    };
+
+    updateRichBadge(richStarsStatus, rich.hasAggregateRating, 'Eligible (Stars)');
+    updateRichBadge(richFaqStatus, rich.hasFAQPage, 'Eligible (FAQ)');
+    updateRichBadge(richBreadcrumbStatus, rich.hasBreadcrumbList, 'Eligible (Path)');
+    updateRichBadge(richLocalStatus, rich.hasLocalBusiness, 'Verified (Local)');
+
+    // 7. Initialize Revenue Leakage Calculator
+    recalculateRevenueLeakage();
+
+    // 8. Populate GEO View Indicators (OmniRoute Radar & Gaps)
     if (gapsContainer) {
       gapsContainer.innerHTML = '';
       const recs = (data.recommendations && data.recommendations.length > 0)
@@ -435,7 +1292,7 @@
       });
     }
 
-    // 4b. OmniRoute Multi-LLM Citation Probing Engine (Sprint 9 Phase 4 - OmniRoute & every-app/open-seo)
+    // OmniRoute Multi-LLM Citation Probing Simulation
     const updateRadarBadge = (id, status) => {
       const el = document.getElementById(id);
       if (!el) return;
@@ -451,47 +1308,39 @@
       }
     };
 
-    // Micro-Step 4.2: Sector Classification & Competitor Displacement (every-app/open-seo)
-    const domainLower = domain.toLowerCase();
-    const isTrades = /(hvac|plumb|roof|electric|heat|cool|drain|pipe|contract|reno|build|auto|clean|pest|appliance|air|furnace)/.test(domainLower);
-    const isCloud = /(cloud|dev|tech|soft|data|code|ai|api|saas|app|sys|infra|cyber|sec|corp|arch)/.test(domainLower);
+    // Dynamic Sector Classification & Live Heading/Meta Topic Extraction (zero domain hardcoding)
+    const contentCorpus = `${domain} ${titleText} ${descText}`.toLowerCase();
+    const isTrades = /(hvac|plumb|roof|electric|heat|cool|drain|pipe|contract|reno|build|auto|clean|pest|appliance|air|furnace|comfort|home|repair|water|boiler)/.test(contentCorpus);
+    const isCloud = /(cloud|aws|serverless|dev|tech|soft|data|code|ai|agent|api|saas|app|sys|infra|cyber|sec|arch|host)/.test(contentCorpus);
 
     let sectorName = 'Commercial Enterprise';
-    let competitorLeader = 'Category Citation Leaders';
-    let queryTags = [];
-
-    if (isTrades) {
-      sectorName = 'Emergency Trades & Field Services';
-      competitorLeader = 'Reliance & Enercare (3.8x citation lead)';
-      queryTags = [
-        '24/7 furnace repair near me',
-        'emergency burst pipe dispatch toronto',
-        'certified heat pump installer reviews',
-        'commercial hvac maintenance contract'
-      ];
-    } else if (isCloud) {
-      sectorName = 'Cloud Architecture & Enterprise Tech';
-      competitorLeader = 'Slalom & Onica by Rackspace';
-      queryTags = [
-        'aws serverless migration consultant toronto',
-        'sub-100ms api edge latency optimization',
-        'enterprise voice ai webhook integrations',
-        'cloud architecture cost audit'
-      ];
-    } else {
-      sectorName = 'Regional Commercial Services';
-      competitorLeader = 'Accenture & Regional Industry Giants';
-      queryTags = [
-        'same-day emergency intake contact',
-        'licensed service provider downtown',
-        'verified customer reviews 2026',
-        'after-hours rapid response team'
-      ];
+    if (isCloud) {
+      sectorName = 'Cloud Architecture & AI Systems';
+    } else if (isTrades) {
+      sectorName = 'Trades & Field Services';
     }
+
+    const competitorLeader = (geoScore >= 90 && sig.hasEntityTriangulation)
+      ? 'None (Verified Entity Authority Graph Active)'
+      : 'Category Citation Leaders (Higher Schema Density)';
+
+    // Extract real semantic topic phrases from the audited page's H1/H2/H3 tree & title
+    const extractedTopics = hTree
+      .map(node => node.text.trim())
+      .filter(txt => txt.length >= 12 && txt.length <= 65)
+      .slice(0, 4);
+
+    const queryTags = extractedTopics.length > 0
+      ? extractedTopics
+      : [titleText.slice(0, 55)].filter(Boolean);
+
+    data.competitorLeader = competitorLeader;
 
     const compLeaderEl = document.getElementById('geo-competitor-leader');
     if (compLeaderEl) {
-      compLeaderEl.textContent = `Displaced by: ${competitorLeader}`;
+      compLeaderEl.textContent = (geoScore >= 90 && sig.hasEntityTriangulation)
+        ? `Citation Status: ${competitorLeader}`
+        : `Displaced by: ${competitorLeader}`;
     }
 
     const keywordContainer = document.getElementById('geo-keyword-tags');
@@ -505,7 +1354,6 @@
       });
     }
 
-    // Micro-Step 4.1: Live Sequential Probing Engine (OmniRoute)
     const tickerText = document.getElementById('radar-ticker-text');
     const probeModels = [
       { id: 'radar-chatgpt-badge', name: 'ChatGPT Search (GPTBot)', delay: 100, passScore: 75, partialScore: 45 },
@@ -514,32 +1362,15 @@
       { id: 'radar-google-badge', name: 'Google AI Overviews (Gemini)', delay: 640, passScore: 65, partialScore: 40 }
     ];
 
-    // Initialize all badges in animated probe state
-    probeModels.forEach(m => {
-      const el = document.getElementById(m.id);
-      if (el) {
-        el.className = 'inline-flex items-center gap-1 text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-cyan-300';
-        el.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span><span class="radar-status-text">Probing...</span>';
-      }
-    });
-
-    if (tickerText) {
-      tickerText.textContent = `OmniRoute: Probing multi-LLM citation index for ${domain}...`;
-    }
-
-    // Sequentially resolve each model badge with real-time ticker feedback
     probeModels.forEach(m => {
       setTimeout(() => {
         let status = 'excluded';
-        if (score >= m.passScore) {
+        if (geoScore >= m.passScore) {
           status = 'present';
-        } else if (score >= m.partialScore) {
+        } else if (geoScore >= m.partialScore) {
           status = 'partial';
         }
         updateRadarBadge(m.id, status);
-        if (tickerText) {
-          tickerText.textContent = `OmniRoute: ${m.name} evaluated [${status.toUpperCase()}]`;
-        }
       }, m.delay);
     });
 
@@ -549,15 +1380,13 @@
       }
     }, 850);
 
-    // Micro-Step 4.3: Dynamic 1-Click Strategic Booking Linkage
-    if (ctaBtn) {
-      ctaBtn.href = `/contact/?service=geo-engine&source=modal_radar&domain=${encodeURIComponent(domain)}&score=${score}&competitor=${encodeURIComponent(competitorLeader)}`;
-    }
+    // Initial render in Google SEO lens (or keep activeLens)
+    switchLens(activeLens || 'seo');
 
     openModal();
   }
 
-  // Listen for the custom event dispatched by geo-audit-hero.html (both standard names)
+  // Listen for the custom events dispatched by hero / dogfooding
   window.addEventListener('geo-audit-complete', function(e) {
     renderAuditScorecard(e.detail);
   });
@@ -569,21 +1398,17 @@
   if (closeBtn) closeBtn.addEventListener('click', closeModal);
   if (secondaryBtn) secondaryBtn.addEventListener('click', closeModal);
 
-  // Click outside card to dismiss
   modal.addEventListener('click', function(e) {
-    if (e.target === modal) {
-      closeModal();
-    }
+    if (e.target === modal) closeModal();
   });
 
-  // Escape key to dismiss
   window.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' && !modal.classList.contains('pointer-events-none')) {
       closeModal();
     }
   });
 
-  // Expose test trigger helper globally for testing and verification
   window.__LUMILORE_OPEN_AUDIT_MODAL = renderAuditScorecard;
+  window.__LUMILORE_SWITCH_AUDIT_LENS = switchLens;
 })();
 </script>

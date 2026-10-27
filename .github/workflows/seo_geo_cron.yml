@@ -1,0 +1,55 @@
+name: Autonomous SEO & GEO Agent Weekly Live Ranking Engine
+
+on:
+  schedule:
+    # Run every Monday at 8:00 AM UTC (3:00 AM EST)
+    - cron: '0 8 * * 1'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Execute in Dry-Run mode'
+        required: false
+        default: 'false'
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  run-ranking-radar:
+    name: Execute Autonomous SEO/GEO Telemetry & Intelligence
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Codebase
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js Runtime
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Configure AWS Credentials (OIDC or Secrets)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: ca-central-1
+          audience: sts.amazonaws.com
+        continue-on-error: true
+
+      - name: Run Master SEO & GEO Pipeline
+        env:
+          DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
+          AWS_REGION: ca-central-1
+          PAGESPEED_API_KEY: ${{ secrets.PAGESPEED_API_KEY || 'AIzaSyABXJTWhxQmaAPXUyrk9LAaTewEFf295CA' }}
+          FOUNDER_SAAD_EMAIL: info@lumilore.ca
+          SES_SOURCE_EMAIL: info@lumilore.ca
+        run: |
+          node agents/seo-geo-agent/run.js --cron --all
+
+      - name: Commit and Push Updated GEO Metrics
+        run: |
+          git config user.name "LumiLore Autonomous Agent"
+          git config user.email "bot@lumilore.ca"
+          git add .ai/memory/geo_metrics.json .ai/memory/latest_cron_run.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore(telemetry): automated weekly GEO ranking audit [skip ci]" && git push)
+        continue-on-error: true
+

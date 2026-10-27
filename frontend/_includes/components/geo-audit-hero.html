@@ -17,9 +17,9 @@
     </div>
 
     <!-- Title & Value Hook -->
-    <h3 class="text-base sm:text-lg md:text-xl font-bold text-white tracking-tight leading-snug">
+    <h2 class="text-base sm:text-lg md:text-xl font-bold text-white tracking-tight leading-snug">
       Does ChatGPT &amp; Perplexity cite your brand, or your competitor?
-    </h3>
+    </h2>
     <p class="text-xs sm:text-sm text-slate-300 font-light mt-1 leading-relaxed">
       Audit your domain against AI crawler access (<code class="text-cyan-300 font-mono text-[11px]">GPTBot</code>, <code class="text-cyan-300 font-mono text-[11px]">ClaudeBot</code>), Schema.org entity graph triangulation, and LLM search discoverability.
     </p>
@@ -59,10 +59,10 @@
         type="button" 
         id="hero-geo-dogfood-trigger" 
         class="group inline-flex items-center gap-2 text-xs font-mono text-cyan-300 hover:text-white transition-colors cursor-pointer select-none focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded-lg p-1"
-        title="View LumiLore Customer Zero Scorecard (98/100)"
+        title="Run live real-time diagnostic on lumilore.ca"
       >
         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.9)]"></span>
-        <span>Customer Zero Proof: <strong class="text-white group-hover:text-cyan-200">lumilore.ca score: 98/100</strong> • 100% AI Bot Compliance</span>
+        <span>Live Self-Audit: <strong class="text-white group-hover:text-cyan-200">Test lumilore.ca in Real Time</strong> • Zero Hardcoded Data</span>
         <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
       </button>
 
@@ -245,6 +245,165 @@
         throw new Error(data.message || data.error || 'Server inspection encountered a network error.');
       }
 
+      // When running on localhost, the remote AWS Lambda cannot reach localhost:8080,
+      // so if auditing the local site (lumilore.ca), parse the live local build HTML & robots.txt
+      // using the exact same dynamic engine rules as backend/src/services/geoAudit.js
+      if ((window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') &&
+          (domain === 'lumilore.ca' || domain === 'www.lumilore.ca')) {
+        try {
+          const t0 = performance.now();
+          const localRes = await fetch('/', { cache: 'no-store' });
+          const localLatencyMs = Math.max(1, Math.round(performance.now() - t0));
+          if (localRes.ok) {
+            const localHtml = await localRes.text();
+            const tMatch = localHtml.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
+            const rawTitle = tMatch ? tMatch[1].trim().replace(/\s+/g, ' ') : '';
+            const titleLength = rawTitle.length;
+            const isTitleOptimal = titleLength >= 30 && titleLength <= 60;
+
+            const dMatch = localHtml.match(/<meta[^>]*name=["']description["'][^>]*content=["']([^"']*)["']/i) ||
+                           localHtml.match(/<meta[^>]*content=["']([^"']*)["'][^>]*name=["']description["']/i);
+            const rawMetaDesc = dMatch ? dMatch[1].trim() : '';
+            const descriptionLength = rawMetaDesc.length;
+            const isDescriptionOptimal = descriptionLength >= 70 && descriptionLength <= 160;
+
+            const cMatch = localHtml.match(/<link[^>]*rel=["']canonical["'][^>]*href=["']([^"']*)["']/i) ||
+                           localHtml.match(/<link[^>]*href=["']([^"']*)["'][^>]*rel=["']canonical["']/i);
+            const canonicalUrl = cMatch ? cMatch[1].trim() : '';
+
+            const iconMatch = localHtml.match(/<link[^>]*rel=["'](?:shortcut )?icon["'][^>]*href=["']([^"']*)["']/i) ||
+                              localHtml.match(/<link[^>]*href=["']([^"']*)["'][^>]*rel=["'](?:shortcut )?icon["']/i);
+            const faviconUrl = iconMatch ? iconMatch[1].trim() : '';
+
+            const hMatches = [...localHtml.matchAll(/<(h[1-6])[^>]*>([\s\S]*?)<\/\1>/gi)];
+            const headingsTree = [];
+            let h1Count = 0;
+            let lastLevel = 0;
+            let hasSkippedLevels = false;
+            const headingErrors = [];
+
+            hMatches.forEach(m => {
+              const tag = m[1].toLowerCase();
+              const level = parseInt(tag[1], 10);
+              const text = m[2].replace(/<[^>]+>/g, '').trim().replace(/\s+/g, ' ');
+              if (text) {
+                headingsTree.push({ tag, level, text });
+                if (level === 1) h1Count++;
+                if (lastLevel > 0 && level > lastLevel + 1) {
+                  hasSkippedLevels = true;
+                  headingErrors.push(`Skipped level: H${lastLevel} to H${level}`);
+                }
+                lastLevel = level;
+              }
+            });
+            if (h1Count === 0) headingErrors.unshift('Missing H1: No <h1> tag found on page.');
+            else if (h1Count > 1) headingErrors.push(`Multiple H1s: Found ${h1Count} <h1> tags (dilutes primary keyword).`);
+
+            let schemaEntities = [];
+            let hasEntityTriangulation = false;
+            let hasAggregateRating = false;
+            let hasFAQPage = false;
+            let hasBreadcrumbList = false;
+            let hasLocalBusiness = false;
+            let ratingDetails = null;
+            let faqCount = 0;
+
+            const schemaMatches = [...localHtml.matchAll(/<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)];
+            for (const match of schemaMatches) {
+              try {
+                const parsed = JSON.parse(match[1]);
+                const examineEntity = (ent) => {
+                  if (!ent || typeof ent !== 'object') return;
+                  const rawType = ent['@type'];
+                  const types = Array.isArray(rawType) ? rawType : (rawType ? [rawType] : []);
+                  types.forEach(type => {
+                    schemaEntities.push(type);
+                    if (['AggregateRating', 'Rating'].includes(type) || ent.aggregateRating) {
+                      hasAggregateRating = true;
+                      const r = ent.aggregateRating || ent;
+                      ratingDetails = {
+                        ratingValue: r.ratingValue,
+                        reviewCount: r.reviewCount || r.ratingCount
+                      };
+                    }
+                    if (type === 'FAQPage' || (ent.mainEntity && Array.isArray(ent.mainEntity) && ent.mainEntity.some(q => q['@type'] === 'Question'))) {
+                      hasFAQPage = true;
+                      if (Array.isArray(ent.mainEntity)) faqCount += ent.mainEntity.length;
+                    }
+                    if (type === 'BreadcrumbList' || ent.itemListElement) {
+                      hasBreadcrumbList = true;
+                    }
+                    if (/(Business|Service|Repair|Store|Shop|Clinic|Organization)$/i.test(type)) {
+                      hasLocalBusiness = true;
+                    }
+                  });
+                  if (ent.aggregateRating) {
+                    hasAggregateRating = true;
+                    ratingDetails = {
+                      ratingValue: ent.aggregateRating.ratingValue,
+                      reviewCount: ent.aggregateRating.reviewCount || ent.aggregateRating.ratingCount
+                    };
+                  }
+                  if (ent.sameAs && (Array.isArray(ent.sameAs) ? ent.sameAs.length > 0 : Boolean(ent.sameAs))) {
+                    hasEntityTriangulation = true;
+                  }
+                };
+                examineEntity(parsed);
+                if (parsed['@graph'] && Array.isArray(parsed['@graph'])) {
+                  parsed['@graph'].forEach(examineEntity);
+                }
+              } catch (e) {}
+            }
+
+            const metaScore = (isTitleOptimal ? 15 : (titleLength > 0 && titleLength <= 70 ? 8 : 0)) +
+                              (isDescriptionOptimal ? 10 : (descriptionLength > 0 && descriptionLength <= 200 ? 5 : 0)) +
+                              (canonicalUrl ? 5 : 0) +
+                              (faviconUrl ? 5 : 0);
+            const headingScore = (h1Count === 1 ? 15 : (h1Count > 1 ? 5 : 0)) +
+                                 (!hasSkippedLevels && headingsTree.length > 0 ? 10 : (headingsTree.length > 0 ? 3 : 0));
+            const richScore = (hasAggregateRating ? 5 : 0) + (hasFAQPage ? 5 : 0) + (hasBreadcrumbList ? 5 : 0) + (hasLocalBusiness ? 5 : 0);
+            const techScore = (report.seoBreakdown && report.seoBreakdown.technicalFoundations) ? report.seoBreakdown.technicalFoundations.score : 0;
+
+            report.signals = report.signals || {};
+            report.signals.entitiesFound = schemaEntities;
+            report.signals.hasEntityTriangulation = hasEntityTriangulation;
+            report.signals.meta = Object.assign({}, report.signals.meta, {
+              title: rawTitle,
+              titleLength,
+              isTitleOptimal,
+              metaDescription: rawMetaDesc,
+              descriptionLength,
+              isDescriptionOptimal,
+              canonicalUrl
+            });
+            report.signals.headings = {
+              tree: headingsTree,
+              h1Count,
+              hasSkippedLevels,
+              totalHeadings: headingsTree.length,
+              errors: headingErrors
+            };
+            report.signals.richSnippets = {
+              hasAggregateRating,
+              hasFAQPage,
+              hasBreadcrumbList,
+              hasLocalBusiness,
+              ratingDetails,
+              faqCount
+            };
+            report.seoBreakdown = {
+              metaCompliance: { score: metaScore, max: 35, status: metaScore >= 25 ? 'pass' : 'fail' },
+              headingHierarchy: { score: headingScore, max: 25, status: headingScore >= 18 ? 'pass' : 'fail' },
+              richSnippets: { score: richScore, max: 20, status: richScore >= 10 ? 'pass' : 'fail' },
+              technicalFoundations: { score: techScore, max: 20, status: techScore >= 15 ? 'pass' : 'fail' }
+            };
+            report.seoScore = Math.min(100, metaScore + headingScore + richScore + techScore);
+          }
+        } catch (localErr) {
+          console.warn('[LumiLore] Local DOM inspection fallback skipped:', localErr);
+        }
+      }
+
       // Store result globally for consumption by Modal & Calendar components
       window.__LUMILORE_LAST_GEO_AUDIT = report;
 
@@ -267,52 +426,15 @@
     }
   });
 
-  // Micro-Step 4.4: Dogfooding Trigger for lumilore.ca
+  // Live Self-Audit Trigger: submits the form through the real dynamic audit pipeline (zero hardcoded data)
   const dogfoodTrigger = document.getElementById('hero-geo-dogfood-trigger');
   if (dogfoodTrigger) {
     dogfoodTrigger.addEventListener('click', function() {
       if (input) input.value = 'lumilore.ca';
-      const lumiloreData = {
-        domain: 'lumilore.ca',
-        url: 'https://lumilore.ca',
-        score: 98,
-        latencyMs: 142,
-        breakdown: {
-          aiCrawlerReadiness: { score: 35, max: 35, status: 'pass' },
-          knowledgeGraphSchema: { score: 30, max: 30, status: 'pass' },
-          technicalFoundations: { score: 33, max: 35, status: 'pass' }
-        },
-        signals: {
-          isHttps: true,
-          hasJsonLd: true,
-          entitiesFound: ['Organization', 'Person', 'ProfessionalService', 'SoftwareApplication', 'FAQPage'],
-          hasEntityTriangulation: true,
-          aiCrawlers: {
-            gptBot: true,
-            claudeBot: true,
-            perplexityBot: true
-          }
-        },
-        recommendations: [
-          {
-            priority: 'OPTIMIZATION',
-            title: 'Continuous LLM Answer Snippet Freshness',
-            description: 'Publish weekly high-authority architectural case studies to sustain #1 cited answers across Perplexity and ChatGPT search.'
-          },
-          {
-            priority: 'OPTIMIZATION',
-            title: 'Knowledge Graph Triangulation Active',
-            description: 'Domain is fully triangulated across verified Wikidata and GitHub entity nodes with 0 crawler restrictions.'
-          }
-        ],
-        timestamp: new Date().toISOString()
-      };
-
-      window.__LUMILORE_LAST_GEO_AUDIT = lumiloreData;
-      if (typeof window.__LUMILORE_OPEN_AUDIT_MODAL === 'function') {
-        window.__LUMILORE_OPEN_AUDIT_MODAL(lumiloreData);
+      if (typeof form.requestSubmit === 'function') {
+        form.requestSubmit();
       } else {
-        window.dispatchEvent(new CustomEvent('geo-audit-complete', { detail: lumiloreData }));
+        form.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
       }
     });
   }

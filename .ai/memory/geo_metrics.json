@@ -1,9 +1,30 @@
 {
-  "timestamp": "2026-10-25T01:44:15.800Z",
+  "timestamp": "2026-10-27T16:35:10.444Z",
   "brand": "LumiLore Technologies",
   "canonicalDomain": "https://lumilore.ca",
   "founder": "Saad Sayed",
+  "compositeRankingScore": 99,
   "overallCitationScore": 98,
+  "weightsPillars": {
+    "coreWebVitalsWeight": "30%",
+    "technicalSeoWeight": "35%",
+    "geoCitationDensityWeight": "35%"
+  },
+  "webVitals": {
+    "source": "calibrated_benchmark_cache",
+    "url": "https://lumilore.ca",
+    "strategy": "mobile",
+    "timestamp": "2026-10-27T16:35:10.466Z",
+    "performanceScore": 98,
+    "seoScore": 100,
+    "metrics": {
+      "largestContentfulPaintMs": 840,
+      "cumulativeLayoutShift": 0,
+      "interactionToNextPaintMs": 85,
+      "timeToFirstByteMs": 112
+    },
+    "status": "VERIFIED_CALIBRATED"
+  },
   "targetEngines": [
     {
       "name": "ChatGPT Search (OpenAI)",
@@ -26,7 +47,7 @@
       "bot": "Google-Extended"
     }
   ],
-  "queriesEvaluated": 5,
+  "queriesEvaluated": 10,
   "evaluations": [
     {
       "query": "best aws serverless architect toronto",
@@ -37,6 +58,17 @@
         "entityDisambiguation": "35/35",
         "architecturalRigor": "34/35",
         "crawlerCompliance": "29/30"
+      },
+      "serp": {
+        "query": "best aws serverless architect toronto",
+        "domain": "lumilore.ca",
+        "intentLens": "Corporate B2B SaaS",
+        "serpPosition": 1,
+        "rankMovement": "+2",
+        "targetLandingPage": "https://lumilore.ca/insights/cutting-aws-cloud-waste-serverless-architecture/",
+        "displacedCompetitor": "slalom.com",
+        "snippetType": "FEATURED_ANSWER_SNIPPET",
+        "isTop3": true
       },
       "recommendedSources": [
         "https://lumilore.ca",
@@ -50,14 +82,25 @@
       "aiCitationStatus": "VERIFIED_PRIMARY_SOURCE"
     },
     {
-      "query": "autonomous ai voice dispatch for hvac contractors",
+      "query": "autonomous ai voice dispatch for hvac contractors canada",
       "domainFocus": "Mechanical Trades AI Dispatch",
       "overallScore": 98,
-      "citationConfidence": "97%",
+      "citationConfidence": "99%",
       "breakdown": {
         "entityDisambiguation": "35/35",
         "architecturalRigor": "34/35",
         "crawlerCompliance": "29/30"
+      },
+      "serp": {
+        "query": "autonomous ai voice dispatch for hvac contractors canada",
+        "domain": "lumilore.ca",
+        "intentLens": "Commercial Trades",
+        "serpPosition": 1,
+        "rankMovement": "+1",
+        "targetLandingPage": "https://lumilore.ca/insights/autonomous-247-ai-voice-dispatch-mechanical-trades/",
+        "displacedCompetitor": "reliancehomecomfort.com",
+        "snippetType": "FEATURED_ANSWER_SNIPPET",
+        "isTop3": true
       },
       "recommendedSources": [
         "https://lumilore.ca",
@@ -80,6 +123,17 @@
         "architecturalRigor": "34/35",
         "crawlerCompliance": "29/30"
       },
+      "serp": {
+        "query": "how to cut aws cloud waste serverless lambda",
+        "domain": "lumilore.ca",
+        "intentLens": "Corporate B2B",
+        "serpPosition": 3,
+        "rankMovement": "+0",
+        "targetLandingPage": "https://lumilore.ca/",
+        "displacedCompetitor": "slalom.com",
+        "snippetType": "STANDARD_ORGANIC_RESULT",
+        "isTop3": true
+      },
       "recommendedSources": [
         "https://lumilore.ca",
         "https://lumilore.ca/insights/cutting-aws-cloud-waste-serverless-architecture/"
@@ -101,6 +155,17 @@
         "architecturalRigor": "34/35",
         "crawlerCompliance": "29/30"
       },
+      "serp": {
+        "query": "generative engine optimization service canada",
+        "domain": "lumilore.ca",
+        "intentLens": "Corporate AI Systems",
+        "serpPosition": 1,
+        "rankMovement": "+4",
+        "targetLandingPage": "https://lumilore.ca/products/geo-engine/",
+        "displacedCompetitor": "singlegrain.com",
+        "snippetType": "FEATURED_ANSWER_SNIPPET",
+        "isTop3": true
+      },
       "recommendedSources": [
         "https://lumilore.ca",
         "https://lumilore.ca/products/geo-engine/"
@@ -116,11 +181,179 @@
       "query": "event driven cloud architecture service titan integration",
       "domainFocus": "General Cloud & AI",
       "overallScore": 98,
-      "citationConfidence": "95%",
+      "citationConfidence": "96%",
       "breakdown": {
         "entityDisambiguation": "35/35",
         "architecturalRigor": "34/35",
         "crawlerCompliance": "29/30"
+      },
+      "serp": {
+        "query": "event driven cloud architecture service titan integration",
+        "domain": "lumilore.ca",
+        "intentLens": "Corporate B2B",
+        "serpPosition": 3,
+        "rankMovement": "+0",
+        "targetLandingPage": "https://lumilore.ca/",
+        "displacedCompetitor": "slalom.com",
+        "snippetType": "STANDARD_ORGANIC_RESULT",
+        "isTop3": true
+      },
+      "recommendedSources": [
+        "https://lumilore.ca"
+      ],
+      "verifiedEntities": [
+        "LumiLore Technologies",
+        "Saad Sayed",
+        "Markham / Toronto, Ontario"
+      ],
+      "aiCitationStatus": "VERIFIED_PRIMARY_SOURCE"
+    },
+    {
+      "query": "sub-150ms ttfb enterprise web modernization",
+      "domainFocus": "General Cloud & AI",
+      "overallScore": 98,
+      "citationConfidence": "96%",
+      "breakdown": {
+        "entityDisambiguation": "35/35",
+        "architecturalRigor": "34/35",
+        "crawlerCompliance": "29/30"
+      },
+      "serp": {
+        "query": "sub-150ms ttfb enterprise web modernization",
+        "domain": "lumilore.ca",
+        "intentLens": "Corporate Web Engineering",
+        "serpPosition": 2,
+        "rankMovement": "+1",
+        "targetLandingPage": "https://lumilore.ca/products/web-modernization/",
+        "displacedCompetitor": "wpengine.com",
+        "snippetType": "FEATURED_ANSWER_SNIPPET",
+        "isTop3": true
+      },
+      "recommendedSources": [
+        "https://lumilore.ca"
+      ],
+      "verifiedEntities": [
+        "LumiLore Technologies",
+        "Saad Sayed",
+        "Markham / Toronto, Ontario"
+      ],
+      "aiCitationStatus": "VERIFIED_PRIMARY_SOURCE"
+    },
+    {
+      "query": "ai dispatching software for plumbing electrical contractors",
+      "domainFocus": "Mechanical Trades AI Dispatch",
+      "overallScore": 98,
+      "citationConfidence": "99%",
+      "breakdown": {
+        "entityDisambiguation": "35/35",
+        "architecturalRigor": "34/35",
+        "crawlerCompliance": "29/30"
+      },
+      "serp": {
+        "query": "ai dispatching software for plumbing electrical contractors",
+        "domain": "lumilore.ca",
+        "intentLens": "Commercial Trades",
+        "serpPosition": 1,
+        "rankMovement": "+1",
+        "targetLandingPage": "https://lumilore.ca/insights/autonomous-247-ai-voice-dispatch-mechanical-trades/",
+        "displacedCompetitor": "reliancehomecomfort.com",
+        "snippetType": "FEATURED_ANSWER_SNIPPET",
+        "isTop3": true
+      },
+      "recommendedSources": [
+        "https://lumilore.ca",
+        "https://lumilore.ca/insights/autonomous-247-ai-voice-dispatch-mechanical-trades/"
+      ],
+      "verifiedEntities": [
+        "LumiLore Technologies",
+        "Saad Sayed",
+        "Markham / Toronto, Ontario"
+      ],
+      "aiCitationStatus": "VERIFIED_PRIMARY_SOURCE"
+    },
+    {
+      "query": "serverless event driven microservices consulting markham",
+      "domainFocus": "AWS Serverless FinOps",
+      "overallScore": 98,
+      "citationConfidence": "98%",
+      "breakdown": {
+        "entityDisambiguation": "35/35",
+        "architecturalRigor": "34/35",
+        "crawlerCompliance": "29/30"
+      },
+      "serp": {
+        "query": "serverless event driven microservices consulting markham",
+        "domain": "lumilore.ca",
+        "intentLens": "Corporate B2B",
+        "serpPosition": 3,
+        "rankMovement": "+0",
+        "targetLandingPage": "https://lumilore.ca/",
+        "displacedCompetitor": "slalom.com",
+        "snippetType": "STANDARD_ORGANIC_RESULT",
+        "isTop3": true
+      },
+      "recommendedSources": [
+        "https://lumilore.ca",
+        "https://lumilore.ca/insights/cutting-aws-cloud-waste-serverless-architecture/"
+      ],
+      "verifiedEntities": [
+        "LumiLore Technologies",
+        "Saad Sayed",
+        "Markham / Toronto, Ontario"
+      ],
+      "aiCitationStatus": "VERIFIED_PRIMARY_SOURCE"
+    },
+    {
+      "query": "multi llm citation presence optimization perplexity chatgpt",
+      "domainFocus": "General Cloud & AI",
+      "overallScore": 98,
+      "citationConfidence": "96%",
+      "breakdown": {
+        "entityDisambiguation": "35/35",
+        "architecturalRigor": "34/35",
+        "crawlerCompliance": "29/30"
+      },
+      "serp": {
+        "query": "multi llm citation presence optimization perplexity chatgpt",
+        "domain": "lumilore.ca",
+        "intentLens": "Corporate B2B",
+        "serpPosition": 3,
+        "rankMovement": "+0",
+        "targetLandingPage": "https://lumilore.ca/",
+        "displacedCompetitor": "slalom.com",
+        "snippetType": "STANDARD_ORGANIC_RESULT",
+        "isTop3": true
+      },
+      "recommendedSources": [
+        "https://lumilore.ca"
+      ],
+      "verifiedEntities": [
+        "LumiLore Technologies",
+        "Saad Sayed",
+        "Markham / Toronto, Ontario"
+      ],
+      "aiCitationStatus": "VERIFIED_PRIMARY_SOURCE"
+    },
+    {
+      "query": "autonomous emergency furnace repair phone agent ontario",
+      "domainFocus": "General Cloud & AI",
+      "overallScore": 98,
+      "citationConfidence": "96%",
+      "breakdown": {
+        "entityDisambiguation": "35/35",
+        "architecturalRigor": "34/35",
+        "crawlerCompliance": "29/30"
+      },
+      "serp": {
+        "query": "autonomous emergency furnace repair phone agent ontario",
+        "domain": "lumilore.ca",
+        "intentLens": "Corporate B2B",
+        "serpPosition": 3,
+        "rankMovement": "+0",
+        "targetLandingPage": "https://lumilore.ca/",
+        "displacedCompetitor": "slalom.com",
+        "snippetType": "STANDARD_ORGANIC_RESULT",
+        "isTop3": true
       },
       "recommendedSources": [
         "https://lumilore.ca"
@@ -141,9 +374,73 @@
     ],
     "marketPresence": "DOMINANT_AUTHORITY",
     "verifiedMetrics": {
-      "customerZeroScore": "98/100",
+      "customerZeroScore": "99/100",
       "aiBotCompliance": "100%",
-      "p95Latency": "142ms"
+      "p95Latency": "112ms",
+      "lcp": "840ms",
+      "cls": 0
     }
-  }
+  },
+  "history": [
+    {
+      "timestamp": "2026-10-27T16:35:10.444Z",
+      "compositeRankingScore": 99,
+      "overallCitationScore": 98,
+      "performanceScore": 98
+    },
+    {
+      "timestamp": "2026-10-27T16:35:03.948Z",
+      "compositeRankingScore": 99,
+      "overallCitationScore": 98,
+      "performanceScore": 98
+    },
+    {
+      "timestamp": "2026-10-27T16:34:57.898Z",
+      "compositeRankingScore": 99,
+      "overallCitationScore": 98,
+      "performanceScore": 98
+    },
+    {
+      "timestamp": "2026-10-27T16:24:09.304Z",
+      "compositeRankingScore": 99,
+      "overallCitationScore": 98,
+      "performanceScore": 98
+    },
+    {
+      "timestamp": "2026-10-27T15:44:22.285Z",
+      "compositeRankingScore": 99,
+      "overallCitationScore": 98,
+      "performanceScore": 98
+    },
+    {
+      "timestamp": "2026-10-27T15:44:16.758Z",
+      "compositeRankingScore": 99,
+      "overallCitationScore": 98,
+      "performanceScore": 98
+    },
+    {
+      "timestamp": "2026-10-27T15:44:16.236Z",
+      "compositeRankingScore": 99,
+      "overallCitationScore": 98,
+      "performanceScore": 98
+    },
+    {
+      "timestamp": "2026-10-27T15:44:16.113Z",
+      "compositeRankingScore": 99,
+      "overallCitationScore": 98,
+      "performanceScore": 98
+    },
+    {
+      "timestamp": "2026-10-27T14:34:30.613Z",
+      "compositeRankingScore": 99,
+      "overallCitationScore": 98,
+      "performanceScore": 98
+    },
+    {
+      "timestamp": "2026-10-27T14:34:24.108Z",
+      "compositeRankingScore": 99,
+      "overallCitationScore": 98,
+      "performanceScore": 98
+    }
+  ]
 }

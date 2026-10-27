@@ -54,14 +54,54 @@ export const CONFIG = {
     { name: 'Gemini (Google)', bot: 'Google-Extended', priority: 'high' }
   ],
 
-  // Priority Core Pillars & High-Intent Query Benchmarks
+  // Priority Core Pillars & High-Intent Query Benchmarks (Dual-Lens Commercial Blanket)
   targetQueries: [
     'best aws serverless architect toronto',
-    'autonomous ai voice dispatch for hvac contractors',
+    'autonomous ai voice dispatch for hvac contractors canada',
     'how to cut aws cloud waste serverless lambda',
     'generative engine optimization service canada',
-    'event driven cloud architecture service titan integration'
+    'event driven cloud architecture service titan integration',
+    'sub-150ms ttfb enterprise web modernization',
+    'ai dispatching software for plumbing electrical contractors',
+    'serverless event driven microservices consulting markham',
+    'multi llm citation presence optimization perplexity chatgpt',
+    'autonomous emergency furnace repair phone agent ontario'
   ],
+
+  // Google PageSpeed Insights & Core Web Vitals Telemetry (public-apis)
+  pageSpeed: {
+    apiKey: process.env.PAGESPEED_API_KEY || 'AIzaSyABXJTWhxQmaAPXUyrk9LAaTewEFf295CA',
+    endpoint: 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed',
+    targetUrl: 'https://lumilore.ca',
+    fallbackAuditEndpoint: 'https://bhsahnzaqb.execute-api.ca-central-1.amazonaws.com/api/status',
+    budgets: {
+      lcpMs: 2500, // < 2.5s Good
+      cls: 0.1,    // < 0.1 Good
+      inpMs: 200,  // < 200ms Good
+      ttfbMs: 150  // < 150ms Good
+    }
+  },
+
+  // Live SERP & Ranking Telemetry Engine (open-seo / OmniRoute inspired)
+  serpEngine: {
+    trackLive: true,
+    cacheDurationMs: 6 * 60 * 60 * 1000, // 6 Hours Disk Cache
+    primaryDomain: 'lumilore.ca',
+    competitors: [
+      'reliancehomecomfort.com',
+      'enercare.ca',
+      'slalom.com',
+      'onica.com',
+      'mychoiceautoservices.com'
+    ]
+  },
+
+  // Scoring Weights Matrix for Live Ranking Engine
+  rankingWeights: {
+    coreWebVitals: 30,      // LCP, CLS, INP, TTFB
+    technicalSeo: 35,       // Schema, DOM, Headings, Links, Mobile
+    geoCitationDensity: 35  // Entity Disambiguation, Quotability, LLM-readiness
+  },
 
   // System Filepaths
   paths: {

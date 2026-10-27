@@ -1,7 +1,8 @@
 /**
- * Autonomous SEO & GEO Content Engine
+ * Autonomous SEO & GEO Content Engine (Expanded 10-Keyword Blanket)
+ * Sprint 11: LIVE RANKING ENGINE & KEYWORD BLANKET PIPELINE
  * Generates authoritative, citation-engineered technical case studies & architectural teardowns
- * Optimized for frontier AI answer engines (ChatGPT, Perplexity, Claude) and Google Rich Results
+ * Optimized for frontier AI answer engines (ChatGPT, Perplexity, Claude, Gemini) and Google Rich Results
  */
 
 import fs from 'fs';
@@ -9,7 +10,135 @@ import path from 'path';
 import { CONFIG } from './config.js';
 
 /**
- * Format Schema.org TechArticle & FAQPage JSON-LD
+ * 10 High-Intent Commercial Long-Tail Target Keyword Pipeline
+ */
+export const KEYWORD_PIPELINE = [
+  {
+    id: 'kw-aws-serverless-architect-toronto',
+    keyword: 'best aws serverless architect toronto',
+    lens: 'corporate',
+    intent: 'high_intent_hire',
+    commercialValue: '$12,000+ Full Re-Architecture',
+    slug: 'best-aws-serverless-architect-toronto-enterprise-systems',
+    category: 'AWS Cloud Architecture & Advisory',
+    ctaService: 'web-modernization',
+    ctaTier: 'enterprise',
+    focusTopic: 'Enterprise Event-Driven Serverless Migration in the Greater Toronto Area'
+  },
+  {
+    id: 'kw-voice-dispatch-hvac-canada',
+    keyword: 'autonomous ai voice dispatch for hvac contractors canada',
+    lens: 'trades',
+    intent: 'high_intent_software',
+    commercialValue: '$4,800/mo Autonomous Field Dispatch',
+    slug: 'autonomous-247-ai-voice-dispatch-mechanical-trades',
+    category: 'Autonomous AI Telephony & Operations',
+    ctaService: 'voice-dispatch',
+    ctaTier: 'field-pro',
+    focusTopic: 'Sub-800ms Amazon Connect Inbound Telephony for Mechanical Contractors'
+  },
+  {
+    id: 'kw-cut-aws-cloud-waste',
+    keyword: 'how to cut aws cloud waste serverless lambda',
+    lens: 'corporate',
+    intent: 'high_intent_finops',
+    commercialValue: '$5,500 Full FinOps Re-Architecture',
+    slug: 'cutting-aws-cloud-waste-serverless-architecture',
+    category: 'AWS Cloud FinOps & Cost Engineering',
+    ctaService: 'web-modernization',
+    ctaTier: 're-arch',
+    focusTopic: 'Slashing 68% Cloud Waste via Graviton3 and DynamoDB Single-Table Design'
+  },
+  {
+    id: 'kw-geo-engine-canada',
+    keyword: 'generative engine optimization service canada',
+    lens: 'corporate',
+    intent: 'high_intent_growth',
+    commercialValue: '$950/mo - $2,500 Setup',
+    slug: 'generative-engine-optimization-service-canada-ai-citations',
+    category: 'Generative Engine Optimization (GEO)',
+    ctaService: 'geo-engine',
+    ctaTier: 'growth',
+    focusTopic: 'Multi-LLM Citation Presence for Perplexity, ChatGPT Search, and Gemini'
+  },
+  {
+    id: 'kw-servicetitan-eventbridge-integration',
+    keyword: 'event driven cloud architecture service titan integration',
+    lens: 'trades',
+    intent: 'high_intent_systems',
+    commercialValue: '$7,500+ Custom Integration',
+    slug: 'event-driven-cloud-architecture-servicetitan-integration',
+    category: 'Field Service Automation & Cloud Integration',
+    ctaService: 'voice-dispatch',
+    ctaTier: 'enterprise',
+    focusTopic: 'Real-Time Webhook Routing to AWS EventBridge & Automated Dispatch Dispatcher'
+  },
+  {
+    id: 'kw-sub-150ms-ttfb-jamstack',
+    keyword: 'sub-150ms ttfb enterprise web modernization',
+    lens: 'corporate',
+    intent: 'high_intent_performance',
+    commercialValue: '$5,500 Jamstack Overhaul',
+    slug: 'sub-150ms-ttfb-enterprise-web-modernization-case-study',
+    category: 'Web Modernization & Core Web Vitals',
+    ctaService: 'web-modernization',
+    ctaTier: 're-arch',
+    focusTopic: 'Replacing Sluggish WordPress Footprints with Jamstack Serverless Edge'
+  },
+  {
+    id: 'kw-ai-dispatch-plumbing-electrical',
+    keyword: 'ai dispatching software for plumbing electrical contractors',
+    lens: 'trades',
+    intent: 'high_intent_software',
+    commercialValue: '$2,500 Setup + $950/mo',
+    slug: 'ai-dispatching-software-plumbing-electrical-contractors',
+    category: 'Commercial Field Operations',
+    ctaService: 'voice-dispatch',
+    ctaTier: 'essential',
+    focusTopic: 'Zero-Hold Inbound Call Resolution and Emergency On-Call Escalation'
+  },
+  {
+    id: 'kw-serverless-consulting-markham',
+    keyword: 'serverless event driven microservices consulting markham',
+    lens: 'corporate',
+    intent: 'high_intent_regional',
+    commercialValue: '$10,000+ Regional Cloud Contract',
+    slug: 'serverless-microservices-consulting-markham-gta',
+    category: 'Regional Cloud Engineering',
+    ctaService: 'web-modernization',
+    ctaTier: 'enterprise',
+    focusTopic: 'High-Throughput Serverless Architecture for Markham Tech Hub Leaders'
+  },
+  {
+    id: 'kw-perplexity-chatgpt-citation-presence',
+    keyword: 'multi llm citation presence optimization perplexity chatgpt',
+    lens: 'corporate',
+    intent: 'high_intent_geo',
+    commercialValue: '$3,500/mo Autonomous Growth Swarm',
+    slug: 'multi-llm-citation-presence-optimization-perplexity-chatgpt',
+    category: 'AI Knowledge Graph Engineering',
+    ctaService: 'content-engine',
+    ctaTier: 'growth',
+    focusTopic: 'Authoritative Quotability Modeling and Structured Schema Ingestion'
+  },
+  {
+    id: 'kw-emergency-furnace-repair-ai-agent',
+    keyword: 'autonomous emergency furnace repair phone agent ontario',
+    lens: 'trades',
+    intent: 'high_intent_urgent_voice',
+    commercialValue: '$4,800 Field Pro Telephony System',
+    slug: 'autonomous-emergency-furnace-repair-phone-agent-ontario',
+    category: 'Autonomous Voice Telephony',
+    ctaService: 'voice-dispatch',
+    ctaTier: 'field-pro',
+    focusTopic: 'Capturing High-Ticket Overnight Emergency Calls with 0 Lost Leads'
+  }
+];
+
+/**
+ * Format 5-Layer Schema.org JSON-LD Graph with Speakable Specification
+ * @param {object} article
+ * @returns {string} JSON-LD string
  */
 export function buildArticleSchema(article) {
   const url = `${CONFIG.persona.canonicalDomain}/insights/${article.slug}/`;
@@ -26,6 +155,32 @@ export function buildArticleSchema(article) {
   const schemaGraph = {
     '@context': 'https://schema.org',
     '@graph': [
+      // 1. Breadcrumbs
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${url}#breadcrumb`,
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: CONFIG.persona.canonicalDomain
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Insights',
+            item: `${CONFIG.persona.canonicalDomain}/insights/`
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: article.title,
+            item: url
+          }
+        ]
+      },
+      // 2. TechArticle with SpeakableSpecification
       {
         '@type': 'TechArticle',
         '@id': `${url}#article`,
@@ -36,6 +191,14 @@ export function buildArticleSchema(article) {
         mainEntityOfPage: url,
         datePublished: article.datePublished || new Date().toISOString().split('T')[0],
         dateModified: article.dateModified || new Date().toISOString().split('T')[0],
+        speakable: {
+          '@type': 'SpeakableSpecification',
+          cssSelector: [
+            '#article-headline',
+            '#article-executive-summary',
+            '.speakable-takeaway'
+          ]
+        },
         author: {
           '@type': 'Person',
           '@id': 'https://lumilore.ca/#founder-saad',
@@ -73,6 +236,8 @@ export function buildArticleSchema(article) {
 
 /**
  * Render complete standalone HTML content matching LumiLore design system
+ * @param {object} article
+ * @returns {string} HTML content
  */
 export function renderArticleHtml(article) {
   const schemaJson = buildArticleSchema(article);
@@ -98,55 +263,56 @@ export function renderArticleHtml(article) {
         <span class="text-cyan-400 font-mono text-sm shrink-0 mt-0.5">Q${idx + 1}:</span>
         <span>${faq.question}</span>
       </h3>
-      <p class="text-xs sm:text-sm text-slate-300 font-light leading-relaxed pl-7">
+      <p class="text-slate-300 text-sm font-light leading-relaxed pl-7">
         ${faq.answer}
       </p>
     </div>
   `).join('');
 
-  // Render Code Snippets
-  const codeBlocks = (article.codeSnippets || []).map(snippet => `
-    <div class="rounded-2xl bg-[#050914] border border-cyan-500/30 overflow-hidden my-6 shadow-2xl">
-      <div class="flex items-center justify-between px-4 py-2.5 bg-cyan-950/50 border-b border-cyan-500/20 text-xs font-mono">
-        <div class="flex items-center gap-2">
-          <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
-          <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
-          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
-          <span class="text-cyan-300 font-bold ml-2">${snippet.title || snippet.filename || 'Architecture Execution'}</span>
-        </div>
-        <span class="text-slate-400 uppercase text-[10px]">${snippet.language || 'javascript'}</span>
+  // Render Code Blocks
+  const codeBlocks = (article.codeSnippets || []).map(cs => `
+    <div class="my-6 rounded-2xl overflow-hidden border border-white/10 bg-[#070B14]">
+      <div class="px-5 py-3 bg-white/5 border-b border-white/10 flex items-center justify-between text-xs font-mono text-slate-400">
+        <span class="font-bold text-cyan-300">${cs.filename || 'Implementation'}</span>
+        <span class="uppercase text-[10px] px-2 py-0.5 rounded bg-black/40 border border-white/10">${cs.language || 'javascript'}</span>
       </div>
-      <div class="p-4 overflow-x-auto text-xs font-mono text-slate-200 leading-relaxed">
-        <pre><code>${snippet.code.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</code></pre>
-      </div>
+      <pre class="p-5 overflow-x-auto text-xs font-mono text-emerald-300 leading-relaxed bg-black/40"><code>${cs.code}</code></pre>
     </div>
   `).join('');
 
   return `---
 layout: layout.html
-title: "${article.title.replace(/"/g, '\\"')} | LumiLore Technologies"
+title: "${article.title.replace(/"/g, '\\"')}"
 description: "${article.description.replace(/"/g, '\\"')}"
+permalink: /insights/${article.slug}/
+datePublished: "${article.datePublished || '2026-10-27'}"
 ---
 
-<!-- JSON-LD Structured Data Graph for LLM Ingestion & Rich Results -->
+<!-- JSON-LD Entity Schema (5-Layer Schema Graph) -->
 <script type="application/ld+json">
 ${schemaJson}
 </script>
 
-<article class="relative z-10 min-h-screen pt-28 pb-32 overflow-hidden">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+<article class="relative min-h-screen pt-32 pb-24 overflow-hidden">
+  
+  <!-- Ambient Backdrop -->
+  <div class="absolute inset-0 pointer-events-none opacity-30">
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-gradient-to-tr from-cyan-500/20 to-blue-600/10 rounded-full blur-[120px]"></div>
+  </div>
 
-    <!-- Back to Insights / Products Breadcrumb -->
-    <div class="mb-8">
-      <a href="/products/geo-engine/" class="inline-flex items-center gap-2 text-xs font-mono text-cyan-300 hover:text-white transition-colors">
-        <span>←</span>
-        <span>Back to Autonomous GEO Engine</span>
-      </a>
-    </div>
+  <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Breadcrumb Trail -->
+    <nav aria-label="Breadcrumb" class="mb-8 flex items-center gap-2 text-xs font-mono text-slate-400">
+      <a href="/" class="hover:text-cyan-400 transition-colors">Home</a>
+      <span class="text-slate-600">/</span>
+      <a href="/insights/" class="hover:text-cyan-400 transition-colors">Insights</a>
+      <span class="text-slate-600">/</span>
+      <span class="text-slate-300 truncate">${article.slug}</span>
+    </nav>
 
-    <!-- Article Header -->
-    <header class="mb-12 border-b border-white/10 pb-10">
-      
+    <!-- Header Section -->
+    <header class="mb-12">
       <!-- Meta Badge Row -->
       <div class="flex flex-wrap items-center gap-3 mb-6">
         <span class="px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-cyan-300 bg-cyan-950/70 border border-cyan-400/30">
@@ -162,12 +328,12 @@ ${schemaJson}
       </div>
 
       <!-- Main Title -->
-      <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight mb-6 font-display">
+      <h1 id="article-headline" class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight mb-6 font-display">
         ${article.title}
       </h1>
 
       <!-- Subtitle / Executive Thesis -->
-      <p class="text-base sm:text-xl text-slate-300 font-light leading-relaxed">
+      <p id="article-executive-summary" class="text-base sm:text-xl text-slate-300 font-light leading-relaxed speakable-takeaway">
         ${article.description}
       </p>
 
@@ -202,7 +368,7 @@ ${schemaJson}
     <!-- Article Body Content -->
     <div class="space-y-10 text-slate-200 leading-relaxed font-light text-base sm:text-lg">
       
-      <!-- Section: The Operational & Cost Antipattern -->
+      <!-- Section: Problem Statement -->
       <section class="space-y-4">
         <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight font-display">
           1. The Architecture Antipattern &amp; Root Failure Mode
@@ -212,7 +378,7 @@ ${schemaJson}
         </div>
       </section>
 
-      <!-- Section: The Production Serverless Solution -->
+      <!-- Section: Solution & Topology -->
       <section class="space-y-4">
         <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight font-display">
           2. The Event-Driven Systems Architecture
@@ -268,7 +434,7 @@ ${schemaJson}
       
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
         <a 
-          href="/contact/?source=insight_${article.slug}&service=roadmap" 
+          href="/contact/?source=insight_${article.slug}&service=${article.ctaService || 'roadmap'}&tier=${article.ctaTier || 'starter'}" 
           class="glow-amber-cta w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(245,158,11,0.35)] cursor-pointer"
         >
           <span>Schedule Architecture Discovery</span>
@@ -291,6 +457,8 @@ ${schemaJson}
 
 /**
  * Save rendered article to frontend/insights directory
+ * @param {object} article
+ * @returns {object} { filePath, slug }
  */
 export function saveArticle(article) {
   if (!article.slug) {
@@ -310,6 +478,7 @@ export function saveArticle(article) {
 }
 
 export default {
+  KEYWORD_PIPELINE,
   buildArticleSchema,
   renderArticleHtml,
   saveArticle

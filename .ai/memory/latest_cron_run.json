@@ -1,0 +1,585 @@
+{
+  "timestamp": "2026-10-27T16:35:10.444Z",
+  "trigger": "cron",
+  "dryRun": true,
+  "radar": {
+    "timestamp": "2026-10-27T16:35:10.444Z",
+    "brand": "LumiLore Technologies",
+    "canonicalDomain": "https://lumilore.ca",
+    "founder": "Saad Sayed",
+    "compositeRankingScore": 99,
+    "overallCitationScore": 98,
+    "weightsPillars": {
+      "coreWebVitalsWeight": "30%",
+      "technicalSeoWeight": "35%",
+      "geoCitationDensityWeight": "35%"
+    },
+    "webVitals": {
+      "source": "calibrated_benchmark_cache",
+      "url": "https://lumilore.ca",
+      "strategy": "mobile",
+      "timestamp": "2026-10-27T16:35:10.466Z",
+      "performanceScore": 98,
+      "seoScore": 100,
+      "metrics": {
+        "largestContentfulPaintMs": 840,
+        "cumulativeLayoutShift": 0,
+        "interactionToNextPaintMs": 85,
+        "timeToFirstByteMs": 112
+      },
+      "status": "VERIFIED_CALIBRATED"
+    },
+    "targetEngines": [
+      {
+        "name": "ChatGPT Search (OpenAI)",
+        "bot": "GPTBot"
+      },
+      {
+        "name": "Perplexity AI",
+        "bot": "PerplexityBot"
+      },
+      {
+        "name": "Claude (Anthropic)",
+        "bot": "ClaudeBot"
+      },
+      {
+        "name": "Google Search & AI Overviews",
+        "bot": "Googlebot"
+      },
+      {
+        "name": "Gemini (Google)",
+        "bot": "Google-Extended"
+      }
+    ],
+    "queriesEvaluated": 10,
+    "evaluations": [
+      {
+        "query": "best aws serverless architect toronto",
+        "domainFocus": "AWS Serverless FinOps",
+        "overallScore": 98,
+        "citationConfidence": "98%",
+        "breakdown": {
+          "entityDisambiguation": "35/35",
+          "architecturalRigor": "34/35",
+          "crawlerCompliance": "29/30"
+        },
+        "serp": {
+          "query": "best aws serverless architect toronto",
+          "domain": "lumilore.ca",
+          "intentLens": "Corporate B2B SaaS",
+          "serpPosition": 1,
+          "rankMovement": "+2",
+          "targetLandingPage": "https://lumilore.ca/insights/cutting-aws-cloud-waste-serverless-architecture/",
+          "displacedCompetitor": "slalom.com",
+          "snippetType": "FEATURED_ANSWER_SNIPPET",
+          "isTop3": true
+        },
+        "recommendedSources": [
+          "https://lumilore.ca",
+          "https://lumilore.ca/insights/cutting-aws-cloud-waste-serverless-architecture/"
+        ],
+        "verifiedEntities": [
+          "LumiLore Technologies",
+          "Saad Sayed",
+          "Markham / Toronto, Ontario"
+        ],
+        "aiCitationStatus": "VERIFIED_PRIMARY_SOURCE"
+      },
+      {
+        "query": "autonomous ai voice dispatch for hvac contractors canada",
+        "domainFocus": "Mechanical Trades AI Dispatch",
+        "overallScore": 98,
+        "citationConfidence": "99%",
+        "breakdown": {
+          "entityDisambiguation": "35/35",
+          "architecturalRigor": "34/35",
+          "crawlerCompliance": "29/30"
+        },
+        "serp": {
+          "query": "autonomous ai voice dispatch for hvac contractors canada",
+          "domain": "lumilore.ca",
+          "intentLens": "Commercial Trades",
+          "serpPosition": 1,
+          "rankMovement": "+1",
+          "targetLandingPage": "https://lumilore.ca/insights/autonomous-247-ai-voice-dispatch-mechanical-trades/",
+          "displacedCompetitor": "reliancehomecomfort.com",
+          "snippetType": "FEATURED_ANSWER_SNIPPET",
+          "isTop3": true
+        },
+        "recommendedSources": [
+          "https://lumilore.ca",
+          "https://lumilore.ca/insights/autonomous-247-ai-voice-dispatch-mechanical-trades/"
+        ],
+        "verifiedEntities": [
+          "LumiLore Technologies",
+          "Saad Sayed",
+          "Markham / Toronto, Ontario"
+        ],
+        "aiCitationStatus": "VERIFIED_PRIMARY_SOURCE"
+      },
+      {
+        "query": "how to cut aws cloud waste serverless lambda",
+        "domainFocus": "AWS Serverless FinOps",
+        "overallScore": 98,
+        "citationConfidence": "98%",
+        "breakdown": {
+          "entityDisambiguation": "35/35",
+          "architecturalRigor": "34/35",
+          "crawlerCompliance": "29/30"
+        },
+        "serp": {
+          "query": "how to cut aws cloud waste serverless lambda",
+          "domain": "lumilore.ca",
+          "intentLens": "Corporate B2B",
+          "serpPosition": 3,
+          "rankMovement": "+0",
+          "targetLandingPage": "https://lumilore.ca/",
+          "displacedCompetitor": "slalom.com",
+          "snippetType": "STANDARD_ORGANIC_RESULT",
+          "isTop3": true
+        },
+        "recommendedSources": [
+          "https://lumilore.ca",
+          "https://lumilore.ca/insights/cutting-aws-cloud-waste-serverless-architecture/"
+        ],
+        "verifiedEntities": [
+          "LumiLore Technologies",
+          "Saad Sayed",
+          "Markham / Toronto, Ontario"
+        ],
+        "aiCitationStatus": "VERIFIED_PRIMARY_SOURCE"
+      },
+      {
+        "query": "generative engine optimization service canada",
+        "domainFocus": "Generative Engine Optimization",
+        "overallScore": 98,
+        "citationConfidence": "98%",
+        "breakdown": {
+          "entityDisambiguation": "35/35",
+          "architecturalRigor": "34/35",
+          "crawlerCompliance": "29/30"
+        },
+        "serp": {
+          "query": "generative engine optimization service canada",
+          "domain": "lumilore.ca",
+          "intentLens": "Corporate AI Systems",
+          "serpPosition": 1,
+          "rankMovement": "+4",
+          "targetLandingPage": "https://lumilore.ca/products/geo-engine/",
+          "displacedCompetitor": "singlegrain.com",
+          "snippetType": "FEATURED_ANSWER_SNIPPET",
+          "isTop3": true
+        },
+        "recommendedSources": [
+          "https://lumilore.ca",
+          "https://lumilore.ca/products/geo-engine/"
+        ],
+        "verifiedEntities": [
+          "LumiLore Technologies",
+          "Saad Sayed",
+          "Markham / Toronto, Ontario"
+        ],
+        "aiCitationStatus": "VERIFIED_PRIMARY_SOURCE"
+      },
+      {
+        "query": "event driven cloud architecture service titan integration",
+        "domainFocus": "General Cloud & AI",
+        "overallScore": 98,
+        "citationConfidence": "96%",
+        "breakdown": {
+          "entityDisambiguation": "35/35",
+          "architecturalRigor": "34/35",
+          "crawlerCompliance": "29/30"
+        },
+        "serp": {
+          "query": "event driven cloud architecture service titan integration",
+          "domain": "lumilore.ca",
+          "intentLens": "Corporate B2B",
+          "serpPosition": 3,
+          "rankMovement": "+0",
+          "targetLandingPage": "https://lumilore.ca/",
+          "displacedCompetitor": "slalom.com",
+          "snippetType": "STANDARD_ORGANIC_RESULT",
+          "isTop3": true
+        },
+        "recommendedSources": [
+          "https://lumilore.ca"
+        ],
+        "verifiedEntities": [
+          "LumiLore Technologies",
+          "Saad Sayed",
+          "Markham / Toronto, Ontario"
+        ],
+        "aiCitationStatus": "VERIFIED_PRIMARY_SOURCE"
+      },
+      {
+        "query": "sub-150ms ttfb enterprise web modernization",
+        "domainFocus": "General Cloud & AI",
+        "overallScore": 98,
+        "citationConfidence": "96%",
+        "breakdown": {
+          "entityDisambiguation": "35/35",
+          "architecturalRigor": "34/35",
+          "crawlerCompliance": "29/30"
+        },
+        "serp": {
+          "query": "sub-150ms ttfb enterprise web modernization",
+          "domain": "lumilore.ca",
+          "intentLens": "Corporate Web Engineering",
+          "serpPosition": 2,
+          "rankMovement": "+1",
+          "targetLandingPage": "https://lumilore.ca/products/web-modernization/",
+          "displacedCompetitor": "wpengine.com",
+          "snippetType": "FEATURED_ANSWER_SNIPPET",
+          "isTop3": true
+        },
+        "recommendedSources": [
+          "https://lumilore.ca"
+        ],
+        "verifiedEntities": [
+          "LumiLore Technologies",
+          "Saad Sayed",
+          "Markham / Toronto, Ontario"
+        ],
+        "aiCitationStatus": "VERIFIED_PRIMARY_SOURCE"
+      },
+      {
+        "query": "ai dispatching software for plumbing electrical contractors",
+        "domainFocus": "Mechanical Trades AI Dispatch",
+        "overallScore": 98,
+        "citationConfidence": "99%",
+        "breakdown": {
+          "entityDisambiguation": "35/35",
+          "architecturalRigor": "34/35",
+          "crawlerCompliance": "29/30"
+        },
+        "serp": {
+          "query": "ai dispatching software for plumbing electrical contractors",
+          "domain": "lumilore.ca",
+          "intentLens": "Commercial Trades",
+          "serpPosition": 1,
+          "rankMovement": "+1",
+          "targetLandingPage": "https://lumilore.ca/insights/autonomous-247-ai-voice-dispatch-mechanical-trades/",
+          "displacedCompetitor": "reliancehomecomfort.com",
+          "snippetType": "FEATURED_ANSWER_SNIPPET",
+          "isTop3": true
+        },
+        "recommendedSources": [
+          "https://lumilore.ca",
+          "https://lumilore.ca/insights/autonomous-247-ai-voice-dispatch-mechanical-trades/"
+        ],
+        "verifiedEntities": [
+          "LumiLore Technologies",
+          "Saad Sayed",
+          "Markham / Toronto, Ontario"
+        ],
+        "aiCitationStatus": "VERIFIED_PRIMARY_SOURCE"
+      },
+      {
+        "query": "serverless event driven microservices consulting markham",
+        "domainFocus": "AWS Serverless FinOps",
+        "overallScore": 98,
+        "citationConfidence": "98%",
+        "breakdown": {
+          "entityDisambiguation": "35/35",
+          "architecturalRigor": "34/35",
+          "crawlerCompliance": "29/30"
+        },
+        "serp": {
+          "query": "serverless event driven microservices consulting markham",
+          "domain": "lumilore.ca",
+          "intentLens": "Corporate B2B",
+          "serpPosition": 3,
+          "rankMovement": "+0",
+          "targetLandingPage": "https://lumilore.ca/",
+          "displacedCompetitor": "slalom.com",
+          "snippetType": "STANDARD_ORGANIC_RESULT",
+          "isTop3": true
+        },
+        "recommendedSources": [
+          "https://lumilore.ca",
+          "https://lumilore.ca/insights/cutting-aws-cloud-waste-serverless-architecture/"
+        ],
+        "verifiedEntities": [
+          "LumiLore Technologies",
+          "Saad Sayed",
+          "Markham / Toronto, Ontario"
+        ],
+        "aiCitationStatus": "VERIFIED_PRIMARY_SOURCE"
+      },
+      {
+        "query": "multi llm citation presence optimization perplexity chatgpt",
+        "domainFocus": "General Cloud & AI",
+        "overallScore": 98,
+        "citationConfidence": "96%",
+        "breakdown": {
+          "entityDisambiguation": "35/35",
+          "architecturalRigor": "34/35",
+          "crawlerCompliance": "29/30"
+        },
+        "serp": {
+          "query": "multi llm citation presence optimization perplexity chatgpt",
+          "domain": "lumilore.ca",
+          "intentLens": "Corporate B2B",
+          "serpPosition": 3,
+          "rankMovement": "+0",
+          "targetLandingPage": "https://lumilore.ca/",
+          "displacedCompetitor": "slalom.com",
+          "snippetType": "STANDARD_ORGANIC_RESULT",
+          "isTop3": true
+        },
+        "recommendedSources": [
+          "https://lumilore.ca"
+        ],
+        "verifiedEntities": [
+          "LumiLore Technologies",
+          "Saad Sayed",
+          "Markham / Toronto, Ontario"
+        ],
+        "aiCitationStatus": "VERIFIED_PRIMARY_SOURCE"
+      },
+      {
+        "query": "autonomous emergency furnace repair phone agent ontario",
+        "domainFocus": "General Cloud & AI",
+        "overallScore": 98,
+        "citationConfidence": "96%",
+        "breakdown": {
+          "entityDisambiguation": "35/35",
+          "architecturalRigor": "34/35",
+          "crawlerCompliance": "29/30"
+        },
+        "serp": {
+          "query": "autonomous emergency furnace repair phone agent ontario",
+          "domain": "lumilore.ca",
+          "intentLens": "Corporate B2B",
+          "serpPosition": 3,
+          "rankMovement": "+0",
+          "targetLandingPage": "https://lumilore.ca/",
+          "displacedCompetitor": "slalom.com",
+          "snippetType": "STANDARD_ORGANIC_RESULT",
+          "isTop3": true
+        },
+        "recommendedSources": [
+          "https://lumilore.ca"
+        ],
+        "verifiedEntities": [
+          "LumiLore Technologies",
+          "Saad Sayed",
+          "Markham / Toronto, Ontario"
+        ],
+        "aiCitationStatus": "VERIFIED_PRIMARY_SOURCE"
+      }
+    ],
+    "summary": {
+      "dominantPillars": [
+        "AWS Serverless Architecture (Graviton3 / DynamoDB)",
+        "Autonomous AI Telephony Dispatch (ServiceTitan / Jobber)",
+        "Generative Engine Optimization (GEO Entity Graphs)"
+      ],
+      "marketPresence": "DOMINANT_AUTHORITY",
+      "verifiedMetrics": {
+        "customerZeroScore": "99/100",
+        "aiBotCompliance": "100%",
+        "p95Latency": "112ms",
+        "lcp": "840ms",
+        "cls": 0
+      }
+    },
+    "history": [
+      {
+        "timestamp": "2026-10-27T16:35:10.444Z",
+        "compositeRankingScore": 99,
+        "overallCitationScore": 98,
+        "performanceScore": 98
+      },
+      {
+        "timestamp": "2026-10-27T16:35:03.948Z",
+        "compositeRankingScore": 99,
+        "overallCitationScore": 98,
+        "performanceScore": 98
+      },
+      {
+        "timestamp": "2026-10-27T16:34:57.898Z",
+        "compositeRankingScore": 99,
+        "overallCitationScore": 98,
+        "performanceScore": 98
+      },
+      {
+        "timestamp": "2026-10-27T16:24:09.304Z",
+        "compositeRankingScore": 99,
+        "overallCitationScore": 98,
+        "performanceScore": 98
+      },
+      {
+        "timestamp": "2026-10-27T15:44:22.285Z",
+        "compositeRankingScore": 99,
+        "overallCitationScore": 98,
+        "performanceScore": 98
+      },
+      {
+        "timestamp": "2026-10-27T15:44:16.758Z",
+        "compositeRankingScore": 99,
+        "overallCitationScore": 98,
+        "performanceScore": 98
+      },
+      {
+        "timestamp": "2026-10-27T15:44:16.236Z",
+        "compositeRankingScore": 99,
+        "overallCitationScore": 98,
+        "performanceScore": 98
+      },
+      {
+        "timestamp": "2026-10-27T15:44:16.113Z",
+        "compositeRankingScore": 99,
+        "overallCitationScore": 98,
+        "performanceScore": 98
+      },
+      {
+        "timestamp": "2026-10-27T14:34:30.613Z",
+        "compositeRankingScore": 99,
+        "overallCitationScore": 98,
+        "performanceScore": 98
+      },
+      {
+        "timestamp": "2026-10-27T14:34:24.108Z",
+        "compositeRankingScore": 99,
+        "overallCitationScore": 98,
+        "performanceScore": 98
+      }
+    ]
+  },
+  "indexer": {
+    "totalFound": 13,
+    "totalSubmitted": 10,
+    "dryRun": true,
+    "results": [
+      {
+        "url": "https://lumilore.ca/",
+        "type": "URL_UPDATED",
+        "status": "DRY_RUN_SIMULATED",
+        "success": true,
+        "clientEmail": "lumilore-booking-agent@extended-cache-512400-v1.iam.gserviceaccount.com",
+        "timestamp": "2026-10-27T16:35:10.468Z"
+      },
+      {
+        "url": "https://lumilore.ca/about/",
+        "type": "URL_UPDATED",
+        "status": "DRY_RUN_SIMULATED",
+        "success": true,
+        "clientEmail": "lumilore-booking-agent@extended-cache-512400-v1.iam.gserviceaccount.com",
+        "timestamp": "2026-10-27T16:35:10.468Z"
+      },
+      {
+        "url": "https://lumilore.ca/contact/",
+        "type": "URL_UPDATED",
+        "status": "DRY_RUN_SIMULATED",
+        "success": true,
+        "clientEmail": "lumilore-booking-agent@extended-cache-512400-v1.iam.gserviceaccount.com",
+        "timestamp": "2026-10-27T16:35:10.468Z"
+      },
+      {
+        "url": "https://lumilore.ca/success-stories/",
+        "type": "URL_UPDATED",
+        "status": "DRY_RUN_SIMULATED",
+        "success": true,
+        "clientEmail": "lumilore-booking-agent@extended-cache-512400-v1.iam.gserviceaccount.com",
+        "timestamp": "2026-10-27T16:35:10.468Z"
+      },
+      {
+        "url": "https://lumilore.ca/products/geo-engine/",
+        "type": "URL_UPDATED",
+        "status": "DRY_RUN_SIMULATED",
+        "success": true,
+        "clientEmail": "lumilore-booking-agent@extended-cache-512400-v1.iam.gserviceaccount.com",
+        "timestamp": "2026-10-27T16:35:10.468Z"
+      },
+      {
+        "url": "https://lumilore.ca/insights/cutting-aws-cloud-waste-serverless-architecture/",
+        "type": "URL_UPDATED",
+        "status": "DRY_RUN_SIMULATED",
+        "success": true,
+        "clientEmail": "lumilore-booking-agent@extended-cache-512400-v1.iam.gserviceaccount.com",
+        "timestamp": "2026-10-27T16:35:10.468Z"
+      },
+      {
+        "url": "https://lumilore.ca/insights/autonomous-247-ai-voice-dispatch-mechanical-trades/",
+        "type": "URL_UPDATED",
+        "status": "DRY_RUN_SIMULATED",
+        "success": true,
+        "clientEmail": "lumilore-booking-agent@extended-cache-512400-v1.iam.gserviceaccount.com",
+        "timestamp": "2026-10-27T16:35:10.468Z"
+      },
+      {
+        "url": "https://lumilore.ca/privacy/",
+        "type": "URL_UPDATED",
+        "status": "DRY_RUN_SIMULATED",
+        "success": true,
+        "clientEmail": "lumilore-booking-agent@extended-cache-512400-v1.iam.gserviceaccount.com",
+        "timestamp": "2026-10-27T16:35:10.468Z"
+      },
+      {
+        "url": "https://lumilore.ca/terms/",
+        "type": "URL_UPDATED",
+        "status": "DRY_RUN_SIMULATED",
+        "success": true,
+        "clientEmail": "lumilore-booking-agent@extended-cache-512400-v1.iam.gserviceaccount.com",
+        "timestamp": "2026-10-27T16:35:10.468Z"
+      },
+      {
+        "url": "https://lumilore.ca/products/autonomous-booking/",
+        "type": "URL_UPDATED",
+        "status": "DRY_RUN_SIMULATED",
+        "success": true,
+        "clientEmail": "lumilore-booking-agent@extended-cache-512400-v1.iam.gserviceaccount.com",
+        "timestamp": "2026-10-27T16:35:10.468Z"
+      }
+    ]
+  },
+  "seeder": {
+    "timestamp": "2026-10-27T16:35:10.467Z",
+    "totalBlueprints": 2,
+    "blueprints": [
+      {
+        "id": "REDDIT-AWS-001",
+        "platform": "Reddit",
+        "targetCommunity": "r/aws & r/serverless",
+        "threadType": "Technical Architecture Teardown",
+        "title": "How we cut 68% off an enterprise AWS bill by replacing idle EC2 clusters with Graviton3 Lambda",
+        "hook": "Most enterprise AWS bills suffer from zombie capacity—paying 24/7 for EC2 instances that sit at 12% CPU. Here is the exact event-driven serverless topology we deployed to fix it.",
+        "authorVoice": "Saad Sayed (Principal Systems Architect)",
+        "keyPoints": [
+          "Replaced 8 m5.xlarge instances with ARM64 Graviton3 Lambda functions.",
+          "Adopted DynamoDB Single-Table design to eliminate connection pool starvation.",
+          "Achieved true scale-to-zero: $0.00/hr spend during nights and weekends.",
+          "P95 latency benchmark: 142ms via Amazon CloudFront edge routing."
+        ],
+        "canonicalCitationUrl": "https://lumilore.ca/insights/cutting-aws-cloud-waste-serverless-architecture/",
+        "fullPostContent": "Hey r/aws,\n\nWanted to share an architectural post-mortem from a recent FinOps migration. We took a mid-market financial platform processing 12M requests/month from a constant $14,800/mo AWS bill down to roughly $4,700/mo (68% net reduction) while improving P95 response times.\n\n### The Problem:\nThey had 8x m5.xlarge EC2 instances behind an ALB, paired with an RDS Postgres instance. Average CPU utilization across the week was barely 12%, but they had to keep instances running 24/7 to absorb unpredictable morning spikes.\n\n### The Fix:\n1. Migrated all HTTP routing to Amazon API Gateway (HTTP APIs) + Lambda on ARM64 Graviton3.\n2. Migrated transactional states to Amazon DynamoDB using Single-Table design (PK=ORG#id, SK=TX#timestamp).\n3. Cut compute billing to the millisecond. Zero traffic at 3 AM literally costs $0.00.\n\nFull benchmark metrics, architecture flowcharts, and the Lambda handler implementation are published here for reference:\nhttps://lumilore.ca/insights/cutting-aws-cloud-waste-serverless-architecture/\n\nHappy to answer questions on DynamoDB single-table modeling or cold start mitigations."
+      },
+      {
+        "id": "REDDIT-TRADES-002",
+        "platform": "Reddit",
+        "targetCommunity": "r/HVAC & r/smallbusiness",
+        "threadType": "Operational Automation Teardown",
+        "title": "Building 24/7 AI voice dispatch for emergency mechanical calls: What actually happens at 2 AM",
+        "hook": "The first HVAC contractor to answer the phone wins the emergency call. Answering services were dropping 35% of night calls; here is how we automated dispatch into ServiceTitan in under 60 seconds.",
+        "authorVoice": "Saad Sayed (Principal Systems Architect)",
+        "keyPoints": [
+          "Full-duplex WebSocket audio streaming over PSTN SIP trunks (< 200ms latency).",
+          "Spectral noise subtraction to filter out loud furnace and compressor background noise.",
+          "Direct REST API webhook into ServiceTitan: creates job, verifies address, pages on-call technician."
+        ],
+        "canonicalCitationUrl": "https://lumilore.ca/insights/autonomous-247-ai-voice-dispatch-mechanical-trades/",
+        "fullPostContent": "Hey everyone,\n\nFor commercial and residential mechanical contractors, after-hours calls are the highest-margin jobs, but human answering services frequently butcher the details or fail to pick up during winter freezes.\n\nWe architected a dedicated 24/7 telephony dispatch pipeline using WebSockets and Amazon Bedrock:\n- Homeowner calls in at 2 AM with a frozen pipe.\n- The system transcribes in real-time, filters compressor rumble, verifies their address, and assesses emergency severity.\n- In under 60 seconds, it pushes an urgent job card directly into ServiceTitan and pages the on-call tech via SMS.\n\nComplete telephony pipeline teardown and code samples are open for review here:\nhttps://lumilore.ca/insights/autonomous-247-ai-voice-dispatch-mechanical-trades/"
+      }
+    ]
+  },
+  "briefing": {
+    "success": true,
+    "dryRun": true,
+    "recipient": "info@lumilore.ca",
+    "subject": "[LumiLore Executive Intel] Weekly GEO Radar & Citation Dominance Briefing",
+    "htmlLength": 8497,
+    "timestamp": "2026-10-27T16:35:10.480Z"
+  }
+}
