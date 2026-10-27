@@ -1975,6 +1975,20 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
           'custom-enterprise': 'custom-enterprise',
           'custom_enterprise': 'custom-enterprise',
           'enterprise': 'custom-enterprise',
+          // Sprint 13 Commercial Enterprise Offerings (13.1 - 13.6)
+          'lead-radar': 'lead-radar',
+          'lead_radar': 'lead-radar',
+          'ai-security': 'ai-security',
+          'ai_security': 'ai-security',
+          'ai-brain': 'ai-brain',
+          'ai_brain': 'ai-brain',
+          'omnichannel-helpdesk': 'omnichannel-helpdesk',
+          'omnichannel_helpdesk': 'omnichannel-helpdesk',
+          'video-reels': 'video-reels',
+          'video_reels': 'video-reels',
+          'ai-finops': 'ai-finops',
+          'ai_finops': 'ai-finops',
+          'enterprise-catalog': 'custom-enterprise',
           // Legacy campaign aliases
           'roadmap': 'custom-enterprise',
           'poc_sprint': 'custom-enterprise',
@@ -1990,7 +2004,7 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
         if (canonicalService) {
           const matchingCard = Array.from(objectiveCards).find(c => 
             c.getAttribute('data-value') === canonicalService
-          );
+          ) || Array.from(objectiveCards).find(c => c.getAttribute('data-value') === 'custom-enterprise');
           if (matchingCard && typeof selectObjectiveCard === 'function') {
             selectObjectiveCard(matchingCard);
           }
@@ -2023,7 +2037,13 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
             'geo-engine': `[Autonomous SEO & GEO Engine${tierSuffix}] Pre-scoped from product catalog for 5-layer Schema.org JSON-LD architecture, frontier LLM crawler setup, and Indexing API automation.`,
             'web-modernization': `[Sub-150ms Web Modernization & Speed Engine${tierSuffix}] Pre-scoped from product catalog for AWS serverless Jamstack re-architecture, global CloudFront CDN, and 100/100 Core Web Vitals.`,
             'content-engine': `[Autonomous Content & Omnichannel Engine${tierSuffix}] Pre-scoped from product catalog for WeKnora technical extraction, viral LinkedIn hooks, 8-tweet technical breakdowns, and Dev.to & Medium syndication.`,
-            'custom-enterprise': `[Custom Multi-Agent Enterprise Suite${tierSuffix}] Pre-scoped for bespoke multi-agent swarm architecture, private AWS VPC deployment, and zero-trust IAM governance.`
+            'custom-enterprise': `[Custom Multi-Agent Enterprise Suite${tierSuffix}] Pre-scoped for bespoke multi-agent swarm architecture, private AWS VPC deployment, and zero-trust IAM governance.`,
+            'lead-radar': `[13.1 Autonomous B2B Lead Radar & Social Listening Agent${tierSuffix}] Pre-scoped for 24/7 monitoring of Reddit (r/aws, r/HVAC), Twitter/X, and business registries via Agent-Reach + ECC lead-intelligence ($2,800 setup + $750–$1,200/mo retainer).`,
+            'ai-security': `[13.2 Zero-Trust AI Security & Penetration Audit${tierSuffix}] Pre-scoped for 100+ rule automated red-team penetration testing against prompt injection, data exfiltration, and compliance leaks via NVIDIA/SkillSpector + ECC AgentShield ($3,500 flat / $7,500 hardened).`,
+            'ai-brain': `[13.3 Private Corporate AI Brain & Self-Maintaining Wiki${tierSuffix}] Pre-scoped for single-tenant WeKnora + Hermes Agent closed learning loop vectorizing company SOPs, manuals, and invoices via Slack/Teams/WhatsApp ($4,500 setup + $500/mo hosting).`,
+            'omnichannel-helpdesk': `[13.4 Self-Hosted Omnichannel WhatsApp & Customer Helpdesk${tierSuffix}] Pre-scoped for Chatwoot + Hermes Agent gateway replacing Intercom/Zendesk with unified live chat, WhatsApp, SMS, and email desk ($3,200 setup + $450/mo retainer).`,
+            'video-reels': `[13.5 Autonomous Video Repurposing & Viral Reel Engine${tierSuffix}] Pre-scoped for Hypit + VoiceStudio pipeline auto-clipping webinars into 15 vertical 9:16 reels with kinetic subtitles and cloned voice audio ($1,500–$2,500/mo retainer).`,
+            'ai-finops': `[13.6 Enterprise AI Inference & Cloud FinOps Optimization${tierSuffix}] Pre-scoped for OmniRoute multi-provider quota routing and token compression cutting ongoing AI & cloud bills by 30%–70% ($2,500 flat sprint OR 25% of verified annual savings).`
           };
           if (scopingNotes[canonicalService]) {
             notesInput.value = scopingNotes[canonicalService];
@@ -2099,7 +2119,13 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
             'geo-engine': 'Autonomous SEO & GEO Engine',
             'web-modernization': 'Sub-150ms Web Modernization & Speed Engine',
             'content-engine': 'Autonomous Content & Omnichannel Engine',
-            'custom-enterprise': 'Custom Multi-Agent Enterprise Suite'
+            'custom-enterprise': 'Custom Multi-Agent Enterprise Suite',
+            'lead-radar': 'Autonomous B2B Lead Radar & Social Listening Agent',
+            'ai-security': 'Zero-Trust AI Security & Penetration Audit',
+            'ai-brain': 'Private Corporate AI Brain & Self-Maintaining Wiki',
+            'omnichannel-helpdesk': 'Self-Hosted Omnichannel WhatsApp & Customer Helpdesk',
+            'video-reels': 'Autonomous Video Repurposing & Viral Reel Engine',
+            'ai-finops': 'Enterprise AI Inference & Cloud FinOps Optimization'
           };
 
           if (scopingTitle) {
@@ -2426,14 +2452,30 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
           'syndication': 'content-engine',
           'custom-enterprise': 'custom-enterprise',
           'custom_enterprise': 'custom-enterprise',
-          'enterprise': 'custom-enterprise'
+          'enterprise': 'custom-enterprise',
+          'lead-radar': 'lead-radar',
+          'lead_radar': 'lead-radar',
+          'ai-security': 'ai-security',
+          'ai_security': 'ai-security',
+          'ai-brain': 'ai-brain',
+          'ai_brain': 'ai-brain',
+          'omnichannel-helpdesk': 'omnichannel-helpdesk',
+          'omnichannel_helpdesk': 'omnichannel-helpdesk',
+          'video-reels': 'video-reels',
+          'video_reels': 'video-reels',
+          'ai-finops': 'ai-finops',
+          'ai_finops': 'ai-finops'
         };
 
         const checkedObjCard = checkedObj ? checkedObj.closest('.objective-card') : null;
         const rawUrlService = (currentUrlParams.get('service') || '').toLowerCase().trim();
-        const selectedServiceSlug = (checkedObjCard ? checkedObjCard.getAttribute('data-value') : null)
-          || serviceSlugMap[rawUrlService]
-          || 'autonomous-booking';
+        const sprint13Services = ['lead-radar', 'ai-security', 'ai-brain', 'omnichannel-helpdesk', 'video-reels', 'ai-finops'];
+        const mappedUrlService = serviceSlugMap[rawUrlService] || null;
+        const selectedServiceSlug = (mappedUrlService && sprint13Services.includes(mappedUrlService))
+          ? mappedUrlService
+          : ((checkedObjCard ? checkedObjCard.getAttribute('data-value') : null)
+            || mappedUrlService
+            || 'autonomous-booking');
 
         // Resolve Selected Tier
         let rawTier = (currentUrlParams.get('tier') || '').toLowerCase().trim();

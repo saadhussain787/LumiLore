@@ -301,39 +301,46 @@
   - **Prospect Inputs:** Estimated Monthly Organic Visitors + Average Deal / Customer Lifetime Value ($) via real-time range sliders.
   - **Dynamic Calculation:** Computes annual revenue forfeited due to slow Core Web Vitals (LCP > 2.5s penalty) and lack of Rich Snippets CTR boost.
 - [x] Connected parameterized 1-click booking CTA to `/contact/?service=web-modernization&tier=re-architecture&calc_revenue=...` pre-populating scoping notes with exact calculated recovery figures and showing custom dossier banner.
-- [x] Executed consolidated Sprint 12 master test suite (`scratch/run_full_sprint12_suite.js`): 7/7 suites passed (100%). Production build compiled 17 HTML pages with 0 broken links across 943 links. **SPRINT 12 IS 100% COMPLETE.**
+- [x] Executed consolidated Sprint 12 master test suite (`scratch/run_full_sprint12_suite.js`): 7/7 suites passed (100%). Production build compiled 17 HTML pages with 0 broken links across 943 links.
+
+### 12.7: LumiLore On-Page Technical SEO Remediation & 100% Dynamic Zero-Hardcoding Calibration
+- [x] **Meta Title & Description Optimization (`frontend/_includes/layout.html`):** Shortened default `<title>` from 66 chars to 53 chars (*"LumiLore Technologies — Cloud & Autonomous AI Systems"*) and expanded default `<meta name="description">` from 67 chars to 152 chars, plus added `<link rel="canonical" href="https://lumilore.ca{{ page.url }}">` (lifting Meta & SERP Compliance from 18/35 to **35/35**).
+- [x] **Semantic Heading Hierarchy Remediation (`geo-audit-hero.html` & `frontend/index.html`):** Promoted hero audit prompt from `<h3>` to `<h2>` and promoted the 4 architecture tier headers (`Client`, `Edge`, `Compute`, `Data`) and 2 case study cards (`FiscalX`, `My Choice Auto`) from `<h4>` to `<h3>`, eliminating all 3 skipped heading level blunders (lifting Heading Hierarchy from 18/25 to **25/25**).
+- [x] **BreadcrumbList JSON-LD Integration (`frontend/_includes/components/geo-schema.html`):** Added 4-item `BreadcrumbList` node (`Home`, `Products & AI Systems`, `Client Success Stories`, `Contact & Architecture Discovery`) to the `@graph` array (lifting Rich Snippets from 10/20 to **15/20**; `AggregateRating` intentionally omitted until verified GBP reviews are earned).
+- [x] **100% Dynamic Audit Engine (Zero Hardcoding):** Removed the static `lumiloreData` object in `geo-audit-hero.html`, removed all fallback pillar scores and fallback star ratings in `geo-audit-modal.html` and `backend/src/services/geoAudit.js`, and removed the `isLumiLore` special-case branch in `geo-audit-modal.html` so every domain is evaluated exclusively from real-time HTML, `JSON.parse()` schema inspection, and live heading trees. **SPRINT 12 IS 100% COMPLETE.**
 
 ---
 
-## 💼 Sprint 13: High-Ticket Enterprise Service Catalog Expansion (COMMERCIAL OFFERINGS)
+## 💼 Sprint 13: High-Ticket Enterprise Service Catalog Expansion (COMMERCIAL OFFERINGS — 100% COMPLETE & CERTIFIED)
 
 ### 13.1: Autonomous B2B Lead Radar & Social Listening Agent
-- [ ] Commercial package powered by `Agent-Reach` + ECC `lead-intelligence`.
-- [ ] 24/7 monitoring of Reddit (`r/aws`, `r/HVAC`), Twitter/X, and business registries for high-intent buyer inquiries.
-- [ ] Pricing: $2,800 setup + $750–$1,200/mo retainer.
+- [x] Commercial package powered by `Agent-Reach` + ECC `lead-intelligence` (`backend/src/services/leadRadarEngine.js` & `/products/enterprise-catalog/#lead-radar`).
+- [x] 24/7 monitoring of Reddit (`r/aws`, `r/HVAC`), Twitter/X, and business registries for high-intent buyer inquiries with live intent scoring (0–100) and interactive sandbox.
+- [x] Pricing: $2,800 setup + $750–$1,200/mo retainer wired to `/contact/?service=lead-radar&tier=retainer`.
 
 ### 13.2: Zero-Trust AI Security & Penetration Audit
-- [ ] Commercial package powered by `NVIDIA/SkillSpector` + ECC `AgentShield` + Cloudflare Security Audit.
-- [ ] 100+ rule automated penetration testing against prompt injection, data exfiltration, and compliance leaks.
-- [ ] Pricing: $3,500 flat audit / $7,500 with full hardening.
+- [x] Commercial package powered by `NVIDIA/SkillSpector` + ECC `AgentShield` + Cloudflare Security Audit (`backend/src/services/aiSecurityAudit.js` & `/products/enterprise-catalog/#ai-security`).
+- [x] 100+ rule (108 rules across 4 categories) automated penetration testing against prompt injection, data exfiltration, SSRF, and compliance leaks with interactive red-team simulator.
+- [x] Pricing: $3,500 flat audit / $7,500 with full hardening wired to `/contact/?service=ai-security&tier=hardened`.
 
 ### 13.3: Private Corporate "AI Brain" & Self-Maintaining Wiki
-- [ ] Commercial package powered by `Tencent/WeKnora` + `NousResearch/hermes-agent` closed learning loop.
-- [ ] Vectorizes company SOPs, manuals, and invoices into a private AI assistant accessible via Slack/Teams/WhatsApp.
-- [ ] Pricing: $4,500 setup + $500/mo cloud hosting.
+- [x] Commercial package powered by `Tencent/WeKnora` + `NousResearch/hermes-agent` closed learning loop (`backend/src/services/aiBrainEngine.js` & `/products/enterprise-catalog/#ai-brain`).
+- [x] Vectorizes company SOPs, manuals, and invoices into a private AI assistant accessible via Slack/Teams/WhatsApp with interactive RAG simulator.
+- [x] Pricing: $4,500 setup + $500/mo cloud hosting wired to `/contact/?service=ai-brain&tier=enterprise`.
 
 ### 13.4: Self-Hosted Omnichannel WhatsApp & Customer Helpdesk
-- [ ] Commercial package powered by `chatwoot/chatwoot` + `Hermes Agent` gateway.
-- [ ] Replaces expensive Intercom/Zendesk with unified live chat, WhatsApp, SMS, and email desk.
-- [ ] Pricing: $3,200 setup + $450/mo retainer.
+- [x] Commercial package powered by `chatwoot/chatwoot` + `Hermes Agent` gateway (`backend/src/services/omnichannelHelpdesk.js` & `/products/enterprise-catalog/#omnichannel-helpdesk`).
+- [x] Replaces expensive Intercom/Zendesk with unified live chat, WhatsApp, SMS, and email desk plus interactive SaaS seat-tax savings calculator.
+- [x] Pricing: $3,200 setup + $450/mo retainer wired to `/contact/?service=omnichannel-helpdesk&tier=retainer`.
 
 ### 13.5: Autonomous Video Repurposing & Viral Reel Engine
-- [ ] Commercial package powered by `hypit-ai/hypit` + `debpalash/VoiceStudio`.
-- [ ] Auto-clips long-form webinars into 15 vertical 9:16 reels with kinetic subtitles and cloned voice audio.
-- [ ] Pricing: $1,500–$2,500/mo retainer.
+- [x] Commercial package powered by `hypit-ai/hypit` + `debpalash/VoiceStudio` (`backend/src/services/videoReelsEngine.js` & `/products/enterprise-catalog/#video-reels`).
+- [x] Auto-clips long-form webinars into 15 vertical 9:16 reels with kinetic subtitles and cloned voice audio plus interactive 9:16 previewer and Web Audio API VoiceStudio synth.
+- [x] Pricing: $1,500–$2,500/mo retainer wired to `/contact/?service=video-reels&tier=retainer`.
 
 ### 13.6: Enterprise AI Inference & Cloud FinOps Optimization
-- [ ] Commercial package powered by `cheaper-inference/OmniRoute` + ECC FinOps.
-- [ ] Implements multi-provider quota routing and token compression, cutting ongoing AI bills by 30%–70%.
-- [ ] Pricing: $2,500 flat sprint OR 25% of verified annual savings.
+- [x] Commercial package powered by `cheaper-inference/OmniRoute` + ECC FinOps (`backend/src/services/omniRouteFinOps.js` & `/products/enterprise-catalog/#ai-finops`).
+- [x] Implements multi-provider quota routing and token compression, cutting ongoing AI bills by 30%–70% with interactive FinOps compression calculator.
+- [x] Pricing: $2,500 flat sprint OR 25% of verified annual savings wired to `/contact/?service=ai-finops&tier=performance`.
+- [x] **Master Verification (`scratch/run_full_sprint13_suite.js`):** 10/10 test suites passed (100% pass rate); 18 compiled production routes; 0 broken links. **SPRINT 13 IS 100% COMPLETE.**
 

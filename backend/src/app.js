@@ -439,6 +439,24 @@ export function buildExecutiveEmailHtml(intakeRecord) {
   } else if (attribution?.service === 'custom-enterprise' || attribution?.service === 'custom_enterprise') {
     originLabel = 'CUSTOM MULTI-AGENT ENTERPRISE SUITE';
     originIcon = '🏢';
+  } else if (attribution?.service === 'lead-radar' || attribution?.service === 'lead_radar') {
+    originLabel = 'AUTONOMOUS B2B LEAD RADAR & SOCIAL LISTENING';
+    originIcon = '📡';
+  } else if (attribution?.service === 'ai-security' || attribution?.service === 'ai_security') {
+    originLabel = 'ZERO-TRUST AI SECURITY & PENETRATION AUDIT';
+    originIcon = '🛡️';
+  } else if (attribution?.service === 'ai-brain' || attribution?.service === 'ai_brain') {
+    originLabel = 'PRIVATE CORPORATE AI BRAIN & WIKI';
+    originIcon = '🧠';
+  } else if (attribution?.service === 'omnichannel-helpdesk' || attribution?.service === 'omnichannel_helpdesk') {
+    originLabel = 'SELF-HOSTED OMNICHANNEL WHATSAPP & HELPDESK';
+    originIcon = '💬';
+  } else if (attribution?.service === 'video-reels' || attribution?.service === 'video_reels') {
+    originLabel = 'AUTONOMOUS VIDEO REPURPOSING & VIRAL REEL ENGINE';
+    originIcon = '🎬';
+  } else if (attribution?.service === 'ai-finops' || attribution?.service === 'ai_finops') {
+    originLabel = 'ENTERPRISE AI INFERENCE & CLOUD FINOPS';
+    originIcon = '📉';
   } else if (attribution?.source === 'interceptor_roadmap' || attribution?.service === 'roadmap') {
     originLabel = '48-HOUR BESPOKE ARCHITECTURE ROADMAP';
     originIcon = '⚡';
@@ -678,6 +696,12 @@ export async function sendExecutiveAlertEmail(intakeRecord) {
   else if (intakeRecord.attribution?.service === 'geo-engine' || intakeRecord.attribution?.service === 'geo_engine' || intakeRecord.attribution?.source?.startsWith('geo_tier_')) originBadge = 'GEO ENGINE';
   else if (intakeRecord.attribution?.service === 'web-modernization' || intakeRecord.attribution?.service === 'web_modernization' || intakeRecord.attribution?.source?.startsWith('web_')) originBadge = 'WEB SPEED';
   else if (intakeRecord.attribution?.service === 'custom-enterprise' || intakeRecord.attribution?.service === 'custom_enterprise') originBadge = 'ENTERPRISE';
+  else if (intakeRecord.attribution?.service === 'lead-radar' || intakeRecord.attribution?.service === 'lead_radar') originBadge = 'LEAD RADAR';
+  else if (intakeRecord.attribution?.service === 'ai-security' || intakeRecord.attribution?.service === 'ai_security') originBadge = 'AI SECURITY';
+  else if (intakeRecord.attribution?.service === 'ai-brain' || intakeRecord.attribution?.service === 'ai_brain') originBadge = 'AI BRAIN';
+  else if (intakeRecord.attribution?.service === 'omnichannel-helpdesk' || intakeRecord.attribution?.service === 'omnichannel_helpdesk') originBadge = 'HELPDESK';
+  else if (intakeRecord.attribution?.service === 'video-reels' || intakeRecord.attribution?.service === 'video_reels') originBadge = 'VIRAL REELS';
+  else if (intakeRecord.attribution?.service === 'ai-finops' || intakeRecord.attribution?.service === 'ai_finops') originBadge = 'AI FINOPS';
   else if (intakeRecord.attribution?.service === 'roadmap') originBadge = '48H ROADMAP';
   else if (intakeRecord.attribution?.service === 'field_audit') originBadge = 'FIELD AUDIT';
   else if (intakeRecord.attribution?.service === 'cloud_audit') originBadge = 'CLOUD AUDIT';
@@ -831,6 +855,18 @@ export function buildClientConfirmationEmailHtml(intakeRecord) {
     serviceTitle = isTrades ? 'Sub-Second Contractor Web Speed Audit' : 'Sub-150ms Web Modernization Architecture';
   } else if (svc === 'custom-enterprise' || svc === 'custom_enterprise') {
     serviceTitle = 'Custom Multi-Agent Enterprise Suite Discovery';
+  } else if (svc === 'lead-radar' || svc === 'lead_radar') {
+    serviceTitle = 'Autonomous B2B Lead Radar & Social Listening Discovery';
+  } else if (svc === 'ai-security' || svc === 'ai_security') {
+    serviceTitle = 'Zero-Trust AI Security & Penetration Audit Session';
+  } else if (svc === 'ai-brain' || svc === 'ai_brain') {
+    serviceTitle = 'Private Corporate AI Brain & Wiki Architecture Session';
+  } else if (svc === 'omnichannel-helpdesk' || svc === 'omnichannel_helpdesk') {
+    serviceTitle = 'Self-Hosted Omnichannel WhatsApp & Helpdesk Discovery';
+  } else if (svc === 'video-reels' || svc === 'video_reels') {
+    serviceTitle = 'Autonomous Video Repurposing & Viral Reel Engine Session';
+  } else if (svc === 'ai-finops' || svc === 'ai_finops') {
+    serviceTitle = 'Enterprise AI Inference & Cloud FinOps Optimization Audit';
   }
 
   const sessionTitle = serviceTitle || (isTrades
@@ -989,6 +1025,18 @@ export async function sendClientConfirmationEmail(intakeRecord) {
     serviceTitle = isTrades ? 'Sub-Second Contractor Web Speed Audit' : 'Sub-150ms Web Modernization Architecture';
   } else if (svc === 'custom-enterprise' || svc === 'custom_enterprise') {
     serviceTitle = 'Custom Multi-Agent Enterprise Suite Discovery';
+  } else if (svc === 'lead-radar' || svc === 'lead_radar') {
+    serviceTitle = 'Autonomous B2B Lead Radar & Social Listening Discovery';
+  } else if (svc === 'ai-security' || svc === 'ai_security') {
+    serviceTitle = 'Zero-Trust AI Security & Penetration Audit Session';
+  } else if (svc === 'ai-brain' || svc === 'ai_brain') {
+    serviceTitle = 'Private Corporate AI Brain & Wiki Architecture Session';
+  } else if (svc === 'omnichannel-helpdesk' || svc === 'omnichannel_helpdesk') {
+    serviceTitle = 'Self-Hosted Omnichannel WhatsApp & Helpdesk Discovery';
+  } else if (svc === 'video-reels' || svc === 'video_reels') {
+    serviceTitle = 'Autonomous Video Repurposing & Viral Reel Engine Session';
+  } else if (svc === 'ai-finops' || svc === 'ai_finops') {
+    serviceTitle = 'Enterprise AI Inference & Cloud FinOps Optimization Audit';
   }
 
   const sessionTitle = serviceTitle || (isTrades
