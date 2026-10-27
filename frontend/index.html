@@ -1490,20 +1490,209 @@ layout: layout.html
           </div>
 
           <!-- Terminal Status Footer -->
-          <div class="flex items-center justify-between text-[11px] text-slate-400 border-t border-white/10 pt-2.5">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between text-[11px] text-slate-400 border-t border-white/10 pt-2.5 gap-2">
             <span class="flex items-center gap-1.5 text-emerald-400 font-bold">
               <span>●</span> <span id="term-status-text">STATUS: AUTONOMOUS GAINS VERIFIED</span>
             </span>
-            <span class="text-slate-400 font-mono flex items-center gap-1">
-              <span>READY</span>
-              <span class="w-1.5 h-3.5 bg-cyan-400 animate-pulse inline-block"></span>
-            </span>
+            <a id="term-roi-cta" href="/contact/?service=custom-enterprise&calc_revenue=295750&calls=25&ticket=15&lens=corporate" class="inline-flex items-center gap-1.5 text-cyan-300 hover:text-cyan-200 font-mono font-bold transition-colors">
+              <span>Lock Calculated Recovery</span>
+              <span>→</span>
+            </a>
           </div>
 
         </div>
       </div>
     </div>
     
+  </div>
+</section>
+
+<!-- Section 6: Live "Agent Operations Command Center" Demo Dashboard (Sprint 8 Pillar 8.5) -->
+<section id="command-center-demo" class="cv-auto-section py-24 sm:py-32 relative z-10 bg-[#02050E] border-t border-white/5 overflow-hidden">
+  <!-- Ambient background glow -->
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,242,254,0.06),transparent_60%)] pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-cyan-400/30 bg-cyan-950/40 text-xs font-mono font-bold tracking-widest text-cyan-300 uppercase mb-4 shadow-[0_0_15px_rgba(0,242,254,0.15)]">
+        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+        <span>Interactive Client Portal Preview</span>
+      </div>
+      <h2 class="text-3xl sm:text-5xl font-bold font-headline text-white tracking-tight leading-tight">
+        Agent Operations <span class="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 via-teal-300 to-emerald-400">Command Center</span>
+      </h2>
+      <p class="mt-4 text-slate-400 text-sm sm:text-base font-light max-w-2xl mx-auto leading-relaxed">
+        <span class="lens-corp">Inspect autonomous AI agents resolving system incidents, monitoring SLA latency, and recovering engineering bandwidth in real time.</span>
+        <span class="lens-trade">Inspect live AI dispatchers answering trade emergencies, scheduling ServiceTitan work orders, and capturing revenue around the clock.</span>
+      </p>
+    </div>
+
+    <!-- Command Center Portal Mockup Container -->
+    <div class="rounded-3xl border border-white/10 bg-[#060A14]/90 backdrop-blur-2xl shadow-[0_25px_60px_rgba(0,0,0,0.8),inset_0_1px_0_0_rgba(255,255,255,0.08)] overflow-hidden">
+      <!-- Portal Top Bar -->
+      <div class="p-4 sm:p-5 border-b border-white/10 bg-white/2 flex flex-wrap items-center justify-between gap-4">
+        <!-- Left: Status & Lens Switcher -->
+        <div class="flex items-center gap-3">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(16,185,129,0.8)] animate-pulse"></span>
+            <span class="text-xs font-mono font-bold text-white tracking-wide">SYSTEM: ACTIVE DISPATCH</span>
+          </div>
+          <span class="text-slate-600 hidden sm:inline">•</span>
+          <div class="inline-flex items-center rounded-lg bg-black/60 border border-white/10 p-0.5" role="group" aria-label="Portal View Toggle">
+            <button type="button" id="cmd-lens-trades" class="px-3 py-1 rounded-md text-[11px] font-mono font-bold text-amber-300 bg-amber-950/60 transition-all cursor-pointer">
+              Trades Dispatch
+            </button>
+            <button type="button" id="cmd-lens-corp" class="px-3 py-1 rounded-md text-[11px] font-mono font-bold text-slate-400 hover:text-white transition-all cursor-pointer">
+              Enterprise Cloud
+            </button>
+          </div>
+        </div>
+
+        <!-- Right: Real-Time Booked Revenue Velocity Ticker -->
+        <div class="flex items-center gap-4">
+          <div class="text-right">
+            <div class="text-[10px] font-mono uppercase text-slate-400 tracking-wider">Booked Velocity (MTD)</div>
+            <div id="cmd-velocity-counter" class="text-base sm:text-lg font-mono font-bold text-emerald-400 tracking-tight" style="text-shadow: 0 0 12px rgba(52,211,153,0.5);">
+              $24,646 / mo
+            </div>
+          </div>
+          <button type="button" id="cmd-audio-toggle" class="px-3 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white font-mono text-[11px] font-bold transition-all cursor-pointer flex items-center gap-1.5" aria-label="Toggle radio dispatch audio">
+            <span id="cmd-audio-icon">🔇</span>
+            <span id="cmd-audio-label">Muted</span>
+          </button>
+          <button type="button" id="cmd-simulate-btn" class="px-3 py-1.5 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-400/30 text-cyan-300 font-mono text-[11px] font-bold uppercase tracking-wider transition-all cursor-pointer flex items-center gap-1.5">
+            <span>⚡</span>
+            <span>Simulate Event</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Portal Main Grid: Left Stream + Right Telemetry -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-white/10">
+        <!-- Left: Real-Time Audio & Transcript Stream (7 cols) -->
+        <div class="p-5 sm:p-6 lg:col-span-7 space-y-6">
+          <!-- Active Call Info Header -->
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-2xl bg-cyan-950/50 border border-cyan-400/30 flex items-center justify-center text-cyan-300 font-bold text-sm shadow-[0_0_15px_rgba(0,242,254,0.15)]">
+                🎙️
+              </div>
+              <div>
+                <div id="cmd-stream-title" class="text-sm font-bold text-white font-headline">Inbound Dispatch Stream #104</div>
+                <div id="cmd-stream-meta" class="text-xs font-mono text-slate-400">Carrier: Amazon Connect • Latency: 420ms</div>
+              </div>
+            </div>
+            <span id="cmd-urgency-badge" class="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-rose-950/80 border border-rose-400/40 text-rose-300 animate-pulse">
+              Emergency Tier-1
+            </span>
+          </div>
+
+          <!-- Live Audio Waveform Animation Visualizer -->
+          <div class="p-4 rounded-2xl bg-black/60 border border-white/8 space-y-3">
+            <div class="flex items-center justify-between text-xs font-mono text-slate-400">
+              <span class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                <span>Voice Signal Visualizer</span>
+              </span>
+              <span id="cmd-audio-duration">00:14 / 00:45</span>
+            </div>
+            <!-- Waveform Bars -->
+            <div class="h-10 flex items-center justify-between gap-1 px-2" id="cmd-waveform-container" aria-label="Audio waveform visualizer">
+              <!-- Dynamically populated / animated bars via JS -->
+            </div>
+          </div>
+
+          <!-- Real-Time Dialogue Transcription Ticker -->
+          <div class="space-y-3">
+            <div class="text-xs font-mono font-bold uppercase tracking-wider text-slate-400 flex items-center justify-between">
+              <span>Live Dialogue Transcription</span>
+              <span class="text-emerald-400">● Streaming</span>
+            </div>
+            <div id="cmd-transcript-box" class="p-4 rounded-2xl bg-black/40 border border-white/8 space-y-2.5 max-h-56 overflow-y-auto font-mono text-xs text-slate-300 leading-relaxed">
+              <div class="p-2 rounded-lg bg-white/3 border-l-2 border-slate-500">
+                <span class="text-slate-400 font-bold">[00:03] Caller:</span>
+                <span id="cmd-line-caller">"Hi, emergency here—our commercial rooftop heat pump went down in -18°C weather."</span>
+              </div>
+              <div class="p-2 rounded-lg bg-emerald-950/30 border-l-2 border-emerald-400">
+                <span class="text-emerald-400 font-bold">[00:07] Dispatcher AI:</span>
+                <span id="cmd-line-agent">"Understood. Priority emergency flagged. Dispatching tech Mike R. with ETA 24 mins. SMS confirmation dispatched."</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Dispatch Actions & Sync Telemetry (5 cols) -->
+        <div class="p-5 sm:p-6 lg:col-span-5 space-y-6 bg-white/1">
+          <div class="text-xs font-mono font-bold uppercase tracking-wider text-slate-400 flex items-center justify-between">
+            <span>Automated Integrations</span>
+            <span class="text-cyan-300 font-mono text-[10px]">Zero Human Entry</span>
+          </div>
+
+          <!-- Integration Pipeline Cards -->
+          <div class="space-y-3" id="cmd-integrations-list">
+            <!-- 1. CRM / Job Ticket -->
+            <div class="p-3.5 rounded-xl bg-black/40 border border-white/8 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-emerald-950/50 border border-emerald-400/30 flex items-center justify-center text-xs">
+                  📋
+                </div>
+                <div>
+                  <div class="text-xs font-bold text-white" id="cmd-sync-title">ServiceTitan Job #49102</div>
+                  <div class="text-[10px] font-mono text-slate-400" id="cmd-sync-sub">Commercial Heat Pump Overhaul</div>
+                </div>
+              </div>
+              <span class="text-[10px] font-mono font-bold text-emerald-400 bg-emerald-950/60 border border-emerald-500/30 px-2 py-0.5 rounded-full">
+                Synchronized
+              </span>
+            </div>
+
+            <!-- 2. Technician SMS Notification -->
+            <div class="p-3.5 rounded-xl bg-black/40 border border-white/8 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-amber-950/50 border border-amber-400/30 flex items-center justify-center text-xs">
+                  📱
+                </div>
+                <div>
+                  <div class="text-xs font-bold text-white">Technician SMS Dispatch</div>
+                  <div class="text-[10px] font-mono text-slate-400" id="cmd-sms-sub">Dispatched to Mike R. (On-Call)</div>
+                </div>
+              </div>
+              <span class="text-[10px] font-mono font-bold text-amber-300 bg-amber-950/60 border border-amber-500/30 px-2 py-0.5 rounded-full">
+                Delivered
+              </span>
+            </div>
+
+            <!-- 3. Pre-Authorized Deposit / Estimate -->
+            <div class="p-3.5 rounded-xl bg-black/40 border border-white/8 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-cyan-950/50 border border-cyan-400/30 flex items-center justify-center text-xs">
+                  💳
+                </div>
+                <div>
+                  <div class="text-xs font-bold text-white" id="cmd-invoice-title">Emergency Diagnostic Fee</div>
+                  <div class="text-[10px] font-mono text-slate-400" id="cmd-invoice-sub">$285.00 Pre-authorized</div>
+                </div>
+              </div>
+              <span class="text-[10px] font-mono font-bold text-cyan-300 bg-cyan-950/60 border border-cyan-500/30 px-2 py-0.5 rounded-full">
+                Secured
+              </span>
+            </div>
+          </div>
+
+          <!-- Conversion Bridge Footer inside Portal -->
+          <div class="pt-4 border-t border-white/10 space-y-3">
+            <div class="text-xs text-slate-400 leading-snug">
+              Want this autonomous dispatch pipeline deployed for your business in 14 days?
+            </div>
+            <a id="cmd-portal-cta" href="/contact/?service=voice-dispatch&source=command_center_demo" class="glow-amber-cta w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-linear-to-r from-amber-400 via-amber-300 to-amber-500 text-slate-950 font-bold text-xs tracking-wider uppercase transition-all shadow-[0_0_20px_rgba(245,158,11,0.35)]">
+              <span>Deploy In Your Operations</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -3497,22 +3686,23 @@ layout: layout.html
 
       let isPlaying = false;
       let countdownTimer = null;
-      let remainingSeconds = 8;
+      let remainingSeconds = 10;
+      let activeAudioTrack = null;
 
       const SAMPLES = {
         corporate: {
-          label: "8s AI Voice Sample",
-          durationText: "0:08",
-          durationSec: 8,
-          dialogue: "LumiLore voice cluster online. Sub-800 millisecond edge latency verified. Connecting your session now.",
-          transcript: "LumiLore voice cluster online. Sub-800ms edge latency verified."
-        },
-        trades: {
-          label: "10s Dispatch Sample",
+          label: "10s Studio Receptionist",
           durationText: "0:10",
           durationSec: 10,
-          dialogue: "Hi! Thanks for calling Apex Services. We have a licensed technician available in your area tomorrow at 9 AM. Can I reserve that for you?",
-          transcript: "Hi! Thanks for calling Apex Services. Technician available tomorrow at 9 AM."
+          audioUrl: "/assets/audio/03_corporate_receptionist.mp3",
+          transcript: "LumiLore AI: Connecting your executive discovery bridge."
+        },
+        trades: {
+          label: "12s Studio Dispatch",
+          durationText: "0:12",
+          durationSec: 12,
+          audioUrl: "/assets/audio/01_furnace_emergency.mp3",
+          transcript: "On-call technician Dave available tonight between 8 PM - 10 PM."
         }
       };
 
@@ -3552,8 +3742,12 @@ layout: layout.html
           clearInterval(countdownTimer);
           countdownTimer = null;
         }
-        if ('speechSynthesis' in window) {
-          try { window.speechSynthesis.cancel(); } catch (e) {}
+        if (activeAudioTrack) {
+          try {
+            activeAudioTrack.pause();
+            activeAudioTrack.currentTime = 0;
+          } catch (e) {}
+          activeAudioTrack = null;
         }
 
         audioBtn.classList.remove('is-playing');
@@ -3605,28 +3799,13 @@ layout: layout.html
           }
         }, 1000);
 
-        if ('speechSynthesis' in window) {
-          try {
-            window.speechSynthesis.cancel();
-            const utterance = new SpeechSynthesisUtterance(sample.dialogue);
-            utterance.rate = 1.05;
-            utterance.pitch = 1.0;
-
-            const voices = window.speechSynthesis.getVoices();
-            const preferred = voices.find(v => (v.name.includes('Natural') || v.name.includes('Google') || v.name.includes('Samantha') || v.name.includes('Ava') || v.name.includes('Jenny') || v.name.includes('Zira')) && v.lang.startsWith('en')) || voices.find(v => v.lang.startsWith('en'));
-            if (preferred) utterance.voice = preferred;
-
-            utterance.onend = () => {
-              if (remainingSeconds <= 2) {
-                stopPlayback();
-              }
-            };
-            utterance.onerror = () => {
-              // Timer will continue fallback smoothly
-            };
-            window.speechSynthesis.speak(utterance);
-          } catch (e) {}
-        }
+        try {
+          activeAudioTrack = new Audio(sample.audioUrl);
+          activeAudioTrack.onended = () => {
+            stopPlayback();
+          };
+          activeAudioTrack.play().catch(() => {});
+        } catch (e) {}
       }
 
       // Isolate click from parent 3D orbit carousel card
@@ -3913,6 +4092,13 @@ layout: layout.html
           localStorage.setItem('lumilore_calculated_roi', JSON.stringify(data));
         } catch (e) {}
 
+        // Update Terminal direct reservation CTA
+        const termCta = document.getElementById('term-roi-cta');
+        if (termCta) {
+          const service = activeLens === 'trades' ? 'voice-dispatch' : 'custom-enterprise';
+          termCta.href = `/contact/?service=${service}&calc_revenue=${data.annualLoss}&calls=${data.inquiries}&ticket=${data.ticket}&lens=${activeLens}`;
+        }
+
         // Notify downstream listeners (Sticky CRO Bar)
         window.dispatchEvent(new CustomEvent('lumilore:roi-updated', { detail: data }));
 
@@ -3968,6 +4154,7 @@ layout: layout.html
     function setupStickyBar() {
       const bar = document.getElementById('sticky-roi-bar');
       const valEl = document.getElementById('sticky-roi-val');
+      const ctaBtn = document.getElementById('sticky-roi-cta');
       const dismissBtn = document.getElementById('sticky-roi-dismiss');
       const roiSection = document.getElementById('roi-section');
       if (!bar || !valEl || !roiSection) return;
@@ -3981,9 +4168,20 @@ layout: layout.html
 
       let hasSeenROI = false;
 
-      function updateBarValue(formattedVal) {
+      function updateBarValue(roiData) {
+        if (!roiData) return;
+        const formattedVal = typeof roiData === 'string' ? roiData : roiData.formattedAnnual;
         if (valEl && formattedVal) {
           valEl.textContent = formattedVal;
+        }
+        if (ctaBtn) {
+          const detail = (typeof roiData === 'object' && roiData !== null) ? roiData : (window.LumiLoreROI || {});
+          const annual = detail.annualLoss || 295750;
+          const inquiries = detail.inquiries || 25;
+          const ticket = detail.ticket || 650;
+          const lens = detail.lens || (document.documentElement.getAttribute('data-lens') || 'corporate');
+          const service = lens === 'trades' ? 'voice-dispatch' : 'custom-enterprise';
+          ctaBtn.href = `/contact/?service=${service}&calc_revenue=${annual}&calls=${inquiries}&ticket=${ticket}&lens=${lens}`;
         }
       }
 
@@ -3993,17 +4191,17 @@ layout: layout.html
         if (saved) {
           const parsed = JSON.parse(saved);
           if (parsed && parsed.formattedAnnual) {
-            updateBarValue(parsed.formattedAnnual);
+            updateBarValue(parsed);
           }
         } else if (window.LumiLoreROI && window.LumiLoreROI.formattedAnnual) {
-          updateBarValue(window.LumiLoreROI.formattedAnnual);
+          updateBarValue(window.LumiLoreROI);
         }
       } catch (e) {}
 
       // Real-time listener for ROI calculation updates
       window.addEventListener('lumilore:roi-updated', (e) => {
         if (e.detail && e.detail.formattedAnnual) {
-          updateBarValue(e.detail.formattedAnnual);
+          updateBarValue(e.detail);
           hasSeenROI = true;
         }
       });
@@ -4135,6 +4333,298 @@ layout: layout.html
 
     // Expose for dynamic re-binding during view transitions
     window.rebindCardSpotlights = setupSpotlights;
+  })();
+
+  // --- SPRINT 8 & 9: LIVE AGENT OPERATIONS COMMAND CENTER CONTROLLER (VoiceStudio Radio Integration) ---
+  (function initCommandCenterDemo() {
+    const section = document.getElementById('command-center-demo');
+    if (!section) return;
+
+    const btnTrades = document.getElementById('cmd-lens-trades');
+    const btnCorp = document.getElementById('cmd-lens-corp');
+    const velocityCounter = document.getElementById('cmd-velocity-counter');
+    const simulateBtn = document.getElementById('cmd-simulate-btn');
+    const audioToggle = document.getElementById('cmd-audio-toggle');
+    const audioIcon = document.getElementById('cmd-audio-icon');
+    const audioLabel = document.getElementById('cmd-audio-label');
+    const streamTitle = document.getElementById('cmd-stream-title');
+    const streamMeta = document.getElementById('cmd-stream-meta');
+    const urgencyBadge = document.getElementById('cmd-urgency-badge');
+    const waveformBox = document.getElementById('cmd-waveform-container');
+    const lineCaller = document.getElementById('cmd-line-caller');
+    const lineAgent = document.getElementById('cmd-line-agent');
+    const syncTitle = document.getElementById('cmd-sync-title');
+    const syncSub = document.getElementById('cmd-sync-sub');
+    const smsSub = document.getElementById('cmd-sms-sub');
+    const invoiceTitle = document.getElementById('cmd-invoice-title');
+    const invoiceSub = document.getElementById('cmd-invoice-sub');
+    const portalCta = document.getElementById('cmd-portal-cta');
+    const durationLabel = document.getElementById('cmd-audio-duration');
+
+    // 1. Audio Context & Radio Audio State Management (VoiceStudio Integration)
+    let audioCtx = null;
+    let isMuted = localStorage.getItem('lumilore_cmd_audio_muted') === 'false' ? false : true; // Default muted for browser safety
+
+    function updateAudioToggleUI() {
+      if (!audioToggle || !audioIcon || !audioLabel) return;
+      if (isMuted) {
+        audioIcon.textContent = '🔇';
+        audioLabel.textContent = 'Muted';
+        audioToggle.className = 'px-3 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-400 hover:text-white font-mono text-[11px] font-bold transition-all cursor-pointer flex items-center gap-1.5';
+      } else {
+        audioIcon.textContent = '🔊';
+        audioLabel.textContent = 'Radio: ON';
+        audioToggle.className = 'px-3 py-1.5 rounded-xl bg-emerald-950/70 border border-emerald-500/40 text-emerald-300 font-mono text-[11px] font-bold shadow-[0_0_12px_rgba(16,185,129,0.3)] transition-all cursor-pointer flex items-center gap-1.5';
+      }
+    }
+    updateAudioToggleUI();
+
+    if (audioToggle) {
+      audioToggle.addEventListener('click', () => {
+        isMuted = !isMuted;
+        localStorage.setItem('lumilore_cmd_audio_muted', isMuted ? 'true' : 'false');
+        updateAudioToggleUI();
+        if (!isMuted) {
+          playRadioSquelchChirp();
+        }
+      });
+    }
+
+    function getAudioContext() {
+      if (!audioCtx) {
+        const AudioClass = window.AudioContext || window.webkitAudioContext;
+        if (AudioClass) audioCtx = new AudioClass();
+      }
+      if (audioCtx && audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      return audioCtx;
+    }
+
+    // Synthesizes a two-way radio squelch chirp (VoiceStudio PTT noise burst + frequency drop)
+    function playRadioSquelchChirp() {
+      try {
+        const ctx = getAudioContext();
+        if (!ctx) return;
+
+        // 1. Noise squelch burst (35ms bandpass noise)
+        const bufferSize = Math.floor(ctx.sampleRate * 0.04);
+        const noiseBuffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+        const output = noiseBuffer.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) {
+          output[i] = Math.random() * 2 - 1;
+        }
+
+        const whiteNoise = ctx.createBufferSource();
+        whiteNoise.buffer = noiseBuffer;
+
+        const noiseFilter = ctx.createBiquadFilter();
+        noiseFilter.type = 'bandpass';
+        noiseFilter.frequency.setValueAtTime(1400, ctx.currentTime);
+        noiseFilter.Q.setValueAtTime(3.0, ctx.currentTime);
+
+        const noiseGain = ctx.createGain();
+        noiseGain.gain.setValueAtTime(0.06, ctx.currentTime);
+        noiseGain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.04);
+
+        whiteNoise.connect(noiseFilter);
+        noiseFilter.connect(noiseGain);
+        noiseGain.connect(ctx.destination);
+        whiteNoise.start();
+
+        // 2. Radio PTT Chirp tone (1200Hz -> 850Hz)
+        const osc = ctx.createOscillator();
+        const chirpGain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(1200, ctx.currentTime + 0.01);
+        osc.frequency.exponentialRampToValueAtTime(850, ctx.currentTime + 0.08);
+
+        chirpGain.gain.setValueAtTime(0.07, ctx.currentTime + 0.01);
+        chirpGain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.09);
+
+        osc.connect(chirpGain);
+        chirpGain.connect(ctx.destination);
+        osc.start(ctx.currentTime + 0.01);
+        osc.stop(ctx.currentTime + 0.1);
+      } catch (e) {}
+    }
+
+    let radioAudioElement = null;
+
+    // Plays authentic two-way dispatch transmission audio (VoiceStudio Neural Assets)
+    function playRadioDispatchAudio(mode) {
+      if (isMuted) return;
+      playRadioSquelchChirp();
+
+      const audioUrl = mode === 'trades' 
+        ? '/assets/audio/04_command_center_trades.mp3'
+        : '/assets/audio/04_command_center_corporate.mp3';
+
+      try {
+        if (radioAudioElement) {
+          try { radioAudioElement.pause(); } catch(e) {}
+        }
+        radioAudioElement = new Audio(audioUrl);
+        radioAudioElement.volume = 0.85;
+        radioAudioElement.onended = () => {
+          playRadioSquelchChirp(); // Concluding radio key-up chirp
+        };
+        setTimeout(() => {
+          radioAudioElement.play().catch(e => {});
+        }, 90);
+      } catch (e) {}
+    }
+
+    // 2. Generate live waveform bars
+    const BAR_COUNT = 24;
+    const bars = [];
+    if (waveformBox) {
+      waveformBox.innerHTML = '';
+      for (let i = 0; i < BAR_COUNT; i++) {
+        const bar = document.createElement('div');
+        bar.className = 'w-1 sm:w-1.5 rounded-full bg-linear-to-t from-cyan-500 to-emerald-400 transition-all duration-150';
+        bar.style.height = `${Math.floor(Math.random() * 24 + 6)}px`;
+        waveformBox.appendChild(bar);
+        bars.push(bar);
+      }
+    }
+
+    let isSimulating = false;
+    let waveInterval = null;
+
+    function startWaveformModulation(highEnergy = false) {
+      if (waveInterval) clearInterval(waveInterval);
+      const speed = highEnergy ? 70 : 120;
+      const baseH = highEnergy ? 18 : 6;
+      const mult = highEnergy ? 22 : 12;
+
+      waveInterval = setInterval(() => {
+        bars.forEach((bar, idx) => {
+          const height = Math.floor(Math.sin(Date.now() / 150 + idx * 0.5) * mult + (baseH + 12));
+          bar.style.height = `${Math.max(4, height)}px`;
+          bar.style.opacity = (height / 36).toFixed(2);
+        });
+      }, speed);
+    }
+    startWaveformModulation();
+
+    // Data models for modes
+    const MODES = {
+      trades: {
+        velocity: '$24,646 / mo',
+        streamTitle: 'Inbound Dispatch Stream #104',
+        streamMeta: 'Carrier: Amazon Connect • Latency: 420ms',
+        urgency: { text: 'Emergency Tier-1', class: 'bg-rose-950/80 border-rose-400/40 text-rose-300' },
+        caller: '"Hi, emergency here—our commercial rooftop heat pump went down in -18°C weather."',
+        agent: '"Understood. Priority emergency flagged. Dispatching tech Mike R. with ETA 24 mins. SMS confirmation dispatched."',
+        syncTitle: 'ServiceTitan Job #49102',
+        syncSub: 'Commercial Heat Pump Overhaul',
+        smsSub: 'Dispatched to Mike R. (On-Call)',
+        invoiceTitle: 'Emergency Diagnostic Fee',
+        invoiceSub: '$285.00 Pre-authorized',
+        ctaHref: '/contact/?service=voice-dispatch&source=command_center_demo'
+      },
+      corporate: {
+        velocity: '$38,400 / mo',
+        streamTitle: 'Cloud Ops Autonomy Stream #302',
+        streamMeta: 'Runtime: AWS EventBridge • Latency: 12ms',
+        urgency: { text: 'Auto-Resolved P99', class: 'bg-emerald-950/80 border-emerald-400/40 text-emerald-300' },
+        caller: '"Event: DynamoDB hot partition throttling detected on ingest cluster (14,200 req/s)."',
+        agent: '"Applied autonomous auto-scaling partition policy. Latency restored to 12ms within 800ms window."',
+        syncTitle: 'Datadog Incident #8821',
+        syncSub: 'Ingest Tier Latency SLA Restored',
+        smsSub: 'Escalated to On-Call SRE Slack Channel',
+        invoiceTitle: 'Cloud Cost Optimization',
+        invoiceSub: '-42% Serverless Inefficiency Avoided',
+        ctaHref: '/contact/?service=custom-enterprise&source=command_center_demo'
+      }
+    };
+
+    let currentMode = 'trades';
+
+    function setMode(mode) {
+      currentMode = mode;
+      const data = MODES[mode];
+      if (!data) return;
+
+      if (mode === 'trades') {
+        if (btnTrades) {
+          btnTrades.className = 'px-3 py-1 rounded-md text-[11px] font-mono font-bold text-amber-300 bg-amber-950/60 transition-all cursor-pointer';
+        }
+        if (btnCorp) {
+          btnCorp.className = 'px-3 py-1 rounded-md text-[11px] font-mono font-bold text-slate-400 hover:text-white transition-all cursor-pointer';
+        }
+      } else {
+        if (btnCorp) {
+          btnCorp.className = 'px-3 py-1 rounded-md text-[11px] font-mono font-bold text-cyan-300 bg-cyan-950/60 transition-all cursor-pointer';
+        }
+        if (btnTrades) {
+          btnTrades.className = 'px-3 py-1 rounded-md text-[11px] font-mono font-bold text-slate-400 hover:text-white transition-all cursor-pointer';
+        }
+      }
+
+      if (velocityCounter) velocityCounter.textContent = data.velocity;
+      if (streamTitle) streamTitle.textContent = data.streamTitle;
+      if (streamMeta) streamMeta.textContent = data.streamMeta;
+      if (urgencyBadge) {
+        urgencyBadge.textContent = data.urgency.text;
+        urgencyBadge.className = `px-2.5 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider border animate-pulse ${data.urgency.class}`;
+      }
+      if (lineCaller) lineCaller.textContent = data.caller;
+      if (lineAgent) lineAgent.textContent = data.agent;
+      if (syncTitle) syncTitle.textContent = data.syncTitle;
+      if (syncSub) syncSub.textContent = data.syncSub;
+      if (smsSub) smsSub.textContent = data.smsSub;
+      if (invoiceTitle) invoiceTitle.textContent = data.invoiceTitle;
+      if (invoiceSub) invoiceSub.textContent = data.invoiceSub;
+      if (portalCta) portalCta.href = data.ctaHref;
+    }
+
+    if (btnTrades) btnTrades.addEventListener('click', () => setMode('trades'));
+    if (btnCorp) btnCorp.addEventListener('click', () => setMode('corporate'));
+
+    // Sync with global lens switch
+    window.addEventListener('lumilore:lens-changed', (e) => {
+      const activeLens = e.detail || document.documentElement.getAttribute('data-lens');
+      if (activeLens === 'trades' || activeLens === 'corporate') {
+        setMode(activeLens);
+      }
+    });
+
+    // Simulate Event trigger
+    if (simulateBtn) {
+      simulateBtn.addEventListener('click', () => {
+        if (isSimulating) return;
+        isSimulating = true;
+        simulateBtn.classList.add('opacity-50', 'pointer-events-none');
+        if (durationLabel) durationLabel.textContent = '00:01 / 00:45 (Transmitting)';
+
+        // High energy waveform animation & radio audio playback
+        startWaveformModulation(true);
+        playRadioDispatchAudio(currentMode);
+
+        // Flash integrations list
+        const intList = document.getElementById('cmd-integrations-list');
+        if (intList) {
+          intList.classList.add('ring-2', 'ring-cyan-400/50', 'rounded-2xl', 'transition-all');
+        }
+
+        setTimeout(() => {
+          if (durationLabel) durationLabel.textContent = '00:28 / 00:45';
+          if (intList) {
+            intList.classList.remove('ring-2', 'ring-cyan-400/50');
+          }
+          startWaveformModulation(false);
+          simulateBtn.classList.remove('opacity-50', 'pointer-events-none');
+          isSimulating = false;
+        }, 1600);
+      });
+    }
+
+    // Expose for external testing
+    window.__LUMILORE_SET_COMMAND_CENTER_MODE = setMode;
+    window.__LUMILORE_PLAY_RADIO_DISPATCH = playRadioDispatchAudio;
+    window.__LUMILORE_PLAY_SQUELCH_CHIRP = playRadioSquelchChirp;
   })();
 </script>
 

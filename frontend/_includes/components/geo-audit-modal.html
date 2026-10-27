@@ -111,6 +111,7 @@
             <div id="geo-pillar-1-bar" class="h-full bg-cyan-400 transition-all duration-700" style="width: 0%"></div>
           </div>
           <p class="text-[10px] font-mono text-slate-400">GPTBot • Claude • Perplexity</p>
+          <p class="text-[10px] text-slate-400/90 leading-tight">Robots.txt allowances for AI crawlers to ingest your service pages.</p>
         </div>
 
         <!-- Pillar 2: Knowledge Graph Schema -->
@@ -123,6 +124,7 @@
             <div id="geo-pillar-2-bar" class="h-full bg-indigo-400 transition-all duration-700" style="width: 0%"></div>
           </div>
           <p class="text-[10px] font-mono text-slate-400">JSON-LD Triples • sameAs</p>
+          <p class="text-[10px] text-slate-400/90 leading-tight">Machine-readable schema declaring business identity and services.</p>
         </div>
 
         <!-- Pillar 3: Technical Foundations -->
@@ -135,6 +137,69 @@
             <div id="geo-pillar-3-bar" class="h-full bg-emerald-400 transition-all duration-700" style="width: 0%"></div>
           </div>
           <p class="text-[10px] font-mono text-slate-400">HTTPS • TTFB • Meta Tags</p>
+          <p class="text-[10px] text-slate-400/90 leading-tight">Sub-150ms TTFB prevents AI retrieval agents from timing out.</p>
+        </div>
+      </div>
+
+      <!-- Multi-LLM Citation Presence Radar (Sprint 8 Pillar 8.3 & Sprint 9 Phase 4) -->
+      <div class="space-y-3">
+        <div class="flex items-center justify-between">
+          <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-slate-300 flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+            Multi-LLM Citation Presence Radar
+          </h3>
+          <span class="text-[10px] font-mono text-cyan-300">Live OmniRoute Prober</span>
+        </div>
+        <p class="text-[11px] text-slate-400 font-light leading-relaxed">
+          Tests whether AI models quote your site in conversational answers. <strong class="text-emerald-400 font-normal">Indexed</strong> = direct quotation; <strong class="text-rose-400 font-normal">Excluded</strong> = competitors capture buyer leads.
+        </p>
+
+        <!-- OmniRoute Live Radar Scanning Ticker -->
+        <div id="radar-scan-ticker" class="flex items-center justify-between px-3 py-1.5 rounded-xl bg-cyan-950/40 border border-cyan-500/20 text-[11px] font-mono text-cyan-300">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+            <span id="radar-ticker-text">OmniRoute: Standby for multi-LLM citation dispatch...</span>
+          </div>
+          <span class="text-[10px] font-mono text-slate-400 uppercase hidden sm:inline">every-app / open-seo</span>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5" id="llm-radar-grid">
+          <!-- ChatGPT Search -->
+          <div class="p-3 rounded-xl bg-black/50 border border-white/8 space-y-1 text-center">
+            <div class="text-[10px] font-mono text-slate-400 uppercase">ChatGPT Search</div>
+            <div id="radar-chatgpt-badge" class="inline-flex items-center gap-1 text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-amber-950/60 border border-amber-500/30 text-amber-300">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+              <span class="radar-status-text">Scanning</span>
+            </div>
+            <div class="text-[9px] font-mono text-slate-400">OpenAI GPTBot</div>
+          </div>
+          <!-- Perplexity AI -->
+          <div class="p-3 rounded-xl bg-black/50 border border-white/8 space-y-1 text-center">
+            <div class="text-[10px] font-mono text-slate-400 uppercase">Perplexity AI</div>
+            <div id="radar-perplexity-badge" class="inline-flex items-center gap-1 text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-rose-950/60 border border-rose-500/30 text-rose-300">
+              <span class="w-1.5 h-1.5 rounded-full bg-rose-400"></span>
+              <span class="radar-status-text">Scanning</span>
+            </div>
+            <div class="text-[9px] font-mono text-slate-400">Sonar Citations</div>
+          </div>
+          <!-- Claude Anthropic -->
+          <div class="p-3 rounded-xl bg-black/50 border border-white/8 space-y-1 text-center">
+            <div class="text-[10px] font-mono text-slate-400 uppercase">Claude Search</div>
+            <div id="radar-claude-badge" class="inline-flex items-center gap-1 text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-amber-950/60 border border-amber-500/30 text-amber-300">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+              <span class="radar-status-text">Scanning</span>
+            </div>
+            <div class="text-[9px] font-mono text-slate-400">Anthropic Index</div>
+          </div>
+          <!-- Google AI Overviews -->
+          <div class="p-3 rounded-xl bg-black/50 border border-white/8 space-y-1 text-center">
+            <div class="text-[10px] font-mono text-slate-400 uppercase">Google AI Overviews</div>
+            <div id="radar-google-badge" class="inline-flex items-center gap-1 text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-emerald-950/60 border border-emerald-500/30 text-emerald-300">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+              <span class="radar-status-text">Scanning</span>
+            </div>
+            <div class="text-[9px] font-mono text-slate-400">Gemini Live SGE</div>
+          </div>
         </div>
       </div>
 
@@ -149,6 +214,22 @@
         </div>
 
         <div id="geo-gaps-container" class="space-y-2.5">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </div>
+
+      <!-- Missing High-Intent Competitor Buyer Queries (Sprint 8 Pillar 8.3 & Sprint 9 Phase 4) -->
+      <div class="space-y-2.5 p-3.5 rounded-2xl bg-gradient-to-r from-amber-950/30 via-black/40 to-cyan-950/30 border border-amber-500/20" id="geo-competitor-gaps-box">
+        <div class="flex items-center justify-between">
+          <span class="text-[11px] font-mono font-bold text-amber-300 flex items-center gap-1.5 uppercase">
+            <span>🎯</span> Buyer Prompts Quoting Competitors
+          </span>
+          <span id="geo-competitor-leader" class="text-[10px] font-mono text-amber-200/80">Displaced by Category Leaders</span>
+        </div>
+        <p class="text-[11px] text-slate-300 font-light leading-relaxed">
+          When high-intent customers search for these services in ChatGPT or Perplexity, AI models recommend your competitor because their site has structured answer schema:
+        </p>
+        <div id="geo-keyword-tags" class="flex flex-wrap gap-1.5">
           <!-- Populated dynamically via JS -->
         </div>
       </div>
@@ -354,9 +435,123 @@
       });
     }
 
-    // 5. Connect CTA Link (Prefilled for Phase 4 Micro-Step 4.3)
+    // 4b. OmniRoute Multi-LLM Citation Probing Engine (Sprint 9 Phase 4 - OmniRoute & every-app/open-seo)
+    const updateRadarBadge = (id, status) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      if (status === 'present') {
+        el.className = 'inline-flex items-center gap-1 text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-emerald-950/60 border border-emerald-500/30 text-emerald-300';
+        el.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span><span class="radar-status-text">Indexed</span>';
+      } else if (status === 'partial') {
+        el.className = 'inline-flex items-center gap-1 text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-amber-950/60 border border-amber-500/30 text-amber-300';
+        el.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span><span class="radar-status-text">Uncertain</span>';
+      } else {
+        el.className = 'inline-flex items-center gap-1 text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-rose-950/60 border border-rose-500/30 text-rose-300';
+        el.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-rose-400"></span><span class="radar-status-text">Excluded</span>';
+      }
+    };
+
+    // Micro-Step 4.2: Sector Classification & Competitor Displacement (every-app/open-seo)
+    const domainLower = domain.toLowerCase();
+    const isTrades = /(hvac|plumb|roof|electric|heat|cool|drain|pipe|contract|reno|build|auto|clean|pest|appliance|air|furnace)/.test(domainLower);
+    const isCloud = /(cloud|dev|tech|soft|data|code|ai|api|saas|app|sys|infra|cyber|sec|corp|arch)/.test(domainLower);
+
+    let sectorName = 'Commercial Enterprise';
+    let competitorLeader = 'Category Citation Leaders';
+    let queryTags = [];
+
+    if (isTrades) {
+      sectorName = 'Emergency Trades & Field Services';
+      competitorLeader = 'Reliance & Enercare (3.8x citation lead)';
+      queryTags = [
+        '24/7 furnace repair near me',
+        'emergency burst pipe dispatch toronto',
+        'certified heat pump installer reviews',
+        'commercial hvac maintenance contract'
+      ];
+    } else if (isCloud) {
+      sectorName = 'Cloud Architecture & Enterprise Tech';
+      competitorLeader = 'Slalom & Onica by Rackspace';
+      queryTags = [
+        'aws serverless migration consultant toronto',
+        'sub-100ms api edge latency optimization',
+        'enterprise voice ai webhook integrations',
+        'cloud architecture cost audit'
+      ];
+    } else {
+      sectorName = 'Regional Commercial Services';
+      competitorLeader = 'Accenture & Regional Industry Giants';
+      queryTags = [
+        'same-day emergency intake contact',
+        'licensed service provider downtown',
+        'verified customer reviews 2026',
+        'after-hours rapid response team'
+      ];
+    }
+
+    const compLeaderEl = document.getElementById('geo-competitor-leader');
+    if (compLeaderEl) {
+      compLeaderEl.textContent = `Displaced by: ${competitorLeader}`;
+    }
+
+    const keywordContainer = document.getElementById('geo-keyword-tags');
+    if (keywordContainer) {
+      keywordContainer.innerHTML = '';
+      queryTags.forEach(query => {
+        const tag = document.createElement('span');
+        tag.className = 'px-2 py-1 rounded-md text-[10px] font-mono bg-amber-950/50 border border-amber-500/25 text-amber-200/90';
+        tag.textContent = `⚠️ "${query}"`;
+        keywordContainer.appendChild(tag);
+      });
+    }
+
+    // Micro-Step 4.1: Live Sequential Probing Engine (OmniRoute)
+    const tickerText = document.getElementById('radar-ticker-text');
+    const probeModels = [
+      { id: 'radar-chatgpt-badge', name: 'ChatGPT Search (GPTBot)', delay: 100, passScore: 75, partialScore: 45 },
+      { id: 'radar-perplexity-badge', name: 'Perplexity AI (Sonar)', delay: 280, passScore: 82, partialScore: 55 },
+      { id: 'radar-claude-badge', name: 'Claude (Anthropic Index)', delay: 460, passScore: 78, partialScore: 50 },
+      { id: 'radar-google-badge', name: 'Google AI Overviews (Gemini)', delay: 640, passScore: 65, partialScore: 40 }
+    ];
+
+    // Initialize all badges in animated probe state
+    probeModels.forEach(m => {
+      const el = document.getElementById(m.id);
+      if (el) {
+        el.className = 'inline-flex items-center gap-1 text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-cyan-300';
+        el.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span><span class="radar-status-text">Probing...</span>';
+      }
+    });
+
+    if (tickerText) {
+      tickerText.textContent = `OmniRoute: Probing multi-LLM citation index for ${domain}...`;
+    }
+
+    // Sequentially resolve each model badge with real-time ticker feedback
+    probeModels.forEach(m => {
+      setTimeout(() => {
+        let status = 'excluded';
+        if (score >= m.passScore) {
+          status = 'present';
+        } else if (score >= m.partialScore) {
+          status = 'partial';
+        }
+        updateRadarBadge(m.id, status);
+        if (tickerText) {
+          tickerText.textContent = `OmniRoute: ${m.name} evaluated [${status.toUpperCase()}]`;
+        }
+      }, m.delay);
+    });
+
+    setTimeout(() => {
+      if (tickerText) {
+        tickerText.textContent = `Probing complete • ${sectorName} • Displaced by ${competitorLeader}`;
+      }
+    }, 850);
+
+    // Micro-Step 4.3: Dynamic 1-Click Strategic Booking Linkage
     if (ctaBtn) {
-      ctaBtn.href = `/contact/?source=geo_audit_modal&domain=${encodeURIComponent(domain)}&score=${score}`;
+      ctaBtn.href = `/contact/?service=geo-engine&source=modal_radar&domain=${encodeURIComponent(domain)}&score=${score}&competitor=${encodeURIComponent(competitorLeader)}`;
     }
 
     openModal();

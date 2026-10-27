@@ -1938,6 +1938,11 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
         const rawDomain = urlParams.get('domain');
         const rawScore = urlParams.get('score');
         const rawSource = urlParams.get('source');
+        const rawCalcRev = urlParams.get('calc_revenue');
+        const rawCalls = urlParams.get('calls');
+        const rawTicket = urlParams.get('ticket');
+
+        const rawCompetitor = urlParams.get('competitor');
 
         // Service Slug Normalization map
         const serviceMap = {
@@ -2023,7 +2028,7 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
         }
 
         // Existing GEO Scorecard / Instant AI Audit Magnet banner handling (preserved 100%)
-        if (rawDomain || rawSource === 'geo_audit_modal') {
+        if (rawDomain || rawSource === 'geo_audit_modal' || rawSource === 'modal_radar') {
           const orgInput = document.getElementById('organization');
           if (orgInput && rawDomain && !orgInput.value) {
             orgInput.value = rawDomain;
@@ -2037,7 +2042,8 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
           }
           if (notesInput && (!notesInput.value || notesInput.value.includes('SEO & GEO Engine'))) {
             const scoreLabel = rawScore ? `${rawScore}/100 GEO` : 'Audited';
-            notesInput.value = `[AI Search Visibility Audit] Domain: ${rawDomain || 'N/A'} • Score: ${scoreLabel} • Priority triage to resolve frontier LLM crawler blockers, JSON-LD schema entity gaps, and citation authority.`;
+            const compDetail = rawCompetitor ? ` • Displaced by: ${rawCompetitor}` : '';
+            notesInput.value = `[AI Search Visibility Audit] Domain: ${rawDomain || 'N/A'} • Score: ${scoreLabel}${compDetail} • Priority triage to resolve frontier LLM crawler blockers, JSON-LD schema entity gaps, and citation authority.`;
           }
           const dossierBanner = document.getElementById('geo-audit-dossier-banner');
           const bannerDomain = document.getElementById('geo-banner-domain');
@@ -2049,10 +2055,12 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
           }
         }
 
-        // Contextual Inbound Scoping Banner (Sprint 3 Micro-Step 2.2)
-        if (canonicalService && !rawDomain && rawSource !== 'geo_audit_modal') {
+        // Contextual Inbound Scoping Banner (Sprint 3 Micro-Step 2.2 & Sprint 8 Micro-Step 1.2)
+        if ((canonicalService || rawCalcRev) && !rawDomain && rawSource !== 'geo_audit_modal' && rawSource !== 'modal_radar') {
           const serviceScopingBanner = document.getElementById('service-scoping-banner');
+          const scopingBadge = document.getElementById('service-scoping-badge');
           const scopingTitle = document.getElementById('service-scoping-title');
+          const scopingDesc = document.getElementById('service-scoping-desc');
           const tierPill = document.getElementById('service-scoping-tier-pill');
           const changeBtn = document.getElementById('service-scoping-change-btn');
 
@@ -2065,13 +2073,33 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
             'custom-enterprise': 'Custom Multi-Agent Enterprise Suite'
           };
 
-          if (scopingTitle && friendlyServiceTitles[canonicalService]) {
-            scopingTitle.textContent = friendlyServiceTitles[canonicalService];
+          if (scopingTitle) {
+            if (canonicalService && friendlyServiceTitles[canonicalService]) {
+              scopingTitle.textContent = friendlyServiceTitles[canonicalService];
+            } else if (rawCalcRev) {
+              scopingTitle.textContent = currentParsedLens === 'trades' ? '24/7 AI Voice Dispatch & Emergency Recovery' : 'Enterprise Cloud Automation Suite';
+            }
           }
 
           if (tierPill && rawTier) {
             tierPill.textContent = `${rawTier.toUpperCase()} TIER`;
             tierPill.classList.remove('hidden');
+          }
+
+          if (rawCalcRev) {
+            const numRev = parseInt(rawCalcRev, 10);
+            const formattedRev = !isNaN(numRev) ? '$' + numRev.toLocaleString() : '$' + rawCalcRev;
+            if (scopingBadge) {
+              scopingBadge.textContent = 'Calculated Revenue Recovery';
+            }
+            if (scopingDesc) {
+              const workloadUnit = currentParsedLens === 'trades' ? `${rawCalls || '25'} calls/wk @ $${rawTicket || '650'}/deal` : `${rawCalls || '25'} staff @ ${rawTicket || '15'} hrs/wk`;
+              scopingDesc.textContent = `Scoping Strategy Session to recover your estimated ${formattedRev}/yr in missed revenue (${workloadUnit}). Your dedicated consultation with Saad Sayed will focus directly on eliminating this operational leak.`;
+            }
+            if (notesInput && (!notesInput.value || notesInput.value.startsWith('['))) {
+              const workloadUnit = currentParsedLens === 'trades' ? `${rawCalls || '25'} calls/wk @ $${rawTicket || '650'}/deal` : `${rawCalls || '25'} staff @ ${rawTicket || '15'} hrs/wk`;
+              notesInput.value = `[Calculated Recovery Goal: ${formattedRev}/yr] Pre-scoped from ROI Calculator (${workloadUnit}). Target: Deploy autonomous systems to eliminate dropped revenue.`;
+            }
           }
 
           if (serviceScopingBanner) {

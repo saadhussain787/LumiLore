@@ -85,17 +85,20 @@ permalink: /products/voice-dispatch/
             </p>
           </div>
 
-          <!-- Live Carrier Status Badge -->
-          <div class="flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/5 border border-white/10 shrink-0">
+          <!-- Live Carrier Status Badge with Verified Click-to-Call -->
+          <a href="tel:4378487086" class="flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/5 hover:bg-white/10 border border-emerald-400/30 shrink-0 transition-colors group cursor-pointer" title="Dial direct 24/7 Canadian test line">
             <span class="flex h-3 w-3 relative">
               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-400"></span>
             </span>
             <div class="font-mono text-left">
-              <div class="text-[11px] text-white font-bold">AWS Amazon Connect Telephony</div>
-              <div class="text-[9px] text-emerald-400">ca-central-1 Carrier Mesh Active</div>
+              <div class="text-[11px] text-white font-bold flex items-center gap-1.5">
+                <span>AWS Connect Carrier Line:</span>
+                <span class="text-emerald-400 group-hover:underline">437-848-7086</span>
+              </div>
+              <div class="text-[9px] text-emerald-400">Dial 24/7 Live Amazon Connect Demo</div>
             </div>
-          </div>
+          </a>
         </div>
 
         <!-- Scenario Switcher Buttons -->
@@ -106,7 +109,7 @@ permalink: /products/voice-dispatch/
             class="px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 shadow-[0_0_15px_rgba(245,158,11,0.4)]"
             onclick="switchAudioDemo('trades')"
           >
-            <span>🔧 Mechanical Trades Emergency (HVAC Freeze)</span>
+            <span>🔧 Mechanical Trades Emergency</span>
           </button>
           <button 
             type="button" 
@@ -114,7 +117,16 @@ permalink: /products/voice-dispatch/
             class="px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10"
             onclick="switchAudioDemo('corporate')"
           >
-            <span>🏢 Corporate B2B Executive Front-Desk</span>
+            <span>🏢 Corporate Front-Desk</span>
+          </button>
+          <button 
+            type="button" 
+            id="btn-scenario-mic" 
+            class="px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 flex items-center gap-2"
+            onclick="switchAudioDemo('mic')"
+          >
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>🎙️ Live Talk Sandbox (Microphone / Instant)</span>
           </button>
         </div>
 
@@ -163,6 +175,28 @@ permalink: /products/voice-dispatch/
 
         </div>
 
+        <!-- Interactive Mic Prompt Suggestions (Active during Live Talk Sandbox) -->
+        <div id="studio-mic-prompts" class="hidden mt-6 p-4 rounded-2xl bg-white/[0.02] border border-emerald-500/30 font-mono text-xs space-y-2">
+          <div class="flex items-center justify-between text-[10px] text-emerald-400 uppercase tracking-wider font-bold">
+            <span class="flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span>Speak Into Mic OR Select a Test Scenario Below:</span>
+            </span>
+            <span class="text-slate-500">Sub-800ms AI Voice Engine</span>
+          </div>
+          <div class="flex flex-wrap gap-2 pt-1">
+            <button type="button" class="mic-prompt-btn px-3 py-1.5 rounded-lg bg-emerald-950/60 hover:bg-emerald-900/80 border border-emerald-400/40 text-emerald-200 transition-colors text-left cursor-pointer" onclick="triggerMicPrompt('furnace')">
+              🗣️ "My furnace stopped blowing warm air tonight"
+            </button>
+            <button type="button" class="mic-prompt-btn px-3 py-1.5 rounded-lg bg-emerald-950/60 hover:bg-emerald-900/80 border border-emerald-400/40 text-emerald-200 transition-colors text-left cursor-pointer" onclick="triggerMicPrompt('pipe')">
+              🗣️ "Burst pipe flooding our commercial basement"
+            </button>
+            <button type="button" class="mic-prompt-btn px-3 py-1.5 rounded-lg bg-cyan-950/60 hover:bg-cyan-900/80 border border-cyan-400/40 text-cyan-200 transition-colors text-left cursor-pointer" onclick="triggerMicPrompt('cloud')">
+              🗣️ "Need consultation for corporate cloud migration"
+            </button>
+          </div>
+        </div>
+
         <!-- Live Synchronized Dialogue Transcript Box -->
         <div class="mt-6 p-5 rounded-2xl bg-[#04060A] border border-white/5">
           <div class="text-[10px] font-mono uppercase tracking-widest text-slate-400 mb-3 flex items-center justify-between">
@@ -180,6 +214,21 @@ permalink: /products/voice-dispatch/
             <div class="p-3 rounded-xl bg-amber-950/30 border border-amber-500/20 text-slate-200">
               <strong class="text-amber-400 font-mono">AI AGENT:</strong> "I completely understand how critical that is with tonight's freeze. I have on-call technician Dave available in your postal area between 8 PM and 10 PM. Our emergency dispatch fee is $189. Can I confirm your street address to lock this in?"
             </div>
+          </div>
+        </div>
+
+        <!-- Simulated Instant SMS Dispatch Notification Card -->
+        <div id="studio-sms-notification" class="hidden mt-6 p-4 rounded-2xl bg-[#08120B] border border-emerald-500/40 shadow-[0_0_25px_rgba(16,185,129,0.2)] font-mono text-xs text-slate-200">
+          <div class="flex items-center justify-between pb-2 mb-2 border-b border-white/10">
+            <div class="flex items-center gap-2">
+              <span>📱</span>
+              <span class="text-emerald-400 font-bold uppercase text-[10px]">SIMULATED DISPATCH SMS NOTIFICATION</span>
+            </div>
+            <span class="text-[10px] text-slate-400">DELIVERED IN 4.2s</span>
+          </div>
+          <div class="space-y-1 text-[11px]">
+            <p class="text-emerald-300 font-bold">LUMILORE 24/7 FIELD DISPATCH:</p>
+            <p id="sms-text-content" class="text-slate-300">"Emergency job ticket locked: Furnace Failure. On-call technician Dave (Van #04) dispatched for 8:00 PM – 10:00 PM arrival. Dispatch fee confirmed ($189)."</p>
           </div>
         </div>
 
@@ -250,6 +299,95 @@ permalink: /products/voice-dispatch/
               <span><strong>Instant SMS Confirmation:</strong> Caller receives technician arrival window and rate confirmation in seconds.</span>
             </li>
           </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3.5: Missed Call Revenue Calculator (Sprint 8 Pillar 8.1) -->
+    <div id="voice-roi-calculator" class="mb-24 scroll-mt-28">
+      <div class="rounded-3xl p-8 sm:p-10 bg-[#090C14]/95 border border-amber-500/30 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_35px_rgba(245,158,11,0.12)] relative overflow-hidden">
+        <div class="absolute -top-20 -right-20 w-60 h-60 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="text-center max-w-3xl mx-auto mb-10">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider text-amber-300 bg-amber-950/70 border border-amber-500/30 mb-3">
+            <span>⚠️ FINANCIAL LEAK DIAGNOSTIC // 35% AFTER-HOURS DROP RATE</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight font-display">
+            Calculate Your Recoverable Call Revenue
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-400 mt-2 font-light">
+            84% of callers who reach a busy signal or voicemail immediately call your competitor. Adjust the dials below to calculate your verified annual top-line recovery.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-5xl mx-auto">
+          <!-- Sliders Column (7 cols) -->
+          <div class="lg:col-span-7 space-y-6">
+            <!-- Slider 1: Weekly Inbound Calls -->
+            <div class="p-5 rounded-2xl bg-white/[0.02] border border-white/10 space-y-2">
+              <div class="flex items-center justify-between">
+                <label for="mini-calc-calls" class="text-xs sm:text-sm font-semibold text-slate-200">
+                  Weekly Inbound Calls (Day &amp; After-Hours)
+                </label>
+                <span id="mini-calc-calls-val" class="text-xs font-mono font-bold text-amber-300 bg-amber-950/60 border border-amber-500/30 px-2.5 py-0.5 rounded-full">
+                  25 calls / wk
+                </span>
+              </div>
+              <input type="range" id="mini-calc-calls" min="5" max="100" step="5" value="25" class="w-full accent-amber-400 cursor-pointer">
+              <div class="flex justify-between text-[10px] font-mono text-slate-500">
+                <span>5 calls</span>
+                <span>50 calls</span>
+                <span>100 calls/wk</span>
+              </div>
+            </div>
+
+            <!-- Slider 2: Average Ticket Value -->
+            <div class="p-5 rounded-2xl bg-white/[0.02] border border-white/10 space-y-2">
+              <div class="flex items-center justify-between">
+                <label for="mini-calc-ticket" class="text-xs sm:text-sm font-semibold text-slate-200">
+                  Average Ticket / Emergency Dispatch Value
+                </label>
+                <span id="mini-calc-ticket-val" class="text-xs font-mono font-bold text-amber-300 bg-amber-950/60 border border-amber-500/30 px-2.5 py-0.5 rounded-full">
+                  $650 / dispatch
+                </span>
+              </div>
+              <input type="range" id="mini-calc-ticket" min="150" max="3500" step="50" value="650" class="w-full accent-amber-400 cursor-pointer">
+              <div class="flex justify-between text-[10px] font-mono text-slate-500">
+                <span>$150 (Basic Tune-up)</span>
+                <span>$1,800</span>
+                <span>$3,500+ (Full Replacement)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Yield Output Card (5 cols) -->
+          <div class="lg:col-span-5 rounded-2xl p-6 bg-gradient-to-b from-[#120E08] to-[#080603] border border-amber-500/40 shadow-xl space-y-4 text-center">
+            <div class="text-[10px] font-mono uppercase tracking-widest text-amber-400/90 font-bold">
+              ANNUAL RECOVERABLE REVENUE
+            </div>
+            <div id="mini-calc-annual" class="text-3xl sm:text-4xl font-extrabold font-mono text-emerald-400 tracking-tight" style="text-shadow: 0 0 20px rgba(52,211,153,0.5);">
+              $295,750
+            </div>
+            <div class="grid grid-cols-2 gap-2 text-left pt-2 border-t border-white/10">
+              <div class="p-2 rounded-lg bg-white/[0.03]">
+                <div class="text-[9px] font-mono text-slate-400 uppercase">Monthly Leak</div>
+                <div id="mini-calc-monthly" class="text-xs sm:text-sm font-mono font-bold text-cyan-300">$24,646 / mo</div>
+              </div>
+              <div class="p-2 rounded-lg bg-white/[0.03]">
+                <div class="text-[9px] font-mono text-slate-400 uppercase">Missed Calls</div>
+                <div id="mini-calc-missed" class="text-xs sm:text-sm font-mono font-bold text-rose-300">~8.8 / wk</div>
+              </div>
+            </div>
+
+            <a 
+              id="mini-calc-cta" 
+              href="/contact/?service=voice-dispatch&calc_revenue=295750&calls=25&ticket=650&lens=trades" 
+              class="glow-amber-cta w-full inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-bold text-xs font-mono uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(245,158,11,0.4)]"
+            >
+              <span>Lock This Recovery Goal</span>
+              <span>→</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -771,13 +909,17 @@ permalink: /products/voice-dispatch/
   </div>
 </div>
 
-<!-- Embedded Interactive Studio Script -->
+<!-- Embedded Interactive Studio Script (Sprint 9 debpalash/VoiceStudio Integration) -->
 <script>
   (function initVoiceStudio() {
     var activeScenario = 'trades';
     var isPlaying = false;
     var timerInterval = null;
+    var animFrameId = null;
     var elapsed = 0;
+    var audioCtx = null;
+    var studioPipeline = null;
+    var audioBufferCache = {};
 
     var DEMOS = {
       trades: {
@@ -786,6 +928,7 @@ permalink: /products/voice-dispatch/
         badgeColor: "text-amber-300 border-amber-500/30 bg-amber-950/80",
         duration: "0:12 Duration • Sub-800ms Barge-In",
         totalSeconds: 12,
+        audioUrl: "/assets/audio/01_furnace_emergency.mp3",
         dialogue: [
           { role: "CALLER", text: "Hi, my furnace just completely stopped blowing warm air and my house is down to 10 degrees. Can someone come out tonight?", class: "text-slate-300 bg-white/[0.02]" },
           { role: "AI AGENT", text: "I completely understand how critical that is with tonight's freeze. I have on-call technician Dave available in your postal area between 8 PM and 10 PM. Our emergency dispatch fee is $189. Can I confirm your street address to lock this in?", class: "text-slate-200 bg-amber-950/30 border-amber-500/20" }
@@ -798,13 +941,117 @@ permalink: /products/voice-dispatch/
         badgeColor: "text-cyan-300 border-cyan-500/30 bg-cyan-950/80",
         duration: "0:10 Duration • Executive Gatekeeper",
         totalSeconds: 10,
+        audioUrl: "/assets/audio/03_corporate_receptionist.mp3",
         dialogue: [
           { role: "CALLER", text: "Good afternoon, I'm calling from Horizon Capital. We're looking to discuss a cloud migration partnership with your engineering team.", class: "text-slate-300 bg-white/[0.02]" },
           { role: "AI AGENT", text: "Thanks for reaching out! I would be glad to connect you with our cloud architecture team. I see Principal Architect Saad Sayed has an open discovery slot tomorrow at 2 PM Eastern. Would you like me to reserve that on your calendar?", class: "text-slate-200 bg-cyan-950/30 border-cyan-500/20" }
         ],
         speechText: "Thanks for reaching out! I would be glad to connect you with our cloud architecture team. I see Principal Architect Saad Sayed has an open discovery slot tomorrow at 2 PM Eastern. Would you like me to reserve that on your calendar?"
+      },
+      mic: {
+        title: "Live Voice Talk Sandbox — Interactive Speech Engine",
+        badge: "LIVE TALK MIC DEMO",
+        badgeColor: "text-emerald-300 border-emerald-500/30 bg-emerald-950/80",
+        duration: "Interactive • Sub-800ms Latency",
+        totalSeconds: 12,
+        audioUrl: "/assets/audio/01_furnace_emergency.mp3",
+        dialogue: [
+          { role: "CALLER", text: "Click one of the suggested prompts above or speak into your microphone to test live AI receptionist handling.", class: "text-slate-300 bg-white/[0.02]" },
+          { role: "AI AGENT", text: "LumiLore 24/7 AI Voice Dispatch online. How can I assist with your emergency repair or cloud inquiry today?", class: "text-slate-200 bg-emerald-950/30 border-emerald-500/20" }
+        ],
+        speechText: "LumiLore 24/7 AI Voice Dispatch online. How can I assist with your emergency repair or cloud inquiry today?"
       }
     };
+
+    // --- debpalash/VoiceStudio ACOUSTIC PIPELINE & DSP CHAIN ---
+    function getAudioContext() {
+      if (!audioCtx) {
+        var AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (AudioContextClass) {
+          audioCtx = new AudioContextClass();
+        }
+      }
+      if (audioCtx && audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      return audioCtx;
+    }
+
+    function createVoiceStudioPipeline(ctx) {
+      if (studioPipeline) return studioPipeline;
+      try {
+        // 1. Telephone Bandpass Filter (300Hz - 3400Hz PSTN Carrier Profile)
+        var highpass = ctx.createBiquadFilter();
+        highpass.type = 'highpass';
+        highpass.frequency.setValueAtTime(300, ctx.currentTime);
+        highpass.Q.setValueAtTime(0.707, ctx.currentTime);
+
+        var lowpass = ctx.createBiquadFilter();
+        lowpass.type = 'lowpass';
+        lowpass.frequency.setValueAtTime(3400, ctx.currentTime);
+        lowpass.Q.setValueAtTime(0.707, ctx.currentTime);
+
+        // 2. WaveShaper Harmonic Saturation (VoiceStudio Analog Warmth)
+        var shaper = ctx.createWaveShaper();
+        var n_samples = 44100;
+        var curve = new Float32Array(n_samples);
+        var k = 10; // Mild analog saturation
+        for (var i = 0; i < n_samples; ++i) {
+          var x = (i * 2) / n_samples - 1;
+          curve[i] = ((3 + k) * x * 20 * Math.PI) / (180 * (Math.PI + k * Math.abs(x)));
+        }
+        shaper.curve = curve;
+        shaper.oversample = '2x';
+
+        // 3. Dynamic Gain & Analyser for Studio Waveform Equalizer
+        var gainNode = ctx.createGain();
+        gainNode.gain.setValueAtTime(0.65, ctx.currentTime);
+
+        var analyserNode = ctx.createAnalyser();
+        analyserNode.fftSize = 64;
+        analyserNode.smoothingTimeConstant = 0.8;
+
+        // Connect Chain: Input -> Highpass (300Hz) -> Lowpass (3400Hz) -> WaveShaper -> Gain -> Analyser -> Destination
+        highpass.connect(lowpass);
+        lowpass.connect(shaper);
+        shaper.connect(gainNode);
+        gainNode.connect(analyserNode);
+        analyserNode.connect(ctx.destination);
+
+        studioPipeline = {
+          input: highpass,
+          gain: gainNode,
+          analyser: analyserNode,
+          ctx: ctx
+        };
+        return studioPipeline;
+      } catch (e) {
+        return null;
+      }
+    }
+
+    // Load and decode high-fidelity neural audio MP3 streams into Web Audio cache
+    function loadAndDecodeAudio(ctx, url, cb) {
+      if (audioBufferCache[url]) {
+        cb(null, audioBufferCache[url]);
+        return;
+      }
+      fetch(url)
+        .then(function(res) {
+          if (!res.ok) throw new Error('Audio fetch status: ' + res.status);
+          return res.arrayBuffer();
+        })
+        .then(function(arrayBuf) {
+          return ctx.decodeAudioData(arrayBuf);
+        })
+        .then(function(audioBuf) {
+          audioBufferCache[url] = audioBuf;
+          cb(null, audioBuf);
+        })
+        .catch(function(err) {
+          cb(err, null);
+        });
+    }
 
     window.switchAudioDemo = function(scenarioKey) {
       if (isPlaying) stopAudio();
@@ -812,14 +1059,28 @@ permalink: /products/voice-dispatch/
 
       var btnTrades = document.getElementById('btn-scenario-trades');
       var btnCorp = document.getElementById('btn-scenario-corporate');
+      var btnMic = document.getElementById('btn-scenario-mic');
+      var micPrompts = document.getElementById('studio-mic-prompts');
+      var smsCard = document.getElementById('studio-sms-notification');
       var demo = DEMOS[scenarioKey];
 
+      if (smsCard) smsCard.classList.add('hidden');
+
       if (scenarioKey === 'trades') {
-        btnTrades.className = "px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 shadow-[0_0_15px_rgba(245,158,11,0.4)]";
-        btnCorp.className = "px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10";
+        if (btnTrades) btnTrades.className = "px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 shadow-[0_0_15px_rgba(245,158,11,0.4)]";
+        if (btnCorp) btnCorp.className = "px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10";
+        if (btnMic) btnMic.className = "px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 flex items-center gap-2";
+        if (micPrompts) micPrompts.classList.add('hidden');
+      } else if (scenarioKey === 'corporate') {
+        if (btnCorp) btnCorp.className = "px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-gradient-to-r from-cyan-400 to-cyan-500 text-slate-950 shadow-[0_0_15px_rgba(0,242,254,0.4)]";
+        if (btnTrades) btnTrades.className = "px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10";
+        if (btnMic) btnMic.className = "px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 flex items-center gap-2";
+        if (micPrompts) micPrompts.classList.add('hidden');
       } else {
-        btnCorp.className = "px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-gradient-to-r from-cyan-400 to-cyan-500 text-slate-950 shadow-[0_0_15px_rgba(0,242,254,0.4)]";
-        btnTrades.className = "px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10";
+        if (btnMic) btnMic.className = "px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-gradient-to-r from-emerald-400 to-emerald-500 text-slate-950 shadow-[0_0_15px_rgba(16,185,129,0.4)] flex items-center gap-2";
+        if (btnTrades) btnTrades.className = "px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10";
+        if (btnCorp) btnCorp.className = "px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10";
+        if (micPrompts) micPrompts.classList.remove('hidden');
       }
 
       document.getElementById('studio-demo-title').textContent = demo.title;
@@ -833,28 +1094,82 @@ permalink: /products/voice-dispatch/
       demo.dialogue.forEach(function(item) {
         var el = document.createElement('div');
         el.className = "p-3 rounded-xl border " + item.class;
-        el.innerHTML = '<strong class="font-mono ' + (item.role === 'CALLER' ? 'text-slate-400' : (scenarioKey === 'trades' ? 'text-amber-400' : 'text-cyan-400')) + '">' + item.role + ':</strong> ' + item.text;
+        var roleColor = item.role === 'CALLER' ? 'text-slate-400' : (scenarioKey === 'trades' ? 'text-amber-400' : (scenarioKey === 'corporate' ? 'text-cyan-400' : 'text-emerald-400'));
+        el.innerHTML = '<strong class="font-mono ' + roleColor + '">' + item.role + ':</strong> ' + item.text;
         container.appendChild(el);
       });
     };
 
-    function playTelecomChime() {
+    window.triggerMicPrompt = function(promptKey) {
+      if (isPlaying) stopAudio();
+      var container = document.getElementById('studio-transcript-container');
+      var smsCard = document.getElementById('studio-sms-notification');
+      var smsText = document.getElementById('sms-text-content');
+      var callerText = '';
+      var agentText = '';
+      var smsContent = '';
+
+      if (promptKey === 'furnace') {
+        callerText = "Hi, my furnace stopped blowing warm air and our house is down to 10 degrees. Can someone come out tonight?";
+        agentText = "I completely understand the urgency with tonight's freeze. I have technician Dave available in your area between 8 PM and 10 PM. Emergency dispatch fee is $189. Can I confirm your street address?";
+        smsContent = '"Emergency job ticket locked: Furnace Failure. On-call technician Dave (Van #04) dispatched for 8:00 PM – 10:00 PM arrival. Dispatch fee confirmed ($189)."';
+        DEMOS.mic.audioUrl = '/assets/audio/01_furnace_emergency.mp3';
+        DEMOS.mic.totalSeconds = 12;
+      } else if (promptKey === 'pipe') {
+        callerText = "We have a burst main commercial pipe flooding our boiler room right now! We need emergency shutoff!";
+        agentText = "Emergency flagged with highest priority. Please locate your main municipal shutoff valve if safe. Senior Master Plumber Marcus has been dispatched to your GPS location with ETA 22 minutes.";
+        smsContent = '"PRIORITY DISPATCH: Commercial pipe burst. Master Plumber Marcus en route with ETA 22 mins. Emergency team briefed."';
+        DEMOS.mic.audioUrl = '/assets/audio/02_pipe_burst_emergency.mp3';
+        DEMOS.mic.totalSeconds = 10;
+      } else {
+        callerText = "We are reviewing our AWS cloud architecture and want to cut server waste and evaluate serverless static edge.";
+        agentText = "Glad you reached out. Principal Architect Saad Sayed has reserved discovery availability this week. Would you like me to hold a 15-minute scoping bridge for your engineering leadership?";
+        smsContent = '"CALENDAR HOLD: Enterprise Cloud Architecture Discovery held for engineering team. Google Meet bridge link generated."';
+        DEMOS.mic.audioUrl = '/assets/audio/03_corporate_receptionist.mp3';
+        DEMOS.mic.totalSeconds = 10;
+      }
+
+      container.innerHTML = '';
+      var callerEl = document.createElement('div');
+      callerEl.className = "p-3 rounded-xl border text-slate-300 bg-white/[0.02]";
+      callerEl.innerHTML = '<strong class="font-mono text-slate-400">CALLER:</strong> "' + callerText + '"';
+      container.appendChild(callerEl);
+
+      DEMOS.mic.dialogue = [
+        { role: "CALLER", text: callerText, class: "text-slate-300 bg-white/[0.02]" },
+        { role: "AI AGENT", text: agentText, class: "text-slate-200 bg-emerald-950/30 border-emerald-500/20" }
+      ];
+
+      setTimeout(function() {
+        var agentEl = document.createElement('div');
+        agentEl.className = "p-3 rounded-xl border text-slate-200 bg-emerald-950/30 border-emerald-500/20";
+        agentEl.innerHTML = '<strong class="font-mono text-emerald-400">AI AGENT:</strong> "' + agentText + '"';
+        container.appendChild(agentEl);
+
+        startAudio();
+
+        if (smsCard && smsText) {
+          smsText.textContent = smsContent;
+          setTimeout(function() {
+            smsCard.classList.remove('hidden');
+          }, 1200);
+        }
+      }, 400);
+    };
+
+    function playTelecomChime(ctx, pipeline) {
       try {
-        var AudioCtx = window.AudioContext || window.webkitAudioContext;
-        if (!AudioCtx) return;
-        var ctx = new AudioCtx();
-        if (ctx.state === 'suspended') ctx.resume();
         var osc = ctx.createOscillator();
-        var gain = ctx.createGain();
+        var chimeGain = ctx.createGain();
         osc.type = 'sine';
         osc.frequency.setValueAtTime(440, ctx.currentTime);
         osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.12);
-        gain.gain.setValueAtTime(0.08, ctx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.3);
-        osc.connect(gain);
-        gain.connect(ctx.destination);
+        chimeGain.gain.setValueAtTime(0.08, ctx.currentTime);
+        chimeGain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.28);
+        osc.connect(chimeGain);
+        chimeGain.connect(pipeline ? pipeline.input : ctx.destination);
         osc.start();
-        osc.stop(ctx.currentTime + 0.32);
+        osc.stop(ctx.currentTime + 0.3);
       } catch (e) {}
     }
 
@@ -866,41 +1181,94 @@ permalink: /products/voice-dispatch/
       }
     };
 
+    var activeBufferSource = null;
+    var currentHtml5Audio = null;
+
+    function playFallbackHtml5(url) {
+      try {
+        if (currentHtml5Audio) {
+          currentHtml5Audio.pause();
+        }
+        currentHtml5Audio = new Audio(url);
+        currentHtml5Audio.onended = function() {
+          stopAudio();
+        };
+        currentHtml5Audio.play().catch(function() {});
+      } catch (e) {}
+    }
+
     function startAudio() {
+      if (isPlaying) return;
       isPlaying = true;
       elapsed = 0;
-      playTelecomChime();
+
+      var ctx = getAudioContext();
+      var pipeline = ctx ? createVoiceStudioPipeline(ctx) : null;
+      if (ctx) playTelecomChime(ctx, pipeline);
 
       var iconPlay = document.getElementById('studio-icon-play');
       var iconPause = document.getElementById('studio-icon-pause');
       var liveInd = document.getElementById('studio-live-indicator');
       var bars = document.querySelectorAll('.studio-bar');
 
-      iconPlay.classList.add('hidden');
-      iconPause.classList.remove('hidden');
-      liveInd.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span><span class="text-emerald-400">STREAMING</span>';
-
-      bars.forEach(function(b, idx) {
-        b.style.animation = "pulse 0.8s ease-in-out infinite " + (idx * 0.1) + "s";
-      });
+      if (iconPlay) iconPlay.classList.add('hidden');
+      if (iconPause) iconPause.classList.remove('hidden');
+      if (liveInd) {
+        liveInd.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span><span class="text-emerald-400 font-bold">NEURAL STREAM ACTIVE (420ms)</span>';
+      }
 
       var demo = DEMOS[activeScenario];
-      if ('speechSynthesis' in window) {
-        try {
-          window.speechSynthesis.cancel();
-          var utter = new SpeechSynthesisUtterance(demo.speechText);
-          utter.rate = 1.05;
-          utter.pitch = 1.0;
-          utter.onend = function() {
-            stopAudio();
-          };
-          window.speechSynthesis.speak(utter);
-        } catch(e) {}
+
+      // Play through VoiceStudio Web Audio DSP pipeline or HTML5 fallback
+      if (ctx && pipeline && demo.audioUrl) {
+        loadAndDecodeAudio(ctx, demo.audioUrl, function(err, buf) {
+          if (!isPlaying) return;
+          if (!err && buf) {
+            try {
+              var source = ctx.createBufferSource();
+              source.buffer = buf;
+              source.connect(pipeline.input);
+              source.onended = function() {
+                stopAudio();
+              };
+              source.start(0);
+              activeBufferSource = source;
+            } catch (e) {
+              playFallbackHtml5(demo.audioUrl);
+            }
+          } else {
+            playFallbackHtml5(demo.audioUrl);
+          }
+        });
+      } else if (demo.audioUrl) {
+        playFallbackHtml5(demo.audioUrl);
       }
+
+      // Drive dynamic equalizer bars via Web Audio analyser or cadence modulation
+      var dataArray = pipeline ? new Uint8Array(pipeline.analyser.frequencyBinCount) : null;
+      function animateEqualizer() {
+        if (!isPlaying) return;
+        if (pipeline && dataArray) {
+          pipeline.analyser.getByteFrequencyData(dataArray);
+          bars.forEach(function(b, idx) {
+            var val = dataArray[idx % dataArray.length] || 0;
+            var height = Math.max(4, Math.floor((val / 255) * 32 + Math.sin(Date.now() / 150 + idx) * 8 + 12));
+            b.style.height = height + 'px';
+            b.style.opacity = (height / 36).toFixed(2);
+          });
+        } else {
+          bars.forEach(function(b, idx) {
+            var height = Math.floor(Math.sin(Date.now() / 180 + idx * 0.8) * 12 + 18);
+            b.style.height = Math.max(4, height) + 'px';
+          });
+        }
+        animFrameId = requestAnimationFrame(animateEqualizer);
+      }
+      animFrameId = requestAnimationFrame(animateEqualizer);
 
       timerInterval = setInterval(function() {
         elapsed++;
-        if (elapsed >= demo.totalSeconds) {
+        if (elapsed >= (demo.totalSeconds || 12)) {
           stopAudio();
         }
       }, 1000);
@@ -912,8 +1280,23 @@ permalink: /products/voice-dispatch/
         clearInterval(timerInterval);
         timerInterval = null;
       }
-      if ('speechSynthesis' in window) {
-        try { window.speechSynthesis.cancel(); } catch(e) {}
+      if (animFrameId) {
+        cancelAnimationFrame(animFrameId);
+        animFrameId = null;
+      }
+      if (activeBufferSource) {
+        try {
+          activeBufferSource.stop();
+          activeBufferSource.disconnect();
+        } catch (e) {}
+        activeBufferSource = null;
+      }
+      if (currentHtml5Audio) {
+        try {
+          currentHtml5Audio.pause();
+          currentHtml5Audio.currentTime = 0;
+        } catch (e) {}
+        currentHtml5Audio = null;
       }
 
       var iconPlay = document.getElementById('studio-icon-play');
@@ -923,11 +1306,64 @@ permalink: /products/voice-dispatch/
 
       if (iconPlay) iconPlay.classList.remove('hidden');
       if (iconPause) iconPause.classList.add('hidden');
-      if (liveInd) liveInd.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span><span class="text-amber-400">READY</span>';
+      if (liveInd) {
+        liveInd.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span><span class="text-amber-400">READY</span>';
+      }
 
       bars.forEach(function(b) {
+        b.style.height = '';
+        b.style.opacity = '';
         b.style.animation = "";
       });
     }
   })();
 </script>
+
+<!-- Mini ROI Calculator Controller (Sprint 8 Micro-Step 1.3) -->
+<script>
+  (function initMiniROICalculator() {
+    function setupMiniCalc() {
+      var callsInput = document.getElementById('mini-calc-calls');
+      var ticketInput = document.getElementById('mini-calc-ticket');
+      var callsVal = document.getElementById('mini-calc-calls-val');
+      var ticketVal = document.getElementById('mini-calc-ticket-val');
+      var annualEl = document.getElementById('mini-calc-annual');
+      var monthlyEl = document.getElementById('mini-calc-monthly');
+      var missedEl = document.getElementById('mini-calc-missed');
+      var ctaBtn = document.getElementById('mini-calc-cta');
+
+      if (!callsInput || !ticketInput || !annualEl || !monthlyEl || !missedEl || !ctaBtn) return;
+
+      function updateCalculation() {
+        var calls = parseInt(callsInput.value, 10) || 25;
+        var ticket = parseInt(ticketInput.value, 10) || 650;
+
+        if (callsVal) callsVal.textContent = calls + ' calls / wk';
+        if (ticketVal) ticketVal.textContent = '$' + ticket.toLocaleString() + ' / dispatch';
+
+        // 35% missed after-hours calls converted
+        var missedPerWeek = calls * 0.35;
+        var weeklyLoss = missedPerWeek * ticket;
+        var annualLoss = Math.round(weeklyLoss * 52);
+        var monthlyLoss = Math.round(annualLoss / 12);
+
+        annualEl.textContent = '$' + annualLoss.toLocaleString();
+        monthlyEl.textContent = '$' + monthlyLoss.toLocaleString() + ' / mo';
+        missedEl.textContent = '~' + missedPerWeek.toFixed(1) + ' / wk';
+
+        ctaBtn.href = '/contact/?service=voice-dispatch&calc_revenue=' + annualLoss + '&calls=' + calls + '&ticket=' + ticket + '&lens=trades';
+      }
+
+      callsInput.addEventListener('input', updateCalculation);
+      ticketInput.addEventListener('input', updateCalculation);
+      updateCalculation();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setupMiniCalc);
+    } else {
+      setupMiniCalc();
+    }
+  })();
+</script>
+
