@@ -149,8 +149,7 @@
 - **Shipped Capabilities:**
   - Authentic Studio Neural Voice Engine (5 HD neural audio streams).
   - Audible Radio Dispatch Audio on homepage with squelch bursts & PTT chirps.
-  - Dedicated Google PageSpeed Insights REST API key integration (`AIzaSyABXJTWhxQmaAPXUyrk9LAaTewEFf295CA`, 25k req/day).
-  - Resilient Canadian AWS Cloud Telemetry failover (`/api/audit` in `ca-central-1`).
+  - Dedicated Canadian AWS Cloud Telemetry gateway (`/api/audit` in `ca-central-1`) with zero exposed client secrets.
   - Interactive Device Strategy Switcher (`📱 Mobile (Google SEO)` vs `💻 Desktop`).
   - Fully Dynamic Split-Screen Simulator with automated slider reveal.
   - Decoupled latency from SEO schema scoring; removed all hardcoded domain overrides (100% genuine results).
