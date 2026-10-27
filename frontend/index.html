@@ -4,8 +4,8 @@ layout: layout.html
 
 <div class="relative z-10">
 <!-- Section 1: Cinematic Hero -->
-<section class="relative min-h-screen flex flex-col items-center justify-center bg-transparent overflow-hidden pt-24 pb-32">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-20 text-center flex flex-col items-center">
+<section id="hero" class="relative min-h-screen flex flex-col items-center justify-center bg-transparent overflow-hidden pt-24 pb-32">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-20 text-center flex flex-col items-center lumi-hero-enter">
     
     <!-- Minimal eyebrow (Glassmorphism) -->
     <div class="mb-10 inline-flex flex-wrap items-center justify-center gap-3 px-6 py-2.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_0_30px_rgba(0,242,254,0.1)]">
@@ -1785,10 +1785,29 @@ layout: layout.html
 
 <!-- Universal Particle System loaded via layout.html component -->
 
-<!-- Cinematic GSAP ScrollTrigger Integration -->
+<!-- Cinematic GSAP ScrollTrigger Integration (Post-FCP Idle Deferral) -->
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+  // Central Debounced ScrollTrigger Refresh Queue (Task 10.2.3)
+  let refreshTimer = null;
+  window.debounceScrollTriggerRefresh = function(delay = 80) {
+    if (typeof ScrollTrigger === 'undefined') return;
+    clearTimeout(refreshTimer);
+    refreshTimer = setTimeout(() => {
+      requestAnimationFrame(() => {
+        if (typeof ScrollTrigger !== 'undefined') {
+          ScrollTrigger.refresh();
+        }
+      });
+    }, delay);
+  };
+
+  function initScrollTriggerSystem() {
+    if (window.__lumiScrollTriggerInit) return;
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+      setTimeout(initScrollTriggerSystem, 60);
+      return;
+    }
+    window.__lumiScrollTriggerInit = true;
     
     gsap.registerPlugin(ScrollTrigger);
 
@@ -1813,12 +1832,8 @@ layout: layout.html
     // 2. Cinematic Entrance Animations for Content Sections (Protected from 3D Flattening & Anchor Drift)
     const contentBlocks = gsap.utils.toArray('section:not(#services-orbit-section):not(#case-studies-section):not(#architecture-section) > div');
     contentBlocks.forEach((block, i) => {
-      // Hero content fades in gracefully on load
+      // Hero content entrance handled via hardware-accelerated CSS (.lumi-hero-enter)
       if (i === 0) {
-        gsap.fromTo(block, 
-          { opacity: 0, scale: 0.95, filter: 'blur(10px)' }, 
-          { opacity: 1, scale: 1, filter: 'blur(0px)', duration: 2, ease: 'power3.out', delay: 0.5 }
-        );
         return;
       }
 
@@ -2041,9 +2056,7 @@ layout: layout.html
     // De-hijacked to allow smooth, native vertical page flow without horizontal mousewheel lock.
 
     // Refresh all ScrollTriggers to account for the new pin spacer heights
-    setTimeout(() => {
-      ScrollTrigger.refresh();
-    }, 100);
+    window.debounceScrollTriggerRefresh(100);
 
     // --- Clean ScrollTrigger Teardown on Page Unload ---
     window.addEventListener('beforeunload', () => {
@@ -2051,7 +2064,42 @@ layout: layout.html
         ScrollTrigger.getAll().forEach(t => t.kill());
       }
     }, { once: true });
+  }
+
+  // Trigger GSAP hydration on idle deadline or first interaction gesture
+  let gsapTriggered = false;
+  function triggerGsapHydration() {
+    if (gsapTriggered) return;
+    gsapTriggered = true;
+    ['scroll', 'pointermove', 'touchstart'].forEach(function(evt) {
+      window.removeEventListener(evt, triggerGsapHydration, { passive: true });
+    });
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(initScrollTriggerSystem, { timeout: 1500 });
+    } else {
+      setTimeout(initScrollTriggerSystem, 100);
+    }
+  }
+
+  ['scroll', 'pointermove', 'touchstart'].forEach(function(evt) {
+    window.addEventListener(evt, triggerGsapHydration, { once: true, passive: true });
   });
+
+  if (document.readyState === 'complete') {
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(triggerGsapHydration, { timeout: 2500 });
+    } else {
+      setTimeout(triggerGsapHydration, 2000);
+    }
+  } else {
+    window.addEventListener('load', function() {
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(triggerGsapHydration, { timeout: 2500 });
+      } else {
+        setTimeout(triggerGsapHydration, 2000);
+      }
+    }, { once: true });
+  }
 </script>
 
 <!-- 3D Orbital Carousel Physics & Interaction Engine (Phase 3 Tasks 3.3 & 3.4) -->

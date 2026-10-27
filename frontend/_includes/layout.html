@@ -81,6 +81,7 @@
   <!-- Stitch Design System Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="/style.css?v=2.0">
@@ -88,8 +89,39 @@
   <!-- JSON-LD Entity Knowledge Graph & GEO Triangulation (Layer 4) -->
   {% include "components/geo-schema.html" %}
 
-  <!-- Three.js (For Topology Field) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js" defer></script>
+  <!-- Three.js (Dynamic Non-Blocking Idle Loader for Topology Field) -->
+  <script>
+    (function initThreeLoader() {
+      window.__loadThreeJs = function(callback) {
+        if (typeof window.THREE !== 'undefined') {
+          if (typeof callback === 'function') callback();
+          return;
+        }
+        if (window.__threeLoading) {
+          window.__threeCallbacks = window.__threeCallbacks || [];
+          if (typeof callback === 'function') window.__threeCallbacks.push(callback);
+          return;
+        }
+        window.__threeLoading = true;
+        window.__threeCallbacks = typeof callback === 'function' ? [callback] : [];
+        var s = document.createElement('script');
+        s.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js';
+        s.async = true;
+        s.onload = function() {
+          window.__threeLoading = false;
+          while (window.__threeCallbacks && window.__threeCallbacks.length) {
+            var cb = window.__threeCallbacks.shift();
+            if (typeof cb === 'function') cb();
+          }
+        };
+        s.onerror = function() {
+          window.__threeLoading = false;
+          console.warn('[LumiLore] Three.js dynamic load bypassed');
+        };
+        document.head.appendChild(s);
+      };
+    })();
+  </script>
 
   <!-- GSAP & ScrollTrigger -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
@@ -99,15 +131,13 @@
 <body data-lens="corporate" class="bg-background text-on-background font-body antialiased flex flex-col min-h-screen relative overflow-x-hidden max-w-full">
   
   <!-- Universal Cinematic WebGL Particle Background (Layer -10) -->
-  <div id="webgl-container" class="fixed inset-0 pointer-events-none w-full h-full -z-10" style="z-index: -10;"></div>
+  <div id="webgl-container" class="fixed inset-0 pointer-events-none w-full h-full -z-10" style="z-index: -10; contain: strict; width: 100vw; height: 100vh; overflow: hidden;" aria-hidden="true"></div>
 
-  <!-- Subtle Tactile Film Grain Overlay (Layer 2: Eliminates Banding & Adds Matte Texture) -->
+  <!-- Subtle Tactile Film Grain Overlay (Layer 2: Eliminates Banding & Adds Matte Texture without CPU drain) -->
   <div class="fixed inset-0 pointer-events-none z-30 select-none overflow-hidden opacity-[0.032] mix-blend-overlay" aria-hidden="true">
     <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
       <filter id="lumi-grain">
-        <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="3" stitchTiles="stitch">
-          <animate attributeName="seed" from="0" to="100" dur="10s" repeatCount="indefinite" />
-        </feTurbulence>
+        <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="3" stitchTiles="stitch" />
         <feColorMatrix type="saturate" values="0" />
       </filter>
       <rect width="100%" height="100%" filter="url(#lumi-grain)" />

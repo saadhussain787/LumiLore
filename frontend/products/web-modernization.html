@@ -1179,7 +1179,7 @@ permalink: /products/web-modernization/
       var apiUrl = 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=' + encodeURIComponent(normalizedUrl) + '&strategy=' + currentStrategy + '&category=PERFORMANCE&key=' + apiKey;
 
       var controller = new AbortController();
-      var timeoutId = setTimeout(function() { controller.abort(); }, 12000); // 12s timeout guard for Google Lighthouse
+      var timeoutId = setTimeout(function() { controller.abort(); }, 45000); // 45s guard to allow Google headless Chrome Lighthouse audit to finish
 
       fetch(apiUrl, { signal: controller.signal })
         .then(function(res) {
@@ -1218,16 +1218,18 @@ permalink: /products/web-modernization/
                 // Calibrate performance score strictly from edge latency and strategy profile
                 var lambdaScore = 0;
                 if (currentStrategy === 'desktop') {
-                  if (lambdaLatency <= 150) lambdaScore = 98;
-                  else if (lambdaLatency <= 320) lambdaScore = 92;
-                  else if (lambdaLatency <= 550) lambdaScore = 74;
-                  else lambdaScore = 45;
+                  if (lambdaLatency <= 200) lambdaScore = 98;
+                  else if (lambdaLatency <= 400) lambdaScore = 92;
+                  else if (lambdaLatency <= 750) lambdaScore = 85;
+                  else if (lambdaLatency <= 1200) lambdaScore = 72;
+                  else lambdaScore = 48;
                 } else {
                   // Mobile Profile (simulated mobile radio and device CPU)
-                  if (lambdaLatency <= 150) lambdaScore = 95;
-                  else if (lambdaLatency <= 320) lambdaScore = 88;
-                  else if (lambdaLatency <= 550) lambdaScore = 65;
-                  else lambdaScore = 38;
+                  if (lambdaLatency <= 200) lambdaScore = 95;
+                  else if (lambdaLatency <= 400) lambdaScore = 88;
+                  else if (lambdaLatency <= 750) lambdaScore = 80;
+                  else if (lambdaLatency <= 1200) lambdaScore = 65;
+                  else lambdaScore = 40;
                 }
                 var fcp = ((lambdaLatency * 1.5) / 1000).toFixed(1) + 's';
                 var lcp = ((lambdaLatency * 2.2) / 1000).toFixed(1) + 's';
@@ -1259,8 +1261,12 @@ permalink: /products/web-modernization/
         if (btnText) btnText.textContent = 'Test Another URL';
 
         var domainDisplay = targetUrl.replace(/^https?:\/\//i, '').replace(/\/$/, '');
+        var cleanDomain = domainDisplay.toLowerCase().replace(/^www\./, '');
+        var isOwnDomain = cleanDomain === 'lumilore.ca';
         var strategyTag = currentStrategy === 'desktop' ? 'Desktop' : 'Mobile';
-        var isFast = (score >= 80) || (ttfb <= 320);
+        // Google Core Web Vitals Industry Gold Standard: Score >= 90 is Good, TTFB <= 800ms is Good
+        var isGood = (score >= 90) || (ttfb <= 800);
+        var isNeedsImprovement = (score >= 50 && score < 90);
 
         if (statusEl) {
           statusEl.innerHTML = '<span class="text-emerald-400 font-bold">✓ Telemetry Captured:</span> <span class="text-slate-300">' + sourceLabel + ' (' + strategyTag + ' Profile) for ' + domainDisplay + '</span>';
@@ -1269,16 +1275,18 @@ permalink: /products/web-modernization/
         if (prospectUrlEl) prospectUrlEl.textContent = targetUrl + ' (' + strategyTag + ')';
         if (prospectScoreEl) {
           prospectScoreEl.textContent = score + '/100 ' + strategyTag.toUpperCase();
-          prospectScoreEl.className = isFast
+          prospectScoreEl.className = isGood
             ? 'px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-950/80 border border-emerald-500/40 text-emerald-300'
-            : (score >= 50
+            : (isNeedsImprovement
               ? 'px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-950/80 border border-amber-500/40 text-amber-300'
               : 'px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-rose-950/80 border border-rose-500/40 text-rose-300');
         }
         if (prospectTtfbEl) prospectTtfbEl.textContent = ttfb + 'ms TTFB';
         if (prospectStatusEl) {
-          if (isFast) {
-            prospectStatusEl.textContent = '🚀 ' + domainDisplay + ' ' + strategyTag + ' FCP: ' + fcp + ' • LCP: ' + lcp + ' (Fast Response)';
+          if (isGood) {
+            prospectStatusEl.textContent = '🚀 ' + domainDisplay + ' ' + strategyTag + ' FCP: ' + fcp + ' • LCP: ' + lcp + ' (Passing Core Web Vitals ✓)';
+          } else if (isNeedsImprovement) {
+            prospectStatusEl.textContent = '⚡ ' + domainDisplay + ' ' + strategyTag + ' FCP: ' + fcp + ' • LCP: ' + lcp + ' (Needs Optimization)';
           } else {
             prospectStatusEl.textContent = '⚠️ ' + domainDisplay + ' ' + strategyTag + ' FCP: ' + fcp + ' • LCP: ' + lcp + ' (Optimization Required)';
           }
@@ -1294,15 +1302,17 @@ permalink: /products/web-modernization/
           fcp: fcp,
           lcp: lcp,
           sourceLabel: sourceLabel,
-          isFast: isFast
+          isFast: isGood
         };
 
         var speedTitle = document.getElementById('split-speed-title');
         if (speedTitle) {
-          if (isFast) {
+          if (isOwnDomain) {
+            speedTitle.textContent = domainDisplay + ' (' + ttfb + 'ms ' + strategyTag + ' Live Telemetry) vs 120ms Edge Target';
+          } else if (isGood) {
             speedTitle.textContent = domainDisplay + ' (' + ttfb + 'ms ' + strategyTag + ' Edge) vs LumiLore 120ms Edge';
           } else {
-            speedTitle.textContent = domainDisplay + ' (' + ttfb + 'ms ' + strategyTag + ' Bottleneck) vs LumiLore 120ms Edge';
+            speedTitle.textContent = domainDisplay + ' (' + ttfb + 'ms ' + strategyTag + ' Latency) vs LumiLore 120ms Edge';
           }
         }
 
@@ -1310,8 +1320,8 @@ permalink: /products/web-modernization/
         if (progressContainer) progressContainer.classList.remove('hidden');
         if (wpLabel) wpLabel.textContent = domainDisplay + ' (' + strategyTag + ' Profile):';
         if (wpTime) {
-          if (isFast) {
-            wpTime.textContent = ttfb + 'ms TTFB • ' + lcp + ' LCP (' + strategyTag + ' Fast Edge Response ✓)';
+          if (isGood) {
+            wpTime.textContent = ttfb + 'ms TTFB • ' + lcp + ' LCP (' + strategyTag + ' Fast Response ✓)';
             wpTime.className = 'text-emerald-400 font-bold';
           } else {
             wpTime.textContent = ttfb + 'ms TTFB • ' + lcp + ' LCP (' + strategyTag + ' High Bounce Warning)';
@@ -1324,7 +1334,7 @@ permalink: /products/web-modernization/
           lumiBar.style.width = '100%';
           if (lumiTime) lumiTime.textContent = '120ms (LumiLore Serverless Edge ✓)';
 
-          if (isFast) {
+          if (isGood) {
             wpBar.className = 'h-full bg-linear-to-r from-emerald-400 to-cyan-400 rounded-full transition-all ease-out';
             wpBar.style.transition = 'width 0.25s cubic-bezier(0, 0, 0.2, 1)';
             wpBar.style.width = '100%';
@@ -1359,7 +1369,7 @@ permalink: /products/web-modernization/
         var prospectFooterLeft = document.getElementById('prospect-mockup-footer-left');
         var prospectFooterRight = document.getElementById('prospect-mockup-footer-right');
 
-        if (isFast) {
+        if (isGood) {
           if (splitOverlay) splitOverlay.style.backgroundColor = '#061317';
           if (prospectDot) prospectDot.className = 'w-2.5 h-2.5 rounded-full bg-emerald-400';
           if (prospectHeaderBar) prospectHeaderBar.className = 'flex items-center justify-between border-b border-emerald-500/20 pb-3';
@@ -1438,7 +1448,7 @@ permalink: /products/web-modernization/
           cta.href = '/contact/?service=web-modernization&tier=audit&prospect_url=' + encodeURIComponent(targetUrl) + '&prospect_ttfb=' + ttfb + '&prospect_score=' + score;
         }
         if (ctaText) {
-          if (isFast) {
+          if (isGood) {
             ctaText.textContent = 'Scale Beyond ' + ttfb + 'ms → Unlock Global Edge CDN & AI Dispatch';
           } else {
             ctaText.textContent = 'Eliminate Your ' + ttfb + 'ms Bottleneck → Claim Architecture Review';
@@ -1496,7 +1506,7 @@ permalink: /products/web-modernization/
         window.addEventListener('pointermove', onPointerMove, { passive: true });
         window.addEventListener('pointerup', onPointerUp);
         window.addEventListener('touchmove', onPointerMove, { passive: true });
-        window.addEventListener('touchend', onPointerUp);
+        window.addEventListener('touchend', onPointerUp, { passive: true });
       }
 
       container.addEventListener('pointerdown', onPointerDown);

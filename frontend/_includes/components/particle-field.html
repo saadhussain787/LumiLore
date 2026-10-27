@@ -21,7 +21,15 @@
       const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: "high-performance" });
       renderer.setSize(window.innerWidth, window.innerHeight);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, maxDPR));
+      renderer.domElement.style.opacity = '0';
+      renderer.domElement.style.transition = 'opacity 0.6s ease-out';
+      renderer.domElement.style.width = '100%';
+      renderer.domElement.style.height = '100%';
+      renderer.domElement.style.display = 'block';
       container.appendChild(renderer.domElement);
+      requestAnimationFrame(function() {
+        renderer.domElement.style.opacity = '1';
+      });
 
       // --- Dynamic Particle Geometry Generator ---
       function createParticleGeometry(count) {
@@ -349,10 +357,57 @@
       window.addEventListener('resize', onResize, { passive: true });
     }
 
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', setupParticles);
+    let hydrated = false;
+    function triggerParticleHydration() {
+      if (hydrated) return;
+      hydrated = true;
+
+      // Clean up interaction triggers
+      ['scroll', 'pointermove', 'touchstart'].forEach(function(evt) {
+        window.removeEventListener(evt, triggerParticleHydration, { passive: true });
+      });
+
+      function executeSetup() {
+        if (typeof THREE !== 'undefined') {
+          setupParticles();
+        } else if (typeof window.__loadThreeJs === 'function') {
+          window.__loadThreeJs(setupParticles);
+        } else {
+          var s = document.createElement('script');
+          s.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js';
+          s.async = true;
+          s.onload = setupParticles;
+          document.head.appendChild(s);
+        }
+      }
+
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(function() { executeSetup(); }, { timeout: 1500 });
+      } else {
+        setTimeout(executeSetup, 100);
+      }
+    }
+
+    // Passive gesture hooks: user interaction hydrates immediately
+    ['scroll', 'pointermove', 'touchstart'].forEach(function(evt) {
+      window.addEventListener(evt, triggerParticleHydration, { once: true, passive: true });
+    });
+
+    // Idle fallback if user does not interact within 2.5s of page load
+    if (document.readyState === 'complete') {
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(triggerParticleHydration, { timeout: 2500 });
+      } else {
+        setTimeout(triggerParticleHydration, 2000);
+      }
     } else {
-      setupParticles();
+      window.addEventListener('load', function() {
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(triggerParticleHydration, { timeout: 2500 });
+        } else {
+          setTimeout(triggerParticleHydration, 2000);
+        }
+      }, { once: true });
     }
   })();
 </script>

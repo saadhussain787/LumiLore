@@ -60,9 +60,9 @@
   --color-indigo-core: var(--color-secondary);
   --color-titanium: var(--color-outline-variant);
 
-  /* Stitch Design System - Typography */
-  --font-headline: "Space Grotesk", sans-serif;
-  --font-body: "Inter", sans-serif;
+  /* Stitch Design System - Typography with Metric-Matched Fallbacks */
+  --font-headline: "Space Grotesk", "Space Grotesk Fallback", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: "Inter", "Inter Fallback", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   /* Fluid Spring Physics Tokens (Layer 2: Apple/Linear Polish) */
   --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
@@ -1477,6 +1477,48 @@ html[data-lens="trades"] #case-study-fiscalx {
 
 .prose-legal tr:hover td {
   background: rgba(255, 255, 255, 0.02);
+}
+
+/* Core Web Vitals Optimization (Sprint 10) */
+#hero {
+  contain: layout style;
+  content-visibility: visible;
+}
+
+@keyframes lumi-hero-fade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.lumi-hero-enter {
+  contain: layout style;
+  animation: lumi-hero-fade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: opacity, transform;
+}
+
+/* Metric-Matched Fallback Fonts for Zero Layout Shift (CLS < 0.05) */
+@font-face {
+  font-family: 'Space Grotesk Fallback';
+  src: local('Arial'), local('Helvetica');
+  ascent-override: 95%;
+  descent-override: 25%;
+  line-gap-override: 0%;
+  size-adjust: 102%;
+}
+
+@font-face {
+  font-family: 'Inter Fallback';
+  src: local('Arial'), local('Helvetica');
+  ascent-override: 90%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+  size-adjust: 100%;
 }
 
 
