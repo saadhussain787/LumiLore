@@ -102,7 +102,9 @@ export const CONFIG = {
         { platform: 'reddit', community: 'r/webdev', lens: 'corporate' },
         { platform: 'reddit', community: 'r/smallbusiness', lens: 'dual' },
         { platform: 'reddit', community: 'r/HVAC', lens: 'trades' },
-        { platform: 'reddit', community: 'r/Plumbing', lens: 'trades' }
+        { platform: 'reddit', community: 'r/Plumbing', lens: 'trades' },
+        { platform: 'reddit', community: 'r/Electricians', lens: 'trades' },
+        { platform: 'reddit', community: 'r/Roofing', lens: 'trades' }
       ],
       intentKeywords: [
         'high aws bill',
@@ -111,7 +113,13 @@ export const CONFIG = {
         'answering service recommendations',
         'missed calls after hours',
         'servicetitan voice integration',
-        'wordpress slow speed ttfb'
+        'wordpress slow speed ttfb',
+        'panel upgrade',
+        'tripping breaker',
+        'ev charger installation',
+        'roof leak emergency',
+        'storm damage restoration',
+        'emergency tarping'
       ],
       draftsOnly: true // Zero automated spam; requires human review before dispatch
     },

@@ -3194,7 +3194,7 @@ layout: layout.html
             badge: '24/7 AI PHONE DISPATCH',
             signal: 'Never Miss a Customer Call',
             headline: '24/7 AI Phone & Message Reception',
-            subtext: 'Custom AI phone assistants that answer customer calls, texts, and emergency inquiries 24/7, quote standard pricing, and book jobs straight into your schedule.',
+            subtext: 'Custom AI phone assistants that answer emergency calls for HVAC, plumbing, electrical, and roofing contractors 24/7, quote standard pricing, and book jobs straight into your schedule.',
             metric: 'Never Miss a Job • Saves 15+ Hrs/Wk',
             dotLabel: '24/7 AI Phone Reception'
           },
@@ -3202,7 +3202,7 @@ layout: layout.html
             badge: 'AI LOCAL MAPS & GEO',
             signal: 'Top Local AI Search Rank',
             headline: 'AI Search & Local Google Dominance',
-            subtext: 'Put your trade business at the top when homeowners ask ChatGPT or Google for emergency plumbers, electricians, or HVAC repairs.',
+            subtext: 'Put your trade business at the top when homeowners ask ChatGPT, Siri, or Google for emergency plumbers, electricians, roofers, or HVAC repairs.',
             metric: '#1 AI Recommendation • +300% Calls',
             dotLabel: 'AI Local Maps & GEO'
           },
@@ -4529,11 +4529,12 @@ layout: layout.html
     }
     startWaveformModulation();
 
-    // Data models for modes
-    const MODES = {
-      trades: {
+    // 4-Trade Ecosystem Data Models (Sprint 18)
+    const TRADE_EVENTS = [
+      {
+        trade: 'hvac',
         velocity: '$24,646 / mo',
-        streamTitle: 'Inbound Dispatch Stream #104',
+        streamTitle: 'Inbound HVAC Dispatch Stream #104',
         streamMeta: 'Carrier: Amazon Connect • Latency: 420ms',
         urgency: { text: 'Emergency Tier-1', class: 'bg-rose-950/80 border-rose-400/40 text-rose-300' },
         caller: '"Hi, emergency here—our commercial rooftop heat pump went down in -18°C weather."',
@@ -4545,6 +4546,58 @@ layout: layout.html
         invoiceSub: '$285.00 Pre-authorized',
         ctaHref: '/contact/?service=voice-dispatch&source=command_center_demo'
       },
+      {
+        trade: 'plumbing',
+        velocity: '$28,450 / mo',
+        streamTitle: 'Inbound Plumbing Dispatch Stream #108',
+        streamMeta: 'Carrier: Amazon Connect • Latency: 380ms',
+        urgency: { text: 'Water Active Urgent', class: 'bg-cyan-950/80 border-cyan-400/40 text-cyan-300' },
+        caller: '"Burst water main flooding basement supply lines! Need emergency shutoff assistance immediately."',
+        agent: '"Shutoff protocol initiated. Senior Plumber Marcus rolling with ETA 22 mins. SMS shutoff diagram dispatched."',
+        syncTitle: 'Jobber Work Order #2819',
+        syncSub: 'Mainline Burst Supply Repair',
+        smsSub: 'Dispatched to Marcus (Van 02)',
+        invoiceTitle: 'Emergency Dispatch & Triage',
+        invoiceSub: '$450.00 Pre-authorized',
+        ctaHref: '/contact/?service=voice-dispatch&source=command_center_demo'
+      },
+      {
+        trade: 'electrical',
+        velocity: '$32,100 / mo',
+        streamTitle: 'Inbound Electrical Dispatch Stream #112',
+        streamMeta: 'Carrier: Amazon Connect • Latency: 410ms',
+        urgency: { text: 'Arcing Hazard Priority', class: 'bg-yellow-950/80 border-yellow-400/40 text-yellow-300' },
+        caller: '"Our 200A main service panel is buzzing and sparking after installing a Level 2 EV charger."',
+        agent: '"Step away from panel. Arcing hazard flagged. Master Electrician Sarah dispatched with thermal imaging camera."',
+        syncTitle: 'Housecall Pro Job #1094',
+        syncSub: '200A Service & ESA Permit Triage',
+        smsSub: 'Dispatched to Sarah (Van 07)',
+        invoiceTitle: 'Emergency Inspection Callout',
+        invoiceSub: '$350.00 Pre-authorized',
+        ctaHref: '/contact/?service=voice-dispatch&source=command_center_demo'
+      },
+      {
+        trade: 'roofing',
+        velocity: '$36,800 / mo',
+        streamTitle: 'Inbound Roofing Dispatch Stream #116',
+        streamMeta: 'Carrier: Amazon Connect • Latency: 390ms',
+        urgency: { text: 'Storm Damage Urgent', class: 'bg-orange-950/80 border-orange-400/40 text-orange-300' },
+        caller: '"Severe hailstorm ripped shingles off our roof and water is pouring through attic drywall."',
+        agent: '"Emergency tarp crew alerted. Drone roof inspector Mike queued for first light. Property claim ticket logged."',
+        syncTitle: 'Jobber Claim #8402',
+        syncSub: 'Emergency Tarping & Drone Survey',
+        smsSub: 'Dispatched to Mike (Truck 01)',
+        invoiceTitle: 'Emergency Tarping Fee',
+        invoiceSub: '$650.00 Pre-authorized',
+        ctaHref: '/contact/?service=voice-dispatch&source=command_center_demo'
+      }
+    ];
+
+    let tradeIndex = 0;
+
+    // Data models for modes
+    const MODES = {
+      trades: TRADE_EVENTS[0],
       corporate: {
         velocity: '$38,400 / mo',
         streamTitle: 'Cloud Ops Autonomy Stream #302',
@@ -4620,6 +4673,13 @@ layout: layout.html
         simulateBtn.classList.add('opacity-50', 'pointer-events-none');
         if (durationLabel) durationLabel.textContent = '00:01 / 00:45 (Transmitting)';
 
+        // In trades mode, cycle through the 4-trade scenarios (HVAC, Plumbing, Electrical, Roofing)
+        if (currentMode === 'trades') {
+          tradeIndex = (tradeIndex + 1) % TRADE_EVENTS.length;
+          MODES.trades = TRADE_EVENTS[tradeIndex];
+          setMode('trades');
+        }
+
         // High energy waveform animation & radio audio playback
         startWaveformModulation(true);
         playRadioDispatchAudio(currentMode);
@@ -4646,6 +4706,7 @@ layout: layout.html
     window.__LUMILORE_SET_COMMAND_CENTER_MODE = setMode;
     window.__LUMILORE_PLAY_RADIO_DISPATCH = playRadioDispatchAudio;
     window.__LUMILORE_PLAY_SQUELCH_CHIRP = playRadioSquelchChirp;
+    window.__LUMILORE_TRADE_EVENTS = TRADE_EVENTS;
   })();
 </script>
 

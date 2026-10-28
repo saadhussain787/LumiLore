@@ -198,7 +198,7 @@ self-hosted Chatwoot helpdesks, VoiceStudio viral reel engines, and OmniRoute Fi
               </button>
               <button type="button" onclick="runLeadRadarScan('hvac')" id="radar-chip-hvac"
                 class="min-h-[38px] px-3 py-1.5 rounded-lg text-xs font-mono bg-white/5 border border-white/10 text-slate-300 hover:text-white cursor-pointer transition-all">
-                🔧 Scan r/HVAC &amp; Facility RFPs
+                🔧 Scan Trades (HVAC, Plumb, Elec, Roof)
               </button>
               <button type="button" onclick="runLeadRadarScan('registry')" id="radar-chip-registry"
                 class="min-h-[38px] px-3 py-1.5 rounded-lg text-xs font-mono bg-white/5 border border-white/10 text-slate-300 hover:text-white cursor-pointer transition-all">
@@ -406,6 +406,10 @@ self-hosted Chatwoot helpdesks, VoiceStudio viral reel engines, and OmniRoute Fi
               <button type="button" onclick="runAiBrainQuery('hvac_manual')"
                 class="min-h-[38px] px-3 py-1.5 rounded-lg text-xs font-mono bg-white/5 border border-white/10 text-slate-300 hover:text-white cursor-pointer">
                 🔧 HVAC Fault Code Manual
+              </button>
+              <button type="button" onclick="runAiBrainQuery('trade_spec')"
+                class="min-h-[38px] px-3 py-1.5 rounded-lg text-xs font-mono bg-white/5 border border-white/10 text-slate-300 hover:text-white cursor-pointer">
+                🏠 Roofing &amp; Electrical SOP
               </button>
               <button type="button" onclick="runAiBrainQuery('invoice')"
                 class="min-h-[38px] px-3 py-1.5 rounded-lg text-xs font-mono bg-white/5 border border-white/10 text-slate-300 hover:text-white cursor-pointer">
@@ -894,10 +898,10 @@ self-hosted Chatwoot helpdesks, VoiceStudio viral reel engines, and OmniRoute Fi
         meta: '⚡ Auto-Drafted Response Ready • Est. Deal Value: $18,500 CAD'
       },
       hvac: {
-        source: 'SOURCE: r/HVAC & GTA Facility Board • u/property_mgr_mississauga',
-        score: 'INTENT: 94/100 (IMMEDIATE)',
-        quote: '"Two 15-ton rooftop units down at our Mississauga warehouse. Current contractor hasn\'t returned calls in 6 hours. Need commercial HVAC crew on-site today."',
-        meta: '⚡ Instant SMS Alert + Drafted Reply • Est. Commercial Ticket: $6,400 CAD'
+        source: 'SOURCE: r/HVAC, r/Plumbing, r/Electricians, r/Roofing • u/property_mgr_mississauga',
+        score: 'INTENT: 95/100 (IMMEDIATE)',
+        quote: '"Commercial rooftop HVAC failure, basement main drain backup, and emergency 200A panel short at our Mississauga warehouse. Need certified multi-trade crews dispatched today."',
+        meta: '⚡ Instant Multi-Trade SMS Dispatch • Est. Commercial Ticket: $9,800 CAD'
       },
       registry: {
         source: 'SOURCE: Ontario Business Registry Feed • Incorporation #2948102',
@@ -958,6 +962,10 @@ self-hosted Chatwoot helpdesks, VoiceStudio viral reel engines, and OmniRoute Fi
       hvac_manual: {
         q: '📱 WHATSAPP TECH QUERY: "Error Code E35 on Carrier 59MN7A furnace—what part & labor quote?"',
         a: '<strong>WeKnora Answer (140ms):</strong> Per <code class="text-purple-300 font-mono">Carrier-59MN7-Manual (p. 44)</code> &amp; <code class="text-purple-300 font-mono">2026-Pricebook.pdf</code>: Code 35 indicates Restricted Airflow / Limit Switch trip. Check blower capacitor &amp; secondary heat exchanger. Standard diagnostic + switch replacement tier: <strong>$385 CAD</strong>.'
+      },
+      trade_spec: {
+        q: '📱 WHATSAPP FIELD QUERY: "Ontario code for 200A service clearance and roofing drip edge overlap?"',
+        a: '<strong>WeKnora Answer (160ms):</strong> Per <code class="text-purple-300 font-mono">OESC-Rule 6-206</code> &amp; <code class="text-purple-300 font-mono">OBC-9.26.4</code>: 200A meter base requires 1m radial gas relief clearance. Eaves drip edges require minimum 12mm projection with self-adhering ice-and-water underlayment. Verified in digital SOP.'
       },
       invoice: {
         q: '🧾 TEAMS FINANCE QUERY: "Compare Q3 copper pipe supplier invoices against contracted unit rates."',

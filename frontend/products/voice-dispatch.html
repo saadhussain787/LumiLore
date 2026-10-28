@@ -117,23 +117,38 @@ permalink: /products/voice-dispatch/
             </a>
           </div>
 
-          <!-- Scenario Switcher Buttons -->
-          <div class="flex flex-wrap items-center gap-3 mb-8">
-            <button type="button" id="btn-scenario-trades"
-              class="px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 shadow-[0_0_15px_rgba(245,158,11,0.4)]"
-              onclick="switchAudioDemo('trades')">
-              <span>🔧 Mechanical Trades Emergency</span>
+          <!-- Scenario Switcher Buttons (Interactive 4-Trade Ecosystem) -->
+          <div class="flex flex-wrap items-center gap-2.5 sm:gap-3 mb-8" role="tablist" aria-label="Trade Dispatch Scenarios">
+            <button type="button" id="btn-scenario-hvac"
+              class="px-4 sm:px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 shadow-[0_0_15px_rgba(245,158,11,0.4)]"
+              onclick="switchAudioDemo('hvac')" role="tab" aria-selected="true" data-trade="hvac">
+              <span>❄️ HVAC &amp; Heating</span>
+            </button>
+            <button type="button" id="btn-scenario-plumbing"
+              class="px-4 sm:px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10"
+              onclick="switchAudioDemo('plumbing')" role="tab" aria-selected="false" data-trade="plumbing">
+              <span>🚰 Plumbing &amp; Drains</span>
+            </button>
+            <button type="button" id="btn-scenario-electrical"
+              class="px-4 sm:px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10"
+              onclick="switchAudioDemo('electrical')" role="tab" aria-selected="false" data-trade="electrical">
+              <span>⚡ Electrical &amp; Panels</span>
+            </button>
+            <button type="button" id="btn-scenario-roofing"
+              class="px-4 sm:px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10"
+              onclick="switchAudioDemo('roofing')" role="tab" aria-selected="false" data-trade="roofing">
+              <span>🏠 Roofing &amp; Exteriors</span>
             </button>
             <button type="button" id="btn-scenario-corporate"
-              class="px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10"
-              onclick="switchAudioDemo('corporate')">
-              <span>🏢 Corporate Front-Desk</span>
+              class="px-4 sm:px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10"
+              onclick="switchAudioDemo('corporate')" role="tab" aria-selected="false" data-trade="corporate">
+              <span>🏢 Corporate Desk</span>
             </button>
             <button type="button" id="btn-scenario-mic"
-              class="px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 flex items-center gap-2"
-              onclick="switchAudioDemo('mic')">
+              class="px-4 sm:px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 flex items-center gap-2"
+              onclick="switchAudioDemo('mic')" role="tab" aria-selected="false" data-trade="mic">
               <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              <span>🎙️ Live Talk Sandbox (Microphone / Instant)</span>
+              <span>🎙️ Live Talk Sandbox</span>
             </button>
           </div>
 
@@ -202,6 +217,16 @@ permalink: /products/voice-dispatch/
                 class="mic-prompt-btn px-3 py-1.5 rounded-lg bg-emerald-950/60 hover:bg-emerald-900/80 border border-emerald-400/40 text-emerald-200 transition-colors text-left cursor-pointer"
                 onclick="triggerMicPrompt('pipe')">
                 🗣️ "Burst pipe flooding our commercial basement"
+              </button>
+              <button type="button"
+                class="mic-prompt-btn px-3 py-1.5 rounded-lg bg-yellow-950/60 hover:bg-yellow-900/80 border border-yellow-400/40 text-yellow-200 transition-colors text-left cursor-pointer"
+                onclick="triggerMicPrompt('panel')">
+                🗣️ "200A breaker panel humming &amp; tripping"
+              </button>
+              <button type="button"
+                class="mic-prompt-btn px-3 py-1.5 rounded-lg bg-orange-950/60 hover:bg-orange-900/80 border border-orange-400/40 text-orange-200 transition-colors text-left cursor-pointer"
+                onclick="triggerMicPrompt('roof')">
+                🗣️ "Post-hail roof leak dripping on drywall"
               </button>
               <button type="button"
                 class="mic-prompt-btn px-3 py-1.5 rounded-lg bg-cyan-950/60 hover:bg-cyan-900/80 border border-cyan-400/40 text-cyan-200 transition-colors text-left cursor-pointer"
@@ -398,7 +423,7 @@ permalink: /products/voice-dispatch/
               </div>
 
               <!-- Slider 2: Average Ticket Value -->
-              <div class="p-5 rounded-2xl bg-white/[0.02] border border-white/10 space-y-2">
+              <div class="p-5 rounded-2xl bg-white/[0.02] border border-white/10 space-y-3">
                 <div class="flex items-center justify-between">
                   <label for="mini-calc-ticket" class="text-xs sm:text-sm font-semibold text-slate-200">
                     Average Ticket / Emergency Dispatch Value
@@ -408,12 +433,31 @@ permalink: /products/voice-dispatch/
                     $650 / dispatch
                   </span>
                 </div>
-                <input type="range" id="mini-calc-ticket" min="150" max="3500" step="50" value="650"
+                <input type="range" id="mini-calc-ticket" min="150" max="8500" step="50" value="650"
                   class="w-full accent-amber-400 cursor-pointer">
                 <div class="flex justify-between text-[10px] font-mono text-slate-500">
-                  <span>$150 (Basic Tune-up)</span>
-                  <span>$1,800</span>
-                  <span>$3,500+ (Full Replacement)</span>
+                  <span>$150 (Maintenance)</span>
+                  <span>$3,500 (Panel/HVAC)</span>
+                  <span>$8,500+ (Roofing/Sewer)</span>
+                </div>
+
+                <!-- 4-Trade Benchmark Presets (Sprint 18) -->
+                <div class="pt-3 border-t border-white/5">
+                  <div class="text-[10px] font-mono uppercase text-slate-400 mb-2">Trade Benchmark Presets:</div>
+                  <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                    <button type="button" onclick="setCalcPreset(25, 450)" class="px-2 py-1.5 rounded-lg text-[10.5px] font-mono bg-cyan-950/60 border border-cyan-500/30 text-cyan-200 hover:bg-cyan-900/60 transition-colors text-center cursor-pointer">
+                      🚰 Plumb: $450
+                    </button>
+                    <button type="button" onclick="setCalcPreset(20, 1800)" class="px-2 py-1.5 rounded-lg text-[10.5px] font-mono bg-yellow-950/60 border border-yellow-500/30 text-yellow-200 hover:bg-yellow-900/60 transition-colors text-center cursor-pointer">
+                      ⚡ Elec: $1,800
+                    </button>
+                    <button type="button" onclick="setCalcPreset(15, 3500)" class="px-2 py-1.5 rounded-lg text-[10.5px] font-mono bg-amber-950/60 border border-amber-500/30 text-amber-200 hover:bg-amber-900/60 transition-colors text-center cursor-pointer">
+                      ❄️ HVAC: $3,500
+                    </button>
+                    <button type="button" onclick="setCalcPreset(10, 8500)" class="px-2 py-1.5 rounded-lg text-[10.5px] font-mono bg-orange-950/60 border border-orange-500/30 text-orange-200 hover:bg-orange-900/60 transition-colors text-center cursor-pointer">
+                      🏠 Roof: $8,500
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -486,23 +530,20 @@ permalink: /products/voice-dispatch/
                 </span>
               </div>
               <h3 class="text-xl font-bold text-white tracking-tight mb-2">
-                HVAC, Plumbing &amp; Electrical Dispatch
+                HVAC, Plumbing, Electrical &amp; Roofing Dispatch
               </h3>
               <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-light mb-6">
-                Captures high-ticket repair calls when your office is closed. Filters emergency inquiries, validates
-                address and postal code against municipal GIS data, gains after-hours dispatch fee consent, and books
-                arrival windows into ServiceTitan or Jobber.
+                Captures high-ticket repair calls when your office is closed. Filters emergency inquiries across all trades—furnace failures, burst pipes, humming electrical panels, and storm roof leaks—validates address and postal code against municipal GIS data, gains after-hours dispatch fee consent, and books arrival windows into ServiceTitan, Jobber, or Housecall Pro.
               </p>
               <ul class="space-y-2.5 text-xs text-slate-300 font-mono">
                 <li class="flex items-center gap-2">
-                  <span class="text-amber-400">⚡</span> <span>ServiceTitan, Jobber &amp; Housecall Pro API
-                    integration</span>
+                  <span class="text-amber-400">⚡</span> <span>ServiceTitan, Jobber &amp; Housecall Pro API integration</span>
                 </li>
                 <li class="flex items-center gap-2">
-                  <span class="text-amber-400">⚡</span> <span>Emergency triage: after-hours fee confirmation</span>
+                  <span class="text-amber-400">⚡</span> <span>Trade-specific emergency triage: fee confirmation &amp; safety checklists</span>
                 </li>
                 <li class="flex items-center gap-2">
-                  <span class="text-amber-400">⚡</span> <span>Automated on-call technician SMS alerts</span>
+                  <span class="text-amber-400">⚡</span> <span>Automated on-call technician SMS alerts (HVAC, plumbing, electrical, roofing)</span>
                 </li>
               </ul>
             </div>
@@ -877,8 +918,7 @@ permalink: /products/voice-dispatch/
                 Field Pro &amp; ServiceTitan Suite
               </h3>
               <p class="text-xs text-slate-300 mt-2 font-light leading-relaxed">
-                Engineered for busy residential and commercial mechanical contractors who require direct CRM job
-                creation and automated technician dispatch.
+                Engineered for busy residential and commercial HVAC, plumbing, electrical, and roofing contractors who require direct CRM job creation and automated technician dispatch.
               </p>
 
               <!-- Price Callout -->
@@ -1112,6 +1152,74 @@ permalink: /products/voice-dispatch/
             </p>
           </details>
 
+          <!-- FAQ 6: Plumbing Emergency Shutoff Triage -->
+          <details
+            class="group rounded-2xl bg-[#080D17]/80 border border-white/10 p-6 [&_summary::-webkit-details-marker]:hidden transition-all duration-300">
+            <summary class="flex items-center justify-between cursor-pointer focus:outline-none">
+              <h3 class="text-base font-bold text-white group-hover:text-cyan-300 transition-colors">
+                🚰 Can AI walk a frantic homeowner through finding their water shutoff valve?
+              </h3>
+              <span
+                class="ml-4 shrink-0 text-slate-400 group-hover:text-white transition-transform group-open:rotate-180">
+                ▼
+              </span>
+            </summary>
+            <p class="text-xs sm:text-sm text-slate-300 font-light mt-4 leading-relaxed pt-3 border-t border-white/5">
+              Yes. For plumbing emergencies (burst pipes, overflowing sewage), the AI immediately instructs the caller to shut off the main water valve near their water meter to limit structural flooding, captures pipe diameter and basement flood status, and books your on-call Master Plumber. Capturing just one emergency mainline sewer repair ($4,500) pays for months of service.
+            </p>
+          </details>
+
+          <!-- FAQ 7: Electrical Hazard Identification -->
+          <details
+            class="group rounded-2xl bg-[#080D17]/80 border border-white/10 p-6 [&_summary::-webkit-details-marker]:hidden transition-all duration-300">
+            <summary class="flex items-center justify-between cursor-pointer focus:outline-none">
+              <h3 class="text-base font-bold text-white group-hover:text-yellow-300 transition-colors">
+                ⚡ How does the AI identify fire hazards like arcing or buzzing breaker panels?
+              </h3>
+              <span
+                class="ml-4 shrink-0 text-slate-400 group-hover:text-white transition-transform group-open:rotate-180">
+                ▼
+              </span>
+            </summary>
+            <p class="text-xs sm:text-sm text-slate-300 font-light mt-4 leading-relaxed pt-3 border-t border-white/5">
+              The agent listens for critical electrical keywords ("humming breaker", "burning plastic smell", "water on sub-panel", "sparking EV charger"). If an arcing danger is identified, it tells the caller to stay clear and cut the main breaker if safe, then initiates an instant priority SMS alert to your master electrician. This captures high-ticket 200A panel upgrades ($3,500) and Level 2 EV charger installations ($1,800) before callers dial competitors.
+            </p>
+          </details>
+
+          <!-- FAQ 8: Storm Surge & High Call Concurrency for Roofing -->
+          <details
+            class="group rounded-2xl bg-[#080D17]/80 border border-white/10 p-6 [&_summary::-webkit-details-marker]:hidden transition-all duration-300">
+            <summary class="flex items-center justify-between cursor-pointer focus:outline-none">
+              <h3 class="text-base font-bold text-white group-hover:text-orange-300 transition-colors">
+                🏠 What happens when 50 homeowners call simultaneously during a severe hailstorm?
+              </h3>
+              <span
+                class="ml-4 shrink-0 text-slate-400 group-hover:text-white transition-transform group-open:rotate-180">
+                ▼
+              </span>
+            </summary>
+            <p class="text-xs sm:text-sm text-slate-300 font-light mt-4 leading-relaxed pt-3 border-t border-white/5">
+              Traditional phone lines crash during major weather events because human dispatchers get swamped. LumiLore runs on an elastic serverless telephony mesh with infinite concurrency. All 50 calls are answered on the first ring, damage details (roof pitch, missing shingles, active ceiling drips) are logged, emergency tarping is dispatched, and $8,500–$15,000 storm restoration jobs are locked in while competitors' lines ring busy.
+            </p>
+          </details>
+
+          <!-- FAQ 9: High-Ticket HVAC Replacement Recovery -->
+          <details
+            class="group rounded-2xl bg-[#080D17]/80 border border-white/10 p-6 [&_summary::-webkit-details-marker]:hidden transition-all duration-300">
+            <summary class="flex items-center justify-between cursor-pointer focus:outline-none">
+              <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">
+                ❄️ How does 24/7 AI response capture high-ticket furnace and heat pump replacements?
+              </h3>
+              <span
+                class="ml-4 shrink-0 text-slate-400 group-hover:text-white transition-transform group-open:rotate-180">
+                ▼
+              </span>
+            </summary>
+            <p class="text-xs sm:text-sm text-slate-300 font-light mt-4 leading-relaxed pt-3 border-t border-white/5">
+              When a furnace dies in -20°C freeze conditions, homeowners call down the top 3 Google results until someone answers live. By picking up on ring one, collecting equipment age and error codes, and confirming a guaranteed technician arrival slot, you lock in $5,500 heat pump replacements and seasonal tune-up plans ($350) before they call the next contractor.
+            </p>
+          </details>
+
         </div>
       </div>
 
@@ -1162,9 +1270,9 @@ permalink: /products/voice-dispatch/
       var audioBufferCache = {};
 
       var DEMOS = {
-        trades: {
-          title: "Emergency HVAC Dispatch — Frozen Coil & Furnace Failure",
-          badge: "TRADES DISPATCH DEMO",
+        hvac: {
+          title: "Emergency HVAC Dispatch — Winter Furnace Failure & Frozen Heat Pump",
+          badge: "HVAC & HEATING DISPATCH",
           badgeColor: "text-amber-300 border-amber-500/30 bg-amber-950/80",
           duration: "0:12 Duration • Sub-800ms Barge-In",
           totalSeconds: 12,
@@ -1173,8 +1281,64 @@ permalink: /products/voice-dispatch/
             { role: "CALLER", text: "Hi, my furnace just completely stopped blowing warm air and my house is down to 10 degrees. Can someone come out tonight?", class: "text-slate-300 bg-white/[0.02]" },
             { role: "AI AGENT", text: "I completely understand how critical that is with tonight's freeze. I have on-call technician Dave available in your postal area between 8 PM and 10 PM. Our emergency dispatch fee is $189. Can I confirm your street address to lock this in?", class: "text-slate-200 bg-amber-950/30 border-amber-500/20" }
           ],
-          speechText: "I completely understand how critical that is with tonight's freeze. I have on-call technician Dave available in your area between 8 PM and 10 PM. Can I confirm your street address to lock this in?"
+          speechText: "I completely understand how critical that is with tonight's freeze. I have on-call technician Dave available in your area between 8 PM and 10 PM. Can I confirm your street address to lock this in?",
+          sms: {
+            urgency: "EMERGENCY DISPATCH: Furnace No-Heat",
+            details: "Temp: 10°C. Unit: High-Efficiency Gas. Tech: Dave (Van 04). Address: 42 Elmwood Ave, Richmond Hill. Fee Confirmed ($189)."
+          }
         },
+        plumbing: {
+          title: "Emergency Plumbing Dispatch — 2:00 AM Burst Pipe & Flooding Triage",
+          badge: "PLUMBING & DRAINS DISPATCH",
+          badgeColor: "text-cyan-300 border-cyan-500/30 bg-cyan-950/80",
+          duration: "0:10 Duration • Water Shutoff Safety Protocol",
+          totalSeconds: 10,
+          audioUrl: "/assets/audio/02_pipe_burst_emergency.mp3",
+          dialogue: [
+            { role: "CALLER", text: "We have water spewing from a burst main supply line under our laundry sink and the floor is flooding right now!", class: "text-slate-300 bg-white/[0.02]" },
+            { role: "AI AGENT", text: "Emergency priority flagged. Please shut off your main water valve right now if safe—it's usually near your water meter in the basement. Senior Plumber Marcus is rolling your way with an ETA of 24 minutes. What is your address?", class: "text-slate-200 bg-cyan-950/30 border-cyan-500/20" }
+          ],
+          speechText: "Emergency priority flagged. Please shut off your main water valve right now if safe. Senior Plumber Marcus is rolling your way with an ETA of 24 minutes. What is your address?",
+          sms: {
+            urgency: "URGENT CALLOUT: 3/4\" Copper Burst Line",
+            details: "Water active. Main shutoff advised. Plumber: Marcus (Van 02). Address: 184 King St E, Markham. ETA: 24 mins."
+          }
+        },
+        electrical: {
+          title: "Emergency Electrical Dispatch — Buzzing Panel & 200A Upgrade Qualification",
+          badge: "ELECTRICAL SERVICES DISPATCH",
+          badgeColor: "text-yellow-300 border-yellow-500/30 bg-yellow-950/80",
+          duration: "0:17 Duration • Fire Safety & ESA Permit Triage",
+          totalSeconds: 17,
+          audioUrl: "/assets/audio/05_electrical_panel_emergency.mp3",
+          dialogue: [
+            { role: "CALLER", text: "Our breaker panel keeps humming and buzzing when we plug in our new EV charger, and half the house just lost power.", class: "text-slate-300 bg-white/[0.02]" },
+            { role: "AI AGENT", text: "Understood. Please do not touch or reset that buzzing breaker—that can be an active arcing hazard. I have Master Electrician Sarah dispatched to evaluate your 200A service. She can arrive between 9 AM and 11 AM tomorrow. Can I verify your postal code?", class: "text-slate-200 bg-yellow-950/30 border-yellow-500/20" }
+          ],
+          speechText: "Understood. Please do not touch or reset that buzzing breaker—that can be an active arcing hazard. I have Master Electrician Sarah dispatched to evaluate your 200A service. She can arrive between 9 AM and 11 AM tomorrow. Can I verify your postal code?",
+          sms: {
+            urgency: "SERVICE CALL: 100A Panel Buzzing / EV Trip",
+            details: "ESA permit required. Master Electrician: Sarah (Van 07). Address: 89 Valleywood Dr, Vaughan. Arrival: 9:00 AM - 11:00 AM."
+          }
+        },
+        roofing: {
+          title: "Emergency Roofing Dispatch — Post-Hailstorm Active Leak & Drone Inspection",
+          badge: "ROOFING & EXTERIORS DISPATCH",
+          badgeColor: "text-orange-300 border-orange-500/30 bg-orange-950/80",
+          duration: "0:13 Duration • Storm Tarping & Insurance Fast-Track",
+          totalSeconds: 13,
+          audioUrl: "/assets/audio/06_roofing_leak_emergency.mp3",
+          dialogue: [
+            { role: "CALLER", text: "We just had that severe hailstorm and now water is dripping through our upstairs ceiling onto the drywall.", class: "text-slate-300 bg-white/[0.02]" },
+            { role: "AI AGENT", text: "We will get that secured right away before drywall saturation spreads. Estimator Mike is dispatched with an emergency tarping kit and drone assessment camera for 7:30 AM tomorrow. What is your property address?", class: "text-slate-200 bg-orange-950/30 border-orange-500/20" }
+          ],
+          speechText: "We will get that secured right away before drywall saturation spreads. Estimator Mike is dispatched with an emergency tarping kit and drone assessment camera for 7:30 AM tomorrow. What is your property address?",
+          sms: {
+            urgency: "STORM RESTORATION: Active Ceiling Leak Post-Hail",
+            details: "Emergency tarp kit prepped. Drone assessment scheduled. Estimator: Mike (Truck 01). Address: 312 Pine Ridge Rd, Aurora."
+          }
+        },
+        trades: null, // Initialized below as reference to hvac
         corporate: {
           title: "Corporate Front-Desk — Strategic Enterprise Partnership Routing",
           badge: "CORPORATE FRONT-DESK DEMO",
@@ -1186,7 +1350,11 @@ permalink: /products/voice-dispatch/
             { role: "CALLER", text: "Good afternoon, I'm calling from Horizon Capital. We're looking to discuss a cloud migration partnership with your engineering team.", class: "text-slate-300 bg-white/[0.02]" },
             { role: "AI AGENT", text: "Thanks for reaching out! I would be glad to connect you with our cloud architecture team. I see Principal Architect Saad Sayed has an open discovery slot tomorrow at 2 PM Eastern. Would you like me to reserve that on your calendar?", class: "text-slate-200 bg-cyan-950/30 border-cyan-500/20" }
           ],
-          speechText: "Thanks for reaching out! I would be glad to connect you with our cloud architecture team. I see Principal Architect Saad Sayed has an open discovery slot tomorrow at 2 PM Eastern. Would you like me to reserve that on your calendar?"
+          speechText: "Thanks for reaching out! I would be glad to connect you with our cloud architecture team. I see Principal Architect Saad Sayed has an open discovery slot tomorrow at 2 PM Eastern. Would you like me to reserve that on your calendar?",
+          sms: {
+            urgency: "CALENDAR HOLD: Enterprise Cloud Architecture",
+            details: "Principal Architect Saad Sayed discovery hold confirmed. Calendar invite & Google Meet bridge dispatched."
+          }
         },
         mic: {
           title: "Live Voice Talk Sandbox — Interactive Speech Engine",
@@ -1199,9 +1367,14 @@ permalink: /products/voice-dispatch/
             { role: "CALLER", text: "Click one of the suggested prompts above or speak into your microphone to test live AI receptionist handling.", class: "text-slate-300 bg-white/[0.02]" },
             { role: "AI AGENT", text: "LumiLore 24/7 AI Voice Dispatch online. How can I assist with your emergency repair or cloud inquiry today?", class: "text-slate-200 bg-emerald-950/30 border-emerald-500/20" }
           ],
-          speechText: "LumiLore 24/7 AI Voice Dispatch online. How can I assist with your emergency repair or cloud inquiry today?"
+          speechText: "LumiLore 24/7 AI Voice Dispatch online. How can I assist with your emergency repair or cloud inquiry today?",
+          sms: {
+            urgency: "LIVE MIC DISPATCH TEST",
+            details: "Simulated emergency ticket created via voice audio engine. Dispatched in 4.2 seconds."
+          }
         }
       };
+      DEMOS.trades = DEMOS.hvac;
 
       // --- debpalash/VoiceStudio ACOUSTIC PIPELINE & DSP CHAIN ---
       function getAudioContext() {
@@ -1295,32 +1468,50 @@ permalink: /products/voice-dispatch/
 
       window.switchAudioDemo = function (scenarioKey) {
         if (isPlaying) stopAudio();
+        if (scenarioKey === 'trades') scenarioKey = 'hvac';
         activeScenario = scenarioKey;
 
-        var btnTrades = document.getElementById('btn-scenario-trades');
-        var btnCorp = document.getElementById('btn-scenario-corporate');
-        var btnMic = document.getElementById('btn-scenario-mic');
+        var buttonMap = {
+          hvac: document.getElementById('btn-scenario-hvac'),
+          plumbing: document.getElementById('btn-scenario-plumbing'),
+          electrical: document.getElementById('btn-scenario-electrical'),
+          roofing: document.getElementById('btn-scenario-roofing'),
+          corporate: document.getElementById('btn-scenario-corporate'),
+          mic: document.getElementById('btn-scenario-mic')
+        };
         var micPrompts = document.getElementById('studio-mic-prompts');
         var smsCard = document.getElementById('studio-sms-notification');
-        var demo = DEMOS[scenarioKey];
+        var smsText = document.getElementById('sms-text-content');
+        var demo = DEMOS[scenarioKey] || DEMOS.hvac;
 
         if (smsCard) smsCard.classList.add('hidden');
 
-        if (scenarioKey === 'trades') {
-          if (btnTrades) btnTrades.className = "px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 shadow-[0_0_15px_rgba(245,158,11,0.4)]";
-          if (btnCorp) btnCorp.className = "px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10";
-          if (btnMic) btnMic.className = "px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 flex items-center gap-2";
-          if (micPrompts) micPrompts.classList.add('hidden');
-        } else if (scenarioKey === 'corporate') {
-          if (btnCorp) btnCorp.className = "px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-gradient-to-r from-cyan-400 to-cyan-500 text-slate-950 shadow-[0_0_15px_rgba(0,242,254,0.4)]";
-          if (btnTrades) btnTrades.className = "px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10";
-          if (btnMic) btnMic.className = "px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 flex items-center gap-2";
-          if (micPrompts) micPrompts.classList.add('hidden');
-        } else {
-          if (btnMic) btnMic.className = "px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-gradient-to-r from-emerald-400 to-emerald-500 text-slate-950 shadow-[0_0_15px_rgba(16,185,129,0.4)] flex items-center gap-2";
-          if (btnTrades) btnTrades.className = "px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10";
-          if (btnCorp) btnCorp.className = "px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10";
-          if (micPrompts) micPrompts.classList.remove('hidden');
+        var activeStyles = {
+          hvac: "px-4 sm:px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 shadow-[0_0_15px_rgba(245,158,11,0.4)]",
+          plumbing: "px-4 sm:px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-gradient-to-r from-cyan-400 to-cyan-500 text-slate-950 shadow-[0_0_15px_rgba(0,242,254,0.4)]",
+          electrical: "px-4 sm:px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-gradient-to-r from-yellow-400 to-amber-400 text-slate-950 shadow-[0_0_15px_rgba(250,204,21,0.4)]",
+          roofing: "px-4 sm:px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-gradient-to-r from-orange-400 to-amber-500 text-slate-950 shadow-[0_0_15px_rgba(251,146,60,0.4)]",
+          corporate: "px-4 sm:px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-gradient-to-r from-cyan-400 to-cyan-500 text-slate-950 shadow-[0_0_15px_rgba(0,242,254,0.4)]",
+          mic: "px-4 sm:px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-gradient-to-r from-emerald-400 to-emerald-500 text-slate-950 shadow-[0_0_15px_rgba(16,185,129,0.4)] flex items-center gap-2"
+        };
+        var inactiveStyle = "px-4 sm:px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10";
+        var inactiveMicStyle = "px-4 sm:px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 flex items-center gap-2";
+
+        Object.keys(buttonMap).forEach(function (k) {
+          var btn = buttonMap[k];
+          if (!btn) return;
+          if (k === scenarioKey) {
+            btn.className = activeStyles[k];
+            btn.setAttribute('aria-selected', 'true');
+          } else {
+            btn.className = (k === 'mic' ? inactiveMicStyle : inactiveStyle);
+            btn.setAttribute('aria-selected', 'false');
+          }
+        });
+
+        if (micPrompts) {
+          if (scenarioKey === 'mic') micPrompts.classList.remove('hidden');
+          else micPrompts.classList.add('hidden');
         }
 
         document.getElementById('studio-demo-title').textContent = demo.title;
@@ -1331,13 +1522,25 @@ permalink: /products/voice-dispatch/
 
         var container = document.getElementById('studio-transcript-container');
         container.innerHTML = '';
+        var roleColors = {
+          hvac: 'text-amber-400',
+          plumbing: 'text-cyan-400',
+          electrical: 'text-yellow-400',
+          roofing: 'text-orange-400',
+          corporate: 'text-cyan-400',
+          mic: 'text-emerald-400'
+        };
         demo.dialogue.forEach(function (item) {
           var el = document.createElement('div');
           el.className = "p-3 rounded-xl border " + item.class;
-          var roleColor = item.role === 'CALLER' ? 'text-slate-400' : (scenarioKey === 'trades' ? 'text-amber-400' : (scenarioKey === 'corporate' ? 'text-cyan-400' : 'text-emerald-400'));
+          var roleColor = item.role === 'CALLER' ? 'text-slate-400' : (roleColors[scenarioKey] || 'text-amber-400');
           el.innerHTML = '<strong class="font-mono ' + roleColor + '">' + item.role + ':</strong> ' + item.text;
           container.appendChild(el);
         });
+
+        if (demo.sms && smsText) {
+          smsText.textContent = '"' + demo.sms.urgency + ' — ' + demo.sms.details + '"';
+        }
       };
 
       window.triggerMicPrompt = function (promptKey) {
@@ -1361,6 +1564,18 @@ permalink: /products/voice-dispatch/
           smsContent = '"PRIORITY DISPATCH: Commercial pipe burst. Master Plumber Marcus en route with ETA 22 mins. Emergency team briefed."';
           DEMOS.mic.audioUrl = '/assets/audio/02_pipe_burst_emergency.mp3';
           DEMOS.mic.totalSeconds = 10;
+        } else if (promptKey === 'panel') {
+          callerText = "Our main electrical panel is humming loudly and breakers keep tripping after plugging in our new EV charger!";
+          agentText = "Do not touch the panel door. Arcing alert flagged. Master Electrician Sarah is en route with thermal imaging equipment. ESA qualification logged. ETA 35 minutes.";
+          smsContent = '"ELECTRICAL EMERGENCY: 200A panel arcing / EV fault. Master Electrician Sarah dispatched (Van 07). ESA permit ticket generated."';
+          DEMOS.mic.audioUrl = '/assets/audio/05_electrical_panel_emergency.mp3';
+          DEMOS.mic.totalSeconds = 17;
+        } else if (promptKey === 'roof') {
+          callerText = "Severe hail just ripped our roof shingles and water is leaking directly through upstairs drywall!";
+          agentText = "Emergency storm priority logged. Estimator Mike dispatched with emergency tarping kit and drone assessment. ETA 40 minutes.";
+          smsContent = '"STORM RESTORATION DISPATCH: Active roof leak. Estimator Mike dispatched with tarp kit (Truck 01). Insurance photo packet initialized."';
+          DEMOS.mic.audioUrl = '/assets/audio/06_roofing_leak_emergency.mp3';
+          DEMOS.mic.totalSeconds = 13;
         } else {
           callerText = "We are reviewing our AWS cloud architecture and want to cut server waste and evaluate serverless static edge.";
           agentText = "Glad you reached out. Principal Architect Saad Sayed has reserved discovery availability this week. Would you like me to hold a 15-minute scoping bridge for your engineering leadership?";
@@ -1555,6 +1770,15 @@ permalink: /products/voice-dispatch/
           b.style.opacity = '';
           b.style.animation = "";
         });
+
+        // Surface simulated dispatch SMS notification
+        var smsCard = document.getElementById('studio-sms-notification');
+        var smsText = document.getElementById('sms-text-content');
+        var demo = DEMOS[activeScenario];
+        if (smsCard && smsText && demo && demo.sms) {
+          smsText.textContent = '"' + demo.sms.urgency + ' — ' + demo.sms.details + '"';
+          smsCard.classList.remove('hidden');
+        }
       }
     })();
   </script>
@@ -1597,6 +1821,12 @@ permalink: /products/voice-dispatch/
         callsInput.addEventListener('input', updateCalculation);
         ticketInput.addEventListener('input', updateCalculation);
         updateCalculation();
+
+        window.setCalcPreset = function (calls, ticket) {
+          callsInput.value = calls;
+          ticketInput.value = ticket;
+          updateCalculation();
+        };
       }
 
       if (document.readyState === 'loading') {

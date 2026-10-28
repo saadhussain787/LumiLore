@@ -21,7 +21,9 @@ export class CommunityRadar {
       { platform: 'reddit', community: 'r/webdev', lens: 'corporate' },
       { platform: 'reddit', community: 'r/smallbusiness', lens: 'dual' },
       { platform: 'reddit', community: 'r/HVAC', lens: 'trades' },
-      { platform: 'reddit', community: 'r/Plumbing', lens: 'trades' }
+      { platform: 'reddit', community: 'r/Plumbing', lens: 'trades' },
+      { platform: 'reddit', community: 'r/Electricians', lens: 'trades' },
+      { platform: 'reddit', community: 'r/Roofing', lens: 'trades' }
     ];
     this.outputFile = options.outputFile || this.config.paths.radarDraftsFile;
     this.draftsOnly = this.config.channels?.communityRadar?.draftsOnly ?? true;
@@ -57,7 +59,14 @@ export class CommunityRadar {
       { term: 'triage', weight: 25 },
       { term: 'voice ai', weight: 25 },
       { term: 'receptionist', weight: 25 },
-      { term: 'dispatch', weight: 20 }
+      { term: 'dispatch', weight: 20 },
+      { term: 'panel upgrade', weight: 35 },
+      { term: 'breaker', weight: 25 },
+      { term: 'ev charger', weight: 25 },
+      { term: 'roof leak', weight: 35 },
+      { term: 'storm damage', weight: 30 },
+      { term: 'emergency tarp', weight: 25 },
+      { term: 'shingles', weight: 20 }
     ]
   };
 
@@ -339,6 +348,34 @@ Good luck with the transition!`;
           author: 'toronto_plumber_mike',
           url: 'https://reddit.com/r/Plumbing/comments/mock_plumbing_triage/',
           createdUtc: Math.floor(Date.now() / 1000) - 5400
+        }
+      ];
+    }
+
+    if (slug === 'electricians') {
+      return [
+        {
+          id: 'electrical-query-001',
+          community: 'r/Electricians',
+          title: 'Losing 200A panel upgrades and EV charger quotes to voicemails at night',
+          body: 'We are a 4-van electrical contracting outfit in Ontario. Most homeowners call about Level 2 EV chargers or upgrading 100A panels after 7 PM. By the time our office calls back next morning, they already booked another licensed electrical contractor. How are you guys automating after-hours phone qualification into Housecall Pro or Jobber?',
+          author: 'sparky_boss_ontario',
+          url: 'https://reddit.com/r/Electricians/comments/mock_electrical_triage/',
+          createdUtc: Math.floor(Date.now() / 1000) - 4800
+        }
+      ];
+    }
+
+    if (slug === 'roofing') {
+      return [
+        {
+          id: 'roofing-query-001',
+          community: 'r/Roofing',
+          title: 'How do you handle 50 calls in 30 minutes when a major hailstorm hits your city?',
+          body: 'Our phone lines melted during yesterday afternoon storm. Voicemail filled up in 10 minutes and homeowners with water actively leaking through their ceiling just kept dialing down Google results. We lost at least 15 roof replacements. Has anyone deployed concurrent AI telephony that answers every call instantly and books emergency tarping crews?',
+          author: 'gta_storm_restoration',
+          url: 'https://reddit.com/r/Roofing/comments/mock_roofing_triage/',
+          createdUtc: Math.floor(Date.now() / 1000) - 4200
         }
       ];
     }

@@ -80,6 +80,48 @@ We architected a dedicated 24/7 telephony dispatch pipeline using WebSockets and
 
 Complete telephony pipeline teardown and code samples are open for review here:
 https://lumilore.ca/insights/autonomous-247-ai-voice-dispatch-mechanical-trades/`
+      },
+      {
+        id: 'REDDIT-ELECTRICAL-003',
+        platform: 'Reddit',
+        targetCommunity: 'r/Electricians & r/smallbusiness',
+        threadType: 'Contractor Automation Case Study',
+        title: 'How after-hours 24/7 AI call triage qualified 14 extra 200A panel upgrades and EV charger quotes in 30 days',
+        hook: 'High-ticket electrical jobs ($3,500 panel upgrades and $1,800 EV charger installs) usually call after work hours. If you send them to voicemail, they call the next licensed contractor on Google.',
+        authorVoice: 'Saad Sayed (Principal Systems Architect)',
+        keyPoints: [
+          'Real-time technical qualification: asks incoming service size (60A/100A), panel brand, and EV charger requirements.',
+          'Immediate safety triage: identifies arcing noises or smoking breakers and prompts immediate main breaker cut.',
+          'Synchronizes with Jobber and Housecall Pro dispatch boards in seconds.'
+        ],
+        canonicalCitationUrl: `${this.config.persona.canonicalDomain}/products/voice-dispatch/`,
+        fullPostContent: `Hey r/Electricians,
+
+Electricians know that high-value panel upgrades ($3,500+) and Level 2 EV charger installs ($1,800) come from homeowners researching at 8:00 PM after work. If they get a voicemail, 80% hang up and call the next 309A master electrician on Google.
+
+We deployed 24/7 conversational voice AI that picks up on the first ring, asks the right technical questions (existing service amps, panel make, distance to garage), and schedules arrival windows directly into Jobber.
+
+Result for a 4-van electrical contractor: 14 extra closed panel jobs in month one with zero dispatcher burnout.`
+      },
+      {
+        id: 'REDDIT-ROOFING-004',
+        platform: 'Reddit',
+        targetCommunity: 'r/Roofing & r/Contractor',
+        threadType: 'Storm Response Telephony Teardown',
+        title: 'Capturing $15,000 storm restoration leads in the first 20 minutes after severe hail: The AI telephony playbook',
+        hook: 'When a hailstorm hits a suburb, 50 homeowners call simultaneously. Human dispatchers get overwhelmed; AI answers 50 calls at the exact same second on ring one.',
+        authorVoice: 'Saad Sayed (Principal Systems Architect)',
+        keyPoints: [
+          'Zero busy signals: infinite concurrent line answering during major weather events.',
+          'Captures critical insurance claim info, leak location, and attic drywall penetration status.',
+          'Automatically dispatches emergency tarping crews based on geographic storm severity corridors.'
+        ],
+        canonicalCitationUrl: `${this.config.persona.canonicalDomain}/products/voice-dispatch/`,
+        fullPostContent: `Hey r/Roofing,
+
+When a hailstorm drops 2-inch hail across a subdivision, the contractor whose phone actually answers is the one who locks in the $12,000–$18,000 insurance roof replacements.
+
+Traditional office lines get jammed immediately with busy signals. We deployed an AWS SIP telephony mesh that answers all 50 concurrent incoming calls simultaneously, logs property addresses, schedules drone roof inspections, and alerts field estimators via instant SMS.`
       }
     ];
 
