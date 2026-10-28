@@ -1,4 +1,4 @@
-# LumiLore Project State // Sprints 1–15 Completed (Production Certified) | Sprints 16–18 Queued (Walkthrough Audit Remediation)
+# LumiLore Project State // Sprints 1–17 Completed (Production Certified) | Sprint 18 Queued
 
 ## Active AWS Environment
 - **Account ID:** `303238378489`
@@ -133,6 +133,18 @@
   - **Phase 3:** Top-level IA harmonization (merged `Services` and `Products` into `Solutions ▾`; 4 core nav items; WAI-ARIA keyboard cyclic navigation).
   - **Phase 4:** Mobile drawer expandable accordions (`Solutions` + `Case Studies & Proof`) with 100% WCAG AA 48×48px minimum touch targets.
   - **Phase 5:** Header CTA hierarchy, Canadian carrier direct telephony actions (`tel:4378487086`), 1,137 links checked (0 broken), 100% master regression suite pass. **SPRINT 15 IS 100% COMPLETE.**
+- Artifact: `scratch/run_full_sprint16_suite.mjs` (Sprint 16: Cognitive Load Reduction & Visual De-Cluttering — 100% Complete & Production Certified)
+  - **Phase 1:** Card badge & neon glow de-noise sweep across homepage and product pages.
+  - **Phase 2:** Hero & section typography hierarchy calibration; converted feature grids into punchy 3-bullet outcome lists.
+  - **Phase 3:** Conversion path & primary CTA consolidation ("Get Your Free Instant AI Audit" + "437-848-7086").
+  - **Phase 4:** Software ecosystem credibility badges (ServiceTitan, Jobber, Housecall Pro, QuickBooks, Zapier, Google Calendar).
+  - **Phase 5:** 100% regression sweep across 18 routes, 1,137 links (0 broken). **SPRINT 16 IS 100% COMPLETE.**
+- Artifact: [sprint_17_implementation_plan.md](file:///C:/Users/saadh/.gemini/antigravity/brain/50333379-d148-4574-abbb-0e2196ce1345/sprint_17_implementation_plan.md) (Sprint 17: "Trades English" Copywriting & Contractor Vernacular Overhaul — 100% Complete & Production Certified)
+  - **Phase 1:** Voice dispatch & autonomous booking overhaul: replaced abstract AI jargon with plain contractor English ("Never miss an emergency call when your crew is on a job or asleep", "Texts your on-call tech", "Stop playing phone tag").
+  - **Phase 2:** Local dominance copy overhaul for GEO & Speed Engine: translated generative engine optimization to "Be the #1 recommended contractor when homeowners ask Siri, Google, or ChatGPT 'Who is the best contractor near me?'", and Jamstack speed to "Websites that load in under 1 second on mobile phones at the job site with bad cell service".
+  - **Phase 3:** Content Engine & Enterprise Catalog overhaul: Google Business Profile updates, project photos, 5-star review highlights, digital field manuals, and dispatch automation.
+  - **Phase 4:** Universal subpage Dual-Lens context synchronization: ensured `.lens-corp` vs `.lens-trade` dynamic CSS switching across all 6 product pages with URL parameter hydration (`?lens=trades`).
+  - **Phase 5:** Flesch-Kincaid Grade 6–8 contractor readability certification, production compilation via Tailwind v4 & Eleventy across 18 routes, 1,137 links checked (0 broken), 7/7 master test suites passed in `scratch/run_full_sprint17_suite.mjs`. **SPRINT 17 IS 100% COMPLETE.**
 
 ---
 
