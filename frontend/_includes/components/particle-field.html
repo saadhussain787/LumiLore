@@ -254,7 +254,9 @@
 
       function startLoop() {
         if (!rafId && isCanvasVisible && isTabVisible) {
-          clock.start();
+          if (!clock.running) {
+            clock.start();
+          }
           animate();
         }
       }
@@ -263,6 +265,9 @@
         if (rafId) {
           cancelAnimationFrame(rafId);
           rafId = null;
+        }
+        if (clock && clock.running) {
+          clock.stop();
         }
       }
 
@@ -331,7 +336,36 @@
       }
 
       window.disposeLumiParticleSystem = disposeThreeScene;
-      window.addEventListener('beforeunload', disposeThreeScene, { once: true });
+
+      // --- bfcache Optimization: Non-Destructive pagehide & pageshow Lifecycle ---
+      // Replaces destructive beforeunload, allowing modern browsers (Chrome/Safari/Firefox)
+      // to retain DOM & WebGL context in bfcache for sub-50ms back/forward transitions.
+      window.addEventListener('pagehide', (e) => {
+        isCanvasVisible = false;
+        stopLoop();
+        // If the page is NOT persisted in bfcache, perform full garbage collection
+        if (!e.persisted) {
+          disposeThreeScene();
+        }
+      });
+
+      window.addEventListener('pageshow', (e) => {
+        isCanvasVisible = true;
+        isTabVisible = !document.hidden;
+        if (e.persisted) {
+          // Check if viewport dimensions shifted while cached
+          if (renderer && camera) {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+          }
+          // Restored from bfcache: ensure clock delta is reset and resume render loop cleanly
+          if (clock) {
+            clock.start();
+          }
+          startLoop();
+        }
+      });
 
       // --- Handle Resize with Cross-Breakpoint Adaptation ---
       let resizeTimer = null;

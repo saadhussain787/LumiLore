@@ -2058,12 +2058,20 @@ layout: layout.html
     // Refresh all ScrollTriggers to account for the new pin spacer heights
     window.debounceScrollTriggerRefresh(100);
 
-    // --- Clean ScrollTrigger Teardown on Page Unload ---
-    window.addEventListener('beforeunload', () => {
-      if (typeof ScrollTrigger !== 'undefined') {
+    // --- Non-Destructive bfcache & ScrollTrigger Lifecycle Teardown ---
+    window.addEventListener('pagehide', (e) => {
+      // If entering bfcache, preserve ScrollTriggers; only kill on permanent teardown
+      if (!e.persisted && typeof ScrollTrigger !== 'undefined') {
         ScrollTrigger.getAll().forEach(t => t.kill());
       }
-    }, { once: true });
+    });
+
+    window.addEventListener('pageshow', (e) => {
+      // Refresh ScrollTrigger calculations cleanly when restored from bfcache
+      if (e.persisted && typeof window.debounceScrollTriggerRefresh === 'function') {
+        window.debounceScrollTriggerRefresh(50);
+      }
+    });
   }
 
   // Trigger GSAP hydration on idle deadline or first interaction gesture

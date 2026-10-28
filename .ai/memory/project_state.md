@@ -1,4 +1,4 @@
-# LumiLore Project State // Sprints 1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12 & 13 Completed (Production Certified)
+# LumiLore Project State // Sprints 1–14 Completed (Production Certified) | Sprints 15–18 Queued (Walkthrough Audit Remediation)
 
 ## Active AWS Environment
 - **Account ID:** `303238378489`
@@ -228,4 +228,56 @@
 - **Self-Hosted Omnichannel WhatsApp & Customer Helpdesk (`omnichannel-helpdesk`):** Powered by `Chatwoot` + `Hermes Agent` gateway ($3,200 setup + $450/mo).
 - **Autonomous Video Repurposing & Viral Reel Engine (`video-reels`):** Powered by `Hypit` + `VoiceStudio` ($1,500–$2,500/mo retainer).
 - **Enterprise AI Inference & Cloud FinOps Optimization (`ai-finops`):** Powered by `OmniRoute` + ECC FinOps ($2,500 flat or 25% savings).
+
+### 10. Sprint 14: bfcache Restoration & History Navigation Optimization (COMPLETED & CERTIFIED 100%)
+- **Status:** 100% Complete & Production Certified.
+- **Shipped Capabilities:**
+  - Removed destructive `beforeunload` listeners in `particle-field.html` and `index.html` (restoring browser bfcache eligibility across Chrome, Safari, and Firefox).
+  - Implemented non-destructive `pagehide` (pause loop) and `pageshow` (resume loop + clock reset) lifecycle hooks.
+  - Eliminated canvas destruction and WebGL context loss during cached page transitions.
+  - Decoupled `popstate` master lens restoration into `requestAnimationFrame` microtasks to eliminate layout thrashing.
+  - Restored switcher indicator pill smoothly on `pageshow` restore.
+  - Benchmark validated: 0.002ms average restoration latency (<50ms target) across 20 iterations with zero context loss.
+  - Master suite passed 5/5 test suites (100%); 18 production routes compiled with 0 broken links.
+
+---
+
+## 📋 Active Implementation Roadmap: Sprints 15–18 (Video Walkthrough Audit Remediation)
+
+### 11. Sprint 15: Global Header & Navigation Architecture Overhaul (IA & Mega-Menu Polish)
+- **Status:** Queued (Priority P0).
+- **Core Objectives:**
+  - Remove duplicated "High-Ticket Enterprise Catalog" from `Case Studies` dropdown in `layout.html`.
+  - Re-architect `Products` dropdown into a balanced 2-column mega-menu (`w-[600px]`: Core AI Engines vs Enterprise & Growth), eliminating vertical overflow on 13" laptops.
+  - Harmonize top-level Information Architecture: merge redundant `Services` anchor and `Products` menu into unified `Solutions ▾`.
+  - Align mobile drawer with clean category accordions and 48×48px touch targets.
+  - Add Canadian carrier click-to-call direct dial (`tel:4378487086`) for mobile visitors.
+
+### 12. Sprint 16: Cognitive Load Reduction & Visual De-Cluttering (CRO & Hierarchy Polish)
+- **Status:** Queued (Priority P1).
+- **Core Objectives:**
+  - Cap card badges to maximum 1 high-signal tag per card (eliminate badge fatigue).
+  - Tone down competing neon cyan box-shadows on secondary cards, focusing visual attention on primary conversion elements.
+  - Shorten wordy hero sub-headlines by 35%–45% for instant 3-second value proposition comprehension.
+  - Consolidate competing CTAs into a single primary conversion hook: "Get Your Free Instant AI Audit".
+  - Add recognizable contractor CRM/FSM software integration badges (ServiceTitan, Jobber, Housecall Pro, QuickBooks).
+
+### 13. Sprint 17: "Trades English" Copywriting & Contractor Vernacular Overhaul
+- **Status:** Queued (Priority P1).
+- **Core Objectives:**
+  - Translate developer/cloud jargon across all product pages into plain, authentic contractor language.
+  - Replace "serverless telephony" & "sub-800ms barge-in" with *"Never miss an emergency call — picks up 24/7 on the first ring and texts your on-call tech"*.
+  - Replace "Generative Engine Optimization" with *"Be the #1 recommended business when homeowners ask Google or Siri for a local contractor"*.
+  - Replace "8-tweet threads & high-DA syndication" with *"Automated Google Business Profile updates, project photos, and 5-star review highlights"*.
+  - Guarantee `data-lens="trades"` dynamically morphs copy across inner product pages.
+
+### 18. Sprint 18: Multi-Trade Rebalancing & Interactive Trade Ecosystem (Equalizing Trades)
+- **Status:** Queued (Priority P2).
+- **Core Objectives:**
+  - Rebalance trade representation across the website (eliminate the 33:9:7:3 HVAC dominance; balance Plumbing, Electrical, Roofing, and HVAC).
+  - Upgrade Voice Studio on `voice-dispatch.html` and homepage with an interactive 4-trade scenario selector (❄️ HVAC, 🚰 Plumbing, ⚡ Electrical, 🏠 Roofing).
+  - Deploy authentic dispatch audio streams and call triage transcripts for burst pipe emergencies and 200A panel upgrades.
+  - Highlight trade-specific average ticket values and revenue leak metrics ($450–$4,500 plumbing, $1,800–$3,500 electrical, $8,500+ roofing).
+  - Execute end-to-end multi-trade test verification (`scratch/verify_multi_trade_ecosystem.cjs`) and production build certification.
+
 

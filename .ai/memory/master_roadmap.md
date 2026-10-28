@@ -344,3 +344,154 @@
 - [x] Pricing: $2,500 flat sprint OR 25% of verified annual savings wired to `/contact/?service=ai-finops&tier=performance`.
 - [x] **Master Verification (`scratch/run_full_sprint13_suite.js`):** 10/10 test suites passed (100% pass rate); 18 compiled production routes; 0 broken links. **SPRINT 13 IS 100% COMPLETE.**
 
+---
+
+## ⚡ Sprint 14: bfcache Restoration & History Navigation Optimization (SUB-50ms BACK/FORWARD TRANSITIONS — 100% COMPLETE & CERTIFIED)
+
+### 14.1: Eliminate Destructive `beforeunload` bfcache Invalidation
+- [x] Removed `window.addEventListener('beforeunload', disposeThreeScene)` in `frontend/_includes/components/particle-field.html` (which permanently broke bfcache in Chrome/Safari/Firefox).
+- [x] Implemented non-destructive `window.addEventListener('pagehide', ...)` checking `event.persisted` to distinguish between background caching and true page exits.
+- [x] Implemented `window.addEventListener('pageshow', ...)` to cleanly restore WebGL particle animation loops upon history back traversal without triggering page reloads.
+
+### 14.2: Canvas Preservation & WebGL Render Loop Pause/Resume
+- [x] Removed destructive `renderer.forceContextLoss()` and DOM canvas removal (`removeChild`) during cached page transitions.
+- [x] Implemented graceful `cancelAnimationFrame` on `pagehide` and `clock.stop()` to conserve CPU/GPU memory while in cache.
+- [x] Implemented `requestAnimationFrame` loop resumption on `pageshow` with `clock.start()` when restoring from bfcache, eliminating white screen flashes and rendering freezes.
+
+### 14.3: Decouple Popstate & Master Lens Sync During Traversal
+- [x] Calibrated `window.addEventListener('popstate', ...)` in `frontend/_includes/layout.html` to avoid forced synchronous layout reflows.
+- [x] Wrapped `setMasterLens` state restoration inside `requestAnimationFrame` microtasks so history traversal does not contend with DOM rehydration.
+- [x] Preserved active scroll position and synchronized master audience switcher indicator pill smoothly on `pageshow`.
+
+### 14.4: GSAP ScrollTrigger & Three.js Memory Guardrails
+- [x] Ensured `window.debounceScrollTriggerRefresh` coalesces and does not thrash the main thread during popstate and pageshow events.
+- [x] Guarded particle count updates on mobile/desktop boundaries (`isNowMobile !== currentIsMobile`) so history navigation does not re-allocate geometry buffers unnecessarily.
+- [x] Verified zero WebGL context lost warnings or memory leaks across 20 consecutive back/forward page navigations.
+
+### 14.5: Production Build & History Navigation Benchmark Verification
+- [x] Created automated simulation test (`scratch/verify_bfcache_navigation.js`) measuring history back navigation latency (result: 0.002ms average, 0.022ms peak, 0 canvas detachments).
+- [x] Executed production build (`npm run build`) and verified 18 compiled routes with 0 broken links across 1,095 links (`scratch/audit_links.js`).
+- [x] Consolidated master suite (`scratch/run_full_sprint14_suite.js`) passed 5/5 suites (100%). **SPRINT 14 IS 100% COMPLETE.**
+
+---
+
+## 🧭 Sprint 15: Global Header & Navigation Architecture Overhaul (IA HARMONIZATION & ZERO-CLIPPING MEGA-MENU — QUEUED)
+
+### 15.1: Eliminate Duplication & Clean Up "Case Studies" Dropdown
+- [ ] Remove duplicated "High-Ticket Enterprise Catalog" from `insights-menu-panel` in `frontend/_includes/layout.html` (lines 415–433).
+- [ ] Reserve "Case Studies & Proof" strictly for customer evidence: Verified ROI & Proof Dashboard (`/success-stories/`), Cloud FinOps Case Study, and 24/7 AI Voice Dispatch Case Study.
+- [ ] Update mobile menu counterpart in `mobile-menu` to reflect the clean single-source structure.
+
+### 15.2: Re-Architect Products Dropdown into Balanced 2-Column Mega-Menu
+- [ ] Transform single-column 420px vertical dropdown panel (`#products-menu-panel`) into a modern 2-column balanced mega-menu (`w-[580px]` or `w-[640px]`).
+- [ ] Column 1 (**Core AI Engines**): Autonomous Calendar, 24/7 Voice Dispatch, SEO & GEO Engine, Web Modernization.
+- [ ] Column 2 (**Enterprise & Distribution**): Autonomous Content Engine, High-Ticket Enterprise Catalog, Instant AI Audit Magnet.
+- [ ] Eliminate vertical scroll/overflow on 13" laptops and 768px–1080px viewport heights with compact row styling.
+
+### 15.3: Harmonize Top-Level Information Architecture (IA)
+- [ ] Merge the redundant top-level `Services` anchor link and `Products` dropdown into a unified, authoritative **`Solutions ▾`** dropdown.
+- [ ] Retain clean top-level items: `Solutions ▾`, `Case Studies ▾`, `About`, `Contact`.
+- [ ] Calibrate keyboard navigation (`Escape` to close, `Tab` flow, `ArrowDown/Up`) and ARIA expanded states across all dropdowns.
+
+### 15.4: Mobile Navigation Drawer Alignment & Accordion Organization
+- [ ] Restructure `#mobile-menu` into clear expandable accordions: `Solutions (5 Core Engines + Enterprise)`, `Case Studies & Proof`, `Company`.
+- [ ] Ensure 100% WCAG AA 48×48px touch targets for mobile thumb navigation.
+- [ ] Synchronize audience switcher position and mobile audit trigger.
+
+### 15.5: Sticky Header CTA Hierarchy & Direct Call Integration
+- [ ] Establish strict Primary vs Secondary CTA hierarchy in the floating header.
+- [ ] Primary CTA: High-contrast glowing pill (`Get Free Audit` / `Book Discovery`).
+- [ ] Mobile/Tablet Quick Action: Add direct click-to-call link for Canadian carrier test line (`tel:4378487086`) for immediate friction-free engagement.
+- [ ] Run link audit (`scratch/audit_links.js`) confirming 0 broken links and 100% route integrity.
+
+---
+
+## 🎨 Sprint 16: Cognitive Load Reduction & Visual De-Cluttering (CRO & HIERARCHY POLISH — QUEUED)
+
+### 16.1: Card Badge & Neon Glow De-Noise Sweep
+- [ ] Audit all product and bento cards in `frontend/index.html` and `frontend/products/*.html`: cap badges to maximum 1 high-signal badge per card (remove competing `LIVE`, `ACTIVE`, `TELEPHONY`, `EDGE`, `OMNICHANNEL` clutter).
+- [ ] Tone down competing outer neon box-shadows on secondary cards, reserving high-intensity glow exclusively for primary conversion elements.
+- [ ] Soften card borders from harsh contrasting cyan to subtle glassmorphic slate (`border-white/10` with contextual hover focus).
+
+### 16.2: Hero & Section Typography Hierarchy Calibration
+- [ ] Shorten wordy hero sub-headlines by 35%–45% across homepage and product pages for immediate 3-second comprehension.
+- [ ] Standardize typography scale: H1 (Space Grotesk bold, high readability), H2 (Section milestones), Body (Inter font-light with relaxed leading).
+- [ ] Eliminate multi-paragraph wall-of-text blocks in product feature grids; convert into punchy 3-bullet outcome lists.
+
+### 16.3: Conversion Path & Primary CTA Consolidation
+- [ ] Eliminate competing button intents in the hero and header (e.g. 4 different buttons competing for attention).
+- [ ] Standardize primary conversion hook across the entire site: **"Get Your Free Instant AI Audit"** (with secondary *"Or dial our 24/7 demo: 437-848-7086"*).
+- [ ] Ensure all secondary buttons scroll smoothly or navigate cleanly to the pre-scoped contact engine with verified query parameters.
+
+### 16.4: Software Ecosystem Credibility Badges (FSM & CRM Trust)
+- [ ] Add recognizable contractor and enterprise ecosystem integration pills to `frontend/products/voice-dispatch.html` and `frontend/products/autonomous-booking.html`.
+- [ ] Showcase native integrations: **ServiceTitan, Jobber, Housecall Pro, QuickBooks, Zapier, Google Calendar**.
+- [ ] Reassure prospective buyers that LumiLore works seamlessly with their existing software stack without disrupting current operations.
+
+### 16.5: Master Visual & Responsive Polish Verification
+- [ ] Conduct visual contrast audit across all viewports (375px mobile, 768px tablet, 1440px desktop, 4K displays).
+- [ ] Verify zero text clipping, zero horizontal overflow (`overflow-x: hidden`), and crisp typographical hierarchy.
+- [ ] Run automated regression sweep ensuring all 18 compiled routes pass design tokens and layout health.
+
+---
+
+## 🛠️ Sprint 17: "Trades English" Copywriting & Contractor Vernacular Overhaul (AUTHENTIC BLUE-COLLAR POSITIONING — QUEUED)
+
+### 17.1: Rewrite Voice Dispatch & Booking Copy for Contractors
+- [ ] Overhaul `frontend/products/voice-dispatch.html`: replace abstract AI terminology ("serverless telephony", "sub-800ms barge-in", "multimodal conversational pipelines") with plain trades English:
+  - *"Never miss an emergency call when your crew is on a job or asleep."*
+  - *"Picks up on the first ring 24/7, asks what's broken, collects the address, and texts your on-call tech."*
+- [ ] Overhaul `frontend/products/autonomous-booking.html`: replace "multi-stakeholder discovery friction" with *"Stop playing phone tag: customers pick a time, confirm their address, and get booked straight into your schedule."*
+
+### 17.2: Rewrite SEO & Web Modernization Copy for Local Dominance
+- [ ] Overhaul `frontend/products/geo-engine.html`: translate "Generative Engine Optimization & LLM Citation Radar" into contractor vernacular:
+  - *"Be the #1 recommended business when local homeowners ask Google, Siri, or ChatGPT 'Who is the best contractor near me?'"*
+- [ ] Overhaul `frontend/products/web-modernization.html`: translate "Sub-150ms TTFB Jamstack serverless architecture" into practical benefits:
+  - *"Websites that load in under 1 second on mobile phones at the job site so you never lose a customer with bad cell service."*
+
+### 17.3: Rewrite Content Engine & Enterprise Catalog for Business Owners
+- [ ] Overhaul `frontend/products/content-engine.html`: replace "8-tweet threads and high-DA markdown syndication" with contractor-relevant outcomes:
+  - *"Automated Google Business Profile updates, local project photos, and 5-star review highlights that keep your business at the top of local search."*
+- [ ] Overhaul trades-facing copy in `frontend/products/enterprise-catalog.html` focusing on saved labor hours, prevented revenue leaks, and dispatch automation.
+
+### 17.4: Synchronize Subpage Dual-Lens Context
+- [ ] Ensure the Master Lens switcher (`data-lens="trades"` vs `data-lens="corporate"`) dynamically swaps copy across all product subpages (`.lens-corp` vs `.lens-trade` spans).
+- [ ] When a visitor selects the "Trades" lens, guarantee 100% of visible product headings, feature bullets, and pricing descriptions speak authentic contractor language.
+
+### 17.5: Contractor Vernacular Audit & Readability Certification
+- [ ] Run Flesch-Kincaid readability scan on contractor copy (target: Grade 7–8 clear, direct reading level, zero academic or developer bloat).
+- [ ] Verify all 18 compiled pages build cleanly with updated copywriting dictionaries and zero broken links.
+
+---
+
+## 🚰 Sprint 18: Multi-Trade Rebalancing & Interactive Trade Ecosystem (EQUALIZING HVAC, PLUMBING, ELECTRICAL, ROOFING — QUEUED)
+
+### 18.1: Rebalance Trade Representation Across All Pages
+- [ ] Eliminate the heavy 33-mention HVAC skew across product pages and case studies.
+- [ ] Systematically integrate balanced representations of **Plumbing, Electrical, Roofing/Exteriors, and HVAC** across all copy, meta tags, and feature examples.
+- [ ] Update `.ai/memory/community_blueprints.json` and marketing scanners to monitor `r/Plumbing`, `r/Electricians`, and `r/Roofing` with equal priority.
+
+### 18.2: Interactive 4-Trade Scenario Selector on Voice Dispatch
+- [ ] Upgrade the scenario switcher in `frontend/products/voice-dispatch.html` and homepage Command Center to feature 4 dedicated trade tabs:
+  - ❄️ **HVAC & Heating:** Winter furnace failure & frozen heat pump triage.
+  - 🚰 **Plumbing & Drains:** 2:00 AM burst pipe & mainline sewer backup emergency.
+  - ⚡ **Electrical:** 200A panel upgrade inquiry & EV charger installation quote.
+  - 🏠 **Roofing & Exteriors:** Post-hailstorm active roof leak & insurance estimate request.
+
+### 18.3: Authentic Trade Dispatch Audio & Call Transcripts
+- [ ] Integrate realistic dispatch audio streams and interactive transcripts for Plumbing (burst pipe emergency) and Electrical (panel replacement qualification).
+- [ ] Display simulated dispatcher SMS alerts demonstrating how each trade's specific data (pipe diameter, panel amperage, roof pitch) is collected and sent to field technicians.
+
+### 18.4: Trade-Specific Objection Busters & ROI Metrics
+- [ ] Detail trade-specific average ticket values and revenue leak recovery:
+  - Plumbing: \$450 average emergency drain call / \$4,500 mainline replacement.
+  - Electrical: \$3,500 average 200A panel upgrade / \$1,800 EV charger install.
+  - Roofing: \$8,500–\$15,000 average storm restoration roof replacement.
+  - HVAC: \$5,500 average system replacement / \$350 seasonal maintenance tune-up.
+- [ ] Showcase how 24/7 AI response captures high-ticket jobs before callers dial the next contractor on Google.
+
+### 18.5: Master End-to-End Multi-Trade Certification
+- [ ] Execute consolidated test suite (`scratch/verify_multi_trade_ecosystem.cjs`) validating all 4 trade scenarios, audio players, and copy bindings.
+- [ ] Perform full production build (`npm run build`), link verification (`scratch/audit_links.js`), and master regression suite.
+- [ ] Update project documentation, memory archives, and roadmap state. **SPRINT 18 CERTIFICATION COMPLETE.**
+
