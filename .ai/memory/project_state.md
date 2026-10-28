@@ -1,4 +1,4 @@
-# LumiLore Project State // Sprints 1–14 Completed (Production Certified) | Sprints 15–18 Queued (Walkthrough Audit Remediation)
+# LumiLore Project State // Sprints 1–15 Completed (Production Certified) | Sprints 16–18 Queued (Walkthrough Audit Remediation)
 
 ## Active AWS Environment
 - **Account ID:** `303238378489`
@@ -125,6 +125,14 @@
   - **13.5 Autonomous Video Repurposing & Viral Reel Engine (`videoReelsEngine.js`):** Powered by `hypit-ai/hypit` + `debpalash/VoiceStudio` auto-clipping webinars into 15 vertical 9:16 reels with kinetic subtitles and cloned voice audio ($1,500–$2,500/mo retainer).
   - **13.6 Enterprise AI Inference & Cloud FinOps Optimization (`omniRouteFinOps.js`):** Powered by `cheaper-inference/OmniRoute` + ECC FinOps implementing multi-provider quota routing and token compression cutting ongoing AI bills by 30%–70% ($2,500 flat sprint OR 25% of verified annual savings).
   - **13.7 Commercial Hub, Global Nav & Master Verification:** Shipped `/products/enterprise-catalog/` with 6 interactive sandboxes/calculators, Schema.org `OfferCatalog` JSON-LD, header/footer nav links, `/contact/` parameter attribution, and SES email badges. Passed 10/10 verification suites in `scratch/run_full_sprint13_suite.js` (100% pass). **SPRINT 13 IS 100% COMPLETE.**
+- Artifact: `scratch/run_full_sprint14_suite.js` (Sprint 14: bfcache Restoration & History Navigation Optimization — 100% Complete & Production Certified)
+  - Non-destructive `pagehide`/`pageshow` WebGL lifecycle hooks, popstate lens sync decoupling, 0.002ms restoration latency benchmark, zero canvas detachments. **SPRINT 14 IS 100% COMPLETE.**
+- Artifact: [sprint_15_implementation_plan.md](file:///C:/Users/saadh/.gemini/antigravity/brain/3c620922-21fc-4909-b253-b2afc0422983/sprint_15_implementation_plan.md) (Sprint 15: Global Header & Navigation Architecture Overhaul — 100% Complete & Production Certified)
+  - **Phase 1:** Case Studies dropdown de-duplication (removed misplaced enterprise catalog; reserved for verified ROI evidence).
+  - **Phase 2:** Balanced 2-column mega-menu (`w-[620px] sm:w-[680px]` with zero-clipping overflow guard: Core AI Engines vs Enterprise & Scale).
+  - **Phase 3:** Top-level IA harmonization (merged `Services` and `Products` into `Solutions ▾`; 4 core nav items; WAI-ARIA keyboard cyclic navigation).
+  - **Phase 4:** Mobile drawer expandable accordions (`Solutions` + `Case Studies & Proof`) with 100% WCAG AA 48×48px minimum touch targets.
+  - **Phase 5:** Header CTA hierarchy, Canadian carrier direct telephony actions (`tel:4378487086`), 1,137 links checked (0 broken), 100% master regression suite pass. **SPRINT 15 IS 100% COMPLETE.**
 
 ---
 
@@ -244,14 +252,16 @@
 
 ## 📋 Active Implementation Roadmap: Sprints 15–18 (Video Walkthrough Audit Remediation)
 
-### 11. Sprint 15: Global Header & Navigation Architecture Overhaul (IA & Mega-Menu Polish)
-- **Status:** Queued (Priority P0).
-- **Core Objectives:**
-  - Remove duplicated "High-Ticket Enterprise Catalog" from `Case Studies` dropdown in `layout.html`.
-  - Re-architect `Products` dropdown into a balanced 2-column mega-menu (`w-[600px]`: Core AI Engines vs Enterprise & Growth), eliminating vertical overflow on 13" laptops.
-  - Harmonize top-level Information Architecture: merge redundant `Services` anchor and `Products` menu into unified `Solutions ▾`.
-  - Align mobile drawer with clean category accordions and 48×48px touch targets.
-  - Add Canadian carrier click-to-call direct dial (`tel:4378487086`) for mobile visitors.
+### 11. Sprint 15: Global Header & Navigation Architecture Overhaul (IA & Mega-Menu Polish) (COMPLETED & CERTIFIED 100%)
+- **Status:** 100% Complete & Production Certified (6/6 Suites Passed).
+- **Shipped Capabilities:**
+  - Removed duplicated "High-Ticket Enterprise Catalog" from `insights-menu-panel` in `frontend/_includes/layout.html`, reserving Case Studies exclusively for customer proof and empirical ROI evidence.
+  - Re-architected dropdown into a balanced 2-column mega-menu (`w-[620px] sm:w-[680px]` with compact rows and `max-h-[85vh]` zero-clipping overflow guard): Column 1 (**Core AI Engines**) vs Column 2 (**Enterprise & Scale**).
+  - Harmonized top-level Information Architecture: merged redundant `Services` link and `Products` dropdown into a unified, authoritative **`Solutions ▾`** dropdown (`Solutions ▾`, `Case Studies ▾`, `About`, `Contact`).
+  - Implemented comprehensive WAI-ARIA keyboard navigation (`Escape` to close & refocus, `ArrowDown`/`ArrowUp` cyclic navigation, `Home`/`End`, synchronized `aria-expanded` and `role="menu"`).
+  - Upgraded `#mobile-menu` drawer into accessible expandable accordions (`Solutions` and `Case Studies & Proof`) with 100% WCAG AA 48×48px minimum touch targets.
+  - Integrated Canadian carrier direct click-to-call telephony actions (`tel:4378487086`) across both desktop header and mobile/tablet drawer.
+  - Production build compiled 18 routes in 0.20s; deep link audit verified 1,137 links with 0 broken links; master suite (`scratch/run_full_sprint15_suite.js`) passed 6/6 test suites (100%).
 
 ### 12. Sprint 16: Cognitive Load Reduction & Visual De-Cluttering (CRO & Hierarchy Polish)
 - **Status:** Queued (Priority P1).

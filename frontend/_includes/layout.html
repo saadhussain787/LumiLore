@@ -174,23 +174,14 @@
               onerror="this.onerror=null; this.src='/public/logo.webp';" alt="LumiLore Technologies">
           </a>
 
-          <!-- Desktop Navigation Links -->
+          <!-- Desktop Navigation Links (Sprint 15 IA Harmonization: Solutions, Case Studies, About, Contact) -->
           <nav class="hidden lg:flex items-center space-x-6 xl:space-x-8" aria-label="Main Navigation">
-            <a href="/#services-orbit-section"
-              class="group relative text-sm font-medium text-slate-300 hover:text-white transition-colors py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded">
-              Services
-              <span
-                class="absolute bottom-0 left-0 w-full h-0.5 bg-cyan-glow scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-spring shadow-[0_0_8px_rgba(0,242,254,0.8)]"></span>
-            </a>
-
-            <!-- Products Dropdown (Micro-Step 5.3 & Micro 9.1 Hardening) -->
-            <div class="relative group" id="nav-products-dropdown">
+            <!-- Solutions Mega-Menu Dropdown (Sprint 15.2 & 15.3: Balanced 2-Column Mega-Menu) -->
+            <div class="relative group" id="nav-solutions-dropdown">
               <button type="button"
                 class="group relative text-sm font-medium text-slate-300 hover:text-white transition-colors py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded inline-flex items-center gap-1.5 cursor-pointer"
-                aria-expanded="false" aria-haspopup="true" id="products-menu-button">
-                <span>Products</span>
-                <span
-                  class="inline-flex items-center px-1.5 py-0.2 rounded text-[9px] font-mono font-bold uppercase tracking-wider text-cyan-300 bg-cyan-950/80 border border-cyan-400/30">NEW</span>
+                aria-expanded="false" aria-haspopup="true" id="solutions-menu-button">
+                <span>Solutions</span>
                 <svg
                   class="w-3.5 h-3.5 text-slate-400 group-hover:text-cyan-300 transition-transform duration-200 group-hover:rotate-180"
                   fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -200,159 +191,189 @@
                   class="absolute bottom-0 left-0 w-full h-0.5 bg-cyan-glow scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-spring shadow-[0_0_8px_rgba(0,242,254,0.8)]"></span>
               </button>
 
-              <!-- Glassmorphic Dropdown Panel with Zero-Gap Hover Bridge -->
+              <!-- Glassmorphic Dropdown Panel with Zero-Gap Hover Bridge & Balanced 2-Column Mega-Menu -->
               <div
-                class="absolute top-full left-0 pt-2 w-96 sm:w-[420px] opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible data-[open=true]:opacity-100 data-[open=true]:visible transition-all duration-200 z-50 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto data-[open=true]:pointer-events-auto"
-                id="products-menu-panel" role="menu" aria-labelledby="products-menu-button">
+                class="absolute top-full -left-6 sm:-left-12 pt-2 w-[620px] sm:w-[680px] max-w-[calc(100vw-2rem)] opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible data-[open=true]:opacity-100 data-[open=true]:visible transition-all duration-200 z-50 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto data-[open=true]:pointer-events-auto"
+                id="solutions-menu-panel" role="menu" aria-labelledby="solutions-menu-button">
                 <!-- Inner Glassmorphic Card -->
                 <div
-                  class="relative rounded-2xl bg-[#070E1A]/95 backdrop-blur-2xl border border-cyan-400/30 p-2 shadow-[0_20px_50px_rgba(0,0,0,0.85),0_0_30px_rgba(0,242,254,0.18)] before:content-[''] before:absolute before:-top-3 before:left-0 before:w-full before:h-3 before:bg-transparent space-y-1">
+                  class="relative rounded-2xl bg-[#070E1A]/95 backdrop-blur-2xl border border-cyan-400/30 p-3 shadow-[0_20px_50px_rgba(0,0,0,0.85),0_0_30px_rgba(0,242,254,0.18)] before:content-[''] before:absolute before:-top-3 before:left-0 before:w-full before:h-3 before:bg-transparent max-h-[85vh] overflow-y-auto">
 
-                  <!-- Pillar 1: Autonomous Booking Agent -->
-                  <a href="/products/autonomous-booking/"
-                    class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group/item focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400"
-                    role="menuitem">
-                    <div
-                      class="w-8 h-8 rounded-lg bg-emerald-950/80 border border-emerald-500/30 flex items-center justify-center text-emerald-300 text-sm shrink-0 mt-0.5">
-                      📅
-                    </div>
-                    <div>
-                      <div class="flex items-center gap-2">
-                        <span
-                          class="text-xs font-bold text-white group-hover/item:text-emerald-300 transition-colors">Autonomous
-                          Calendar &amp; Booking Agent</span>
-                        <span
-                          class="text-[9px] font-mono text-emerald-400 font-bold uppercase bg-emerald-950/60 border border-emerald-500/30 px-1.5 py-0.2 rounded">LIVE</span>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <!-- Column 1: Core AI Engines -->
+                    <div class="space-y-1 sm:border-r sm:border-white/10 sm:pr-2">
+                      <div class="px-2 pt-1 pb-1">
+                        <span class="text-[10px] font-mono uppercase tracking-widest text-cyan-400 font-bold flex items-center gap-1.5">
+                          <span>⚡</span> <span>Core AI Engines</span>
+                        </span>
                       </div>
-                      <p class="text-[11px] text-slate-400 font-light mt-0.5 leading-relaxed">
-                        Eliminate back-and-forth friction. Direct calendar &amp; field dispatch automation.
-                      </p>
-                    </div>
-                  </a>
 
-                  <!-- Pillar 2: 24/7 AI Voice Dispatch -->
-                  <a href="/products/voice-dispatch/"
-                    class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group/item focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400"
-                    role="menuitem">
-                    <div
-                      class="w-8 h-8 rounded-lg bg-amber-950/80 border border-amber-500/30 flex items-center justify-center text-amber-300 text-sm shrink-0 mt-0.5">
-                      🎙️
+                      <!-- Pillar 1: Autonomous Booking Agent -->
+                      <a href="/products/autonomous-booking/"
+                        class="flex items-start gap-2.5 p-2 rounded-xl hover:bg-white/5 transition-colors group/item focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400"
+                        role="menuitem">
+                        <div
+                          class="w-7 h-7 rounded-lg bg-emerald-950/80 border border-emerald-500/30 flex items-center justify-center text-emerald-300 text-xs shrink-0 mt-0.5">
+                          📅
+                        </div>
+                        <div>
+                          <div class="flex items-center gap-2">
+                            <span
+                              class="text-xs font-bold text-white group-hover/item:text-emerald-300 transition-colors">Autonomous Booking</span>
+                            <span
+                              class="text-[9px] font-mono text-emerald-400 font-bold uppercase bg-emerald-950/60 border border-emerald-500/30 px-1.5 py-0.2 rounded">LIVE</span>
+                          </div>
+                          <p class="text-[11px] text-slate-400 font-light mt-0.5 leading-relaxed line-clamp-1">
+                            Calendar &amp; direct field dispatch.
+                          </p>
+                        </div>
+                      </a>
+
+                      <!-- Pillar 2: 24/7 AI Voice Dispatch -->
+                      <a href="/products/voice-dispatch/"
+                        class="flex items-start gap-2.5 p-2 rounded-xl hover:bg-white/5 transition-colors group/item focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400"
+                        role="menuitem">
+                        <div
+                          class="w-7 h-7 rounded-lg bg-amber-950/80 border border-amber-500/30 flex items-center justify-center text-amber-300 text-xs shrink-0 mt-0.5">
+                          🎙️
+                        </div>
+                        <div>
+                          <div class="flex items-center gap-2">
+                            <span
+                              class="text-xs font-bold text-white group-hover/item:text-amber-300 transition-colors">24/7 AI Voice Dispatch</span>
+                            <span
+                              class="text-[9px] font-mono text-amber-300 font-bold uppercase bg-amber-950/60 border border-amber-500/30 px-1.5 py-0.2 rounded">PHONE</span>
+                          </div>
+                          <p class="text-[11px] text-slate-400 font-light mt-0.5 leading-relaxed line-clamp-1">
+                            Inbound emergency triage &amp; booking.
+                          </p>
+                        </div>
+                      </a>
+
+                      <!-- Pillar 3: Autonomous GEO Engine -->
+                      <a href="/products/geo-engine/"
+                        class="flex items-start gap-2.5 p-2 rounded-xl hover:bg-white/5 transition-colors group/item focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400"
+                        role="menuitem">
+                        <div
+                          class="w-7 h-7 rounded-lg bg-cyan-950/80 border border-cyan-500/30 flex items-center justify-center text-cyan-300 text-xs shrink-0 mt-0.5">
+                          ⚡
+                        </div>
+                        <div>
+                          <div class="flex items-center gap-2">
+                            <span
+                              class="text-xs font-bold text-white group-hover/item:text-cyan-300 transition-colors">SEO &amp; GEO Engine</span>
+                            <span
+                              class="text-[9px] font-mono text-cyan-300 font-bold uppercase bg-cyan-950/60 border border-cyan-400/30 px-1.5 py-0.2 rounded">ACTIVE</span>
+                          </div>
+                          <p class="text-[11px] text-slate-400 font-light mt-0.5 leading-relaxed line-clamp-1">
+                            Top citations across ChatGPT &amp; Perplexity.
+                          </p>
+                        </div>
+                      </a>
+
+                      <!-- Pillar 4: Web Modernization Engine -->
+                      <a href="/products/web-modernization/"
+                        class="flex items-start gap-2.5 p-2 rounded-xl hover:bg-white/5 transition-colors group/item focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400"
+                        role="menuitem">
+                        <div
+                          class="w-7 h-7 rounded-lg bg-indigo-950/80 border border-indigo-500/30 flex items-center justify-center text-indigo-300 text-xs shrink-0 mt-0.5">
+                          🚀
+                        </div>
+                        <div>
+                          <div class="flex items-center gap-2">
+                            <span
+                              class="text-xs font-bold text-white group-hover/item:text-indigo-300 transition-colors">Sub-150ms Web Engine</span>
+                            <span
+                              class="text-[9px] font-mono text-indigo-300 font-bold uppercase bg-indigo-950/60 border border-indigo-400/30 px-1.5 py-0.2 rounded">EDGE</span>
+                          </div>
+                          <p class="text-[11px] text-slate-400 font-light mt-0.5 leading-relaxed line-clamp-1">
+                            Serverless Jamstack replacing slow WordPress.
+                          </p>
+                        </div>
+                      </a>
                     </div>
-                    <div>
-                      <div class="flex items-center gap-2">
-                        <span
-                          class="text-xs font-bold text-white group-hover/item:text-amber-300 transition-colors">24/7 AI
-                          Voice Dispatch &amp; Receptionist</span>
-                        <span
-                          class="text-[9px] font-mono text-amber-300 font-bold uppercase bg-amber-950/60 border border-amber-500/30 px-1.5 py-0.2 rounded">TELEPHONY</span>
+
+                    <!-- Column 2: Enterprise & Distribution -->
+                    <div class="space-y-1">
+                      <div class="px-2 pt-1 pb-1">
+                        <span class="text-[10px] font-mono uppercase tracking-widest text-purple-400 font-bold flex items-center gap-1.5">
+                          <span>💼</span> <span>Enterprise &amp; Scale</span>
+                        </span>
                       </div>
-                      <p class="text-[11px] text-slate-400 font-light mt-0.5 leading-relaxed">
-                        Never miss after-hours emergency calls or high-intent service inquiries.
-                      </p>
-                    </div>
-                  </a>
 
-                  <!-- Pillar 3: Autonomous GEO Engine -->
-                  <a href="/products/geo-engine/"
-                    class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group/item focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400"
-                    role="menuitem">
-                    <div
-                      class="w-8 h-8 rounded-lg bg-cyan-950/80 border border-cyan-500/30 flex items-center justify-center text-cyan-300 text-sm shrink-0 mt-0.5">
-                      ⚡
-                    </div>
-                    <div>
-                      <div class="flex items-center gap-2">
-                        <span
-                          class="text-xs font-bold text-white group-hover/item:text-cyan-300 transition-colors">Autonomous
-                          SEO &amp; GEO Engine</span>
-                        <span
-                          class="text-[9px] font-mono text-cyan-300 font-bold uppercase bg-cyan-950/60 border border-cyan-400/30 px-1.5 py-0.2 rounded">ACTIVE</span>
-                      </div>
-                      <p class="text-[11px] text-slate-400 font-light mt-0.5 leading-relaxed">
-                        Rank #1 in generative search across ChatGPT, Perplexity, Claude &amp; Google.
-                      </p>
-                    </div>
-                  </a>
+                      <!-- Pillar 5: Autonomous Content & Omnichannel Distribution Engine -->
+                      <a href="/products/content-engine/"
+                        class="flex items-start gap-2.5 p-2 rounded-xl hover:bg-white/5 transition-colors group/item focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400"
+                        role="menuitem">
+                        <div
+                          class="w-7 h-7 rounded-lg bg-purple-950/80 border border-purple-500/30 flex items-center justify-center text-purple-300 text-xs shrink-0 mt-0.5">
+                          📢
+                        </div>
+                        <div>
+                          <div class="flex items-center gap-2">
+                            <span
+                              class="text-xs font-bold text-white group-hover/item:text-purple-300 transition-colors">Content &amp; Distribution</span>
+                            <span
+                              class="text-[9px] font-mono text-purple-300 font-bold uppercase bg-purple-950/60 border border-purple-500/30 px-1.5 py-0.2 rounded">SCALE</span>
+                          </div>
+                          <p class="text-[11px] text-slate-400 font-light mt-0.5 leading-relaxed line-clamp-1">
+                            Viral LinkedIn posts &amp; 8-tweet threads.
+                          </p>
+                        </div>
+                      </a>
 
-                  <!-- Pillar 4: Web Modernization Engine -->
-                  <a href="/products/web-modernization/"
-                    class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group/item focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400"
-                    role="menuitem">
-                    <div
-                      class="w-8 h-8 rounded-lg bg-indigo-950/80 border border-indigo-500/30 flex items-center justify-center text-indigo-300 text-sm shrink-0 mt-0.5">
-                      🚀
-                    </div>
-                    <div>
-                      <div class="flex items-center gap-2">
-                        <span
-                          class="text-xs font-bold text-white group-hover/item:text-indigo-300 transition-colors">Sub-150ms
-                          Web Modernization Engine</span>
-                        <span
-                          class="text-[9px] font-mono text-indigo-300 font-bold uppercase bg-indigo-950/60 border border-indigo-400/30 px-1.5 py-0.2 rounded">EDGE</span>
-                      </div>
-                      <p class="text-[11px] text-slate-400 font-light mt-0.5 leading-relaxed">
-                        Eliminate WordPress bloat with sub-150ms serverless Jamstack edge architecture.
-                      </p>
-                    </div>
-                  </a>
+                      <!-- Pillar 6: High-Ticket Enterprise Service Catalog -->
+                      <a href="/products/enterprise-catalog/"
+                        class="flex items-start gap-2.5 p-2 rounded-xl hover:bg-white/5 transition-colors group/item focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400"
+                        role="menuitem">
+                        <div
+                          class="w-7 h-7 rounded-lg bg-rose-950/80 border border-rose-500/30 flex items-center justify-center text-rose-300 text-xs shrink-0 mt-0.5">
+                          💼
+                        </div>
+                        <div>
+                          <div class="flex items-center gap-2">
+                            <span
+                              class="text-xs font-bold text-white group-hover/item:text-rose-300 transition-colors">Enterprise Catalog</span>
+                            <span
+                              class="text-[9px] font-mono text-rose-300 font-bold uppercase bg-rose-950/60 border border-rose-500/30 px-1.5 py-0.2 rounded">6 SUITES</span>
+                          </div>
+                          <p class="text-[11px] text-slate-400 font-light mt-0.5 leading-relaxed line-clamp-1">
+                            Lead Radar, AI Security, WeKnora Brain, FinOps.
+                          </p>
+                        </div>
+                      </a>
 
-                  <!-- Pillar 5: Autonomous Content & Omnichannel Distribution Engine -->
-                  <a href="/products/content-engine/"
-                    class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group/item focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400"
-                    role="menuitem">
-                    <div
-                      class="w-8 h-8 rounded-lg bg-purple-950/80 border border-purple-500/30 flex items-center justify-center text-purple-300 text-sm shrink-0 mt-0.5">
-                      📢
-                    </div>
-                    <div>
-                      <div class="flex items-center gap-2">
-                        <span
-                          class="text-xs font-bold text-white group-hover/item:text-purple-300 transition-colors">Autonomous
-                          Content &amp; Distribution</span>
-                        <span
-                          class="text-[9px] font-mono text-purple-300 font-bold uppercase bg-purple-950/60 border border-purple-500/30 px-1.5 py-0.2 rounded">OMNICHANNEL</span>
-                      </div>
-                      <p class="text-[11px] text-slate-400 font-light mt-0.5 leading-relaxed">
-                        Turn technical teardowns into viral LinkedIn posts, 8-tweet threads &amp; high-DA articles.
-                      </p>
-                    </div>
-                  </a>
+                      <!-- Quick Audit Magnet Hook -->
+                      <a href="/#hero-geo-audit-container"
+                        class="flex items-start gap-2.5 p-2 rounded-xl bg-cyan-950/30 hover:bg-cyan-950/60 border border-cyan-400/30 transition-colors group/item focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400"
+                        role="menuitem">
+                        <div
+                          class="w-7 h-7 rounded-lg bg-cyan-950/80 border border-cyan-400/40 flex items-center justify-center text-cyan-300 text-xs shrink-0 mt-0.5">
+                          🔍
+                        </div>
+                        <div>
+                          <div class="flex items-center gap-2">
+                            <span
+                              class="text-xs font-bold text-cyan-300 group-hover/item:text-white transition-colors">Instant AI Audit</span>
+                            <span
+                              class="text-[9px] font-mono text-cyan-300 font-bold uppercase bg-cyan-950/80 border border-cyan-400/40 px-1.5 py-0.2 rounded animate-pulse">4-SEC</span>
+                          </div>
+                          <p class="text-[11px] text-slate-400 font-light mt-0.5 leading-relaxed line-clamp-1">
+                            Free live citation &amp; speed diagnostic.
+                          </p>
+                        </div>
+                      </a>
 
-                  <!-- Pillar 6: High-Ticket Enterprise Service Catalog (Sprint 13) -->
-                  <a href="/products/enterprise-catalog/"
-                    class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group/item focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400"
-                    role="menuitem">
-                    <div
-                      class="w-8 h-8 rounded-lg bg-rose-950/80 border border-rose-500/30 flex items-center justify-center text-rose-300 text-sm shrink-0 mt-0.5">
-                      💼
+                      <!-- Full Systems Overview Anchor -->
+                      <a href="/#services-orbit-section"
+                        class="flex items-center justify-between px-2.5 py-1.5 rounded-lg text-[11px] font-mono text-slate-400 hover:text-cyan-300 hover:bg-white/5 transition-colors"
+                        role="menuitem">
+                        <span>Architecture Matrix</span>
+                        <span>↓</span>
+                      </a>
                     </div>
-                    <div>
-                      <div class="flex items-center gap-2">
-                        <span
-                          class="text-xs font-bold text-white group-hover/item:text-rose-300 transition-colors">High-Ticket
-                          Enterprise Catalog</span>
-                        <span
-                          class="text-[9px] font-mono text-rose-300 font-bold uppercase bg-rose-950/60 border border-rose-500/30 px-1.5 py-0.2 rounded">6
-                          SUITES</span>
-                      </div>
-                      <p class="text-[11px] text-slate-400 font-light mt-0.5 leading-relaxed">
-                        B2B Lead Radar, AI Security Audit, WeKnora AI Brain, Chatwoot Desk, Reels &amp; OmniRoute
-                        FinOps.
-                      </p>
-                    </div>
-                  </a>
+                  </div>
 
-                  <div class="my-1 border-t border-white/5"></div>
-
-                  <a href="/#hero-geo-audit-container"
-                    class="flex items-center justify-between px-3 py-2 rounded-lg text-[11px] font-mono text-cyan-300 hover:bg-cyan-950/50 transition-colors"
-                    role="menuitem">
-                    <span class="flex items-center gap-1.5">
-                      <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
-                      <span>Instant AI Audit (4-Sec Free Check)</span>
-                    </span>
-                    <span>→</span>
-                  </a>
                 </div>
               </div>
             </div>
@@ -441,30 +462,6 @@
                     </div>
                   </a>
 
-                  <!-- Pillar 6: High-Ticket Enterprise Service Catalog (Sprint 13) -->
-                  <a href="/products/enterprise-catalog/"
-                    class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group/item focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400"
-                    role="menuitem">
-                    <div
-                      class="w-8 h-8 rounded-lg bg-rose-950/80 border border-rose-500/30 flex items-center justify-center text-rose-300 text-sm shrink-0 mt-0.5">
-                      💼
-                    </div>
-                    <div>
-                      <div class="flex items-center gap-2">
-                        <span
-                          class="text-xs font-bold text-white group-hover/item:text-rose-300 transition-colors">High-Ticket
-                          Enterprise Catalog</span>
-                        <span
-                          class="text-[9px] font-mono text-rose-300 font-bold uppercase bg-rose-950/60 border border-rose-500/30 px-1.5 py-0.2 rounded">6
-                          SUITES</span>
-                      </div>
-                      <p class="text-[11px] text-slate-400 font-light mt-0.5 leading-relaxed">
-                        B2B Lead Radar, AI Security Audit, WeKnora AI Brain, Chatwoot Desk, Reels &amp; OmniRoute
-                        FinOps.
-                      </p>
-                    </div>
-                  </a>
-
                   <div class="my-1 border-t border-white/5"></div>
 
                   <!-- Item 4: Jump to Homepage Proof Grid -->
@@ -530,6 +527,14 @@
             </div>
           </div>
 
+          <!-- Direct Carrier Voice Demo Telephony Action (Sprint 15.5) -->
+          <a href="tel:4378487086"
+            class="hidden xl:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono text-amber-300 hover:text-amber-200 bg-amber-950/40 hover:bg-amber-950/70 border border-amber-500/30 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-amber-400"
+            title="Dial LumiLore 24/7 Canadian Carrier Voice Demo Line: (437) 848-7086">
+            <span>📞</span>
+            <span class="font-bold tracking-wider">437-848-7086</span>
+          </a>
+
           <a href="/contact/"
             class="relative overflow-hidden circuit-border glow-cta px-4 lg:px-6 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all bg-surface-dark group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 shrink-0 flex items-center gap-2 text-white shadow-[0_0_20px_rgba(0,242,254,0.18)] hover:shadow-[0_0_30px_rgba(0,242,254,0.4)]">
             <span
@@ -546,7 +551,14 @@
         </div>
 
         <!-- Mobile/Tablet Navigation & Menu Button -->
-        <div class="lg:hidden flex items-center gap-2.5 sm:gap-3">
+        <div class="lg:hidden flex items-center gap-2 sm:gap-3">
+          <!-- Quick Click-to-Call Telephony Action (Sprint 15.5) -->
+          <a href="tel:4378487086"
+            class="min-w-[44px] min-h-[44px] flex items-center justify-center p-2 rounded-xl text-amber-300 hover:text-amber-200 bg-amber-950/40 hover:bg-amber-950/70 border border-amber-500/40 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
+            aria-label="Call 24/7 Live Voice Line (437) 848-7086">
+            <span class="text-sm">📞</span>
+          </a>
+
           <a href="/contact/"
             class="hidden sm:inline-flex lg:hidden min-h-[44px] items-center px-4 py-2 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-cyan-950/80 border border-cyan-400/40 text-cyan-300 hover:bg-cyan-900 transition-colors shadow-[0_0_12px_rgba(0,242,254,0.15)]">
             <span class="lens-corp">Book Discovery</span>
@@ -562,11 +574,11 @@
         </div>
       </div>
 
-      <!-- Mobile/Tablet Dropdown Menu -->
-      <div id="mobile-menu" class="hidden lg:hidden border-t border-border-dark mt-2 pt-4 pb-4 space-y-2"
+      <!-- Mobile/Tablet Dropdown Drawer (Sprint 15.4: Accordion Organization & 48px Touch Targets) -->
+      <div id="mobile-menu" class="hidden lg:hidden border-t border-border-dark mt-2 pt-4 pb-4 space-y-3"
         aria-hidden="true" role="region" aria-label="Mobile Navigation">
         <!-- Mobile Master Audience Switcher (Phase 2 Task 2.2) -->
-        <div class="px-2 pb-3 mb-2 border-b border-white/10">
+        <div class="px-2 pb-3 border-b border-white/10">
           <p
             class="text-[10px] font-mono uppercase tracking-widest text-amber-300 font-bold mb-2 px-1 flex items-center gap-1.5">
             <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
@@ -591,25 +603,27 @@
           </div>
         </div>
 
-        <!-- Mobile Products & AI Engines Section -->
-        <div class="px-2 py-2 border-b border-white/10 mb-2">
-          <div class="flex items-center justify-between px-1 mb-2">
-            <span
-              class="text-[10px] font-mono uppercase tracking-widest text-cyan-400 font-bold flex items-center gap-1.5">
-              <span>⚡</span> <span>Products &amp; AI Engines:</span>
+        <!-- Accordion 1: Solutions (Core AI Engines & Enterprise Catalog) -->
+        <div class="space-y-1">
+          <button id="mobile-solutions-btn" type="button" aria-expanded="false" aria-controls="mobile-solutions-panel"
+            class="w-full min-h-[48px] flex items-center justify-between px-3.5 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-colors text-white font-medium text-sm cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400">
+            <span class="flex items-center gap-2.5">
+              <span class="text-cyan-400 text-base">⚡</span>
+              <span class="font-semibold">Solutions</span>
+              <span class="text-[9px] font-mono text-cyan-300 font-bold uppercase px-1.5 py-0.5 rounded bg-cyan-950/80 border border-cyan-400/30">6 ENGINES</span>
             </span>
-            <span
-              class="text-[9px] font-mono text-cyan-300 font-bold uppercase px-1.5 py-0.5 rounded bg-cyan-950/80 border border-cyan-400/30">5
-              LIVE PILLARS</span>
-          </div>
+            <svg id="mobile-solutions-chevron" class="w-4 h-4 text-slate-400 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
 
-          <div class="space-y-1.5">
+          <div id="mobile-solutions-panel" class="hidden pl-2 pr-1 pt-1.5 pb-1 space-y-1.5" role="region" aria-labelledby="mobile-solutions-btn">
             <!-- Pillar 1 -->
             <a href="/products/autonomous-booking/"
               class="min-h-[48px] flex items-center justify-between px-3 py-2.5 text-sm font-medium text-white hover:text-emerald-300 transition-colors bg-white/5 hover:bg-white/10 rounded-xl border border-white/10">
               <span class="flex items-center gap-2.5">
                 <span class="text-base shrink-0">📅</span>
-                <span class="text-xs font-semibold">Autonomous Calendar &amp; Booking</span>
+                <span class="text-xs font-semibold">Autonomous Booking</span>
               </span>
               <span
                 class="text-[9px] font-mono text-emerald-400 font-bold uppercase px-1.5 py-0.5 rounded bg-emerald-950/80 border border-emerald-500/30">LIVE</span>
@@ -620,10 +634,10 @@
               class="min-h-[48px] flex items-center justify-between px-3 py-2.5 text-sm font-medium text-white hover:text-amber-300 transition-colors bg-white/5 hover:bg-white/10 rounded-xl border border-white/10">
               <span class="flex items-center gap-2.5">
                 <span class="text-base shrink-0">🎙️</span>
-                <span class="text-xs font-semibold">24/7 AI Voice Dispatch &amp; Reception</span>
+                <span class="text-xs font-semibold">24/7 AI Voice Dispatch</span>
               </span>
               <span
-                class="text-[9px] font-mono text-amber-300 font-bold uppercase px-1.5 py-0.5 rounded bg-amber-950/60 border border-amber-500/30">TELEPHONY</span>
+                class="text-[9px] font-mono text-amber-300 font-bold uppercase px-1.5 py-0.5 rounded bg-amber-950/60 border border-amber-500/30">PHONE</span>
             </a>
 
             <!-- Pillar 3 -->
@@ -631,7 +645,7 @@
               class="min-h-[48px] flex items-center justify-between px-3 py-2.5 text-sm font-medium text-white hover:text-cyan-300 transition-colors bg-white/5 hover:bg-white/10 rounded-xl border border-white/10">
               <span class="flex items-center gap-2.5">
                 <span class="text-base shrink-0">⚡</span>
-                <span class="text-xs font-semibold">Autonomous SEO &amp; GEO Engine</span>
+                <span class="text-xs font-semibold">SEO &amp; GEO Engine</span>
               </span>
               <span
                 class="text-[9px] font-mono text-cyan-300 font-bold uppercase px-1.5 py-0.5 rounded bg-cyan-950/60 border border-cyan-400/30">ACTIVE</span>
@@ -642,7 +656,7 @@
               class="min-h-[48px] flex items-center justify-between px-3 py-2.5 text-sm font-medium text-white hover:text-indigo-300 transition-colors bg-white/5 hover:bg-white/10 rounded-xl border border-white/10">
               <span class="flex items-center gap-2.5">
                 <span class="text-base shrink-0">🚀</span>
-                <span class="text-xs font-semibold">Sub-150ms Web Modernization</span>
+                <span class="text-xs font-semibold">Sub-150ms Web Engine</span>
               </span>
               <span
                 class="text-[9px] font-mono text-indigo-300 font-bold uppercase bg-indigo-950/60 border border-indigo-400/30 px-1.5 py-0.5 rounded">EDGE</span>
@@ -653,79 +667,108 @@
               class="min-h-[48px] flex items-center justify-between px-3 py-2.5 text-sm font-medium text-white hover:text-purple-300 transition-colors bg-white/5 hover:bg-white/10 rounded-xl border border-white/10">
               <span class="flex items-center gap-2.5">
                 <span class="text-base shrink-0">📢</span>
-                <span class="text-xs font-semibold">Autonomous Content &amp; Distribution</span>
+                <span class="text-xs font-semibold">Content &amp; Distribution</span>
               </span>
               <span
-                class="text-[9px] font-mono text-purple-300 font-bold uppercase bg-purple-950/60 border border-purple-500/30 px-1.5 py-0.5 rounded">OMNICHANNEL</span>
+                class="text-[9px] font-mono text-purple-300 font-bold uppercase bg-purple-950/60 border border-purple-500/30 px-1.5 py-0.5 rounded">SCALE</span>
             </a>
 
-            <!-- Pillar 6: High-Ticket Enterprise Service Catalog -->
+            <!-- Pillar 6 -->
             <a href="/products/enterprise-catalog/"
               class="min-h-[48px] flex items-center justify-between px-3 py-2.5 text-sm font-medium text-white hover:text-rose-300 transition-colors bg-white/5 hover:bg-white/10 rounded-xl border border-white/10">
               <span class="flex items-center gap-2.5">
                 <span class="text-base shrink-0">💼</span>
-                <span class="text-xs font-semibold">High-Ticket Enterprise Catalog</span>
+                <span class="text-xs font-semibold">Enterprise Catalog (6 Suites)</span>
               </span>
               <span
-                class="text-[9px] font-mono text-rose-300 font-bold uppercase bg-rose-950/60 border border-rose-500/30 px-1.5 py-0.5 rounded">6
-                SUITES</span>
+                class="text-[9px] font-mono text-rose-300 font-bold uppercase bg-rose-950/60 border border-rose-500/30 px-1.5 py-0.5 rounded">6 SUITES</span>
             </a>
 
-            <!-- Free Audit Link -->
+            <!-- Instant AI Audit -->
             <a href="/#hero-geo-audit-container"
-              class="min-h-[44px] flex items-center justify-between px-3 py-2 text-xs font-mono text-cyan-300 hover:bg-cyan-950/40 rounded-lg transition-colors pt-1">
-              <span class="flex items-center gap-1.5">
+              class="min-h-[48px] flex items-center justify-between px-3 py-2 text-xs font-mono text-cyan-300 hover:bg-cyan-950/40 rounded-xl border border-cyan-400/20 transition-colors">
+              <span class="flex items-center gap-2">
                 <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
                 <span>Instant AI Audit (4-Sec Free Check)</span>
               </span>
               <span>→</span>
             </a>
+
+            <!-- Architecture Matrix Link -->
+            <a href="/#services-orbit-section"
+              class="min-h-[48px] flex items-center justify-between px-3 py-2 text-xs font-mono text-slate-400 hover:text-cyan-300 hover:bg-white/5 rounded-xl transition-colors">
+              <span>Architecture Matrix Overview</span>
+              <span>↓</span>
+            </a>
           </div>
         </div>
 
-        <a href="/#services-orbit-section"
-          class="min-h-[48px] flex items-center px-3 py-2 text-base font-medium text-slate-300 hover:text-white transition-colors hover:bg-white/5 rounded-lg">Services</a>
-        <!-- Mobile Case Studies & Insights Section (Micro 9.3) -->
-        <div class="px-2 py-1.5 border-b border-white/10 mb-2">
-          <div class="flex items-center justify-between px-1 mb-1.5">
-            <span
-              class="text-[10px] font-mono uppercase tracking-widest text-cyan-400 font-bold flex items-center gap-1.5">
-              <span>📚</span> <span>Case Studies &amp; Insights:</span>
+        <!-- Accordion 2: Case Studies & Proof -->
+        <div class="space-y-1">
+          <button id="mobile-cases-btn" type="button" aria-expanded="false" aria-controls="mobile-cases-panel"
+            class="w-full min-h-[48px] flex items-center justify-between px-3.5 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-colors text-white font-medium text-sm cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400">
+            <span class="flex items-center gap-2.5">
+              <span class="text-emerald-400 text-base">📊</span>
+              <span class="font-semibold">Case Studies &amp; Proof</span>
+              <span class="text-[9px] font-mono text-emerald-400 font-bold uppercase px-1.5 py-0.5 rounded bg-emerald-950/80 border border-emerald-500/30">EVIDENCE</span>
             </span>
-          </div>
-          <div class="space-y-1">
+            <svg id="mobile-cases-chevron" class="w-4 h-4 text-slate-400 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+
+          <div id="mobile-cases-panel" class="hidden pl-2 pr-1 pt-1.5 pb-1 space-y-1.5" role="region" aria-labelledby="mobile-cases-btn">
             <a href="/success-stories/"
-              class="min-h-[48px] flex items-center justify-between px-3 py-2 text-sm font-medium text-white hover:text-cyan-300 transition-colors bg-white/5 hover:bg-white/10 rounded-xl border border-white/10">
+              class="min-h-[48px] flex items-center justify-between px-3 py-2.5 text-sm font-medium text-white hover:text-cyan-300 transition-colors bg-white/5 hover:bg-white/10 rounded-xl border border-white/10">
               <span class="flex items-center gap-2">
                 <span class="text-emerald-400 text-sm">📊</span>
-                <span>Success Stories &amp; Proof Dashboard</span>
+                <span class="text-xs">Success Stories &amp; Proof Dashboard</span>
               </span>
               <span class="text-xs text-cyan-400 font-mono">→</span>
             </a>
             <a href="/insights/cutting-aws-cloud-waste-serverless-architecture/"
-              class="min-h-[48px] flex items-center justify-between px-3 py-2 text-sm font-medium text-white hover:text-cyan-300 transition-colors bg-white/5 hover:bg-white/10 rounded-xl border border-white/10">
+              class="min-h-[48px] flex items-center justify-between px-3 py-2.5 text-sm font-medium text-white hover:text-cyan-300 transition-colors bg-white/5 hover:bg-white/10 rounded-xl border border-white/10">
               <span class="flex items-center gap-2">
                 <span class="text-indigo-400 text-sm">☁️</span>
-                <span>FinOps: Cutting AWS Cloud Waste (68%)</span>
+                <span class="text-xs">FinOps: Cutting AWS Waste (68%)</span>
               </span>
               <span class="text-xs text-cyan-400 font-mono">→</span>
             </a>
             <a href="/insights/autonomous-247-ai-voice-dispatch-mechanical-trades/"
-              class="min-h-[48px] flex items-center justify-between px-3 py-2 text-sm font-medium text-white hover:text-cyan-300 transition-colors bg-white/5 hover:bg-white/10 rounded-xl border border-white/10">
+              class="min-h-[48px] flex items-center justify-between px-3 py-2.5 text-sm font-medium text-white hover:text-cyan-300 transition-colors bg-white/5 hover:bg-white/10 rounded-xl border border-white/10">
               <span class="flex items-center gap-2">
                 <span class="text-amber-400 text-sm">🎙️</span>
-                <span>Trades: 24/7 AI Voice Dispatch</span>
+                <span class="text-xs">Trades: 24/7 AI Voice Dispatch</span>
               </span>
               <span class="text-xs text-cyan-400 font-mono">→</span>
             </a>
+            <a href="/#case-studies"
+              class="min-h-[48px] flex items-center justify-between px-3 py-2 text-xs font-mono text-slate-400 hover:text-cyan-300 hover:bg-white/5 rounded-xl transition-colors">
+              <span>View Homepage Proof Grid</span>
+              <span>↓</span>
+            </a>
           </div>
         </div>
+
+        <!-- Standalone Links -->
         <a href="/about/"
-          class="min-h-[48px] flex items-center px-3 py-2 text-base font-medium text-slate-300 hover:text-white transition-colors hover:bg-white/5 rounded-lg">About</a>
+          class="min-h-[48px] flex items-center px-3.5 py-2.5 text-base font-medium text-slate-300 hover:text-white transition-colors hover:bg-white/5 rounded-xl border border-transparent hover:border-white/10">About</a>
         <a href="/contact/"
-          class="min-h-[48px] flex items-center px-3 py-2 text-base font-medium text-slate-300 hover:text-white transition-colors hover:bg-white/5 rounded-lg">Contact</a>
+          class="min-h-[48px] flex items-center px-3.5 py-2.5 text-base font-medium text-slate-300 hover:text-white transition-colors hover:bg-white/5 rounded-xl border border-transparent hover:border-white/10">Contact</a>
+
+        <!-- Direct Carrier Voice Demo Link -->
+        <a href="tel:4378487086"
+          class="min-h-[48px] flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-amber-950/30 hover:bg-amber-950/60 border border-amber-500/30 text-amber-200 transition-colors font-mono text-xs">
+          <span class="flex items-center gap-2">
+            <span>📞</span>
+            <span>Live Voice Demo (Carrier Line):</span>
+          </span>
+          <span class="font-bold text-amber-300">437-848-7086</span>
+        </a>
+
+        <!-- Primary Mobile Action Button -->
         <a href="/contact/"
-          class="min-h-[48px] flex items-center justify-center gap-2 mt-4 px-4 py-3 text-sm font-bold text-center border border-cyan-glow/40 rounded-full bg-cyan-glow/10 hover:bg-cyan-glow/20 transition-colors text-white shadow-[0_0_20px_rgba(0,242,254,0.2)]">
+          class="min-h-[48px] flex items-center justify-center gap-2 mt-2 px-4 py-3 text-sm font-bold text-center border border-cyan-glow/40 rounded-full bg-cyan-glow/10 hover:bg-cyan-glow/20 transition-colors text-white shadow-[0_0_20px_rgba(0,242,254,0.2)]">
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.9)]"></span>
           <span class="font-mono uppercase tracking-wider text-xs">
             <span class="lens-corp">Book Architecture Discovery</span>
@@ -1353,26 +1396,31 @@
             header.classList.remove('rounded-3xl');
           });
         });
-      }
 
-      // Products Dropdown WAI-ARIA & Keyboard Accessibility (Micro-Step 5.3)
-      const productsBtn = document.getElementById('products-menu-button');
-      const productsDropdown = document.getElementById('nav-products-dropdown');
-      if (productsBtn && productsDropdown) {
-        productsBtn.addEventListener('click', (e) => {
-          const isExpanded = productsBtn.getAttribute('aria-expanded') === 'true';
-          productsBtn.setAttribute('aria-expanded', (!isExpanded).toString());
-        });
-        document.addEventListener('click', (e) => {
-          if (!productsDropdown.contains(e.target)) {
-            productsBtn.setAttribute('aria-expanded', 'false');
+        // Mobile Drawer Accordion Expansion Engine (Sprint 15.4)
+        const accordions = [
+          {
+            btn: document.getElementById('mobile-solutions-btn'),
+            panel: document.getElementById('mobile-solutions-panel'),
+            chevron: document.getElementById('mobile-solutions-chevron')
+          },
+          {
+            btn: document.getElementById('mobile-cases-btn'),
+            panel: document.getElementById('mobile-cases-panel'),
+            chevron: document.getElementById('mobile-cases-chevron')
           }
-        });
-        productsDropdown.addEventListener('keydown', (e) => {
-          if (e.key === 'Escape') {
-            productsBtn.setAttribute('aria-expanded', 'false');
-            productsBtn.focus();
-          }
+        ].filter(item => item.btn && item.panel);
+
+        accordions.forEach(({ btn: accBtn, panel: accPanel, chevron: accChevron }) => {
+          accBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = accBtn.getAttribute('aria-expanded') === 'true';
+            accBtn.setAttribute('aria-expanded', (!isOpen).toString());
+            accPanel.classList.toggle('hidden');
+            if (accChevron) {
+              accChevron.classList.toggle('rotate-180');
+            }
+          });
         });
       }
 
@@ -1838,11 +1886,17 @@
       window.getMasterLens = function () { return currentLens; };
       window.updateMasterSwitcherUI = function () { updateSwitcherUI(currentLens); };
 
-      // Dropdown Controllers (Products & Insights) (Micro 9.1 & 9.3 Hardening)
+      // Dropdown Controllers (Solutions & Case Studies) (Sprint 15 IA Harmonization & WAI-ARIA Keyboard Engine)
       (function () {
         const dropdowns = [
-          { btn: document.getElementById('products-menu-button'), panel: document.getElementById('products-menu-panel') },
-          { btn: document.getElementById('insights-menu-button'), panel: document.getElementById('insights-menu-panel') }
+          {
+            btn: document.getElementById('solutions-menu-button') || document.getElementById('products-menu-button'),
+            panel: document.getElementById('solutions-menu-panel') || document.getElementById('products-menu-panel')
+          },
+          {
+            btn: document.getElementById('insights-menu-button'),
+            panel: document.getElementById('insights-menu-panel')
+          }
         ].filter(item => item.btn && item.panel);
 
         function closeAll() {
@@ -1860,6 +1914,48 @@
             if (!isOpen) {
               panel.setAttribute('data-open', 'true');
               btn.setAttribute('aria-expanded', 'true');
+            }
+          });
+
+          // Button Keyboard Access: ArrowDown, Enter, Space
+          btn.addEventListener('keydown', function (e) {
+            if (e.key === 'ArrowDown' || e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              closeAll();
+              panel.setAttribute('data-open', 'true');
+              btn.setAttribute('aria-expanded', 'true');
+              const firstItem = panel.querySelector('[role="menuitem"]');
+              if (firstItem) firstItem.focus();
+            }
+          });
+
+          // Panel Keyboard Cycling: ArrowDown, ArrowUp, Home, End, Escape
+          panel.addEventListener('keydown', function (e) {
+            const menuItems = Array.from(panel.querySelectorAll('[role="menuitem"]'));
+            const currentIndex = menuItems.indexOf(document.activeElement);
+
+            if (e.key === 'Escape') {
+              e.preventDefault();
+              closeAll();
+              btn.focus();
+            } else if (e.key === 'ArrowDown') {
+              e.preventDefault();
+              const nextIndex = currentIndex < menuItems.length - 1 ? currentIndex + 1 : 0;
+              if (menuItems[nextIndex]) menuItems[nextIndex].focus();
+            } else if (e.key === 'ArrowUp') {
+              e.preventDefault();
+              if (currentIndex <= 0) {
+                closeAll();
+                btn.focus();
+              } else {
+                menuItems[currentIndex - 1].focus();
+              }
+            } else if (e.key === 'Home') {
+              e.preventDefault();
+              if (menuItems[0]) menuItems[0].focus();
+            } else if (e.key === 'End') {
+              e.preventDefault();
+              if (menuItems[menuItems.length - 1]) menuItems[menuItems.length - 1].focus();
             }
           });
         });
