@@ -647,32 +647,32 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
 
                 <!-- Hidden Input for Form Submission -->
                 <input type="hidden" name="timeSlot" id="timeSlotInput" value="10:30 AM – 11:15 AM EST" required />
-                <input type="hidden" name="slotStart" id="slotStartInput" value="" />
-                <input type="hidden" name="slotEnd" id="slotEndInput" value="" />
+                <input type="hidden" name="slotStart" id="slotStartInput" value="10:30:00-04:00" />
+                <input type="hidden" name="slotEnd" id="slotEndInput" value="11:15:00-04:00" />
 
                 <!-- 2x2 Time Slot Grid (Micro-Step 6.2) -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 min-h-[96px]" id="time-slot-grid" role="radiogroup" aria-label="Select Consultation Time Window">
                   
                   <!-- Slot 1 (Default Selected) -->
-                  <button type="button" class="time-slot-btn py-3 px-3 rounded-xl border-2 border-emerald-600 bg-emerald-50 text-[#0D1520] shadow-xs text-xs font-mono font-bold cursor-pointer transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 flex items-center justify-between sm:justify-center gap-2" data-slot="10:30 AM – 11:15 AM EST" aria-checked="true" role="radio">
+                  <button type="button" class="time-slot-btn py-3 px-3 rounded-xl border-2 border-emerald-600 bg-emerald-50 text-[#0D1520] shadow-xs text-xs font-mono font-bold cursor-pointer transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 flex items-center justify-between sm:justify-center gap-2" data-slot="10:30 AM – 11:15 AM EST" data-start="10:30:00-04:00" data-end="11:15:00-04:00" aria-checked="true" role="radio">
                     <span>10:30 AM – 11:15 AM</span>
                     <span class="text-[10px] text-emerald-800 font-semibold slot-tz-label">EST</span>
                   </button>
 
                   <!-- Slot 2 -->
-                  <button type="button" class="time-slot-btn py-3 px-3 rounded-xl border border-[#EAE6DF] bg-white text-[#4B5563] hover:border-emerald-600/40 hover:bg-[#FAF6EC]/50 text-xs font-mono font-bold cursor-pointer transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 flex items-center justify-between sm:justify-center gap-2" data-slot="01:00 PM – 01:45 PM EST" aria-checked="false" role="radio">
+                  <button type="button" class="time-slot-btn py-3 px-3 rounded-xl border border-[#EAE6DF] bg-white text-[#4B5563] hover:border-emerald-600/40 hover:bg-[#FAF6EC]/50 text-xs font-mono font-bold cursor-pointer transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 flex items-center justify-between sm:justify-center gap-2" data-slot="01:00 PM – 01:45 PM EST" data-start="13:00:00-04:00" data-end="13:45:00-04:00" aria-checked="false" role="radio">
                     <span>01:00 PM – 01:45 PM</span>
                     <span class="text-[10px] text-[#6B7280] slot-tz-label">EST</span>
                   </button>
 
                   <!-- Slot 3 -->
-                  <button type="button" class="time-slot-btn py-3 px-3 rounded-xl border border-[#EAE6DF] bg-white text-[#4B5563] hover:border-emerald-600/40 hover:bg-[#FAF6EC]/50 text-xs font-mono font-bold cursor-pointer transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 flex items-center justify-between sm:justify-center gap-2" data-slot="03:30 PM – 04:15 PM EST" aria-checked="false" role="radio">
+                  <button type="button" class="time-slot-btn py-3 px-3 rounded-xl border border-[#EAE6DF] bg-white text-[#4B5563] hover:border-emerald-600/40 hover:bg-[#FAF6EC]/50 text-xs font-mono font-bold cursor-pointer transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 flex items-center justify-between sm:justify-center gap-2" data-slot="03:30 PM – 04:15 PM EST" data-start="15:30:00-04:00" data-end="16:15:00-04:00" aria-checked="false" role="radio">
                     <span>03:30 PM – 04:15 PM</span>
                     <span class="text-[10px] text-[#6B7280] slot-tz-label">EST</span>
                   </button>
 
                   <!-- Slot 4 -->
-                  <button type="button" class="time-slot-btn py-3 px-3 rounded-xl border border-[#EAE6DF] bg-white text-[#4B5563] hover:border-emerald-600/40 hover:bg-[#FAF6EC]/50 text-xs font-mono font-bold cursor-pointer transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 flex items-center justify-between sm:justify-center gap-2" data-slot="05:00 PM – 05:45 PM EST" aria-checked="false" role="radio">
+                  <button type="button" class="time-slot-btn py-3 px-3 rounded-xl border border-[#EAE6DF] bg-white text-[#4B5563] hover:border-emerald-600/40 hover:bg-[#FAF6EC]/50 text-xs font-mono font-bold cursor-pointer transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 flex items-center justify-between sm:justify-center gap-2" data-slot="05:00 PM – 05:45 PM EST" data-start="17:00:00-04:00" data-end="17:45:00-04:00" aria-checked="false" role="radio">
                     <span>05:00 PM – 05:45 PM</span>
                     <span class="text-[10px] text-[#6B7280] slot-tz-label">EST</span>
                   </button>
@@ -1507,15 +1507,21 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
           `;
         }
 
+        let timeoutId = null;
         try {
           const apiBase = window.LUMILORE_API_BASE || 'https://bhsahnzaqb.execute-api.ca-central-1.amazonaws.com';
           const url = `${apiBase}/api/calendar/availability?date=${encodeURIComponent(isoDate)}&lens=${encodeURIComponent(currentContactLens)}`;
           
+          timeoutId = setTimeout(() => {
+            if (slotFetchAbortCtrl) slotFetchAbortCtrl.abort();
+          }, 4500);
+
           const response = await fetch(url, {
             method: 'GET',
             headers: { 'Accept': 'application/json' },
             signal: slotFetchAbortCtrl.signal
           });
+          if (timeoutId) clearTimeout(timeoutId);
 
           if (!response.ok) {
             throw new Error(`Calendar API returned HTTP ${response.status}`);
@@ -1524,7 +1530,7 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
           const data = await response.json();
           renderAvailableSlots(data.availableSlots || [], isoDate);
         } catch (err) {
-          if (err.name === 'AbortError') return;
+          if (timeoutId) clearTimeout(timeoutId);
           console.warn('[LumiLore Calendar Notice] Using resilient local fallback slots for date:', isoDate, err.message);
           renderFallbackSlots(isoDate);
         }
@@ -1587,32 +1593,7 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
           });
         });
 
-        // Automatically select first available slot
-        if (renderedBtns.length > 0) {
-          selectTimeSlot(renderedBtns[0]);
-        }
-      }
-
-        // Attach keyboard navigation across newly rendered buttons
-        const renderedBtns = slotGrid.querySelectorAll('.time-slot-btn');
-        renderedBtns.forEach((btn, idx) => {
-          btn.addEventListener('keydown', (e) => {
-            let targetBtn = null;
-            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-              e.preventDefault();
-              targetBtn = renderedBtns[(idx + 1) % renderedBtns.length];
-            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-              e.preventDefault();
-              targetBtn = renderedBtns[(idx - 1 + renderedBtns.length) % renderedBtns.length];
-            }
-            if (targetBtn) {
-              targetBtn.focus();
-              selectTimeSlot(targetBtn);
-            }
-          });
-        });
-
-        // Automatically select first available slot
+        // Automatically select first available slot and lock hidden inputs
         if (renderedBtns.length > 0) {
           selectTimeSlot(renderedBtns[0]);
         }

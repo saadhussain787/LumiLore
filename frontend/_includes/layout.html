@@ -316,8 +316,8 @@
                       </a>
 
                       <!-- Quick Audit Magnet Hook -->
-                      <a href="/#hero-geo-audit-container"
-                        class="flex items-start gap-2.5 p-2 rounded-xl bg-[#FAF8F3] hover:bg-[#F3EFE6] border border-[#EAE6DF] transition-colors group/item focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-blue-500"
+                      <a href="/#hero-geo-audit-container" id="nav-audit-mega-trigger"
+                        class="nav-audit-trigger-btn flex items-start gap-2.5 p-2 rounded-xl bg-[#FAF8F3] hover:bg-[#F3EFE6] border border-[#EAE6DF] transition-colors group/item focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-blue-500 cursor-pointer"
                         role="menuitem">
                         <div
                           class="w-8 h-8 rounded-lg bg-white border border-[#E5E2DC] flex items-center justify-center text-[#2563EB] text-xs shrink-0 mt-0.5">
@@ -497,15 +497,16 @@
             <span class="font-bold tracking-wider">437-848-7086</span>
           </a>
 
-          <a href="/contact/"
-            class="relative overflow-hidden bg-[#2563EB] hover:bg-[#1D4ED8] px-4 lg:px-5 py-2 rounded-full text-xs font-semibold tracking-wide transition-all shrink-0 flex items-center gap-2 text-white border border-[#1D4ED8] shadow-[0_1px_2px_rgba(13,21,32,0.12)] hover:shadow-[0_4px_12px_rgba(37,99,235,0.22)]">
+          <button type="button" id="nav-audit-trigger-desktop"
+            class="relative overflow-hidden bg-[#2563EB] hover:bg-[#1D4ED8] px-4 lg:px-5 py-2 rounded-full text-xs font-semibold tracking-wide transition-all shrink-0 flex items-center gap-2 text-white border border-[#1D4ED8] shadow-[0_1px_2px_rgba(13,21,32,0.12)] hover:shadow-[0_4px_12px_rgba(37,99,235,0.22)] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+            aria-haspopup="dialog" aria-controls="geo-audit-modal" aria-label="Open Free AI Audit Scorecard">
             <span
-              class="w-2 h-2 rounded-full bg-white/90 relative z-10"></span>
+              class="w-2 h-2 rounded-full bg-white/90 relative z-10 animate-pulse"></span>
             <span class="relative z-10 text-xs font-semibold">
               <span class="lens-corp">Get Free AI Audit</span>
               <span class="lens-trade">Get Free AI Audit</span>
             </span>
-          </a>
+          </button>
         </div>
 
         <!-- Mobile/Tablet Navigation & Menu Button -->
@@ -517,11 +518,12 @@
             <span class="text-sm">📞</span>
           </a>
 
-          <a href="/contact/"
-            class="hidden sm:inline-flex lg:hidden min-h-[44px] items-center px-4 py-2 rounded-full text-xs font-semibold bg-[#2563EB] border border-[#1D4ED8] text-white hover:bg-[#1D4ED8] transition-colors shadow-xs">
+          <button type="button" id="nav-audit-trigger-tablet"
+            class="hidden sm:inline-flex lg:hidden min-h-[44px] items-center px-4 py-2 rounded-full text-xs font-semibold bg-[#2563EB] border border-[#1D4ED8] text-white hover:bg-[#1D4ED8] transition-colors shadow-xs cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+            aria-haspopup="dialog" aria-controls="geo-audit-modal" aria-label="Open Instant AI Audit Modal">
             <span class="lens-corp">Instant AI Audit</span>
             <span class="lens-trade">Instant AI Audit</span>
-          </a>
+          </button>
           <button id="mobile-menu-btn" type="button"
             class="min-w-[48px] min-h-[48px] flex items-center justify-center p-2.5 rounded-xl text-[#0D1520] hover:bg-[#F3EFE6] border border-[#EAE6DF] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 cursor-pointer"
             aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation menu">
@@ -649,8 +651,8 @@
             </a>
 
             <!-- Instant AI Audit -->
-            <a href="/#hero-geo-audit-container"
-              class="min-h-[48px] flex items-center justify-between px-3 py-2 text-xs font-mono text-blue-700 hover:bg-blue-50 rounded-xl border border-blue-200 transition-colors">
+            <a href="/#hero-geo-audit-container" id="mobile-solutions-audit-trigger"
+              class="nav-audit-trigger-btn min-h-[48px] flex items-center justify-between px-3 py-2 text-xs font-mono text-blue-700 hover:bg-blue-50 rounded-xl border border-blue-200 transition-colors cursor-pointer">
               <span class="flex items-center gap-2">
                 <span class="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse"></span>
                 <span>Instant AI Audit (4-Sec Free Check)</span>
@@ -734,15 +736,16 @@
         </a>
 
         <!-- Primary Mobile Action Button -->
-        <a href="/contact/"
-          class="min-h-[48px] flex items-center justify-center gap-2 mt-2 px-4 py-3 text-sm font-bold text-center border border-slate-800 rounded-full bg-slate-900 hover:bg-slate-950 transition-colors text-white shadow-[0_2px_10px_rgba(0,0,0,0.15)]">
+        <button type="button" id="nav-audit-trigger-mobile"
+          class="w-full min-h-[48px] flex items-center justify-center gap-2 mt-2 px-4 py-3 text-sm font-bold text-center border border-slate-800 rounded-full bg-slate-900 hover:bg-slate-950 transition-colors text-white shadow-[0_2px_10px_rgba(0,0,0,0.15)] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+          aria-haspopup="dialog" aria-controls="geo-audit-modal" aria-label="Open Free Instant AI Audit Scorecard">
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
           <span class="font-mono uppercase tracking-wider text-xs">
             <span class="lens-corp">Get Free Instant AI Audit</span>
             <span class="lens-trade">Get Free Instant AI Audit</span>
           </span>
           <span class="text-white">→</span>
-        </a>
+        </button>
       </div>
     </div>
   </header>
@@ -1931,6 +1934,70 @@
           }
         });
       })();
+    })();
+  </script>
+
+  <!-- Sprint 23: Global Instant AI Visibility & Dual SEO/GEO Command Center Modal -->
+  {% include "components/geo-audit-modal.html" %}
+
+  <script>
+    (function initGlobalAuditModalTriggers() {
+      function attachAuditTriggers() {
+        const triggers = [
+          document.getElementById('nav-audit-trigger-desktop'),
+          document.getElementById('nav-audit-trigger-tablet'),
+          document.getElementById('nav-audit-trigger-mobile'),
+          document.getElementById('nav-audit-mega-trigger'),
+          document.getElementById('mobile-solutions-audit-trigger')
+        ].filter(Boolean);
+
+        document.querySelectorAll('.nav-audit-trigger-btn').forEach(btn => {
+          if (!triggers.includes(btn)) triggers.push(btn);
+        });
+
+        triggers.forEach(el => {
+          if (el.dataset.auditTriggerAttached) return;
+          el.dataset.auditTriggerAttached = 'true';
+          el.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Close mobile menu if currently open
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const header = document.querySelector('header');
+            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+              mobileMenu.classList.add('hidden');
+              mobileMenu.setAttribute('aria-hidden', 'true');
+              if (mobileBtn) mobileBtn.setAttribute('aria-expanded', 'false');
+              if (header) {
+                header.classList.add('rounded-full');
+                header.classList.remove('rounded-3xl');
+              }
+            }
+
+            if (typeof window.openGeoAuditModal === 'function') {
+              window.openGeoAuditModal();
+            } else {
+              const modal = document.getElementById('geo-audit-modal');
+              if (modal) {
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                modal.classList.add('opacity-100');
+                modal.setAttribute('aria-hidden', 'false');
+                const card = document.getElementById('geo-modal-card');
+                if (card) {
+                  card.classList.remove('scale-95');
+                  card.classList.add('scale-100');
+                }
+              }
+            }
+          });
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', attachAuditTriggers);
+      } else {
+        attachAuditTriggers();
+      }
     })();
   </script>
 

@@ -404,6 +404,14 @@
         }
       }
 
+      // Ensure shared canonical 5-layer authority scoring equality across all viewports
+      if (typeof window.calculateCanonicalAuditScore === 'function') {
+        const canonical = window.calculateCanonicalAuditScore(report.signals || {}, report);
+        report.canonicalScore = canonical;
+        if (!Number.isFinite(report.geoScore) || report.geoScore === 0) report.geoScore = canonical.geoScore;
+        if (!Number.isFinite(report.seoScore) || report.seoScore === 0) report.seoScore = canonical.seoScore;
+      }
+
       // Store result globally for consumption by Modal & Calendar components
       window.__LUMILORE_LAST_GEO_AUDIT = report;
 
@@ -438,5 +446,14 @@
       }
     });
   }
+
+  window.__LUMILORE_RUN_AUDIT = function(domain) {
+    if (input) input.value = domain;
+    if (typeof form.requestSubmit === 'function') {
+      form.requestSubmit();
+    } else {
+      form.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
+    }
+  };
 })();
 </script>
