@@ -728,3 +728,35 @@
 - [x] Passed 56/56 checks with 100% pass rate in `scratch/verify_sprint23.mjs`.
 - [x] Executed production build (`npm.cmd run build`) with zero compile errors (Tailwind CSS v4 in 133ms, Eleventy in 0.15s).
 - [x] Passed deep link audit `scratch/audit_links.js` with 0 broken links across 1,131 analyzed links. **SPRINT 23 IS 100% COMPLETE & PRODUCTION CERTIFIED.**
+
+---
+
+## Sprint 24: Navbar Lens Authority Consolidation & Trade Vernacular Overhaul (100% COMPLETE & PRODUCTION CERTIFIED)
+
+### Problem Statement & Architectural Context
+1. **Lens Authority Fragmentation:** Multiple competing in-page lens buttons, floating badges, and sub-toggles across `index.html`, `content-engine.html`, and `enterprise-catalog.html` created duplicate controls and awkward state divergence.
+2. **Ontario Trade Credential Inaccuracy:** Eradication of the technical error citing "200A licensed electrician" on `geo-engine.html` (200A is a physical service panel capacity, not an Ontario Certificate of Qualification).
+3. **Contractor-Friendly Trade English:** Replacing remaining academic and B2B SaaS jargon with visceral contractor English across `geo-engine.html`, `web-modernization.html`, and `content-engine.html`.
+
+### 24.1: In-Page Toggle Deprecation & Navbar State Propagation
+- [x] Removed in-hero lens buttons (`#hero-quick-switch-to-trades` & `#hero-quick-switch-to-corp`) from `frontend/index.html`.
+- [x] Replaced Command Center interactive view buttons (`#cmd-lens-trades` & `#cmd-lens-corp`) with an authoritative display pill driven by `lenschange`.
+- [x] Deprecated in-page lens buttons (`#lens-btn-corporate` & `#lens-btn-trades`) from `frontend/products/content-engine.html` and converted narrative to standard `.lens-corp` / `.lens-trade` CSS blocks.
+- [x] Deprecated in-page lens buttons (`#catalog-lens-corporate` & `#catalog-lens-trades`) from `frontend/products/enterprise-catalog.html` and preserved dynamic text synchronization via `lenschange`.
+- [x] Confirmed sticky Navbar switcher (`#master-lens-toggle` and `#mobile-master-lens-toggle` in `layout.html`) as sole authoritative driver dispatching `lenschange` and `lumilore:lens-changed`.
+
+### 24.2: Ontario Trade Licensing Remediation
+- [x] Eradicated "200A licensed electrician" on `frontend/products/geo-engine.html` (L264).
+- [x] Standardized trade credentials across solution pages to Ontario's official **309A (Construction & Maintenance Electrician)**, **306A (Plumber)**, **313A (Refrigeration & Air Conditioning Systems Mechanic)**, and **TSSA Gas Technician**.
+- [x] Preserved physical panel amperage mentions (e.g. "$3,500 200A panel upgrade") where describing hardware scope.
+
+### 24.3: Contractor-Friendly Trade English Overhaul
+- [x] `frontend/products/geo-engine.html`: Replaced academic jargon with high-converting local search copy explaining how Google Maps 3-Pack and voice search (Siri, ChatGPT Voice, Google Assistant) route high-ticket emergency calls directly to the dispatch line.
+- [x] `frontend/products/web-modernization.html`: Added dedicated Trade Lens messaging in Section 2 focusing on sub-second mobile page loads in weak-signal driveways and flooded basements on 1-bar LTE.
+- [x] `frontend/products/content-engine.html`: Replaced tech-centric copy in trust strip and demo widget with Google Business Profile local map updates, seasonal freeze/heatwave preventative advisories, and neighborhood community alerts.
+
+### 24.4: Automated Test Suite & Production Certification
+- [x] Created `scratch/verify_sprint24.mjs` asserting 43/43 automated verification checks passed cleanly (100% pass rate).
+- [x] Executed production build `npm.cmd run build` compiling Tailwind CSS v4 in 104ms and Eleventy across 18 routes in 0.14s.
+- [x] Executed `scratch/audit_pages.js` with 12/12 page layouts 100% healthy.
+- [x] Executed `scratch/audit_links.js` with 0 broken links across 1,131 analyzed links. **SPRINT 24 IS 100% COMPLETE & PRODUCTION CERTIFIED.**

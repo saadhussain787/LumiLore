@@ -75,18 +75,6 @@ layout: layout.html
           Architecture · Autonomous AI Systems</span>
         <span class="lens-trade text-xs font-semibold tracking-[0.16em] text-[#78520A] uppercase">24/7 AI Voice Dispatch
           · Field Automation For Contractors</span>
-
-        <!-- In-Hero Contextual Lens Discovery Buttons (Phase 5 Task 5.1) -->
-        <button id="hero-quick-switch-to-trades" type="button"
-          class="lens-corp group inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-[#9A6506] hover:text-[#78520A] pl-3 border-l border-[#EAE6DF] transition-colors cursor-pointer select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C88A14] rounded">
-          <span>🔧 Trades Mode</span>
-          <span class="text-[#C88A14] group-hover:translate-x-0.5 transition-transform">→</span>
-        </button>
-        <button id="hero-quick-switch-to-corp" type="button"
-          class="lens-trade group inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-[#1D4ED8] hover:text-[#1E3A8A] pl-3 border-l border-[#EAE6DF] transition-colors cursor-pointer select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] rounded">
-          <span>🏢 Corporate Mode</span>
-          <span class="text-[#2563EB] group-hover:translate-x-0.5 transition-transform">→</span>
-        </button>
       </div>
 
       <!-- Poised Editorial Dual-Tone Headline (Lindy.ai Standard) -->
@@ -1901,16 +1889,10 @@ layout: layout.html
               <span class="text-xs font-mono font-bold text-[#0D1520] tracking-wide">SYSTEM: ACTIVE DISPATCH</span>
             </div>
             <span class="text-[#9CA3AF] hidden sm:inline">•</span>
-            <div class="inline-flex items-center rounded-lg bg-[#F3EFE6] border border-[#E5E2DC] p-0.5" role="group"
-              aria-label="Portal View Toggle">
-              <button type="button" id="cmd-lens-trades"
-                class="px-3 py-1 rounded-md text-[11px] font-mono font-bold text-[#9A6506] bg-white shadow-2xs transition-all cursor-pointer">
-                Trades Dispatch
-              </button>
-              <button type="button" id="cmd-lens-corp"
-                class="px-3 py-1 rounded-md text-[11px] font-mono font-bold text-[#4B5563] hover:text-[#0D1520] transition-all cursor-pointer">
-                Enterprise Cloud
-              </button>
+            <div class="inline-flex items-center rounded-lg bg-[#F3EFE6] border border-[#E5E2DC] px-2.5 py-1 text-[11px] font-mono font-bold" role="status"
+              aria-label="Active Portal View">
+              <span class="lens-corp text-[#1D4ED8] flex items-center gap-1.5"><span>🏢</span> Enterprise Cloud Portal</span>
+              <span class="lens-trade text-[#9A6506] flex items-center gap-1.5"><span>🔧</span> Trades Dispatch Portal</span>
             </div>
           </div>
 
@@ -3728,41 +3710,9 @@ layout: layout.html
 
     function applyLens(lensKey, immediate = false) {
       if (!LENS_DATA[lensKey]) return;
-      if (currentLens === lensKey && !immediate) {
-        // Re-align indicator in case layout shifted
-        const indicator = document.getElementById('lens-active-indicator');
-        const activeBtn = lensKey === 'corporate' ? document.getElementById('lens-btn-corporate') : document.getElementById('lens-btn-trades');
-        if (indicator && activeBtn) {
-          indicator.style.left = activeBtn.offsetLeft + 'px';
-          indicator.style.width = activeBtn.offsetWidth + 'px';
-        }
-        return;
-      }
+      if (currentLens === lensKey && !immediate) return;
       currentLens = lensKey;
       const data = LENS_DATA[lensKey];
-
-      const indicator = document.getElementById('lens-active-indicator');
-      const corporateBtn = document.getElementById('lens-btn-corporate');
-      const tradesBtn = document.getElementById('lens-btn-trades');
-      const activeBtn = lensKey === 'corporate' ? corporateBtn : tradesBtn;
-      const inactiveBtn = lensKey === 'corporate' ? tradesBtn : corporateBtn;
-
-      // Update Glider Pill Indicator position & glow
-      if (indicator && activeBtn) {
-        indicator.style.left = activeBtn.offsetLeft + 'px';
-        indicator.style.width = activeBtn.offsetWidth + 'px';
-        indicator.className = `absolute top-1 bottom-1 rounded-full transition-all duration-300 ease-out pointer-events-none ${data.themeClass}`;
-      }
-
-      // Update Button state
-      if (activeBtn && inactiveBtn) {
-        activeBtn.setAttribute('aria-pressed', 'true');
-        inactiveBtn.setAttribute('aria-pressed', 'false');
-        activeBtn.classList.remove('text-slate-400');
-        activeBtn.classList.add('text-white');
-        inactiveBtn.classList.remove('text-white');
-        inactiveBtn.classList.add('text-slate-400');
-      }
 
       // Card elements & Section Header Elements
       const morphables = document.querySelectorAll('.lens-morphable');
@@ -4784,8 +4734,6 @@ layout: layout.html
     const section = document.getElementById('command-center-demo');
     if (!section) return;
 
-    const btnTrades = document.getElementById('cmd-lens-trades');
-    const btnCorp = document.getElementById('cmd-lens-corp');
     const velocityCounter = document.getElementById('cmd-velocity-counter');
     const simulateBtn = document.getElementById('cmd-simulate-btn');
     const audioToggle = document.getElementById('cmd-audio-toggle');
@@ -5044,22 +4992,6 @@ layout: layout.html
       const data = MODES[mode];
       if (!data) return;
 
-      if (mode === 'trades') {
-        if (btnTrades) {
-          btnTrades.className = 'px-3 py-1 rounded-md text-[11px] font-mono font-bold text-[#9A6506] bg-white shadow-2xs transition-all cursor-pointer';
-        }
-        if (btnCorp) {
-          btnCorp.className = 'px-3 py-1 rounded-md text-[11px] font-mono font-bold text-[#4B5563] hover:text-[#0D1520] transition-all cursor-pointer';
-        }
-      } else {
-        if (btnCorp) {
-          btnCorp.className = 'px-3 py-1 rounded-md text-[11px] font-mono font-bold text-[#1D4ED8] bg-white shadow-2xs transition-all cursor-pointer';
-        }
-        if (btnTrades) {
-          btnTrades.className = 'px-3 py-1 rounded-md text-[11px] font-mono font-bold text-[#4B5563] hover:text-[#0D1520] transition-all cursor-pointer';
-        }
-      }
-
       if (velocityCounter) velocityCounter.textContent = data.velocity;
       if (streamTitle) streamTitle.textContent = data.streamTitle;
       if (streamMeta) streamMeta.textContent = data.streamMeta;
@@ -5077,16 +5009,21 @@ layout: layout.html
       if (portalCta) portalCta.href = data.ctaHref;
     }
 
-    if (btnTrades) btnTrades.addEventListener('click', () => setMode('trades'));
-    if (btnCorp) btnCorp.addEventListener('click', () => setMode('corporate'));
-
-    // Sync with global lens switch
-    window.addEventListener('lumilore:lens-changed', (e) => {
-      const activeLens = e.detail || document.documentElement.getAttribute('data-lens');
+    // Sync with global authoritative Navbar lens switch
+    function syncCommandCenterLens(e) {
+      const activeLens = (e && e.detail && (e.detail.lens || e.detail)) || document.documentElement.getAttribute('data-lens') || 'corporate';
       if (activeLens === 'trades' || activeLens === 'corporate') {
         setMode(activeLens);
       }
-    });
+    }
+    window.addEventListener('lenschange', syncCommandCenterLens);
+    window.addEventListener('lumilore:lens-changed', syncCommandCenterLens);
+
+    // Initial mode calibration to active document lens
+    const initLens = document.documentElement.getAttribute('data-lens') || 'corporate';
+    if (initLens === 'trades' || initLens === 'corporate') {
+      setMode(initLens);
+    }
 
     // Simulate Event trigger
     if (simulateBtn) {

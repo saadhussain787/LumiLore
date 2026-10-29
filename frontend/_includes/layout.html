@@ -1689,6 +1689,7 @@
 
         // Dispatch global custom event for any listeners (ROI Calculator, Audio Player, etc.)
         window.dispatchEvent(new CustomEvent('lenschange', { detail: { lens: lensKey } }));
+        window.dispatchEvent(new CustomEvent('lumilore:lens-changed', { detail: lensKey }));
       }
 
       function dismissTooltip() {
@@ -1758,23 +1759,6 @@
           mTradeBtn.addEventListener('click', function (e) {
             e.preventDefault();
             setMasterLens('trades', true);
-          });
-        }
-
-        // In-Hero Quick Switcher Buttons (Phase 5 Task 5.2)
-        var heroSwitchToTrades = document.getElementById('hero-quick-switch-to-trades');
-        var heroSwitchToCorp = document.getElementById('hero-quick-switch-to-corp');
-
-        if (heroSwitchToTrades) {
-          heroSwitchToTrades.addEventListener('click', function (e) {
-            e.preventDefault();
-            setMasterLens('trades', true);
-          });
-        }
-        if (heroSwitchToCorp) {
-          heroSwitchToCorp.addEventListener('click', function (e) {
-            e.preventDefault();
-            setMasterLens('corporate', true);
           });
         }
 

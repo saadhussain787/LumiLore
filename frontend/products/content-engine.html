@@ -63,37 +63,20 @@ syndicated high-DA publications across Dev.to & Medium on autopilot."
         <span class="text-[#C88A14] lens-trade">Automated Project Photos, 5-Star Reviews &amp; Local Updates.</span>
       </h1>
 
-      <!-- Audience Perspective Selector -->
-      <div
-        class="inline-flex p-1 rounded-2xl bg-white border border-[#EAE6DF] mb-8 shadow-xs">
-        <button id="lens-btn-corporate" onclick="switchHeroLens('corporate')"
-          class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-mono font-bold transition-all cursor-pointer bg-[#0D1520] text-white shadow-xs">
-          🏢 Corporate B2B &amp; CTO Lens
-        </button>
-        <button id="lens-btn-trades" onclick="switchHeroLens('trades')"
-          class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-mono font-bold transition-all cursor-pointer text-[#4B5563] hover:text-[#0D1520]">
-          🔧 Mechanical Trades &amp; Fleet Lens
-        </button>
-      </div>
-
       <!-- Dynamic Lens Narrative Subheadline -->
       <div id="lens-narrative-container">
         <!-- Corporate Narrative (Default) -->
-        <div id="lens-corporate-content" class="transition-opacity duration-300">
-          <p class="text-base sm:text-xl text-[#4B5563] font-light leading-relaxed max-w-3xl mx-auto mb-10">
-            Turn architectural code and serverless benchmarks into authoritative LinkedIn leadership posts, technical
-            breakdowns, and syndicated engineering articles with canonical SEO protection.
-          </p>
-        </div>
+        <p class="lens-corp text-base sm:text-xl text-[#4B5563] font-light leading-relaxed max-w-3xl mx-auto mb-10">
+          Turn architectural code and serverless benchmarks into authoritative LinkedIn leadership posts, technical
+          breakdowns, and syndicated engineering articles with canonical SEO protection.
+        </p>
 
-        <!-- Trades Narrative (Hidden by default) -->
-        <div id="lens-trades-content" class="hidden transition-opacity duration-300">
-          <p class="text-base sm:text-xl text-[#4B5563] font-light leading-relaxed max-w-3xl mx-auto mb-10">
-            Automated Google Business Profile updates, local project photos, and 5-star review highlights that keep your
-            business at the top of local search. Turn completed job photos into ranked project updates in your service
-            areas with zero marketing agency overhead.
-          </p>
-        </div>
+        <!-- Trades Narrative -->
+        <p class="lens-trade text-base sm:text-xl text-[#4B5563] font-light leading-relaxed max-w-3xl mx-auto mb-10">
+          Automated Google Business Profile updates, local project photos, and 5-star review highlights that keep your
+          business at the top of local search. Turn completed job photos into ranked project updates in your service
+          areas with zero marketing agency overhead.
+        </p>
       </div>
 
       <!-- Primary Action Buttons -->
@@ -121,9 +104,15 @@ syndicated high-DA publications across Dev.to & Medium on autopilot."
         <span class="text-[#EAE6DF]">•</span>
         <span class="flex items-center gap-1.5"><strong class="text-[#0D1520]">100%</strong> Grounded Metrics</span>
         <span class="text-[#EAE6DF]">•</span>
-        <span class="flex items-center gap-1.5"><strong class="text-[#0D1520]">&le; 280 Char</strong> Twitter Strictness</span>
+        <span class="flex items-center gap-1.5">
+          <span class="lens-corp"><strong class="text-[#0D1520]">&le; 280 Char</strong> Twitter Strictness</span>
+          <span class="lens-trade"><strong class="text-[#0D1520]">Google Business Profile</strong> Local Map Updates</span>
+        </span>
         <span class="text-[#EAE6DF]">•</span>
-        <span class="flex items-center gap-1.5"><strong class="text-[#0D1520]">Canonical First</strong> SEO Protection</span>
+        <span class="flex items-center gap-1.5">
+          <span class="lens-corp"><strong class="text-[#0D1520]">Canonical First</strong> SEO Protection</span>
+          <span class="lens-trade"><strong class="text-[#0D1520]">Seasonal Alert</strong> Neighborhood Advisories</span>
+        </span>
       </div>
 
     </div>
@@ -141,11 +130,12 @@ syndicated high-DA publications across Dev.to & Medium on autopilot."
               INTERACTIVE DEMO // DOGFOODED CUSTOMER ZERO ENGINE
             </div>
             <h2 class="text-2xl sm:text-3xl font-bold text-[#0D1520] tracking-tight font-display">
-              Live Social Hook &amp; Proof Engine
+              <span class="lens-corp">Live Social Hook &amp; Proof Engine</span>
+              <span class="lens-trade">Live Local Update &amp; Review Booster Engine</span>
             </h2>
             <p class="text-xs text-[#4B5563] mt-1 font-light">
-              Select your target audience and hook strategy to experience the autonomous conversion formulas in real
-              time.
+              <span class="lens-corp">Select your target audience and hook strategy to experience the autonomous conversion formulas in real time.</span>
+              <span class="lens-trade">See how completed job photos automatically turn into ranked Google Business Profile updates and 5-star customer review campaigns.</span>
             </p>
           </div>
           <span
@@ -945,31 +935,19 @@ syndicated high-DA publications across Dev.to & Medium on autopilot."
 
 <!-- Interactive Client-Side JavaScript for Dual-Lens & Hook Generator Demo -->
 <script>
-  // 1. Dual-Lens Switcher Logic
+  // 1. Dual-Lens Switcher Logic (Synchronized with Authoritative Navbar Lens)
   function switchHeroLens(lens) {
-    const corpBtn = document.getElementById('lens-btn-corporate');
-    const tradesBtn = document.getElementById('lens-btn-trades');
-    const corpContent = document.getElementById('lens-corporate-content');
-    const tradesContent = document.getElementById('lens-trades-content');
     const primaryCta = document.getElementById('hero-primary-cta');
     const audienceSelect = document.getElementById('demo-audience-select');
 
     if (lens === 'corporate') {
-      corpBtn.className = "px-5 py-2.5 rounded-xl text-xs sm:text-sm font-mono font-bold transition-all cursor-pointer bg-[#0D1520] text-white shadow-xs";
-      tradesBtn.className = "px-5 py-2.5 rounded-xl text-xs sm:text-sm font-mono font-bold transition-all cursor-pointer text-[#4B5563] hover:text-[#0D1520]";
-      corpContent.classList.remove('hidden');
-      tradesContent.classList.add('hidden');
-      primaryCta.href = "/contact/?service=content-engine&tier=growth&source=hero_primary&lens=corporate";
+      if (primaryCta) primaryCta.href = "/contact/?service=content-engine&tier=growth&source=hero_primary&lens=corporate";
       if (audienceSelect) {
         audienceSelect.value = 'corporate';
         generateDemoHook();
       }
     } else {
-      tradesBtn.className = "px-5 py-2.5 rounded-xl text-xs sm:text-sm font-mono font-bold transition-all cursor-pointer bg-[#0D1520] text-white shadow-xs";
-      corpBtn.className = "px-5 py-2.5 rounded-xl text-xs sm:text-sm font-mono font-bold transition-all cursor-pointer text-[#4B5563] hover:text-[#0D1520]";
-      tradesContent.classList.remove('hidden');
-      corpContent.classList.add('hidden');
-      primaryCta.href = "/contact/?service=content-engine&tier=growth&source=hero_primary&lens=trades";
+      if (primaryCta) primaryCta.href = "/contact/?service=content-engine&tier=growth&source=hero_primary&lens=trades";
       if (audienceSelect) {
         audienceSelect.value = 'trades';
         generateDemoHook();
@@ -1034,10 +1012,14 @@ syndicated high-DA publications across Dev.to & Medium on autopilot."
   function copyDemoHook() {
     const hook = document.getElementById('demo-hook-text').textContent.replace(/^"|"$/g, '');
     const proof = document.getElementById('demo-proof-text').textContent;
-    const caseStudyUrl = activeLens === 'trades'
+    const currentLens = document.documentElement.getAttribute('data-lens') || 'corporate';
+    const caseStudyUrl = currentLens === 'trades'
       ? 'https://lumilore.ca/insights/autonomous-247-ai-voice-dispatch-mechanical-trades/'
       : 'https://lumilore.ca/insights/cutting-aws-cloud-waste-serverless-architecture/';
-    const fullPost = `${hook}\n\n${proof}\n\nRead the full engineering breakdown:\n${caseStudyUrl}\n\n#LumiLore #CloudArchitecture #SystemsEngineering`;
+    const tags = currentLens === 'trades'
+      ? '#OntarioTrades #LocalHVAC #PlumbingEmergency #Licensed309A #ContractorGrowth'
+      : '#LumiLore #CloudArchitecture #SystemsEngineering #ServerlessFinOps';
+    const fullPost = `${hook}\n\n${proof}\n\nRead the full breakdown:\n${caseStudyUrl}\n\n${tags}`;
 
     navigator.clipboard.writeText(fullPost).then(() => {
       const btnText = document.getElementById('copy-btn-text');

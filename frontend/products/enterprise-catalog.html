@@ -65,19 +65,6 @@ self-hosted Chatwoot helpdesks, VoiceStudio viral reel engines, and OmniRoute Fi
         <span class="text-[#C88A14] lens-trade">Automation Suite Built for Multi-Truck Fleets.</span>
       </h1>
 
-      <!-- Audience Perspective Selector -->
-      <div
-        class="inline-flex p-1 rounded-2xl bg-white border border-[#EAE6DF] mb-6 shadow-xs">
-        <button id="catalog-lens-corporate" type="button" onclick="switchCatalogLens('corporate')"
-          class="min-h-[44px] px-5 py-2.5 rounded-xl text-xs sm:text-sm font-mono font-bold transition-all cursor-pointer bg-[#0D1520] text-white shadow-xs">
-          🏢 Corporate B2B &amp; CTO Lens
-        </button>
-        <button id="catalog-lens-trades" type="button" onclick="switchCatalogLens('trades')"
-          class="min-h-[44px] px-5 py-2.5 rounded-xl text-xs sm:text-sm font-mono font-bold transition-all cursor-pointer text-[#4B5563] hover:text-[#0D1520]">
-          🔧 Mechanical Trades &amp; Fleet Lens
-        </button>
-      </div>
-
       <p id="catalog-hero-sub" class="text-base sm:text-lg text-[#4B5563] max-w-3xl mx-auto leading-relaxed">
         <span class="lens-corp">Six turn-key commercial architectures engineered on AWS Canada (<code class="text-[#0D1520] bg-[#F3EFE6] px-1 py-0.5 rounded text-xs">ca-central-1</code>). Zero
           per-seat SaaS extortion, 100% data sovereignty, and transparent fixed-scope pricing.</span>
@@ -161,7 +148,7 @@ self-hosted Chatwoot helpdesks, VoiceStudio viral reel engines, and OmniRoute Fi
               <li class="flex items-start gap-2.5">
                 <span class="text-[#C88A14] font-bold mt-0.5">✓</span>
                 <span><span class="lens-corp"><strong class="text-[#0D1520]">Human-in-the-Loop Consultative Drafts:</strong> Auto-generates technical replies in your
-                  executive persona with canonical case-study attribution.</span><span class="lens-trade"><strong class="text-[#0D1520]">Direct General Contractor Outreach:</strong> Auto-drafts professional introductory bids to property managers and general contractors with your verified trade certifications (TSSA, 309A, Master Plumber).</span></span>
+                  executive persona with canonical case-study attribution.</span><span class="lens-trade"><strong class="text-[#0D1520]">Direct General Contractor Outreach:</strong> Auto-drafts professional introductory bids to property managers and general contractors with your verified Ontario trade certifications (309A Electrician, 306A Plumber, 313A HVAC, TSSA Gas).</span></span>
               </li>
             </ul>
 
@@ -860,8 +847,6 @@ self-hosted Chatwoot helpdesks, VoiceStudio viral reel engines, and OmniRoute Fi
 <!-- Interactive Enterprise Catalog Engine Script -->
 <script>
   function switchCatalogLens(lens) {
-    const corpBtn = document.getElementById('catalog-lens-corporate');
-    const tradesBtn = document.getElementById('catalog-lens-trades');
     const heroSub = document.getElementById('catalog-hero-sub');
     const leadDesc = document.getElementById('lead-radar-lens-desc');
     const secDesc = document.getElementById('ai-security-lens-desc');
@@ -871,8 +856,6 @@ self-hosted Chatwoot helpdesks, VoiceStudio viral reel engines, and OmniRoute Fi
     const finDesc = document.getElementById('ai-finops-lens-desc');
 
     if (lens === 'trades') {
-      if (tradesBtn) tradesBtn.className = 'min-h-[44px] px-5 py-2.5 rounded-xl text-xs sm:text-sm font-mono font-bold transition-all cursor-pointer bg-[#0D1520] text-white shadow-xs';
-      if (corpBtn) corpBtn.className = 'min-h-[44px] px-5 py-2.5 rounded-xl text-xs sm:text-sm font-mono font-bold transition-all cursor-pointer text-[#4B5563] hover:text-[#0D1520]';
       if (heroSub) heroSub.textContent = 'Six commercial automation engines built for multi-truck HVAC, plumbing, electrical, and mechanical contractors across Ontario & North America.';
       if (leadDesc) leadDesc.textContent = '24/7 monitoring of r/HVAC, local homeowner forums, and commercial property maintenance registries to capture emergency repair and retrofit jobs first.';
       if (secDesc) secDesc.textContent = 'Protects your AI voice receptionists, SMS quoting bots, and ServiceTitan/Jobber webhooks from prompt spoofing, price manipulation, and customer data leaks.';
@@ -883,8 +866,6 @@ self-hosted Chatwoot helpdesks, VoiceStudio viral reel engines, and OmniRoute Fi
       runLeadRadarScan('hvac');
       runAiBrainQuery('hvac_manual');
     } else {
-      if (corpBtn) corpBtn.className = 'min-h-[44px] px-5 py-2.5 rounded-xl text-xs sm:text-sm font-mono font-bold transition-all cursor-pointer bg-[#0D1520] text-white shadow-xs';
-      if (tradesBtn) tradesBtn.className = 'min-h-[44px] px-5 py-2.5 rounded-xl text-xs sm:text-sm font-mono font-bold transition-all cursor-pointer text-[#4B5563] hover:text-[#0D1520]';
       if (heroSub) heroSub.textContent = 'Six turn-key commercial architectures engineered on AWS Canada (ca-central-1). Zero per-seat SaaS extortion, 100% data sovereignty, and transparent fixed-scope pricing.';
       if (leadDesc) leadDesc.textContent = '24/7 autonomous monitoring of Reddit (r/aws, r/HVAC), Twitter/X technical distress threads, and Canadian business registries for high-intent buyer inquiries.';
       if (secDesc) secDesc.textContent = 'Comprehensive 100+ rule automated red-team penetration testing against prompt injection, system prompt leakage, PII data exfiltration, and compliance leaks.';
