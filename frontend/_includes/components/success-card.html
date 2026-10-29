@@ -1,119 +1,321 @@
-<!-- Interactive Dual-State Success Stories Component (Lindy.ai Daylight Edition) -->
-<div class="w-full">
-  <!-- Subtle Instructional Helper -->
-  <div class="flex items-center justify-center gap-2 mb-8 text-xs font-mono uppercase tracking-widest text-[#4B5563]">
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-[#C88A14] animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
-    </svg>
-    <span>Hover over a story to see what drove the growth</span>
+<!-- Editorial Proof Ledger Component (Sprint 25: Lindy.ai Executive Daylight Edition) -->
+<div class="w-full" id="proof-ledger-container">
+
+  <!-- Lens-Synchronized Filter Header & Quick Filter Pills -->
+  <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-10 pb-6 border-b border-[#EAE6DF]">
+    <div class="flex items-center gap-2.5">
+      <span class="w-2.5 h-2.5 rounded-full bg-[#2563EB] lens-corp animate-pulse"></span>
+      <span class="w-2.5 h-2.5 rounded-full bg-[#D97706] lens-trade animate-pulse"></span>
+      <span class="text-xs font-mono font-bold uppercase tracking-widest text-[#0D1520]">
+        <span class="lens-corp">Verified Enterprise FinOps &amp; SLA Ledgers</span>
+        <span class="lens-trade">Verified Trade Dispatch &amp; Recapture Ledgers</span>
+      </span>
+      <span class="text-[11px] font-mono text-[#6B7280] bg-[#F3EFE6] px-2 py-0.5 rounded-full border border-[#EAE6DF]">
+        6 Deployed Systems
+      </span>
+    </div>
+
+    <!-- Interactive Segmented Proof Filter -->
+    <div class="inline-flex items-center p-1 rounded-full bg-[#F3EFE6] border border-[#EAE6DF] select-none shadow-xs" role="tablist" aria-label="Success Stories Lens Filter">
+      <button 
+        type="button" 
+        id="proof-filter-all" 
+        class="proof-filter-btn px-4 py-1.5 rounded-full text-xs font-mono font-semibold tracking-wider transition-all duration-200 cursor-pointer min-h-[40px] flex items-center gap-1.5 bg-white text-[#0D1520] shadow-xs border border-[#E5E2DC]"
+        data-filter="all"
+        role="tab"
+        aria-selected="true"
+      >
+        <span>All Cases (6)</span>
+      </button>
+      <button 
+        type="button" 
+        id="proof-filter-corporate" 
+        class="proof-filter-btn px-4 py-1.5 rounded-full text-xs font-mono font-semibold tracking-wider transition-all duration-200 cursor-pointer min-h-[40px] flex items-center gap-1.5 text-[#4B5563] hover:text-[#0D1520]"
+        data-filter="corporate"
+        role="tab"
+        aria-selected="false"
+      >
+        <span>🏢</span> <span>Corporate (3)</span>
+      </button>
+      <button 
+        type="button" 
+        id="proof-filter-trades" 
+        class="proof-filter-btn px-4 py-1.5 rounded-full text-xs font-mono font-semibold tracking-wider transition-all duration-200 cursor-pointer min-h-[40px] flex items-center gap-1.5 text-[#4B5563] hover:text-[#0D1520]"
+        data-filter="trades"
+        role="tab"
+        aria-selected="false"
+      >
+        <span>🔧</span> <span>Trades (3)</span>
+      </button>
+    </div>
   </div>
 
-  <!-- Cards Grid -->
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  <!-- Editorial Proof Ledger List (Zero Cramped Boxes, Open Architecture) -->
+  <div class="space-y-10 sm:space-y-12" id="proof-ledger-list">
     {% for story in successStories %}
-    <div 
-      class="group relative h-[440px] rounded-2xl bg-white border border-[#EAE6DF] p-6 flex flex-col justify-between overflow-hidden transition-all duration-300 hover:border-[#D97706]/40 hover:shadow-md cursor-pointer select-none"
-      onclick="this.classList.toggle('active-flip')"
-      tabindex="0"
-      role="region"
+    <article 
+      class="proof-ledger-item group relative rounded-3xl bg-white border border-[#EAE6DF] p-6 sm:p-8 lg:p-10 shadow-xs hover:shadow-md hover:border-[#D97706]/40 transition-all duration-300 overflow-hidden"
+      data-story-lens="{{ story.audienceLens }}"
+      id="case-{{ story.id }}"
       aria-label="{{ story.metricLabel }} - {{ story.headlineMetric }}"
     >
-      <!-- Top Bar: Industry & Lens Badge -->
-      <div class="flex items-start justify-between gap-2 border-b border-[#EAE6DF] pb-4">
-        <div>
-          <span class="text-[10px] font-mono tracking-widest uppercase px-2.5 py-1 rounded-full border {{ story.badgeColor }}">
+      <!-- Top Ledger Strip: Industry Pill, Client Label & Verified Proof Badges -->
+      <div class="flex flex-wrap items-center justify-between gap-3 pb-6 border-b border-[#EAE6DF]">
+        <div class="flex flex-wrap items-center gap-2.5">
+          <span class="text-xs font-mono font-bold tracking-widest uppercase px-3 py-1 rounded-full border {{ story.badgeColor }}">
             {{ story.industry }}
           </span>
+          <span class="text-xs font-mono text-[#6B7280]">
+            • {{ story.clientLabel }}
+          </span>
         </div>
-        <span class="text-[10px] font-mono text-[#4B5563] uppercase tracking-wider font-semibold">
-          {{ story.audienceLens }}
-        </span>
-      </div>
 
-      <!-- Headline Metric & Label -->
-      <div class="pt-3">
-        <div class="text-xs font-mono uppercase tracking-wider text-[#4B5563] mb-1">
-          {{ story.metricLabel }}
-        </div>
-        <div class="text-4xl font-extrabold tracking-tight font-display text-[#0D1520] group-hover:text-[#C88A14] transition-colors">
-          {{ story.headlineMetric }}
-        </div>
-      </div>
-
-      <!-- Center Body: Dual-State Transition Container -->
-      <div class="relative flex-1 my-4 min-h-[190px]">
-        
-        <!-- STATE 1: Default View (SVG Trajectory Curve & Metrics) -->
-        <div class="absolute inset-0 flex flex-col justify-between transition-all duration-300 ease-out group-hover:opacity-0 group-hover:pointer-events-none group-hover:-translate-y-2 group-[.active-flip]:opacity-0 group-[.active-flip]:pointer-events-none group-[.active-flip]:-translate-y-2">
-          <!-- Sparkline Chart -->
-          <div class="relative w-full h-32 flex items-center justify-center">
-            <svg class="w-full h-full overflow-visible" viewBox="0 0 280 90" fill="none" preserveAspectRatio="none">
-              <defs>
-                <linearGradient id="grad-{{ story.id }}" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#C88A14" stop-opacity="0.25" />
-                  <stop offset="100%" stop-color="#C88A14" stop-opacity="0.0" />
-                </linearGradient>
-                <filter id="glow-{{ story.id }}" x="-20%" y="-20%" width="140%" height="140%">
-                  <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#C88A14" flood-opacity="0.3"/>
-                </filter>
-              </defs>
-              <!-- Filled Area Under Curve -->
-              <path d="{{ story.graph.fillPath }}" fill="url(#grad-{{ story.id }})" />
-              <!-- Trajectory Line -->
-              <path d="{{ story.graph.chartPath }}" stroke="#C88A14" stroke-width="2.5" stroke-linecap="round" filter="url(#glow-{{ story.id }})" />
-              <!-- End Point Marker -->
-              <circle cx="270" cy="12" r="4" fill="#C88A14" />
-              <circle cx="270" cy="12" r="8" fill="#C88A14" opacity="0.2" class="animate-ping" />
+        <!-- Verified Badges Strip -->
+        <div class="flex flex-wrap items-center gap-2">
+          {% for badge in story.verifiedBadges %}
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-[#FAF8F3] border border-[#EAE6DF] text-xs font-mono text-[#0D1520]">
+            <svg class="w-3.5 h-3.5 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
             </svg>
+            <span class="font-semibold">{{ badge.label }}</span>
+            <span class="text-[10px] text-[#6B7280] font-normal">({{ badge.verifiedDate }})</span>
+          </div>
+          {% endfor %}
+
+          <!-- Lens Tag -->
+          <span class="text-[11px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#F3EFE6] text-[#4B5563] font-bold">
+            {% if story.audienceLens == 'trades' %}🔧 Trades{% else %}🏢 Corporate{% endif %}
+          </span>
+        </div>
+      </div>
+
+      <!-- Core Executive Metric & Telemetry Visualization -->
+      <div class="py-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <!-- Left: Headline Metric & Scope Summary (7 Cols) -->
+        <div class="lg:col-span-7 space-y-3">
+          <div class="text-xs sm:text-sm font-mono uppercase tracking-wider text-[#4B5563]">
+            {{ story.metricLabel }}
+          </div>
+          <div class="font-headline text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#0D1520]">
+            {% if story.audienceLens == 'trades' %}
+              <span class="text-[#B45309]">{{ story.headlineMetric }}</span>
+            {% else %}
+              <span class="text-[#2563EB]">{{ story.headlineMetric }}</span>
+            {% endif %}
+          </div>
+          <p class="text-sm sm:text-base text-[#4B5563] leading-relaxed max-w-xl pt-1">
+            {{ story.breakdown.financialOutcome }}
+          </p>
+        </div>
+
+        <!-- Right: Clean SVG Sparkline Trendline & 1-Tap Booking Bridge (5 Cols) -->
+        <div class="lg:col-span-5 flex flex-col justify-between h-full space-y-6">
+          <!-- Sparkline Chart Container -->
+          <div class="p-4 rounded-2xl bg-[#FCFBF7] border border-[#EAE6DF]">
+            <div class="flex items-center justify-between text-xs font-mono text-[#6B7280] mb-2 px-1">
+              <span>Baseline: <strong class="text-[#0D1520]">{{ story.graph.startLabel }}</strong></span>
+              <span class="{% if story.audienceLens == 'trades' %}text-[#B45309]{% else %}text-[#2563EB]{% endif %} font-bold">
+                Outcome: {{ story.graph.endLabel }}
+              </span>
+            </div>
+            
+            <div class="relative w-full h-24 flex items-center justify-center">
+              <svg class="w-full h-full overflow-visible" viewBox="0 0 280 90" fill="none" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="grad-ledger-{{ story.id }}" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="{% if story.audienceLens == 'trades' %}#D97706{% else %}#2563EB{% endif %}" stop-opacity="0.22" />
+                    <stop offset="100%" stop-color="{% if story.audienceLens == 'trades' %}#D97706{% else %}#2563EB{% endif %}" stop-opacity="0.0" />
+                  </linearGradient>
+                </defs>
+                <path d="{{ story.graph.fillPath }}" fill="url(#grad-ledger-{{ story.id }})" />
+                <path d="{{ story.graph.chartPath }}" stroke="{% if story.audienceLens == 'trades' %}#B45309{% else %}#2563EB{% endif %}" stroke-width="3" stroke-linecap="round" />
+                <circle cx="270" cy="12" r="4.5" fill="{% if story.audienceLens == 'trades' %}#B45309{% else %}#2563EB{% endif %}" />
+                <circle cx="270" cy="12" r="9" fill="{% if story.audienceLens == 'trades' %}#B45309{% else %}#2563EB{% endif %}" opacity="0.25" class="animate-ping" />
+              </svg>
+            </div>
+
+            <div class="flex items-center justify-between text-[11px] font-mono text-[#6B7280] mt-2 px-1 border-t border-[#EAE6DF] pt-1.5">
+              <span>{{ story.timeframe.start }}</span>
+              <span class="font-semibold text-[#0D1520]">{{ story.timeframe.end }}</span>
+            </div>
           </div>
 
-          <!-- Chart X/Y Coordinates Legend -->
-          <div class="flex items-center justify-between text-xs font-mono text-[#4B5563] px-1 border-t border-[#EAE6DF] pt-2">
-            <div>
-              <span class="block text-[#4B5563] text-[10px] uppercase">{{ story.timeframe.start }}</span>
-              <span class="font-semibold text-[#0D1520]">{{ story.graph.startLabel }}</span>
-            </div>
-            <div class="text-right">
-              <span class="block text-[#C88A14] text-[10px] uppercase font-bold">{{ story.timeframe.end }}</span>
-              <span class="font-semibold text-[#C88A14]">{{ story.graph.endLabel }}</span>
-            </div>
+          <!-- Direct 1-Tap Booking Conversion Bridge -->
+          <div class="pt-1">
+            <a 
+              href="/contact/?service={{ story.bookingBridge.service }}&tier={{ story.bookingBridge.tier }}&lens={{ story.audienceLens }}&source={{ story.bookingBridge.source }}&notes={{ story.bookingBridge.notes | url_encode }}"
+              class="w-full min-h-[48px] inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl {% if story.audienceLens == 'trades' %}bg-[#B45309] hover:bg-[#92400E]{% else %}bg-[#0D1520] hover:bg-[#1A2536]{% endif %} text-white font-mono text-xs uppercase tracking-wider font-bold shadow-xs hover:shadow transition-all group/btn"
+              data-booking-case="{{ story.id }}"
+            >
+              <span>Replicate This Architecture</span>
+              <svg class="w-4 h-4 transition-transform group-hover/btn:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
           </div>
         </div>
 
-        <!-- STATE 2: Hover View (4-Step Impact Narrative) -->
-        <div class="absolute inset-0 flex flex-col justify-between opacity-0 pointer-events-none translate-y-2 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 group-[.active-flip]:opacity-100 group-[.active-flip]:pointer-events-auto group-[.active-flip]:translate-y-0 bg-white rounded-xl p-3 border border-[#EAE6DF] shadow-md">
-          <div class="space-y-2.5 overflow-y-auto pr-1 text-left">
-            {% for step in story.narrativeSteps %}
-            <div class="flex items-start gap-2.5 text-xs">
-              <span class="shrink-0 flex items-center justify-center w-5 h-5 rounded-full bg-[#FAF6EC] border border-[#EAE6DF] font-mono text-[10px] font-bold text-[#C88A14]">
-                {{ step.step }}
-              </span>
-              <p class="text-[#4B5563] leading-snug">
-                <strong class="text-[#0D1520]">{{ step.title }}:</strong> {{ step.description }}
+      </div>
+
+      <!-- The 3-Part Operational Breakdown Deck (Zero Hover Dependencies, 100% Touch & Mobile Native) -->
+      <div class="pt-8 border-t border-[#EAE6DF]">
+        <div class="text-xs font-mono uppercase tracking-widest text-[#6B7280] font-bold mb-4 flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#0D1520]"></span>
+          <span>Operational Breakdown &amp; Deployment Roadmap</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+          
+          <!-- Step 01: The Friction -->
+          <div class="rounded-2xl bg-[#FCFBF7] border border-[#EAE6DF] p-5 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 mb-2.5">
+                <span class="w-6 h-6 rounded-full bg-rose-50 border border-rose-200 text-rose-700 font-mono text-xs font-bold flex items-center justify-center shrink-0">
+                  01
+                </span>
+                <span class="text-xs font-mono uppercase tracking-wider font-bold text-rose-900">
+                  The Friction
+                </span>
+              </div>
+              <p class="text-xs sm:text-sm text-[#4B5563] leading-relaxed">
+                {{ story.breakdown.friction }}
               </p>
             </div>
-            {% endfor %}
+            <div class="mt-4 pt-3 border-t border-[#EAE6DF]/60 text-[11px] font-mono text-[#6B7280]">
+              Bottleneck Identified
+            </div>
           </div>
+
+          <!-- Step 02: The Deployed System -->
+          <div class="rounded-2xl bg-[#FCFBF7] border border-[#EAE6DF] p-5 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 mb-2.5">
+                <span class="w-6 h-6 rounded-full bg-blue-50 border border-blue-200 text-blue-700 font-mono text-xs font-bold flex items-center justify-center shrink-0">
+                  02
+                </span>
+                <span class="text-xs font-mono uppercase tracking-wider font-bold text-blue-900">
+                  The Deployed System
+                </span>
+              </div>
+              <p class="text-xs sm:text-sm text-[#4B5563] leading-relaxed">
+                {{ story.breakdown.deployedSystem }}
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-[#EAE6DF]/60 text-[11px] font-mono text-[#6B7280]">
+              LumiLore Engineering
+            </div>
+          </div>
+
+          <!-- Step 03: The Verified Outcome -->
+          <div class="rounded-2xl {% if story.audienceLens == 'trades' %}bg-[#FAF6EC] border-[#D97706]/30{% else %}bg-[#EFF6FF] border-blue-200{% endif %} border p-5 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 mb-2.5">
+                <span class="w-6 h-6 rounded-full {% if story.audienceLens == 'trades' %}bg-amber-100 text-amber-900 border-amber-300{% else %}bg-blue-100 text-blue-900 border-blue-300{% endif %} border font-mono text-xs font-bold flex items-center justify-center shrink-0">
+                  03
+                </span>
+                <span class="text-xs font-mono uppercase tracking-wider font-bold {% if story.audienceLens == 'trades' %}text-amber-900{% else %}text-blue-900{% endif %}">
+                  Verified Outcome
+                </span>
+              </div>
+              <p class="text-xs sm:text-sm text-[#0D1520] font-medium leading-relaxed">
+                {{ story.breakdown.financialOutcome }}
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t {% if story.audienceLens == 'trades' %}border-amber-200 text-amber-800{% else %}border-blue-200 text-blue-800{% endif %} text-[11px] font-mono font-semibold">
+              Live Production Metric
+            </div>
+          </div>
+
         </div>
-
       </div>
 
-      <!-- Bottom Bar: Direct Verification Proof Pills -->
-      <div class="flex items-center gap-2 pt-3 border-t border-[#EAE6DF]">
-        {% for pill in story.verificationPills %}
-        <a 
-          href="{{ pill.url }}" 
-          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#FCFBF7] hover:bg-[#FAF6EC] border border-[#EAE6DF] hover:border-[#D97706]/40 text-[11px] font-mono text-[#0D1520] hover:text-[#C88A14] transition-colors z-10 shadow-xs"
-          onclick="event.stopPropagation();"
-        >
-          <span>{{ pill.label }}</span>
-          <svg class="w-3 h-3 text-[#4B5563] group-hover:text-[#C88A14]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-          </svg>
-        </a>
-        {% endfor %}
-      </div>
-    </div>
+    </article>
     {% endfor %}
   </div>
+
 </div>
+
+<!-- Client-Side Reactive Lens Synchronization & Filter Controller -->
+<script>
+  (function initProofLedgerLensSync() {
+    function applyProofFilter(filterKey) {
+      const items = document.querySelectorAll('.proof-ledger-item');
+      const buttons = document.querySelectorAll('.proof-filter-btn');
+
+      // Update button active state
+      buttons.forEach(btn => {
+        const btnFilter = btn.getAttribute('data-filter');
+        const isActive = btnFilter === filterKey;
+        btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        if (isActive) {
+          btn.classList.add('bg-white', 'text-[#0D1520]', 'shadow-xs', 'border', 'border-[#E5E2DC]');
+          btn.classList.remove('text-[#4B5563]');
+        } else {
+          btn.classList.remove('bg-white', 'text-[#0D1520]', 'shadow-xs', 'border', 'border-[#E5E2DC]');
+          btn.classList.add('text-[#4B5563]');
+        }
+      });
+
+      // Filter or sort items
+      items.forEach(item => {
+        const itemLens = item.getAttribute('data-story-lens');
+        if (filterKey === 'all') {
+          item.classList.remove('hidden');
+          item.style.opacity = '1';
+        } else if (itemLens === filterKey) {
+          item.classList.remove('hidden');
+          item.style.opacity = '1';
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+    }
+
+    // Attach click listeners to local filter pills
+    document.querySelectorAll('.proof-filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+        applyProofFilter(filter);
+      });
+    });
+
+    // React to Global Navbar Lens events
+    function onGlobalLensChange(lens) {
+      if (lens === 'trades' || lens === 'corporate') {
+        applyProofFilter(lens);
+      } else {
+        applyProofFilter('all');
+      }
+    }
+
+    window.addEventListener('lenschange', (e) => {
+      if (e.detail && e.detail.lens) {
+        onGlobalLensChange(e.detail.lens);
+      }
+    });
+
+    window.addEventListener('lumilore:lens-changed', (e) => {
+      const lens = typeof e.detail === 'string' ? e.detail : (e.detail && e.detail.lens);
+      if (lens) onGlobalLensChange(lens);
+    });
+
+    // Initial sync with document lens on DOM Ready
+    document.addEventListener('DOMContentLoaded', () => {
+      const currentLens = document.documentElement.getAttribute('data-lens') || 'all';
+      if (currentLens === 'trades' || currentLens === 'corporate') {
+        applyProofFilter(currentLens);
+      } else {
+        applyProofFilter('all');
+      }
+    });
+
+    // Immediate check if DOM already ready
+    if (document.readyState === 'interactive' || document.readyState === 'complete') {
+      const currentLens = document.documentElement.getAttribute('data-lens');
+      if (currentLens === 'trades' || currentLens === 'corporate') {
+        applyProofFilter(currentLens);
+      }
+    }
+  })();
+</script>

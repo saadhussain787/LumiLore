@@ -2016,11 +2016,15 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
           }
         }
 
-        // Pre-fill scoping notes if empty
+        // Pre-fill scoping notes if empty (supports explicit ?notes= from Case Study Booking Bridge)
         const notesInput = document.getElementById('notes');
-        if (notesInput && !notesInput.value && canonicalService) {
-          const tierSuffix = rawTier ? ` // Tier: ${rawTier.toUpperCase()}` : '';
-          const scopingNotes = {
+        const rawNotes = urlParams.get('notes');
+        if (notesInput && !notesInput.value) {
+          if (rawNotes) {
+            notesInput.value = rawNotes;
+          } else if (canonicalService) {
+            const tierSuffix = rawTier ? ` // Tier: ${rawTier.toUpperCase()}` : '';
+            const scopingNotes = {
             'autonomous-booking': `[Autonomous Calendar & Booking Agent${tierSuffix}] Pre-scoped from product catalog for real-time calendar synchronization, SMS buffer rules, and zero double-bookings.`,
             'voice-dispatch': `[24/7 AI Voice Dispatch & Inbound Receptionist${tierSuffix}] Pre-scoped from product catalog for sub-second conversational AI answering, emergency triage, and CRM dispatching.`,
             'geo-engine': `[Autonomous SEO & GEO Engine${tierSuffix}] Pre-scoped from product catalog for 5-layer Schema.org JSON-LD architecture, frontier LLM crawler setup, and Indexing API automation.`,
@@ -2038,6 +2042,7 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
             notesInput.value = scopingNotes[canonicalService];
           }
         }
+      }
 
         // Sprint 12 Pillar 12.6: SEO & GEO Revenue Leakage Calculator Linkage
         if (rawSource === 'seo_leakage_calc' || (rawCalcRev && rawSeoScore)) {
@@ -2364,7 +2369,7 @@ description: Scope your serverless cloud architecture, agentic AI systems, or fi
             submitBtn.disabled = true;
             submitBtn.classList.add('opacity-80', 'cursor-not-allowed');
             if (btnLabelText) {
-              btnLabelText.innerHTML = '<span class="inline-block w-3.5 h-3.5 border-2 border-slate-950 border-t-transparent rounded-full animate-spin mr-2"></span> Transmitting Dossier...';
+              btnLabelText.innerHTML = '<span class="inline-block w-3.5 h-3.5 border-2 border-slate-950 border-t-transparent rounded-full animate-spin mr-2"></span> PROCESSING ARCHITECTURE DOSSIER...';
             }
             if (btnArrowIcon) btnArrowIcon.style.display = 'none';
           }
