@@ -546,7 +546,10 @@ permalink: /products/web-modernization/
               Commercial Trades &amp; Regional Field Contractors
             </h3>
             <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-light mb-6">
-              Commercial facility directors, property managers, and general contractors look for emergency HVAC, plumbing, electrical, or roofing repairs on mobile devices from job sites. If your site takes 4 seconds to load, they bounce to the next subcontractor. Our sub-second edge engines load instantly and convert urgent commercial bids.
+              Commercial facility directors, property managers, and general contractors look for emergency HVAC,
+              plumbing, electrical, or roofing repairs on mobile devices from job sites. If your site takes 4 seconds to
+              load, they bounce to the next subcontractor. Our sub-second edge engines load instantly and convert urgent
+              commercial bids.
             </p>
             <ul class="space-y-2.5 text-xs text-slate-300 font-mono">
               <li class="flex items-center gap-2">
@@ -620,13 +623,20 @@ permalink: /products/web-modernization/
               <span>STAGE 01</span>
               <span>🌐 ROUTE 53</span>
             </div>
-            <div class="text-sm font-bold text-white">Anycast DNS Routing</div>
+            <div class="text-sm font-bold text-white">
+              <span class="lens-corp">Anycast DNS Routing</span>
+              <span class="lens-trade">Job-Site Mobile Loading</span>
+            </div>
             <p class="text-xs text-slate-400 font-light leading-relaxed">
-              Global DNS query resolves in &lt;12ms via AWS Route 53 Anycast, routing traffic to the nearest geographic
-              edge location.
+              <span class="lens-corp">Global DNS query resolves in &lt;12ms via AWS Route 53 Anycast, routing traffic to
+                the nearest geographic edge location.</span>
+              <span class="lens-trade">When a homeowner has 3 inches of water pouring into their basement or active roof
+                leaks, they search Google on LTE with shaky hands. If your site takes 4 seconds to spin, they tap back
+                and call the next contractor.</span>
             </p>
             <div class="text-[10px] font-mono text-slate-400 pt-2 border-t border-white/5">
-              Metric: <code class="text-cyan-300">&lt; 12ms DNS TTFB</code>
+              <span class="lens-corp">Metric: <code class="text-cyan-300">&lt; 12ms DNS TTFB</code></span>
+              <span class="lens-trade">Target: <strong class="text-cyan-300">Instant First Touch on LTE</strong></span>
             </div>
           </div>
 
@@ -636,13 +646,19 @@ permalink: /products/web-modernization/
               <span>STAGE 02</span>
               <span>⚡ CLOUDFRONT</span>
             </div>
-            <div class="text-sm font-bold text-white">Edge CDN &amp; Brotli Cache</div>
+            <div class="text-sm font-bold text-white">
+              <span class="lens-corp">Edge CDN &amp; Brotli Cache</span>
+              <span class="lens-trade">Sub-Second Asset Delivery</span>
+            </div>
             <p class="text-xs text-slate-400 font-light leading-relaxed">
-              Compiled static pages and WebP assets are served directly from CloudFront's multi-tier cache with 99.4%
-              origin hit avoidance.
+              <span class="lens-corp">Compiled static pages and WebP assets are served directly from CloudFront's
+                multi-tier cache with 99.4% origin hit avoidance.</span>
+              <span class="lens-trade">We strip away bloated WordPress databases and slow server scripts so your entire
+                homepage and emergency booking forms snap open in under 0.4 seconds.</span>
             </p>
             <div class="text-[10px] font-mono text-slate-400 pt-2 border-t border-white/5">
-              Cache Ratio: <code class="text-indigo-300">99.4% Edge Hit</code>
+              <span class="lens-corp">Cache Ratio: <code class="text-indigo-300">99.4% Edge Hit</code></span>
+              <span class="lens-trade">Speed: <strong class="text-indigo-300">&lt; 400ms Full Load</strong></span>
             </div>
           </div>
 
@@ -652,13 +668,19 @@ permalink: /products/web-modernization/
               <span>STAGE 03</span>
               <span>⚙️ EDGE RUNTIME</span>
             </div>
-            <div class="text-sm font-bold text-white">CloudFront Functions</div>
+            <div class="text-sm font-bold text-white">
+              <span class="lens-corp">CloudFront Functions</span>
+              <span class="lens-trade">One-Thumb Emergency Action</span>
+            </div>
             <p class="text-xs text-slate-400 font-light leading-relaxed">
-              Sub-millisecond header normalization, HSTS enforcement, localized geo-routing, and security rewrites at
-              the nearest edge pop.
+              <span class="lens-corp">Sub-millisecond header normalization, HSTS enforcement, localized geo-routing, and
+                security rewrites at the nearest edge pop.</span>
+              <span class="lens-trade">Oversized 'Tap to Call' and 'Send Job Photos' buttons placed right under the
+                homeowner's thumb. No tiny menus, no pinch-to-zoom.</span>
             </p>
             <div class="text-[10px] font-mono text-slate-400 pt-2 border-t border-white/5">
-              Execution: <code class="text-emerald-300">&lt; 2ms Cold Start</code>
+              <span class="lens-corp">Execution: <code class="text-emerald-300">&lt; 2ms Cold Start</code></span>
+              <span class="lens-trade">Layout: <strong class="text-emerald-300">One-Thumb Tap Targets</strong></span>
             </div>
           </div>
 
@@ -668,13 +690,20 @@ permalink: /products/web-modernization/
               <span>STAGE 04</span>
               <span>🔒 IMMUTABLE ORIGIN</span>
             </div>
-            <div class="text-sm font-bold text-white">S3 OAC &amp; API Gateway</div>
+            <div class="text-sm font-bold text-white">
+              <span class="lens-corp">S3 OAC &amp; API Gateway</span>
+              <span class="lens-trade">Zero Friday-Night Plugin Crashes</span>
+            </div>
             <p class="text-xs text-slate-400 font-light leading-relaxed">
-              Origin assets locked in S3 with Origin Access Control. Interactive booking and quote requests route
-              securely via API Gateway to serverless Lambdas.
+              <span class="lens-corp">Origin assets locked in S3 with Origin Access Control. Interactive booking and
+                quote requests route securely via API Gateway to serverless Lambdas.</span>
+              <span class="lens-trade">No bloated WordPress plugins breaking contact forms at 6:00 PM on Friday. Zero
+                database maintenance headaches.</span>
             </p>
             <div class="text-[10px] font-mono text-slate-400 pt-2 border-t border-white/5">
-              Security: <code class="text-amber-300">Zero Public Buckets</code>
+              <span class="lens-corp">Security: <code class="text-amber-300">Zero Public Buckets</code></span>
+              <span class="lens-trade">Uptime: <strong class="text-amber-300">100% Unbreakable
+                  Serverless</strong></span>
             </div>
           </div>
 
@@ -710,22 +739,30 @@ permalink: /products/web-modernization/
               ⚡
             </div>
             <h3 class="text-base font-bold text-white tracking-tight group-hover:text-indigo-200 transition-colors">
-              1. Sub-150ms Global Edge Caching
+              <span class="lens-corp">1. Sub-150ms Global Edge Caching</span>
+              <span class="lens-trade">1. Sub-1 Second Job-Site Speed</span>
             </h3>
             <ul class="mt-3 space-y-1.5 text-xs text-slate-300 font-light">
               <li class="flex items-start gap-1.5"><span
-                  class="text-indigo-400 font-bold">•</span><span><strong>Benefit:</strong> Sub-150ms worldwide TTFB
-                  with zero origin latency.</span></li>
+                  class="text-indigo-400 font-bold">•</span><span><strong>Benefit:</strong> <span
+                    class="lens-corp">Sub-150ms worldwide TTFB with zero origin latency.</span><span
+                    class="lens-trade">Loads in 0.4s on a homeowner's phone even with 1 bar of LTE signal.</span></span>
+              </li>
               <li class="flex items-start gap-1.5"><span
-                  class="text-indigo-400 font-bold">•</span><span><strong>Logic:</strong> Pre-rendered static HTML/CSS
-                  distributed across 450+ CDN nodes.</span></li>
+                  class="text-indigo-400 font-bold">•</span><span><strong>Logic:</strong> <span
+                    class="lens-corp">Pre-rendered static HTML/CSS distributed across 450+ CDN nodes.</span><span
+                    class="lens-trade">Zero sluggish WordPress database queries that stall emergency service
+                    calls.</span></span></li>
               <li class="flex items-start gap-1.5"><span
-                  class="text-indigo-400 font-bold">•</span><span><strong>Integration:</strong> AWS CloudFront Edge
-                  &amp; S3 Origin Shield clustering.</span></li>
+                  class="text-indigo-400 font-bold">•</span><span><strong>Integration:</strong> <span
+                    class="lens-corp">AWS CloudFront Edge &amp; S3 Origin Shield clustering.</span><span
+                    class="lens-trade">AWS Canadian edge servers serving cached pages straight to Ontario
+                    homeowners.</span></span></li>
             </ul>
           </div>
           <div class="mt-4 pt-3 border-t border-white/5 text-[10px] font-mono text-indigo-400">
-            TTFB: &lt;150MS GLOBALLY • 0MS SERVER WAIT
+            <span class="lens-corp">TTFB: &lt;150MS GLOBALLY • 0MS SERVER WAIT</span>
+            <span class="lens-trade">SUB-SECOND MOBILE LOADING • ZERO DROP-OFFS</span>
           </div>
         </div>
 
@@ -738,22 +775,29 @@ permalink: /products/web-modernization/
               🛡️
             </div>
             <h3 class="text-base font-bold text-white tracking-tight group-hover:text-indigo-200 transition-colors">
-              2. Zero Database Attack Surface
+              <span class="lens-corp">2. Zero Database Attack Surface</span>
+              <span class="lens-trade">2. Zero Friday-Night Plugin Crashes</span>
             </h3>
             <ul class="mt-3 space-y-1.5 text-xs text-slate-300 font-light">
               <li class="flex items-start gap-1.5"><span
-                  class="text-indigo-400 font-bold">•</span><span><strong>Benefit:</strong> Zero public CVEs, zero SQL
-                  injection, zero admin attacks.</span></li>
+                  class="text-indigo-400 font-bold">•</span><span><strong>Benefit:</strong> <span class="lens-corp">Zero
+                    public CVEs, zero SQL injection, zero admin attacks.</span><span class="lens-trade">No bloated
+                    WordPress plugins breaking contact forms at 6:00 PM on Friday.</span></span></li>
               <li class="flex items-start gap-1.5"><span
-                  class="text-indigo-400 font-bold">•</span><span><strong>Logic:</strong> Completely eliminates
-                  <code>/wp-admin</code> and server-side PHP interpreters.</span></li>
+                  class="text-indigo-400 font-bold">•</span><span><strong>Logic:</strong> <span
+                    class="lens-corp">Completely eliminates <code>/wp-admin</code> and server-side PHP
+                    interpreters.</span><span class="lens-trade">100% static architecture eliminates hacked login
+                    portals, malware, and database downtime.</span></span></li>
               <li class="flex items-start gap-1.5"><span
-                  class="text-indigo-400 font-bold">•</span><span><strong>Integration:</strong> AWS WAF v2 &amp; TLS 1.3
-                  strict transport security.</span></li>
+                  class="text-indigo-400 font-bold">•</span><span><strong>Integration:</strong> <span
+                    class="lens-corp">AWS WAF v2 &amp; TLS 1.3 strict transport security.</span><span
+                    class="lens-trade">Secure serverless contact forms routing straight to dispatch SMS and
+                    email.</span></span></li>
             </ul>
           </div>
           <div class="mt-4 pt-3 border-t border-white/5 text-[10px] font-mono text-indigo-400">
-            ZERO CVEs • SOC2 &amp; HIPAA READY
+            <span class="lens-corp">ZERO CVEs • SOC2 &amp; HIPAA READY</span>
+            <span class="lens-trade">ZERO PLUGIN HACKING • 100% WEEKEND RELIABILITY</span>
           </div>
         </div>
 
@@ -766,22 +810,30 @@ permalink: /products/web-modernization/
               🎯
             </div>
             <h3 class="text-base font-bold text-white tracking-tight group-hover:text-indigo-200 transition-colors">
-              3. 100/100 Core Web Vitals Optimization
+              <span class="lens-corp">3. 100/100 Core Web Vitals Optimization</span>
+              <span class="lens-trade">3. 100/100 Google Speed Rank Booster</span>
             </h3>
             <ul class="mt-3 space-y-1.5 text-xs text-slate-300 font-light">
               <li class="flex items-start gap-1.5"><span
-                  class="text-indigo-400 font-bold">•</span><span><strong>Benefit:</strong> Perfect Google PageSpeed
-                  scores (100/100 CWV guaranteed).</span></li>
+                  class="text-indigo-400 font-bold">•</span><span><strong>Benefit:</strong> <span
+                    class="lens-corp">Perfect Google PageSpeed scores (100/100 CWV guaranteed).</span><span
+                    class="lens-trade">Google rewards ultra-fast contractor sites with higher local map and organic
+                    ranks.</span></span></li>
               <li class="flex items-start gap-1.5"><span
-                  class="text-indigo-400 font-bold">•</span><span><strong>Logic:</strong> LCP &lt;1.2s, INP &lt;50ms,
-                  CLS 0.00 with clean, non-blocking DOM.</span></li>
+                  class="text-indigo-400 font-bold">•</span><span><strong>Logic:</strong> <span class="lens-corp">LCP
+                    &lt;1.2s, INP &lt;50ms, CLS 0.00 with clean, non-blocking DOM.</span><span
+                    class="lens-trade">Outranks competitors whose slow, bloated themes fail Google's Core Web Vitals
+                    tests.</span></span></li>
               <li class="flex items-start gap-1.5"><span
-                  class="text-indigo-400 font-bold">•</span><span><strong>Integration:</strong> Modern AVIF/WebP image
-                  pipelines and inlined critical CSS.</span></li>
+                  class="text-indigo-400 font-bold">•</span><span><strong>Integration:</strong> <span
+                    class="lens-corp">Modern AVIF/WebP image pipelines and inlined critical CSS.</span><span
+                    class="lens-trade">Automated compression for high-res job photos of panel swaps and boiler
+                    installs.</span></span></li>
             </ul>
           </div>
           <div class="mt-4 pt-3 border-t border-white/5 text-[10px] font-mono text-indigo-400">
-            GOOGLE SEARCH ALGORITHM FAVORED
+            <span class="lens-corp">GOOGLE SEARCH ALGORITHM FAVORED</span>
+            <span class="lens-trade">TOP GOOGLE MAP RANKING • FASTER THAN 99% OF TRADES</span>
           </div>
         </div>
 
@@ -794,22 +846,30 @@ permalink: /products/web-modernization/
               🤖
             </div>
             <h3 class="text-base font-bold text-white tracking-tight group-hover:text-indigo-200 transition-colors">
-              4. AI Crawler &amp; GEO-Optimized Semantic Code
+              <span class="lens-corp">4. AI Crawler &amp; GEO-Optimized Semantic Code</span>
+              <span class="lens-trade">4. AI Search &amp; Siri Local Authority</span>
             </h3>
             <ul class="mt-3 space-y-1.5 text-xs text-slate-300 font-light">
               <li class="flex items-start gap-1.5"><span
-                  class="text-indigo-400 font-bold">•</span><span><strong>Benefit:</strong> Frontier AI models cite your
-                  products in generative search.</span></li>
+                  class="text-indigo-400 font-bold">•</span><span><strong>Benefit:</strong> <span
+                    class="lens-corp">Frontier AI models cite your products in generative search.</span><span
+                    class="lens-trade">Ensures ChatGPT, Apple Intelligence, and Google AI name your company
+                    first.</span></span></li>
               <li class="flex items-start gap-1.5"><span
-                  class="text-indigo-400 font-bold">•</span><span><strong>Logic:</strong> Semantic HTML5 outlines,
-                  Schema.org triples, and <code>llms.txt</code> files.</span></li>
+                  class="text-indigo-400 font-bold">•</span><span><strong>Logic:</strong> <span
+                    class="lens-corp">Semantic HTML5 outlines, Schema.org triples, and <code>llms.txt</code>
+                    files.</span><span class="lens-trade">Encodes your trade licenses, 24/7 emergency dispatch radius,
+                    and service areas.</span></span></li>
               <li class="flex items-start gap-1.5"><span
-                  class="text-indigo-400 font-bold">•</span><span><strong>Integration:</strong> Schema.org JSON-LD &amp;
-                  crawler authorization headers.</span></li>
+                  class="text-indigo-400 font-bold">•</span><span><strong>Integration:</strong> <span
+                    class="lens-corp">Schema.org JSON-LD &amp; crawler authorization headers.</span><span
+                    class="lens-trade">HVAC, Plumbing, Electrical &amp; Roofing Schema.org microdata
+                    integration.</span></span></li>
             </ul>
           </div>
           <div class="mt-4 pt-3 border-t border-white/5 text-[10px] font-mono text-indigo-400">
-            100% LLM CRAWLER ACCESSIBLE
+            <span class="lens-corp">100% LLM CRAWLER ACCESSIBLE</span>
+            <span class="lens-trade">AI SEARCH FAVORITE • DIRECT CITATION READY</span>
           </div>
         </div>
 
@@ -822,22 +882,28 @@ permalink: /products/web-modernization/
               📱
             </div>
             <h3 class="text-base font-bold text-white tracking-tight group-hover:text-indigo-200 transition-colors">
-              5. High-Intent Mobile CRO &amp; Instant Tap Targets
+              <span class="lens-corp">5. High-Intent Mobile CRO &amp; Instant Tap Targets</span>
+              <span class="lens-trade">5. One-Thumb Emergency Action</span>
             </h3>
             <ul class="mt-3 space-y-1.5 text-xs text-slate-300 font-light">
               <li class="flex items-start gap-1.5"><span
-                  class="text-indigo-400 font-bold">•</span><span><strong>Benefit:</strong> 2.4x mobile conversion lift
-                  on first prospect visit.</span></li>
+                  class="text-indigo-400 font-bold">•</span><span><strong>Benefit:</strong> <span class="lens-corp">2.4x
+                    mobile conversion lift on first prospect visit.</span><span class="lens-trade">Oversized 'Tap to
+                    Call' and 'Send Job Photos' buttons right under the homeowner's thumb.</span></span></li>
               <li class="flex items-start gap-1.5"><span
-                  class="text-indigo-400 font-bold">•</span><span><strong>Logic:</strong> 48px+ tap targets, instant
-                  click-to-call, and frictionless intake.</span></li>
+                  class="text-indigo-400 font-bold">•</span><span><strong>Logic:</strong> <span class="lens-corp">48px+
+                    tap targets, instant click-to-call, and frictionless intake.</span><span class="lens-trade">No tiny
+                    drop-down menus, no pinch-to-zoom, no frustrating multi-page forms.</span></span></li>
               <li class="flex items-start gap-1.5"><span
-                  class="text-indigo-400 font-bold">•</span><span><strong>Integration:</strong> Tel/SMS URI schemes and
-                  embeddable calendar widgets.</span></li>
+                  class="text-indigo-400 font-bold">•</span><span><strong>Integration:</strong> <span
+                    class="lens-corp">Tel/SMS URI schemes and embeddable calendar widgets.</span><span
+                    class="lens-trade">One-tap direct dial to on-call phone and photo upload for fast job
+                    quotes.</span></span></li>
             </ul>
           </div>
           <div class="mt-4 pt-3 border-t border-white/5 text-[10px] font-mono text-indigo-400">
-            2.4X MOBILE CONVERSION LIFT
+            <span class="lens-corp">2.4X MOBILE CONVERSION LIFT</span>
+            <span class="lens-trade">ONE-THUMB CONVERSIONS • ZERO LOST EMERGENCY LEADS</span>
           </div>
         </div>
 
@@ -850,431 +916,500 @@ permalink: /products/web-modernization/
               🔄
             </div>
             <h3 class="text-base font-bold text-white tracking-tight group-hover:text-indigo-200 transition-colors">
-              6. Headless CMS Velocity &amp; GitOps CI/CD
+              <span class="lens-corp">6. Headless CMS Velocity &amp; GitOps CI/CD</span>
+              <span class="lens-trade">6. Hands-Off Maintenance &amp; Zero Headaches</span>
             </h3>
             <ul class="mt-3 space-y-1.5 text-xs text-slate-300 font-light">
               <li class="flex items-start gap-1.5"><span
-                  class="text-indigo-400 font-bold">•</span><span><strong>Benefit:</strong> Zero server maintenance and
-                  instant publishing agility.</span></li>
+                  class="text-indigo-400 font-bold">•</span><span><strong>Benefit:</strong> <span class="lens-corp">Zero
+                    server maintenance and instant publishing agility.</span><span class="lens-trade">Never pay an
+                    agency $200/month just to click "Update Plugins" on a fragile site.</span></span></li>
               <li class="flex items-start gap-1.5"><span
-                  class="text-indigo-400 font-bold">•</span><span><strong>Logic:</strong> Automated GitHub Actions
-                  pipelines validate and deploy in seconds.</span></li>
+                  class="text-indigo-400 font-bold">•</span><span><strong>Logic:</strong> <span
+                    class="lens-corp">Automated GitHub Actions pipelines validate and deploy in seconds.</span><span
+                    class="lens-trade">LumiLore manages all cloud infrastructure with automated continuous
+                    testing.</span></span></li>
               <li class="flex items-start gap-1.5"><span
-                  class="text-indigo-400 font-bold">•</span><span><strong>Integration:</strong> Headless CMS webhooks
-                  triggering automated edge inval.</span></li>
+                  class="text-indigo-400 font-bold">•</span><span><strong>Integration:</strong> <span
+                    class="lens-corp">Headless CMS webhooks triggering automated edge inval.</span><span
+                    class="lens-trade">Instant updates whenever you add new service areas, seasonal promos, or team
+                    photos.</span></span></li>
             </ul>
           </div>
           <div class="mt-4 pt-3 border-t border-white/5 text-[10px] font-mono text-indigo-400">
-            ZERO CMS DRIFT • AUTOMATED CI/CD
+            <span class="lens-corp">ZERO CMS DRIFT • AUTOMATED CI/CD</span>
+            <span class="lens-trade">ZERO MAINTENANCE BILLS • 100% PEACE OF MIND</span>
           </div>
         </div>
-
       </div>
+
     </div>
-
-    <!-- Section 6: Commercial Pricing & Packaging Tiers -->
-    <div class="mb-24">
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <div
-          class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono font-semibold uppercase tracking-wider text-indigo-300 bg-indigo-950/60 border border-indigo-400/30 mb-3">
-          TRANSPARENT COMMERCIAL PRICING
-        </div>
-        <h2 class="text-3xl sm:text-5xl font-bold text-white tracking-tight font-display">
-          Turn Website Latency into High-Converting Pipeline
-        </h2>
-        <p class="text-sm sm:text-base text-slate-400 mt-2 font-light">
-          No bloated agency retainers, markups, or endless design churn. Fixed-scope modernizations backed by measurable
-          sub-150ms TTFB guarantees.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
-
-        <!-- Tier 1: Speed Audit & Performance Sprint -->
-        <div
-          class="rounded-3xl p-8 bg-[#070B14]/80 border border-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-xl flex flex-col justify-between relative shadow-[0_15px_40px_rgba(0,0,0,0.5)]">
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-xs font-mono font-bold tracking-wider text-slate-400 uppercase">TIER 01 //
-                ACCELERATION</span>
-              <span
-                class="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-white/5 border border-white/10 text-slate-400">SPEED
-                SPRINT</span>
-            </div>
-            <h3 class="text-2xl font-bold text-white tracking-tight font-display">
-              Speed Audit &amp; Performance Sprint
-            </h3>
-            <p class="text-xs text-slate-400 mt-2 font-light leading-relaxed">
-              Ideal for existing WordPress, Webflow, or Shopify stores seeking immediate Core Web Vitals optimization
-              and 50%+ reduction in mobile load latency.
-            </p>
-
-            <!-- Price Callout -->
-            <div class="mt-6 mb-8 pt-6 border-t border-white/10">
-              <div class="flex items-baseline gap-1">
-                <span class="text-4xl font-extrabold text-white font-mono">$1,800</span>
-                <span class="text-xs font-mono text-slate-400 uppercase tracking-wider">CAD Setup</span>
-              </div>
-              <p class="text-sm font-mono text-indigo-400 font-bold mt-1">One-Time Sprint (2-Week Turnaround)</p>
-            </div>
-
-            <!-- Deliverables List -->
-            <ul class="space-y-3.5 text-xs text-slate-300 font-light">
-              <li class="flex items-start gap-2.5">
-                <span class="text-indigo-400 font-bold shrink-0">✓</span>
-                <span><strong>Full Lighthouse &amp; Core Web Vitals Audit:</strong> Granular breakdown of LCP, INP, and
-                  CLS bottlenecks.</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-indigo-400 font-bold shrink-0">✓</span>
-                <span><strong>Asset &amp; Script Tree-Shaking:</strong> Elimination of unused CSS/JS bloat and
-                  aggressive font subsetting.</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-indigo-400 font-bold shrink-0">✓</span>
-                <span><strong>CloudFront CDN Edge Configuration:</strong> Caching rules, Origin Shield, and Brotli
-                  compression setup.</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-indigo-400 font-bold shrink-0">✓</span>
-                <span><strong>Next-Gen WebP/AVIF Image Pipeline:</strong> Automated compression and responsive <code
-                    class="text-indigo-300 text-[11px]">srcset</code> generation.</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-indigo-400 font-bold shrink-0">✓</span>
-                <span><strong>50%+ Mobile Load Time Reduction Guarantee:</strong> Contractually backed speed
-                  improvement.</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="mt-8 pt-6 border-t border-white/10">
-            <a href="/contact/?source=web_tier_audit&service=web-modernization&tier=starter"
-              class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border border-white/15 bg-white/5 hover:bg-white/10 text-white font-mono text-xs font-bold uppercase tracking-wider transition-all cursor-pointer">
-              <span>Schedule Performance Sprint</span>
-              <span>→</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Tier 2: Full Serverless Re-Architecture (FEATURED) -->
-        <div
-          class="rounded-3xl p-8 bg-[#0B0F1C]/95 border-2 border-indigo-400/60 transition-all duration-300 backdrop-blur-2xl flex flex-col justify-between relative shadow-[0_20px_60px_rgba(0,0,0,0.8),0_0_40px_rgba(99,102,241,0.25)] scale-100 lg:-translate-y-2">
-          <!-- Featured Badge -->
-          <div
-            class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-linear-to-r from-indigo-500 to-cyan-400 text-slate-950 font-mono text-[10px] font-extrabold uppercase tracking-widest shadow-[0_0_20px_rgba(99,102,241,0.6)]">
-            MOST POPULAR // SUB-150MS GUARANTEE
-          </div>
-
-          <div>
-            <div class="flex items-center justify-between mb-4 mt-2">
-              <span class="text-xs font-mono font-bold tracking-wider text-indigo-300 uppercase">TIER 02 // FULL
-                JAMSTACK</span>
-              <span
-                class="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-indigo-950/80 border border-indigo-500/40 text-indigo-300">ACTIVE
-                DEPLOYMENT</span>
-            </div>
-            <h3 class="text-2xl font-bold text-white tracking-tight font-display">
-              Full Serverless Re-Architecture
-            </h3>
-            <p class="text-xs text-slate-300 mt-2 font-light leading-relaxed">
-              Complete migration off vulnerable monolithic CMS platforms onto an ultra-fast, serverless Jamstack edge
-              architecture on AWS.
-            </p>
-
-            <!-- Price Callout -->
-            <div class="mt-6 mb-8 pt-6 border-t border-white/10">
-              <div class="flex items-baseline gap-1">
-                <span class="text-4xl font-extrabold text-white font-mono">$5,500</span>
-                <span class="text-xs font-mono text-slate-400 uppercase tracking-wider">CAD Setup</span>
-              </div>
-              <p class="text-sm font-mono text-indigo-400 font-bold mt-1">+ $250 CAD / month (Managed Edge SLA)</p>
-            </div>
-
-            <!-- Deliverables List -->
-            <ul class="space-y-3.5 text-xs text-slate-300 font-light">
-              <li class="flex items-start gap-2.5">
-                <span class="text-cyan-400 font-bold shrink-0">✓</span>
-                <span><strong>Everything in Performance Sprint Included.</strong></span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-cyan-400 font-bold shrink-0">✓</span>
-                <span><strong>Complete Serverless Jamstack Rebuild:</strong> Eleventy/Vite static compilation deployed
-                  to AWS S3 + CloudFront.</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-cyan-400 font-bold shrink-0">✓</span>
-                <span><strong>100/100 Core Web Vitals SLA:</strong> Perfect desktop &amp; mobile PageSpeed score
-                  achievement.</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-cyan-400 font-bold shrink-0">✓</span>
-                <span><strong>Zero Database Vulnerabilities:</strong> Complete elimination of <code
-                    class="text-cyan-300 text-[11px]">/wp-admin</code>, SQL injections, and CVE exploits.</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-cyan-400 font-bold shrink-0">✓</span>
-                <span><strong>Headless CMS Decoupling:</strong> Intuitive visual authoring for marketing without
-                  codebase interference.</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-cyan-400 font-bold shrink-0">✓</span>
-                <span><strong>AI-Ready Schema.org &amp; GEO Architecture:</strong> Full entity triples and semantic HTML
-                  for LLM crawlability.</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-cyan-400 font-bold shrink-0">✓</span>
-                <span><strong>High-Intent CRO &amp; Lead Capture:</strong> Seamless integration with intake forms, SMS
-                  alerts, and calendar widgets.</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="mt-8 pt-6 border-t border-white/10">
-            <a href="/contact/?source=web_tier_full&service=web-modernization&tier=pro"
-              class="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-linear-to-r from-indigo-500 via-indigo-600 to-cyan-500 hover:from-indigo-400 hover:to-cyan-400 text-white font-mono text-xs font-bold uppercase tracking-wider transition-all shadow-[0_0_25px_rgba(99,102,241,0.5)] cursor-pointer">
-              <span>Initiate Serverless Rebuild</span>
-              <span>→</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Tier 3: Enterprise Custom Edge Build -->
-        <div
-          class="rounded-3xl p-8 bg-[#070B14]/80 border border-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-xl flex flex-col justify-between relative shadow-[0_15px_40px_rgba(0,0,0,0.5)]">
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-xs font-mono font-bold tracking-wider text-slate-400 uppercase">TIER 03 // BESPOKE
-                EDGE</span>
-              <span
-                class="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-white/5 border border-white/10 text-slate-400">GLOBAL
-                MULTI-REGION</span>
-            </div>
-            <h3 class="text-2xl font-bold text-white tracking-tight font-display">
-              Enterprise Custom Edge Build
-            </h3>
-            <p class="text-xs text-slate-400 mt-2 font-light leading-relaxed">
-              For high-traffic corporations, multi-location contractors, and fintech platforms requiring custom WebGL
-              3D, multi-region failover, and SOC2 compliance.
-            </p>
-
-            <!-- Price Callout -->
-            <div class="mt-6 mb-8 pt-6 border-t border-white/10">
-              <div class="flex items-baseline gap-1">
-                <span class="text-4xl font-extrabold text-white font-mono">$12,000+</span>
-                <span class="text-xs font-mono text-slate-400 uppercase tracking-wider">CAD // Custom Scope</span>
-              </div>
-              <p class="text-[11px] font-mono text-indigo-400 mt-1">Multi-brand &amp; high-scale edge performance SLA
-              </p>
-            </div>
-
-            <!-- Deliverables List -->
-            <ul class="space-y-3.5 text-xs text-slate-300 font-light">
-              <li class="flex items-start gap-2.5">
-                <span class="text-indigo-400 font-bold shrink-0">✓</span>
-                <span><strong>Everything in Full Re-Architecture Included.</strong></span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-indigo-400 font-bold shrink-0">✓</span>
-                <span><strong>Custom 3D WebGL / Three.js Visualizers:</strong> Buttery 60fps cinematic brand graphics
-                  and interactive models.</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-indigo-400 font-bold shrink-0">✓</span>
-                <span><strong>Multi-Region Active-Active CloudFront Routing:</strong> Automatic geo-redundancy and
-                  instant edge failover.</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-indigo-400 font-bold shrink-0">✓</span>
-                <span><strong>SOC2 &amp; Enterprise Security Hardening:</strong> Strict CSP headers, HSTS, WAF rate
-                  limiting, and zero-trust tokens.</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-indigo-400 font-bold shrink-0">✓</span>
-                <span><strong>Multi-Location Dynamic Service Landing Pages:</strong> Programmatic generation for 50+
-                  regional service municipalities.</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-indigo-400 font-bold shrink-0">✓</span>
-                <span><strong>Direct Solutions Architect SLA:</strong> Dedicated performance monitoring and priority
-                  engineering support with Principal Architect Saad Sayed.</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="mt-8 pt-6 border-t border-white/10">
-            <a href="/contact/?source=web_tier_enterprise&service=web-modernization&tier=enterprise"
-              class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border border-white/15 bg-white/5 hover:bg-white/10 text-white font-mono text-xs font-bold uppercase tracking-wider transition-all cursor-pointer">
-              <span>Consult Principal Architect</span>
-              <span>→</span>
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Section 7: Frequently Asked Questions (FAQ Accordion) -->
-    <div class="mb-24 max-w-4xl mx-auto">
-      <div class="text-center mb-12">
-        <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight font-display">
-          Frequently Asked Questions
-        </h2>
-        <p class="text-xs sm:text-sm text-slate-400 mt-2 font-light">
-          Everything you need to know about migrating off monolithic CMS platforms to sub-150ms edge delivery.
-        </p>
-      </div>
-
-      <div class="space-y-4">
-
-        <!-- FAQ 1 -->
-        <details
-          class="group rounded-2xl bg-[#080D17]/80 border border-white/10 p-6 [&_summary::-webkit-details-marker]:hidden transition-all duration-300">
-          <summary class="flex items-center justify-between cursor-pointer focus:outline-none">
-            <h3 class="text-base font-bold text-white group-hover:text-indigo-300 transition-colors">
-              How do you achieve sub-150ms load times globally without a traditional web server?
-            </h3>
-            <span
-              class="ml-4 shrink-0 text-slate-400 group-hover:text-white transition-transform group-open:rotate-180">
-              ▼
-            </span>
-          </summary>
-          <p class="text-xs sm:text-sm text-slate-300 font-light mt-4 leading-relaxed pt-3 border-t border-white/5">
-            Traditional websites query slow PHP and MySQL databases on every visitor hit. We pre-render your entire
-            website into static HTML, optimized CSS, and modern WebP assets ahead of time, storing them in AWS S3 behind
-            Amazon CloudFront's global edge network (450+ Points of Presence). When a visitor lands on your site, assets
-            are served from the closest edge node in milliseconds with zero origin database delay.
-          </p>
-        </details>
-
-        <!-- FAQ 2 -->
-        <details
-          class="group rounded-2xl bg-[#080D17]/80 border border-white/10 p-6 [&_summary::-webkit-details-marker]:hidden transition-all duration-300">
-          <summary class="flex items-center justify-between cursor-pointer focus:outline-none">
-            <h3 class="text-base font-bold text-white group-hover:text-indigo-300 transition-colors">
-              Can our marketing team still edit text, images, and publish blogs without writing code?
-            </h3>
-            <span
-              class="ml-4 shrink-0 text-slate-400 group-hover:text-white transition-transform group-open:rotate-180">
-              ▼
-            </span>
-          </summary>
-          <p class="text-xs sm:text-sm text-slate-300 font-light mt-4 leading-relaxed pt-3 border-t border-white/5">
-            Absolutely. We configure modern headless CMS platforms (such as Decap CMS, Sanity, or Strapi) tailored to
-            your workflows. Your content editors log into a clean visual dashboard to write articles, upload media, or
-            edit homepage copy. Once they hit "Publish", automated GitHub Actions compile and deploy the changes across
-            the global CDN edge within 60 seconds—without touching a single server.
-          </p>
-        </details>
-
-        <!-- FAQ 3 -->
-        <details
-          class="group rounded-2xl bg-[#080D17]/80 border border-white/10 p-6 [&_summary::-webkit-details-marker]:hidden transition-all duration-300">
-          <summary class="flex items-center justify-between cursor-pointer focus:outline-none">
-            <h3 class="text-base font-bold text-white group-hover:text-indigo-300 transition-colors">
-              What happens to our existing WordPress rankings, URL structures, and backlinks?
-            </h3>
-            <span
-              class="ml-4 shrink-0 text-slate-400 group-hover:text-white transition-transform group-open:rotate-180">
-              ▼
-            </span>
-          </summary>
-          <p class="text-xs sm:text-sm text-slate-300 font-light mt-4 leading-relaxed pt-3 border-t border-white/5">
-            Zero lost SEO rankings. We execute a comprehensive 1:1 URL migration audit, preserving all slugs, metadata,
-            canonical tags, and Open Graph cards. Any legacy URLs receive edge-level permanent 301 redirects that
-            execute in &lt;5ms. In fact, most clients see an immediate 15–25% ranking boost within 30 days because
-            Google's algorithm heavily prioritizes sites with perfect Core Web Vitals and sub-second load times.
-          </p>
-        </details>
-
-        <!-- FAQ 4 -->
-        <details
-          class="group rounded-2xl bg-[#080D17]/80 border border-white/10 p-6 [&_summary::-webkit-details-marker]:hidden transition-all duration-300">
-          <summary class="flex items-center justify-between cursor-pointer focus:outline-none">
-            <h3 class="text-base font-bold text-white group-hover:text-indigo-300 transition-colors">
-              Why is sub-150ms speed critical for commercial trades and field contractors?
-            </h3>
-            <span
-              class="ml-4 shrink-0 text-slate-400 group-hover:text-white transition-transform group-open:rotate-180">
-              ▼
-            </span>
-          </summary>
-          <p class="text-xs sm:text-sm text-slate-300 font-light mt-4 leading-relaxed pt-3 border-t border-white/5">
-            Facility managers, property supervisors, and general contractors often search for emergency HVAC, plumbing, electrical, or roofing services on mobile devices from noisy job sites with spotty 3G/LTE connections. If your website takes 4 seconds to render, they hit the back button and call your competitor. Our edge-rendered sites load in under 1 second even on weak mobile connections, with 48px+ instant tap-to-call targets that convert emergency commercial work.
-          </p>
-        </details>
-
-        <!-- FAQ 5 -->
-        <details
-          class="group rounded-2xl bg-[#080D17]/80 border border-white/10 p-6 [&_summary::-webkit-details-marker]:hidden transition-all duration-300">
-          <summary class="flex items-center justify-between cursor-pointer focus:outline-none">
-            <h3 class="text-base font-bold text-white group-hover:text-indigo-300 transition-colors">
-              What is your migration timeline and zero-downtime cutover guarantee?
-            </h3>
-            <span
-              class="ml-4 shrink-0 text-slate-400 group-hover:text-white transition-transform group-open:rotate-180">
-              ▼
-            </span>
-          </summary>
-          <p class="text-xs sm:text-sm text-slate-300 font-light mt-4 leading-relaxed pt-3 border-t border-white/5">
-            Performance Sprints are completed in 10 to 14 business days. Full Serverless Re-Architectures typically span
-            4 to 6 weeks. The final DNS switch is managed through AWS Route 53 with weighted routing or zero-TTL CNAME
-            propagation, ensuring zero downtime and continuous uninterrupted business operations.
-          </p>
-        </details>
-
-      </div>
-    </div>
-
-    <!-- Section 8: Bottom Conversion Anchor & Cross-Pillar Exploration -->
-    <div
-      class="rounded-3xl p-8 sm:p-14 bg-linear-to-r from-indigo-950/60 via-[#070B16]/90 to-cyan-950/60 border border-indigo-400/40 text-center relative overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.8),0_0_50px_rgba(99,102,241,0.2)]">
-      <div class="relative z-10 max-w-3xl mx-auto">
-        <span
-          class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-widest text-indigo-300 bg-indigo-900/50 border border-indigo-400/30 mb-4">
-          SUB-150MS EDGE ARCHITECTURE
-        </span>
-        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight font-display mb-4">
-          Ready to Eliminate Monolith Friction and Double Conversions?
-        </h2>
-        <p class="text-sm sm:text-base text-slate-300 font-light max-w-2xl mx-auto mb-8 leading-relaxed">
-          Stop losing commercial pipeline to slow load times, vulnerable plugins, and high mobile bounce rates. Let our
-          AWS-certified cloud architects modernise your digital presence into a sub-150ms conversion engine.
-        </p>
-
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
-          <a href="/contact/?source=web_footer_cta&service=web-modernization"
-            class="glow-amber-cta w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-linear-to-r from-amber-400 via-amber-300 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-bold text-sm tracking-wide uppercase transition-all shadow-[0_0_25px_rgba(245,158,11,0.35)] cursor-pointer">
-            <span>Book Performance Discovery</span>
-            <span class="text-slate-950">→</span>
-          </a>
-          <a href="/products/autonomous-booking/"
-            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full text-slate-200 hover:text-white text-sm font-mono border border-white/15 bg-white/5 hover:bg-white/10 transition-all cursor-pointer">
-            <span>Explore Autonomous Booking</span>
-            <span class="text-cyan-400">→</span>
-          </a>
-        </div>
-
-        <!-- Cross-Pillar Quick Navigation Bar -->
-        <div
-          class="pt-8 border-t border-white/10 flex flex-wrap items-center justify-center gap-4 text-xs font-mono text-slate-400">
-          <span class="text-slate-400 uppercase font-semibold">Explore Agency Pillars:</span>
-          <a href="/products/autonomous-booking/" class="text-slate-300 hover:text-emerald-400 transition-colors">📅
-            Autonomous Booking</a>
-          <span>•</span>
-          <a href="/products/voice-dispatch/" class="text-slate-300 hover:text-amber-400 transition-colors">🎙️ 24/7 AI
-            Voice Dispatch</a>
-          <span>•</span>
-          <a href="/products/geo-engine/" class="text-slate-300 hover:text-cyan-400 transition-colors">⚡ Autonomous GEO
-            Engine</a>
-          <span>•</span>
-          <a href="/#audit" class="text-slate-300 hover:text-white transition-colors">🔍 4-Sec Free Audit</a>
-        </div>
-
-      </div>
-    </div>
-
   </div>
+
+  <!-- Section 6: Commercial Pricing & Packaging Tiers -->
+  <div class="mb-24">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div
+        class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono font-semibold uppercase tracking-wider text-indigo-300 bg-indigo-950/60 border border-indigo-400/30 mb-3">
+        TRANSPARENT COMMERCIAL PRICING
+      </div>
+      <h2 class="text-3xl sm:text-5xl font-bold text-white tracking-tight font-display">
+        Turn Website Latency into High-Converting Pipeline
+      </h2>
+      <p class="text-sm sm:text-base text-slate-400 mt-2 font-light">
+        No bloated agency retainers, markups, or endless design churn. Fixed-scope modernizations backed by measurable
+        sub-150ms TTFB guarantees.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
+
+      <!-- Tier 1: Speed Audit & Performance Sprint -->
+      <div
+        class="rounded-3xl p-8 bg-[#070B14]/80 border border-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-xl flex flex-col justify-between relative shadow-[0_15px_40px_rgba(0,0,0,0.5)]">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-mono font-bold tracking-wider text-slate-400 uppercase">
+              <span class="lens-corp">TIER 01 // ACCELERATION</span>
+              <span class="lens-trade">TIER 01 // EMERGENCY SPEED SPRINT</span>
+            </span>
+            <span
+              class="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-white/5 border border-white/10 text-slate-400">
+              <span class="lens-corp">SPEED SPRINT</span>
+              <span class="lens-trade">SOLO OPERATOR</span>
+            </span>
+          </div>
+          <h3 class="text-2xl font-bold text-white tracking-tight font-display">
+            <span class="lens-corp">Speed Audit &amp; Performance Sprint</span>
+            <span class="lens-trade">Emergency Speed Sprint</span>
+          </h3>
+          <p class="text-xs text-slate-400 mt-2 font-light leading-relaxed">
+            <span class="lens-corp">Ideal for existing WordPress, Webflow, or Shopify stores seeking immediate Core Web
+              Vitals optimization and 50%+ reduction in mobile load latency.</span>
+            <span class="lens-trade">Fixes slow contractor websites that spin for 4+ seconds on mobile phones, stopping
+              homeowners with active leaks from bouncing to the next contractor on Google.</span>
+          </p>
+
+          <!-- Price Callout -->
+          <div class="mt-6 mb-8 pt-6 border-t border-white/10">
+            <div class="flex items-baseline gap-1">
+              <span class="text-4xl font-extrabold text-white font-mono">$1,800</span>
+              <span class="text-xs font-mono text-slate-400 uppercase tracking-wider">CAD Setup</span>
+            </div>
+            <p class="text-sm font-mono text-indigo-400 font-bold mt-1">One-Time Sprint (2-Week Turnaround)</p>
+          </div>
+
+          <!-- Deliverables List -->
+          <ul class="space-y-3.5 text-xs text-slate-300 font-light">
+            <li class="flex items-start gap-2.5">
+              <span class="text-indigo-400 font-bold shrink-0">✓</span>
+              <span><strong><span class="lens-corp">Full Lighthouse &amp; Core Web Vitals Audit:</span><span
+                    class="lens-trade">Job-Site Mobile Speed Audit:</span></strong> <span class="lens-corp">Granular
+                  breakdown of LCP, INP, and CLS bottlenecks.</span><span class="lens-trade">Identifies every sluggish
+                  script and bloated photo killing mobile bookings.</span></span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-indigo-400 font-bold shrink-0">✓</span>
+              <span><strong><span class="lens-corp">Asset &amp; Script Tree-Shaking:</span><span
+                    class="lens-trade">Plugin Bloat Removal:</span></strong> <span class="lens-corp">Elimination of
+                  unused CSS/JS bloat and aggressive font subsetting.</span><span class="lens-trade">Strips out heavy
+                  unused WordPress code slowing down cell phone visitors.</span></span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-indigo-400 font-bold shrink-0">✓</span>
+              <span><strong><span class="lens-corp">CloudFront CDN Edge Configuration:</span><span
+                    class="lens-trade">Canadian Edge Caching:</span></strong> <span class="lens-corp">Caching rules,
+                  Origin Shield, and Brotli compression setup.</span><span class="lens-trade">Stores your pages at local
+                  Ontario cell towers for instant load times.</span></span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-indigo-400 font-bold shrink-0">✓</span>
+              <span><strong><span class="lens-corp">Next-Gen WebP/AVIF Image Pipeline:</span><span
+                    class="lens-trade">Job-Site Photo Compression:</span></strong> <span class="lens-corp">Automated
+                  compression and responsive <code class="text-indigo-300 text-[11px]">srcset</code>
+                  generation.</span><span class="lens-trade">Compresses equipment and completed job photos so they open
+                  instantly.</span></span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-indigo-400 font-bold shrink-0">✓</span>
+              <span><strong><span class="lens-corp">50%+ Mobile Load Time Reduction Guarantee:</span><span
+                    class="lens-trade">Contractor Speed Guarantee:</span></strong> <span class="lens-corp">Contractually
+                  backed speed improvement.</span><span class="lens-trade">Guarantees under 1.5-second load times on
+                  mobile 4G/LTE connections.</span></span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-white/10">
+          <a href="/contact/?source=web_tier_audit&service=web-modernization&tier=starter"
+            class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border border-white/15 bg-white/5 hover:bg-white/10 text-white font-mono text-xs font-bold uppercase tracking-wider transition-all cursor-pointer">
+            <span><span class="lens-corp">Schedule Performance Sprint</span><span class="lens-trade">Accelerate
+                Contractor Site</span></span>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Tier 2: Full Serverless Re-Architecture (FEATURED) -->
+      <div
+        class="rounded-3xl p-8 bg-[#0B0F1C]/95 border-2 border-indigo-400/60 transition-all duration-300 backdrop-blur-2xl flex flex-col justify-between relative shadow-[0_20px_60px_rgba(0,0,0,0.8),0_0_40px_rgba(99,102,241,0.25)] scale-100 lg:-translate-y-2">
+        <!-- Featured Badge -->
+        <div
+          class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-linear-to-r from-indigo-500 to-cyan-400 text-slate-950 font-mono text-[10px] font-extrabold uppercase tracking-widest shadow-[0_0_20px_rgba(99,102,241,0.6)]">
+          <span class="lens-corp">MOST POPULAR // SUB-150MS GUARANTEE</span>
+          <span class="lens-trade">MOST POPULAR // 3–5 VAN CONTRACTOR FLEET</span>
+        </div>
+
+        <div>
+          <div class="flex items-center justify-between mb-4 mt-2">
+            <span class="text-xs font-mono font-bold tracking-wider text-indigo-300 uppercase">
+              <span class="lens-corp">TIER 02 // FULL JAMSTACK</span>
+              <span class="lens-trade">TIER 02 // COMPLETE RE-ARCHITECTURE</span>
+            </span>
+            <span
+              class="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-indigo-950/80 border border-indigo-500/40 text-indigo-300">
+              <span class="lens-corp">ACTIVE DEPLOYMENT</span>
+              <span class="lens-trade">FLEET STANDARD</span>
+            </span>
+          </div>
+          <h3 class="text-2xl font-bold text-white tracking-tight font-display">
+            <span class="lens-corp">Full Serverless Re-Architecture</span>
+            <span class="lens-trade">Full Fleet Web Re-Architecture</span>
+          </h3>
+          <p class="text-xs text-slate-300 mt-2 font-light leading-relaxed">
+            <span class="lens-corp">Complete migration off vulnerable monolithic CMS platforms onto an ultra-fast,
+              serverless Jamstack edge architecture on AWS.</span>
+            <span class="lens-trade">Replaces fragile, plugin-heavy WordPress sites with an unbreakable serverless
+              machine featuring one-thumb emergency call buttons and instant job photo loading.</span>
+          </p>
+
+          <!-- Price Callout -->
+          <div class="mt-6 mb-8 pt-6 border-t border-white/10">
+            <div class="flex items-baseline gap-1">
+              <span class="text-4xl font-extrabold text-white font-mono">$5,500</span>
+              <span class="text-xs font-mono text-slate-400 uppercase tracking-wider">CAD Setup</span>
+            </div>
+            <p class="text-sm font-mono text-indigo-400 font-bold mt-1">+ $250 CAD / month (Managed Edge SLA)</p>
+          </div>
+
+          <!-- Deliverables List -->
+          <ul class="space-y-3.5 text-xs text-slate-300 font-light">
+            <li class="flex items-start gap-2.5">
+              <span class="text-cyan-400 font-bold shrink-0">✓</span>
+              <span><strong><span class="lens-corp">Everything in Performance Sprint Included.</span><span
+                    class="lens-trade">Everything in Speed Sprint Included.</span></strong></span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-cyan-400 font-bold shrink-0">✓</span>
+              <span><strong><span class="lens-corp">Complete Serverless Jamstack Rebuild:</span><span
+                    class="lens-trade">Unbreakable Serverless Build:</span></strong> <span
+                  class="lens-corp">Eleventy/Vite static compilation deployed to AWS S3 + CloudFront.</span><span
+                  class="lens-trade">Zero WordPress databases, zero server crashes, zero Friday-night
+                  downtime.</span></span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-cyan-400 font-bold shrink-0">✓</span>
+              <span><strong><span class="lens-corp">100/100 Core Web Vitals SLA:</span><span class="lens-trade">100/100
+                    Google Speed SLA:</span></strong> <span class="lens-corp">Perfect desktop &amp; mobile PageSpeed
+                  score achievement.</span><span class="lens-trade">Guaranteed 100/100 mobile Google PageSpeed score to
+                  dominate local SEO.</span></span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-cyan-400 font-bold shrink-0">✓</span>
+              <span><strong><span class="lens-corp">Zero Database Vulnerabilities:</span><span class="lens-trade">Zero
+                    Vulnerabilities:</span></strong> <span class="lens-corp">Complete elimination of <code
+                    class="text-cyan-300 text-[11px]">/wp-admin</code>, SQL injections, and CVE exploits.</span><span
+                  class="lens-trade">Eliminates hackable wp-admin portals, malware, and spam injections
+                  permanently.</span></span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-cyan-400 font-bold shrink-0">✓</span>
+              <span><strong><span class="lens-corp">Headless CMS Decoupling:</span><span class="lens-trade">One-Thumb
+                    Emergency Action:</span></strong> <span class="lens-corp">Intuitive visual authoring for marketing
+                  without codebase interference.</span><span class="lens-trade">Oversized click-to-call and quote
+                  buttons designed for emergency callers on mobile.</span></span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-cyan-400 font-bold shrink-0">✓</span>
+              <span><strong><span class="lens-corp">AI-Ready Schema.org &amp; GEO Architecture:</span><span
+                    class="lens-trade">Contractor GEO &amp; License Schema:</span></strong> <span class="lens-corp">Full
+                  entity triples and semantic HTML for LLM crawlability.</span><span class="lens-trade">Encodes trade
+                  licenses (TSSA, 309A, Master Plumber) and 35km service radius.</span></span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-cyan-400 font-bold shrink-0">✓</span>
+              <span><strong><span class="lens-corp">High-Intent CRO &amp; Lead Capture:</span><span
+                    class="lens-trade">FSM &amp; Dispatch Board Sync:</span></strong> <span class="lens-corp">Seamless
+                  integration with intake forms, SMS alerts, and calendar widgets.</span><span class="lens-trade">Direct
+                  work order routing into ServiceTitan, Jobber, and on-call technician phones.</span></span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-white/10">
+          <a href="/contact/?source=web_tier_full&service=web-modernization&tier=pro"
+            class="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-linear-to-r from-indigo-500 via-indigo-600 to-cyan-500 hover:from-indigo-400 hover:to-cyan-400 text-white font-mono text-xs font-bold uppercase tracking-wider transition-all shadow-[0_0_25px_rgba(99,102,241,0.5)] cursor-pointer">
+            <span><span class="lens-corp">Initiate Serverless Rebuild</span><span class="lens-trade">Deploy Fleet
+                Re-Architecture</span></span>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Tier 3: Enterprise Custom Edge Build -->
+      <div
+        class="rounded-3xl p-8 bg-[#070B14]/80 border border-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-xl flex flex-col justify-between relative shadow-[0_15px_40px_rgba(0,0,0,0.5)]">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-mono font-bold tracking-wider text-slate-400 uppercase">
+              <span class="lens-corp">TIER 03 // BESPOKE EDGE</span>
+              <span class="lens-trade">TIER 03 // MULTI-LOCATION FLEET</span>
+            </span>
+            <span
+              class="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-white/5 border border-white/10 text-slate-400">
+              <span class="lens-corp">GLOBAL MULTI-REGION</span>
+              <span class="lens-trade">10+ VANS &amp; FRANCHISE</span>
+            </span>
+          </div>
+          <h3 class="text-2xl font-bold text-white tracking-tight font-display">
+            <span class="lens-corp">Enterprise Custom Edge Build</span>
+            <span class="lens-trade">Multi-Location Trade Franchise Engine</span>
+          </h3>
+          <p class="text-xs text-slate-400 mt-2 font-light leading-relaxed">
+            <span class="lens-corp">For high-traffic corporations, multi-location contractors, and fintech platforms
+              requiring custom WebGL 3D, multi-region failover, and SOC2 compliance.</span>
+            <span class="lens-trade">Custom high-speed digital architecture for multi-depot trades operations (10+ vans)
+              covering 30+ service cities with automated landing pages and multi-trade routing.</span>
+          </p>
+
+          <!-- Price Callout -->
+          <div class="mt-6 mb-8 pt-6 border-t border-white/10">
+            <div class="flex items-baseline gap-1">
+              <span class="text-4xl font-extrabold text-white font-mono">$12,000+</span>
+              <span class="text-xs font-mono text-slate-400 uppercase tracking-wider">CAD // Custom Scope</span>
+            </div>
+            <p class="text-[11px] font-mono text-indigo-400 mt-1">Multi-brand &amp; high-scale edge performance SLA
+            </p>
+          </div>
+
+          <!-- Deliverables List -->
+          <ul class="space-y-3.5 text-xs text-slate-300 font-light">
+            <li class="flex items-start gap-2.5">
+              <span class="text-indigo-400 font-bold shrink-0">✓</span>
+              <span><strong><span class="lens-corp">Everything in Full Re-Architecture Included.</span><span
+                    class="lens-trade">Everything in Fleet Re-Architecture Included.</span></strong></span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-indigo-400 font-bold shrink-0">✓</span>
+              <span><strong><span class="lens-corp">Custom 3D WebGL / Three.js Visualizers:</span><span
+                    class="lens-trade">Interactive 3D Equipment Visualizers:</span></strong> <span
+                  class="lens-corp">Buttery 60fps cinematic brand graphics and interactive models.</span><span
+                  class="lens-trade">Interactive 3D furnace, panel, and roof cutaways justifying premium
+                  pricing.</span></span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-indigo-400 font-bold shrink-0">✓</span>
+              <span><strong><span class="lens-corp">Multi-Region Active-Active CloudFront Routing:</span><span
+                    class="lens-trade">Multi-Depot Territory Routing:</span></strong> <span class="lens-corp">Automatic
+                  geo-redundancy and instant edge failover.</span><span class="lens-trade">Dynamic routing to closest
+                  branch or on-call emergency technician.</span></span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-indigo-400 font-bold shrink-0">✓</span>
+              <span><strong><span class="lens-corp">SOC2 &amp; Enterprise Security Hardening:</span><span
+                    class="lens-trade">Enterprise Customer Data Protection:</span></strong> <span
+                  class="lens-corp">Strict CSP headers, HSTS, WAF rate limiting, and zero-trust tokens.</span><span
+                  class="lens-trade">Lockdown customer addresses, gate codes, credit card details, and dispatch
+                  logs.</span></span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-indigo-400 font-bold shrink-0">✓</span>
+              <span><strong><span class="lens-corp">Multi-Location Dynamic Service Landing Pages:</span><span
+                    class="lens-trade">50+ Neighborhood Service City Pages:</span></strong> <span
+                  class="lens-corp">Programmatic generation for 50+ regional service municipalities.</span><span
+                  class="lens-trade">Automated high-ranking landing pages for every town in your 35km service
+                  radius.</span></span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-indigo-400 font-bold shrink-0">✓</span>
+              <span><strong>Direct Solutions Architect SLA:</strong> Dedicated performance monitoring and priority
+                engineering support with Principal Architect Saad Sayed.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-white/10">
+          <a href="/contact/?source=web_tier_enterprise&service=web-modernization&tier=enterprise"
+            class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border border-white/15 bg-white/5 hover:bg-white/10 text-white font-mono text-xs font-bold uppercase tracking-wider transition-all cursor-pointer">
+            <span>Consult Principal Architect</span>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Section 7: Frequently Asked Questions (FAQ Accordion) -->
+  <div class="mb-24 max-w-4xl mx-auto">
+    <div class="text-center mb-12">
+      <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight font-display">
+        Frequently Asked Questions
+      </h2>
+      <p class="text-xs sm:text-sm text-slate-400 mt-2 font-light">
+        Everything you need to know about migrating off monolithic CMS platforms to sub-150ms edge delivery.
+      </p>
+    </div>
+
+    <div class="space-y-4">
+
+      <!-- FAQ 1 -->
+      <details
+        class="group rounded-2xl bg-[#080D17]/80 border border-white/10 p-6 [&_summary::-webkit-details-marker]:hidden transition-all duration-300">
+        <summary class="flex items-center justify-between cursor-pointer focus:outline-none">
+          <h3 class="text-base font-bold text-white group-hover:text-indigo-300 transition-colors">
+            How do you achieve sub-150ms load times globally without a traditional web server?
+          </h3>
+          <span class="ml-4 shrink-0 text-slate-400 group-hover:text-white transition-transform group-open:rotate-180">
+            ▼
+          </span>
+        </summary>
+        <p class="text-xs sm:text-sm text-slate-300 font-light mt-4 leading-relaxed pt-3 border-t border-white/5">
+          Traditional websites query slow PHP and MySQL databases on every visitor hit. We pre-render your entire
+          website into static HTML, optimized CSS, and modern WebP assets ahead of time, storing them in AWS S3 behind
+          Amazon CloudFront's global edge network (450+ Points of Presence). When a visitor lands on your site, assets
+          are served from the closest edge node in milliseconds with zero origin database delay.
+        </p>
+      </details>
+
+      <!-- FAQ 2 -->
+      <details
+        class="group rounded-2xl bg-[#080D17]/80 border border-white/10 p-6 [&_summary::-webkit-details-marker]:hidden transition-all duration-300">
+        <summary class="flex items-center justify-between cursor-pointer focus:outline-none">
+          <h3 class="text-base font-bold text-white group-hover:text-indigo-300 transition-colors">
+            Can our marketing team still edit text, images, and publish blogs without writing code?
+          </h3>
+          <span class="ml-4 shrink-0 text-slate-400 group-hover:text-white transition-transform group-open:rotate-180">
+            ▼
+          </span>
+        </summary>
+        <p class="text-xs sm:text-sm text-slate-300 font-light mt-4 leading-relaxed pt-3 border-t border-white/5">
+          Absolutely. We configure modern headless CMS platforms (such as Decap CMS, Sanity, or Strapi) tailored to
+          your workflows. Your content editors log into a clean visual dashboard to write articles, upload media, or
+          edit homepage copy. Once they hit "Publish", automated GitHub Actions compile and deploy the changes across
+          the global CDN edge within 60 seconds—without touching a single server.
+        </p>
+      </details>
+
+      <!-- FAQ 3 -->
+      <details
+        class="group rounded-2xl bg-[#080D17]/80 border border-white/10 p-6 [&_summary::-webkit-details-marker]:hidden transition-all duration-300">
+        <summary class="flex items-center justify-between cursor-pointer focus:outline-none">
+          <h3 class="text-base font-bold text-white group-hover:text-indigo-300 transition-colors">
+            What happens to our existing WordPress rankings, URL structures, and backlinks?
+          </h3>
+          <span class="ml-4 shrink-0 text-slate-400 group-hover:text-white transition-transform group-open:rotate-180">
+            ▼
+          </span>
+        </summary>
+        <p class="text-xs sm:text-sm text-slate-300 font-light mt-4 leading-relaxed pt-3 border-t border-white/5">
+          Zero lost SEO rankings. We execute a comprehensive 1:1 URL migration audit, preserving all slugs, metadata,
+          canonical tags, and Open Graph cards. Any legacy URLs receive edge-level permanent 301 redirects that
+          execute in &lt;5ms. In fact, most clients see an immediate 15–25% ranking boost within 30 days because
+          Google's algorithm heavily prioritizes sites with perfect Core Web Vitals and sub-second load times.
+        </p>
+      </details>
+
+      <!-- FAQ 4 -->
+      <details
+        class="group rounded-2xl bg-[#080D17]/80 border border-white/10 p-6 [&_summary::-webkit-details-marker]:hidden transition-all duration-300">
+        <summary class="flex items-center justify-between cursor-pointer focus:outline-none">
+          <h3 class="text-base font-bold text-white group-hover:text-indigo-300 transition-colors">
+            Why is sub-150ms speed critical for commercial trades and field contractors?
+          </h3>
+          <span class="ml-4 shrink-0 text-slate-400 group-hover:text-white transition-transform group-open:rotate-180">
+            ▼
+          </span>
+        </summary>
+        <p class="text-xs sm:text-sm text-slate-300 font-light mt-4 leading-relaxed pt-3 border-t border-white/5">
+          Facility managers, property supervisors, and general contractors often search for emergency HVAC, plumbing,
+          electrical, or roofing services on mobile devices from noisy job sites with spotty 3G/LTE connections. If your
+          website takes 4 seconds to render, they hit the back button and call your competitor. Our edge-rendered sites
+          load in under 1 second even on weak mobile connections, with 48px+ instant tap-to-call targets that convert
+          emergency commercial work.
+        </p>
+      </details>
+
+      <!-- FAQ 5 -->
+      <details
+        class="group rounded-2xl bg-[#080D17]/80 border border-white/10 p-6 [&_summary::-webkit-details-marker]:hidden transition-all duration-300">
+        <summary class="flex items-center justify-between cursor-pointer focus:outline-none">
+          <h3 class="text-base font-bold text-white group-hover:text-indigo-300 transition-colors">
+            What is your migration timeline and zero-downtime cutover guarantee?
+          </h3>
+          <span class="ml-4 shrink-0 text-slate-400 group-hover:text-white transition-transform group-open:rotate-180">
+            ▼
+          </span>
+        </summary>
+        <p class="text-xs sm:text-sm text-slate-300 font-light mt-4 leading-relaxed pt-3 border-t border-white/5">
+          Performance Sprints are completed in 10 to 14 business days. Full Serverless Re-Architectures typically span
+          4 to 6 weeks. The final DNS switch is managed through AWS Route 53 with weighted routing or zero-TTL CNAME
+          propagation, ensuring zero downtime and continuous uninterrupted business operations.
+        </p>
+      </details>
+
+    </div>
+  </div>
+
+  <!-- Section 8: Bottom Conversion Anchor & Cross-Pillar Exploration -->
+  <div
+    class="rounded-3xl p-8 sm:p-14 bg-linear-to-r from-indigo-950/60 via-[#070B16]/90 to-cyan-950/60 border border-indigo-400/40 text-center relative overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.8),0_0_50px_rgba(99,102,241,0.2)]">
+    <div class="relative z-10 max-w-3xl mx-auto">
+      <span
+        class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-widest text-indigo-300 bg-indigo-900/50 border border-indigo-400/30 mb-4">
+        SUB-150MS EDGE ARCHITECTURE
+      </span>
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight font-display mb-4">
+        Ready to Eliminate Monolith Friction and Double Conversions?
+      </h2>
+      <p class="text-sm sm:text-base text-slate-300 font-light max-w-2xl mx-auto mb-8 leading-relaxed">
+        Stop losing commercial pipeline to slow load times, vulnerable plugins, and high mobile bounce rates. Let our
+        AWS-certified cloud architects modernise your digital presence into a sub-150ms conversion engine.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+        <a href="/contact/?source=web_footer_cta&service=web-modernization"
+          class="glow-amber-cta w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-linear-to-r from-amber-400 via-amber-300 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-bold text-sm tracking-wide uppercase transition-all shadow-[0_0_25px_rgba(245,158,11,0.35)] cursor-pointer">
+          <span>Book Performance Discovery</span>
+          <span class="text-slate-950">→</span>
+        </a>
+        <a href="/products/autonomous-booking/"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full text-slate-200 hover:text-white text-sm font-mono border border-white/15 bg-white/5 hover:bg-white/10 transition-all cursor-pointer">
+          <span>Explore Autonomous Booking</span>
+          <span class="text-cyan-400">→</span>
+        </a>
+      </div>
+
+      <!-- Cross-Pillar Quick Navigation Bar -->
+      <div
+        class="pt-8 border-t border-white/10 flex flex-wrap items-center justify-center gap-4 text-xs font-mono text-slate-400">
+        <span class="text-slate-400 uppercase font-semibold">Explore Agency Pillars:</span>
+        <a href="/products/autonomous-booking/" class="text-slate-300 hover:text-emerald-400 transition-colors">📅
+          Autonomous Booking</a>
+        <span>•</span>
+        <a href="/products/voice-dispatch/" class="text-slate-300 hover:text-amber-400 transition-colors">🎙️ 24/7 AI
+          Voice Dispatch</a>
+        <span>•</span>
+        <a href="/products/geo-engine/" class="text-slate-300 hover:text-cyan-400 transition-colors">⚡ Autonomous GEO
+          Engine</a>
+        <span>•</span>
+        <a href="/#audit" class="text-slate-300 hover:text-white transition-colors">🔍 4-Sec Free Audit</a>
+      </div>
+
+    </div>
+  </div>
+
+</div>
 </div>
 
 <!-- Interactive Split-Screen Speed Simulator Controller (Sprint 9 Google PageSpeed API Integration) -->

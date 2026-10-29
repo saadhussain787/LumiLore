@@ -326,13 +326,17 @@ permalink: /products/autonomous-booking/
               <span>STAGE 01</span>
               <span>💬 INBOUND</span>
             </div>
-            <div class="text-sm font-bold text-white">Intake &amp; Conversational Triage</div>
+            <div class="text-sm font-bold text-white">
+              <span class="lens-corp">Intake &amp; Conversational Triage</span>
+              <span class="lens-trade">Self-Service Homeowner Booking</span>
+            </div>
             <p class="text-xs text-slate-400 font-light leading-relaxed">
-              Prospect initiates request via website form or LumiBot. LLM extracts core intent, scope, and qualifying
-              parameters.
+              <span class="lens-corp">Prospect initiates request via website form or LumiBot. LLM extracts core intent, scope, and qualifying parameters.</span>
+              <span class="lens-trade">Customers reserve routine tune-ups, panel upgrades, and drain clearings from your website or Google listing while your team works on the tools.</span>
             </p>
             <div class="text-[10px] font-mono text-slate-400 pt-2 border-t border-white/5">
-              Endpoint: <code class="text-cyan-300">/api/chat</code>
+              <span class="lens-corp">Endpoint: <code class="text-cyan-300">/api/chat</code></span>
+              <span class="lens-trade">Channel: <strong class="text-cyan-300">Website &amp; Google Profile</strong></span>
             </div>
           </div>
 
@@ -342,13 +346,17 @@ permalink: /products/autonomous-booking/
               <span>STAGE 02</span>
               <span>⚡ API PROBE</span>
             </div>
-            <div class="text-sm font-bold text-white">Live FreeBusy Query</div>
+            <div class="text-sm font-bold text-white">
+              <span class="lens-corp">Live FreeBusy Query</span>
+              <span class="lens-trade">Automatic Route &amp; Rush-Hour Protection</span>
+            </div>
             <p class="text-xs text-slate-400 font-light leading-relaxed">
-              Lambda calls Google Calendar freebusy endpoint. Injects 15-minute buffer rules and auto-generates verified
-              open slots.
+              <span class="lens-corp">Lambda calls Google Calendar freebusy endpoint. Injects 15-minute buffer rules and auto-generates verified open slots.</span>
+              <span class="lens-trade">Calculates real driving buffers between jobs so your techs aren't stuck burning diesel on the 401 at 5:00 PM.</span>
             </p>
             <div class="text-[10px] font-mono text-slate-400 pt-2 border-t border-white/5">
-              Endpoint: <code class="text-emerald-300">/api/calendar/availability</code>
+              <span class="lens-corp">Endpoint: <code class="text-emerald-300">/api/calendar/availability</code></span>
+              <span class="lens-trade">Protection: <strong class="text-emerald-300">Dynamic Traffic Buffers</strong></span>
             </div>
           </div>
 
@@ -358,13 +366,17 @@ permalink: /products/autonomous-booking/
               <span>STAGE 03</span>
               <span>💾 PERSISTENCE</span>
             </div>
-            <div class="text-sm font-bold text-white">DynamoDB Audit Ledger</div>
+            <div class="text-sm font-bold text-white">
+              <span class="lens-corp">DynamoDB Audit Ledger</span>
+              <span class="lens-trade">Direct Dispatch Board Lock</span>
+            </div>
             <p class="text-xs text-slate-400 font-light leading-relaxed">
-              Appointment is committed to <code class="text-amber-200">LumiLore_Intake</code> with AudienceLens
-              attribution and anti-collision locks.
+              <span class="lens-corp">Appointment is committed to <code class="text-amber-200">LumiLore_Intake</code> with AudienceLens attribution and anti-collision locks.</span>
+              <span class="lens-trade">Job and customer address lock directly into ServiceTitan, Jobber, or Google Calendar with zero double-booking.</span>
             </p>
             <div class="text-[10px] font-mono text-slate-400 pt-2 border-t border-white/5">
-              Index: <code class="text-amber-300">AudienceLensIndex</code>
+              <span class="lens-corp">Index: <code class="text-amber-300">AudienceLensIndex</code></span>
+              <span class="lens-trade">Sync: <strong class="text-amber-300">ServiceTitan / Jobber FSM</strong></span>
             </div>
           </div>
 
@@ -374,13 +386,17 @@ permalink: /products/autonomous-booking/
               <span>STAGE 04</span>
               <span>📨 DISPATCH</span>
             </div>
-            <div class="text-sm font-bold text-white">Dual SES &amp; Calendar Push</div>
+            <div class="text-sm font-bold text-white">
+              <span class="lens-corp">Dual SES &amp; Calendar Push</span>
+              <span class="lens-trade">Anti-No-Show Arrival SMS</span>
+            </div>
             <p class="text-xs text-slate-400 font-light leading-relaxed">
-              Generates Google Meet link, injects native ICS calendar invites via Amazon SES, and dispatches SMS
-              confirmation alerts.
+              <span class="lens-corp">Generates Google Meet link, injects native ICS calendar invites via Amazon SES, and dispatches SMS confirmation alerts.</span>
+              <span class="lens-trade">Sends homeowner automated text confirmations with technician arrival window and 1-click reschedule link, slashing no-shows.</span>
             </p>
             <div class="text-[10px] font-mono text-slate-400 pt-2 border-t border-white/5">
-              Service: <code class="text-indigo-300">Amazon SES + Meet API</code>
+              <span class="lens-corp">Service: <code class="text-indigo-300">Amazon SES + Meet API</code></span>
+              <span class="lens-trade">Alert: <strong class="text-indigo-300">Two-Way SMS Arrival Notice</strong></span>
             </div>
           </div>
 
@@ -492,22 +508,18 @@ permalink: /products/autonomous-booking/
               📅
             </div>
             <h3 class="text-base font-bold text-white tracking-tight group-hover:text-emerald-200 transition-colors">
-              1. Bi-Directional Real-Time Calendar Sync
+              <span class="lens-corp">1. Bi-Directional Real-Time Calendar Sync</span>
+              <span class="lens-trade">1. Two-Way Dispatch Board Sync</span>
             </h3>
             <ul class="mt-3 space-y-1.5 text-xs text-slate-300 font-light">
-              <li class="flex items-start gap-1.5"><span
-                  class="text-emerald-400 font-bold">•</span><span><strong>Benefit:</strong> Zero conflict latency with
-                  live FreeBusy lookups.</span></li>
-              <li class="flex items-start gap-1.5"><span
-                  class="text-emerald-400 font-bold">•</span><span><strong>Logic:</strong> Instant two-way sync prevents
-                  double-bookings.</span></li>
-              <li class="flex items-start gap-1.5"><span
-                  class="text-emerald-400 font-bold">•</span><span><strong>Integration:</strong> Native Google Workspace
-                  &amp; MS 365 Exchange APIs.</span></li>
+              <li class="flex items-start gap-1.5"><span class="text-emerald-400 font-bold">•</span><span><strong>Benefit:</strong> <span class="lens-corp">Zero conflict latency with live FreeBusy lookups.</span><span class="lens-trade">Direct sync with ServiceTitan, Jobber &amp; Google Calendar with zero double-bookings.</span></span></li>
+              <li class="flex items-start gap-1.5"><span class="text-emerald-400 font-bold">•</span><span><strong>Logic:</strong> <span class="lens-corp">Instant two-way sync prevents double-bookings.</span><span class="lens-trade">Instantly locks the homeowner's time slot across all office and field tech schedules.</span></span></li>
+              <li class="flex items-start gap-1.5"><span class="text-emerald-400 font-bold">•</span><span><strong>Integration:</strong> <span class="lens-corp">Native Google Workspace &amp; MS 365 Exchange APIs.</span><span class="lens-trade">Native ServiceTitan, Jobber, Housecall Pro &amp; Google Calendar webhooks.</span></span></li>
             </ul>
           </div>
           <div class="mt-4 pt-3 border-t border-white/5 text-[10px] font-mono text-emerald-400">
-            GOOGLE &amp; OUTLOOK CERTIFIED • ZERO OVERLAPS
+            <span class="lens-corp">GOOGLE &amp; OUTLOOK CERTIFIED • ZERO OVERLAPS</span>
+            <span class="lens-trade">SERVICETITAN &amp; JOBBER SYNC • ZERO OVERWRITES</span>
           </div>
         </div>
 
@@ -520,22 +532,18 @@ permalink: /products/autonomous-booking/
               🛡️
             </div>
             <h3 class="text-base font-bold text-white tracking-tight group-hover:text-emerald-200 transition-colors">
-              2. Intelligent Gatekeeper Qualification
+              <span class="lens-corp">2. Intelligent Gatekeeper Qualification</span>
+              <span class="lens-trade">2. Emergency vs. Routine Job Filtering</span>
             </h3>
             <ul class="mt-3 space-y-1.5 text-xs text-slate-300 font-light">
-              <li class="flex items-start gap-1.5"><span
-                  class="text-emerald-400 font-bold">•</span><span><strong>Benefit:</strong> 100% pipeline integrity;
-                  zero tire-kicker calendar clutter.</span></li>
-              <li class="flex items-start gap-1.5"><span
-                  class="text-emerald-400 font-bold">•</span><span><strong>Logic:</strong> Dynamically verifies budget,
-                  size, and urgency criteria.</span></li>
-              <li class="flex items-start gap-1.5"><span
-                  class="text-emerald-400 font-bold">•</span><span><strong>Integration:</strong> Routes non-qualified
-                  leads to self-serve resources.</span></li>
+              <li class="flex items-start gap-1.5"><span class="text-emerald-400 font-bold">•</span><span><strong>Benefit:</strong> <span class="lens-corp">100% pipeline integrity; zero tire-kicker calendar clutter.</span><span class="lens-trade">Diagnoses furnace error codes, water leaks &amp; panel amps before booking.</span></span></li>
+              <li class="flex items-start gap-1.5"><span class="text-emerald-400 font-bold">•</span><span><strong>Logic:</strong> <span class="lens-corp">Dynamically verifies budget, size, and urgency criteria.</span><span class="lens-trade">Routes active floods and freezing no-heat emergencies to immediate live dispatch.</span></span></li>
+              <li class="flex items-start gap-1.5"><span class="text-emerald-400 font-bold">•</span><span><strong>Integration:</strong> <span class="lens-corp">Routes non-qualified leads to self-serve resources.</span><span class="lens-trade">Books routine maintenance during open workday windows without office phone tag.</span></span></li>
             </ul>
           </div>
           <div class="mt-4 pt-3 border-t border-white/5 text-[10px] font-mono text-emerald-400">
-            ELIMINATES TIRE-KICKERS • 100% PIPELINE INTEGRITY
+            <span class="lens-corp">ELIMINATES TIRE-KICKERS • 100% PIPELINE INTEGRITY</span>
+            <span class="lens-trade">TRIAGES EMERGENCIES FIRST • ZERO WASTED TRIPS</span>
           </div>
         </div>
 
@@ -548,22 +556,18 @@ permalink: /products/autonomous-booking/
               ⏱️
             </div>
             <h3 class="text-base font-bold text-white tracking-tight group-hover:text-emerald-200 transition-colors">
-              3. Smart Buffer &amp; Geo-Transit Protection
+              <span class="lens-corp">3. Smart Buffer &amp; Geo-Transit Protection</span>
+              <span class="lens-trade">3. Automatic Route &amp; Rush-Hour Protection</span>
             </h3>
             <ul class="mt-3 space-y-1.5 text-xs text-slate-300 font-light">
-              <li class="flex items-start gap-1.5"><span
-                  class="text-emerald-400 font-bold">•</span><span><strong>Benefit:</strong> Zero technician burnout and
-                  reliable on-time arrival.</span></li>
-              <li class="flex items-start gap-1.5"><span
-                  class="text-emerald-400 font-bold">•</span><span><strong>Logic:</strong> Enforces pre/post buffers and
-                  calculates drive-time geography.</span></li>
-              <li class="flex items-start gap-1.5"><span
-                  class="text-emerald-400 font-bold">•</span><span><strong>Integration:</strong> Google Maps Distance
-                  Matrix &amp; dispatch clustering.</span></li>
+              <li class="flex items-start gap-1.5"><span class="text-emerald-400 font-bold">•</span><span><strong>Benefit:</strong> <span class="lens-corp">Zero technician burnout and reliable on-time arrival.</span><span class="lens-trade">Calculates real driving buffers between jobs so your techs aren't stuck burning diesel on the 401 at 5:00 PM.</span></span></li>
+              <li class="flex items-start gap-1.5"><span class="text-emerald-400 font-bold">•</span><span><strong>Logic:</strong> <span class="lens-corp">Enforces pre/post buffers and calculates drive-time geography.</span><span class="lens-trade">Enforces realistic 30–45 minute geographic transit buffers between call zones.</span></span></li>
+              <li class="flex items-start gap-1.5"><span class="text-emerald-400 font-bold">•</span><span><strong>Integration:</strong> <span class="lens-corp">Google Maps Distance Matrix &amp; dispatch clustering.</span><span class="lens-trade">Google Maps GPS routing &amp; territory-based service radius clustering.</span></span></li>
             </ul>
           </div>
           <div class="mt-4 pt-3 border-t border-white/5 text-[10px] font-mono text-emerald-400">
-            ZERO BURNOUT • GEOGRAPHIC ROUTE CLUSTERING
+            <span class="lens-corp">ZERO BURNOUT • GEOGRAPHIC ROUTE CLUSTERING</span>
+            <span class="lens-trade">RUSH-HOUR TRAFFIC PROTECTION • ZERO VAN DELAYS</span>
           </div>
         </div>
 
@@ -576,22 +580,18 @@ permalink: /products/autonomous-booking/
               📱
             </div>
             <h3 class="text-base font-bold text-white tracking-tight group-hover:text-emerald-200 transition-colors">
-              4. Multi-Channel Conversational Embeds
+              <span class="lens-corp">4. Multi-Channel Conversational Embeds</span>
+              <span class="lens-trade">4. Self-Service Homeowner Booking</span>
             </h3>
             <ul class="mt-3 space-y-1.5 text-xs text-slate-300 font-light">
-              <li class="flex items-start gap-1.5"><span
-                  class="text-emerald-400 font-bold">•</span><span><strong>Benefit:</strong> Book prospects in whatever
-                  channel they reach out.</span></li>
-              <li class="flex items-start gap-1.5"><span
-                  class="text-emerald-400 font-bold">•</span><span><strong>Logic:</strong> Maintains continuous
-                  conversation state across touchpoints.</span></li>
-              <li class="flex items-start gap-1.5"><span
-                  class="text-emerald-400 font-bold">•</span><span><strong>Integration:</strong> Embeds into Web, SMS,
-                  WhatsApp, and Voice Dispatch.</span></li>
+              <li class="flex items-start gap-1.5"><span class="text-emerald-400 font-bold">•</span><span><strong>Benefit:</strong> <span class="lens-corp">Book prospects in whatever channel they reach out.</span><span class="lens-trade">Customers reserve routine tune-ups, panel upgrades, and drain clearings from your website or Google listing while your team works on the tools.</span></span></li>
+              <li class="flex items-start gap-1.5"><span class="text-emerald-400 font-bold">•</span><span><strong>Logic:</strong> <span class="lens-corp">Maintains continuous conversation state across touchpoints.</span><span class="lens-trade">Gives homeowners an instant, friction-free mobile calendar on their smartphone.</span></span></li>
+              <li class="flex items-start gap-1.5"><span class="text-emerald-400 font-bold">•</span><span><strong>Integration:</strong> <span class="lens-corp">Embeds into Web, SMS, WhatsApp, and Voice Dispatch.</span><span class="lens-trade">Website widget, Google Business Profile direct booking, SMS &amp; QR truck decals.</span></span></li>
             </ul>
           </div>
           <div class="mt-4 pt-3 border-t border-white/5 text-[10px] font-mono text-emerald-400">
-            OMNICHANNEL AGILITY • CONTINUOUS CONTEXT
+            <span class="lens-corp">OMNICHANNEL AGILITY • CONTINUOUS CONTEXT</span>
+            <span class="lens-trade">HANDS-FREE BOOKING • ON THE TOOLS CONVENIENCE</span>
           </div>
         </div>
 
@@ -604,22 +604,18 @@ permalink: /products/autonomous-booking/
               🔔
             </div>
             <h3 class="text-base font-bold text-white tracking-tight group-hover:text-emerald-200 transition-colors">
-              5. Automated Anti-Ghosting Sequences
+              <span class="lens-corp">5. Automated Anti-Ghosting Sequences</span>
+              <span class="lens-trade">5. Anti-No-Show Arrival Tracking</span>
             </h3>
             <ul class="mt-3 space-y-1.5 text-xs text-slate-300 font-light">
-              <li class="flex items-start gap-1.5"><span
-                  class="text-emerald-400 font-bold">•</span><span><strong>Benefit:</strong> 78% reduction in
-                  appointment no-shows.</span></li>
-              <li class="flex items-start gap-1.5"><span
-                  class="text-emerald-400 font-bold">•</span><span><strong>Logic:</strong> Automated 24h SMS reminders
-                  with 1-click reschedule.</span></li>
-              <li class="flex items-start gap-1.5"><span
-                  class="text-emerald-400 font-bold">•</span><span><strong>Integration:</strong> Twilio SMS &amp;
-                  SendGrid transactional templates.</span></li>
+              <li class="flex items-start gap-1.5"><span class="text-emerald-400 font-bold">•</span><span><strong>Benefit:</strong> <span class="lens-corp">78% reduction in appointment no-shows.</span><span class="lens-trade">Automated 2-hour window SMS with technician arrival alert, slashing no-shows to under 2%.</span></span></li>
+              <li class="flex items-start gap-1.5"><span class="text-emerald-400 font-bold">•</span><span><strong>Logic:</strong> <span class="lens-corp">Automated 24h SMS reminders with 1-click reschedule.</span><span class="lens-trade">Homeowner receives automated SMS: "Tech Mike is en route (ETA 25 mins)".</span></span></li>
+              <li class="flex items-start gap-1.5"><span class="text-emerald-400 font-bold">•</span><span><strong>Integration:</strong> <span class="lens-corp">Twilio SMS &amp; SendGrid transactional templates.</span><span class="lens-trade">Direct carrier SMS alerts with 1-click homeowner reschedule link.</span></span></li>
             </ul>
           </div>
           <div class="mt-4 pt-3 border-t border-white/5 text-[10px] font-mono text-emerald-400">
-            78% REDUCTION IN NO-SHOWS
+            <span class="lens-corp">78% REDUCTION IN NO-SHOWS</span>
+            <span class="lens-trade">&lt; 2% NO-SHOW RATE • AUTOMATED ON-THE-WAY TEXTS</span>
           </div>
         </div>
 
@@ -632,23 +628,20 @@ permalink: /products/autonomous-booking/
               ⚡
             </div>
             <h3 class="text-base font-bold text-white tracking-tight group-hover:text-emerald-200 transition-colors">
-              6. Enterprise CRM &amp; Webhook Telemetry
+              <span class="lens-corp">6. Enterprise CRM &amp; Webhook Telemetry</span>
+              <span class="lens-trade">6. Overnight Schedule Filler</span>
             </h3>
             <ul class="mt-3 space-y-1.5 text-xs text-slate-300 font-light">
-              <li class="flex items-start gap-1.5"><span
-                  class="text-emerald-400 font-bold">•</span><span><strong>Benefit:</strong> Zero manual data entry for
-                  reps and dispatchers.</span></li>
-              <li class="flex items-start gap-1.5"><span
-                  class="text-emerald-400 font-bold">•</span><span><strong>Logic:</strong> Automatically creates contact
-                  cards and prep dossiers.</span></li>
-              <li class="flex items-start gap-1.5"><span
-                  class="text-emerald-400 font-bold">•</span><span><strong>Integration:</strong> Real-time webhooks to
-                  HubSpot, Salesforce &amp; ServiceTitan.</span></li>
+              <li class="flex items-start gap-1.5"><span class="text-emerald-400 font-bold">•</span><span><strong>Benefit:</strong> <span class="lens-corp">Zero manual data entry for reps and dispatchers.</span><span class="lens-trade">Books next-day water heater flushes and routine inspections while your crew is sleeping.</span></span></li>
+              <li class="flex items-start gap-1.5"><span class="text-emerald-400 font-bold">•</span><span><strong>Logic:</strong> <span class="lens-corp">Automatically creates contact cards and prep dossiers.</span><span class="lens-trade">Automatically fills morning cancellation gaps with pre-qualified maintenance work orders.</span></span></li>
+              <li class="flex items-start gap-1.5"><span class="text-emerald-400 font-bold">•</span><span><strong>Integration:</strong> <span class="lens-corp">Real-time webhooks to HubSpot, Salesforce &amp; ServiceTitan.</span><span class="lens-trade">Real-time work order creation in ServiceTitan, Jobber &amp; QuickBooks.</span></span></li>
             </ul>
           </div>
           <div class="mt-4 pt-3 border-t border-white/5 text-[10px] font-mono text-emerald-400">
-            ZERO MANUAL DATA ENTRY • REAL-TIME WEBHOOKS
+            <span class="lens-corp">ZERO MANUAL DATA ENTRY • REAL-TIME WEBHOOKS</span>
+            <span class="lens-trade">OVERNIGHT CALENDAR FILL • ZERO MORNING GAPS</span>
           </div>
+        </div>
         </div>
 
       </div>
@@ -677,18 +670,23 @@ permalink: /products/autonomous-booking/
           class="rounded-3xl p-8 bg-[#070B14]/80 border border-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-xl flex flex-col justify-between relative shadow-[0_15px_40px_rgba(0,0,0,0.5)]">
           <div>
             <div class="flex items-center justify-between mb-4">
-              <span class="text-xs font-mono font-bold tracking-wider text-slate-400 uppercase">TIER 01 //
-                FOUNDATION</span>
+              <span class="text-xs font-mono font-bold tracking-wider text-slate-400 uppercase">
+                <span class="lens-corp">TIER 01 // FOUNDATION</span>
+                <span class="lens-trade">TIER 01 // SOLO OPERATOR</span>
+              </span>
               <span
-                class="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-white/5 border border-white/10 text-slate-400">SINGLE
-                CALENDAR</span>
+                class="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-white/5 border border-white/10 text-slate-400">
+                <span class="lens-corp">SINGLE CALENDAR</span>
+                <span class="lens-trade">1 SERVICE VAN</span>
+              </span>
             </div>
             <h3 class="text-2xl font-bold text-white tracking-tight font-display">
-              Starter Booking Agent
+              <span class="lens-corp">Starter Booking Agent</span>
+              <span class="lens-trade">Solo Operator (1 Van)</span>
             </h3>
             <p class="text-xs text-slate-400 mt-2 font-light leading-relaxed">
-              Perfect for solo executives, boutique consultancy founders, or single-truck service contractors wanting
-              instant 24/7 calendar automation.
+              <span class="lens-corp">Perfect for solo executives, boutique consultancy founders, or single-truck service contractors wanting instant 24/7 calendar automation.</span>
+              <span class="lens-trade">Perfect for single-truck owner-operators who want routine jobs booked straight into their calendar while working on the tools without phone tag.</span>
             </p>
 
             <!-- Price Callout -->
@@ -704,28 +702,23 @@ permalink: /products/autonomous-booking/
             <ul class="space-y-3.5 text-xs text-slate-300 font-light">
               <li class="flex items-start gap-2.5">
                 <span class="text-emerald-400 font-bold shrink-0">✓</span>
-                <span><strong>Single Executive / Dispatch Calendar:</strong> 2-way Google Workspace or Microsoft 365
-                  real-time sync.</span>
+                <span><strong><span class="lens-corp">Single Executive / Dispatch Calendar:</span><span class="lens-trade">1 Service Truck Schedule:</span></strong> <span class="lens-corp">2-way Google Workspace or Microsoft 365 real-time sync.</span><span class="lens-trade">Instant 2-way sync with Google Calendar or Jobber.</span></span>
               </li>
               <li class="flex items-start gap-2.5">
                 <span class="text-emerald-400 font-bold shrink-0">✓</span>
-                <span><strong>Inbound Qualification Gatekeeper:</strong> Custom criteria filter (budget, scope,
-                  location).</span>
+                <span><strong><span class="lens-corp">Inbound Qualification Gatekeeper:</span><span class="lens-trade">Emergency vs. Routine Triage:</span></strong> <span class="lens-corp">Custom criteria filter (budget, scope, location).</span><span class="lens-trade">Screens out tire-kickers and collects job photos and addresses.</span></span>
               </li>
               <li class="flex items-start gap-2.5">
                 <span class="text-emerald-400 font-bold shrink-0">✓</span>
-                <span><strong>Anti-Double-Booking Guard:</strong> Dynamic 15-minute buffers and custom operating
-                  hours.</span>
+                <span><strong><span class="lens-corp">Anti-Double-Booking Guard:</span><span class="lens-trade">Drive-Time Route Buffers:</span></strong> <span class="lens-corp">Dynamic 15-minute buffers and custom operating hours.</span><span class="lens-trade">Guarantees 30m travel buffers so you aren't burning gas across town.</span></span>
               </li>
               <li class="flex items-start gap-2.5">
                 <span class="text-emerald-400 font-bold shrink-0">✓</span>
-                <span><strong>Automated Email &amp; SMS Reminders:</strong> 24h &amp; 1h automated notifications to
-                  eliminate no-shows.</span>
+                <span><strong><span class="lens-corp">Automated Email &amp; SMS Reminders:</span><span class="lens-trade">Anti-No-Show Arrival SMS:</span></strong> <span class="lens-corp">24h &amp; 1h automated notifications to eliminate no-shows.</span><span class="lens-trade">Automated 2-hour window arrival alerts slashing homeowner no-shows.</span></span>
               </li>
               <li class="flex items-start gap-2.5">
                 <span class="text-emerald-400 font-bold shrink-0">✓</span>
-                <span><strong>DynamoDB Audit Ledger:</strong> Every booking recorded with client attribution and source
-                  tracking.</span>
+                <span><strong><span class="lens-corp">DynamoDB Audit Ledger:</span><span class="lens-trade">Instant Dispatch Record:</span></strong> <span class="lens-corp">Every booking recorded with client attribution and source tracking.</span><span class="lens-trade">Complete job log with customer phone, address, and equipment notes.</span></span>
               </li>
             </ul>
           </div>
@@ -733,7 +726,7 @@ permalink: /products/autonomous-booking/
           <div class="mt-8 pt-6 border-t border-white/10">
             <a href="/contact/?source=booking_tier_starter&service=autonomous-booking&tier=starter"
               class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border border-white/15 bg-white/5 hover:bg-white/10 text-white font-mono text-xs font-bold uppercase tracking-wider transition-all cursor-pointer">
-              <span>Reserve Starter Agent</span>
+              <span><span class="lens-corp">Reserve Starter Agent</span><span class="lens-trade">Equip Solo Service Van</span></span>
               <span>→</span>
             </a>
           </div>
@@ -745,23 +738,29 @@ permalink: /products/autonomous-booking/
           <!-- Featured Badge -->
           <div
             class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-emerald-400 to-cyan-500 text-slate-950 font-mono text-[10px] font-extrabold uppercase tracking-widest shadow-[0_0_20px_rgba(16,185,129,0.6)]">
-            MOST POPULAR // REVENUE ACCELERATOR
+            <span class="lens-corp">MOST POPULAR // REVENUE ACCELERATOR</span>
+            <span class="lens-trade">MOST POPULAR // 3–5 VAN CONTRACTOR FLEET</span>
           </div>
 
           <div>
             <div class="flex items-center justify-between mb-4 mt-2">
-              <span class="text-xs font-mono font-bold tracking-wider text-emerald-300 uppercase">TIER 02 //
-                MULTI-CALENDAR</span>
+              <span class="text-xs font-mono font-bold tracking-wider text-emerald-300 uppercase">
+                <span class="lens-corp">TIER 02 // MULTI-CALENDAR</span>
+                <span class="lens-trade">TIER 02 // 3–5 FLEET VANS</span>
+              </span>
               <span
-                class="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-emerald-950/80 border border-emerald-500/40 text-emerald-300">ACTIVE
-                ENGINE</span>
+                class="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-emerald-950/80 border border-emerald-500/40 text-emerald-300">
+                <span class="lens-corp">ACTIVE ENGINE</span>
+                <span class="lens-trade">FLEET DISPATCH</span>
+              </span>
             </div>
             <h3 class="text-2xl font-bold text-white tracking-tight font-display">
-              Pro Multi-Agent Suite
+              <span class="lens-corp">Pro Multi-Agent Suite</span>
+              <span class="lens-trade">3–5 Van Fleet Pro</span>
             </h3>
             <p class="text-xs text-slate-300 mt-2 font-light leading-relaxed">
-              Designed for growing sales teams and multi-technician service operations requiring round-robin
-              distribution, CRM sync, and deep conversational qualification.
+              <span class="lens-corp">Designed for growing sales teams and multi-technician service operations requiring round-robin distribution, CRM sync, and deep conversational qualification.</span>
+              <span class="lens-trade">Designed for growing HVAC, plumbing, electrical, and roofing companies needing smart route buffers, ServiceTitan/Jobber sync, and arrival tracking.</span>
             </p>
 
             <!-- Price Callout -->
@@ -777,32 +776,27 @@ permalink: /products/autonomous-booking/
             <ul class="space-y-3.5 text-xs text-slate-200 font-light">
               <li class="flex items-start gap-2.5">
                 <span class="text-emerald-400 font-bold shrink-0">✓</span>
-                <span><strong>Everything in Starter Tier Included.</strong></span>
+                <span><strong><span class="lens-corp">Everything in Starter Tier Included.</span><span class="lens-trade">Everything in Solo Van Included.</span></strong></span>
               </li>
               <li class="flex items-start gap-2.5">
                 <span class="text-emerald-400 font-bold shrink-0">✓</span>
-                <span><strong>Up to 5 Team Calendars:</strong> Intelligent round-robin or territory-based lead
-                  distribution.</span>
+                <span><strong><span class="lens-corp">Up to 5 Team Calendars:</span><span class="lens-trade">Up to 5 Tech Schedules:</span></strong> <span class="lens-corp">Intelligent round-robin or territory-based lead distribution.</span><span class="lens-trade">Territory-based dispatch so East-side techs aren't sent to West-side jobs.</span></span>
               </li>
               <li class="flex items-start gap-2.5">
                 <span class="text-emerald-400 font-bold shrink-0">✓</span>
-                <span><strong>Native CRM Integration:</strong> Direct 2-way sync with HubSpot, Salesforce, or
-                  ServiceTitan.</span>
+                <span><strong><span class="lens-corp">Native CRM Integration:</span><span class="lens-trade">ServiceTitan &amp; Jobber Sync:</span></strong> <span class="lens-corp">Direct 2-way sync with HubSpot, Salesforce, or ServiceTitan.</span><span class="lens-trade">Bidirectional work order sync directly into your dispatch board.</span></span>
               </li>
               <li class="flex items-start gap-2.5">
                 <span class="text-emerald-400 font-bold shrink-0">✓</span>
-                <span><strong>LumiBot Conversational Chat Widget:</strong> Branded website chat embed that schedules
-                  directly during conversations.</span>
+                <span><strong><span class="lens-corp">LumiBot Conversational Chat Widget:</span><span class="lens-trade">24/7 Self-Service Web Booking:</span></strong> <span class="lens-corp">Branded website chat embed that schedules directly during conversations.</span><span class="lens-trade">Homeowners book tune-ups and panel assessments right from your website.</span></span>
               </li>
               <li class="flex items-start gap-2.5">
                 <span class="text-emerald-400 font-bold shrink-0">✓</span>
-                <span><strong>AI Pre-Call Executive Briefs:</strong> Automated dossier delivered to your reps with
-                  prospect history and intent.</span>
+                <span><strong><span class="lens-corp">AI Pre-Call Executive Briefs:</span><span class="lens-trade">Pre-Job Tech Diagnostic Notes:</span></strong> <span class="lens-corp">Automated dossier delivered to your reps with prospect history and intent.</span><span class="lens-trade">Sends equipment photos, model numbers, and breaker sizes to tech before arrival.</span></span>
               </li>
               <li class="flex items-start gap-2.5">
                 <span class="text-emerald-400 font-bold shrink-0">✓</span>
-                <span><strong>Multi-Language Support:</strong> Seamless English and French qualification and
-                  booking.</span>
+                <span><strong><span class="lens-corp">Multi-Language Support:</span><span class="lens-trade">Bilingual Dispatch:</span></strong> <span class="lens-corp">Seamless English and French qualification and booking.</span><span class="lens-trade">Seamless English and French customer communication.</span></span>
               </li>
             </ul>
           </div>
@@ -810,7 +804,7 @@ permalink: /products/autonomous-booking/
           <div class="mt-8 pt-6 border-t border-emerald-500/30">
             <a href="/contact/?source=booking_tier_pro&service=autonomous-booking&tier=pro"
               class="glow-amber-cta w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-bold font-mono text-xs uppercase tracking-wider transition-all shadow-[0_0_25px_rgba(245,158,11,0.4)] cursor-pointer">
-              <span>Deploy Pro Suite</span>
+              <span><span class="lens-corp">Deploy Pro Suite</span><span class="lens-trade">Equip 3–5 Van Fleet</span></span>
               <span>→</span>
             </a>
           </div>
@@ -821,18 +815,23 @@ permalink: /products/autonomous-booking/
           class="rounded-3xl p-8 bg-[#070B14]/80 border border-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-xl flex flex-col justify-between relative shadow-[0_15px_40px_rgba(0,0,0,0.5)]">
           <div>
             <div class="flex items-center justify-between mb-4">
-              <span class="text-xs font-mono font-bold tracking-wider text-slate-400 uppercase">TIER 03 // BESPOKE
-                SWARM</span>
+              <span class="text-xs font-mono font-bold tracking-wider text-slate-400 uppercase">
+                <span class="lens-corp">TIER 03 // BESPOKE SWARM</span>
+                <span class="lens-trade">TIER 03 // MULTI-LOCATION FLEET</span>
+              </span>
               <span
-                class="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-white/5 border border-white/10 text-slate-400">ENTERPRISE
-                SCALE</span>
+                class="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-white/5 border border-white/10 text-slate-400">
+                <span class="lens-corp">ENTERPRISE SCALE</span>
+                <span class="lens-trade">10+ VANS &amp; FRANCHISE</span>
+              </span>
             </div>
             <h3 class="text-2xl font-bold text-white tracking-tight font-display">
-              Enterprise Pipeline Swarm
+              <span class="lens-corp">Enterprise Pipeline Swarm</span>
+              <span class="lens-trade">Multi-Location Enterprise Fleet</span>
             </h3>
             <p class="text-xs text-slate-400 mt-2 font-light leading-relaxed">
-              Bespoke multi-agent scheduling infrastructure deployed directly in your private AWS environment with
-              custom telephony handoffs, ERP sync, and dedicated SLAs.
+              <span class="lens-corp">Bespoke multi-agent scheduling infrastructure deployed directly in your private AWS environment with custom telephony handoffs, ERP sync, and dedicated SLAs.</span>
+              <span class="lens-trade">Custom dispatch infrastructure for 10+ service vans across multiple territories with automated phone overflow, multi-depot inventory sync, and custom ERP integration.</span>
             </p>
 
             <!-- Price Callout -->
@@ -848,27 +847,23 @@ permalink: /products/autonomous-booking/
             <ul class="space-y-3.5 text-xs text-slate-300 font-light">
               <li class="flex items-start gap-2.5">
                 <span class="text-indigo-400 font-bold shrink-0">✓</span>
-                <span><strong>Everything in Pro Suite Included.</strong></span>
+                <span><strong><span class="lens-corp">Everything in Pro Suite Included.</span><span class="lens-trade">Everything in Fleet Pro Included.</span></strong></span>
               </li>
               <li class="flex items-start gap-2.5">
                 <span class="text-indigo-400 font-bold shrink-0">✓</span>
-                <span><strong>Unlimited Team Members &amp; Dispatch Fleets:</strong> Complex hierarchical and
-                  skill-based calendar routing.</span>
+                <span><strong><span class="lens-corp">Unlimited Team Members &amp; Dispatch Fleets:</span><span class="lens-trade">Unlimited Technicians &amp; Dispatch Fleets:</span></strong> <span class="lens-corp">Complex hierarchical and skill-based calendar routing.</span><span class="lens-trade">Multi-depot skill-based calendar routing across multiple cities.</span></span>
               </li>
               <li class="flex items-start gap-2.5">
                 <span class="text-indigo-400 font-bold shrink-0">✓</span>
-                <span><strong>Private AWS VPC Deployment:</strong> Data residency compliance in AWS ca-central-1 under
-                  your own tenant.</span>
+                <span><strong><span class="lens-corp">Private AWS VPC Deployment:</span><span class="lens-trade">Dedicated Cloud Security:</span></strong> <span class="lens-corp">Data residency compliance in AWS ca-central-1 under your own tenant.</span><span class="lens-trade">Secure Canadian customer data hosting with 99.99% uptime SLA.</span></span>
               </li>
               <li class="flex items-start gap-2.5">
                 <span class="text-indigo-400 font-bold shrink-0">✓</span>
-                <span><strong>Telephony Voice Agent Handoff:</strong> Live voice agents can transfer callers directly
-                  into confirmed calendar slots.</span>
+                <span><strong><span class="lens-corp">Telephony Voice Agent Handoff:</span><span class="lens-trade">Voice Dispatch AI Integration:</span></strong> <span class="lens-corp">Live voice agents can transfer callers directly into confirmed calendar slots.</span><span class="lens-trade">Seamless handoff between 24/7 AI Voice Dispatch and field technician schedules.</span></span>
               </li>
               <li class="flex items-start gap-2.5">
                 <span class="text-indigo-400 font-bold shrink-0">✓</span>
-                <span><strong>Dedicated Solutions Architect:</strong> Direct SLA support with Principal Architect Saad
-                  Sayed.</span>
+                <span><strong>Dedicated Solutions Architect:</strong> Direct SLA support with Principal Architect Saad Sayed.</span>
               </li>
             </ul>
           </div>
@@ -876,7 +871,7 @@ permalink: /products/autonomous-booking/
           <div class="mt-8 pt-6 border-t border-white/10">
             <a href="/contact/?source=booking_tier_enterprise&service=autonomous-booking&tier=enterprise"
               class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border border-white/15 bg-white/5 hover:bg-white/10 text-white font-mono text-xs font-bold uppercase tracking-wider transition-all cursor-pointer">
-              <span>Consult Principal Architect</span>
+              <span><span class="lens-corp">Consult Principal Architect</span><span class="lens-trade">Scope Multi-Location Fleet</span></span>
               <span>→</span>
             </a>
           </div>
