@@ -1,0 +1,518 @@
+<!-- Interactive Dual-Lens Live Artifact Component (Sprint 22: Lindy.ai Authentic Software Window Chrome) -->
+<!-- Tangible Visual Proof: ServiceTitan / iMessage Dispatch Window for Trades & AWS Edge Telemetry / FinOps Window for Corporate -->
+
+<div id="live-artifact-component" class="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-20">
+
+  <!-- ========================================================================= -->
+  <!-- 1. TRADES LIVE ARTIFACT: Mobile Dispatch & Job Proof Software Window      -->
+  <!-- ========================================================================= -->
+  <div id="trades-live-artifact"
+    class="lens-trade bg-white rounded-3xl border border-[#EAE6DF] shadow-[0_20px_50px_rgba(20,18,13,0.08),0_2px_8px_rgba(20,18,13,0.04)] overflow-hidden p-5 sm:p-7">
+
+    <!-- Window Top Chrome Bar -->
+    <div
+      class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-[#EAE6DF] relative z-10">
+      <div>
+        <div
+          class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-semibold text-[#78520A] bg-[#FBF3DF] border border-[#EBD39A] mb-2">
+          <span class="ll-window-dots mr-1"><span></span><span></span><span></span></span>
+          <span>Live Field Operations Workspace</span>
+        </div>
+        <h3 class="text-xl sm:text-2xl font-bold font-headline text-[#0D1520] tracking-tight">
+          24/7 Voice Dispatch &amp; Job Proof Engine
+        </h3>
+        <p class="text-xs sm:text-sm text-[#4B5563] mt-0.5">
+          See how after-hours emergency calls get answered in 800ms and truck photos rank #1 on Google Maps.
+        </p>
+      </div>
+
+      <!-- Accessible Segmented Tab Control -->
+      <div
+        class="inline-flex items-center rounded-xl bg-[#F3EFE6] border border-[#EAE6DF] p-1 self-start sm:self-auto shrink-0"
+        role="tablist" aria-label="Trades Simulator Tabs">
+        <button type="button" id="tab-btn-triage" role="tab" aria-selected="true" aria-controls="tab-panel-triage"
+          class="px-3.5 py-2 rounded-lg text-xs font-semibold transition-all cursor-pointer flex items-center gap-1.5 bg-white text-[#0D1520] border border-[#E5E2DC] shadow-xs">
+          <span>🚨 Emergency Triage (800ms)</span>
+        </button>
+        <button type="button" id="tab-btn-photo" role="tab" aria-selected="false" aria-controls="tab-panel-photo"
+          class="px-3.5 py-2 rounded-lg text-xs font-semibold transition-all cursor-pointer flex items-center gap-1.5 text-[#4B5563] hover:text-[#0D1520]">
+          <span>📸 Photo to Google Map (60s)</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Tab Panel 1: After-Hours Emergency Triage -->
+    <div id="tab-panel-triage" role="tabpanel" aria-labelledby="tab-btn-triage" class="pt-6 relative z-10 space-y-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+        <!-- Left: Live Call Stream Box -->
+        <div class="lg:col-span-7 rounded-2xl bg-[#FAF8F3] border border-[#EAE6DF] p-5 space-y-4">
+          <div class="flex items-center justify-between pb-3 border-b border-[#EAE6DF]">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-600 animate-pulse"></span>
+              <span class="text-xs font-mono font-bold text-emerald-800">CALL CONNECTED (800ms)</span>
+            </div>
+            <span class="text-[11px] font-mono text-[#4B5563]">Sunday 6:14 AM • Markham, ON</span>
+          </div>
+
+          <!-- Waveform Visualizer -->
+          <div
+            class="h-10 flex items-center justify-center gap-1 px-4 py-2 bg-[#FBF3DF] rounded-xl border border-[#EBD39A]">
+            <span class="w-1 h-3 bg-[#B45309] rounded-full animate-pulse"></span>
+            <span class="w-1 h-6 bg-[#B45309] rounded-full animate-pulse delay-75"></span>
+            <span class="w-1 h-8 bg-[#D97706] rounded-full animate-pulse delay-150"></span>
+            <span class="w-1 h-5 bg-[#B45309] rounded-full animate-pulse delay-100"></span>
+            <span class="w-1 h-7 bg-[#D97706] rounded-full animate-pulse delay-200"></span>
+            <span class="w-1 h-4 bg-[#B45309] rounded-full animate-pulse delay-75"></span>
+            <span class="w-1 h-2 bg-[#B45309] rounded-full animate-pulse"></span>
+            <span class="text-xs font-mono font-semibold text-[#78520A] ml-3">Audio DSP Active • Shop Noise
+              Cancelled</span>
+          </div>
+
+          <!-- Live Dialogue Bubble -->
+          <div class="space-y-3 text-xs sm:text-sm">
+            <div class="p-3.5 rounded-xl bg-white border border-[#EAE6DF] shadow-xs">
+              <p class="font-bold text-[#4B5563] text-[11px] font-mono">CALLER (HOMEOWNER):</p>
+              <p class="text-[#0D1520] mt-1">"Help! The main water pipe in my basement ceiling ruptured and it's
+                spraying right over our electrical panel!"</p>
+            </div>
+            <div class="p-3.5 rounded-xl bg-[#FBF3DF] border border-[#EBD39A]">
+              <p class="font-bold text-[#78520A] text-[11px] font-mono">LUMILORE VOICE DISPATCH:</p>
+              <p class="text-[#0D1520] mt-1">"Turn off your main water shut-off valve near your front basement water
+                meter immediately. Do not touch the panel. I am paging Master Plumber Dave right now with your priority
+                address."</p>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between pt-2">
+            <button type="button" id="btn-replay-triage"
+              class="px-4 py-2 rounded-xl bg-white hover:bg-[#FBF3DF] border border-[#E5E2DC] text-[#78520A] text-xs font-semibold transition-all cursor-pointer flex items-center gap-1.5 shadow-xs">
+              <span>⚡ Simulate New Emergency Call</span>
+            </button>
+            <span class="text-[11px] font-mono font-semibold text-emerald-800">Zero missed revenue</span>
+          </div>
+        </div>
+
+        <!-- Right: Mobile Dispatch SMS Alert to Master Plumber -->
+        <div class="lg:col-span-5 rounded-2xl bg-[#FAF8F3] border border-[#EAE6DF] p-5 space-y-4">
+          <div class="flex items-center justify-between pb-3 border-b border-[#EAE6DF]">
+            <span class="text-xs font-mono font-bold text-[#78520A] flex items-center gap-1.5">
+              <span>📲</span> <span>TECH DISPATCH PUSH (12s)</span>
+            </span>
+            <span class="text-[10px] font-mono font-semibold text-[#4B5563]">SENT TO VAN 04</span>
+          </div>
+
+          <div class="p-4 rounded-xl bg-white border border-[#EAE6DF] text-[#0D1520] shadow-xs space-y-2">
+            <div class="flex items-center justify-between">
+              <span
+                class="px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase bg-rose-50 text-rose-800 border border-rose-200">
+                P1 EMERGENCY
+              </span>
+              <span class="text-[10px] font-mono font-semibold text-[#4B5563]">ETA: 18 MINS</span>
+            </div>
+            <p class="text-xs text-[#0D1520] font-mono leading-relaxed">
+              <strong>TECH:</strong> Dave (Licensed Master Plumber)<br />
+              <strong>LOCATION:</strong> 42 Woodbine Ave, Markham<br />
+              <strong>PROBLEM:</strong> 1" Main Copper Burst over panel<br />
+              <strong>TRIAGE:</strong> Homeowner guided to shut off main valve.<br />
+              <strong>STATUS:</strong> Auto-logged to ServiceTitan &amp; QuickBooks.
+            </p>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-white border border-[#EAE6DF] shadow-xs flex items-center gap-3">
+            <div
+              class="w-8 h-8 rounded-lg bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-800 font-bold text-base">
+              ✓
+            </div>
+            <div>
+              <p class="text-xs font-bold text-[#0D1520]">Emergency Job Secured</p>
+              <p class="text-[11px] text-[#4B5563]">Captured $1,850 repair before competitor woke up.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Tab Panel 2: Job Photo to Google Map (Hidden by default) -->
+    <div id="tab-panel-photo" role="tabpanel" aria-labelledby="tab-btn-photo"
+      class="pt-6 relative z-10 hidden space-y-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+        <!-- Step 1: Van Photo Extraction -->
+        <div class="lg:col-span-6 rounded-2xl bg-[#FAF8F3] border border-[#EAE6DF] p-5 space-y-4">
+          <div class="flex items-center justify-between pb-3 border-b border-[#EAE6DF]">
+            <span class="text-xs font-mono font-bold text-[#78520A] flex items-center gap-1.5">
+              <span>📸</span> <span>STEP 1: JOB SITE PHOTO UPLOAD</span>
+            </span>
+            <span class="text-[11px] font-mono font-semibold text-emerald-800">● GPS Geotagged</span>
+          </div>
+
+          <div class="rounded-xl bg-white border border-[#EAE6DF] p-4 space-y-3">
+            <div
+              class="h-32 rounded-lg bg-[#FBF3DF] flex flex-col items-center justify-center border border-dashed border-[#EBD39A] text-center p-3">
+              <span class="text-3xl mb-1">⚡🚐</span>
+              <span class="text-xs font-bold text-[#0D1520]">200A Electrical Panel Upgrade — Richmond Hill</span>
+              <span class="text-[10px] font-mono text-[#4B5563]">EXIF: 43.8828° N, 79.4403° W • Oct 28 2026 14:22</span>
+            </div>
+            <div class="grid grid-cols-2 gap-2 text-[11px] font-mono">
+              <div class="p-2 rounded bg-[#FAF8F3] border border-[#EAE6DF]">
+                <span class="text-[#4B5563]">Trade Code:</span> <span class="text-[#0D1520] font-bold">309A
+                  Electrician</span>
+              </div>
+              <div class="p-2 rounded bg-[#FAF8F3] border border-[#EAE6DF]">
+                <span class="text-[#4B5563]">ESA Permit:</span> <span
+                  class="text-emerald-800 font-bold">#48192-Approved</span>
+              </div>
+            </div>
+          </div>
+
+          <p class="text-xs text-[#4B5563]">
+            AI automatically extracts GPS location, job type, and trade credentials from the technician's phone photo.
+          </p>
+        </div>
+
+        <!-- Step 2: Instant Google Map Ranking -->
+        <div class="lg:col-span-6 rounded-2xl bg-[#FAF8F3] border border-[#EAE6DF] p-5 space-y-4">
+          <div class="flex items-center justify-between pb-3 border-b border-[#EAE6DF]">
+            <span class="text-xs font-mono font-bold text-emerald-800 flex items-center gap-1.5">
+              <span>📍</span> <span>STEP 2: GOOGLE MAPS #1 RANKING (58s)</span>
+            </span>
+            <span class="text-[10px] font-mono font-semibold text-[#4B5563]">PUBLISHED LIVE</span>
+          </div>
+
+          <!-- Google SERP Snippet Preview -->
+          <div class="p-4 rounded-xl bg-white border border-[#EAE6DF] space-y-2 shadow-xs">
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-bold text-[#0D1520]">Google Maps Search:</span>
+              <span class="text-[11px] font-mono text-[#78520A]">"emergency electrician richmond hill"</span>
+            </div>
+            <div class="p-3 rounded-lg bg-[#FAF8F3] border border-[#EAE6DF] space-y-1">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-emerald-800">#1 Top Recommended Contractor</span>
+                <span class="text-[10px] font-mono font-bold text-[#B45309]">5.0 ★★★★★ (48)</span>
+              </div>
+              <p class="text-xs text-[#0D1520] font-semibold">Your Contracting Company • Richmond Hill</p>
+              <p class="text-[11px] text-[#4B5563]">
+                Verified 309A Licensed Electricians. Completed 200A panel service upgrade at Bayview &amp; Major Mac
+                today. 24/7 emergency response.
+              </p>
+            </div>
+          </div>
+
+          <div class="p-3 rounded-xl bg-[#FBF3DF] border border-[#EBD39A] flex items-center justify-between">
+            <span class="text-xs font-semibold text-[#78520A]">Neighborhood Territory Locked</span>
+            <span class="text-xs font-bold text-emerald-800">+$3,500/mo organic leads</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- 2. CORPORATE LIVE ARTIFACT: AWS Edge Telemetry & FinOps Software Window   -->
+  <!-- ========================================================================= -->
+  <div id="corp-live-artifact"
+    class="lens-corp bg-white rounded-3xl border border-[#EAE6DF] shadow-[0_20px_50px_rgba(20,18,13,0.08),0_2px_8px_rgba(20,18,13,0.04)] overflow-hidden p-5 sm:p-7">
+
+    <!-- Artifact Header -->
+    <div
+      class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-[#EAE6DF] relative z-10">
+      <div>
+        <div
+          class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-semibold text-[#1E40AF] bg-[#EEF3FE] border border-[#BFD3FA] mb-2">
+          <span class="ll-window-dots mr-1"><span></span><span></span><span></span></span>
+          <span>Live Enterprise Telemetry Workspace</span>
+        </div>
+        <h3 class="text-xl sm:text-2xl font-bold font-headline text-[#0D1520] tracking-tight">
+          AWS Edge Telemetry &amp; FinOps Engine
+        </h3>
+        <p class="text-xs sm:text-sm text-[#4B5563] mt-0.5">
+          Benchmark global sub-150ms PoP latency and calculate 92% direct AWS cost reduction.
+        </p>
+      </div>
+
+      <!-- Segmented Tab Control -->
+      <div
+        class="inline-flex items-center rounded-xl bg-[#F3EFE6] border border-[#EAE6DF] p-1 self-start sm:self-auto shrink-0"
+        role="tablist" aria-label="Corporate Simulator Tabs">
+        <button type="button" id="tab-btn-edge" role="tab" aria-selected="true" aria-controls="tab-panel-edge"
+          class="px-3.5 py-2 rounded-lg text-xs font-semibold transition-all cursor-pointer flex items-center gap-1.5 bg-white text-[#0D1520] border border-[#E5E2DC] shadow-xs">
+          <span>⚡ Edge Telemetry (Sub-150ms)</span>
+        </button>
+        <button type="button" id="tab-btn-finops" role="tab" aria-selected="false" aria-controls="tab-panel-finops"
+          class="px-3.5 py-2 rounded-lg text-xs font-semibold transition-all cursor-pointer flex items-center gap-1.5 text-[#4B5563] hover:text-[#0D1520]">
+          <span>💰 FinOps Cloud Savings (-92%)</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Tab Panel 1: Edge Telemetry Probe -->
+    <div id="tab-panel-edge" role="tabpanel" aria-labelledby="tab-btn-edge" class="pt-6 relative z-10 space-y-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+        <!-- Left: Global Edge Waterfall Probe -->
+        <div class="lg:col-span-7 rounded-2xl bg-[#FAF8F3] border border-[#EAE6DF] p-5 space-y-4">
+          <div class="flex items-center justify-between pb-3 border-b border-[#EAE6DF]">
+            <span class="text-xs font-mono font-bold text-[#1E40AF] flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-[#2563EB] animate-pulse"></span>
+              <span>GLOBAL PoP LATENCY BENCHMARK</span>
+            </span>
+            <span class="text-[11px] font-mono text-[#4B5563]">AWS CloudFront PoPs</span>
+          </div>
+
+          <!-- PoP Table -->
+          <div class="space-y-2.5">
+            <!-- Toronto -->
+            <div
+              class="p-3 rounded-xl bg-white border border-[#EAE6DF] shadow-xs flex items-center justify-between text-xs">
+              <span class="font-mono font-semibold text-[#0D1520] flex items-center gap-2">
+                <span>🇨🇦 Toronto PoP (ca-central-1)</span>
+              </span>
+              <div class="flex items-center gap-3">
+                <span class="text-[#6B7280] line-through text-[11px]">Legacy: 1,820ms</span>
+                <span
+                  class="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">14ms
+                  TTFB</span>
+              </div>
+            </div>
+            <!-- Montreal -->
+            <div
+              class="p-3 rounded-xl bg-white border border-[#EAE6DF] shadow-xs flex items-center justify-between text-xs">
+              <span class="font-mono font-semibold text-[#0D1520] flex items-center gap-2">
+                <span>🇨🇦 Montreal Edge</span>
+              </span>
+              <div class="flex items-center gap-3">
+                <span class="text-[#6B7280] line-through text-[11px]">Legacy: 1,940ms</span>
+                <span
+                  class="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">19ms
+                  TTFB</span>
+              </div>
+            </div>
+            <!-- Virginia -->
+            <div
+              class="p-3 rounded-xl bg-white border border-[#EAE6DF] shadow-xs flex items-center justify-between text-xs">
+              <span class="font-mono font-semibold text-[#0D1520] flex items-center gap-2">
+                <span>🇺🇸 US-East Ashburn</span>
+              </span>
+              <div class="flex items-center gap-3">
+                <span class="text-[#6B7280] line-through text-[11px]">Legacy: 1,410ms</span>
+                <span
+                  class="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">24ms
+                  TTFB</span>
+              </div>
+            </div>
+            <!-- Frankfurt -->
+            <div
+              class="p-3 rounded-xl bg-white border border-[#EAE6DF] shadow-xs flex items-center justify-between text-xs">
+              <span class="font-mono font-semibold text-[#0D1520] flex items-center gap-2">
+                <span>🇩🇪 Frankfurt Europe Edge</span>
+              </span>
+              <div class="flex items-center gap-3">
+                <span class="text-[#6B7280] line-through text-[11px]">Legacy: 2,650ms</span>
+                <span
+                  class="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">89ms
+                  TTFB</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between pt-2">
+            <button type="button" id="btn-reprobe-edge"
+              class="px-4 py-2 rounded-xl bg-white hover:bg-[#EEF3FE] border border-[#E5E2DC] text-[#1E40AF] text-xs font-semibold transition-all cursor-pointer flex items-center gap-1.5 shadow-xs">
+              <span>⚡ Execute Live PoP Probe</span>
+            </button>
+            <span class="text-[11px] font-mono font-semibold text-[#1E40AF]">Global P95 &lt; 95ms</span>
+          </div>
+        </div>
+
+        <!-- Right: Speed Diagnostic Architecture Metrics -->
+        <div class="lg:col-span-5 rounded-2xl bg-[#FAF8F3] border border-[#EAE6DF] p-5 space-y-4">
+          <div class="flex items-center justify-between pb-3 border-b border-[#EAE6DF]">
+            <span class="text-xs font-mono font-bold text-[#1E40AF]">ARCHITECTURE ADVANTAGE</span>
+            <span class="text-[10px] font-mono font-bold text-emerald-800">92% FASTER</span>
+          </div>
+
+          <div class="space-y-3">
+            <div class="p-3 rounded-xl bg-white border border-[#EAE6DF] shadow-xs">
+              <div class="flex items-center justify-between text-xs">
+                <span class="text-[#374151] font-medium">Cumulative Layout Shift</span>
+                <span class="text-emerald-800 font-mono font-bold">0.00 (Zero Shift)</span>
+              </div>
+            </div>
+            <div class="p-3 rounded-xl bg-white border border-[#EAE6DF] shadow-xs">
+              <div class="flex items-center justify-between text-xs">
+                <span class="text-[#374151] font-medium">SQL Database Attack Surface</span>
+                <span class="text-[#1E40AF] font-mono font-bold">0% (Serverless Isolated)</span>
+              </div>
+            </div>
+            <div class="p-3 rounded-xl bg-white border border-[#EAE6DF] shadow-xs">
+              <div class="flex items-center justify-between text-xs">
+                <span class="text-[#374151] font-medium">Cold-Start Overhead</span>
+                <span class="text-emerald-800 font-mono font-bold">&lt; 8ms (SnapStart/Graviton)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-[#EEF3FE] border border-[#BFD3FA] flex items-center gap-3">
+            <div
+              class="w-8 h-8 rounded-lg bg-white border border-[#BFD3FA] flex items-center justify-center text-[#1E40AF] text-base">
+              🚀
+            </div>
+            <div>
+              <p class="text-xs font-bold text-[#0D1520]">Conversion Lift: +34%</p>
+              <p class="text-[11px] text-[#374151]">Sub-150ms TTFB eliminates drop-offs on high-ticket B2B forms.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Tab Panel 2: Cloud FinOps Comparison (Hidden by default) -->
+    <div id="tab-panel-finops" role="tabpanel" aria-labelledby="tab-btn-finops"
+      class="pt-6 relative z-10 hidden space-y-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+        <!-- Legacy Monolith Cost Breakdown -->
+        <div class="lg:col-span-6 rounded-2xl bg-rose-50/70 border border-rose-200 p-5 space-y-4">
+          <div class="flex items-center justify-between pb-3 border-b border-rose-200">
+            <span class="text-xs font-mono font-bold text-rose-900 flex items-center gap-1.5">
+              <span>⚠️</span> <span>LEGACY OVER-PROVISIONED INFRASTRUCTURE</span>
+            </span>
+            <span class="text-xs font-mono font-bold text-rose-800">$4,850/mo</span>
+          </div>
+
+          <div class="space-y-2 text-xs font-mono">
+            <div class="p-2.5 rounded bg-white border border-rose-200/80 shadow-xs flex justify-between">
+              <span class="text-[#4B5563]">Idle EC2 Cluster (3x m5.2xlarge):</span>
+              <span class="text-[#0D1520] font-bold">$840/mo</span>
+            </div>
+            <div class="p-2.5 rounded bg-white border border-rose-200/80 shadow-xs flex justify-between">
+              <span class="text-[#4B5563]">Multi-AZ RDS Postgres (db.r5.xlarge):</span>
+              <span class="text-[#0D1520] font-bold">$1,650/mo</span>
+            </div>
+            <div class="p-2.5 rounded bg-white border border-rose-200/80 shadow-xs flex justify-between">
+              <span class="text-[#4B5563]">NAT Gateways &amp; Load Balancers:</span>
+              <span class="text-[#0D1520] font-bold">$460/mo</span>
+            </div>
+            <div class="p-2.5 rounded bg-white border border-rose-200/80 shadow-xs flex justify-between">
+              <span class="text-[#4B5563]">Third-Party Security/WAF Licenses:</span>
+              <span class="text-[#0D1520] font-bold">$1,900/mo</span>
+            </div>
+          </div>
+
+          <div class="p-3 rounded-xl bg-rose-100/80 border border-rose-200 text-xs font-mono text-rose-900">
+            Annual Baseline Waste: <strong>$58,200/year</strong> burned on idle compute.
+          </div>
+        </div>
+
+        <!-- LumiLore Serverless Architecture -->
+        <div class="lg:col-span-6 rounded-2xl bg-[#FAF8F3] border border-[#EAE6DF] p-5 space-y-4">
+          <div class="flex items-center justify-between pb-3 border-b border-[#EAE6DF]">
+            <span class="text-xs font-mono font-bold text-[#1E40AF] flex items-center gap-1.5">
+              <span>⚡</span> <span>LUMILORE PAY-PER-REQUEST SERVERLESS</span>
+            </span>
+            <span class="text-xs font-mono font-bold text-emerald-800">$380/mo</span>
+          </div>
+
+          <div class="space-y-2 text-xs font-mono">
+            <div class="p-2.5 rounded bg-white border border-[#EAE6DF] shadow-xs flex justify-between">
+              <span class="text-[#4B5563]">AWS Lambda (Graviton3 Pay-Per-Execution):</span>
+              <span class="text-emerald-800 font-bold">$42/mo</span>
+            </div>
+            <div class="p-2.5 rounded bg-white border border-[#EAE6DF] shadow-xs flex justify-between">
+              <span class="text-[#4B5563]">DynamoDB On-Demand Billing:</span>
+              <span class="text-emerald-800 font-bold">$28/mo</span>
+            </div>
+            <div class="p-2.5 rounded bg-white border border-[#EAE6DF] shadow-xs flex justify-between">
+              <span class="text-[#4B5563]">CloudFront Global Edge Caching + S3:</span>
+              <span class="text-emerald-800 font-bold">$110/mo</span>
+            </div>
+            <div class="p-2.5 rounded bg-white border border-[#EAE6DF] shadow-xs flex justify-between">
+              <span class="text-[#4B5563]">Bedrock Inference Quota Router:</span>
+              <span class="text-[#1E40AF] font-bold">$200/mo</span>
+            </div>
+          </div>
+
+          <div
+            class="p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-xs font-mono text-emerald-900 flex items-center justify-between">
+            <span>Verified Net Cloud Savings:</span>
+            <strong class="text-sm font-bold text-emerald-800">-$53,640/year (-92.2%)</strong>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Interactive Tab Switcher Script (Native Vanilla JS, zero dependencies) -->
+<script>
+  (function initLiveArtifact() {
+    function setupTabs(btnId1, btnId2, panelId1, panelId2) {
+      var btn1 = document.getElementById(btnId1);
+      var btn2 = document.getElementById(btnId2);
+      var panel1 = document.getElementById(panelId1);
+      var panel2 = document.getElementById(panelId2);
+      if (!btn1 || !btn2 || !panel1 || !panel2) return;
+
+      var activeClasses = 'px-3.5 py-2 rounded-lg text-xs font-semibold transition-all cursor-pointer flex items-center gap-1.5 bg-white text-[#0D1520] border border-[#E5E2DC] shadow-xs';
+      var inactiveClasses = 'px-3.5 py-2 rounded-lg text-xs font-semibold transition-all cursor-pointer flex items-center gap-1.5 text-[#4B5563] hover:text-[#0D1520]';
+
+      function switchTab(isFirst) {
+        if (isFirst) {
+          panel1.classList.remove('hidden');
+          panel2.classList.add('hidden');
+          btn1.setAttribute('aria-selected', 'true');
+          btn2.setAttribute('aria-selected', 'false');
+          btn1.className = activeClasses;
+          btn2.className = inactiveClasses;
+        } else {
+          panel1.classList.add('hidden');
+          panel2.classList.remove('hidden');
+          btn1.setAttribute('aria-selected', 'false');
+          btn2.setAttribute('aria-selected', 'true');
+          btn2.className = activeClasses;
+          btn1.className = inactiveClasses;
+        }
+      }
+
+      btn1.addEventListener('click', function () { switchTab(true); });
+      btn2.addEventListener('click', function () { switchTab(false); });
+    }
+
+    setupTabs('tab-btn-triage', 'tab-btn-photo', 'tab-panel-triage', 'tab-panel-photo');
+    setupTabs('tab-btn-edge', 'tab-btn-finops', 'tab-panel-edge', 'tab-panel-finops');
+
+    // Interactive button hooks
+    var btnReplay = document.getElementById('btn-replay-triage');
+    if (btnReplay) {
+      btnReplay.addEventListener('click', function () {
+        btnReplay.innerHTML = '<span>⚡ Dispatching Tech Van 04...</span>';
+        setTimeout(function () {
+          btnReplay.innerHTML = '<span>✓ Triage Completed (800ms)</span>';
+          setTimeout(function () {
+            btnReplay.innerHTML = '<span>⚡ Simulate New Emergency Call</span>';
+          }, 2000);
+        }, 600);
+      });
+    }
+
+    var btnReprobe = document.getElementById('btn-reprobe-edge');
+    if (btnReprobe) {
+      btnReprobe.addEventListener('click', function () {
+        btnReprobe.innerHTML = '<span>⚡ Probing Global PoPs...</span>';
+        setTimeout(function () {
+          btnReprobe.innerHTML = '<span>✓ All 4 PoPs Active (14ms P95)</span>';
+          setTimeout(function () {
+            btnReprobe.innerHTML = '<span>⚡ Execute Live PoP Probe</span>';
+          }, 2000);
+        }, 600);
+      });
+    }
+  })();
+</script>

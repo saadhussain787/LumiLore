@@ -3,7 +3,7 @@
     "id": "enterprise-cloud-finops",
     "audienceLens": "corporate",
     "industry": "Healthcare SaaS | Microservices",
-    "badgeColor": "text-emerald-400 bg-emerald-500/10 border-emerald-500/30",
+    "badgeColor": "text-emerald-800 bg-emerald-50 border-emerald-200 font-semibold",
     "headlineMetric": "-$42,000 / yr",
     "metricLabel": "AWS Cloud Waste Eliminated (-68% Run Cost)",
     "timeframe": {
@@ -55,7 +55,7 @@
     "id": "trades-voice-dispatch",
     "audienceLens": "trades",
     "industry": "Commercial Mechanical & HVAC (Toronto, ON)",
-    "badgeColor": "text-amber-400 bg-amber-500/10 border-amber-500/30",
+    "badgeColor": "text-amber-900 bg-amber-50 border-amber-200 font-semibold",
     "headlineMetric": "+340%",
     "metricLabel": "After-Hours Emergency Bookings Recaptured",
     "timeframe": {
@@ -107,7 +107,7 @@
     "id": "geo-ai-citation-authority",
     "audienceLens": "corporate",
     "industry": "Enterprise Consulting & Technology",
-    "badgeColor": "text-cyan-400 bg-cyan-500/10 border-cyan-500/30",
+    "badgeColor": "text-blue-900 bg-blue-50 border-blue-200 font-semibold",
     "headlineMetric": "#1 Ranked",
     "metricLabel": "AI Citation Authority (+520% AI Referrals)",
     "timeframe": {

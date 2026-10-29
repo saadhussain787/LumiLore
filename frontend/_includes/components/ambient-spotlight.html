@@ -1,0 +1,91 @@
+<!-- Universal Warm Editorial Cream Canvas & Soft Radial Washes (Sprint 22 Lindy.ai Architecture) -->
+<!-- Zero graph-paper grid lines, zero WebGL overhead; pure warm alabaster #FCFBF7 paper with soft honey/cobalt washes -->
+<style>
+  #ambient-spotlight-field {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -10;
+    contain: strict;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #FCFBF7;
+    transition: background 0.5s ease-out;
+  }
+
+  /* Sprint 22: Graph-paper grid lines permanently retired for organic warm editorial paper */
+  #ambient-spotlight-field::before {
+    content: none;
+    display: none;
+  }
+
+  /* Dual-Lens Soft Editorial Radial Washes */
+  #ambient-spotlight-field::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease-out, background 0.5s ease-out;
+  }
+
+  /* Corporate Lens: Warm Cream Canvas with Soft Honey-Cream & Subtle Royal Cobalt Wash */
+  html[data-lens="corporate"] #ambient-spotlight-field::after,
+  body[data-lens="corporate"] #ambient-spotlight-field::after {
+    background: 
+      radial-gradient(circle 950px at var(--focal-x, 50%) var(--focal-y, 16%), rgba(245, 195, 110, 0.14) 0%, rgba(243, 239, 230, 0.35) 45%, transparent 75%),
+      radial-gradient(circle 700px at 85% 42%, rgba(37, 99, 235, 0.04) 0%, transparent 65%),
+      radial-gradient(circle 750px at 14% 72%, rgba(245, 195, 110, 0.10) 0%, transparent 65%);
+  }
+
+  /* Trades Lens: Warm Cream Canvas with Rich Honey-Peach & Sandstone Sunlight Wash */
+  html[data-lens="trades"] #ambient-spotlight-field::after,
+  body[data-lens="trades"] #ambient-spotlight-field::after {
+    background: 
+      radial-gradient(circle 950px at var(--focal-x, 50%) var(--focal-y, 16%), rgba(245, 195, 110, 0.18) 0%, rgba(243, 239, 230, 0.4) 45%, transparent 75%),
+      radial-gradient(circle 700px at 85% 42%, rgba(217, 119, 6, 0.06) 0%, transparent 65%),
+      radial-gradient(circle 750px at 14% 72%, rgba(245, 195, 110, 0.12) 0%, transparent 65%);
+  }
+</style>
+
+<div id="ambient-spotlight-field" aria-hidden="true"></div>
+
+<script>
+  (function initAmbientFocalSystem() {
+    // Lightweight mouse parallax for subtle ambient focal drift (zero continuous loops)
+    if (window.matchMedia && window.matchMedia('(pointer: fine)').matches) {
+      var ticking = false;
+      window.addEventListener('mousemove', function(e) {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(function() {
+            var xPct = Math.round((e.clientX / window.innerWidth) * 100);
+            var yPct = Math.round((e.clientY / window.innerHeight) * 60 + 10);
+            var el = document.getElementById('ambient-spotlight-field');
+            if (el) {
+              el.style.setProperty('--focal-x', xPct + '%');
+              el.style.setProperty('--focal-y', yPct + '%');
+            }
+            ticking = false;
+          });
+        }
+      }, { passive: true });
+    }
+
+    // Scroll depth focal position adjuster
+    window.updateAmbientSpotlight = function(progress) {
+      var el = document.getElementById('ambient-spotlight-field');
+      if (el) {
+        var focalY = Math.round(18 + progress * 45);
+        el.style.setProperty('--focal-y', focalY + '%');
+      }
+    };
+
+    // Safe backwards compatibility no-op stubs
+    window.lumiParticleMaterial = null;
+    window.lumiParticleSystem = null;
+    window.setLumiParticleCount = function() {};
+    window.disposeLumiParticleSystem = function() {};
+  })();
+</script>
+
