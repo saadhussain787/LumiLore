@@ -95,6 +95,7 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
     rel="stylesheet">
 
+  <link rel="preload" href="/style.css?v=2.0" as="style">
   <link rel="stylesheet" href="/style.css?v=2.0">
 
   <!-- JSON-LD Entity Knowledge Graph & GEO Triangulation (Layer 4) -->
@@ -145,6 +146,7 @@
           <a href="/"
             class="shrink-0 flex items-center gap-2.5 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-full">
             <img class="h-8 md:h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              width="144" height="36"
               style="filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.06));" src="/logo.webp"
               onerror="this.onerror=null; this.src='/public/logo.webp';" alt="LumiLore Technologies">
             <span class="font-headline font-bold text-lg sm:text-xl text-[#0D1520] tracking-tight">Lumi<span class="text-[#2563EB] lens-corp">Lore</span><span class="text-[#B45309] lens-trade">Lore</span></span>
@@ -1313,96 +1315,9 @@
     });
   </script>
 
-  <!-- Mobile Menu Toggle Script (Layer 4: ARIA Audit & Keyboard Focus) -->
+  <!-- Mobile Menu & Global DOM Listener Engine (Minified) -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const btn = document.getElementById('mobile-menu-btn');
-      const menu = document.getElementById('mobile-menu');
-      const header = document.querySelector('header');
-
-      if (btn && menu && header) {
-        menu.setAttribute('aria-hidden', 'true');
-        btn.addEventListener('click', () => {
-          menu.classList.toggle('hidden');
-          const isHidden = menu.classList.contains('hidden');
-          btn.setAttribute('aria-expanded', (!isHidden).toString());
-          menu.setAttribute('aria-hidden', isHidden.toString());
-
-          // Fix the border radius so it doesn't look like a giant pill when expanded
-          if (isHidden) {
-            header.classList.add('rounded-full');
-            header.classList.remove('rounded-3xl');
-          } else {
-            header.classList.remove('rounded-full');
-            header.classList.add('rounded-3xl');
-            if (typeof window.updateMasterSwitcherUI === 'function') {
-              requestAnimationFrame(window.updateMasterSwitcherUI);
-            }
-          }
-        });
-
-        // Close menu when clicking a link
-        const links = menu.querySelectorAll('a');
-        links.forEach(link => {
-          link.addEventListener('click', () => {
-            menu.classList.add('hidden');
-            btn.setAttribute('aria-expanded', 'false');
-            menu.setAttribute('aria-hidden', 'true');
-            header.classList.add('rounded-full');
-            header.classList.remove('rounded-3xl');
-          });
-        });
-
-        // Mobile Drawer Accordion Expansion Engine (Sprint 15.4)
-        const accordions = [
-          {
-            btn: document.getElementById('mobile-solutions-btn'),
-            panel: document.getElementById('mobile-solutions-panel'),
-            chevron: document.getElementById('mobile-solutions-chevron')
-          },
-          {
-            btn: document.getElementById('mobile-cases-btn'),
-            panel: document.getElementById('mobile-cases-panel'),
-            chevron: document.getElementById('mobile-cases-chevron')
-          }
-        ].filter(item => item.btn && item.panel);
-
-        accordions.forEach(({ btn: accBtn, panel: accPanel, chevron: accChevron }) => {
-          accBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const isOpen = accBtn.getAttribute('aria-expanded') === 'true';
-            accBtn.setAttribute('aria-expanded', (!isOpen).toString());
-            accPanel.classList.toggle('hidden');
-            if (accChevron) {
-              accChevron.classList.toggle('rotate-180');
-            }
-          });
-        });
-      }
-
-      // Security Hardening: Enforce rel="noopener noreferrer" across all external target="_blank" links (Layer 3)
-      document.querySelectorAll('a[target="_blank"]').forEach(anchor => {
-        const currentRel = anchor.getAttribute('rel') || '';
-        if (!currentRel.includes('noopener')) {
-          anchor.setAttribute('rel', (currentRel + ' noopener noreferrer').trim());
-        }
-      });
-
-      // Deterministic Smooth Scroll for In-Page Anchor Links (Zero Drift)
-      document.querySelectorAll('header a[href*="#"]').forEach(link => {
-        link.addEventListener('click', (e) => {
-          const href = link.getAttribute('href');
-          if (!href || !href.includes('#')) return;
-          const hash = href.substring(href.indexOf('#') + 1);
-          const target = document.getElementById(hash);
-          if (target) {
-            e.preventDefault();
-            history.pushState(null, '', `#${hash}`);
-            target.scrollIntoView({ behavior: 'smooth' });
-          }
-        });
-      });
-    });
+    document.addEventListener('DOMContentLoaded',()=>{const b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu'),h=document.querySelector('header');if(b&&m&&h){m.setAttribute('aria-hidden','true');b.addEventListener('click',()=>{m.classList.toggle('hidden');const isH=m.classList.contains('hidden');b.setAttribute('aria-expanded',(!isH).toString());m.setAttribute('aria-hidden',isH.toString());if(isH){h.classList.add('rounded-full');h.classList.remove('rounded-3xl');}else{h.classList.remove('rounded-full');h.classList.add('rounded-3xl');if(typeof window.updateMasterSwitcherUI==='function')requestAnimationFrame(window.updateMasterSwitcherUI);}});m.querySelectorAll('a').forEach(a=>{a.addEventListener('click',()=>{m.classList.add('hidden');b.setAttribute('aria-expanded','false');m.setAttribute('aria-hidden','true');h.classList.add('rounded-full');h.classList.remove('rounded-3xl');});});[{b:document.getElementById('mobile-solutions-btn'),p:document.getElementById('mobile-solutions-panel'),c:document.getElementById('mobile-solutions-chevron')},{b:document.getElementById('mobile-cases-btn'),p:document.getElementById('mobile-cases-panel'),c:document.getElementById('mobile-cases-chevron')}].filter(x=>x.b&&x.p).forEach(({b:ab,p:ap,c:ac})=>{ab.addEventListener('click',e=>{e.stopPropagation();const o=ab.getAttribute('aria-expanded')==='true';ab.setAttribute('aria-expanded',(!o).toString());ap.classList.toggle('hidden');if(ac)ac.classList.toggle('rotate-180');});});}document.querySelectorAll('a[target="_blank"]').forEach(a=>{const r=a.getAttribute('rel')||'';if(!r.includes('noopener'))a.setAttribute('rel',(r+' noopener noreferrer').trim());});document.querySelectorAll('header a[href*="#"]').forEach(l=>{l.addEventListener('click',e=>{const hf=l.getAttribute('href');if(!hf||!hf.includes('#'))return;const t=document.getElementById(hf.substring(hf.indexOf('#')+1));if(t){e.preventDefault();history.pushState(null,'','#'+t.id);t.scrollIntoView({behavior:'smooth'});}});});});
   </script>
 
   <!-- Hyper-Premium Magnetic Buttons Engine (Layer 2: Apple/Linear Physics Polish) -->
