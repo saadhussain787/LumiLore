@@ -8,6 +8,8 @@
     "start": "npx @11ty/eleventy --serve",
     "fleet:status": "node agents/agency-fleet/run-fleet.js --status",
     "fleet:run": "node agents/agency-fleet/run-fleet.js",
+    "fleet:growth": "node agents/agency-fleet/run-fleet.js --division=growth",
+    "fleet:growth:dry": "node agents/agency-fleet/run-fleet.js --division=growth --dry-run",
     "geo:run": "node agents/seo-geo-agent/run.js",
     "geo:run:dry": "node agents/seo-geo-agent/run.js --dry-run",
     "seo:cron": "node agents/seo-geo-agent/run.js --cron --all",

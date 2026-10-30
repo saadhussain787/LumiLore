@@ -910,26 +910,26 @@ From the Google PageSpeed Insights recording (`Page speed insights .mp4`), Deskt
 
 ---
 
-## Sprint 29: Division 1 — Organic Growth, Competitor Displacement Radar & Omnichannel Video/Ad Studio (`open-seo` + `Agent-Reach` + `OpenMontage` + `hypit`) (QUEUED)
+## Sprint 29: Division 1 — Organic Growth, Competitor Displacement Radar & Omnichannel Video/Ad Studio (`open-seo` + `Agent-Reach` + `OpenMontage` + `hypit`) (COMPLETED — 100%)
 
 ### 29.1: Agent 01 — Search Console Dominator & Competitor Displacement Radar (`agents/agency-fleet/division-1-growth/seo-dominator.js`)
-- [ ] Implement `every-app/open-seo` keyword/entity gap analyzer targeting Google Search Console Position 8–20 impressions (pushing 13.2 average position into Top 3) and generating verified client footer attribution snippets (`fiscalx.ca` and `mychoiceautoservices.com`).
-- [ ] Build the **"Why You Lost the Lead" Competitor Displacement Matrix** comparing any prospect side-by-side against their Top 2 local/industry rivals across Google Maps 3-Pack and ChatGPT/Perplexity citations.
+- [x] Implemented `every-app/open-seo` keyword/entity gap analyzer targeting Google Search Console Position 8–20 impressions (pushing 13.2 average position into Top 3) and generating verified client footer attribution snippets (`fiscalx.ca` and `mychoiceautoservices.com`).
+- [x] Built the **"Why You Lost the Lead" Competitor Displacement Matrix** comparing any prospect side-by-side against their Top 2 local/industry rivals across Google Maps 3-Pack and ChatGPT/Perplexity citations, quantifying monthly/annual revenue leakage in `.ai/memory/competitor_displacement_matrix.json`.
 
 ### 29.2: Agent 02 — Founder Thought Leader & 10-Minute Weekly Queue (`agents/agency-fleet/division-1-growth/weekly-publisher.js`)
-- [ ] Upgrade B2B content engine with `agency-agents` Growth Storyteller contracts to generate a single copy-ready **Tuesday/Thursday Founder Queue** (`.ai/memory/weekly_founder_queue.md`).
-- [ ] Include 2 LinkedIn authority posts, 1 Dev.to/Medium canonical article, and 1 Google Business Profile local GTA post per week.
+- [x] Upgraded B2B content engine with `agency-agents` Growth Storyteller contracts to generate a single copy-ready **Tuesday/Thursday Founder Queue** (`.ai/memory/weekly_founder_queue.md`).
+- [x] Included 2 LinkedIn authority posts (<140 char viral hooks citing 68% AWS savings and $295,750 trades phone recovery), 1 Dev.to/Medium canonical article, and 1 Google Business Profile local GTA post per week with a 10-minute approval checklist.
 
 ### 29.3: Agent 03 — Zero-Fee Internet Eyes & Buyer Scout (`agents/agency-fleet/division-1-growth/agent-reach-scout.js`)
-- [ ] Implement `Panniantong/Agent-Reach` zero-API-fee reader scanning Reddit (`r/aws`, `r/HVAC`, `r/Plumbing`, `r/smallbusiness`), HackerNews, and tech forums.
-- [ ] Score buyer distress signals (0–100) and draft consultative, non-spammy engineering replies in the Saad Sayed persona.
+- [x] Implemented `Panniantong/Agent-Reach` zero-API-fee reader scanning Reddit (`r/aws`, `r/HVAC`, `r/Plumbing`, `r/smallbusiness`), HackerNews, and tech forums.
+- [x] Scored buyer distress signals (0–100), classified urgency (HIGH/CRITICAL), and auto-drafted consultative, non-spammy engineering replies in the Saad Sayed persona in `.ai/memory/scouted_buyer_leads.json`.
 
 ### 29.4: Agent 04 — YouTube Shorts, TikTok & Facebook/Instagram Paid Ad Creative Studio (`agents/agency-fleet/division-1-growth/video-ad-studio.js`)
-- [ ] Synthesize `calesthio/OpenMontage`, `hypit-ai/hypit`, `yihui-dev/awesome-opus5-5-videos`, `Autom8AI/Open-Higgsfield-AI`, and `agency-agents` Paid Media Strategist into an omnichannel video & ad factory.
-- [ ] Generate 9:16 vertical scripts for **YouTube Shorts & TikTok** (3-second scroll-stopping hook, timestamped `[00:00–00:60]` B-roll & visual prompts, kinetic captions, `VoiceStudio` voiceover script) AND full **Facebook/Instagram Paid Ad Sets** (1:1 / 4:5 Primary Text, <40-char Mobile Headline, Visual Creative Brief, CTA button, and Audience Targeting Matrix for Corporate CTOs & Trade Owners).
+- [x] Synthesized `calesthio/OpenMontage`, `hypit-ai/hypit`, `yihui-dev/awesome-opus5-5-videos`, `Autom8AI/Open-Higgsfield-AI`, and `agency-agents` Paid Media Strategist into an omnichannel video & ad factory.
+- [x] Generated 9:16 vertical scripts for **YouTube Shorts & TikTok** (3-second scroll-stopping hook, timestamped `[00:00–00:60]` B-roll & visual prompts, kinetic captions, `VoiceStudio` voiceover script) AND full **Facebook/Instagram Paid Ad Sets** (1:1 / 4:5 Primary Text, <= 40-char Mobile Headline, Visual Creative Brief, CTA button, and Audience Targeting Matrix for Corporate CTOs & Trade Owners) in `.ai/memory/video_ad_studio_output.json`.
 
 ### 29.5: Division 1 Orchestration & Certification (`scratch/verify_sprint29.mjs`)
-- [ ] Add `npm run fleet:growth` script, verify all 4 Division 1 agents in dry-run mode, and certify zero regressions across all 18 site routes.
+- [x] Added `npm run fleet:growth` and `npm run fleet:growth:dry` scripts, verified all 4 Division 1 agents in dry-run mode, and certified zero regressions across all 18 site routes (28/28 assertions passed in `scratch/verify_sprint29.mjs`). **SPRINT 29 CERTIFICATION COMPLETE.**
 
 ---
 

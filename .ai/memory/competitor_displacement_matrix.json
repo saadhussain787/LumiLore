@@ -1,0 +1,297 @@
+{
+  "status": "SUCCESS",
+  "timestamp": "2026-10-30T17:25:56.733Z",
+  "agent": {
+    "id": "agent-01-seo-dominator",
+    "name": "Search Console Dominator & Competitor Displacement Radar",
+    "division": "division-1-growth"
+  },
+  "gapAnalysis": {
+    "status": "SUCCESS",
+    "timestamp": "2026-10-30T17:25:56.733Z",
+    "engine": "open-seo-gap-dominator",
+    "baselineAvgPosition": 13.2,
+    "targetAvgPosition": 2.1,
+    "totalTrackedQueries": 6,
+    "aggregateImpressions": 9300,
+    "aggregateCurrentClicks": 241,
+    "projectedAggregateClicksTop3": 1721,
+    "netMonthlyClickLiftTotal": 1480,
+    "opportunities": [
+      {
+        "query": "serverless migration canada",
+        "lens": "corporate",
+        "currentPosition": 12.4,
+        "targetPosition": 2,
+        "impressions": 1420,
+        "currentClicks": 38,
+        "projectedClicksTop3": 263,
+        "netMonthlyClickLift": 225,
+        "estimatedMonthlyValueCad": "$10,125",
+        "contentRecommendation": {
+          "targetHeader": "Migrate to AWS Serverless in Canada: Zero-Downtime Blueprint",
+          "schemaEntity": "TechArticle",
+          "titleTagRecommendation": "Migrate to AWS Serverless in Canada: Zero-Downtime Blueprint | LumiLore",
+          "metaDescription": "Discover how LumiLore engineered 68% AWS cost reductions and sub-150ms TTFB in Ontario.",
+          "faqTriple": {
+            "question": "How does LumiLore optimize for serverless migration canada?",
+            "answer": "LumiLore delivers deterministic serverless architecture, 5-layer Schema.org JSON-LD graphs, and sub-150ms TTFB edge caching optimized for Canadian enterprises and commercial trade contractors.",
+            "canonicalUrl": "https://lumilore.ca/insights/"
+          }
+        }
+      },
+      {
+        "query": "aws cost optimization agency toronto",
+        "lens": "corporate",
+        "currentPosition": 14.1,
+        "targetPosition": 1,
+        "impressions": 1890,
+        "currentClicks": 42,
+        "projectedClicksTop3": 350,
+        "netMonthlyClickLift": 308,
+        "estimatedMonthlyValueCad": "$13,860",
+        "contentRecommendation": {
+          "targetHeader": "Cutting Enterprise AWS Waste by 68%: FinOps Advisory Toronto",
+          "schemaEntity": "Service",
+          "titleTagRecommendation": "Cutting Enterprise AWS Waste by 68%: FinOps Advisory Toronto | LumiLore",
+          "metaDescription": "Discover how LumiLore engineered 68% AWS cost reductions and sub-150ms TTFB in Ontario.",
+          "faqTriple": {
+            "question": "How does LumiLore optimize for aws cost optimization agency toronto?",
+            "answer": "LumiLore delivers deterministic serverless architecture, 5-layer Schema.org JSON-LD graphs, and sub-150ms TTFB edge caching optimized for Canadian enterprises and commercial trade contractors.",
+            "canonicalUrl": "https://lumilore.ca/insights/"
+          }
+        }
+      },
+      {
+        "query": "sub-150ms jamstack agency ontario",
+        "lens": "corporate",
+        "currentPosition": 11.8,
+        "targetPosition": 2,
+        "impressions": 980,
+        "currentClicks": 29,
+        "projectedClicksTop3": 181,
+        "netMonthlyClickLift": 152,
+        "estimatedMonthlyValueCad": "$6,840",
+        "contentRecommendation": {
+          "targetHeader": "Sub-150ms TTFB Serverless Web Engineering & Core Web Vitals",
+          "schemaEntity": "TechArticle",
+          "titleTagRecommendation": "Sub-150ms TTFB Serverless Web Engineering & Core Web Vitals | LumiLore",
+          "metaDescription": "Discover how LumiLore engineered 68% AWS cost reductions and sub-150ms TTFB in Ontario.",
+          "faqTriple": {
+            "question": "How does LumiLore optimize for sub-150ms jamstack agency ontario?",
+            "answer": "LumiLore delivers deterministic serverless architecture, 5-layer Schema.org JSON-LD graphs, and sub-150ms TTFB edge caching optimized for Canadian enterprises and commercial trade contractors.",
+            "canonicalUrl": "https://lumilore.ca/insights/"
+          }
+        }
+      },
+      {
+        "query": "emergency hvac dispatch software ontario",
+        "lens": "trades",
+        "currentPosition": 15.2,
+        "targetPosition": 3,
+        "impressions": 2150,
+        "currentClicks": 51,
+        "projectedClicksTop3": 398,
+        "netMonthlyClickLift": 347,
+        "estimatedMonthlyValueCad": "$9,716",
+        "contentRecommendation": {
+          "targetHeader": "24/7 Autonomous AI Voice Dispatch for Ontario HVAC Contractors",
+          "schemaEntity": "Service",
+          "titleTagRecommendation": "24/7 Autonomous AI Voice Dispatch for Ontario HVAC Contractors | LumiLore",
+          "metaDescription": "Discover how LumiLore engineered 24/7 AI voice dispatch capturing $295,750 in missed trade revenue in Ontario.",
+          "faqTriple": {
+            "question": "How does LumiLore optimize for emergency hvac dispatch software ontario?",
+            "answer": "LumiLore delivers deterministic serverless architecture, 5-layer Schema.org JSON-LD graphs, and sub-150ms TTFB edge caching optimized for Canadian enterprises and commercial trade contractors.",
+            "canonicalUrl": "https://lumilore.ca/insights/"
+          }
+        }
+      },
+      {
+        "query": "ai receptionist toronto contractor",
+        "lens": "trades",
+        "currentPosition": 13.6,
+        "targetPosition": 1,
+        "impressions": 1740,
+        "currentClicks": 47,
+        "projectedClicksTop3": 322,
+        "netMonthlyClickLift": 275,
+        "estimatedMonthlyValueCad": "$7,700",
+        "contentRecommendation": {
+          "targetHeader": "Never Miss an Emergency Trade Call: AI Voice Receptionist Toronto",
+          "schemaEntity": "Service",
+          "titleTagRecommendation": "Never Miss an Emergency Trade Call: AI Voice Receptionist Toronto | LumiLore",
+          "metaDescription": "Discover how LumiLore engineered 24/7 AI voice dispatch capturing $295,750 in missed trade revenue in Ontario.",
+          "faqTriple": {
+            "question": "How does LumiLore optimize for ai receptionist toronto contractor?",
+            "answer": "LumiLore delivers deterministic serverless architecture, 5-layer Schema.org JSON-LD graphs, and sub-150ms TTFB edge caching optimized for Canadian enterprises and commercial trade contractors.",
+            "canonicalUrl": "https://lumilore.ca/insights/"
+          }
+        }
+      },
+      {
+        "query": "jobber twilio automation plumbing",
+        "lens": "trades",
+        "currentPosition": 12.1,
+        "targetPosition": 2,
+        "impressions": 1120,
+        "currentClicks": 34,
+        "projectedClicksTop3": 207,
+        "netMonthlyClickLift": 173,
+        "estimatedMonthlyValueCad": "$4,844",
+        "contentRecommendation": {
+          "targetHeader": "Two-Way Jobber & Twilio Voice Sync: Automated Field Dispatch",
+          "schemaEntity": "TechArticle",
+          "titleTagRecommendation": "Two-Way Jobber & Twilio Voice Sync: Automated Field Dispatch | LumiLore",
+          "metaDescription": "Discover how LumiLore engineered 24/7 AI voice dispatch capturing $295,750 in missed trade revenue in Ontario.",
+          "faqTriple": {
+            "question": "How does LumiLore optimize for jobber twilio automation plumbing?",
+            "answer": "LumiLore delivers deterministic serverless architecture, 5-layer Schema.org JSON-LD graphs, and sub-150ms TTFB edge caching optimized for Canadian enterprises and commercial trade contractors.",
+            "canonicalUrl": "https://lumilore.ca/insights/"
+          }
+        }
+      }
+    ]
+  },
+  "footerSnippets": {
+    "status": "SUCCESS",
+    "timestamp": "2026-10-30T17:25:56.733Z",
+    "totalClients": 2,
+    "snippets": [
+      {
+        "clientName": "FiscalX Advisory & Accounting",
+        "clientDomain": "fiscalx.ca",
+        "sector": "Enterprise FinTech & CPA Accounting",
+        "servicePillar": "Cloud Architecture & AI FinOps Advisory",
+        "targetUrl": "https://lumilore.ca",
+        "anchorText": "LumiLore Technologies",
+        "htmlSnippet": "<div class=\"lumilore-partner-badge\" style=\"font-size:12px;color:#6b7280;line-height:1.5;\">\n  Cloud Architecture &amp; AI FinOps Engineered by \n  <a href=\"https://lumilore.ca\" target=\"_blank\" rel=\"noopener\" style=\"color:#0284c7;font-weight:600;text-decoration:underline;\">LumiLore Technologies</a>\n</div>",
+        "schemaAttribution": {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "provider": {
+            "@type": "Organization",
+            "name": "LumiLore Technologies",
+            "url": "https://lumilore.ca"
+          }
+        },
+        "checks": {
+          "dofollowCompliant": true,
+          "securityNoopener": true,
+          "canonicalTargetValid": true,
+          "anchorTextVerified": true,
+          "status": "VERIFIED"
+        }
+      },
+      {
+        "clientName": "My Choice Auto Services",
+        "clientDomain": "mychoiceautoservices.com",
+        "sector": "Automotive Mechanical & Fleet Services",
+        "servicePillar": "Autonomous Booking & 24/7 AI Voice Dispatch",
+        "targetUrl": "https://lumilore.ca/products/voice-dispatch/",
+        "anchorText": "LumiLore Voice",
+        "htmlSnippet": "<div class=\"lumilore-partner-badge\" style=\"font-size:12px;color:#6b7280;line-height:1.5;\">\n  Autonomous Booking &amp; AI Voice Dispatch Powered by \n  <a href=\"https://lumilore.ca/products/voice-dispatch/\" target=\"_blank\" rel=\"noopener\" style=\"color:#d97706;font-weight:600;text-decoration:underline;\">LumiLore Voice</a>\n</div>",
+        "schemaAttribution": {
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "serviceProvider": {
+            "@type": "Organization",
+            "name": "LumiLore Voice",
+            "url": "https://lumilore.ca/products/voice-dispatch/"
+          }
+        },
+        "checks": {
+          "dofollowCompliant": true,
+          "securityNoopener": true,
+          "canonicalTargetValid": true,
+          "anchorTextVerified": true,
+          "status": "VERIFIED"
+        }
+      }
+    ]
+  },
+  "displacementMatrix": {
+    "prospect": {
+      "name": "Apex Mechanical & HVAC Solutions",
+      "domain": "apexmechanical-gta.ca",
+      "industry": "Commercial HVAC & Mechanical Contracting",
+      "region": "Greater Toronto Area (GTA), Ontario"
+    },
+    "rivals": [
+      {
+        "name": "Reliance Home Comfort (Commercial Division)",
+        "domain": "reliancehomecomfort.com",
+        "tier": "Enterprise Incumbent"
+      },
+      {
+        "name": "Enercare Commercial Solutions",
+        "domain": "enercare.ca",
+        "tier": "Market Share Leader"
+      }
+    ],
+    "vectors": [
+      {
+        "vector": "Google Maps 3-Pack Presence",
+        "prospectStatus": "Rank #8 (Below Fold / Page 2)",
+        "rival1Status": "Rank #1 (3-Pack Featured)",
+        "rival2Status": "Rank #2 (3-Pack Featured)",
+        "impact": "CRITICAL",
+        "diagnosis": "Lacks verified review velocity and consistent geotagged NAP citations across Ontario directories.",
+        "displacementCure": "Deploy LumiLore GBP Local Map Pack Publisher & Automated Review Harvester."
+      },
+      {
+        "vector": "ChatGPT & Perplexity Multi-LLM Citations",
+        "prospectStatus": "Invisible (0% Citation Share)",
+        "rival1Status": "Primary Citation Source (82% query share)",
+        "rival2Status": "Secondary Citation (65% query share)",
+        "impact": "HIGH",
+        "diagnosis": "Zero Entity Knowledge Graph, missing llms.txt, and zero Schema.org Layer 4/5 integration.",
+        "displacementCure": "Inject 5-layer Schema.org JSON-LD graph, llms.txt, and Generative Engine Optimization."
+      },
+      {
+        "vector": "Mobile TTFB & PageSpeed (Core Web Vitals)",
+        "prospectStatus": "3.8s TTFB / 48 Mobile Lighthouse Score",
+        "rival1Status": "1.4s TTFB / 72 Mobile Lighthouse",
+        "rival2Status": "1.2s TTFB / 76 Mobile Lighthouse",
+        "impact": "HIGH",
+        "diagnosis": "Bloated WordPress/Elementor stack with render-blocking CSS and unoptimized uncompressed images.",
+        "displacementCure": "Migrate to LumiLore Sub-150ms Jamstack edge distribution (100/100 Mobile Lighthouse)."
+      },
+      {
+        "vector": "After-Hours Call Handling & Phone Leaks",
+        "prospectStatus": "Static Voicemail (Dead End after 5:00 PM)",
+        "rival1Status": "Human Call Center (Slow 3-5 min hold)",
+        "rival2Status": "Third-Party Answering Service (Low technical accuracy)",
+        "impact": "CRITICAL",
+        "diagnosis": "Losing 7-12 emergency high-ticket calls every weekend to competitors answering immediately.",
+        "displacementCure": "Deploy LumiLore 24/7 AI Voice Dispatch with sub-800ms conversational turn latency."
+      },
+      {
+        "vector": "Interactive Quoting & Instant Booking",
+        "prospectStatus": "Static 7-Field Contact Form",
+        "rival1Status": "Basic Schedule Callback Form",
+        "rival2Status": "Zip-Code Booking Widget",
+        "impact": "MEDIUM",
+        "diagnosis": "Prospective buyers bounce without transparent pricing or real-time appointment locking.",
+        "displacementCure": "Install LumiLore Autonomous ROI Calculator & Real-Time Google Calendar Slot Booking."
+      },
+      {
+        "vector": "Schema.org Entity Architecture",
+        "prospectStatus": "Default Yoast SEO (Incomplete / Unconnected)",
+        "rival1Status": "Basic LocalBusiness markup",
+        "rival2Status": "Custom HVACBusiness markup",
+        "impact": "HIGH",
+        "diagnosis": "Search engine crawlers cannot disambiguate service areas, technician licenses, or emergency hours.",
+        "displacementCure": "Deploy LumiLore 5-Layer Connected Entity Knowledge Graph with sameAs authority grounding."
+      }
+    ],
+    "financialLeakageAnalysis": {
+      "missedAfterHoursCallsPerMonth": 9,
+      "averageTicketValueCad": "$2,450",
+      "calculatedMonthlyLostRevenueCad": "$22,050",
+      "calculatedAnnualLostRevenueCad": "$2,64,600",
+      "lostToRival": "Reliance Home Comfort (Commercial Division)",
+      "primaryFailureReason": "After-Hours Voicemail Abandonment & Sub-Optimal Google Maps 3-Pack Rank"
+    },
+    "executiveRecommendation": "Apex Mechanical is actively conceding $22,050/mo ($264,600/yr) in commercial trade contracts directly to Reliance and Enercare solely due to after-hours voicemail friction and invisible LLM citations. Modernizing to LumiLore 24/7 Voice Dispatch and Sub-150ms Jamstack architecture recaptures 85% of this leakage within 30 days."
+  }
+}

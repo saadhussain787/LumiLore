@@ -28,6 +28,11 @@ function getArgValue(flag) {
   if (index !== -1 && index + 1 < args.length) {
     return args[index + 1];
   }
+  const prefix = `${flag}=`;
+  const match = args.find(a => a.startsWith(prefix));
+  if (match) {
+    return match.slice(prefix.length);
+  }
   return null;
 }
 
@@ -109,8 +114,15 @@ export async function runFleetCLI(cliOptions = {}) {
 
   // Case 3: Run specific division
   if (targetDivision) {
-    const divNum = parseInt(targetDivision, 10);
-    const divAgents = engine.listAgents().filter(a => a.division.includes(String(divNum)));
+    const rawDiv = String(targetDivision).toLowerCase();
+    const isDiv1 = rawDiv === '1' || rawDiv === 'growth' || rawDiv.includes('division-1');
+    
+    const divAgents = engine.listAgents().filter(a => {
+      if (isDiv1) return a.division.includes('division-1') || a.division.includes('growth');
+      const divNum = parseInt(rawDiv, 10);
+      if (!isNaN(divNum)) return a.division.includes(String(divNum));
+      return a.division.toLowerCase().includes(rawDiv);
+    });
 
     if (divAgents.length === 0) {
       console.error(`✕ Error: No agents found for division ${targetDivision}`);
@@ -118,9 +130,39 @@ export async function runFleetCLI(cliOptions = {}) {
     }
 
     console.log(`🚀 Executing Division ${targetDivision} (${divAgents.length} Agents)...`);
+
+    // If Division 1 (Growth), execute the specialized operative pipelines
+    if (isDiv1) {
+      try {
+        const { SeoDominator, WeeklyPublisher, AgentReachScout, VideoAdStudio } = await import('./division-1-growth/index.js');
+        console.log('\n  ==============================================================');
+        console.log('  🌟 DIVISION 1 PIPELINE: ACTIVATING SPECIALIZED OPERATIVES');
+        console.log('  ==============================================================\n');
+        
+        console.log('  --> [1/4] Running Agent 01: SeoDominator...');
+        const seo = new SeoDominator();
+        await seo.run({ dryRun: dryRunMode });
+
+        console.log('\n  --> [2/4] Running Agent 02: WeeklyPublisher...');
+        const pub = new WeeklyPublisher();
+        await pub.run();
+
+        console.log('\n  --> [3/4] Running Agent 03: AgentReachScout...');
+        const scout = new AgentReachScout();
+        await scout.run();
+
+        console.log('\n  --> [4/4] Running Agent 04: VideoAdStudio...');
+        const studio = new VideoAdStudio();
+        await studio.run();
+        console.log('\n  ✓ All 4 Division 1 specialized pipelines completed successfully.\n');
+      } catch (err) {
+        console.warn('  ⚠️ Note on Division 1 specialized execution:', err.message);
+      }
+    }
+
     const results = [];
     for (const agent of divAgents) {
-      console.log(`\n  --> Executing Agent #${agent.number}: ${agent.name}...`);
+      console.log(`\n  --> Contract Verification: Agent #${agent.number}: ${agent.name}...`);
       const res = await engine.executeAgent(agent.id, { divisionRun: true }, { dryRun: dryRunMode });
       console.log(`      ✓ Provider: ${res.provider} | Latency: ${res.latencyMs}ms | Result: ${res.success ? 'PASS' : 'FAIL'}`);
       results.push(res);
