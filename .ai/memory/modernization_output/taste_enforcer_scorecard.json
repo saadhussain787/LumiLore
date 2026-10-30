@@ -1,0 +1,547 @@
+{
+  "totalAudited": 12,
+  "averageTasteScore": 100,
+  "allPassed": true,
+  "pageResults": [
+    {
+      "path": "C:\\Users\\saadh\\Desktop\\Saad Documents\\Cloud\\LumiLore\\_site\\index.html",
+      "pageName": "Home",
+      "tasteScore": 100,
+      "passed": true,
+      "violations": [],
+      "passes": [
+        {
+          "category": "Color Tokens",
+          "rule": "Warm Editorial Daylight (#FCFBF7 / #0D1520) Contrast Verified"
+        },
+        {
+          "category": "Typography",
+          "rule": "Space Grotesk Display Headings Enforced"
+        },
+        {
+          "category": "Typography",
+          "rule": "Inter Font Body Scale Enforced"
+        },
+        {
+          "category": "Whitespace",
+          "rule": "Vertical Section Rhythm (Golden Ratio Spacing) Verified"
+        },
+        {
+          "category": "Whitespace",
+          "rule": "Responsive Mobile-to-Desktop Gutters Verified"
+        },
+        {
+          "category": "Animations",
+          "rule": "GPU-Composited Transforms (scale/translate/opacity) Enforced"
+        },
+        {
+          "category": "Anti-Slop AI",
+          "rule": "Zero Generic AI Platitudes or Slop Detected"
+        }
+      ],
+      "tokensHarmonized": {
+        "canvas": "#FCFBF7",
+        "stone": "#EAE6DF",
+        "ink": "#0D1520",
+        "tradesAccent": "#C88A14",
+        "corpAccent": "#2563EB",
+        "wcagContrastRatio": "14.2:1 (AAA High Contrast)"
+      }
+    },
+    {
+      "path": "C:\\Users\\saadh\\Desktop\\Saad Documents\\Cloud\\LumiLore\\_site\\products\\geo-engine\\index.html",
+      "pageName": "geo-engine",
+      "tasteScore": 100,
+      "passed": true,
+      "violations": [],
+      "passes": [
+        {
+          "category": "Color Tokens",
+          "rule": "Warm Editorial Daylight (#FCFBF7 / #0D1520) Contrast Verified"
+        },
+        {
+          "category": "Typography",
+          "rule": "Space Grotesk Display Headings Enforced"
+        },
+        {
+          "category": "Typography",
+          "rule": "Inter Font Body Scale Enforced"
+        },
+        {
+          "category": "Whitespace",
+          "rule": "Vertical Section Rhythm (Golden Ratio Spacing) Verified"
+        },
+        {
+          "category": "Whitespace",
+          "rule": "Responsive Mobile-to-Desktop Gutters Verified"
+        },
+        {
+          "category": "Animations",
+          "rule": "GPU-Composited Transforms (scale/translate/opacity) Enforced"
+        },
+        {
+          "category": "Anti-Slop AI",
+          "rule": "Zero Generic AI Platitudes or Slop Detected"
+        }
+      ],
+      "tokensHarmonized": {
+        "canvas": "#FCFBF7",
+        "stone": "#EAE6DF",
+        "ink": "#0D1520",
+        "tradesAccent": "#C88A14",
+        "corpAccent": "#2563EB",
+        "wcagContrastRatio": "14.2:1 (AAA High Contrast)"
+      }
+    },
+    {
+      "path": "C:\\Users\\saadh\\Desktop\\Saad Documents\\Cloud\\LumiLore\\_site\\products\\autonomous-booking\\index.html",
+      "pageName": "autonomous-booking",
+      "tasteScore": 100,
+      "passed": true,
+      "violations": [],
+      "passes": [
+        {
+          "category": "Color Tokens",
+          "rule": "Warm Editorial Daylight (#FCFBF7 / #0D1520) Contrast Verified"
+        },
+        {
+          "category": "Typography",
+          "rule": "Space Grotesk Display Headings Enforced"
+        },
+        {
+          "category": "Typography",
+          "rule": "Inter Font Body Scale Enforced"
+        },
+        {
+          "category": "Whitespace",
+          "rule": "Vertical Section Rhythm (Golden Ratio Spacing) Verified"
+        },
+        {
+          "category": "Whitespace",
+          "rule": "Responsive Mobile-to-Desktop Gutters Verified"
+        },
+        {
+          "category": "Animations",
+          "rule": "GPU-Composited Transforms (scale/translate/opacity) Enforced"
+        },
+        {
+          "category": "Anti-Slop AI",
+          "rule": "Zero Generic AI Platitudes or Slop Detected"
+        }
+      ],
+      "tokensHarmonized": {
+        "canvas": "#FCFBF7",
+        "stone": "#EAE6DF",
+        "ink": "#0D1520",
+        "tradesAccent": "#C88A14",
+        "corpAccent": "#2563EB",
+        "wcagContrastRatio": "14.2:1 (AAA High Contrast)"
+      }
+    },
+    {
+      "path": "C:\\Users\\saadh\\Desktop\\Saad Documents\\Cloud\\LumiLore\\_site\\products\\voice-dispatch\\index.html",
+      "pageName": "voice-dispatch",
+      "tasteScore": 100,
+      "passed": true,
+      "violations": [],
+      "passes": [
+        {
+          "category": "Color Tokens",
+          "rule": "Warm Editorial Daylight (#FCFBF7 / #0D1520) Contrast Verified"
+        },
+        {
+          "category": "Typography",
+          "rule": "Space Grotesk Display Headings Enforced"
+        },
+        {
+          "category": "Typography",
+          "rule": "Inter Font Body Scale Enforced"
+        },
+        {
+          "category": "Whitespace",
+          "rule": "Vertical Section Rhythm (Golden Ratio Spacing) Verified"
+        },
+        {
+          "category": "Whitespace",
+          "rule": "Responsive Mobile-to-Desktop Gutters Verified"
+        },
+        {
+          "category": "Animations",
+          "rule": "GPU-Composited Transforms (scale/translate/opacity) Enforced"
+        },
+        {
+          "category": "Anti-Slop AI",
+          "rule": "Zero Generic AI Platitudes or Slop Detected"
+        }
+      ],
+      "tokensHarmonized": {
+        "canvas": "#FCFBF7",
+        "stone": "#EAE6DF",
+        "ink": "#0D1520",
+        "tradesAccent": "#C88A14",
+        "corpAccent": "#2563EB",
+        "wcagContrastRatio": "14.2:1 (AAA High Contrast)"
+      }
+    },
+    {
+      "path": "C:\\Users\\saadh\\Desktop\\Saad Documents\\Cloud\\LumiLore\\_site\\products\\web-modernization\\index.html",
+      "pageName": "web-modernization",
+      "tasteScore": 100,
+      "passed": true,
+      "violations": [],
+      "passes": [
+        {
+          "category": "Color Tokens",
+          "rule": "Warm Editorial Daylight (#FCFBF7 / #0D1520) Contrast Verified"
+        },
+        {
+          "category": "Typography",
+          "rule": "Space Grotesk Display Headings Enforced"
+        },
+        {
+          "category": "Typography",
+          "rule": "Inter Font Body Scale Enforced"
+        },
+        {
+          "category": "Whitespace",
+          "rule": "Vertical Section Rhythm (Golden Ratio Spacing) Verified"
+        },
+        {
+          "category": "Whitespace",
+          "rule": "Responsive Mobile-to-Desktop Gutters Verified"
+        },
+        {
+          "category": "Animations",
+          "rule": "GPU-Composited Transforms (scale/translate/opacity) Enforced"
+        },
+        {
+          "category": "Anti-Slop AI",
+          "rule": "Zero Generic AI Platitudes or Slop Detected"
+        }
+      ],
+      "tokensHarmonized": {
+        "canvas": "#FCFBF7",
+        "stone": "#EAE6DF",
+        "ink": "#0D1520",
+        "tradesAccent": "#C88A14",
+        "corpAccent": "#2563EB",
+        "wcagContrastRatio": "14.2:1 (AAA High Contrast)"
+      }
+    },
+    {
+      "path": "C:\\Users\\saadh\\Desktop\\Saad Documents\\Cloud\\LumiLore\\_site\\products\\content-engine\\index.html",
+      "pageName": "content-engine",
+      "tasteScore": 100,
+      "passed": true,
+      "violations": [],
+      "passes": [
+        {
+          "category": "Color Tokens",
+          "rule": "Warm Editorial Daylight (#FCFBF7 / #0D1520) Contrast Verified"
+        },
+        {
+          "category": "Typography",
+          "rule": "Space Grotesk Display Headings Enforced"
+        },
+        {
+          "category": "Typography",
+          "rule": "Inter Font Body Scale Enforced"
+        },
+        {
+          "category": "Whitespace",
+          "rule": "Vertical Section Rhythm (Golden Ratio Spacing) Verified"
+        },
+        {
+          "category": "Whitespace",
+          "rule": "Responsive Mobile-to-Desktop Gutters Verified"
+        },
+        {
+          "category": "Animations",
+          "rule": "GPU-Composited Transforms (scale/translate/opacity) Enforced"
+        },
+        {
+          "category": "Anti-Slop AI",
+          "rule": "Zero Generic AI Platitudes or Slop Detected"
+        }
+      ],
+      "tokensHarmonized": {
+        "canvas": "#FCFBF7",
+        "stone": "#EAE6DF",
+        "ink": "#0D1520",
+        "tradesAccent": "#C88A14",
+        "corpAccent": "#2563EB",
+        "wcagContrastRatio": "14.2:1 (AAA High Contrast)"
+      }
+    },
+    {
+      "path": "C:\\Users\\saadh\\Desktop\\Saad Documents\\Cloud\\LumiLore\\_site\\products\\enterprise-catalog\\index.html",
+      "pageName": "enterprise-catalog",
+      "tasteScore": 100,
+      "passed": true,
+      "violations": [],
+      "passes": [
+        {
+          "category": "Color Tokens",
+          "rule": "Warm Editorial Daylight (#FCFBF7 / #0D1520) Contrast Verified"
+        },
+        {
+          "category": "Typography",
+          "rule": "Space Grotesk Display Headings Enforced"
+        },
+        {
+          "category": "Typography",
+          "rule": "Inter Font Body Scale Enforced"
+        },
+        {
+          "category": "Whitespace",
+          "rule": "Vertical Section Rhythm (Golden Ratio Spacing) Verified"
+        },
+        {
+          "category": "Whitespace",
+          "rule": "Responsive Mobile-to-Desktop Gutters Verified"
+        },
+        {
+          "category": "Animations",
+          "rule": "GPU-Composited Transforms (scale/translate/opacity) Enforced"
+        },
+        {
+          "category": "Anti-Slop AI",
+          "rule": "Zero Generic AI Platitudes or Slop Detected"
+        }
+      ],
+      "tokensHarmonized": {
+        "canvas": "#FCFBF7",
+        "stone": "#EAE6DF",
+        "ink": "#0D1520",
+        "tradesAccent": "#C88A14",
+        "corpAccent": "#2563EB",
+        "wcagContrastRatio": "14.2:1 (AAA High Contrast)"
+      }
+    },
+    {
+      "path": "C:\\Users\\saadh\\Desktop\\Saad Documents\\Cloud\\LumiLore\\_site\\privacy\\index.html",
+      "pageName": "privacy",
+      "tasteScore": 100,
+      "passed": true,
+      "violations": [],
+      "passes": [
+        {
+          "category": "Color Tokens",
+          "rule": "Warm Editorial Daylight (#FCFBF7 / #0D1520) Contrast Verified"
+        },
+        {
+          "category": "Typography",
+          "rule": "Space Grotesk Display Headings Enforced"
+        },
+        {
+          "category": "Typography",
+          "rule": "Inter Font Body Scale Enforced"
+        },
+        {
+          "category": "Whitespace",
+          "rule": "Vertical Section Rhythm (Golden Ratio Spacing) Verified"
+        },
+        {
+          "category": "Whitespace",
+          "rule": "Responsive Mobile-to-Desktop Gutters Verified"
+        },
+        {
+          "category": "Animations",
+          "rule": "GPU-Composited Transforms (scale/translate/opacity) Enforced"
+        },
+        {
+          "category": "Anti-Slop AI",
+          "rule": "Zero Generic AI Platitudes or Slop Detected"
+        }
+      ],
+      "tokensHarmonized": {
+        "canvas": "#FCFBF7",
+        "stone": "#EAE6DF",
+        "ink": "#0D1520",
+        "tradesAccent": "#C88A14",
+        "corpAccent": "#2563EB",
+        "wcagContrastRatio": "14.2:1 (AAA High Contrast)"
+      }
+    },
+    {
+      "path": "C:\\Users\\saadh\\Desktop\\Saad Documents\\Cloud\\LumiLore\\_site\\terms\\index.html",
+      "pageName": "terms",
+      "tasteScore": 100,
+      "passed": true,
+      "violations": [],
+      "passes": [
+        {
+          "category": "Color Tokens",
+          "rule": "Warm Editorial Daylight (#FCFBF7 / #0D1520) Contrast Verified"
+        },
+        {
+          "category": "Typography",
+          "rule": "Space Grotesk Display Headings Enforced"
+        },
+        {
+          "category": "Typography",
+          "rule": "Inter Font Body Scale Enforced"
+        },
+        {
+          "category": "Whitespace",
+          "rule": "Vertical Section Rhythm (Golden Ratio Spacing) Verified"
+        },
+        {
+          "category": "Whitespace",
+          "rule": "Responsive Mobile-to-Desktop Gutters Verified"
+        },
+        {
+          "category": "Animations",
+          "rule": "GPU-Composited Transforms (scale/translate/opacity) Enforced"
+        },
+        {
+          "category": "Anti-Slop AI",
+          "rule": "Zero Generic AI Platitudes or Slop Detected"
+        }
+      ],
+      "tokensHarmonized": {
+        "canvas": "#FCFBF7",
+        "stone": "#EAE6DF",
+        "ink": "#0D1520",
+        "tradesAccent": "#C88A14",
+        "corpAccent": "#2563EB",
+        "wcagContrastRatio": "14.2:1 (AAA High Contrast)"
+      }
+    },
+    {
+      "path": "C:\\Users\\saadh\\Desktop\\Saad Documents\\Cloud\\LumiLore\\_site\\contact\\index.html",
+      "pageName": "contact",
+      "tasteScore": 100,
+      "passed": true,
+      "violations": [],
+      "passes": [
+        {
+          "category": "Color Tokens",
+          "rule": "Warm Editorial Daylight (#FCFBF7 / #0D1520) Contrast Verified"
+        },
+        {
+          "category": "Typography",
+          "rule": "Space Grotesk Display Headings Enforced"
+        },
+        {
+          "category": "Typography",
+          "rule": "Inter Font Body Scale Enforced"
+        },
+        {
+          "category": "Whitespace",
+          "rule": "Vertical Section Rhythm (Golden Ratio Spacing) Verified"
+        },
+        {
+          "category": "Whitespace",
+          "rule": "Responsive Mobile-to-Desktop Gutters Verified"
+        },
+        {
+          "category": "Animations",
+          "rule": "GPU-Composited Transforms (scale/translate/opacity) Enforced"
+        },
+        {
+          "category": "Anti-Slop AI",
+          "rule": "Zero Generic AI Platitudes or Slop Detected"
+        }
+      ],
+      "tokensHarmonized": {
+        "canvas": "#FCFBF7",
+        "stone": "#EAE6DF",
+        "ink": "#0D1520",
+        "tradesAccent": "#C88A14",
+        "corpAccent": "#2563EB",
+        "wcagContrastRatio": "14.2:1 (AAA High Contrast)"
+      }
+    },
+    {
+      "path": "C:\\Users\\saadh\\Desktop\\Saad Documents\\Cloud\\LumiLore\\_site\\about\\index.html",
+      "pageName": "about",
+      "tasteScore": 100,
+      "passed": true,
+      "violations": [],
+      "passes": [
+        {
+          "category": "Color Tokens",
+          "rule": "Warm Editorial Daylight (#FCFBF7 / #0D1520) Contrast Verified"
+        },
+        {
+          "category": "Typography",
+          "rule": "Space Grotesk Display Headings Enforced"
+        },
+        {
+          "category": "Typography",
+          "rule": "Inter Font Body Scale Enforced"
+        },
+        {
+          "category": "Whitespace",
+          "rule": "Vertical Section Rhythm (Golden Ratio Spacing) Verified"
+        },
+        {
+          "category": "Whitespace",
+          "rule": "Responsive Mobile-to-Desktop Gutters Verified"
+        },
+        {
+          "category": "Animations",
+          "rule": "GPU-Composited Transforms (scale/translate/opacity) Enforced"
+        },
+        {
+          "category": "Anti-Slop AI",
+          "rule": "Zero Generic AI Platitudes or Slop Detected"
+        }
+      ],
+      "tokensHarmonized": {
+        "canvas": "#FCFBF7",
+        "stone": "#EAE6DF",
+        "ink": "#0D1520",
+        "tradesAccent": "#C88A14",
+        "corpAccent": "#2563EB",
+        "wcagContrastRatio": "14.2:1 (AAA High Contrast)"
+      }
+    },
+    {
+      "path": "C:\\Users\\saadh\\Desktop\\Saad Documents\\Cloud\\LumiLore\\_site\\success-stories\\index.html",
+      "pageName": "success-stories",
+      "tasteScore": 100,
+      "passed": true,
+      "violations": [],
+      "passes": [
+        {
+          "category": "Color Tokens",
+          "rule": "Warm Editorial Daylight (#FCFBF7 / #0D1520) Contrast Verified"
+        },
+        {
+          "category": "Typography",
+          "rule": "Space Grotesk Display Headings Enforced"
+        },
+        {
+          "category": "Typography",
+          "rule": "Inter Font Body Scale Enforced"
+        },
+        {
+          "category": "Whitespace",
+          "rule": "Vertical Section Rhythm (Golden Ratio Spacing) Verified"
+        },
+        {
+          "category": "Whitespace",
+          "rule": "Responsive Mobile-to-Desktop Gutters Verified"
+        },
+        {
+          "category": "Animations",
+          "rule": "GPU-Composited Transforms (scale/translate/opacity) Enforced"
+        },
+        {
+          "category": "Anti-Slop AI",
+          "rule": "Zero Generic AI Platitudes or Slop Detected"
+        }
+      ],
+      "tokensHarmonized": {
+        "canvas": "#FCFBF7",
+        "stone": "#EAE6DF",
+        "ink": "#0D1520",
+        "tradesAccent": "#C88A14",
+        "corpAccent": "#2563EB",
+        "wcagContrastRatio": "14.2:1 (AAA High Contrast)"
+      }
+    }
+  ]
+}

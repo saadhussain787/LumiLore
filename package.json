@@ -12,6 +12,8 @@
     "fleet:growth:dry": "node agents/agency-fleet/run-fleet.js --division=growth --dry-run",
     "fleet:sales": "node agents/agency-fleet/run-fleet.js --division=sales",
     "fleet:sales:dry": "node agents/agency-fleet/run-fleet.js --division=sales --dry-run",
+    "fleet:engineering": "node agents/agency-fleet/run-fleet.js --division=engineering",
+    "fleet:engineering:dry": "node agents/agency-fleet/run-fleet.js --division=engineering --dry-run",
     "geo:run": "node agents/seo-geo-agent/run.js",
     "geo:run:dry": "node agents/seo-geo-agent/run.js --dry-run",
     "seo:cron": "node agents/seo-geo-agent/run.js --cron --all",

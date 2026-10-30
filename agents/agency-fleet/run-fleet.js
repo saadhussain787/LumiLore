@@ -117,10 +117,12 @@ export async function runFleetCLI(cliOptions = {}) {
     const rawDiv = String(targetDivision).toLowerCase();
     const isDiv1 = rawDiv === '1' || rawDiv === 'growth' || rawDiv.includes('division-1');
     const isDiv2 = rawDiv === '2' || rawDiv === 'sales' || rawDiv.includes('division-2');
+    const isDiv3 = rawDiv === '3' || rawDiv === 'engineering' || rawDiv.includes('division-3');
     
     const divAgents = engine.listAgents().filter(a => {
       if (isDiv1) return a.division.includes('division-1') || a.division.includes('growth');
       if (isDiv2) return a.division.includes('division-2') || a.division.includes('sales');
+      if (isDiv3) return a.division.includes('division-3') || a.division.includes('engineering');
       const divNum = parseInt(rawDiv, 10);
       if (!isNaN(divNum)) return a.division.includes(String(divNum));
       return a.division.toLowerCase().includes(rawDiv);
@@ -184,6 +186,35 @@ export async function runFleetCLI(cliOptions = {}) {
         console.log('\n  ✓ All 3 Division 2 specialized pipelines completed successfully.\n');
       } catch (err) {
         console.warn('  ⚠️ Note on Division 2 specialized execution:', err.message);
+      }
+    }
+
+    // If Division 3 (Engineering), execute the specialized operative pipelines
+    if (isDiv3) {
+      try {
+        const { ModernizationArchitect, TasteEnforcer, ServerlessArchitect, QaHunter } = await import('./division-3-engineering/index.js');
+        console.log('\n  ==============================================================');
+        console.log('  🌟 DIVISION 3 PIPELINE: ACTIVATING SPECIALIZED OPERATIVES');
+        console.log('  ==============================================================\n');
+        
+        console.log('  --> [1/4] Running Agent 08: ModernizationArchitect...');
+        const architect = new ModernizationArchitect();
+        await architect.run();
+
+        console.log('\n  --> [2/4] Running Agent 09: TasteEnforcer...');
+        const enforcer = new TasteEnforcer();
+        await enforcer.run();
+
+        console.log('\n  --> [3/4] Running Agent 10: ServerlessArchitect...');
+        const serverless = new ServerlessArchitect();
+        await serverless.run();
+
+        console.log('\n  --> [4/4] Running Agent 11: QaHunter...');
+        const qa = new QaHunter();
+        await qa.run();
+        console.log('\n  ✓ All 4 Division 3 specialized pipelines completed successfully.\n');
+      } catch (err) {
+        console.warn('  ⚠️ Note on Division 3 specialized execution:', err.message);
       }
     }
 

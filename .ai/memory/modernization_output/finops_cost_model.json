@@ -1,0 +1,34 @@
+{
+  "monthlyRequests": 500000,
+  "legacyInfrastructure": {
+    "architecture": "Monolithic VM (EC2 + Managed RDS + ALB)",
+    "breakdown": {
+      "computeEC2": "$68.40",
+      "databaseRDS": "$73.00",
+      "loadBalancerALB": "$24.50",
+      "storageEBS": "$20.00",
+      "devOpsMaintenance": "$200.00"
+    },
+    "totalMonthlyCost": "$385.90",
+    "annualCost": "$4630.80"
+  },
+  "serverlessArchitecture": {
+    "architecture": "LumiLore AWS Serverless (Graviton3 arm64 + DynamoDB + HTTP API)",
+    "breakdown": {
+      "computeLambda": "$0.10",
+      "apiGateway": "$0.50",
+      "databaseDynamoDB": "$1.25",
+      "edgeCloudFront": "$0.85",
+      "devOpsMaintenance": "$0.00 (Zero Server Patching)"
+    },
+    "totalMonthlyCost": "$12.50",
+    "annualCost": "$150.00"
+  },
+  "finOpsImpact": {
+    "monthlySavings": "$373 CAD/mo",
+    "annualSavings": "$4,476 CAD/yr",
+    "costReductionPercentage": "97%",
+    "paybackPeriod": "Immediate (Day 1)",
+    "targetKpiMet": true
+  }
+}

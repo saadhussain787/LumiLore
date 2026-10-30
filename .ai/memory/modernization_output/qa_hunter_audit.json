@@ -1,0 +1,562 @@
+{
+  "totalCompiledPages": 15,
+  "totalInlineScriptsAudited": 188,
+  "allPagesHealthy": true,
+  "pageReports": [
+    {
+      "file": "about/index.html",
+      "passed": true,
+      "viewport": {
+        "pageName": "about/index.html",
+        "passed": true,
+        "targetViewportsTested": [
+          "320px (Compact Mobile)",
+          "375px (Mobile)",
+          "768px (Tablet)",
+          "1024px (Tablet Pro)",
+          "1440px (Desktop)",
+          "3840px (4K)"
+        ],
+        "issues": []
+      },
+      "touch": {
+        "pageName": "about/index.html",
+        "passed": true,
+        "complianceStandard": "WCAG 2.1 AA (48px x 48px tactile bounding box)",
+        "tactileButtonsPresent": true,
+        "issues": []
+      },
+      "scripts": {
+        "pageName": "about/index.html",
+        "totalInlineScriptsParsed": 12,
+        "passed": true,
+        "syntaxErrors": []
+      },
+      "assets": {
+        "pageName": "about/index.html",
+        "totalImages": 8,
+        "missingDimensions": 0,
+        "passed": true,
+        "issues": []
+      }
+    },
+    {
+      "file": "contact/index.html",
+      "passed": true,
+      "viewport": {
+        "pageName": "contact/index.html",
+        "passed": true,
+        "targetViewportsTested": [
+          "320px (Compact Mobile)",
+          "375px (Mobile)",
+          "768px (Tablet)",
+          "1024px (Tablet Pro)",
+          "1440px (Desktop)",
+          "3840px (4K)"
+        ],
+        "issues": []
+      },
+      "touch": {
+        "pageName": "contact/index.html",
+        "passed": true,
+        "complianceStandard": "WCAG 2.1 AA (48px x 48px tactile bounding box)",
+        "tactileButtonsPresent": true,
+        "issues": []
+      },
+      "scripts": {
+        "pageName": "contact/index.html",
+        "totalInlineScriptsParsed": 13,
+        "passed": true,
+        "syntaxErrors": []
+      },
+      "assets": {
+        "pageName": "contact/index.html",
+        "totalImages": 7,
+        "missingDimensions": 0,
+        "passed": true,
+        "issues": []
+      }
+    },
+    {
+      "file": "index.html",
+      "passed": true,
+      "viewport": {
+        "pageName": "index.html",
+        "passed": true,
+        "targetViewportsTested": [
+          "320px (Compact Mobile)",
+          "375px (Mobile)",
+          "768px (Tablet)",
+          "1024px (Tablet Pro)",
+          "1440px (Desktop)",
+          "3840px (4K)"
+        ],
+        "issues": []
+      },
+      "touch": {
+        "pageName": "index.html",
+        "passed": true,
+        "complianceStandard": "WCAG 2.1 AA (48px x 48px tactile bounding box)",
+        "tactileButtonsPresent": true,
+        "issues": []
+      },
+      "scripts": {
+        "pageName": "index.html",
+        "totalInlineScriptsParsed": 25,
+        "passed": true,
+        "syntaxErrors": []
+      },
+      "assets": {
+        "pageName": "index.html",
+        "totalImages": 6,
+        "missingDimensions": 0,
+        "passed": true,
+        "issues": []
+      }
+    },
+    {
+      "file": "insights/autonomous-247-ai-voice-dispatch-mechanical-trades/index.html",
+      "passed": true,
+      "viewport": {
+        "pageName": "insights/autonomous-247-ai-voice-dispatch-mechanical-trades/index.html",
+        "passed": true,
+        "targetViewportsTested": [
+          "320px (Compact Mobile)",
+          "375px (Mobile)",
+          "768px (Tablet)",
+          "1024px (Tablet Pro)",
+          "1440px (Desktop)",
+          "3840px (4K)"
+        ],
+        "issues": []
+      },
+      "touch": {
+        "pageName": "insights/autonomous-247-ai-voice-dispatch-mechanical-trades/index.html",
+        "passed": true,
+        "complianceStandard": "WCAG 2.1 AA (48px x 48px tactile bounding box)",
+        "tactileButtonsPresent": true,
+        "issues": []
+      },
+      "scripts": {
+        "pageName": "insights/autonomous-247-ai-voice-dispatch-mechanical-trades/index.html",
+        "totalInlineScriptsParsed": 12,
+        "passed": true,
+        "syntaxErrors": []
+      },
+      "assets": {
+        "pageName": "insights/autonomous-247-ai-voice-dispatch-mechanical-trades/index.html",
+        "totalImages": 6,
+        "missingDimensions": 0,
+        "passed": true,
+        "issues": []
+      }
+    },
+    {
+      "file": "insights/cutting-aws-cloud-waste-serverless-architecture/index.html",
+      "passed": true,
+      "viewport": {
+        "pageName": "insights/cutting-aws-cloud-waste-serverless-architecture/index.html",
+        "passed": true,
+        "targetViewportsTested": [
+          "320px (Compact Mobile)",
+          "375px (Mobile)",
+          "768px (Tablet)",
+          "1024px (Tablet Pro)",
+          "1440px (Desktop)",
+          "3840px (4K)"
+        ],
+        "issues": []
+      },
+      "touch": {
+        "pageName": "insights/cutting-aws-cloud-waste-serverless-architecture/index.html",
+        "passed": true,
+        "complianceStandard": "WCAG 2.1 AA (48px x 48px tactile bounding box)",
+        "tactileButtonsPresent": true,
+        "issues": []
+      },
+      "scripts": {
+        "pageName": "insights/cutting-aws-cloud-waste-serverless-architecture/index.html",
+        "totalInlineScriptsParsed": 12,
+        "passed": true,
+        "syntaxErrors": []
+      },
+      "assets": {
+        "pageName": "insights/cutting-aws-cloud-waste-serverless-architecture/index.html",
+        "totalImages": 6,
+        "missingDimensions": 0,
+        "passed": true,
+        "issues": []
+      }
+    },
+    {
+      "file": "privacy/index.html",
+      "passed": true,
+      "viewport": {
+        "pageName": "privacy/index.html",
+        "passed": true,
+        "targetViewportsTested": [
+          "320px (Compact Mobile)",
+          "375px (Mobile)",
+          "768px (Tablet)",
+          "1024px (Tablet Pro)",
+          "1440px (Desktop)",
+          "3840px (4K)"
+        ],
+        "issues": []
+      },
+      "touch": {
+        "pageName": "privacy/index.html",
+        "passed": true,
+        "complianceStandard": "WCAG 2.1 AA (48px x 48px tactile bounding box)",
+        "tactileButtonsPresent": true,
+        "issues": []
+      },
+      "scripts": {
+        "pageName": "privacy/index.html",
+        "totalInlineScriptsParsed": 12,
+        "passed": true,
+        "syntaxErrors": []
+      },
+      "assets": {
+        "pageName": "privacy/index.html",
+        "totalImages": 6,
+        "missingDimensions": 0,
+        "passed": true,
+        "issues": []
+      }
+    },
+    {
+      "file": "products/autonomous-booking/index.html",
+      "passed": true,
+      "viewport": {
+        "pageName": "products/autonomous-booking/index.html",
+        "passed": true,
+        "targetViewportsTested": [
+          "320px (Compact Mobile)",
+          "375px (Mobile)",
+          "768px (Tablet)",
+          "1024px (Tablet Pro)",
+          "1440px (Desktop)",
+          "3840px (4K)"
+        ],
+        "issues": []
+      },
+      "touch": {
+        "pageName": "products/autonomous-booking/index.html",
+        "passed": true,
+        "complianceStandard": "WCAG 2.1 AA (48px x 48px tactile bounding box)",
+        "tactileButtonsPresent": true,
+        "issues": []
+      },
+      "scripts": {
+        "pageName": "products/autonomous-booking/index.html",
+        "totalInlineScriptsParsed": 12,
+        "passed": true,
+        "syntaxErrors": []
+      },
+      "assets": {
+        "pageName": "products/autonomous-booking/index.html",
+        "totalImages": 6,
+        "missingDimensions": 0,
+        "passed": true,
+        "issues": []
+      }
+    },
+    {
+      "file": "products/content-engine/index.html",
+      "passed": true,
+      "viewport": {
+        "pageName": "products/content-engine/index.html",
+        "passed": true,
+        "targetViewportsTested": [
+          "320px (Compact Mobile)",
+          "375px (Mobile)",
+          "768px (Tablet)",
+          "1024px (Tablet Pro)",
+          "1440px (Desktop)",
+          "3840px (4K)"
+        ],
+        "issues": []
+      },
+      "touch": {
+        "pageName": "products/content-engine/index.html",
+        "passed": true,
+        "complianceStandard": "WCAG 2.1 AA (48px x 48px tactile bounding box)",
+        "tactileButtonsPresent": true,
+        "issues": []
+      },
+      "scripts": {
+        "pageName": "products/content-engine/index.html",
+        "totalInlineScriptsParsed": 13,
+        "passed": true,
+        "syntaxErrors": []
+      },
+      "assets": {
+        "pageName": "products/content-engine/index.html",
+        "totalImages": 6,
+        "missingDimensions": 0,
+        "passed": true,
+        "issues": []
+      }
+    },
+    {
+      "file": "products/enterprise-catalog/index.html",
+      "passed": true,
+      "viewport": {
+        "pageName": "products/enterprise-catalog/index.html",
+        "passed": true,
+        "targetViewportsTested": [
+          "320px (Compact Mobile)",
+          "375px (Mobile)",
+          "768px (Tablet)",
+          "1024px (Tablet Pro)",
+          "1440px (Desktop)",
+          "3840px (4K)"
+        ],
+        "issues": []
+      },
+      "touch": {
+        "pageName": "products/enterprise-catalog/index.html",
+        "passed": true,
+        "complianceStandard": "WCAG 2.1 AA (48px x 48px tactile bounding box)",
+        "tactileButtonsPresent": true,
+        "issues": []
+      },
+      "scripts": {
+        "pageName": "products/enterprise-catalog/index.html",
+        "totalInlineScriptsParsed": 13,
+        "passed": true,
+        "syntaxErrors": []
+      },
+      "assets": {
+        "pageName": "products/enterprise-catalog/index.html",
+        "totalImages": 6,
+        "missingDimensions": 0,
+        "passed": true,
+        "issues": []
+      }
+    },
+    {
+      "file": "products/geo-engine/index.html",
+      "passed": true,
+      "viewport": {
+        "pageName": "products/geo-engine/index.html",
+        "passed": true,
+        "targetViewportsTested": [
+          "320px (Compact Mobile)",
+          "375px (Mobile)",
+          "768px (Tablet)",
+          "1024px (Tablet Pro)",
+          "1440px (Desktop)",
+          "3840px (4K)"
+        ],
+        "issues": []
+      },
+      "touch": {
+        "pageName": "products/geo-engine/index.html",
+        "passed": true,
+        "complianceStandard": "WCAG 2.1 AA (48px x 48px tactile bounding box)",
+        "tactileButtonsPresent": true,
+        "issues": []
+      },
+      "scripts": {
+        "pageName": "products/geo-engine/index.html",
+        "totalInlineScriptsParsed": 12,
+        "passed": true,
+        "syntaxErrors": []
+      },
+      "assets": {
+        "pageName": "products/geo-engine/index.html",
+        "totalImages": 6,
+        "missingDimensions": 0,
+        "passed": true,
+        "issues": []
+      }
+    },
+    {
+      "file": "products/voice-dispatch/index.html",
+      "passed": true,
+      "viewport": {
+        "pageName": "products/voice-dispatch/index.html",
+        "passed": true,
+        "targetViewportsTested": [
+          "320px (Compact Mobile)",
+          "375px (Mobile)",
+          "768px (Tablet)",
+          "1024px (Tablet Pro)",
+          "1440px (Desktop)",
+          "3840px (4K)"
+        ],
+        "issues": []
+      },
+      "touch": {
+        "pageName": "products/voice-dispatch/index.html",
+        "passed": true,
+        "complianceStandard": "WCAG 2.1 AA (48px x 48px tactile bounding box)",
+        "tactileButtonsPresent": true,
+        "issues": []
+      },
+      "scripts": {
+        "pageName": "products/voice-dispatch/index.html",
+        "totalInlineScriptsParsed": 14,
+        "passed": true,
+        "syntaxErrors": []
+      },
+      "assets": {
+        "pageName": "products/voice-dispatch/index.html",
+        "totalImages": 6,
+        "missingDimensions": 0,
+        "passed": true,
+        "issues": []
+      }
+    },
+    {
+      "file": "products/web-modernization/index.html",
+      "passed": true,
+      "viewport": {
+        "pageName": "products/web-modernization/index.html",
+        "passed": true,
+        "targetViewportsTested": [
+          "320px (Compact Mobile)",
+          "375px (Mobile)",
+          "768px (Tablet)",
+          "1024px (Tablet Pro)",
+          "1440px (Desktop)",
+          "3840px (4K)"
+        ],
+        "issues": []
+      },
+      "touch": {
+        "pageName": "products/web-modernization/index.html",
+        "passed": true,
+        "complianceStandard": "WCAG 2.1 AA (48px x 48px tactile bounding box)",
+        "tactileButtonsPresent": true,
+        "issues": []
+      },
+      "scripts": {
+        "pageName": "products/web-modernization/index.html",
+        "totalInlineScriptsParsed": 13,
+        "passed": true,
+        "syntaxErrors": []
+      },
+      "assets": {
+        "pageName": "products/web-modernization/index.html",
+        "totalImages": 6,
+        "missingDimensions": 0,
+        "passed": true,
+        "issues": []
+      }
+    },
+    {
+      "file": "public/preview.html",
+      "passed": true,
+      "viewport": {
+        "pageName": "public/preview.html",
+        "passed": true,
+        "targetViewportsTested": [
+          "320px (Compact Mobile)",
+          "375px (Mobile)",
+          "768px (Tablet)",
+          "1024px (Tablet Pro)",
+          "1440px (Desktop)",
+          "3840px (4K)"
+        ],
+        "issues": []
+      },
+      "touch": {
+        "pageName": "public/preview.html",
+        "passed": true,
+        "complianceStandard": "WCAG 2.1 AA (48px x 48px tactile bounding box)",
+        "tactileButtonsPresent": false,
+        "issues": []
+      },
+      "scripts": {
+        "pageName": "public/preview.html",
+        "totalInlineScriptsParsed": 0,
+        "passed": true,
+        "syntaxErrors": []
+      },
+      "assets": {
+        "pageName": "public/preview.html",
+        "totalImages": 2,
+        "missingDimensions": 0,
+        "passed": true,
+        "issues": []
+      }
+    },
+    {
+      "file": "success-stories/index.html",
+      "passed": true,
+      "viewport": {
+        "pageName": "success-stories/index.html",
+        "passed": true,
+        "targetViewportsTested": [
+          "320px (Compact Mobile)",
+          "375px (Mobile)",
+          "768px (Tablet)",
+          "1024px (Tablet Pro)",
+          "1440px (Desktop)",
+          "3840px (4K)"
+        ],
+        "issues": []
+      },
+      "touch": {
+        "pageName": "success-stories/index.html",
+        "passed": true,
+        "complianceStandard": "WCAG 2.1 AA (48px x 48px tactile bounding box)",
+        "tactileButtonsPresent": true,
+        "issues": []
+      },
+      "scripts": {
+        "pageName": "success-stories/index.html",
+        "totalInlineScriptsParsed": 13,
+        "passed": true,
+        "syntaxErrors": []
+      },
+      "assets": {
+        "pageName": "success-stories/index.html",
+        "totalImages": 6,
+        "missingDimensions": 0,
+        "passed": true,
+        "issues": []
+      }
+    },
+    {
+      "file": "terms/index.html",
+      "passed": true,
+      "viewport": {
+        "pageName": "terms/index.html",
+        "passed": true,
+        "targetViewportsTested": [
+          "320px (Compact Mobile)",
+          "375px (Mobile)",
+          "768px (Tablet)",
+          "1024px (Tablet Pro)",
+          "1440px (Desktop)",
+          "3840px (4K)"
+        ],
+        "issues": []
+      },
+      "touch": {
+        "pageName": "terms/index.html",
+        "passed": true,
+        "complianceStandard": "WCAG 2.1 AA (48px x 48px tactile bounding box)",
+        "tactileButtonsPresent": true,
+        "issues": []
+      },
+      "scripts": {
+        "pageName": "terms/index.html",
+        "totalInlineScriptsParsed": 12,
+        "passed": true,
+        "syntaxErrors": []
+      },
+      "assets": {
+        "pageName": "terms/index.html",
+        "totalImages": 6,
+        "missingDimensions": 0,
+        "passed": true,
+        "issues": []
+      }
+    }
+  ]
+}
