@@ -806,7 +806,7 @@
 
   <!-- LumiBot AI Architect Terminal Drawer / Modal (Daylight Editorial Software Window) -->
   <div id="lumibot-terminal-modal" role="dialog" aria-modal="true" aria-labelledby="lumibot-terminal-title"
-    aria-hidden="true"
+    aria-hidden="true" inert
     class="fixed bottom-24 right-4 sm:right-6 z-[95] w-[calc(100vw-2rem)] sm:w-[420px] max-h-[calc(100vh-7.5rem)] h-[620px] flex flex-col rounded-3xl bg-white border border-[#EAE6DF] shadow-[0_24px_60px_rgba(20,18,13,0.18)] overflow-hidden transition-all duration-300 origin-bottom-right transform scale-95 opacity-0 pointer-events-none translate-y-4 text-[#0D1520]">
     <!-- Terminal Header -->
     <div class="p-4 border-b border-[#EAE6DF] bg-[#FAF8F3] flex items-center justify-between shrink-0">
@@ -1133,6 +1133,8 @@
         isOpen = true;
         modal.classList.remove('scale-95', 'opacity-0', 'pointer-events-none', 'translate-y-4');
         modal.classList.add('scale-100', 'opacity-100', 'pointer-events-auto', 'translate-y-0');
+        modal.removeAttribute('inert');
+        modal.inert = false;
         modal.setAttribute('aria-hidden', 'false');
         if (launcherBtn) launcherBtn.setAttribute('aria-expanded', 'true');
         if (iconOpen) iconOpen.classList.add('hidden');
@@ -1149,6 +1151,8 @@
         modal.classList.remove('scale-100', 'opacity-100', 'pointer-events-auto', 'translate-y-0');
         modal.classList.add('scale-95', 'opacity-0', 'pointer-events-none', 'translate-y-4');
         modal.setAttribute('aria-hidden', 'true');
+        modal.setAttribute('inert', '');
+        modal.inert = true;
         if (launcherBtn) {
           launcherBtn.setAttribute('aria-expanded', 'false');
           launcherBtn.focus();

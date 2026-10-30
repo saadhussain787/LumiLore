@@ -2185,19 +2185,22 @@ layout: layout.html
     }
     window.__lumiScrollTriggerInit = true;
 
-    gsap.registerPlugin(ScrollTrigger);
+    // Batch GSAP ScrollTrigger registration and layout geometry reads inside requestAnimationFrame
+    // to prevent synchronous layout thrashing and eliminate the forced reflow diagnostic warning
+    requestAnimationFrame(() => {
+      gsap.registerPlugin(ScrollTrigger);
 
-    ScrollTrigger.create({
-      trigger: document.documentElement,
-      start: "top top",
-      end: "bottom bottom",
-      scrub: 2.5, // Increased smoothing effect to 2.5s for buttery slow transitions
-      onUpdate: (self) => {
-        if (typeof window.updateAmbientSpotlight === 'function') {
-          window.updateAmbientSpotlight(self.progress);
+      ScrollTrigger.create({
+        trigger: document.documentElement,
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 2.5, // Increased smoothing effect to 2.5s for buttery slow transitions
+        onUpdate: (self) => {
+          if (typeof window.updateAmbientSpotlight === 'function') {
+            window.updateAmbientSpotlight(self.progress);
+          }
         }
-      }
-    });
+      });
 
     // 2. Cinematic Entrance Animations for Content Sections (Protected from 3D Flattening & Anchor Drift)
     const contentBlocks = gsap.utils.toArray('section:not(#services-orbit-section):not(#case-studies-section):not(#architecture-section) > div');
@@ -2426,7 +2429,8 @@ layout: layout.html
     // De-hijacked to allow smooth, native vertical page flow without horizontal mousewheel lock.
 
     // Refresh all ScrollTriggers to account for the new pin spacer heights
-    window.debounceScrollTriggerRefresh(100);
+    window.debounceScrollTriggerRefresh(120);
+    }); // End of batched requestAnimationFrame layout block
 
     // --- Non-Destructive bfcache & ScrollTrigger Lifecycle Teardown ---
     window.addEventListener('pagehide', (e) => {
@@ -2453,9 +2457,13 @@ layout: layout.html
       window.removeEventListener(evt, triggerGsapHydration, { passive: true });
     });
     if ('requestIdleCallback' in window) {
-      requestIdleCallback(initScrollTriggerSystem, { timeout: 1500 });
+      requestIdleCallback(() => {
+        requestAnimationFrame(initScrollTriggerSystem);
+      }, { timeout: 1500 });
     } else {
-      setTimeout(initScrollTriggerSystem, 100);
+      setTimeout(() => {
+        requestAnimationFrame(initScrollTriggerSystem);
+      }, 100);
     }
   }
 

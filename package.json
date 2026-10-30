@@ -6,6 +6,8 @@
     "watch:css": "npx @tailwindcss/cli -i ./frontend/input.css -o ./frontend/style.css --watch",
     "build": "npx @tailwindcss/cli -i ./frontend/input.css -o ./frontend/style.css --minify && npx @11ty/eleventy",
     "start": "npx @11ty/eleventy --serve",
+    "fleet:status": "node agents/agency-fleet/run-fleet.js --status",
+    "fleet:run": "node agents/agency-fleet/run-fleet.js",
     "geo:run": "node agents/seo-geo-agent/run.js",
     "geo:run:dry": "node agents/seo-geo-agent/run.js --dry-run",
     "seo:cron": "node agents/seo-geo-agent/run.js --cron --all",
