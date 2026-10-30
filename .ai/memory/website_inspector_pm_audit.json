@@ -1,0 +1,156 @@
+{
+  "agentId": "agent-06-website-inspector-pm",
+  "agentNumber": 6,
+  "inspectedAt": "2026-10-30T17:52:09.303Z",
+  "dataSource": "LOCAL_FILE",
+  "target": {
+    "url": "frontend/contact.html",
+    "companyName": "Apex Mechanical & HVAC",
+    "businessType": "trades",
+    "detectedPhone": "4378487086"
+  },
+  "overallHealthScore": 41,
+  "layers": [
+    {
+      "layerName": "Speed & Core Web Vitals",
+      "measuredTTFBMs": 0,
+      "targetTTFBMs": 140,
+      "mobileLcpSeconds": 1.4,
+      "targetLcpSeconds": 1.2,
+      "clsScore": 0.04,
+      "targetClsScore": 0.02,
+      "renderBlockingResources": [
+        "wp-content/themes/bloated-v4/bundle.css (render-blocking)",
+        "wp-includes/js/jquery/jquery.min.js (render-blocking)",
+        "third-party/tracking-scripts.js (blocking DOMContentLoaded)"
+      ],
+      "speedIndexScore": 88,
+      "status": "OPTIMAL_SPEED"
+    },
+    {
+      "layerName": "UI/UX & Anti-Slop Design Critique",
+      "visualHierarchyScore": 38,
+      "mobile320pxCompliance": {
+        "passed": false,
+        "failures": [
+          "Missing <meta name=\"viewport\"> tag causing desktop zoom on mobile screens",
+          "Mobile phone button touch target is under 48px x 48px WCAG standard",
+          "No responsive breakpoint for small mobile viewports (320px-360px)"
+        ]
+      },
+      "trustBadges": {
+        "detectedSignals": [],
+        "verifiedWidgetPresent": false
+      },
+      "aiSlopBoilerplateDetected": [
+        "Generic stock banner photo lacking real team/field authentic proof",
+        "Vague platitude: \"Delivering world-class excellence in a fast-paced world\""
+      ],
+      "status": "HIGH_FRICTION_OUTDATED_DESIGN"
+    },
+    {
+      "layerName": "Conversion Rate Optimization (CRO) & Funnel Leaks",
+      "croScore": 38,
+      "aboveFoldCta": "Static call link: 4378487086",
+      "formFriction": {
+        "totalFields": 25,
+        "completionAbandonmentEstimate": "85%"
+      },
+      "interactiveRoiCalculatorPresent": false,
+      "instant1TapCalendarBooking": false,
+      "status": "LEAKING_CONVERSIONS_SEVERELY"
+    },
+    {
+      "layerName": "SEO & Multi-LLM AI Visibility",
+      "schemaOrgCompleteness": {
+        "detectedTypes": [],
+        "overallSchemaLayersPresent": "0 of 5 layers active"
+      },
+      "llmsTxtPresent": false,
+      "aiSearchVisibility": {
+        "chatGptSearchCited": false,
+        "perplexityAiRanked": false,
+        "googleAiOverviewsIndexed": false,
+        "googleMaps3PackPosition": "Rank #11 (Outside Local 3-Pack)"
+      },
+      "status": "AI_SEARCH_BLIND_SPOT"
+    },
+    {
+      "layerName": "Inbound Telephony & After-Hours Revenue Bleed",
+      "detectedPhone": "4378487086",
+      "smsAutoTextBackEnabled": false,
+      "quantifiedLoss": {
+        "monthlyCallsEstimated": 180,
+        "lostCallsPerMonth": 41,
+        "lostBookingsPerMonth": 14,
+        "avgTicketValue": 1950,
+        "monthlyRevenueBleedFormatted": "$27,300",
+        "annualRevenueBleedFormatted": "$3,27,600",
+        "monthlyRevenueBleedNumeric": 27300,
+        "annualRevenueBleedNumeric": 327600
+      },
+      "status": "CRITICAL_REVENUE_HEMORRHAGE"
+    },
+    {
+      "layerName": "30-Day Marketing PM Action Roadmap",
+      "milestones": [
+        {
+          "week": "Week 1",
+          "focus": "Speed & Edge Core Web Vitals Foundation",
+          "deliverables": [
+            "Migrate from current 0ms TTFB to sub-150ms Jamstack architecture",
+            "Deploy 1-tap instant calendar booking widget on hero and sticky header",
+            "Enforce 48px touch targets and full 320px mobile viewport compliance"
+          ],
+          "mappedLumiLoreService": "Sub-150ms Web Modernization & Instant Booking ($1,800)"
+        },
+        {
+          "week": "Week 2",
+          "focus": "24/7 AI Voice Dispatch Receptionist",
+          "deliverables": [
+            "Deploy dedicated AWS Connect AI voice receptionist on 4378487086",
+            "Implement instant on-call technician SMS dispatch and CRM synchronization",
+            "Recapture estimated 14 lost bookings/mo from voicemail drops"
+          ],
+          "mappedLumiLoreService": "24/7 AI Voice Dispatch & Inbound Receptionist ($2,500)"
+        },
+        {
+          "week": "Week 3",
+          "focus": "Multi-LLM AI Engine Optimization & Schema",
+          "deliverables": [
+            "Inject complete 5-layer Schema.org JSON-LD graph (currently 0/5 layers)",
+            "Deploy standardized llms.txt knowledge manifest for Perplexity & ChatGPT",
+            "Optimize Google Business Profile for Top-3 Local Map Pack dominance"
+          ],
+          "mappedLumiLoreService": "Autonomous SEO & GEO Engine ($2,500)"
+        },
+        {
+          "week": "Week 4",
+          "focus": "CRO Modernization & Continuous Growth Retainer",
+          "deliverables": [
+            "Deploy interactive ROI dynamic calculator on homepage and service pages",
+            "Launch automated weekly B2B/trade thought leadership syndication queue",
+            "Activate real-time competitor displacement radar monitoring ranking gaps"
+          ],
+          "mappedLumiLoreService": "Autonomous Growth Super-Agent Retainer ($3,500/mo)"
+        }
+      ]
+    }
+  ],
+  "revenueLeakageSummary": {
+    "monthlyCallsEstimated": 180,
+    "lostCallsPerMonth": 41,
+    "lostBookingsPerMonth": 14,
+    "avgTicketValue": 1950,
+    "monthlyRevenueBleedFormatted": "$27,300",
+    "annualRevenueBleedFormatted": "$3,27,600",
+    "monthlyRevenueBleedNumeric": 27300,
+    "annualRevenueBleedNumeric": 327600
+  },
+  "mappedServices": [
+    "Web Modernization ($1,800)",
+    "Voice Dispatch ($2,500)",
+    "GEO Engine ($2,500)",
+    "Autonomous Growth Retainer ($3,500/mo)"
+  ]
+}

@@ -67,6 +67,11 @@ Resources:
           Properties:
             Path: /api/audit
             Method: post
+        VoiceConciergeRoute:
+          Type: HttpApi
+          Properties:
+            Path: /api/voice/concierge
+            Method: post
         AvailabilityRoute:
           Type: HttpApi
           Properties:

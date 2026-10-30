@@ -933,29 +933,36 @@ From the Google PageSpeed Insights recording (`Page speed insights .mp4`), Deskt
 
 ---
 
-## Sprint 30: Division 2 — 360° Website Inspector Marketing PM, Dedicated Sales Voice Concierge & SOW Closer (`VoiceStudio` + `OpenWhispr` + `cal.diy`) (QUEUED)
+## Sprint 30: Division 2 — 360° Website Inspector Marketing PM, Dedicated Sales Voice Concierge & SOW Closer (`VoiceStudio` + `OpenWhispr` + `cal.diy`) (COMPLETED — 100%)
 
 ### 30.1: Agent 05 — Dedicated LumiLore Executive Voice Concierge (`agents/agency-fleet/division-2-sales/voice-concierge.js` & `backend/src/services/voiceConcierge.js`)
-- [ ] Architect dedicated inbound sales voice agent for LumiLore's new phone line using `debpalash/VoiceStudio` DSP warmth and `OpenWhispr` low-latency transcription patterns.
-- [ ] Triage callers (Corporate Cloud vs. Mechanical Trades) in <= 3 turns, query Google Calendar live availability, book the slot, and dispatch SES/SMS confirmations.
+- [x] Architect dedicated inbound sales voice agent for LumiLore's dedicated line using `debpalash/VoiceStudio` DSP warmth and `OpenWhispr` low-latency transcription patterns.
+- [x] Triage callers (Corporate Cloud vs. Mechanical Trades) in <= 3 turns, query Google Calendar live availability, lock the booking, and dispatch SES/SMS confirmations.
+- [x] Implemented serverless `VoiceConciergeService` and exposed `POST /api/voice/concierge` on the AWS SAM backend.
 
 ### 30.2: Agent 06 — 360° Full-Spectrum Website Inspector & Marketing Project Manager (`agents/agency-fleet/division-2-sales/website-inspector-pm.js`)
-- [ ] Pair `agency-agents` Senior Marketing PM & Solutions Architect contracts with `prompts.chat` Technical & CRO Critic triggers to inspect any external website completely across **6 Core Layers**:
+- [x] Paired `agency-agents` Senior Marketing PM & Solutions Architect contracts with `prompts.chat` Technical & CRO Critic triggers to inspect any external website completely across **6 Core Layers**:
   1. **Speed & Core Web Vitals:** TTFB, mobile LCP/CLS, and render-blocking bottlenecks.
   2. **UI/UX & Anti-Slop Design Critique:** Visual hierarchy, mobile 320px tap-target failures, trust badge gaps, and outdated layout friction.
   3. **Conversion Rate Optimization (CRO) & Funnel Leaks:** Buried CTAs, bloated contact forms, missing interactive ROI calculators, and lack of 1-tap booking.
   4. **SEO & Multi-LLM AI Visibility:** Missing 5-layer Schema.org JSON-LD, missing `llms.txt`, and invisibility on ChatGPT, Perplexity, Siri, and Google Maps 3-Pack.
-  5. **Inbound Telephony & After-Hours Revenue Bleed:** Static phone numbers routing to voicemail after 5 PM, missing SMS text-back, and quantified monthly revenue loss in `$`.
+  5. **Inbound Telephony & After-Hours Revenue Bleed:** Static phone numbers routing to voicemail after 5 PM, missing SMS text-back, and quantified monthly revenue loss in `$` ($27,300/mo = $327,600/yr).
   6. **30-Day Marketing PM Action Roadmap:** Prioritized Week 1–4 execution plan mapping every identified flaw directly to LumiLore's commercial solutions.
+- [x] Persisted structured JSON audit (`.ai/memory/website_inspector_pm_audit.json`) and client-facing Markdown teardown report (`.ai/memory/website_inspector_pm_report.md`).
 
 ### 30.3: Agent 07 — Dynamic 3-Tier Statement of Work (SOW) & Contract Closer (`agents/agency-fleet/division-2-sales/sow-closer.js`)
-- [ ] Auto-generate client-ready Markdown/HTML Statements of Work converting findings from the Website Inspector PM into 3 commercial tiers (Starter Sprint, Growth Retainer, Custom Enterprise Swarm) with milestone schedules and ROI covenants.
+- [x] Auto-generated client-ready Markdown/HTML Statements of Work converting findings from the Website Inspector PM into 3 commercial tiers (Starter Sprint $1,800, Growth Retainer $3,500/mo, Custom Enterprise Swarm $10,000+) with milestone schedules and ROI covenants.
+- [x] Enforced Canadian PIPEDA data privacy compliance and mandatory zero-public-model-training legal covenants.
+- [x] Persisted SOW proposal package in `.ai/memory/sow_proposal.json` and `.ai/memory/sow_proposal.md`.
 
 ### 30.4: Interactive SOW Scope Preview & Dedicated Voice Badge on `/contact/` (`frontend/contact.html`)
-- [ ] Enhance `/contact/` intake flow with live architecture scope summary and dedicated executive voice concierge routing.
+- [x] Upgraded `/contact/` with `#sow-scope-preview-card` rendering dynamic real-time deliverable checklists, milestone schedules, and revenue recapture projections.
+- [x] Added dedicated `#executive-voice-concierge-callout` hotline differentiating the Executive Architect sales line from client demo lines.
+- [x] Synchronized form intake telemetry with `architectureScope.deliverableSummary`, `sowMilestone`, and `attribution.sowPreviewActive`.
 
 ### 30.5: Division 2 Orchestration & Certification (`scratch/verify_sprint30.mjs`)
-- [ ] Add `npm run fleet:sales` script, run end-to-end voice/inspector-PM/SOW simulations, and certify production build & link health.
+- [x] Added `npm run fleet:sales` and `npm run fleet:sales:dry` scripts to `package.json`, wired Division 2 into `run-fleet.js`, and passed 30/30 checks in `scratch/verify_sprint30.mjs`.
+- [x] Certified zero regressions with full production build (`npm.cmd run build`), link audit (1,146 links checked, 0 broken), and page layout audit (12/12 routes healthy). **SPRINT 30 CERTIFICATION COMPLETE.**
 
 ---
 

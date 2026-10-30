@@ -116,9 +116,11 @@ export async function runFleetCLI(cliOptions = {}) {
   if (targetDivision) {
     const rawDiv = String(targetDivision).toLowerCase();
     const isDiv1 = rawDiv === '1' || rawDiv === 'growth' || rawDiv.includes('division-1');
+    const isDiv2 = rawDiv === '2' || rawDiv === 'sales' || rawDiv.includes('division-2');
     
     const divAgents = engine.listAgents().filter(a => {
       if (isDiv1) return a.division.includes('division-1') || a.division.includes('growth');
+      if (isDiv2) return a.division.includes('division-2') || a.division.includes('sales');
       const divNum = parseInt(rawDiv, 10);
       if (!isNaN(divNum)) return a.division.includes(String(divNum));
       return a.division.toLowerCase().includes(rawDiv);
@@ -157,6 +159,31 @@ export async function runFleetCLI(cliOptions = {}) {
         console.log('\n  ✓ All 4 Division 1 specialized pipelines completed successfully.\n');
       } catch (err) {
         console.warn('  ⚠️ Note on Division 1 specialized execution:', err.message);
+      }
+    }
+
+    // If Division 2 (Sales), execute the specialized operative pipelines
+    if (isDiv2) {
+      try {
+        const { VoiceConcierge, WebsiteInspectorPM, SowCloser } = await import('./division-2-sales/index.js');
+        console.log('\n  ==============================================================');
+        console.log('  🌟 DIVISION 2 PIPELINE: ACTIVATING SPECIALIZED OPERATIVES');
+        console.log('  ==============================================================\n');
+        
+        console.log('  --> [1/3] Running Agent 05: VoiceConcierge...');
+        const concierge = new VoiceConcierge();
+        await concierge.run({ dryRun: dryRunMode });
+
+        console.log('\n  --> [2/3] Running Agent 06: WebsiteInspectorPM...');
+        const inspector = new WebsiteInspectorPM();
+        await inspector.run();
+
+        console.log('\n  --> [3/3] Running Agent 07: SowCloser...');
+        const closer = new SowCloser();
+        await closer.run();
+        console.log('\n  ✓ All 3 Division 2 specialized pipelines completed successfully.\n');
+      } catch (err) {
+        console.warn('  ⚠️ Note on Division 2 specialized execution:', err.message);
       }
     }
 

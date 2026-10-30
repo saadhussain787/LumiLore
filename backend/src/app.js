@@ -14,6 +14,7 @@ import { fileURLToPath } from 'node:url';
 import { calendar } from '@googleapis/calendar';
 import { JWT } from 'google-auth-library';
 import { auditDomain } from './services/geoAudit.js';
+import { VoiceConciergeService } from './services/voiceConcierge.js';
 
 export const CORS_HEADERS = {
   'Access-Control-Allow-Origin': '*',
@@ -2219,6 +2220,35 @@ export function handleStatusProbe(event) {
   };
 }
 
+export const voiceConciergeService = new VoiceConciergeService();
+
+/**
+ * Dedicated Executive Voice Concierge Turn Handler (POST /api/voice/concierge)
+ * @param {object} [body]
+ * @param {object} [event]
+ * @returns {Promise<object>}
+ */
+export async function handleVoiceConcierge(body = {}, event = {}) {
+  const sessionId = body?.sessionId || `session-${Date.now()}`;
+  const userTranscript = body?.userTranscript || body?.transcript || body?.message || '';
+  const callerPhone = body?.callerPhone || body?.phone;
+  const callerName = body?.callerName || body?.name;
+
+  const result = await voiceConciergeService.processTurn(sessionId, userTranscript, {
+    callerPhone,
+    callerName
+  });
+
+  return {
+    statusCode: 200,
+    headers: CORS_HEADERS,
+    body: JSON.stringify({
+      success: true,
+      ...result
+    })
+  };
+}
+
 /**
  * Main Lambda Handler & Router
  */
@@ -2285,6 +2315,10 @@ export const lambdaHandler = async (event, context) => {
 
     if (path === '/api/audit' && method === 'POST') {
       return await handleGeoAudit(body, event);
+    }
+
+    if (path === '/api/voice/concierge' && method === 'POST') {
+      return await handleVoiceConcierge(body, event);
     }
 
     // Unmatched Route: 404 Resource Not Found

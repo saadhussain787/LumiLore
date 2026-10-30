@@ -1,0 +1,98 @@
+{
+  "agentId": "agent-07-sow-closer",
+  "agentNumber": 7,
+  "sowId": "SOW-LL-8344",
+  "createdAt": "2026-10-30T17:52:09.304Z",
+  "client": {
+    "name": "Apex Mechanical & HVAC",
+    "url": "frontend/contact.html"
+  },
+  "quantifiedOpportunity": {
+    "monthlyCallsEstimated": 180,
+    "lostCallsPerMonth": 41,
+    "lostBookingsPerMonth": 14,
+    "avgTicketValue": 1950,
+    "monthlyRevenueBleedFormatted": "$27,300",
+    "annualRevenueBleedFormatted": "$3,27,600",
+    "monthlyRevenueBleedNumeric": 27300,
+    "annualRevenueBleedNumeric": 327600
+  },
+  "commercialTiers": [
+    {
+      "tierName": "Tier 1: Speed & Lead-Capture Starter Sprint",
+      "investment": "$1,800 CAD (One-Time Execution)",
+      "deliveryTimeline": "14 Calendar Days",
+      "targetOutcome": "Remediate top 3 severe conversion leaks & achieve sub-150ms TTFB",
+      "scopeOfWork": [
+        "Complete Jamstack & Eleventy re-architecture cutting TTFB to < 150ms",
+        "Mobile 320px viewport optimization & 48px touch target compliance",
+        "1-Tap instant calendar booking integration anchored to company schedule",
+        "5-Layer Schema.org JSON-LD graph (Organization, Service, FAQPage)",
+        "Canonical llms.txt AI search manifest deployment"
+      ],
+      "paymentSchedule": "50% deposit upon signing ($900), 50% upon verified production cutover ($900)"
+    },
+    {
+      "tierName": "Tier 2: Autonomous Growth & 24/7 Voice Dispatch Retainer",
+      "investment": "$3,500 CAD / Month (or $950 CAD / Month without Telephony)",
+      "deliveryTimeline": "Ongoing Monthly Operation (30-Day Cancellation Notice)",
+      "targetOutcome": "Recapture estimated $27,300/mo after-hours revenue bleed",
+      "scopeOfWork": [
+        "Everything in Tier 1 Starter Sprint included in Month 1",
+        "24/7 AI Voice Dispatch Receptionist answering inbound calls in < 2 rings",
+        "Instant on-call technician SMS dispatch and CRM (ServiceTitan/Jobber) synchronization",
+        "Competitor Displacement Radar scanning Position 8-20 Google Search Console opportunities",
+        "Bi-weekly copy-ready founder thought leadership content queue (LinkedIn & Dev.to)",
+        "Monthly ROI telemetry report quantifying verified captured revenue"
+      ],
+      "paymentSchedule": "Monthly recurring credit card or EFT, billed on the 1st of each calendar month"
+    },
+    {
+      "tierName": "Tier 3: Custom Enterprise Multi-Agent Swarm",
+      "investment": "$10,000+ CAD (Custom Architecture Assessment)",
+      "deliveryTimeline": "30-45 Calendar Days",
+      "targetOutcome": "Total digital autonomy: multi-department agent swarms with custom AWS infrastructure",
+      "scopeOfWork": [
+        "Everything in Tier 2 Growth Retainer",
+        "Dedicated AWS Serverless SAM stack deployed directly into client AWS account",
+        "Private corporate RAG AI Wiki & Knowledge Base (PIPEDA zero-data-leak)",
+        "Custom multi-agent workflows (Estimating, Dispatch, Invoicing, QA Regression Hunter)",
+        "99.99% uptime SLA with dedicated architect emergency response"
+      ],
+      "paymentSchedule": "40% kickoff, 30% architecture milestone, 30% production cutover"
+    }
+  ],
+  "milestoneDeliverySchedule": [
+    {
+      "milestone": "Milestone 1: Architectural Intake & Environment Provisioning",
+      "timeline": "Days 1–3",
+      "deliverable": "Access verification, domain DNS mapping, AWS SAM / Cloudflare staging environment"
+    },
+    {
+      "milestone": "Milestone 2: Core Web Vitals & Telephony Prototype Staging",
+      "timeline": "Days 4–8",
+      "deliverable": "Sub-150ms Jamstack preview sandbox & Amazon Connect dedicated voice route"
+    },
+    {
+      "milestone": "Milestone 3: CRM Synchronization, Security & End-to-End QA",
+      "timeline": "Days 9–12",
+      "deliverable": "Full regression pass, mobile 320px verification, SMS technician dispatch test"
+    },
+    {
+      "milestone": "Milestone 4: Production Cutover & Revenue Telemetry Handover",
+      "timeline": "Days 13–14",
+      "deliverable": "Live DNS flip, zero-downtime cutover, executive briefing with Saad Sayed"
+    }
+  ],
+  "legalAndIpRider": {
+    "dataPrivacy": "Compliance with Canadian Personal Information Protection and Electronic Documents Act (PIPEDA). Zero personal client data is ever sold or transferred.",
+    "zeroPublicModelTraining": "MANDATORY ZERO-TRAINING COVENANT: Under no circumstances will client data, customer transcripts, or proprietary code be ingested or utilized to train external public foundation models (OpenAI, Anthropic, or Google). All inference occurs within zero-retention private pipelines.",
+    "intellectualProperty": "Upon full payment of invoice milestones, client receives 100% full intellectual property ownership of all custom frontend templates, schema definitions, and serverless workflow scripts.",
+    "warrantyAndSupport": "30-day comprehensive bug-fix warranty post-cutover against layout regressions or runtime errors."
+  },
+  "signOffAuthority": {
+    "agency": "LumiLore Technologies",
+    "principalArchitect": "Saad Sayed (Lead Systems Architect)",
+    "operationsLead": "Arfa Sayeed (Operations & Finance)"
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "agentId": "agent-05-voice-concierge",
+  "agentNumber": 5,
+  "timestamp": "2026-10-30T17:52:09.297Z",
+  "channel": "1-800-LUMILORE-SALES",
+  "acousticProfile": {
+    "engine": "VoiceStudio-DSP",
+    "frequencyRange": "300Hz-3400Hz (Telecom Bandpass)",
+    "saturationHarmonics": "2nd-order warm analog curve",
+    "targetLatencyMs": 650,
+    "maxTurnLatencyMs": 800,
+    "speechModel": "OpenWhispr-v3-Turbo"
+  },
+  "kpis": {
+    "totalTurns": 3,
+    "triageMetUnder3Turns": true,
+    "maxTurnLatencyMs": 410,
+    "sub800msSatisfied": true,
+    "calendarFreeBusyVerified": true
+  },
+  "deliverables": {
+    "inboundCallDialogueTree": [
+      {
+        "turn": 1,
+        "speaker": "AI Executive Assistant",
+        "message": "Hello, and thank you for calling LumiLore Technologies. I'm the Executive AI Concierge for Principal Systems Architect Saad Sayed and Operations Lead Arfa Sayeed. Are you exploring enterprise serverless cloud & agentic AI modernization, or looking to deploy 24/7 voice dispatch automation for a mechanical trades business?",
+        "latencyMs": 340,
+        "state": "TURN_2_TRIAGE"
+      },
+      {
+        "turn": 2,
+        "speaker": "Caller",
+        "message": "Hello, our enterprise AWS infrastructure is burning $45k a month and our latency is terrible."
+      },
+      {
+        "turn": 2,
+        "speaker": "AI Executive Assistant",
+        "message": "Excellent. We design serverless AWS microservices and multi-agent AI ecosystems cutting cloud waste by 68% and delivering sub-150ms TTFB. I can lock in a 20-minute architecture scoping briefing with Saad Sayed. Would tomorrow at 11:00 AM EDT or 3:00 PM EDT work best for your schedule?",
+        "latencyMs": 410,
+        "state": "TURN_3_BOOKING",
+        "detectedLens": "corporate"
+      },
+      {
+        "turn": 3,
+        "speaker": "Caller",
+        "message": "Tomorrow at 10:00 AM EDT sounds perfect for our team."
+      },
+      {
+        "turn": 3,
+        "speaker": "AI Executive Assistant",
+        "message": "Fantastic! I have locked in your architecture session with Saad Sayed for tomorrow at 10:00 AM EDT. An SMS and calendar invite have been dispatched with your private Google Meet coordinates. We look forward to meeting with you!",
+        "latencyMs": 390,
+        "state": "COMPLETED",
+        "action": "CALENDAR_LOCKED_AND_CONFIRMED"
+      }
+    ],
+    "callerQualificationPayload": {
+      "callerName": "Elena Rostova (VP Engineering, FinCore)",
+      "callerPhone": "+1-416-555-0192",
+      "audienceLens": "corporate",
+      "projectScope": "Hello, our enterprise AWS infrastructure is burning $45k a month and our latency is terrible.",
+      "triageClassification": "Enterprise Serverless Cloud & AI Agent Modernization"
+    },
+    "calendarSlotReservationRecord": {
+      "date": "2026-10-31",
+      "timeSlot": "10:00 AM EDT",
+      "lens": "corporate",
+      "host": "Saad Sayed (Principal Systems Architect)"
+    },
+    "intakeRecord": {
+      "intakeId": "LUMI-VOICE-770655",
+      "channel": "DEDICATED_SALES_VOICE_CONCIERGE",
+      "carrierNumber": "1-800-LUMILORE-SALES",
+      "callerPhone": "+1-416-555-0192",
+      "callerName": "Elena Rostova (VP Engineering, FinCore)",
+      "lens": "corporate",
+      "status": "CONFIRMED",
+      "projectScope": "Hello, our enterprise AWS infrastructure is burning $45k a month and our latency is terrible.",
+      "booking": {
+        "date": "2026-10-31",
+        "timeSlot": "10:00 AM EDT",
+        "lens": "corporate",
+        "host": "Saad Sayed (Principal Systems Architect)"
+      },
+      "pipedaCompliant": true,
+      "zeroModelTrainingGuarantee": true,
+      "createdAt": "2026-10-30T17:52:09.297Z"
+    }
+  }
+}
