@@ -2422,11 +2422,11 @@ export async function handleFleetDispatch(routePath, method, body = {}, event = 
     const clientsFile = path.resolve(process.cwd(), '.ai/memory/clients/registry.json');
     let clientsData = {
       version: '1.0.0',
-      activeClientSlug: 'apex-hvac',
+      activeClientSlug: 'lumilore',
       clients: [
-        { id: 'apex-hvac', slug: 'apex-hvac', name: 'Apex Commercial HVAC & Refrigeration', domain: 'apexhvac.ca', phone: '+1-647-555-0199', industry: 'Commercial HVAC & Refrigeration Contractors', lens: 'trades', tier: 'growth' },
-        { id: 'metro-electric', slug: 'metro-electric', name: 'Metro Electric & Power Services', domain: 'metroelectric.ca', phone: '+1-416-555-0144', industry: 'Industrial Electrical Contractors', lens: 'trades', tier: 'growth' },
-        { id: 'saas-flow', slug: 'saas-flow', name: 'SaaSFlow Technologies Inc.', domain: 'saasflow.io', phone: '+1-800-555-0188', industry: 'B2B Enterprise SaaS', lens: 'corporate', tier: 'scale' }
+        { id: 'lumilore', slug: 'lumilore', name: 'LumiLore Technologies Inc.', domain: 'lumilore.ca', phone: '+1-437-786-5864', industry: 'Autonomous AI Systems & Serverless Cloud Architecture', lens: 'corporate', tier: 'enterprise' },
+        { id: 'my-choice-auto', slug: 'my-choice-auto', name: 'My Choice Auto Services', domain: 'mychoiceautoservices.com', phone: '+1-416-555-AUTO', industry: 'Automotive Mechanical Repair & Fleet Services', lens: 'trades', tier: 'growth' },
+        { id: 'fiscalx', slug: 'fiscalx', name: 'FiscalX Advisory Services', domain: 'fiscalx.ca', phone: '+1-416-555-FISC', industry: 'Corporate Accounting, Tax Consulting & Fractional CFO Advisory', lens: 'corporate', tier: 'scale' }
       ]
     };
     if (fs.existsSync(clientsFile)) {

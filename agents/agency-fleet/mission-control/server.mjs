@@ -69,18 +69,50 @@ export class MissionControlServer {
     if (!fs.existsSync(this.clientRegistryPath)) {
       const initial = {
         version: "1.0.0",
-        activeClientSlug: "apex-hvac",
+        activeClientSlug: "lumilore",
         clients: [
           {
-            id: "apex-hvac",
-            slug: "apex-hvac",
-            name: "Apex Commercial HVAC & Refrigeration",
-            domain: "apexhvac.ca",
-            phone: "+1-647-555-0199",
-            industry: "Commercial HVAC & Refrigeration Contractors",
+            id: "lumilore",
+            slug: "lumilore",
+            name: "LumiLore Technologies Inc.",
+            companyName: "LumiLore Technologies Inc.",
+            domain: "lumilore.ca",
+            websiteUrl: "https://www.lumilore.ca/",
+            phone: "+1-437-786-5864",
+            industry: "Autonomous AI Systems & Serverless Cloud Architecture",
+            lens: "corporate",
+            tier: "enterprise",
+            notes: "Flagship Mother Platform. 19-operative autonomous agency swarm, sub-150ms Jamstack, 68% AWS cloud waste reduction, 100/100 PageSpeed.",
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString()
+          },
+          {
+            id: "my-choice-auto",
+            slug: "my-choice-auto",
+            name: "My Choice Auto Services",
+            companyName: "My Choice Auto Services",
+            domain: "mychoiceautoservices.com",
+            websiteUrl: "https://www.mychoiceautoservices.com/",
+            phone: "+1-416-555-AUTO",
+            industry: "Automotive Mechanical Repair & Fleet Services",
             lens: "trades",
             tier: "growth",
-            notes: "Large commercial contractor with 14 technician trucks. Experiencing 3.4s TTFB on WordPress and after-hours call leakages.",
+            notes: "Automotive trades & dispatch. Sub-second booking routing to lead mechanic SMS, 24/7 emergency roadside voice triage, eliminating front-desk friction.",
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString()
+          },
+          {
+            id: "fiscalx",
+            slug: "fiscalx",
+            name: "FiscalX Advisory Services",
+            companyName: "FiscalX Advisory Services",
+            domain: "fiscalx.ca",
+            websiteUrl: "https://www.fiscalx.ca/",
+            phone: "+1-416-555-FISC",
+            industry: "Corporate Accounting, Tax Consulting & Fractional CFO Advisory",
+            lens: "corporate",
+            tier: "scale",
+            notes: "Enterprise client portal, digital intake forms, project Kanban, autonomous invoice recovery, Canadian PIPEDA compliance.",
             createdAt: new Date().toISOString(),
             updatedAt: new Date().toISOString()
           }
@@ -100,7 +132,7 @@ export class MissionControlServer {
       const raw = fs.readFileSync(this.clientRegistryPath, 'utf8');
       return JSON.parse(raw);
     } catch {
-      return { version: "1.0.0", activeClientSlug: "apex-hvac", clients: [] };
+      return { version: "1.0.0", activeClientSlug: "lumilore", clients: [] };
     }
   }
 
@@ -632,14 +664,14 @@ export class MissionControlServer {
         }
 
         const sequenceId = payload.sequenceId || payload.sequence || 'pitch-to-close';
-        const clientSlug = payload.clientSlug || this.getActiveClient()?.slug || 'apex-hvac';
+        const clientSlug = payload.clientSlug || this.getActiveClient()?.slug || 'lumilore';
         const client = this.getClient(clientSlug) || this.getActiveClient() || {
-          name: 'Apex Commercial HVAC & Refrigeration',
-          domain: 'apexhvac.ca',
-          phone: '+1-647-555-0199',
-          industry: 'Commercial HVAC & Refrigeration Contractors',
-          lens: 'trades',
-          tier: 'growth'
+          name: 'LumiLore Technologies Inc.',
+          domain: 'lumilore.ca',
+          phone: '+1-437-786-5864',
+          industry: 'Autonomous AI Systems & Serverless Cloud Architecture',
+          lens: 'corporate',
+          tier: 'enterprise'
         };
 
         const isDryRun = payload.dryRun !== undefined ? !!payload.dryRun : true;
@@ -664,7 +696,7 @@ export class MissionControlServer {
           this.broadcastSSE('sequence_step', { sequenceId, step: 1, totalSteps: 3, agentId: agent06.id, status: 'RUNNING' });
           const t06 = Date.now();
           const res06 = await this.engine.executeAgent(agent06.id, {
-            targetUrl: client.domain || 'apexhvac.ca',
+            targetUrl: client.domain || 'lumilore.ca',
             businessType: client.industry,
             auditDepth: payload.auditDepth || 'full'
           }, { dryRun: isDryRun, preferredProvider });
@@ -816,7 +848,7 @@ export class MissionControlServer {
           this.broadcastSSE('sequence_step', { sequenceId, step: 1, totalSteps: 3, agentId: agent01.id, status: 'RUNNING' });
           const t01 = Date.now();
           const res01 = await this.engine.executeAgent(agent01.id, {
-            domain: client.domain || 'apexhvac.ca',
+            domain: client.domain || 'lumilore.ca',
             industry: client.industry
           }, { dryRun: isDryRun, preferredProvider });
           const dur01 = Date.now() - t01;

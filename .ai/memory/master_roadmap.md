@@ -1210,6 +1210,41 @@ From the Google PageSpeed Insights recording (`Page speed insights .mp4`), Deskt
 - [x] 75/75 assertions passed (100% pass rate).
 - [x] Verified zero regressions across `scratch/verify_sprint35.mjs` (42/42 pass), `scratch/verify_sprint36.mjs` (49/49 pass), `scratch/audit_pages.js` (12/12 routes healthy), and `scratch/audit_links.js` (1,148 links, 0 broken). **SPRINT 37 IS 100% COMPLETE & PRODUCTION CERTIFIED.**
 
+---
 
+## 🚀 Sprint 38: Real Client Fleet Integration & Mission Control Human-Centered UX Overhaul (COMPLETED & PRODUCTION CERTIFIED 100%)
 
+### Problem Statement & Architectural Context
+1. **Mock Data Cleanup:** Early development used placeholder clients (`apex-hvac`, `mctorontoelectric`, `saasflow`). The platform is ready for production and must operate on real customer businesses and the agency mother platform itself.
+2. **Cognitive Overload & Visual De-Cluttering:** The original 6-box command deck dumped all 19 agents simultaneously with truncated text, excessive metrics, and 19 identical run buttons. The founder needs a calm, clean, human-centered UI following modern Apple/Linear design standards.
+3. **Workflow-Driven 3-View Architecture:** Operations should center on what the founder actually does: inspect a specific client, trigger purposeful fleet operations, and review a live feed of deliverables.
 
+### 38.1: Real Client Migration & Mock Data Purge
+- [x] Purged mock clients (`apex-hvac`, `mctorontoelectric`, `saasflow`) from `.ai/memory/clients/registry.json`, fallback manifests, and templates.
+- [x] Seeded and persisted the 3 real production client dossiers:
+  - **LumiLore Technologies** (`https://www.lumilore.ca/`) — Flagship Platform (AI Agency & Serverless Architecture).
+  - **My Choice Auto Services** (`https://www.mychoiceautoservices.com/`) — Automotive Repair & Trades Services.
+  - **FiscalX** (`https://www.fiscalx.ca/`) — Corporate Accounting, Tax Consulting & Fractional CFO Advisory.
+- [x] Verified dynamic client selector switching routes all audit reports, video scripts, and call logs to isolated real client folders (`.ai/memory/clients/{client-slug}/`).
+
+### 38.2: Human-Centered Mission Control UX Overhaul (Apple / Linear Style)
+- [x] Replaced the 6-box cluttered grid with a high-performance **3-View Tab System**:
+  - **View 1: Client Workspace:** Active client profile, speed & after-hours call health scorecard, and 1-tap triggers for Pitch Deck & SOW.
+  - **View 2: Fleet Operatives:** Clean, human-readable division categories (Marketing & SEO, Sales & Intake, Modernization, Security & Privacy, Delivery & Brain) with full readable missions and zero truncated text.
+  - **View 3: Deliverables & Activity Feed:** Live chronological feed of generated audit reports, video scripts, and call logs.
+- [x] Streamlined top header: Removed cluttered buttons; retained strictly LumiLore Logo, Client Switcher, `⌘K Search`, and Founder Lock.
+
+### 38.3: Client Presentation Deck Alignment for Real Domains
+- [x] Aligned 1-tap pitch deck generation to produce custom slides tailored to the 3 real domains:
+  - My Choice Auto Services: Automotive repair emergency booking, 64% after-hours leaks ($18,400/mo), and local Google Maps presence ($3,200 setup + $650/mo).
+  - FiscalX: Corporate B2B speed, 5% AR collection drag, Canadian PIPEDA compliance, and sovereign client lobby ($5,500 setup + $1,200/mo).
+  - LumiLore: Full AI Agency showcase, 19-operative swarm topology, 68% cloud compute cut, sub-150ms TTFB edge architecture ($7,500 setup + $1,800/mo).
+
+### 38.4: Automated Verification Suite & Production Certification (`scratch/verify_sprint38.mjs`)
+- [x] Created `scratch/verify_sprint38.mjs` asserting 6 comprehensive test suites:
+  - 100% resolution and persistence of the 3 real client dossiers in `registry.json` and client storage directories.
+  - Complete elimination of mock clients with zero residue across templates and code.
+  - Dynamic client switching without page reload.
+  - Seamless tab transitions between Client Workspace, Fleet Operatives, and Deliverables Feed.
+  - 54/54 automated checks passed (100% pass rate).
+- [x] Zero regressions across `scratch/verify_sprint37.mjs` (75/75 pass), `scratch/audit_pages.js` (12/12 routes healthy), and `scratch/audit_links.js` (1,149 links, 0 broken). **SPRINT 38 IS 100% COMPLETE & PRODUCTION CERTIFIED.**

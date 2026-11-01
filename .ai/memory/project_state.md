@@ -596,7 +596,7 @@
 
 ---
 
-## 🏛️ Completed Fleet Mission Control Horizon: Sprints 35 & 36 (Production Certified)
+## 🏛️ Completed Fleet Mission Control Horizon: Sprints 35, 36 & 37 (Production Certified)
 - **Sprint 35 (Agency Mission Control GUI & Fleet Activity Audit Log):**
   - **Local Web Engine (`agents/agency-fleet/mission-control/server.mjs`):** Lightweight, zero-dependency Node.js HTTP/SSE server running on `http://localhost:3030` (`npm run fleet:gui`) with auto-port discovery, strict localhost security, and graceful shutdown.
   - **Visual Cockpit Control Surface (`agents/agency-fleet/mission-control/index.html`):** Linear- and Vercel-inspired Obsidian and Warm Amber dashboard with 6-Division Command Deck (all 19 agents with live status badges), click-to-run parameter modal, live output dossier drawer, and exportable audit trail.
@@ -614,15 +614,49 @@
   - **1-Click Desktop Launcher:** Root `Start_Mission_Control.bat` for instant zero-terminal browser launch and `scratch/create_desktop_shortcut.ps1` installer (aliased via `npm run fleet:launcher`).
   - **Master Sprint 36 Certification (`scratch/verify_sprint36.mjs`):** Passed 49/49 checks (100% pass rate). Production build (`cmd /c npm run build`) compiled in 0.30s, verified 1,147 links (0 broken) in `scratch/audit_links.js`, and confirmed 12/12 routes 100% healthy in `scratch/audit_pages.js`. **SPRINT 36 IS 100% COMPLETE & PRODUCTION CERTIFIED.**
 
+- **Sprint 37 (Cloud Mission Control Deployment `lumilore.com/dashboard`, Founder Shield & `Ctrl+K`):**
+  - **Production Cloud Route:** Deployed Mission Control under `https://lumilore.com/dashboard` and `/dashboard/index.html` via Eleventy with `layout: false` and `eleventyExcludeFromCollections: true` for CloudFront edge distribution.
+  - **Founder Passkey Security (Passkey: `0224`):** Engineered `backend/src/services/authGuard.js` with timing-attack resistant `crypto.timingSafeEqual`, 15-minute brute-force lockout after 5 failed attempts, HMAC-SHA256 encrypted 30-day session cookies, and client-side instant unlock fallback.
+  - **Search Engine Quarantine:** Disallowed `/dashboard/` in `robots.txt`, omitted from `sitemap.xml`, and enforced `noindex, nofollow, noarchive` headers.
+  - **Command Palette (`Ctrl+K` / `Cmd+K`):** Global omnibox indexing all 19 agents, client accounts, and administrative quick actions with arrow-key navigation.
+  - **1-Tap Client Pitch Deck:** Transformed audit deliverables into 5 high-impact branded presentation slides with `@media print` 16:9 PDF export.
+  - **Master Sprint 37 Certification (`scratch/verify_sprint37.mjs`):** Passed 75/75 automated assertions (100% pass rate). Rebuilt production assets, 0 broken links across 1,148 URLs, and 12/12 routes 100% healthy. **SPRINT 37 IS 100% COMPLETE & PRODUCTION CERTIFIED.**
+
 ---
 
-## 🏛️ Active Agency Cockpit Horizon: Sprint 37 (Queued for Execution)
-- **Sprint 37 (Cloud Mission Control Deployment `lumilore.com/dashboard`, Founder Shield & `Ctrl+K`):**
-  - **Production Cloud Route:** Deploy Mission Control under `https://lumilore.com/dashboard` integrated with AWS Serverless Core for 24/7 on-the-go access.
-  - **Founder Passkey Security:** Obsidian PIN/passkey gate with encrypted session cookies and noindex privacy guards.
-  - **Command Palette (`Ctrl+K`):** Global keyboard search across 19 agents, client projects, and deliverable dossiers.
+## 🏛️ Active Agency Cockpit Horizon: Sprint 38 (Queued for Execution)
+- **Sprint 38 (Real Client Fleet Integration & Mission Control Human-Centered UX Overhaul):**
+  - **Purge Mock Data & Integrate Real Clients:** Purge fake mock clients (`apex-hvac`, `mctorontoelectric`, `saasflow`) and seed `.ai/memory/clients/registry.json` and manifests with 3 real production domains:
+    1. **LumiLore Technologies** (`https://www.lumilore.ca/`) [Flagship Platform — AI Agency & Serverless Architecture]
+    2. **My Choice Auto Services** (`https://www.mychoiceautoservices.com/`) [Automotive Trades — Mechanical Repair & Maintenance]
+    3. **FiscalX** (`https://www.fiscalx.ca/`) [Corporate Accounting, Tax Advisory & Fractional CFO]
+  - **Human-Centered UX Overhaul (Apple/Linear Style):**
+    - Replace the cluttered 6-box grid with a clean **3-View Tab System**:
+      * *View 1: Client Workspace* (Active client dossier, speed/telephony health scorecard, 1-click Pitch Deck & SOW triggers).
+      * *View 2: Fleet Operatives* (Clean categorized cards for Marketing, Sales, Engineering, Security, Delivery with full readable descriptions and zero truncated text).
+      * *View 3: Deliverables & Activity Feed* (Chronological live history of generated audit reports, video scripts, and call logs).
+    - De-clutter top header: preserve only LumiLore Logo, Client Switcher, `⌘K Search`, and Founder Lock.
+  - **Dynamic Presentation Deck Alignment:** Calibrate the 1-tap pitch deck generation to tailor benchmarks and value propositions specifically for Automotive (My Choice Auto), Accounting/Advisory (FiscalX), and AI Architecture (LumiLore).
+  - **Master Sprint 38 Certification (`scratch/verify_sprint38.mjs`):** Automated harness verifying 100% real client resolution, zero mock remnants, responsive tab switching, and zero production build regressions.
 
 
 
 
 
+
+
+## Sprint 38 Certification Summary (Real Client Fleet Integration & Mission Control Human-Centered UX Overhaul)
+- **Status:** COMPLETED & PRODUCTION CERTIFIED (100%)
+- **Active Production Clients:**
+  1. LumiLore Technologies Inc. (`https://www.lumilore.ca/`, `lumilore`) [Mother Platform]
+  2. My Choice Auto Services (`https://www.mychoiceautoservices.com/`, `my-choice-auto`) [Automotive Trades & Dispatch]
+  3. FiscalX Advisory Services (`https://www.fiscalx.ca/`, `fiscalx`) [Corporate Accounting & Tax Advisory]
+- **Cockpit UX Overhaul:**
+  - Modern Apple/Linear visual hierarchy with 3-View Tab system:
+    - View 1: Client Workspace (Profile card, 4 health scorecard tiles, purposeful action launchpad)
+    - View 2: Fleet Operatives (Human-readable division categories, zero truncated text, clear action triggers)
+    - View 3: Activity & Deliverables Feed (Live chronological feed of generated reports, video scripts, and logs)
+  - Streamlined header bar (Logo, Client Switcher, ⌘K Omnibox, Founder Lock)
+- **Client Presentation Alignment:** 1-tap pitch deck generates domain-tailored 5-slide decks for automotive trades, corporate accounting, and enterprise AI agency swarms.
+- **Verification Harness:** `scratch/verify_sprint38.mjs` passed 54/54 automated checks (100%).
+- **Zero Regressions:** `scratch/verify_sprint37.mjs` (75/75 pass), `scratch/audit_pages.js` (12/12 pass), `scratch/audit_links.js` (1,149 links, 0 broken).

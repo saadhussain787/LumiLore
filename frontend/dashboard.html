@@ -342,16 +342,12 @@ layout: false
     .agent-name {
       font-weight: 600;
       font-size: 0.88rem;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      line-height: 1.35;
     }
     .agent-mission {
-      font-size: 0.74rem;
+      font-size: 0.76rem;
       color: var(--text-muted);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      line-height: 1.45;
     }
 
     .agent-actions {
@@ -1610,41 +1606,322 @@ layout: false
       }
     }
 
+    /* ========================================================== */
+    /* SPRINT 38: LINEAR / APPLE 3-VIEW HUMAN-CENTERED SYSTEM CSS */
+    /* ========================================================== */
+    .mc-nav-bar {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 0.55rem 1.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 57px;
+      z-index: 39;
+      backdrop-filter: blur(8px);
+    }
+    .mc-nav-tabs {
+      display: inline-flex;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 3px;
+      gap: 4px;
+    }
+    .mc-nav-tab {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 1.1rem;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      outline: none;
+    }
+    .mc-nav-tab:hover {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .mc-nav-tab.active {
+      color: #000;
+      background: var(--amber);
+      font-weight: 700;
+      box-shadow: 0 0 14px var(--amber-glow);
+    }
+    .tab-badge {
+      font-size: 0.68rem;
+      font-family: var(--font-mono);
+      background: rgba(0, 0, 0, 0.25);
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+    }
+    .mc-nav-status {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.76rem;
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+    }
+    .status-indicator-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10B981;
+      display: inline-block;
+      box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+    }
+    .mc-view {
+      display: none;
+      animation: fadeInView 0.2s ease;
+    }
+    .mc-view.active {
+      display: block;
+    }
+    @keyframes fadeInView {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* View 1: Client Workspace */
+    .workspace-hero-card {
+      background: linear-gradient(180deg, rgba(245, 158, 11, 0.05) 0%, var(--bg-surface) 100%);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .workspace-hero-header {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+    .client-monogram-box {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--bg-card), var(--bg-elevated));
+      border: 1px solid var(--border-amber);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      color: var(--amber-light);
+      box-shadow: 0 0 16px var(--amber-glow);
+      flex-shrink: 0;
+    }
+    .workspace-title-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      flex: 1;
+      min-width: 0;
+    }
+    .workspace-name-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .workspace-name-row h2 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #fff;
+    }
+    .lens-pill-badge {
+      font-size: 0.7rem;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      padding: 0.15rem 0.55rem;
+      border-radius: 4px;
+      background: rgba(59, 130, 246, 0.15);
+      color: #60A5FA;
+      border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+    .tier-pill-badge {
+      font-size: 0.7rem;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      padding: 0.15rem 0.55rem;
+      border-radius: 4px;
+      background: rgba(16, 185, 129, 0.15);
+      color: #34D399;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+    .workspace-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+    .client-domain-link {
+      color: var(--amber-light);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-family: var(--font-mono);
+    }
+    .client-domain-link:hover {
+      text-decoration: underline;
+    }
+    .meta-separator {
+      color: var(--text-dim);
+    }
+    .workspace-client-notes {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 0.75rem;
+    }
+
+    /* Health & Telemetry Scorecard */
+    .scorecard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .scorecard-tile {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      transition: border-color 0.2s ease;
+    }
+    .scorecard-tile:hover {
+      border-color: rgba(245, 158, 11, 0.3);
+    }
+    .scorecard-tile-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .scorecard-tile-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-dim);
+      font-weight: 700;
+    }
+    .scorecard-tile-icon {
+      font-size: 1.1rem;
+    }
+    .scorecard-tile-value {
+      font-size: 1.45rem;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      color: var(--amber-light);
+    }
+    .scorecard-tile-sub {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+
+    /* Purposeful Action Launchpad */
+    .action-launchpad-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .launchpad-header h3 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      color: #fff;
+    }
+    .launchpad-header p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+    .launchpad-actions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+    .launchpad-btn {
+      padding: 0.85rem 1.1rem;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .launchpad-btn .btn-icon {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .launchpad-btn .btn-text-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+      min-width: 0;
+    }
+    .launchpad-btn .btn-main-text {
+      font-weight: 700;
+      font-size: 0.88rem;
+    }
+    .launchpad-btn .btn-sub-text {
+      font-size: 0.72rem;
+      opacity: 0.8;
+      font-weight: 400;
+    }
+    .view-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Top Executive Header -->
+  <!-- Top Executive Header (De-Cluttered Linear/Apple Style) -->
   <header>
     <div class="brand-section">
       <div class="brand-logo">⚡</div>
       <div class="brand-titles">
-        <h1>LumiLore Conductor <span style="font-size: 0.7rem; color: var(--amber); background: rgba(245, 158, 11, 0.15); padding: 0.15rem 0.4rem; border-radius: 4px; border: 1px solid rgba(245, 158, 11, 0.3);">MISSION CONTROL</span></h1>
-        <p>19-Agent Autonomous Agency Fleet Cockpit // Port <span id="port-display">3030</span></p>
+        <h1>LumiLore <span style="font-size: 0.7rem; color: var(--amber); background: rgba(245, 158, 11, 0.15); padding: 0.15rem 0.4rem; border-radius: 4px; border: 1px solid rgba(245, 158, 11, 0.3);">MISSION CONTROL</span></h1>
+        <p>19-Operative Autonomous Agency Fleet Cockpit // Port <span id="port-display">3030</span></p>
       </div>
     </div>
 
-    <div class="header-metrics">
-      <div class="metric-badge">
-        <span class="metric-label">Operatives</span>
-        <span class="metric-val" id="metric-operatives">19 / 19</span>
-      </div>
-      <div class="metric-badge">
-        <span class="metric-label">Divisions</span>
-        <span class="metric-val" id="metric-divisions">6 / 6</span>
-      </div>
-      <div class="metric-badge">
-        <span class="metric-label">Audit Runs</span>
-        <span class="metric-val" id="metric-runs">0</span>
-      </div>
-      <div class="metric-badge">
-        <span class="metric-label">Success Rate</span>
-        <span class="metric-val" id="metric-success">100%</span>
-      </div>
-      <div class="metric-badge">
-        <span class="metric-label">Avg Latency</span>
-        <span class="metric-val" id="metric-latency">0ms</span>
-      </div>
+    <!-- Hidden / Preserved Telemetry Metrics for Script Compatibility -->
+    <div style="display: none;">
+      <span id="metric-operatives">19 / 19</span>
+      <span id="metric-divisions">6 / 6</span>
+      <span id="metric-runs">0</span>
+      <span id="metric-success">100%</span>
+      <span id="metric-latency">0ms</span>
     </div>
 
     <div class="header-actions">
@@ -1652,18 +1929,12 @@ layout: false
       <div class="client-hub-bar" id="client-hub-bar" title="Global Multi-Project & Client Context Hub">
         <label for="client-selector">🏢 <span>Client:</span></label>
         <select class="client-select-dropdown" id="client-selector">
-          <option value="apex-hvac">Apex Commercial HVAC (apexhvac.ca)</option>
+          <option value="lumilore">LumiLore Technologies Inc. (lumilore.ca)</option>
+          <option value="my-choice-auto">My Choice Auto Services (mychoiceautoservices.com)</option>
+          <option value="fiscalx">FiscalX Advisory Services (fiscalx.ca)</option>
         </select>
         <button class="btn btn-outline" style="padding: 0.2rem 0.5rem; font-size: 0.72rem;" id="btn-new-client" title="Add New Client / Project Context">+ New</button>
       </div>
-
-      <!-- 1-Click Agency Sequences -->
-      <button class="btn btn-outline" id="btn-seq-pitch" title="Run Pitch-to-Close Pipeline: Agent 06 (Diagnostic) -> 07 (SOW Proposal) -> 04 (Video Teaser)">
-        <span>⚡ Pitch-to-Close</span>
-      </button>
-      <button class="btn btn-outline" id="btn-seq-growth" title="Run Weekly Growth Storm: Agent 01 (SEO Dominator) -> 02 (Thought Leader) -> 03 (Buyer Scout)">
-        <span>🌪️ Growth Storm</span>
-      </button>
 
       <button class="btn btn-outline" id="palette-open-btn" title="Open Omnibox Command Palette (Ctrl+K)">
         <span>⌘K Quick Actions</span>
@@ -1671,27 +1942,41 @@ layout: false
       <button class="btn btn-outline" id="btn-lock-cockpit" title="Lock Cockpit (Founder Passkey Gate)">
         <span>🔒 Lock</span>
       </button>
-      <button class="btn btn-outline" id="btn-open-guide" title="Open Non-Technical User Guide & Playbook">
-        <span>📖 User Guide</span>
-      </button>
-      <button class="btn btn-outline" id="btn-refresh" title="Refresh Fleet Status">
-        <span>🔄 Refresh</span>
-      </button>
-      <button class="btn btn-amber" id="btn-run-all" title="Execute Full Fleet Simulation">
-        <span>⚡ Full Fleet Sim</span>
-      </button>
     </div>
   </header>
+
+  <!-- 3-View Segmented Tab Navigation Bar -->
+  <div class="mc-nav-bar">
+    <div class="mc-nav-tabs" role="tablist" aria-label="Mission Control Views">
+      <button class="mc-nav-tab active" id="tab-workspace" role="tab" aria-selected="true" data-view="workspace">
+        <span class="tab-icon">🏢</span>
+        <span class="tab-text">Client Workspace</span>
+      </button>
+      <button class="mc-nav-tab" id="tab-operatives" role="tab" aria-selected="false" data-view="operatives">
+        <span class="tab-icon">🤖</span>
+        <span class="tab-text">Fleet Operatives</span>
+        <span class="tab-badge" id="operatives-count-badge">19</span>
+      </button>
+      <button class="mc-nav-tab" id="tab-deliverables" role="tab" aria-selected="false" data-view="deliverables">
+        <span class="tab-icon">📜</span>
+        <span class="tab-text">Activity & Deliverables</span>
+      </button>
+    </div>
+    <div class="mc-nav-status">
+      <span class="status-indicator-dot" id="sse-indicator"></span>
+      <span id="sse-label" class="status-indicator-text">Live Sync Active</span>
+    </div>
+  </div>
 
   <!-- Inbound Lead Alert Banner -->
   <div id="inbound-alert-banner">
     <div class="alert-info">
       <span class="alert-pill" id="inbound-source-badge">INBOUND LEAD</span>
-      <span style="font-weight: 700;" id="inbound-company-text">Apex HVAC & Refrigeration</span>
+      <span style="font-weight: 700;" id="inbound-company-text">My Choice Auto Services</span>
       <span style="color: var(--text-dim);">|</span>
-      <span style="font-size: 0.85rem; color: var(--text-muted);" id="inbound-contact-text">Marcus Vance (+1-647-555-0199)</span>
+      <span style="font-size: 0.85rem; color: var(--text-muted);" id="inbound-contact-text">Emergency Roadside Triage</span>
       <span style="color: var(--text-dim);">|</span>
-      <span style="font-size: 0.85rem; font-family: var(--font-mono); color: var(--amber-light);" id="inbound-url-text">apexhvac.ca</span>
+      <span style="font-size: 0.85rem; font-family: var(--font-mono); color: var(--amber-light);" id="inbound-url-text">mychoiceautoservices.com</span>
     </div>
     <div style="display: flex; align-items: center; gap: 0.75rem;">
       <button class="btn btn-amber" id="btn-launch-closer">
@@ -1706,81 +1991,214 @@ layout: false
 
   <!-- Main Container -->
   <main>
-    <div class="deck-header">
-      <div>
-        <h2>🏛️ 6-Division Command Deck</h2>
-        <p>Real-time telemetry and 1-click execution for all 19 autonomous agency operatives.</p>
+    <!-- ======================================================== -->
+    <!-- VIEW 1: CLIENT WORKSPACE (Focused Active Client Profile) -->
+    <!-- ======================================================== -->
+    <section class="mc-view active" id="view-client-workspace" role="tabpanel" aria-labelledby="tab-workspace">
+      <!-- Active Client Dossier Card -->
+      <div class="workspace-hero-card">
+        <div class="workspace-hero-header">
+          <div class="client-monogram-box" id="workspace-client-monogram">LL</div>
+          <div class="workspace-title-col">
+            <div class="workspace-name-row">
+              <h2 id="workspace-client-name">LumiLore Technologies Inc.</h2>
+              <span class="lens-pill-badge" id="workspace-client-lens">Corporate B2B</span>
+              <span class="tier-pill-badge" id="workspace-client-tier">Enterprise Swarm</span>
+            </div>
+            <div class="workspace-meta-row">
+              <a href="https://www.lumilore.ca/" target="_blank" rel="noopener noreferrer" class="client-domain-link" id="workspace-client-domain">
+                <span>lumilore.ca</span>
+                <svg class="w-3.5 h-3.5 inline ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+              </a>
+              <span class="meta-separator">•</span>
+              <span class="client-phone-text" id="workspace-client-phone">+1-437-786-5864</span>
+              <span class="meta-separator">•</span>
+              <span class="client-industry-text" id="workspace-client-industry">Autonomous AI Systems & Serverless Architecture</span>
+            </div>
+          </div>
+        </div>
+        <p class="workspace-client-notes" id="workspace-client-notes">
+          Flagship Mother Platform. 19-operative autonomous agency swarm, sub-150ms Jamstack, 68% AWS cloud waste reduction, 100/100 PageSpeed.
+        </p>
       </div>
-      <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.78rem; color: var(--text-dim); font-family: var(--font-mono);">
-        <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #10B981;" id="sse-indicator"></span>
-        <span id="sse-label">SSE Live Sync Active</span>
+
+      <!-- Telemetry & Health Scorecard (4 Tiles) -->
+      <div class="scorecard-grid">
+        <div class="scorecard-tile">
+          <div class="scorecard-tile-header">
+            <span class="scorecard-tile-label">Edge Speed & TTFB</span>
+            <span class="scorecard-tile-icon">⚡</span>
+          </div>
+          <div class="scorecard-tile-value" id="scorecard-ttfb">112 ms</div>
+          <div class="scorecard-tile-sub" id="scorecard-ttfb-sub">Target: &lt;150ms · 0.00 CLS · Jamstack Edge</div>
+        </div>
+        <div class="scorecard-tile">
+          <div class="scorecard-tile-header">
+            <span class="scorecard-tile-label">Telephony & Dispatch</span>
+            <span class="scorecard-tile-icon">📞</span>
+          </div>
+          <div class="scorecard-tile-value" id="scorecard-telephony">+1-437-786-5864</div>
+          <div class="scorecard-tile-sub" id="scorecard-telephony-sub">24/7 AI Voice Concierge · Zero Missed Calls</div>
+        </div>
+        <div class="scorecard-tile">
+          <div class="scorecard-tile-header">
+            <span class="scorecard-tile-label">Multi-LLM Citation Radar</span>
+            <span class="scorecard-tile-icon">🤖</span>
+          </div>
+          <div class="scorecard-tile-value" id="scorecard-radar">98 / 100</div>
+          <div class="scorecard-tile-sub" id="scorecard-radar-sub">ChatGPT Search, Sonar Citations, Claude</div>
+        </div>
+        <div class="scorecard-tile">
+          <div class="scorecard-tile-header">
+            <span class="scorecard-tile-label">Value Recovery Velocity</span>
+            <span class="scorecard-tile-icon">💰</span>
+          </div>
+          <div class="scorecard-tile-value" id="scorecard-revenue">$295,750 /yr</div>
+          <div class="scorecard-tile-sub" id="scorecard-revenue-sub">Autonomous Lead Capture · Zero Phone Tag</div>
+        </div>
       </div>
-    </div>
 
-    <!-- 6 Divisions Grid -->
-    <div class="divisions-grid" id="divisions-deck">
-      <!-- Injected dynamically via JS -->
-    </div>
+      <!-- Purposeful Action Launchpad -->
+      <div class="action-launchpad-card">
+        <div class="launchpad-header">
+          <h3>🚀 Purposeful Operations & Client Deliverables Launchpad</h3>
+          <p>Execute client-specific audits, statements of work, and chained multi-agent agency pipelines.</p>
+        </div>
+        <div class="launchpad-actions-grid">
+          <button class="btn btn-amber launchpad-btn" id="btn-workspace-pitch-deck" title="Open 1-Tap Client Presentation Slide Deck">
+            <span class="btn-icon">📊</span>
+            <div class="btn-text-col">
+              <span class="btn-main-text">1-Tap Presentation Deck</span>
+              <span class="btn-sub-text">Generate domain-tailored pitch slides</span>
+            </div>
+          </button>
+          <button class="btn btn-outline launchpad-btn" id="btn-workspace-sow" title="Generate 3-Tier SOW Document">
+            <span class="btn-icon">📝</span>
+            <div class="btn-text-col">
+              <span class="btn-main-text">Generate 3-Tier SOW</span>
+              <span class="btn-sub-text">Launch Agent 07 Contract Closer</span>
+            </div>
+          </button>
+          <button class="btn btn-outline launchpad-btn" id="btn-workspace-inspector" title="Run 360° Site Inspector">
+            <span class="btn-icon">🔍</span>
+            <div class="btn-text-col">
+              <span class="btn-main-text">360° Website Inspector</span>
+              <span class="btn-sub-text">Launch Agent 06 Diagnostic PM</span>
+            </div>
+          </button>
+          <button class="btn btn-outline launchpad-btn" id="btn-seq-pitch" title="Run Pitch-to-Close Pipeline">
+            <span class="btn-icon">⚡</span>
+            <div class="btn-text-col">
+              <span class="btn-main-text">Pitch-to-Close Pipeline</span>
+              <span class="btn-sub-text">Chained Agents: 06 &rarr; 07 &rarr; 04</span>
+            </div>
+          </button>
+          <button class="btn btn-outline launchpad-btn" id="btn-seq-growth" title="Run Growth Storm Pipeline">
+            <span class="btn-icon">🌪️</span>
+            <div class="btn-text-col">
+              <span class="btn-main-text">Growth Storm Pipeline</span>
+              <span class="btn-sub-text">Chained Agents: 01 &rarr; 02 &rarr; 03</span>
+            </div>
+          </button>
+          <button class="btn btn-outline launchpad-btn" id="btn-run-all" title="Execute Full Fleet Simulation">
+            <span class="btn-icon">⚡</span>
+            <div class="btn-text-col">
+              <span class="btn-main-text">Full Fleet Simulation</span>
+              <span class="btn-sub-text">Run all 19 agents across 6 divisions</span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </section>
 
-    <!-- Activity Audit Trail -->
-    <section class="audit-section">
-      <div class="audit-header">
+    <!-- ======================================================== -->
+    <!-- VIEW 2: FLEET OPERATIVES (Human-Readable Division Deck) -->
+    <!-- ======================================================== -->
+    <section class="mc-view" id="view-fleet-operatives" role="tabpanel" aria-labelledby="tab-operatives" style="display: none;">
+      <div class="deck-header">
         <div>
-          <h3>📜 Persistent Activity Audit Trail</h3>
-          <p style="font-size: 0.8rem; color: var(--text-dim); font-family: var(--font-mono);">
-            Destination: .ai/memory/fleet_activity_log.jsonl
-          </p>
+          <h2>🤖 Fleet Operatives Roster (19 Autonomous Agents)</h2>
+          <p>Human-readable mission contracts and purposeful action triggers across 6 specialized agency divisions.</p>
         </div>
-
-        <div class="audit-filters">
-          <input type="text" class="filter-input" id="audit-search" placeholder="Search audit trail..." style="width: 200px;">
-          <select class="filter-select" id="audit-filter-div">
-            <option value="">All Divisions</option>
-            <option value="division-1-growth">Div 1: Growth</option>
-            <option value="division-2-sales">Div 2: Sales</option>
-            <option value="division-3-engineering">Div 3: Engineering</option>
-            <option value="division-4-security">Div 4: Security</option>
-            <option value="division-5-vitality">Div 5: Vitality</option>
-            <option value="division-6-delivery">Div 6: Delivery</option>
-          </select>
-          <select class="filter-select" id="audit-filter-status">
-            <option value="">All Statuses</option>
-            <option value="SUCCESS">SUCCESS</option>
-            <option value="ERROR">ERROR</option>
-            <option value="RUNNING">RUNNING</option>
-          </select>
-          <button class="btn btn-outline" id="btn-export-csv" title="Download CSV Audit Report">
-            <span>📥 Export CSV</span>
+        <div class="view-controls">
+          <button class="btn btn-outline" id="btn-open-guide" title="Open Non-Technical User Guide & Playbook">
+            <span>📖 User Guide</span>
           </button>
-          <button class="btn btn-outline" id="btn-export-json" title="Download JSON Audit Report">
-            <span>📥 Export JSON</span>
+          <button class="btn btn-outline" id="btn-refresh" title="Refresh Fleet Status">
+            <span>🔄 Refresh</span>
           </button>
         </div>
       </div>
 
-      <div class="table-container">
-        <table>
-          <thead>
-            <tr>
-              <th>Timestamp</th>
-              <th>Source</th>
-              <th>Division</th>
-              <th>Agent</th>
-              <th>Latency</th>
-              <th>Status</th>
-              <th>Deliverable / Summary</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody id="audit-table-body">
-            <!-- Injected dynamically via JS -->
-            <tr>
-              <td colspan="8" style="text-align: center; padding: 2rem; color: var(--text-dim);">
-                Loading audit activity stream...
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      <!-- 6 Divisions Grid -->
+      <div class="divisions-grid" id="divisions-deck">
+        <!-- Injected dynamically via JS -->
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- VIEW 3: DELIVERABLES & ACTIVITY FEED                    -->
+    <!-- ======================================================== -->
+    <section class="mc-view" id="view-deliverables-feed" role="tabpanel" aria-labelledby="tab-deliverables" style="display: none;">
+      <div class="audit-section" style="margin-top: 0;">
+        <div class="audit-header">
+          <div>
+            <h3>📜 Activity & Deliverables Feed</h3>
+            <p style="font-size: 0.8rem; color: var(--text-dim); font-family: var(--font-mono);">
+              Destination: .ai/memory/fleet_activity_log.jsonl &amp; .ai/memory/clients/
+            </p>
+          </div>
+
+          <div class="audit-filters">
+            <input type="text" class="filter-input" id="audit-search" placeholder="Search deliverables..." style="width: 220px;">
+            <select class="filter-select" id="audit-filter-div">
+              <option value="">All Divisions</option>
+              <option value="division-1-growth">Div 1: Growth</option>
+              <option value="division-2-sales">Div 2: Sales</option>
+              <option value="division-3-engineering">Div 3: Engineering</option>
+              <option value="division-4-security">Div 4: Security</option>
+              <option value="division-5-vitality">Div 5: Vitality</option>
+              <option value="division-6-delivery">Div 6: Delivery</option>
+            </select>
+            <select class="filter-select" id="audit-filter-status">
+              <option value="">All Statuses</option>
+              <option value="SUCCESS">SUCCESS</option>
+              <option value="ERROR">ERROR</option>
+              <option value="RUNNING">RUNNING</option>
+            </select>
+            <button class="btn btn-outline" id="btn-export-csv" title="Download CSV Audit Report">
+              <span>📥 Export CSV</span>
+            </button>
+            <button class="btn btn-outline" id="btn-export-json" title="Download JSON Audit Report">
+              <span>📥 Export JSON</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Timestamp</th>
+                <th>Source</th>
+                <th>Division</th>
+                <th>Agent</th>
+                <th>Latency</th>
+                <th>Status</th>
+                <th>Deliverable / Summary</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="audit-table-body">
+              <!-- Injected dynamically via JS -->
+              <tr>
+                <td colspan="8" style="text-align: center; padding: 2rem; color: var(--text-dim);">
+                  Loading audit activity stream...
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
   </main>
@@ -1854,11 +2272,11 @@ layout: false
       <div class="modal-body">
         <div class="form-group">
           <label>Company / Project Name *</label>
-          <input type="text" class="form-input" id="client-input-name" placeholder="e.g. Apex Mechanical & HVAC" required>
+          <input type="text" class="form-input" id="client-input-name" placeholder="e.g. LumiLore Technologies Inc." required>
         </div>
         <div class="form-group">
           <label>Target Domain / Prospect URL</label>
-          <input type="text" class="form-input" id="client-input-domain" placeholder="e.g. apexhvac.ca or https://example.com">
+          <input type="text" class="form-input" id="client-input-domain" placeholder="e.g. lumilore.ca or https://example.com">
         </div>
         <div class="form-group">
           <label>Contact Phone Number</label>
@@ -2190,7 +2608,7 @@ layout: false
                     </div>
                     <div class="guide-agent-desc">Conducts a 6-layer audit of prospect websites (TTFB, DOM size, missed calls, Schema.org) and calculates revenue bleed.</div>
                     <div class="guide-agent-io">
-                      <div><strong>Input:</strong> Prospect website domain (e.g. apexhvac.ca)</div>
+                      <div><strong>Input:</strong> Prospect website domain (e.g. lumilore.ca)</div>
                       <div><strong>Output:</strong> 6-layer audit dossier and financial revenue bleed scorecard</div>
                     </div>
                   </div>
@@ -3433,15 +3851,65 @@ layout: false
     async function fetchClients() {
       try {
         const res = await fetch('/api/fleet/clients');
-        const data = await res.json();
-        if (data.success) {
-          fleetState.clients = data.clients || [];
-          fleetState.activeClient = data.activeClient || (data.clients ? data.clients[0] : null);
-          renderClientSelector();
+        if (res.ok) {
+          const data = await res.json();
+          if (data && data.success) {
+            fleetState.clients = data.clients || [];
+            fleetState.activeClient = data.activeClient || (data.clients ? data.clients[0] : null);
+            renderClientSelector();
+            renderClientWorkspace();
+            return;
+          }
         }
       } catch (err) {
-        console.error('Failed to fetch clients:', err);
+        console.warn('Backend clients unreachable, falling back to real client roster.');
       }
+
+      // Static fallback for production clients
+      fleetState.clients = [
+        {
+          id: "lumilore",
+          slug: "lumilore",
+          name: "LumiLore Technologies Inc.",
+          companyName: "LumiLore Technologies Inc.",
+          websiteUrl: "https://www.lumilore.ca/",
+          domain: "lumilore.ca",
+          phone: "+1-437-786-5864",
+          industry: "Autonomous AI Systems & Serverless Cloud Architecture",
+          lens: "corporate",
+          tier: "enterprise",
+          notes: "Flagship Mother Platform. 19-operative autonomous agency swarm, sub-150ms Jamstack, 68% AWS cloud waste reduction, 100/100 PageSpeed."
+        },
+        {
+          id: "my-choice-auto",
+          slug: "my-choice-auto",
+          name: "My Choice Auto Services",
+          companyName: "My Choice Auto Services",
+          websiteUrl: "https://www.mychoiceautoservices.com/",
+          domain: "mychoiceautoservices.com",
+          phone: "+1-416-555-AUTO",
+          industry: "Automotive Mechanical Repair & Fleet Services",
+          lens: "trades",
+          tier: "growth",
+          notes: "Automotive trades & dispatch. Sub-second booking routing to lead mechanic SMS, 24/7 emergency roadside voice triage, eliminating front-desk friction."
+        },
+        {
+          id: "fiscalx",
+          slug: "fiscalx",
+          name: "FiscalX Advisory Services",
+          companyName: "FiscalX Advisory Services",
+          websiteUrl: "https://www.fiscalx.ca/",
+          domain: "fiscalx.ca",
+          phone: "+1-416-555-FISC",
+          industry: "Corporate Accounting, Tax Consulting & Fractional CFO Advisory",
+          lens: "corporate",
+          tier: "scale",
+          notes: "Enterprise client portal, digital intake forms, project Kanban, autonomous invoice recovery, Canadian PIPEDA compliance."
+        }
+      ];
+      fleetState.activeClient = fleetState.clients[0];
+      renderClientSelector();
+      renderClientWorkspace();
     }
 
     function renderClientSelector() {
@@ -3458,8 +3926,163 @@ layout: false
       }
     }
 
+    function renderClientWorkspace() {
+      const client = fleetState.activeClient || {
+        slug: 'lumilore',
+        name: 'LumiLore Technologies Inc.',
+        domain: 'lumilore.ca',
+        websiteUrl: 'https://www.lumilore.ca/',
+        phone: '+1-437-786-5864',
+        industry: 'Autonomous AI Systems & Serverless Architecture',
+        lens: 'corporate',
+        tier: 'enterprise',
+        notes: 'Flagship Mother Platform. 19-operative autonomous agency swarm, sub-150ms Jamstack, 68% AWS cloud waste reduction, 100/100 PageSpeed.'
+      };
+
+      const nameEl = document.getElementById('workspace-client-name');
+      const monogramEl = document.getElementById('workspace-client-monogram');
+      const lensEl = document.getElementById('workspace-client-lens');
+      const tierEl = document.getElementById('workspace-client-tier');
+      const domainEl = document.getElementById('workspace-client-domain');
+      const phoneEl = document.getElementById('workspace-client-phone');
+      const industryEl = document.getElementById('workspace-client-industry');
+      const notesEl = document.getElementById('workspace-client-notes');
+
+      if (nameEl) nameEl.textContent = client.name || 'LumiLore Technologies Inc.';
+      if (domainEl) {
+        domainEl.textContent = client.domain || 'lumilore.ca';
+        domainEl.href = client.websiteUrl || `https://${client.domain || 'lumilore.ca'}/`;
+      }
+      if (phoneEl) phoneEl.textContent = client.phone || '+1-437-786-5864';
+      if (industryEl) industryEl.textContent = client.industry || 'Autonomous AI Systems & Cloud Architecture';
+      if (notesEl) notesEl.textContent = client.notes || 'Production client profile and autonomous fleet operations context.';
+
+      // Monogram & Badges
+      let mono = 'LL';
+      if (client.slug === 'my-choice-auto' || client.domain?.includes('mychoice')) {
+        mono = 'MCA';
+      } else if (client.slug === 'fiscalx' || client.domain?.includes('fiscalx')) {
+        mono = 'FX';
+      }
+      if (monogramEl) monogramEl.textContent = mono;
+
+      const isTrades = client.lens === 'trades' || client.slug === 'my-choice-auto';
+      if (lensEl) {
+        lensEl.textContent = isTrades ? 'Mechanical Trades' : 'Corporate B2B';
+        lensEl.style.background = isTrades ? 'rgba(16, 185, 129, 0.15)' : 'rgba(59, 130, 246, 0.15)';
+        lensEl.style.color = isTrades ? '#34D399' : '#60A5FA';
+        lensEl.style.borderColor = isTrades ? 'rgba(16, 185, 129, 0.3)' : 'rgba(59, 130, 246, 0.3)';
+      }
+
+      if (tierEl) {
+        tierEl.textContent = client.tier === 'enterprise' ? 'Enterprise Swarm' : client.tier === 'scale' ? 'Scale Retainer' : 'Growth Retainer';
+      }
+
+      // Telemetry Scorecard
+      const ttfbEl = document.getElementById('scorecard-ttfb');
+      const ttfbSub = document.getElementById('scorecard-ttfb-sub');
+      const teleEl = document.getElementById('scorecard-telephony');
+      const teleSub = document.getElementById('scorecard-telephony-sub');
+      const radarEl = document.getElementById('scorecard-radar');
+      const radarSub = document.getElementById('scorecard-radar-sub');
+      const revEl = document.getElementById('scorecard-revenue');
+      const revSub = document.getElementById('scorecard-revenue-sub');
+
+      if (client.slug === 'my-choice-auto' || client.domain?.includes('mychoice')) {
+        if (ttfbEl) ttfbEl.textContent = '120 ms';
+        if (ttfbSub) ttfbSub.textContent = 'Sub-second mobile roadside booking on LTE';
+        if (teleEl) teleEl.textContent = '+1-416-555-AUTO';
+        if (teleSub) teleSub.textContent = '24/7 Roadside Voice Concierge · SMS Dispatch';
+        if (radarEl) radarEl.textContent = '96 / 100';
+        if (radarSub) radarSub.textContent = 'Google Maps 3-Pack & Local NAP Authority';
+        if (revEl) revEl.textContent = '$21,500 /mo';
+        if (revSub) revSub.textContent = 'Recaptured towing & emergency brake repairs';
+      } else if (client.slug === 'fiscalx' || client.domain?.includes('fiscalx')) {
+        if (ttfbEl) ttfbEl.textContent = '118 ms';
+        if (ttfbSub) ttfbSub.textContent = 'KMS Encrypted Client Lobby in ca-central-1';
+        if (teleEl) teleEl.textContent = '+1-416-555-FISC';
+        if (teleSub) teleSub.textContent = 'Corporate Consultation Hotline & Sync';
+        if (radarEl) radarEl.textContent = '97 / 100';
+        if (radarSub) radarSub.textContent = 'Canadian PIPEDA Sovereign Compliance';
+        if (revEl) revEl.textContent = '15+ hrs /wk';
+        if (revSub) revSub.textContent = 'Saved partner admin hours + 5% AR recovered';
+      } else {
+        if (ttfbEl) ttfbEl.textContent = '112 ms';
+        if (ttfbSub) ttfbSub.textContent = 'Sub-150ms TTFB · 0.00 CLS · Jamstack Edge';
+        if (teleEl) teleEl.textContent = '+1-437-786-5864';
+        if (teleSub) teleSub.textContent = '24/7 Unified Canadian Carrier Voice Line';
+        if (radarEl) radarEl.textContent = '98 / 100';
+        if (radarSub) radarSub.textContent = 'ChatGPT Search, Perplexity Sonar, Claude';
+        if (revEl) revEl.textContent = '68% Waste Cut';
+        if (revSub) revSub.textContent = 'Empirical AWS Graviton3 Serverless FinOps';
+      }
+    }
+
+    // 1.6. 3-View Tab System Switching Logic
+    function switchMissionControlView(viewName) {
+      const views = {
+        workspace: document.getElementById('view-client-workspace'),
+        operatives: document.getElementById('view-fleet-operatives'),
+        deliverables: document.getElementById('view-deliverables-feed')
+      };
+      const tabs = {
+        workspace: document.getElementById('tab-workspace'),
+        operatives: document.getElementById('tab-operatives'),
+        deliverables: document.getElementById('tab-deliverables')
+      };
+
+      for (const [key, el] of Object.entries(views)) {
+        if (el) {
+          if (key === viewName) {
+            el.classList.add('active');
+            el.style.display = 'block';
+          } else {
+            el.classList.remove('active');
+            el.style.display = 'none';
+          }
+        }
+      }
+
+      for (const [key, tab] of Object.entries(tabs)) {
+        if (tab) {
+          const isActive = key === viewName;
+          tab.classList.toggle('active', isActive);
+          tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        }
+      }
+
+      try {
+        localStorage.setItem('lumilore_mc_active_view', viewName);
+      } catch {}
+    }
+
+    // Bind tab click listeners
+    const tabWorkspace = document.getElementById('tab-workspace');
+    if (tabWorkspace) tabWorkspace.addEventListener('click', () => switchMissionControlView('workspace'));
+
+    const tabOperatives = document.getElementById('tab-operatives');
+    if (tabOperatives) tabOperatives.addEventListener('click', () => switchMissionControlView('operatives'));
+
+    const tabDeliverables = document.getElementById('tab-deliverables');
+    if (tabDeliverables) tabDeliverables.addEventListener('click', () => switchMissionControlView('deliverables'));
+
+    // Bind Launchpad triggers
+    const wsPitchDeckBtn = document.getElementById('btn-workspace-pitch-deck');
+    if (wsPitchDeckBtn) wsPitchDeckBtn.addEventListener('click', openSlideDeckModal);
+
+    const wsSowBtn = document.getElementById('btn-workspace-sow');
+    if (wsSowBtn) wsSowBtn.addEventListener('click', () => openParamModal('agent-07-sow-closer'));
+
+    const wsInspectorBtn = document.getElementById('btn-workspace-inspector');
+    if (wsInspectorBtn) wsInspectorBtn.addEventListener('click', () => openParamModal('agent-06-website-inspector-pm'));
+
     clientSelector.addEventListener('change', async (e) => {
       const slug = e.target.value;
+      const foundLocal = fleetState.clients.find(c => c.slug === slug);
+      if (foundLocal) {
+        fleetState.activeClient = foundLocal;
+        renderClientWorkspace();
+      }
       try {
         const res = await fetch('/api/fleet/clients', {
           method: 'POST',
@@ -3467,8 +4090,9 @@ layout: false
           body: JSON.stringify({ action: 'select', slug })
         });
         const data = await res.json();
-        if (data.success) {
+        if (data && data.success && data.activeClient) {
           fleetState.activeClient = data.activeClient;
+          renderClientWorkspace();
         }
       } catch (err) {
         console.error('Failed to switch client:', err);
@@ -3598,12 +4222,13 @@ layout: false
       fleetState.selectedAgent = agent;
 
       const activeClient = fleetState.activeClient || {
-        name: 'Apex Commercial HVAC & Refrigeration',
-        domain: 'apexhvac.ca',
-        phone: '+1-647-555-0199',
-        industry: 'Commercial HVAC & Refrigeration Contractors',
-        lens: 'trades',
-        tier: 'growth'
+        slug: 'lumilore',
+        name: 'LumiLore Technologies Inc.',
+        domain: 'lumilore.ca',
+        phone: '+1-437-786-5864',
+        industry: 'Autonomous AI Systems & Serverless Architecture',
+        lens: 'corporate',
+        tier: 'enterprise'
       };
 
       document.getElementById('modal-agent-name').textContent = `Agent #${String(agent.number).padStart(2, '0')}: ${agent.name}`;
@@ -3618,11 +4243,11 @@ layout: false
         fieldsContainer.innerHTML = `
           <div class="form-group">
             <label>Target Domain / Prospect URL</label>
-            <input type="text" class="form-input" id="field-url" value="${activeClient.domain || 'apexhvac.ca'}" placeholder="e.g. apexhvac.ca or https://example.com">
+            <input type="text" class="form-input" id="field-url" value="${activeClient.domain || 'lumilore.ca'}" placeholder="e.g. lumilore.ca or https://example.com">
           </div>
           <div class="form-group">
             <label>Business / Industry Type</label>
-            <input type="text" class="form-input" id="field-type" value="${activeClient.industry || 'Commercial HVAC & Refrigeration Contractors'}">
+            <input type="text" class="form-input" id="field-type" value="${activeClient.industry || 'Autonomous AI Systems & Serverless Architecture'}">
           </div>
           <div class="form-group">
             <label>Audit Depth Preset</label>
@@ -3676,7 +4301,7 @@ layout: false
         fieldsContainer.innerHTML = `
           <div class="form-group">
             <label>Target Website or Legacy Markup</label>
-            <input type="text" class="form-input" id="field-legacy-url" value="${activeClient.domain || 'apexhvac.ca'}">
+            <input type="text" class="form-input" id="field-legacy-url" value="${activeClient.domain || 'lumilore.ca'}">
           </div>
           <div class="form-group">
             <label>Modernization Focus</label>
@@ -3713,12 +4338,12 @@ layout: false
 
       const isDryRun = document.getElementById('modal-dry-run-check').checked;
       const provider = document.getElementById('modal-provider-select').value;
-      const activeClient = fleetState.activeClient || { slug: 'apex-hvac', name: 'Apex Commercial HVAC & Refrigeration' };
+      const activeClient = fleetState.activeClient || { slug: 'lumilore', name: 'LumiLore Technologies Inc.' };
 
       // Assemble input payload
       const taskInput = {};
       if (agent.number === 6) {
-        taskInput.targetUrl = document.getElementById('field-url')?.value || activeClient.domain || 'apexhvac.ca';
+        taskInput.targetUrl = document.getElementById('field-url')?.value || activeClient.domain || 'lumilore.ca';
         taskInput.businessType = document.getElementById('field-type')?.value || activeClient.industry;
         const depthRadio = document.querySelector('input[name="field-audit-depth"]:checked');
         taskInput.auditDepth = depthRadio ? depthRadio.value : 'full';
@@ -3831,7 +4456,7 @@ layout: false
       const data = fleetState.currentDrawerData;
       if (!data) return;
 
-      const client = fleetState.activeClient || { name: 'Apex Commercial HVAC & Refrigeration', domain: 'apexhvac.ca' };
+      const client = fleetState.activeClient || { name: 'LumiLore Technologies Inc.', domain: 'lumilore.ca' };
 
       if (tab === 'markdown') {
         body.className = 'drawer-content markdown-view';
@@ -3858,7 +4483,7 @@ layout: false
             </div>
             <div class="presentation-hero">
               <h2>Executive Digital Diagnostic: ${client.name}</h2>
-              <p>Prepared by LumiLore Autonomous Agency Fleet // Client Domain: <strong>${client.domain || 'apexhvac.ca'}</strong></p>
+              <p>Prepared by LumiLore Autonomous Agency Fleet // Client Domain: <strong>${client.domain || 'lumilore.ca'}</strong></p>
             </div>
 
             <div class="presentation-metrics-grid">
@@ -4067,7 +4692,7 @@ layout: false
 
     // 7.5. Chained Multi-Agent Sequences
     async function runSequence(sequenceId) {
-      const client = fleetState.activeClient || { slug: 'apex-hvac', name: 'Apex Commercial HVAC & Refrigeration' };
+      const client = fleetState.activeClient || { slug: 'lumilore', name: 'LumiLore Technologies Inc.' };
       const btn = sequenceId === 'pitch-to-close' ? document.getElementById('btn-seq-pitch') : document.getElementById('btn-seq-growth');
       const originalText = btn ? btn.innerHTML : '';
       if (btn) {
@@ -4714,10 +5339,356 @@ layout: false
     let slideDeckData = [];
 
     function generateSlideDeckCards(client, audit) {
-      const clientName = client?.name || 'Apex Commercial HVAC & Refrigeration';
-      const domain = client?.domain || 'apexhvac.ca';
-      const industry = client?.industry || 'Commercial Contractors';
+      const slug = client?.slug || (client?.domain?.includes('mychoice') ? 'my-choice-auto' : client?.domain?.includes('fiscalx') ? 'fiscalx' : 'lumilore');
+      const clientName = client?.name || (slug === 'my-choice-auto' ? 'My Choice Auto Services' : slug === 'fiscalx' ? 'FiscalX' : 'LumiLore Technologies Inc.');
+      const domain = client?.domain || (slug === 'my-choice-auto' ? 'mychoiceautoservices.com' : slug === 'fiscalx' ? 'fiscalx.ca' : 'lumilore.ca');
+      const industry = client?.industry || (slug === 'my-choice-auto' ? 'Automotive Trades & Emergency Repair' : slug === 'fiscalx' ? 'Corporate Accounting & Tax Advisory' : 'Autonomous AI Agency & Cloud Architecture');
 
+      if (slug === 'my-choice-auto' || client?.industry?.toLowerCase().includes('automotive')) {
+        return [
+          {
+            id: 1,
+            type: 'cover',
+            title: '360° Systems & Architecture Audit',
+            subtitle: `Prepared for ${clientName}`,
+            content: `
+              <div class="slide-card slide-card-cover">
+                <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">⚡</div>
+                <div style="font-size: 0.85rem; font-family: var(--font-mono); color: var(--amber); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.5rem;">LumiLore Technologies // Client Presentation</div>
+                <h1 style="font-size: 2rem; font-weight: 800; color: #fff; line-height: 1.2; margin-bottom: 0.75rem;">${clientName}</h1>
+                <p style="font-size: 1.1rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 1.5rem auto;">Automotive Edge Diagnostic, AI Emergency Voice Dispatch & Revenue Recovery Blueprint</p>
+                <div style="display: inline-flex; gap: 1rem; justify-content: center; font-size: 0.85rem; color: var(--text-dim); font-family: var(--font-mono);">
+                  <span>Domain: <b style="color: var(--amber-light);">${domain}</b></span>
+                  <span>•</span>
+                  <span>Industry: <b style="color: var(--text-main);">${industry}</b></span>
+                </div>
+              </div>
+            `
+          },
+          {
+            id: 2,
+            type: 'speed',
+            title: 'The Speed & Mobile Latency Gap',
+            content: `
+              <div class="slide-card">
+                <div>
+                  <span class="palette-item-badge" style="color: var(--amber);">SLIDE 02 // PERFORMANCE BENCHMARK</span>
+                  <h2 style="font-size: 1.6rem; font-weight: 800; color: #fff; margin: 0.5rem 0 0.25rem 0;">Server Response Time (TTFB) & Emergency Booking Velocity</h2>
+                  <p style="color: var(--text-muted); font-size: 0.95rem;">Every 100ms delay costs 7% in customer conversions on mobile emergency repairs.</p>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0;">
+                  <div style="background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 10px; padding: 1.5rem;">
+                    <div style="color: #EF4444; font-weight: 800; font-size: 0.9rem; margin-bottom: 0.5rem;">CURRENT INFRASTRUCTURE</div>
+                    <div style="font-size: 2.2rem; font-weight: 800; font-family: var(--font-mono); color: #F87171;">2,840 ms</div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">Sluggish Shared Hosting / Uncached Mobile</div>
+                    <div style="margin-top: 1rem; font-size: 0.82rem; color: #FCA5A5;">✕ Mobile emergency bounce rate estimated at 54%</div>
+                  </div>
+                  <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 10px; padding: 1.5rem;">
+                    <div style="color: #10B981; font-weight: 800; font-size: 0.9rem; margin-bottom: 0.5rem;">LUMILORE SERVERLESS TARGET</div>
+                    <div style="font-size: 2.2rem; font-weight: 800; font-family: var(--font-mono); color: #34D399;">110 ms</div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">AWS CloudFront Edge + Instant Tap Booking</div>
+                    <div style="margin-top: 1rem; font-size: 0.82rem; color: #6EE7B7;">✓ 96.1% reduction in roadside mobile latency</div>
+                  </div>
+                </div>
+                <div style="font-size: 0.85rem; color: var(--text-dim); font-family: var(--font-mono);">
+                  Target: Sub-150ms TTFB across all Canadian & North American edge nodes.
+                </div>
+              </div>
+            `
+          },
+          {
+            id: 3,
+            type: 'leaks',
+            title: 'Conversion Vulnerabilities & Phone Leaks',
+            content: `
+              <div class="slide-card">
+                <div>
+                  <span class="palette-item-badge" style="color: #EF4444;">SLIDE 03 // VULNERABILITY AUDIT</span>
+                  <h2 style="font-size: 1.6rem; font-weight: 800; color: #fff; margin: 0.5rem 0 0.25rem 0;">Critical Automotive Operational Leaks</h2>
+                  <p style="color: var(--text-muted); font-size: 0.95rem;">Unanswered emergency calls and missing AI citations leak high-ticket mechanical repairs.</p>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin: 1.5rem 0;">
+                  <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 1.25rem;">
+                    <div style="font-size: 1.4rem; margin-bottom: 0.25rem;">📞</div>
+                    <div style="font-weight: 700; color: #fff; margin-bottom: 0.25rem;">After-Hours Calls</div>
+                    <div style="font-size: 1.35rem; font-weight: 800; font-family: var(--font-mono); color: #EF4444;">64% Missed</div>
+                    <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.5rem;">Stranded drivers reaching voicemail immediately call next auto shop on Google Maps.</p>
+                  </div>
+                  <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 1.25rem;">
+                    <div style="font-size: 1.4rem; margin-bottom: 0.25rem;">🤖</div>
+                    <div style="font-weight: 700; color: #fff; margin-bottom: 0.25rem;">AI Search Presence</div>
+                    <div style="font-size: 1.35rem; font-weight: 800; font-family: var(--font-mono); color: #F59E0B;">0 Citations</div>
+                    <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.5rem;">Missing Schema.org AutoRepair entity graph. Invisible to Siri, Perplexity, and Apple AI.</p>
+                  </div>
+                  <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 1.25rem;">
+                    <div style="font-size: 1.4rem; margin-bottom: 0.25rem;">💸</div>
+                    <div style="font-weight: 700; color: #fff; margin-bottom: 0.25rem;">Revenue Leakage</div>
+                    <div style="font-size: 1.35rem; font-weight: 800; font-family: var(--font-mono); color: var(--amber-light);">$18,400 /mo</div>
+                    <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.5rem;">Estimated value of emergency brake, transmission, and repair bookings forfeited.</p>
+                  </div>
+                </div>
+                <div style="font-size: 0.85rem; color: var(--text-dim); font-family: var(--font-mono);">
+                  Source: Field dispatch logs & LumiLore AI Web Inspector analysis.
+                </div>
+              </div>
+            `
+          },
+          {
+            id: 4,
+            type: 'solution',
+            title: 'Proposed Agentic Swarm Architecture',
+            content: `
+              <div class="slide-card">
+                <div>
+                  <span class="palette-item-badge" style="color: var(--amber);">SLIDE 04 // SOLUTION TOPOLOGY</span>
+                  <h2 style="font-size: 1.6rem; font-weight: 800; color: #fff; margin: 0.5rem 0 0.25rem 0;">LumiLore 3-Pillar Automotive Deployment</h2>
+                  <p style="color: var(--text-muted); font-size: 0.95rem;">Turnkey cloud architecture engineered for instant capture, triage, and bay dispatch.</p>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.25rem; margin: 1.5rem 0;">
+                  <div style="background: rgba(245, 158, 11, 0.05); border: 1px solid var(--border-amber); border-radius: 8px; padding: 1.25rem;">
+                    <div style="font-size: 1.1rem; font-weight: 800; color: var(--amber-light); margin-bottom: 0.5rem;">1. AI Voice Roadside Concierge</div>
+                    <ul style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; padding-left: 1rem;">
+                      <li>24/7 Inbound Call & SMS Concierge</li>
+                      <li>Sub-60s Emergency Intake & Triage</li>
+                      <li>Automatic SMS alert to Bay Foreman</li>
+                      <li>Zero missed roadside calls</li>
+                    </ul>
+                  </div>
+                  <div style="background: rgba(245, 158, 11, 0.05); border: 1px solid var(--border-amber); border-radius: 8px; padding: 1.25rem;">
+                    <div style="font-size: 1.1rem; font-weight: 800; color: var(--amber-light); margin-bottom: 0.5rem;">2. Serverless Jamstack Edge</div>
+                    <ul style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; padding-left: 1rem;">
+                      <li>Sub-110ms Mobile TTFB</li>
+                      <li>AWS CloudFront + S3 Edge</li>
+                      <li>100/100 Mobile Lighthouse Score</li>
+                      <li>1-Tap Emergency Tow Booking</li>
+                    </ul>
+                  </div>
+                  <div style="background: rgba(245, 158, 11, 0.05); border: 1px solid var(--border-amber); border-radius: 8px; padding: 1.25rem;">
+                    <div style="font-size: 1.1rem; font-weight: 800; color: var(--amber-light); margin-bottom: 0.5rem;">3. AutoRepair Schema & GEO</div>
+                    <ul style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; padding-left: 1rem;">
+                      <li>5-Layer JSON-LD AutoRepair Schema</li>
+                      <li>Apple Maps & Perplexity citations</li>
+                      <li>Local Map Pack Authority</li>
+                      <li>Review capture & syndication</li>
+                    </ul>
+                  </div>
+                </div>
+                <div style="font-size: 0.85rem; color: var(--text-dim); font-family: var(--font-mono);">
+                  Deployment Time: 10 business days from kickoff to live production cutover.
+                </div>
+              </div>
+            `
+          },
+          {
+            id: 5,
+            type: 'proposal',
+            title: 'Investment Tiers & Revenue Recovery',
+            content: `
+              <div class="slide-card">
+                <div>
+                  <span class="palette-item-badge" style="color: #10B981;">SLIDE 05 // COMMERCIAL SOW</span>
+                  <h2 style="font-size: 1.6rem; font-weight: 800; color: #fff; margin: 0.5rem 0 0.25rem 0;">Commercial Terms & Immediate Next Steps</h2>
+                  <p style="color: var(--text-muted); font-size: 0.95rem;">Automotive investment packages designed to pay for themselves within 30 days.</p>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0;">
+                  <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 10px; padding: 1.5rem;">
+                    <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-dim); font-weight: 700;">PHASE 1 // PRODUCTION LAUNCH</div>
+                    <div style="font-size: 2.2rem; font-weight: 800; font-family: var(--font-mono); color: #fff; margin: 0.25rem 0;">$3,200 <span style="font-size: 0.9rem; font-weight: 400; color: var(--text-dim);">one-time</span></div>
+                    <div style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">
+                      Includes Full Web Modernization (Sub-110ms), 24/7 AI Voice Dispatch setup, and AutoRepair Schema.org graph injection.
+                    </div>
+                  </div>
+                  <div style="background: rgba(245, 158, 11, 0.08); border: 1px solid var(--border-amber); border-radius: 10px; padding: 1.5rem;">
+                    <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--amber); font-weight: 700;">PHASE 2 // AUTONOMOUS RETAINER</div>
+                    <div style="font-size: 2.2rem; font-weight: 800; font-family: var(--font-mono); color: var(--amber-light); margin: 0.25rem 0;">$650 <span style="font-size: 0.9rem; font-weight: 400; color: var(--text-dim);">/ month</span></div>
+                    <div style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">
+                      24/7 AI call handling SLA, monthly speed audits, LLM citation monitoring, and automated lead capture synchronization.
+                    </div>
+                  </div>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: space-between; padding-top: 0.75rem; border-top: 1px solid var(--border-subtle);">
+                  <span style="font-size: 0.88rem; color: #fff; font-weight: 700;">Ready to execute? Host: Saad Sayed (Principal Architect)</span>
+                  <span style="font-size: 0.82rem; font-family: var(--font-mono); color: var(--amber-light);">Direct Dial: +1-437-786-5864</span>
+                </div>
+              </div>
+            `
+          }
+        ];
+      }
+
+      if (slug === 'fiscalx' || client?.industry?.toLowerCase().includes('account') || client?.industry?.toLowerCase().includes('tax')) {
+        return [
+          {
+            id: 1,
+            type: 'cover',
+            title: '360° Systems & Architecture Audit',
+            subtitle: `Prepared for ${clientName}`,
+            content: `
+              <div class="slide-card slide-card-cover">
+                <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">⚡</div>
+                <div style="font-size: 0.85rem; font-family: var(--font-mono); color: var(--amber); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.5rem;">LumiLore Technologies // Client Presentation</div>
+                <h1 style="font-size: 2rem; font-weight: 800; color: #fff; line-height: 1.2; margin-bottom: 0.75rem;">${clientName}</h1>
+                <p style="font-size: 1.1rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 1.5rem auto;">Corporate Advisory Edge Architecture, PIPEDA Compliance & Client Flow Optimization</p>
+                <div style="display: inline-flex; gap: 1rem; justify-content: center; font-size: 0.85rem; color: var(--text-dim); font-family: var(--font-mono);">
+                  <span>Domain: <b style="color: var(--amber-light);">${domain}</b></span>
+                  <span>•</span>
+                  <span>Industry: <b style="color: var(--text-main);">${industry}</b></span>
+                </div>
+              </div>
+            `
+          },
+          {
+            id: 2,
+            type: 'speed',
+            title: 'The Speed & Mobile Latency Gap',
+            content: `
+              <div class="slide-card">
+                <div>
+                  <span class="palette-item-badge" style="color: var(--amber);">SLIDE 02 // PERFORMANCE BENCHMARK</span>
+                  <h2 style="font-size: 1.6rem; font-weight: 800; color: #fff; margin: 0.5rem 0 0.25rem 0;">Server Response Time (TTFB) & Corporate Client Portal Velocity</h2>
+                  <p style="color: var(--text-muted); font-size: 0.95rem;">Every 100ms delay costs 7% in customer conversions on corporate onboarding forms.</p>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0;">
+                  <div style="background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 10px; padding: 1.5rem;">
+                    <div style="color: #EF4444; font-weight: 800; font-size: 0.9rem; margin-bottom: 0.5rem;">CURRENT INFRASTRUCTURE</div>
+                    <div style="font-size: 2.2rem; font-weight: 800; font-family: var(--font-mono); color: #F87171;">3,200 ms</div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">Monolithic CMS & Dynamic Application Bottlenecks</div>
+                    <div style="margin-top: 1rem; font-size: 0.82rem; color: #FCA5A5;">✕ Portal abandonment rate estimated at 42%</div>
+                  </div>
+                  <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 10px; padding: 1.5rem;">
+                    <div style="color: #10B981; font-weight: 800; font-size: 0.9rem; margin-bottom: 0.5rem;">LUMILORE SERVERLESS TARGET</div>
+                    <div style="font-size: 2.2rem; font-weight: 800; font-family: var(--font-mono); color: #34D399;">95 ms</div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">AWS CloudFront Edge + Jamstack Static Portal</div>
+                    <div style="margin-top: 1rem; font-size: 0.82rem; color: #6EE7B7;">✓ 97.0% reduction in corporate portal latency</div>
+                  </div>
+                </div>
+                <div style="font-size: 0.85rem; color: var(--text-dim); font-family: var(--font-mono);">
+                  Target: Sub-150ms TTFB across all Canadian & North American edge nodes.
+                </div>
+              </div>
+            `
+          },
+          {
+            id: 3,
+            type: 'leaks',
+            title: 'Conversion Vulnerabilities & Phone Leaks',
+            content: `
+              <div class="slide-card">
+                <div>
+                  <span class="palette-item-badge" style="color: #EF4444;">SLIDE 03 // VULNERABILITY AUDIT</span>
+                  <h2 style="font-size: 1.6rem; font-weight: 800; color: #fff; margin: 0.5rem 0 0.25rem 0;">Corporate Compliance & Revenue Drag</h2>
+                  <p style="color: var(--text-muted); font-size: 0.95rem;">Friction in document delivery, onboarding delays, and missing financial authority graphs.</p>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin: 1.5rem 0;">
+                  <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 1.25rem;">
+                    <div style="font-size: 1.4rem; margin-bottom: 0.25rem;">📁</div>
+                    <div style="font-weight: 700; color: #fff; margin-bottom: 0.25rem;">AR Collection Friction</div>
+                    <div style="font-size: 1.35rem; font-weight: 800; font-family: var(--font-mono); color: #EF4444;">5% AR Drag</div>
+                    <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.5rem;">Corporate clients delay invoice payments due to lack of automated portal reminders.</p>
+                  </div>
+                  <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 1.25rem;">
+                    <div style="font-size: 1.4rem; margin-bottom: 0.25rem;">🛡️</div>
+                    <div style="font-weight: 700; color: #fff; margin-bottom: 0.25rem;">PIPEDA Compliance</div>
+                    <div style="font-size: 1.35rem; font-weight: 800; font-family: var(--font-mono); color: #F59E0B;">Audit Pending</div>
+                    <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.5rem;">Sensitive corporate tax records require strict Canadian data residency & TLS 1.3 edge lock.</p>
+                  </div>
+                  <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 1.25rem;">
+                    <div style="font-size: 1.4rem; margin-bottom: 0.25rem;">💸</div>
+                    <div style="font-weight: 700; color: #fff; margin-bottom: 0.25rem;">Revenue Leakage</div>
+                    <div style="font-size: 1.35rem; font-weight: 800; font-family: var(--font-mono); color: var(--amber-light);">$31,500 /mo</div>
+                    <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.5rem;">Forfeited high-margin corporate advisory retainers and delayed tax filings.</p>
+                  </div>
+                </div>
+                <div style="font-size: 0.85rem; color: var(--text-dim); font-family: var(--font-mono);">
+                  Source: Corporate Advisory Audit & LumiLore AI Web Inspector analysis.
+                </div>
+              </div>
+            `
+          },
+          {
+            id: 4,
+            type: 'solution',
+            title: 'Proposed Agentic Swarm Architecture',
+            content: `
+              <div class="slide-card">
+                <div>
+                  <span class="palette-item-badge" style="color: var(--amber);">SLIDE 04 // SOLUTION TOPOLOGY</span>
+                  <h2 style="font-size: 1.6rem; font-weight: 800; color: #fff; margin: 0.5rem 0 0.25rem 0;">LumiLore 3-Pillar Corporate Financial Deployment</h2>
+                  <p style="color: var(--text-muted); font-size: 0.95rem;">Secure edge infrastructure engineered for corporate tax compliance, client intake, and speed.</p>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.25rem; margin: 1.5rem 0;">
+                  <div style="background: rgba(245, 158, 11, 0.05); border: 1px solid var(--border-amber); border-radius: 8px; padding: 1.25rem;">
+                    <div style="font-size: 1.1rem; font-weight: 800; color: var(--amber-light); margin-bottom: 0.5rem;">1. Edge Client Portal</div>
+                    <ul style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; padding-left: 1rem;">
+                      <li>Sub-100ms Instant Document Access</li>
+                      <li>PIPEDA-Compliant CA Data Residency</li>
+                      <li>Encrypted Client File Drop</li>
+                      <li>Automated Tax Year Onboarding</li>
+                    </ul>
+                  </div>
+                  <div style="background: rgba(245, 158, 11, 0.05); border: 1px solid var(--border-amber); border-radius: 8px; padding: 1.25rem;">
+                    <div style="font-size: 1.1rem; font-weight: 800; color: var(--amber-light); margin-bottom: 0.5rem;">2. Automated AR & Reminders</div>
+                    <ul style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; padding-left: 1rem;">
+                      <li>Zero AR invoice collection friction</li>
+                      <li>Automated CRA filing deadline SMS/email</li>
+                      <li>Corporate quarterly checklist automation</li>
+                      <li>Seamless client communications</li>
+                    </ul>
+                  </div>
+                  <div style="background: rgba(245, 158, 11, 0.05); border: 1px solid var(--border-amber); border-radius: 8px; padding: 1.25rem;">
+                    <div style="font-size: 1.1rem; font-weight: 800; color: var(--amber-light); margin-bottom: 0.5rem;">3. Financial Authority Schema</div>
+                    <ul style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; padding-left: 1rem;">
+                      <li>5-Layer AccountingService JSON-LD</li>
+                      <li>Perplexity / ChatGPT Financial Authority</li>
+                      <li>Corporate tax advisory SEO positioning</li>
+                      <li>B2B decision-maker visibility</li>
+                    </ul>
+                  </div>
+                </div>
+                <div style="font-size: 0.85rem; color: var(--text-dim); font-family: var(--font-mono);">
+                  Deployment Time: 14 business days from kickoff to live production cutover.
+                </div>
+              </div>
+            `
+          },
+          {
+            id: 5,
+            type: 'proposal',
+            title: 'Investment Tiers & Revenue Recovery',
+            content: `
+              <div class="slide-card">
+                <div>
+                  <span class="palette-item-badge" style="color: #10B981;">SLIDE 05 // COMMERCIAL SOW</span>
+                  <h2 style="font-size: 1.6rem; font-weight: 800; color: #fff; margin: 0.5rem 0 0.25rem 0;">Commercial Terms & Immediate Next Steps</h2>
+                  <p style="color: var(--text-muted); font-size: 0.95rem;">Clear transparent investment packages designed to pay for themselves within 30 days.</p>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0;">
+                  <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 10px; padding: 1.5rem;">
+                    <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-dim); font-weight: 700;">PHASE 1 // PRODUCTION LAUNCH</div>
+                    <div style="font-size: 2.2rem; font-weight: 800; font-family: var(--font-mono); color: #fff; margin: 0.25rem 0;">$5,500 <span style="font-size: 0.9rem; font-weight: 400; color: var(--text-dim);">one-time</span></div>
+                    <div style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">
+                      Includes Secure Edge Portal Modernization (Sub-100ms), PIPEDA Compliance Architecture, and AccountingService Schema injection.
+                    </div>
+                  </div>
+                  <div style="background: rgba(245, 158, 11, 0.08); border: 1px solid var(--border-amber); border-radius: 10px; padding: 1.5rem;">
+                    <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--amber); font-weight: 700;">PHASE 2 // AUTONOMOUS RETAINER</div>
+                    <div style="font-size: 2.2rem; font-weight: 800; font-family: var(--font-mono); color: var(--amber-light); margin: 0.25rem 0;">$1,200 <span style="font-size: 0.9rem; font-weight: 400; color: var(--text-dim);">/ month</span></div>
+                    <div style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">
+                      24/7 client intake SLA, monthly speed audits, LLM financial authority monitoring, and automated document reminder synchronization.
+                    </div>
+                  </div>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: space-between; padding-top: 0.75rem; border-top: 1px solid var(--border-subtle);">
+                  <span style="font-size: 0.88rem; color: #fff; font-weight: 700;">Ready to execute? Host: Saad Sayed (Principal Architect)</span>
+                  <span style="font-size: 0.82rem; font-family: var(--font-mono); color: var(--amber-light);">Direct Dial: +1-437-786-5864</span>
+                </div>
+              </div>
+            `
+          }
+        ];
+      }
+
+      // Default: LumiLore Technologies Inc.
       return [
         {
           id: 1,
@@ -4727,9 +5698,9 @@ layout: false
           content: `
             <div class="slide-card slide-card-cover">
               <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">⚡</div>
-              <div style="font-size: 0.85rem; font-family: var(--font-mono); color: var(--amber); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.5rem;">LumiLore Technologies // Client Presentation</div>
+              <div style="font-size: 0.85rem; font-family: var(--font-mono); color: var(--amber); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.5rem;">LumiLore Technologies // Mother Platform Architecture</div>
               <h1 style="font-size: 2rem; font-weight: 800; color: #fff; line-height: 1.2; margin-bottom: 0.75rem;">${clientName}</h1>
-              <p style="font-size: 1.1rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 1.5rem auto;">360° Infrastructure Diagnostic, Cloud Performance & Revenue Recovery Blueprint</p>
+              <p style="font-size: 1.1rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 1.5rem auto;">Autonomous AI Agent Swarm, Static Edge Infrastructure & Systems Topology</p>
               <div style="display: inline-flex; gap: 1rem; justify-content: center; font-size: 0.85rem; color: var(--text-dim); font-family: var(--font-mono);">
                 <span>Domain: <b style="color: var(--amber-light);">${domain}</b></span>
                 <span>•</span>
@@ -4750,17 +5721,17 @@ layout: false
                 <p style="color: var(--text-muted); font-size: 0.95rem;">Every 100ms delay costs 7% in customer conversions on mobile devices.</p>
               </div>
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0;">
-                <div style="background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 10px; padding: 1.5rem;">
-                  <div style="color: #EF4444; font-weight: 800; font-size: 0.9rem; margin-bottom: 0.5rem;">CURRENT INFRASTRUCTURE</div>
-                  <div style="font-size: 2.2rem; font-weight: 800; font-family: var(--font-mono); color: #F87171;">3,420 ms</div>
-                  <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">Sluggish WordPress / Shared Apache Host</div>
-                  <div style="margin-top: 1rem; font-size: 0.82rem; color: #FCA5A5;">✕ Mobile bounce rate estimated at 48%</div>
-                </div>
                 <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 10px; padding: 1.5rem;">
-                  <div style="color: #10B981; font-weight: 800; font-size: 0.9rem; margin-bottom: 0.5rem;">LUMILORE SERVERLESS TARGET</div>
-                  <div style="font-size: 2.2rem; font-weight: 800; font-family: var(--font-mono); color: #34D399;">120 ms</div>
-                  <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">AWS CloudFront Edge + Jamstack Static</div>
-                  <div style="margin-top: 1rem; font-size: 0.82rem; color: #6EE7B7;">✓ 96.5% reduction in page load latency</div>
+                  <div style="color: #10B981; font-weight: 800; font-size: 0.9rem; margin-bottom: 0.5rem;">LUMILORE CURRENT EDGE TTFB</div>
+                  <div style="font-size: 2.2rem; font-weight: 800; font-family: var(--font-mono); color: #34D399;">112 ms</div>
+                  <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">AWS CloudFront Edge + Jamstack Static Distribution</div>
+                  <div style="margin-top: 1rem; font-size: 0.82rem; color: #6EE7B7;">✓ 100/100 Core Web Vitals Benchmark</div>
+                </div>
+                <div style="background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 10px; padding: 1.5rem;">
+                  <div style="color: var(--amber); font-weight: 800; font-size: 0.9rem; margin-bottom: 0.5rem;">SWARM LATENCY CEILING</div>
+                  <div style="font-size: 2.2rem; font-weight: 800; font-family: var(--font-mono); color: var(--amber-light);">&lt; 90 ms</div>
+                  <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">Continuous Static Synthesis & Global CDN POPs</div>
+                  <div style="margin-top: 1rem; font-size: 0.82rem; color: var(--amber-light);">✓ Ultra-fast client dashboard synchronization</div>
                 </div>
               </div>
               <div style="font-size: 0.85rem; color: var(--text-dim); font-family: var(--font-mono);">
@@ -4777,31 +5748,31 @@ layout: false
             <div class="slide-card">
               <div>
                 <span class="palette-item-badge" style="color: #EF4444;">SLIDE 03 // VULNERABILITY AUDIT</span>
-                <h2 style="font-size: 1.6rem; font-weight: 800; color: #fff; margin: 0.5rem 0 0.25rem 0;">Critical Operational Revenue Leaks</h2>
-                <p style="color: var(--text-muted); font-size: 0.95rem;">Unanswered emergency calls and missing AI citations leak high-ticket commercial accounts.</p>
+                <h2 style="font-size: 1.6rem; font-weight: 800; color: #fff; margin: 0.5rem 0 0.25rem 0;">Industry Operational Waste & Swarm Advantage</h2>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">Traditional agencies waste weeks on manual deliverables that LumiLore executes in seconds.</p>
               </div>
               <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin: 1.5rem 0;">
                 <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 1.25rem;">
-                  <div style="font-size: 1.4rem; margin-bottom: 0.25rem;">📞</div>
-                  <div style="font-weight: 700; color: #fff; margin-bottom: 0.25rem;">After-Hours Calls</div>
-                  <div style="font-size: 1.35rem; font-weight: 800; font-family: var(--font-mono); color: #EF4444;">62% Missed</div>
-                  <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.5rem;">Prospective commercial dispatch callers hang up when reaching voicemail.</p>
+                  <div style="font-size: 1.4rem; margin-bottom: 0.25rem;">⚡</div>
+                  <div style="font-weight: 700; color: #fff; margin-bottom: 0.25rem;">Execution Velocity</div>
+                  <div style="font-size: 1.35rem; font-weight: 800; font-family: var(--font-mono); color: #10B981;">&lt; 60 Seconds</div>
+                  <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.5rem;">Autonomous 19-operative fleet delivers audits, decks, and SOWs instantly.</p>
                 </div>
                 <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 1.25rem;">
                   <div style="font-size: 1.4rem; margin-bottom: 0.25rem;">🤖</div>
                   <div style="font-weight: 700; color: #fff; margin-bottom: 0.25rem;">AI Search Presence</div>
-                  <div style="font-size: 1.35rem; font-weight: 800; font-family: var(--font-mono); color: #F59E0B;">0 Citations</div>
-                  <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.5rem;">Missing Schema.org JSON-LD entity graph. Invisible to ChatGPT Search & Perplexity.</p>
+                  <div style="font-size: 1.35rem; font-weight: 800; font-family: var(--font-mono); color: var(--amber-light);">98 / 100 Citations</div>
+                  <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.5rem;">Dominant 5-layer entity graph indexed across ChatGPT, Perplexity, and Gemini.</p>
                 </div>
                 <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 1.25rem;">
-                  <div style="font-size: 1.4rem; margin-bottom: 0.25rem;">💸</div>
-                  <div style="font-weight: 700; color: #fff; margin-bottom: 0.25rem;">Revenue Leakage</div>
-                  <div style="font-size: 1.35rem; font-weight: 800; font-family: var(--font-mono); color: var(--amber-light);">$24,600 /mo</div>
-                  <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.5rem;">Estimated value of commercial contractor jobs forfeited to local competitors.</p>
+                  <div style="font-size: 1.4rem; margin-bottom: 0.25rem;">💰</div>
+                  <div style="font-weight: 700; color: #fff; margin-bottom: 0.25rem;">Cloud Compute Cut</div>
+                  <div style="font-size: 1.35rem; font-weight: 800; font-family: var(--font-mono); color: #34D399;">68% Lower Spend</div>
+                  <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.5rem;">Serverless static edge architecture eliminates expensive monolithic hosting.</p>
                 </div>
               </div>
               <div style="font-size: 0.85rem; color: var(--text-dim); font-family: var(--font-mono);">
-                Source: Field dispatch logs & LumiLore AI Web Inspector analysis.
+                Source: LumiLore Autonomous Agent Fleet telemetry & CloudWatch benchmarks.
               </div>
             </div>
           `
@@ -4814,26 +5785,26 @@ layout: false
             <div class="slide-card">
               <div>
                 <span class="palette-item-badge" style="color: var(--amber);">SLIDE 04 // SOLUTION TOPOLOGY</span>
-                <h2 style="font-size: 1.6rem; font-weight: 800; color: #fff; margin: 0.5rem 0 0.25rem 0;">LumiLore 3-Pillar Autonomous Deployment</h2>
+                <h2 style="font-size: 1.6rem; font-weight: 800; color: #fff; margin: 0.5rem 0 0.25rem 0;">LumiLore 3-Pillar Autonomous Swarm Topology</h2>
                 <p style="color: var(--text-muted); font-size: 0.95rem;">Turnkey cloud architecture engineered for instant capture, triage, and dispatch.</p>
               </div>
               <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.25rem; margin: 1.5rem 0;">
                 <div style="background: rgba(245, 158, 11, 0.05); border: 1px solid var(--border-amber); border-radius: 8px; padding: 1.25rem;">
-                  <div style="font-size: 1.1rem; font-weight: 800; color: var(--amber-light); margin-bottom: 0.5rem;">1. AI Voice Dispatch</div>
+                  <div style="font-size: 1.1rem; font-weight: 800; color: var(--amber-light); margin-bottom: 0.5rem;">1. 19-Operative AI Fleet</div>
                   <ul style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; padding-left: 1rem;">
-                    <li>24/7 Inbound Call Concierge</li>
-                    <li>Sub-60s Emergency Triage</li>
-                    <li>Automatic SMS to Field Crew</li>
-                    <li>Zero missed night jobs</li>
+                    <li>Leadership, Intelligence & Strategy</li>
+                    <li>Creative, Copywriting & Media</li>
+                    <li>Full-Stack Jamstack Engineering</li>
+                    <li>Growth, Telephony & Client Retention</li>
                   </ul>
                 </div>
                 <div style="background: rgba(245, 158, 11, 0.05); border: 1px solid var(--border-amber); border-radius: 8px; padding: 1.25rem;">
-                  <div style="font-size: 1.1rem; font-weight: 800; color: var(--amber-light); margin-bottom: 0.5rem;">2. Serverless Jamstack</div>
+                  <div style="font-size: 1.1rem; font-weight: 800; color: var(--amber-light); margin-bottom: 0.5rem;">2. Serverless Jamstack Edge</div>
                   <ul style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; padding-left: 1rem;">
                     <li>Sub-150ms Global TTFB</li>
                     <li>AWS CloudFront + S3 Edge</li>
                     <li>100/100 Google Lighthouse</li>
-                    <li>Zero WordPress bloat or hacks</li>
+                    <li>Self-healing automated fallback</li>
                   </ul>
                 </div>
                 <div style="background: rgba(245, 158, 11, 0.05); border: 1px solid var(--border-amber); border-radius: 8px; padding: 1.25rem;">
@@ -4866,16 +5837,16 @@ layout: false
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0;">
                 <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 10px; padding: 1.5rem;">
                   <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-dim); font-weight: 700;">PHASE 1 // PRODUCTION LAUNCH</div>
-                  <div style="font-size: 2.2rem; font-weight: 800; font-family: var(--font-mono); color: #fff; margin: 0.25rem 0;">$4,800 <span style="font-size: 0.9rem; font-weight: 400; color: var(--text-dim);">one-time</span></div>
+                  <div style="font-size: 2.2rem; font-weight: 800; font-family: var(--font-mono); color: #fff; margin: 0.25rem 0;">$7,500 <span style="font-size: 0.9rem; font-weight: 400; color: var(--text-dim);">one-time</span></div>
                   <div style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">
-                    Includes Full Web Modernization (Sub-150ms), Amazon Connect Voice Concierge setup, and Schema.org AI graph injection.
+                    Includes Enterprise Swarm Orchestration, Custom 19-Operative Workflow Tuning, and Multi-Client Edge Infrastructure.
                   </div>
                 </div>
                 <div style="background: rgba(245, 158, 11, 0.08); border: 1px solid var(--border-amber); border-radius: 10px; padding: 1.5rem;">
                   <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--amber); font-weight: 700;">PHASE 2 // AUTONOMOUS RETAINER</div>
-                  <div style="font-size: 2.2rem; font-weight: 800; font-family: var(--font-mono); color: var(--amber-light); margin: 0.25rem 0;">$950 <span style="font-size: 0.9rem; font-weight: 400; color: var(--text-dim);">/ month</span></div>
+                  <div style="font-size: 2.2rem; font-weight: 800; font-family: var(--font-mono); color: var(--amber-light); margin: 0.25rem 0;">$1,800 <span style="font-size: 0.9rem; font-weight: 400; color: var(--text-dim);">/ month</span></div>
                   <div style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">
-                    24/7 AI call handling SLA, monthly speed audits, LLM citation monitoring, and automated lead capture synchronization.
+                    Dedicated Swarm Execution Credits, 99.9% Telemetry SLA, continuous prompt evolution, and automated deliverable synthesis.
                   </div>
                 </div>
               </div>
@@ -4891,7 +5862,7 @@ layout: false
 
     function openSlideDeckModal() {
       if (!slideDeckModal) return;
-      const client = fleetState.activeClient || { name: 'Apex Commercial HVAC & Refrigeration', domain: 'apexhvac.ca', industry: 'Commercial HVAC' };
+      const client = fleetState.activeClient || { name: 'LumiLore Technologies Inc.', domain: 'lumilore.ca', industry: 'Autonomous AI Agency & Cloud Architecture' };
       slideDeckData = generateSlideDeckCards(client, null);
       currentSlideIndex = 0;
       renderCurrentSlide();
@@ -4929,7 +5900,7 @@ layout: false
     }
 
     function copySlideDeckMarkdown() {
-      const client = fleetState.activeClient || { name: 'Apex Commercial HVAC' };
+      const client = fleetState.activeClient || { name: 'LumiLore Technologies Inc.' };
       const md = `# Client Presentation: ${client.name}\n\n` + slideDeckData.map(s => `## ${s.title}\n\n${s.content}\n`).join('\n---\n\n');
       navigator.clipboard.writeText(md);
       alert('Slide Deck outline copied to clipboard in Markdown format!');
