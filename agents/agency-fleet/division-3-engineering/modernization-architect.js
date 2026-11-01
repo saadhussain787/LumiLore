@@ -76,8 +76,8 @@ export class ModernizationArchitect {
         targetLatency: '<150ms'
       },
       secondaryCta: {
-        label: lens === 'trades' ? 'Direct Carrier Call: (437) 848-7086' : 'Review AWS SAM Blueprint',
-        actionUrl: 'tel:4378487086'
+        label: lens === 'trades' ? 'Direct Carrier Call: (437) 786-5864' : 'Review AWS SAM Blueprint',
+        actionUrl: 'tel:4377865864'
       },
       trustBadges: lens === 'trades'
         ? ['TSSA Licensed & Insured', '100% Upfront Pricing', 'Zero Weekend Surcharges', 'GPS Live Tracking']

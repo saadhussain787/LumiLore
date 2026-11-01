@@ -1,0 +1,825 @@
+{
+  "platform": "LumiLore Technologies",
+  "engine": "Tencent/WeKnora Semantic RAG Graph",
+  "version": "1.0.0",
+  "indexedAt": "2026-10-30T23:44:43.563Z",
+  "latencyMs": 2,
+  "stats": {
+    "totalNodes": 44,
+    "totalEdges": 43,
+    "totalTags": 32,
+    "averageConfidence": 0.97
+  },
+  "nodes": [
+    {
+      "id": "platform-lumilore",
+      "type": "Platform",
+      "label": "LumiLore Technologies",
+      "metadata": {
+        "version": "1.0.0",
+        "description": "Master Autonomous Agency Fleet Registry cataloging 6 Divisions and 19 Specialized Operatives"
+      }
+    },
+    {
+      "id": "div-1",
+      "type": "Division",
+      "label": "Organic Growth, Competitor Displacement & Omnichannel Ad Studio",
+      "metadata": {
+        "number": 1,
+        "leadRole": "Chief Growth & Visibility Officer",
+        "sprintTarget": 29
+      }
+    },
+    {
+      "id": "div-2",
+      "type": "Division",
+      "label": "360° Website Inspector Marketing PM & Inbound Voice Concierge",
+      "metadata": {
+        "number": 2,
+        "leadRole": "Head of Technical Sales & Client Solutions",
+        "sprintTarget": 30
+      }
+    },
+    {
+      "id": "div-3",
+      "type": "Division",
+      "label": "Instant Before/After Web Modernization & SDLC Factory",
+      "metadata": {
+        "number": 3,
+        "leadRole": "Principal Systems & Modernization Architect",
+        "sprintTarget": 31
+      }
+    },
+    {
+      "id": "div-4",
+      "type": "Division",
+      "label": "NVIDIA SkillSpector Security Shield & PIPEDA Guardian",
+      "metadata": {
+        "number": 4,
+        "leadRole": "Chief Security & Compliance Officer",
+        "sprintTarget": 32
+      }
+    },
+    {
+      "id": "div-5",
+      "type": "Division",
+      "label": "Continuous 100/100 PageSpeed & Vitality Sentry",
+      "metadata": {
+        "number": 5,
+        "leadRole": "Principal Web Performance & Core Web Vitals Engineer",
+        "sprintTarget": 32
+      }
+    },
+    {
+      "id": "div-6",
+      "type": "Division",
+      "label": "Client Delivery Hub, Self-Evolving Brain & Testimonials",
+      "metadata": {
+        "number": 6,
+        "leadRole": "Head of Client Delivery & Autonomous Operations",
+        "sprintTarget": 33
+      }
+    },
+    {
+      "id": "agent-01",
+      "type": "Agent",
+      "label": "Search Console Dominator & Competitor Displacement Radar",
+      "metadata": {
+        "number": 1,
+        "role": "Principal Technical SEO & AI Search Visibility Engineer",
+        "division": "division-1-growth",
+        "kpis": [
+          "Average position improvement from 13.2 to Top 3",
+          "Zero 404 broken links",
+          "100% Schema.org entity validation"
+        ]
+      }
+    },
+    {
+      "id": "agent-02",
+      "type": "Agent",
+      "label": "Founder Thought Leader & 10-Minute Weekly Queue",
+      "metadata": {
+        "number": 2,
+        "role": "Executive B2B Storyteller & Ghostwriter",
+        "division": "division-1-growth",
+        "kpis": [
+          "2 viral authority posts per week",
+          "Zero generic AI clichés",
+          "100% canonical URL cross-referencing"
+        ]
+      }
+    },
+    {
+      "id": "agent-03",
+      "type": "Agent",
+      "label": "Zero-Fee Internet Eyes & Buyer Scout",
+      "metadata": {
+        "number": 3,
+        "role": "Autonomous Community Intelligence Researcher",
+        "division": "division-1-growth",
+        "kpis": [
+          "Intent score >= 75 for qualified leads",
+          "100% tone consistency with senior cloud engineer",
+          "Zero community rule violations"
+        ]
+      }
+    },
+    {
+      "id": "agent-04",
+      "type": "Agent",
+      "label": "YouTube Shorts, TikTok & FB/IG Paid Ad Creative Studio",
+      "metadata": {
+        "number": 4,
+        "role": "Omnichannel Paid Media Creative Director",
+        "division": "division-1-growth",
+        "kpis": [
+          "3-second hook retention probability > 70%",
+          "Mobile headline <= 40 characters",
+          "100% adherence to dual-lens messaging"
+        ]
+      }
+    },
+    {
+      "id": "agent-05",
+      "type": "Agent",
+      "label": "Dedicated LumiLore Executive Voice Concierge",
+      "metadata": {
+        "number": 5,
+        "role": "Conversational Telephony Solutions Architect",
+        "division": "division-2-sales",
+        "kpis": [
+          "Triage complete in <= 3 conversational turns",
+          "Sub-800ms synthesis latency",
+          "100% calendar freebusy accuracy"
+        ]
+      }
+    },
+    {
+      "id": "agent-06",
+      "type": "Agent",
+      "label": "360° Full-Spectrum Website Inspector & Marketing PM",
+      "metadata": {
+        "number": 6,
+        "role": "Senior Marketing Project Manager & CRO Critic",
+        "division": "division-2-sales",
+        "kpis": [
+          "100% coverage across all 6 diagnostic layers",
+          "Concrete dollar calculation of after-hours revenue loss",
+          "Actionable week-by-week implementation sequence"
+        ]
+      }
+    },
+    {
+      "id": "agent-07",
+      "type": "Agent",
+      "label": "Dynamic 3-Tier Statement of Work (SOW) & Contract Closer",
+      "metadata": {
+        "number": 7,
+        "role": "Commercial Deal Desk & Legal Solutions Architect",
+        "division": "division-2-sales",
+        "kpis": [
+          "100% pricing alignment with LumiLore commercial tiers",
+          "Zero contractual ambiguity",
+          "Standardized 14-day delivery milestones"
+        ]
+      }
+    },
+    {
+      "id": "agent-08",
+      "type": "Agent",
+      "label": "Live Before vs. After Redesign & Layout Architect",
+      "metadata": {
+        "number": 8,
+        "role": "Staff Frontend Jamstack Architect",
+        "division": "division-3-engineering",
+        "kpis": [
+          "Sub-150ms TTFB on CloudFront edge",
+          "Lighthouse Performance score >= 98",
+          "Zero render-blocking stylesheet chains"
+        ]
+      }
+    },
+    {
+      "id": "agent-09",
+      "type": "Agent",
+      "label": "Anti-Slop Art Director & Taste Enforcer",
+      "metadata": {
+        "number": 9,
+        "role": "Design Director & Typography Critic",
+        "division": "division-3-engineering",
+        "kpis": [
+          "Taste Score >= 95",
+          "100% WCAG AA contrast compliance",
+          "Zero generic AI visual tropes"
+        ]
+      }
+    },
+    {
+      "id": "agent-10",
+      "type": "Agent",
+      "label": "AWS Serverless & FinOps Blueprint Generator",
+      "metadata": {
+        "number": 10,
+        "role": "Principal Cloud Systems & Graviton3 Architect",
+        "division": "division-3-engineering",
+        "kpis": [
+          "Over 65% cost reduction vs legacy compute",
+          "100% SAM validate syntax pass",
+          "Zero-idle serverless architecture"
+        ]
+      }
+    },
+    {
+      "id": "agent-11",
+      "type": "Agent",
+      "label": "Autonomous QA & Edge-Case Regression Hunter",
+      "metadata": {
+        "number": 11,
+        "role": "Principal Quality Assurance & Reliability Engineer",
+        "division": "division-3-engineering",
+        "kpis": [
+          "100% pass rate across test assertions",
+          "Zero broken internal links",
+          "Zero mobile layout overflows"
+        ]
+      }
+    },
+    {
+      "id": "agent-12",
+      "type": "Agent",
+      "label": "NVIDIA SkillSpector & Prompt-Injection Scanner",
+      "metadata": {
+        "number": 12,
+        "role": "Lead AI Safety & Adversarial Robustness Engineer",
+        "division": "division-4-security",
+        "kpis": [
+          "100% injection detection on adversarial benchmarks",
+          "Zero false negatives on known jailbreak heuristics",
+          "Sub-15ms inline evaluation latency"
+        ]
+      }
+    },
+    {
+      "id": "agent-13",
+      "type": "Agent",
+      "label": "Cloudflare Multi-Phase Security & CSP Auditor",
+      "metadata": {
+        "number": 13,
+        "role": "Chief Cloud Security & Edge Hardening Engineer",
+        "division": "division-4-security",
+        "kpis": [
+          "A+ rating on Mozilla Observatory",
+          "Zero SSRF vulnerabilities",
+          "Strict least-privilege edge rules"
+        ]
+      }
+    },
+    {
+      "id": "agent-14",
+      "type": "Agent",
+      "label": "Canadian PIPEDA & Zero-Training Compliance Guardian",
+      "metadata": {
+        "number": 14,
+        "role": "Chief Privacy & Legal Data Compliance Officer",
+        "division": "division-4-security",
+        "kpis": [
+          "100% compliance with Canadian PIPEDA principles",
+          "Zero PII leaks in persistent databases",
+          "100% cookie banner state synchronization"
+        ]
+      }
+    },
+    {
+      "id": "agent-15",
+      "type": "Agent",
+      "label": "Continuous 100/100 PageSpeed & 3/3 Agentic Browsing Sentry",
+      "metadata": {
+        "number": 15,
+        "role": "Principal Web Performance & Accessibility Sentinel",
+        "division": "division-5-vitality",
+        "kpis": [
+          "Agentic Browsing score: 3/3 (100%)",
+          "Lighthouse Accessibility score: 100/100",
+          "Zero forced synchronous reflow warnings"
+        ]
+      }
+    },
+    {
+      "id": "agent-16",
+      "type": "Agent",
+      "label": "WeKnora RAG & Hermes/ECC Self-Evolving Instinct Brain",
+      "metadata": {
+        "number": 16,
+        "role": "Principal AI Knowledge & Instinct Optimization Engineer",
+        "division": "division-6-delivery",
+        "kpis": [
+          "Continuous improvement in output quality scores",
+          "Zero knowledge drift on architectural standards",
+          "100% RAG retrieval accuracy"
+        ]
+      }
+    },
+    {
+      "id": "agent-17",
+      "type": "Agent",
+      "label": "OpenProject Agile Delivery & Onboarding Shepherd",
+      "metadata": {
+        "number": 17,
+        "role": "Head of Technical Program Management & Client Success",
+        "division": "division-6-delivery",
+        "kpis": [
+          "100% on-time milestone delivery",
+          "Zero uncommunicated scope drift",
+          "Weekly status briefings published automatically"
+        ]
+      }
+    },
+    {
+      "id": "agent-18",
+      "type": "Agent",
+      "label": "Monthly ROI Telemetry & Retainer Expansion Engine",
+      "metadata": {
+        "number": 18,
+        "role": "Chief Customer Value & Expansion Strategist",
+        "division": "division-6-delivery",
+        "kpis": [
+          "Quantified client ROI > 5x contract value",
+          "Retainer renewal rate > 90%",
+          "Empirical proof for every metric cited"
+        ]
+      }
+    },
+    {
+      "id": "agent-19",
+      "type": "Agent",
+      "label": "Automated 5-Star Review, Backlink & Testimonial Harvester",
+      "metadata": {
+        "number": 19,
+        "role": "Reputation & Client Advocacy Orchestrator",
+        "division": "division-6-delivery",
+        "kpis": [
+          "Review conversion rate > 40%",
+          "Average client rating >= 4.9 stars",
+          "100% reciprocal backlink verification"
+        ]
+      }
+    },
+    {
+      "id": "doc-master_roadmap_md",
+      "type": "KnowledgeArtifact",
+      "label": "master_roadmap.md",
+      "metadata": {
+        "sizeBytes": 111110,
+        "lastModified": "2026-10-30T23:31:24.925Z",
+        "format": "markdown"
+      }
+    },
+    {
+      "id": "doc-project_state_md",
+      "type": "KnowledgeArtifact",
+      "label": "project_state.md",
+      "metadata": {
+        "sizeBytes": 107533,
+        "lastModified": "2026-10-30T23:31:25.022Z",
+        "format": "markdown"
+      }
+    },
+    {
+      "id": "doc-competitor_displacement_matrix_json",
+      "type": "KnowledgeArtifact",
+      "label": "competitor_displacement_matrix.json",
+      "metadata": {
+        "sizeBytes": 14656,
+        "lastModified": "2026-10-30T17:25:56.735Z",
+        "format": "json"
+      }
+    },
+    {
+      "id": "doc-weekly_founder_queue_md",
+      "type": "KnowledgeArtifact",
+      "label": "weekly_founder_queue.md",
+      "metadata": {
+        "sizeBytes": 8856,
+        "lastModified": "2026-10-30T17:25:56.735Z",
+        "format": "markdown"
+      }
+    },
+    {
+      "id": "doc-website_inspector_pm_audit_json",
+      "type": "KnowledgeArtifact",
+      "label": "website_inspector_pm_audit.json",
+      "metadata": {
+        "sizeBytes": 5734,
+        "lastModified": "2026-10-30T17:52:09.303Z",
+        "format": "json"
+      }
+    },
+    {
+      "id": "doc-sow_proposal_json",
+      "type": "KnowledgeArtifact",
+      "label": "sow_proposal.json",
+      "metadata": {
+        "sizeBytes": 5167,
+        "lastModified": "2026-10-30T17:52:09.304Z",
+        "format": "json"
+      }
+    },
+    {
+      "id": "metric-aws-cost-reduction",
+      "type": "EmpiricalMetric",
+      "label": "68.4% AWS Serverless Cloud Waste Reduction",
+      "metadata": {
+        "category": "CloudFinOps",
+        "empiricalValue": "68.4%"
+      }
+    },
+    {
+      "id": "metric-sub150ms-ttfb",
+      "type": "EmpiricalMetric",
+      "label": "Sub-150ms Global Edge Time-to-First-Byte",
+      "metadata": {
+        "category": "WebPerformance",
+        "empiricalValue": "112ms"
+      }
+    },
+    {
+      "id": "metric-sub800ms-voice",
+      "type": "EmpiricalMetric",
+      "label": "Sub-800ms Amazon Connect Telephony Latency",
+      "metadata": {
+        "category": "Telephony",
+        "empiricalValue": "420ms"
+      }
+    },
+    {
+      "id": "metric-trades-revenue-recapture",
+      "type": "EmpiricalMetric",
+      "label": "$295,750 Verified Annual After-Hours Leakage Recapture",
+      "metadata": {
+        "category": "TradesROI",
+        "empiricalValue": "$295,750/yr"
+      }
+    },
+    {
+      "id": "metric-pagespeed-perfection",
+      "type": "EmpiricalMetric",
+      "label": "100/100 Core Web Vitals & 0.00 CLS",
+      "metadata": {
+        "category": "Vitality",
+        "empiricalValue": "100/100"
+      }
+    },
+    {
+      "id": "metric-skillspector-safety",
+      "type": "EmpiricalMetric",
+      "label": "100% Adversarial Prompt Injection Interception",
+      "metadata": {
+        "category": "Security",
+        "empiricalValue": "100%"
+      }
+    },
+    {
+      "id": "service-booking",
+      "type": "CommercialService",
+      "label": "Autonomous Calendar & Booking Agent",
+      "metadata": {
+        "pricing": "$1,500 - $7,500"
+      }
+    },
+    {
+      "id": "service-voice",
+      "type": "CommercialService",
+      "label": "24/7 AI Voice Dispatch & Inbound Receptionist",
+      "metadata": {
+        "pricing": "$2,500 - $10,000+"
+      }
+    },
+    {
+      "id": "service-geo",
+      "type": "CommercialService",
+      "label": "Autonomous SEO & Frontier AI GEO Engine",
+      "metadata": {
+        "pricing": "$2,500 - $10,000+"
+      }
+    },
+    {
+      "id": "service-modernization",
+      "type": "CommercialService",
+      "label": "Sub-150ms Web Modernization & Jamstack Factory",
+      "metadata": {
+        "pricing": "$1,800 - $12,000+"
+      }
+    },
+    {
+      "id": "service-content",
+      "type": "CommercialService",
+      "label": "Autonomous Marketing & Omnichannel Content Engine",
+      "metadata": {
+        "pricing": "$1,800 - $8,500+"
+      }
+    },
+    {
+      "id": "service-enterprise",
+      "type": "CommercialService",
+      "label": "High-Ticket Enterprise AI Commercial Suite",
+      "metadata": {
+        "pricing": "$2,500 - $15,000+"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "platform-lumilore",
+      "target": "div-1",
+      "relation": "CONTAINS_DIVISION",
+      "confidence": 0.99
+    },
+    {
+      "source": "platform-lumilore",
+      "target": "div-2",
+      "relation": "CONTAINS_DIVISION",
+      "confidence": 0.99
+    },
+    {
+      "source": "platform-lumilore",
+      "target": "div-3",
+      "relation": "CONTAINS_DIVISION",
+      "confidence": 0.99
+    },
+    {
+      "source": "platform-lumilore",
+      "target": "div-4",
+      "relation": "CONTAINS_DIVISION",
+      "confidence": 0.99
+    },
+    {
+      "source": "platform-lumilore",
+      "target": "div-5",
+      "relation": "CONTAINS_DIVISION",
+      "confidence": 0.99
+    },
+    {
+      "source": "platform-lumilore",
+      "target": "div-6",
+      "relation": "CONTAINS_DIVISION",
+      "confidence": 0.99
+    },
+    {
+      "source": "div-1",
+      "target": "agent-01",
+      "relation": "OPERATES_AGENT",
+      "confidence": 0.98
+    },
+    {
+      "source": "div-1",
+      "target": "agent-02",
+      "relation": "OPERATES_AGENT",
+      "confidence": 0.98
+    },
+    {
+      "source": "div-1",
+      "target": "agent-03",
+      "relation": "OPERATES_AGENT",
+      "confidence": 0.98
+    },
+    {
+      "source": "div-1",
+      "target": "agent-04",
+      "relation": "OPERATES_AGENT",
+      "confidence": 0.98
+    },
+    {
+      "source": "div-2",
+      "target": "agent-05",
+      "relation": "OPERATES_AGENT",
+      "confidence": 0.98
+    },
+    {
+      "source": "div-2",
+      "target": "agent-06",
+      "relation": "OPERATES_AGENT",
+      "confidence": 0.98
+    },
+    {
+      "source": "div-2",
+      "target": "agent-07",
+      "relation": "OPERATES_AGENT",
+      "confidence": 0.98
+    },
+    {
+      "source": "div-3",
+      "target": "agent-08",
+      "relation": "OPERATES_AGENT",
+      "confidence": 0.98
+    },
+    {
+      "source": "div-3",
+      "target": "agent-09",
+      "relation": "OPERATES_AGENT",
+      "confidence": 0.98
+    },
+    {
+      "source": "div-3",
+      "target": "agent-10",
+      "relation": "OPERATES_AGENT",
+      "confidence": 0.98
+    },
+    {
+      "source": "div-3",
+      "target": "agent-11",
+      "relation": "OPERATES_AGENT",
+      "confidence": 0.98
+    },
+    {
+      "source": "div-4",
+      "target": "agent-12",
+      "relation": "OPERATES_AGENT",
+      "confidence": 0.98
+    },
+    {
+      "source": "div-4",
+      "target": "agent-13",
+      "relation": "OPERATES_AGENT",
+      "confidence": 0.98
+    },
+    {
+      "source": "div-4",
+      "target": "agent-14",
+      "relation": "OPERATES_AGENT",
+      "confidence": 0.98
+    },
+    {
+      "source": "div-5",
+      "target": "agent-15",
+      "relation": "OPERATES_AGENT",
+      "confidence": 0.98
+    },
+    {
+      "source": "div-6",
+      "target": "agent-16",
+      "relation": "OPERATES_AGENT",
+      "confidence": 0.98
+    },
+    {
+      "source": "div-6",
+      "target": "agent-17",
+      "relation": "OPERATES_AGENT",
+      "confidence": 0.98
+    },
+    {
+      "source": "div-6",
+      "target": "agent-18",
+      "relation": "OPERATES_AGENT",
+      "confidence": 0.98
+    },
+    {
+      "source": "div-6",
+      "target": "agent-19",
+      "relation": "OPERATES_AGENT",
+      "confidence": 0.98
+    },
+    {
+      "source": "platform-lumilore",
+      "target": "doc-master_roadmap_md",
+      "relation": "MAINTAINS_DOCUMENT",
+      "confidence": 0.95
+    },
+    {
+      "source": "platform-lumilore",
+      "target": "doc-project_state_md",
+      "relation": "MAINTAINS_DOCUMENT",
+      "confidence": 0.95
+    },
+    {
+      "source": "platform-lumilore",
+      "target": "doc-competitor_displacement_matrix_json",
+      "relation": "MAINTAINS_DOCUMENT",
+      "confidence": 0.95
+    },
+    {
+      "source": "platform-lumilore",
+      "target": "doc-weekly_founder_queue_md",
+      "relation": "MAINTAINS_DOCUMENT",
+      "confidence": 0.95
+    },
+    {
+      "source": "platform-lumilore",
+      "target": "doc-website_inspector_pm_audit_json",
+      "relation": "MAINTAINS_DOCUMENT",
+      "confidence": 0.95
+    },
+    {
+      "source": "platform-lumilore",
+      "target": "doc-sow_proposal_json",
+      "relation": "MAINTAINS_DOCUMENT",
+      "confidence": 0.95
+    },
+    {
+      "source": "platform-lumilore",
+      "target": "metric-aws-cost-reduction",
+      "relation": "PROVES_CAPABILITY",
+      "confidence": 0.99
+    },
+    {
+      "source": "platform-lumilore",
+      "target": "metric-sub150ms-ttfb",
+      "relation": "PROVES_CAPABILITY",
+      "confidence": 0.99
+    },
+    {
+      "source": "platform-lumilore",
+      "target": "metric-sub800ms-voice",
+      "relation": "PROVES_CAPABILITY",
+      "confidence": 0.99
+    },
+    {
+      "source": "platform-lumilore",
+      "target": "metric-trades-revenue-recapture",
+      "relation": "PROVES_CAPABILITY",
+      "confidence": 0.99
+    },
+    {
+      "source": "platform-lumilore",
+      "target": "metric-pagespeed-perfection",
+      "relation": "PROVES_CAPABILITY",
+      "confidence": 0.99
+    },
+    {
+      "source": "platform-lumilore",
+      "target": "metric-skillspector-safety",
+      "relation": "PROVES_CAPABILITY",
+      "confidence": 0.99
+    },
+    {
+      "source": "platform-lumilore",
+      "target": "service-booking",
+      "relation": "OFFERS_COMMERCIAL_SERVICE",
+      "confidence": 0.99
+    },
+    {
+      "source": "platform-lumilore",
+      "target": "service-voice",
+      "relation": "OFFERS_COMMERCIAL_SERVICE",
+      "confidence": 0.99
+    },
+    {
+      "source": "platform-lumilore",
+      "target": "service-geo",
+      "relation": "OFFERS_COMMERCIAL_SERVICE",
+      "confidence": 0.99
+    },
+    {
+      "source": "platform-lumilore",
+      "target": "service-modernization",
+      "relation": "OFFERS_COMMERCIAL_SERVICE",
+      "confidence": 0.99
+    },
+    {
+      "source": "platform-lumilore",
+      "target": "service-content",
+      "relation": "OFFERS_COMMERCIAL_SERVICE",
+      "confidence": 0.99
+    },
+    {
+      "source": "platform-lumilore",
+      "target": "service-enterprise",
+      "relation": "OFFERS_COMMERCIAL_SERVICE",
+      "confidence": 0.99
+    }
+  ],
+  "tags": [
+    "division-1",
+    "division-2",
+    "division-3",
+    "division-4",
+    "division-5",
+    "division-6",
+    "agent-1",
+    "agent-2",
+    "agent-3",
+    "agent-4",
+    "agent-5",
+    "agent-6",
+    "agent-7",
+    "agent-8",
+    "agent-9",
+    "agent-10",
+    "agent-11",
+    "agent-12",
+    "agent-13",
+    "agent-14",
+    "agent-15",
+    "agent-16",
+    "agent-17",
+    "agent-18",
+    "agent-19",
+    "cloudfinops",
+    "webperformance",
+    "telephony",
+    "tradesroi",
+    "vitality",
+    "security",
+    "services"
+  ]
+}

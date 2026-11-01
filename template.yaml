@@ -12,6 +12,7 @@ Globals:
         - "Content-Type"
         - "Authorization"
         - "X-Requested-With"
+        - "X-Founder-Token"
       AllowMethods:
         - "GET"
         - "POST"
@@ -72,6 +73,11 @@ Resources:
           Properties:
             Path: /api/voice/concierge
             Method: post
+        VoiceExecutiveConciergeRoute:
+          Type: HttpApi
+          Properties:
+            Path: /api/voice/executive-concierge
+            Method: post
         AvailabilityRoute:
           Type: HttpApi
           Properties:
@@ -82,6 +88,26 @@ Resources:
           Properties:
             Path: /api/status
             Method: get
+        AuthVerifyRoute:
+          Type: HttpApi
+          Properties:
+            Path: /api/auth/verify-passkey
+            Method: post
+        AuthSessionRoute:
+          Type: HttpApi
+          Properties:
+            Path: /api/auth/session
+            Method: get
+        AuthLogoutRoute:
+          Type: HttpApi
+          Properties:
+            Path: /api/auth/logout
+            Method: post
+        FleetProxyRoute:
+          Type: HttpApi
+          Properties:
+            Path: /api/fleet/{proxy+}
+            Method: any
         OptionsRoute:
           Type: HttpApi
           Properties:

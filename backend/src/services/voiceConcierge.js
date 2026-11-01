@@ -14,8 +14,8 @@
  */
 
 export const CONCIERGE_CHANNELS = {
-  EXECUTIVE_LINE: '1-800-LUMILORE-SALES', // Dedicated Amazon Connect Executive Hotline
-  DEMO_LINE: '437-848-7086'              // 24/7 Client Demo Line (Trades Voice Dispatch)
+  EXECUTIVE_LINE: '437-786-5864', // Dedicated Amazon Connect Unified AI Voice Hotline
+  DEMO_LINE: '437-786-5864'      // 24/7 Client Demo & Intake Line
 };
 
 export const ACOUSTIC_PROFILE = {

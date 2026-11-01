@@ -11,7 +11,7 @@ location: "Greater Toronto Area (GTA)"
 region: "ON"
 lat: 43.6532
 lng: -79.3832
-phone: "437-848-7086"
+phone: "437-786-5864"
 tags: ["#AWSCloudToronto","#MarkhamTech","#ServerlessArchitecture","#FinOpsOntario","#WebModernization"]
 generatedAt: "2026-10-26T18:54:09.315Z"
 ---
@@ -21,7 +21,7 @@ generatedAt: "2026-10-26T18:54:09.315Z"
 **Service Area:** Greater Toronto Area (GTA) (GTA Enterprise Hub)  
 **Call to Action:** [LEARN_MORE](https://lumilore.ca/contact/?service=web-modernization&lens=corporate)  
 **Reference Case Study:** [https://lumilore.ca/insights/cutting-aws-cloud-waste-serverless-architecture/](https://lumilore.ca/insights/cutting-aws-cloud-waste-serverless-architecture/)  
-**Contact / NAP:** LumiLore Technologies | 437-848-7086 | Markham, Ontario
+**Contact / NAP:** LumiLore Technologies | 437-786-5864 | Markham, Ontario
 
 ---
 
@@ -39,6 +39,6 @@ Stop subsidizing cloud compute idle time.
 ---
 
 ### Local SEO & Geotargeting Attribution:
-- **NAP Verified:** LumiLore Technologies, Markham, Ontario, Canada (437-848-7086)
+- **NAP Verified:** LumiLore Technologies, Markham, Ontario, Canada (437-786-5864)
 - **Map Coordinates:** `43.6532, -79.3832`
 - **Recommended Photo Asset:** Screenshot of architecture diagram or voice dispatch latency waveform

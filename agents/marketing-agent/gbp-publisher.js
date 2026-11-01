@@ -76,7 +76,7 @@ export class GBPPublisher {
    * Build Local Trades GBP Post
    */
   _buildTradesGBPPost({ study, serviceArea, topic }) {
-    const phone = '437-848-7086';
+    const phone = '437-786-5864';
     const ctaUrl = 'https://lumilore.ca/contact/?service=voice-dispatch&lens=trades';
     const studyUrl = study?.canonicalUrl || 'https://lumilore.ca/insights/autonomous-247-ai-voice-dispatch-mechanical-trades/';
 
@@ -126,7 +126,7 @@ Human call centers charge $3,500–$5,000/month, yet drop urgent calls during pe
       },
       napConsistency: {
         businessName: 'LumiLore Technologies',
-        phone: '437-848-7086',
+        phone: '437-786-5864',
         city: 'Markham',
         province: 'Ontario',
         country: 'Canada',
@@ -184,7 +184,7 @@ Bloated PHP plugins and unoptimized hosting destroy Google Core Web Vitals and c
       },
       napConsistency: {
         businessName: 'LumiLore Technologies',
-        phone: '437-848-7086',
+        phone: '437-786-5864',
         city: 'Markham',
         province: 'Ontario',
         country: 'Canada',

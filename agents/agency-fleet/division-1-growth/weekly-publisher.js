@@ -32,7 +32,7 @@ export class WeeklyPublisher {
       title: 'Principal Cloud & AI Systems Architect',
       company: 'LumiLore Technologies',
       location: 'Markham, Ontario, Canada',
-      phone: '437-848-7086',
+      phone: '437-786-5864',
       canonicalDomain: 'https://lumilore.ca'
     };
   }
@@ -207,14 +207,14 @@ Serverless architecture is no longer just for toy hobby projects. When designed 
 When emergency freeze-ups or plumbing leaks strike, homeowners won't leave a voicemail—they call the first contractor who picks up. LumiLore Technologies engineers 24/7 Autonomous AI Voice Dispatchers that answer on Ring 1, qualify emergency callers, and schedule jobs directly into your dispatch calendar.
 
 📍 Serving Markham, Richmond Hill, Vaughan, Mississauga & the Greater Toronto Area.
-📞 Direct Phone: 437-848-7086
+📞 Direct Phone: 437-786-5864
 🌐 Explore our live voice demo: https://lumilore.ca/products/voice-dispatch/`;
 
     return {
       channel: 'Google Business Profile (GBP)',
       locationTarget: 'Markham & Greater Toronto Area (GTA)',
       phone: this.author.phone,
-      ctaButton: 'Call Now (437-848-7086) / Visit Website',
+      ctaButton: 'Call Now (437-786-5864) / Visit Website',
       content: updateText
     };
   }

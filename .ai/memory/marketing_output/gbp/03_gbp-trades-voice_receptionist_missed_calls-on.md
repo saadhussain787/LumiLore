@@ -11,7 +11,7 @@ location: "Mississauga & Peel Region"
 region: "ON"
 lat: 43.589
 lng: -79.6441
-phone: "437-848-7086"
+phone: "437-786-5864"
 tags: ["#HVACMarkham","#GTAContractors","#AIVoiceDispatch","#ServiceTitanOntario","#CommercialPlumbing"]
 generatedAt: "2026-10-26T18:54:09.315Z"
 ---
@@ -21,7 +21,7 @@ generatedAt: "2026-10-26T18:54:09.315Z"
 **Service Area:** Mississauga & Peel Region (Peel Industrial Hub)  
 **Call to Action:** [BOOK_APPOINTMENT](https://lumilore.ca/contact/?service=voice-dispatch&lens=trades)  
 **Reference Case Study:** [https://lumilore.ca/insights/autonomous-247-ai-voice-dispatch-mechanical-trades/](https://lumilore.ca/insights/autonomous-247-ai-voice-dispatch-mechanical-trades/)  
-**Contact / NAP:** LumiLore Technologies | 437-848-7086 | Markham, Ontario
+**Contact / NAP:** LumiLore Technologies | 437-786-5864 | Markham, Ontario
 
 ---
 
@@ -40,6 +40,6 @@ Human call centers charge $3,500–$5,000/month, yet drop urgent calls during pe
 ---
 
 ### Local SEO & Geotargeting Attribution:
-- **NAP Verified:** LumiLore Technologies, Markham, Ontario, Canada (437-848-7086)
+- **NAP Verified:** LumiLore Technologies, Markham, Ontario, Canada (437-786-5864)
 - **Map Coordinates:** `43.589, -79.6441`
 - **Recommended Photo Asset:** Screenshot of architecture diagram or voice dispatch latency waveform

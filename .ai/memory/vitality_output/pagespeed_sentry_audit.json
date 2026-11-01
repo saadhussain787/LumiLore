@@ -1,0 +1,48 @@
+{
+  "timestamp": "2026-10-30T23:26:56.465Z",
+  "overallPass": true,
+  "scores": {
+    "agenticBrowsing": "3/3 (100% Agentic Compliant)",
+    "lighthouseAccessibilityTarget": "100/100",
+    "forcedReflowCount": 0
+  },
+  "assertions": {
+    "ariaConformance": {
+      "passed": true,
+      "totalFilesAudited": 15,
+      "prohibitedAriaViolationsCount": 0,
+      "violations": []
+    },
+    "modalInertIsolation": {
+      "passed": true,
+      "lumibotModalIsolated": true,
+      "geoAuditModalIsolated": true,
+      "issues": []
+    },
+    "agenticDiscoveryLinks": {
+      "passed": true,
+      "llmsTxtLinksFound": 14,
+      "llmsFullTxtLinksFound": 12,
+      "agenticBrowsingScore": "3/3 (100% Agentic Compliant)",
+      "issues": []
+    },
+    "waveformGpuReflows": {
+      "passed": true,
+      "gpuAccelerated": true,
+      "zeroForcedReflows": true,
+      "issues": []
+    },
+    "imageDimensions": {
+      "passed": true,
+      "totalImagesAudited": 89,
+      "missingDimensionsCount": 0,
+      "missingDimensions": []
+    },
+    "criticalPreloads": {
+      "passed": true,
+      "stylePreloaded": true,
+      "fontPreconnected": true,
+      "issues": []
+    }
+  }
+}

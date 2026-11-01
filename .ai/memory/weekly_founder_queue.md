@@ -151,7 +151,7 @@ Serverless architecture is no longer just for toy hobby projects. When designed 
 
 ## 📍 Item 4: Google Business Profile (GBP) Local Map Pack Post
 - **Target Area:** Greater Toronto Area (Markham, Richmond Hill, Mississauga, Vaughan)
-- **Call-to-Action:** Call Now (`437-848-7086`) / Book Consultation
+- **Call-to-Action:** Call Now (`437-786-5864`) / Book Consultation
 
 ```text
 🚨 Are missed after-hours phone calls costing your Toronto or GTA contracting business thousands every weekend? 
@@ -159,7 +159,7 @@ Serverless architecture is no longer just for toy hobby projects. When designed 
 When emergency freeze-ups or plumbing leaks strike, homeowners won't leave a voicemail—they call the first contractor who picks up. LumiLore Technologies engineers 24/7 Autonomous AI Voice Dispatchers that answer on Ring 1, qualify emergency callers, and schedule jobs directly into your dispatch calendar.
 
 📍 Serving Markham, Richmond Hill, Vaughan, Mississauga & the Greater Toronto Area.
-📞 Direct Phone: 437-848-7086
+📞 Direct Phone: 437-786-5864
 🌐 Explore our live voice demo: https://lumilore.ca/products/voice-dispatch/
 ```
 

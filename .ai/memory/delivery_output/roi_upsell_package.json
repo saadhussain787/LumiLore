@@ -1,0 +1,87 @@
+{
+  "agent": "agent-18-roi-upsell-engine",
+  "timestamp": "2026-10-30T23:44:43.566Z",
+  "durationMs": 0,
+  "deliverables": {
+    "monthlyClientValueScorecard": {
+      "trades": {
+        "lens": "trades",
+        "period": "October 2026",
+        "clientName": "Apex Mechanical Services (GTA)",
+        "metrics": {
+          "callsAnswered": 92,
+          "emergencyCallsHandled": 34,
+          "jobsBookedAfterHours": 14,
+          "averageTicketValue": 1950,
+          "recapturedRevenue": 27300,
+          "dispatcherOvertimeSaved": 2400,
+          "totalMonthlyValueGenerated": 29700,
+          "monthlyRetainerFee": 3500,
+          "netClientProfit": 26200,
+          "roiMultiplier": 8.49,
+          "guaranteeMet": true
+        }
+      },
+      "corporate": {
+        "lens": "corporate",
+        "period": "October 2026",
+        "clientName": "Apex Cloud Technologies",
+        "metrics": {
+          "awsCloudWasteEliminated": 4470,
+          "latencyConversionUplift": 6200,
+          "inferenceTokenSavings": 1150,
+          "totalMonthlyValueGenerated": 11820,
+          "monthlyRetainerFee": 2200,
+          "netClientProfit": 9620,
+          "roiMultiplier": 5.37,
+          "guaranteeMet": true
+        }
+      }
+    },
+    "quantifiedDollarRoiStatement": {
+      "tradesDollarRoi": "$26,200 CAD Net Monthly Value (8.49x ROI)",
+      "corporateDollarRoi": "$9,620 CAD Net Monthly Value (5.37x ROI)",
+      "satisfactionGuarantee": "Verified > 5.0x Contract Value or Unconditional Architecture Remediation"
+    },
+    "nextPillarStrategicExpansionProposal": {
+      "tradesProposal": {
+        "currentTier": "Autonomous Growth & Voice Retainer ($3,500 CAD/mo)",
+        "recommendedTier": "Commercial Multi-Van Enterprise Swarm ($6,500 CAD/mo)",
+        "targetExpansionPillars": [
+          {
+            "name": "Pillar 13.1: Commercial Permit Radar & Municipal Scout",
+            "impact": "Monitors GTA commercial building permits to intercept mechanical HVAC/roofing bids before public RFPs."
+          },
+          {
+            "name": "Pillar 13.3: Master Tech in Every Van (WhatsApp AI Field Wiki)",
+            "impact": "Equips 12 field technicians with instant wiring schematics, error codes, and parts lookup."
+          },
+          {
+            "name": "Pillar 13.5: Job-Site Completed Project Video Engine",
+            "impact": "Converts completed van job photos into verified neighborhood Google Maps proof videos."
+          }
+        ],
+        "projectedIncrementalRevenue": "$48,000 CAD/mo",
+        "projectedNewRoiMultiplier": "7.8x",
+        "paybackPeriodDays": 12
+      },
+      "corporateProposal": {
+        "currentTier": "Starter Speed & Jamstack Sprint ($1,800 CAD flat)",
+        "recommendedTier": "Autonomous FinOps & Multi-LLM Scaling Retainer ($3,500 CAD/mo)",
+        "targetExpansionPillars": [
+          {
+            "name": "Pillar 13.2: Zero-Trust AI Penetration & SkillSpector Hardening",
+            "impact": "108-rule automated prompt injection, SSRF, and credential exfiltration guardrail."
+          },
+          {
+            "name": "Pillar 13.6: Enterprise AI Inference & OmniRoute FinOps",
+            "impact": "Quota failover and token compression reducing monthly LLM bills by 35%–60%."
+          }
+        ],
+        "projectedIncrementalRevenue": "$18,500 CAD/mo cloud savings",
+        "projectedNewRoiMultiplier": "5.2x",
+        "paybackPeriodDays": 14
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "platform": "LumiLore Technologies",
+  "standard": "Canadian Personal Information Protection and Electronic Documents Act (PIPEDA)",
+  "jurisdiction": "Ontario & Federal Canada",
+  "timestamp": "2026-10-30T23:26:56.416Z",
+  "compliant": true,
+  "covenants": {
+    "piiScrubbing": {
+      "passed": true,
+      "testPayloadVerified": true,
+      "sinRedacted": true,
+      "cardPanRedacted": true,
+      "issues": []
+    },
+    "cookieConsent": {
+      "passed": true,
+      "bannerVerified": true,
+      "consentKeyDocumented": true,
+      "issues": []
+    },
+    "zeroPublicModelTraining": {
+      "passed": true,
+      "privacyClauseFound": true,
+      "termsClauseFound": true,
+      "sowRiderFound": true,
+      "issues": []
+    },
+    "canadianDataResidency": {
+      "passed": true,
+      "sovereignRegion": "AWS ca-central-1 (Montreal, Canada)",
+      "issues": []
+    }
+  }
+}

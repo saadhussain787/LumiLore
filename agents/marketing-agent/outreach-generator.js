@@ -81,7 +81,7 @@ Best regards,
 
 Saad Sayed
 Principal Systems Architect | LumiLore Technologies
-Direct: 437-848-7086 | https://lumilore.ca`
+Direct: 437-786-5864 | https://lumilore.ca`
     };
 
     // Stage 2: The 2-minute Architecture Solution & Diagnostic Proof

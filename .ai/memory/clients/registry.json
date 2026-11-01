@@ -1,0 +1,45 @@
+{
+  "version": "1.0.0",
+  "activeClientSlug": "apex-hvac",
+  "clients": [
+    {
+      "id": "apex-hvac",
+      "slug": "apex-hvac",
+      "name": "Apex Commercial HVAC & Refrigeration",
+      "domain": "apexhvac.ca",
+      "phone": "+1-647-555-0199",
+      "industry": "Commercial HVAC & Refrigeration Contractors",
+      "lens": "trades",
+      "tier": "growth",
+      "notes": "Large commercial contractor with 14 technician trucks. Experiencing 3.4s TTFB on WordPress and after-hours call leakages.",
+      "createdAt": "2026-11-01T12:00:00.000Z",
+      "updatedAt": "2026-11-01T12:00:00.000Z"
+    },
+    {
+      "id": "metro-electric",
+      "slug": "metro-electric",
+      "name": "Metro Toronto Electrical Contracting",
+      "domain": "metrotorontoelectric.ca",
+      "phone": "+1-437-555-0811",
+      "industry": "Commercial & Industrial Electrical",
+      "lens": "trades",
+      "tier": "enterprise",
+      "notes": "12-technician electrical firm. Wants AI voice dispatch and sub-150ms Jamstack site.",
+      "createdAt": "2026-11-01T12:00:00.000Z",
+      "updatedAt": "2026-11-01T12:00:00.000Z"
+    },
+    {
+      "id": "saas-flow",
+      "slug": "saas-flow",
+      "name": "SaaSFlow AI Analytics",
+      "domain": "saasflow.io",
+      "phone": "+1-416-555-0144",
+      "industry": "Enterprise B2B Cloud Software",
+      "lens": "corporate",
+      "tier": "starter",
+      "notes": "B2B SaaS seeking SEO keyword displacement and technical thought leadership.",
+      "createdAt": "2026-11-01T12:00:00.000Z",
+      "updatedAt": "2026-11-01T12:00:00.000Z"
+    }
+  ]
+}

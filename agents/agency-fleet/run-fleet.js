@@ -17,6 +17,7 @@
 
 import { ContractEngine } from './core/contract-engine.js';
 import { OmniRouter } from './core/omni-router.js';
+import { defaultAuditLogger } from './core/fleet-audit-logger.js';
 
 const args = process.argv.slice(2);
 const isStatusOnly = args.includes('--status') || args.includes('-s');
@@ -105,6 +106,25 @@ export async function runFleetCLI(cliOptions = {}) {
       console.log(`    ${c.ok ? '✓' : '✕'} ${c.name}`);
     }
 
+    // Persist structured event to persistent audit trail
+    defaultAuditLogger.logEvent({
+      divisionId: agent.division,
+      agentId: agent.id,
+      agentNumber: agent.number,
+      agentName: agent.name,
+      triggerSource: cliOptions.triggerSource || 'CLI',
+      executionTimeMs: res.latencyMs,
+      status: res.success ? 'SUCCESS' : 'ERROR',
+      provider: res.provider,
+      model: res.model,
+      tokenEfficiency: res.compressed,
+      deliverablePath: agent.deliverables?.[0] ? `.ai/memory/${agent.id}.json` : null,
+      deliverableTitle: agent.deliverables?.[0] || 'Fleet Deliverable',
+      deliverableSummary: `Executed ${agent.name} via CLI with verification ${res.success ? 'PASS' : 'FAIL'}`,
+      verificationPassed: res.success,
+      metadata: { dryRun: dryRunMode, trigger: 'cli_single' }
+    });
+
     if (!res.success) {
       console.error('\n✕ Errors:', res.verification.errors);
       process.exit(1);
@@ -118,11 +138,17 @@ export async function runFleetCLI(cliOptions = {}) {
     const isDiv1 = rawDiv === '1' || rawDiv === 'growth' || rawDiv.includes('division-1');
     const isDiv2 = rawDiv === '2' || rawDiv === 'sales' || rawDiv.includes('division-2');
     const isDiv3 = rawDiv === '3' || rawDiv === 'engineering' || rawDiv.includes('division-3');
+    const isDiv4 = rawDiv === '4' || rawDiv === 'security' || rawDiv.includes('division-4');
+    const isDiv5 = rawDiv === '5' || rawDiv === 'vitality' || rawDiv.includes('division-5');
+    const isDiv6 = rawDiv === '6' || rawDiv === 'delivery' || rawDiv.includes('division-6');
     
     const divAgents = engine.listAgents().filter(a => {
       if (isDiv1) return a.division.includes('division-1') || a.division.includes('growth');
       if (isDiv2) return a.division.includes('division-2') || a.division.includes('sales');
       if (isDiv3) return a.division.includes('division-3') || a.division.includes('engineering');
+      if (isDiv4) return a.division.includes('division-4') || a.division.includes('security');
+      if (isDiv5) return a.division.includes('division-5') || a.division.includes('vitality');
+      if (isDiv6) return a.division.includes('division-6') || a.division.includes('delivery');
       const divNum = parseInt(rawDiv, 10);
       if (!isNaN(divNum)) return a.division.includes(String(divNum));
       return a.division.toLowerCase().includes(rawDiv);
@@ -218,11 +244,99 @@ export async function runFleetCLI(cliOptions = {}) {
       }
     }
 
+    // If Division 4 (Security), execute the specialized operative pipelines
+    if (isDiv4) {
+      try {
+        const { SkillSpector, SecurityAuditor, PipedaGuardian } = await import('./division-4-security/index.js');
+        console.log('\n  ==============================================================');
+        console.log('  🌟 DIVISION 4 PIPELINE: ACTIVATING SPECIALIZED OPERATIVES');
+        console.log('  ==============================================================\n');
+        
+        console.log('  --> [1/3] Running Agent 12: SkillSpector...');
+        const spector = new SkillSpector();
+        await spector.run();
+
+        console.log('\n  --> [2/3] Running Agent 13: SecurityAuditor...');
+        const auditor = new SecurityAuditor();
+        await auditor.run();
+
+        console.log('\n  --> [3/3] Running Agent 14: PipedaGuardian...');
+        const guardian = new PipedaGuardian();
+        await guardian.run();
+        console.log('\n  ✓ All 3 Division 4 specialized pipelines completed successfully.\n');
+      } catch (err) {
+        console.warn('  ⚠️ Note on Division 4 specialized execution:', err.message);
+      }
+    }
+
+    // If Division 5 (Vitality), execute the specialized operative pipelines
+    if (isDiv5) {
+      try {
+        const { PageSpeedSentry } = await import('./division-5-vitality/index.js');
+        console.log('\n  ==============================================================');
+        console.log('  🌟 DIVISION 5 PIPELINE: ACTIVATING SPECIALIZED OPERATIVES');
+        console.log('  ==============================================================\n');
+        
+        console.log('  --> [1/1] Running Agent 15: PageSpeedSentry...');
+        const sentry = new PageSpeedSentry();
+        await sentry.run();
+        console.log('\n  ✓ Division 5 specialized vitality pipeline completed successfully.\n');
+      } catch (err) {
+        console.warn('  ⚠️ Note on Division 5 specialized execution:', err.message);
+      }
+    }
+
+    // If Division 6 (Delivery), execute the specialized operative pipelines
+    if (isDiv6) {
+      try {
+        const { WeKnoraHermesBrain, DeliveryShepherd, RoiUpsellEngine, ReviewHarvester } = await import('./division-6-delivery/index.js');
+        console.log('\n  ==============================================================');
+        console.log('  🌟 DIVISION 6 PIPELINE: ACTIVATING SPECIALIZED OPERATIVES');
+        console.log('  ==============================================================\n');
+        
+        console.log('  --> [1/4] Running Agent 16: WeKnoraHermesBrain...');
+        const brain = new WeKnoraHermesBrain();
+        await brain.run();
+
+        console.log('\n  --> [2/4] Running Agent 17: DeliveryShepherd...');
+        const shepherd = new DeliveryShepherd();
+        await shepherd.run();
+
+        console.log('\n  --> [3/4] Running Agent 18: RoiUpsellEngine...');
+        const roi = new RoiUpsellEngine();
+        await roi.run();
+
+        console.log('\n  --> [4/4] Running Agent 19: ReviewHarvester...');
+        const harvester = new ReviewHarvester();
+        await harvester.run();
+        console.log('\n  ✓ All 4 Division 6 specialized delivery pipelines completed successfully.\n');
+      } catch (err) {
+        console.warn('  ⚠️ Note on Division 6 specialized execution:', err.message);
+      }
+    }
+
     const results = [];
     for (const agent of divAgents) {
       console.log(`\n  --> Contract Verification: Agent #${agent.number}: ${agent.name}...`);
       const res = await engine.executeAgent(agent.id, { divisionRun: true }, { dryRun: dryRunMode });
       console.log(`      ✓ Provider: ${res.provider} | Latency: ${res.latencyMs}ms | Result: ${res.success ? 'PASS' : 'FAIL'}`);
+      defaultAuditLogger.logEvent({
+        divisionId: agent.division,
+        agentId: agent.id,
+        agentNumber: agent.number,
+        agentName: agent.name,
+        triggerSource: cliOptions.triggerSource || 'CLI',
+        executionTimeMs: res.latencyMs,
+        status: res.success ? 'SUCCESS' : 'ERROR',
+        provider: res.provider,
+        model: res.model,
+        tokenEfficiency: res.compressed,
+        deliverablePath: agent.deliverables?.[0] ? `.ai/memory/${agent.id}.json` : null,
+        deliverableTitle: agent.deliverables?.[0] || 'Fleet Deliverable',
+        deliverableSummary: `Division run for ${agent.name} (${res.success ? 'PASS' : 'FAIL'})`,
+        verificationPassed: res.success,
+        metadata: { dryRun: dryRunMode, trigger: 'cli_division', division: targetDivision }
+      });
       results.push(res);
     }
 
@@ -244,6 +358,23 @@ export async function runFleetCLI(cliOptions = {}) {
       process.stdout.write(`  [${String(agent.number).padStart(2, '0')}/19] ${agent.name.padEnd(55, '.')} `);
       const res = await engine.executeAgent(agent.id, { fleetSimulation: true }, { dryRun: dryRunMode });
       console.log(res.success ? '✓ PASS' : '✕ FAIL');
+      defaultAuditLogger.logEvent({
+        divisionId: agent.division,
+        agentId: agent.id,
+        agentNumber: agent.number,
+        agentName: agent.name,
+        triggerSource: cliOptions.triggerSource || 'SIMULATION',
+        executionTimeMs: res.latencyMs,
+        status: res.success ? 'SUCCESS' : 'ERROR',
+        provider: res.provider,
+        model: res.model,
+        tokenEfficiency: res.compressed,
+        deliverablePath: agent.deliverables?.[0] ? `.ai/memory/${agent.id}.json` : null,
+        deliverableTitle: agent.deliverables?.[0] || 'Fleet Deliverable',
+        deliverableSummary: `Fleet simulation sweep for ${agent.name}`,
+        verificationPassed: res.success,
+        metadata: { dryRun: dryRunMode, trigger: 'cli_all' }
+      });
       results.push(res);
     }
 

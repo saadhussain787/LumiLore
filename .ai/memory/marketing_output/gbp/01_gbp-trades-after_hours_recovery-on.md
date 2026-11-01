@@ -11,7 +11,7 @@ location: "Markham & York Region"
 region: "ON"
 lat: 43.8561
 lng: -79.337
-phone: "437-848-7086"
+phone: "437-786-5864"
 tags: ["#HVACMarkham","#GTAContractors","#AIVoiceDispatch","#ServiceTitanOntario","#CommercialPlumbing"]
 generatedAt: "2026-10-26T18:54:09.315Z"
 ---
@@ -21,7 +21,7 @@ generatedAt: "2026-10-26T18:54:09.315Z"
 **Service Area:** Markham & York Region (Markham Tech Corridor)  
 **Call to Action:** [BOOK_APPOINTMENT](https://lumilore.ca/contact/?service=voice-dispatch&lens=trades)  
 **Reference Case Study:** [https://lumilore.ca/insights/autonomous-247-ai-voice-dispatch-mechanical-trades/](https://lumilore.ca/insights/autonomous-247-ai-voice-dispatch-mechanical-trades/)  
-**Contact / NAP:** LumiLore Technologies | 437-848-7086 | Markham, Ontario
+**Contact / NAP:** LumiLore Technologies | 437-786-5864 | Markham, Ontario
 
 ---
 
@@ -32,7 +32,7 @@ Are emergency HVAC and commercial plumbing calls slipping through to voicemail a
 Field service contractors lose an average of $295,750 annually to missed calls. LumiLore's Autonomous AI Voice Receptionist answers on the 1st ring, triages emergency water leaks or furnace failures with sub-800ms natural conversational speed, and books the dispatch directly into your CRM before competitors even check their messages.
 
 📍 Local Service: Markham & York Region, ON
-📞 Direct Line: 437-848-7086
+📞 Direct Line: 437-786-5864
 ⚡ Setup: Seamless integration with ServiceTitan, Jobber & Housecall Pro.
 
 Eliminate answering service bills and never miss a high-ticket repair call again.
@@ -40,6 +40,6 @@ Eliminate answering service bills and never miss a high-ticket repair call again
 ---
 
 ### Local SEO & Geotargeting Attribution:
-- **NAP Verified:** LumiLore Technologies, Markham, Ontario, Canada (437-848-7086)
+- **NAP Verified:** LumiLore Technologies, Markham, Ontario, Canada (437-786-5864)
 - **Map Coordinates:** `43.8561, -79.337`
 - **Recommended Photo Asset:** Screenshot of architecture diagram or voice dispatch latency waveform

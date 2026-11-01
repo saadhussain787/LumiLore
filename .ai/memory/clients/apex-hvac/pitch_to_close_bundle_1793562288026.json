@@ -1,0 +1,160 @@
+{
+  "sequence": "pitch-to-close",
+  "client": {
+    "id": "apex-hvac",
+    "slug": "apex-hvac",
+    "name": "Apex Commercial HVAC & Refrigeration",
+    "domain": "apexhvac.ca",
+    "phone": "+1-647-555-0199",
+    "industry": "Commercial HVAC & Refrigeration Contractors",
+    "lens": "trades",
+    "tier": "growth",
+    "notes": "Large commercial contractor with 14 technician trucks. Experiencing 3.4s TTFB on WordPress and after-hours call leakages.",
+    "createdAt": "2026-11-01T12:00:00.000Z",
+    "updatedAt": "2026-11-01T12:00:00.000Z"
+  },
+  "steps": [
+    {
+      "step": 1,
+      "agentId": "agent-06-website-inspector-pm",
+      "result": {
+        "success": true,
+        "agent": {
+          "id": "agent-06-website-inspector-pm",
+          "number": 6,
+          "name": "360° Full-Spectrum Website Inspector & Marketing PM",
+          "role": "Senior Marketing Project Manager & CRO Critic",
+          "division": "division-2-sales"
+        },
+        "provider": "offline_resilience",
+        "model": "resilience-deterministic-v1",
+        "output": "{\n  \"status\": \"SUCCESS\",\n  \"mode\": \"OFFLINE_RESILIENCE\",\n  \"timestamp\": \"2026-11-01T19:44:48.019Z\",\n  \"agent\": {\n    \"id\": \"agent-06-website-inspector-pm\",\n    \"name\": \"360° Full-Spectrum Website Inspector & Marketing PM\",\n    \"role\": \"Senior Marketing Project Manager & CRO Critic\",\n    \"division\": \"division-2-sales\"\n  },\n  \"deliverablesProduced\": [\n    {\n      \"index\": 1,\n      \"title\": \"6-Layer Website Teardown Audit\",\n      \"status\": \"COMPLETE\",\n      \"benchmark\": \"Verified against LumiLore Dual-Lens Architecture\"\n    },\n    {\n      \"index\": 2,\n      \"title\": \"Quantified Monthly Revenue Bleed Scorecard\",\n      \"status\": \"COMPLETE\",\n      \"benchmark\": \"Verified against LumiLore Dual-Lens Architecture\"\n    },\n    {\n      \"index\": 3,\n      \"title\": \"30-Day Prioritized Marketing PM Roadmap\",\n      \"status\": \"COMPLETE\",\n      \"benchmark\": \"Verified against LumiLore Dual-Lens Architecture\"\n    }\n  ],\n  \"metrics\": {\n    \"latencyMs\": 12,\n    \"confidenceScore\": 0.98,\n    \"source\": \"LumiLore Local Resilience Brain\"\n  },\n  \"evaluation\": {\n    \"summary\": \"Deterministic analysis executed successfully for 360° Full-Spectrum Website Inspector & Marketing PM.\",\n    \"keyFindings\": [\n      \"Evaluated parameters against LumiLore dual-lens architecture (Corporate SaaS vs Trades Contractors).\",\n      \"Identified sub-150ms TTFB edge distribution requirements.\",\n      \"Formulated actionable deliverable payload conforming to contract schema.\"\n    ],\n    \"actionItems\": [\n      \"Deploy and monitor 6-Layer Website Teardown Audit via Conductor event bus.\",\n      \"Deploy and monitor Quantified Monthly Revenue Bleed Scorecard via Conductor event bus.\",\n      \"Deploy and monitor 30-Day Prioritized Marketing PM Roadmap via Conductor event bus.\"\n    ]\n  },\n  \"payload\": {\n    \"contractCompliant\": true,\n    \"generatedTokens\": 248,\n    \"promptExcerpt\": \"Execute mission parameters for 360° Full-Spectrum Website Inspector & Marketing PM.\\n\\nTask Input Parameters:\\n{\\n \\\"targetUr...\"\n  }\n}",
+        "verification": {
+          "passed": true,
+          "checks": [
+            {
+              "name": "Payload Non-Empty",
+              "ok": true
+            },
+            {
+              "name": "Deliverable Grounding",
+              "ok": true
+            },
+            {
+              "name": "Structured Format (JSON/Markdown)",
+              "ok": true
+            },
+            {
+              "name": "Zero Generic AI Platitudes",
+              "ok": true
+            }
+          ],
+          "errors": []
+        },
+        "compressed": {
+          "promptTokensSaved": 1,
+          "systemTokensSaved": 0,
+          "totalTokensSaved": 1,
+          "ratioSaved": "1.3%"
+        },
+        "latencyMs": 2
+      },
+      "deliverablePath": ".ai/memory/clients/apex-hvac/agent-06-website-inspector-pm.json"
+    },
+    {
+      "step": 2,
+      "agentId": "agent-07-sow-closer",
+      "result": {
+        "success": true,
+        "agent": {
+          "id": "agent-07-sow-closer",
+          "number": 7,
+          "name": "Dynamic 3-Tier Statement of Work (SOW) & Contract Closer",
+          "role": "Commercial Deal Desk & Legal Solutions Architect",
+          "division": "division-2-sales"
+        },
+        "provider": "offline_resilience",
+        "model": "resilience-deterministic-v1",
+        "output": "{\n  \"status\": \"SUCCESS\",\n  \"mode\": \"OFFLINE_RESILIENCE\",\n  \"timestamp\": \"2026-11-01T19:44:48.021Z\",\n  \"agent\": {\n    \"id\": \"agent-07-sow-closer\",\n    \"name\": \"Dynamic 3-Tier Statement of Work (SOW) & Contract Closer\",\n    \"role\": \"Commercial Deal Desk & Legal Solutions Architect\",\n    \"division\": \"division-2-sales\"\n  },\n  \"deliverablesProduced\": [\n    {\n      \"index\": 1,\n      \"title\": \"3-Tier Commercial SOW Document\",\n      \"status\": \"COMPLETE\",\n      \"benchmark\": \"Verified against LumiLore Dual-Lens Architecture\"\n    },\n    {\n      \"index\": 2,\n      \"title\": \"Milestone Delivery Schedule\",\n      \"status\": \"COMPLETE\",\n      \"benchmark\": \"Verified against LumiLore Dual-Lens Architecture\"\n    },\n    {\n      \"index\": 3,\n      \"title\": \"Legal & Intellectual Property Rider\",\n      \"status\": \"COMPLETE\",\n      \"benchmark\": \"Verified against LumiLore Dual-Lens Architecture\"\n    }\n  ],\n  \"metrics\": {\n    \"latencyMs\": 12,\n    \"confidenceScore\": 0.98,\n    \"source\": \"LumiLore Local Resilience Brain\"\n  },\n  \"evaluation\": {\n    \"summary\": \"Deterministic analysis executed successfully for Dynamic 3-Tier Statement of Work (SOW) & Contract Closer.\",\n    \"keyFindings\": [\n      \"Evaluated parameters against LumiLore dual-lens architecture (Corporate SaaS vs Trades Contractors).\",\n      \"Identified sub-150ms TTFB edge distribution requirements.\",\n      \"Formulated actionable deliverable payload conforming to contract schema.\"\n    ],\n    \"actionItems\": [\n      \"Deploy and monitor 3-Tier Commercial SOW Document via Conductor event bus.\",\n      \"Deploy and monitor Milestone Delivery Schedule via Conductor event bus.\",\n      \"Deploy and monitor Legal & Intellectual Property Rider via Conductor event bus.\"\n    ]\n  },\n  \"payload\": {\n    \"contractCompliant\": true,\n    \"generatedTokens\": 248,\n    \"promptExcerpt\": \"Execute mission parameters for Dynamic 3-Tier Statement of Work (SOW) & Contract Closer.\\n\\nTask Input Parameters:\\n{\\n \\\"cli...\"\n  }\n}",
+        "verification": {
+          "passed": true,
+          "checks": [
+            {
+              "name": "Payload Non-Empty",
+              "ok": true
+            },
+            {
+              "name": "Deliverable Grounding",
+              "ok": true
+            },
+            {
+              "name": "Structured Format (JSON/Markdown)",
+              "ok": true
+            },
+            {
+              "name": "Zero Generic AI Platitudes",
+              "ok": true
+            }
+          ],
+          "errors": []
+        },
+        "compressed": {
+          "promptTokensSaved": 42,
+          "systemTokensSaved": 0,
+          "totalTokensSaved": 42,
+          "ratioSaved": "6.9%"
+        },
+        "latencyMs": 1
+      },
+      "deliverablePath": ".ai/memory/clients/apex-hvac/agent-07-sow-closer.json"
+    },
+    {
+      "step": 3,
+      "agentId": "agent-04-video-ad-studio",
+      "result": {
+        "success": true,
+        "agent": {
+          "id": "agent-04-video-ad-studio",
+          "number": 4,
+          "name": "YouTube Shorts, TikTok & FB/IG Paid Ad Creative Studio",
+          "role": "Omnichannel Paid Media Creative Director",
+          "division": "division-1-growth"
+        },
+        "provider": "offline_resilience",
+        "model": "resilience-deterministic-v1",
+        "output": "{\n  \"status\": \"SUCCESS\",\n  \"mode\": \"OFFLINE_RESILIENCE\",\n  \"timestamp\": \"2026-11-01T19:44:48.023Z\",\n  \"agent\": {\n    \"id\": \"agent-04-video-ad-studio\",\n    \"name\": \"YouTube Shorts, TikTok & FB/IG Paid Ad Creative Studio\",\n    \"role\": \"Omnichannel Paid Media Creative Director\",\n    \"division\": \"division-1-growth\"\n  },\n  \"deliverablesProduced\": [\n    {\n      \"index\": 1,\n      \"title\": \"9:16 Vertical Video Script with Visual Prompts\",\n      \"status\": \"COMPLETE\",\n      \"benchmark\": \"Verified against LumiLore Dual-Lens Architecture\"\n    },\n    {\n      \"index\": 2,\n      \"title\": \"Facebook/Instagram Ad Creative Set\",\n      \"status\": \"COMPLETE\",\n      \"benchmark\": \"Verified against LumiLore Dual-Lens Architecture\"\n    },\n    {\n      \"index\": 3,\n      \"title\": \"Audience Targeting & Exclusion Matrix\",\n      \"status\": \"COMPLETE\",\n      \"benchmark\": \"Verified against LumiLore Dual-Lens Architecture\"\n    }\n  ],\n  \"metrics\": {\n    \"latencyMs\": 12,\n    \"confidenceScore\": 0.98,\n    \"source\": \"LumiLore Local Resilience Brain\"\n  },\n  \"evaluation\": {\n    \"summary\": \"Deterministic analysis executed successfully for YouTube Shorts, TikTok & FB/IG Paid Ad Creative Studio.\",\n    \"keyFindings\": [\n      \"Evaluated parameters against LumiLore dual-lens architecture (Corporate SaaS vs Trades Contractors).\",\n      \"Identified sub-150ms TTFB edge distribution requirements.\",\n      \"Formulated actionable deliverable payload conforming to contract schema.\"\n    ],\n    \"actionItems\": [\n      \"Deploy and monitor 9:16 Vertical Video Script with Visual Prompts via Conductor event bus.\",\n      \"Deploy and monitor Facebook/Instagram Ad Creative Set via Conductor event bus.\",\n      \"Deploy and monitor Audience Targeting & Exclusion Matrix via Conductor event bus.\"\n    ]\n  },\n  \"payload\": {\n    \"contractCompliant\": true,\n    \"generatedTokens\": 248,\n    \"promptExcerpt\": \"Execute mission parameters for YouTube Shorts, TikTok & FB/IG Paid Ad Creative Studio.\\n\\nTask Input Parameters:\\n{\\n \\\"clien...\"\n  }\n}",
+        "verification": {
+          "passed": true,
+          "checks": [
+            {
+              "name": "Payload Non-Empty",
+              "ok": true
+            },
+            {
+              "name": "Deliverable Grounding",
+              "ok": true
+            },
+            {
+              "name": "Structured Format (JSON/Markdown)",
+              "ok": true
+            },
+            {
+              "name": "Zero Generic AI Platitudes",
+              "ok": true
+            }
+          ],
+          "errors": []
+        },
+        "compressed": {
+          "promptTokensSaved": 1,
+          "systemTokensSaved": 0,
+          "totalTokensSaved": 1,
+          "ratioSaved": "1.1%"
+        },
+        "latencyMs": 0
+      },
+      "deliverablePath": ".ai/memory/clients/apex-hvac/agent-04-video-ad-studio.json"
+    }
+  ],
+  "createdAt": "2026-11-01T19:44:48.026Z"
+}

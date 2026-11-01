@@ -1,0 +1,187 @@
+{
+  "Version": "2019-10-30",
+  "StartAction": "SetVoice_PollyNeural",
+  "Metadata": {
+    "FlowName": "LumiLore_Unified_Voice_Concierge_Flow",
+    "Description": "LumiLore Technologies Autonomous Conversational AI Voice Concierge. Dual-intent discovery (Enterprise Cloud & Mechanical Trades), live Google Calendar slot negotiation, and SES executive dispatch. Powered by Amazon Polly Neural en-CA.",
+    "InstanceAlias": "lumilore-voice.my.connect.aws",
+    "TargetPhoneNumber": "+1-437-786-5864",
+    "Region": "ca-central-1",
+    "LanguageCode": "en-CA",
+    "VoiceId": "Liam",
+    "VoiceType": "Neural",
+    "Engine": "Debpalash-VoiceStudio-DSP-Warmth",
+    "MaxTurnLatencyMs": 800
+  },
+  "Actions": [
+    {
+      "Identifier": "SetVoice_PollyNeural",
+      "Type": "UpdateContactTextToSpeechVoice",
+      "Parameters": {
+        "TextToSpeechEngine": "Neural",
+        "TextToSpeechVoice": "Liam",
+        "LanguageCode": "en-CA"
+      },
+      "Transitions": {
+        "NextAction": "SetContactAttributes_Init"
+      }
+    },
+    {
+      "Identifier": "SetContactAttributes_Init",
+      "Type": "UpdateContactAttributes",
+      "Parameters": {
+        "Attributes": {
+          "SessionChannel": "VOICE_HOTLINE_4377865864",
+          "TriageStatus": "INITIALIZED",
+          "CurrentTurn": "1"
+        }
+      },
+      "Transitions": {
+        "NextAction": "PlayPrompt_WelcomeGreeting"
+      }
+    },
+    {
+      "Identifier": "PlayPrompt_WelcomeGreeting",
+      "Type": "MessageParticipant",
+      "Parameters": {
+        "Text": "Hello, and thank you for calling LumiLore Technologies. I'm the AI Executive Assistant to Principal Systems Architect Saad Sayed and Operations Lead Arfa Sayeed. How can I help you today?"
+      },
+      "Transitions": {
+        "NextAction": "GetCustomerInput_TurnLoop"
+      }
+    },
+    {
+      "Identifier": "GetCustomerInput_TurnLoop",
+      "Type": "GetCustomerInput",
+      "Parameters": {
+        "TimeoutSeconds": 6,
+        "MaxDigits": 0,
+        "SpeechCapture": {
+          "Enabled": true,
+          "LanguageCode": "en-CA",
+          "MaxSpeechDurationSeconds": 25,
+          "SilenceTimeoutSeconds": 2
+        }
+      },
+      "Transitions": {
+        "NextAction": "InvokeLambda_ProcessConversationalTurn",
+        "Errors": [
+          {
+            "NextAction": "PlayPrompt_TimeoutClarification",
+            "ErrorType": "InputTimeOut"
+          },
+          {
+            "NextAction": "PlayPrompt_FallbackAssistance",
+            "ErrorType": "NoMatchingCondition"
+          }
+        ]
+      }
+    },
+    {
+      "Identifier": "InvokeLambda_ProcessConversationalTurn",
+      "Type": "InvokeLambdaFunction",
+      "Parameters": {
+        "LambdaFunctionARN": "arn:aws:lambda:ca-central-1:303238378489:function:lumilore-backend-LumiLoreFunction-JCxBNzZ7VJCO",
+        "InvocationTimeLimitSeconds": 8,
+        "InvocationType": "RequestResponse",
+        "ResponseValidation": {
+          "ResponseType": "JSON"
+        }
+      },
+      "Transitions": {
+        "NextAction": "CheckAttribute_IsBookingCompleted",
+        "Errors": [
+          {
+            "NextAction": "PlayPrompt_LambdaServiceFallback",
+            "ErrorType": "UnhandledException"
+          }
+        ]
+      }
+    },
+    {
+      "Identifier": "CheckAttribute_IsBookingCompleted",
+      "Type": "CheckContactAttributes",
+      "Parameters": {
+        "AttributeName": "BookingStatus",
+        "Comparison": "EQUALS",
+        "Value": "CONFIRMED"
+      },
+      "Transitions": {
+        "NextAction": "PlayPrompt_ConfirmedBookingWrapup",
+        "Conditions": [
+          {
+            "NextAction": "PlayPrompt_DynamicAgentReply",
+            "Condition": "NOT_EQUALS",
+            "Value": "CONFIRMED"
+          }
+        ]
+      }
+    },
+    {
+      "Identifier": "PlayPrompt_DynamicAgentReply",
+      "Type": "MessageParticipant",
+      "Parameters": {
+        "Text": "$.External.AgentReply"
+      },
+      "Transitions": {
+        "NextAction": "GetCustomerInput_TurnLoop"
+      }
+    },
+    {
+      "Identifier": "PlayPrompt_ConfirmedBookingWrapup",
+      "Type": "MessageParticipant",
+      "Parameters": {
+        "Text": "$.External.AgentReply"
+      },
+      "Transitions": {
+        "NextAction": "PlayPrompt_WarmSignoff"
+      }
+    },
+    {
+      "Identifier": "PlayPrompt_WarmSignoff",
+      "Type": "MessageParticipant",
+      "Parameters": {
+        "Text": "We look forward to speaking with you. Have a productive day!"
+      },
+      "Transitions": {
+        "NextAction": "DisconnectCall_Normal"
+      }
+    },
+    {
+      "Identifier": "PlayPrompt_TimeoutClarification",
+      "Type": "MessageParticipant",
+      "Parameters": {
+        "Text": "I'm still here. Are you looking to modernize your enterprise cloud architecture, or inquiring about 24/7 AI voice dispatch for a trades business?"
+      },
+      "Transitions": {
+        "NextAction": "GetCustomerInput_TurnLoop"
+      }
+    },
+    {
+      "Identifier": "PlayPrompt_LambdaServiceFallback",
+      "Type": "MessageParticipant",
+      "Parameters": {
+        "Text": "Thank you for calling LumiLore Technologies. I've recorded your caller ID and our leadership team will reach out directly. You can also view live calendar openings and reserve a session anytime at lumilore.ca/contact."
+      },
+      "Transitions": {
+        "NextAction": "DisconnectCall_Normal"
+      }
+    },
+    {
+      "Identifier": "PlayPrompt_FallbackAssistance",
+      "Type": "MessageParticipant",
+      "Parameters": {
+        "Text": "I want to ensure we address your exact needs. Feel free to describe your project or questions in your own words, and I'll match you with Saad Sayed's schedule."
+      },
+      "Transitions": {
+        "NextAction": "GetCustomerInput_TurnLoop"
+      }
+    },
+    {
+      "Identifier": "DisconnectCall_Normal",
+      "Type": "DisconnectParticipant",
+      "Parameters": {}
+    }
+  ]
+}
+

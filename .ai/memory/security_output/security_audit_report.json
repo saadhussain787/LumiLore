@@ -1,0 +1,52 @@
+{
+  "timestamp": "2026-10-30T23:26:56.413Z",
+  "overallPass": true,
+  "rating": "A+ (Mozilla Observatory / OWASP Top 10 Equivalent)",
+  "phases": {
+    "cspDirectives": {
+      "passed": true,
+      "directivesFound": [
+        "default-src",
+        "script-src",
+        "style-src",
+        "font-src",
+        "img-src",
+        "media-src",
+        "connect-src",
+        "object-src",
+        "base-uri"
+      ],
+      "rawCsp": "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https:; media-src 'self' data: blob:; connect-src 'self' https://*.amazonaws.com; object-src 'none'; base-uri 'self';",
+      "issues": []
+    },
+    "corsAndEdge": {
+      "passed": true,
+      "corsConfigured": true,
+      "issues": []
+    },
+    "ssrfProtection": {
+      "passed": true,
+      "checkedSubnets": [
+        "10.0.0.0/8",
+        "172.16.0.0/12",
+        "192.168.0.0/16",
+        "169.254.0.0/16",
+        "127.0.0.0/8",
+        "fc00::/7"
+      ],
+      "issues": []
+    },
+    "externalLinks": {
+      "passed": true,
+      "totalBlankLinksAudited": 18,
+      "unprotectedLinks": 0,
+      "issues": []
+    },
+    "iamLeastPrivilege": {
+      "passed": true,
+      "blueprintVerified": true,
+      "hasLeastPrivilege": true,
+      "issues": []
+    }
+  }
+}

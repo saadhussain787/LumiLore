@@ -7,7 +7,7 @@
     "url": "frontend/contact.html",
     "companyName": "Apex Mechanical & HVAC",
     "businessType": "trades",
-    "detectedPhone": "4378487086"
+    "detectedPhone": "4377865864"
   },
   "overallHealthScore": 41,
   "layers": [
@@ -51,7 +51,7 @@
     {
       "layerName": "Conversion Rate Optimization (CRO) & Funnel Leaks",
       "croScore": 38,
-      "aboveFoldCta": "Static call link: 4378487086",
+      "aboveFoldCta": "Static call link: 4377865864",
       "formFriction": {
         "totalFields": 25,
         "completionAbandonmentEstimate": "85%"
@@ -77,7 +77,7 @@
     },
     {
       "layerName": "Inbound Telephony & After-Hours Revenue Bleed",
-      "detectedPhone": "4378487086",
+      "detectedPhone": "4377865864",
       "smsAutoTextBackEnabled": false,
       "quantifiedLoss": {
         "monthlyCallsEstimated": 180,
@@ -108,7 +108,7 @@
           "week": "Week 2",
           "focus": "24/7 AI Voice Dispatch Receptionist",
           "deliverables": [
-            "Deploy dedicated AWS Connect AI voice receptionist on 4378487086",
+            "Deploy dedicated AWS Connect AI voice receptionist on 4377865864",
             "Implement instant on-call technician SMS dispatch and CRM synchronization",
             "Recapture estimated 14 lost bookings/mo from voicemail drops"
           ],
