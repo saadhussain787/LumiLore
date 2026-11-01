@@ -624,33 +624,31 @@
 
 ---
 
-## 🏛️ Active Agency Cockpit Horizon: Sprint 38 (Queued for Execution)
-- **Sprint 38 (Real Client Fleet Integration & Mission Control Human-Centered UX Overhaul):**
-  - **Purge Mock Data & Integrate Real Clients:** Purge fake mock clients (`apex-hvac`, `mctorontoelectric`, `saasflow`) and seed `.ai/memory/clients/registry.json` and manifests with 3 real production domains:
-    1. **LumiLore Technologies** (`https://www.lumilore.ca/`) [Flagship Platform — AI Agency & Serverless Architecture]
-    2. **My Choice Auto Services** (`https://www.mychoiceautoservices.com/`) [Automotive Trades — Mechanical Repair & Maintenance]
-    3. **FiscalX** (`https://www.fiscalx.ca/`) [Corporate Accounting, Tax Advisory & Fractional CFO]
-  - **Human-Centered UX Overhaul (Apple/Linear Style):**
-    - Replace the cluttered 6-box grid with a clean **3-View Tab System**:
-      * *View 1: Client Workspace* (Active client dossier, speed/telephony health scorecard, 1-click Pitch Deck & SOW triggers).
-      * *View 2: Fleet Operatives* (Clean categorized cards for Marketing, Sales, Engineering, Security, Delivery with full readable descriptions and zero truncated text).
-      * *View 3: Deliverables & Activity Feed* (Chronological live history of generated audit reports, video scripts, and call logs).
-    - De-clutter top header: preserve only LumiLore Logo, Client Switcher, `⌘K Search`, and Founder Lock.
-  - **Dynamic Presentation Deck Alignment:** Calibrate the 1-tap pitch deck generation to tailor benchmarks and value propositions specifically for Automotive (My Choice Auto), Accounting/Advisory (FiscalX), and AI Architecture (LumiLore).
-  - **Master Sprint 38 Certification (`scratch/verify_sprint38.mjs`):** Automated harness verifying 100% real client resolution, zero mock remnants, responsive tab switching, and zero production build regressions.
+## 🏛️ Active Agency Cockpit Horizon: Sprint 39 (Queued for Execution)
+- **Sprint 39 (Live SEO Engine Implementation, Grounded Client Codebase Ingestion & Multi-LLM Cloud Wiring):**
+  - **Live SEO & GEO Implementation on LumiLore:**
+    * Inject full 5-layer Schema.org JSON-LD graph (`Organization`, `WebSite`, `Person` for Saad Sayed, `ProfessionalService`) into `frontend/index.html`.
+    * Inject structured `ItemList` / `CaseStudy` JSON-LD schema into `frontend/success-stories.html`.
+    * Fix broken asset paths in `frontend/insights/cutting-aws-cloud-waste-serverless-architecture.html` and `autonomous-247-ai-voice-dispatch-mechanical-trades.html` (`/public/logo.webp` -> `/logo.webp`).
+    * Add targeted internal anchor links connecting case studies to product service pages (`/products/web-modernization/`, `/products/voice-dispatch/`).
+  - **Grounded Client Codebase Ingestion:**
+    * Ingest My Choice Auto Repomix into `.ai/memory/clients/my-choice-auto/codebase_context.json` (Python Lambda, API Gateway `aiun423k73`, SNS lead dispatch, 6 core services).
+    * Ingest FiscalX production context into `.ai/memory/clients/fiscalx/codebase_context.json`.
+    * Wire agent task prompts to inject real client codebase facts into agent task inputs.
+  - **Multi-LLM Live Wiring & Cloud Auth Fix:**
+    * Set up local `.env` with `GEMINI_API_KEY` for live AI agent execution.
+    * Update `backend/src/services/authGuard.js` to accept founder passkey `0224` and validate offline session tokens on cloud Lambda without 401 rejection.
+  - **Automated Verification Suite (`scratch/verify_sprint39.mjs`):**
+    * Verification harness certifying schema validity, zero 404 paths, client codebase ingestion, and zero production build regressions.
 
-
-
-
-
-
+---
 
 ## Sprint 38 Certification Summary (Real Client Fleet Integration & Mission Control Human-Centered UX Overhaul)
 - **Status:** COMPLETED & PRODUCTION CERTIFIED (100%)
 - **Active Production Clients:**
   1. LumiLore Technologies Inc. (`https://www.lumilore.ca/`, `lumilore`) [Mother Platform]
   2. My Choice Auto Services (`https://www.mychoiceautoservices.com/`, `my-choice-auto`) [Automotive Trades & Dispatch]
-  3. FiscalX Advisory Services (`https://www.fiscalx.ca/`, `fiscalx`) [Corporate Accounting & Tax Advisory]
+  3. FiscalX Professional Corporation (`https://www.fiscalx.ca/`, `fiscalx`) [Corporate Accounting & Tax Advisory]
 - **Cockpit UX Overhaul:**
   - Modern Apple/Linear visual hierarchy with 3-View Tab system:
     - View 1: Client Workspace (Profile card, 4 health scorecard tiles, purposeful action launchpad)

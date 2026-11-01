@@ -1248,3 +1248,38 @@ From the Google PageSpeed Insights recording (`Page speed insights .mp4`), Deskt
   - Seamless tab transitions between Client Workspace, Fleet Operatives, and Deliverables Feed.
   - 54/54 automated checks passed (100% pass rate).
 - [x] Zero regressions across `scratch/verify_sprint37.mjs` (75/75 pass), `scratch/audit_pages.js` (12/12 routes healthy), and `scratch/audit_links.js` (1,149 links, 0 broken). **SPRINT 38 IS 100% COMPLETE & PRODUCTION CERTIFIED.**
+
+---
+
+## 🚀 Sprint 39: Live SEO Engine Implementation, Grounded Client Codebase Ingestion & Multi-LLM Cloud Wiring (QUEUED FOR EXECUTION)
+
+### Problem Statement & Architectural Context
+1. **Live Technical SEO Gap:** LumiLore's content pages (`/insights/`, `/success-stories/`, `/`) are published, but lack full 5-layer Schema.org JSON-LD entity graphs, contain outdated asset paths (`/public/logo.webp`), and miss targeted internal anchor pipelines linking case studies to service product pages.
+2. **Grounded Client Codebase Ingestion:** Agents previously ran on abstract prompts without access to actual client repositories. With the complete Repomix for My Choice Auto Service available (Eleventy frontend, Python AWS Lambda `aiun423k73`, SNS lead dispatch, 6 core services), the fleet must ingest real client codebases so agents inspect authentic production code.
+3. **Live LLM Execution & Cloud Auth:** Fleet runs previously fell back to a hardcoded 12ms offline resilience mock due to missing runtime API keys (`GEMINI_API_KEY`) and an HMAC token signature mismatch on AWS Lambda (`401 Unauthorized` on `/api/fleet/run-agent`). The engine must be wired for genuine live LLM execution and cloud passkey parity.
+
+### 39.1: Live SEO & GEO Implementation on LumiLore Platform
+- [ ] Inject full 5-layer Schema.org JSON-LD graph (`Organization`, `WebSite`, `Person` for Saad Sayed, `ProfessionalService`) into `frontend/index.html`.
+- [ ] Inject structured `ItemList` / `CaseStudy` JSON-LD schema into `frontend/success-stories.html`.
+- [ ] Fix asset paths in `frontend/insights/cutting-aws-cloud-waste-serverless-architecture.html` and `autonomous-247-ai-voice-dispatch-mechanical-trades.html` (`/public/logo.webp` -> `/logo.webp`).
+- [ ] Add keyword-targeted internal anchor text connecting insights articles directly to `/products/web-modernization/` and `/products/voice-dispatch/`.
+
+### 39.2: Grounded Client Codebase Ingestion
+- [ ] Ingest the My Choice Auto Repomix into `.ai/memory/clients/my-choice-auto/codebase_context.json` (Python Lambda, API Gateway endpoint, SNS topic, 6 services, reviews).
+- [ ] Ingest FiscalX production profile into `.ai/memory/clients/fiscalx/codebase_context.json`.
+- [ ] Update `agents/agency-fleet/mission-control/server.mjs` and `core/contract-engine.js` to automatically supply client codebase facts to agent task prompts.
+- [ ] Prepare client footer attribution snippet for injection into client websites.
+
+### 39.3: Multi-LLM Live Wiring & Cloud Auth Alignment
+- [ ] Configure local `.env` with real LLM provider credentials (`GEMINI_API_KEY`).
+- [ ] Update `backend/src/services/authGuard.js` to accept founder passkey `0224` and validate offline session tokens on cloud Lambda without 401 rejection.
+- [ ] Ensure `omni-router.js` executes live model inference with rich, dynamic findings when API keys are available.
+
+### 39.4: Automated Verification Harness & Production Certification (`scratch/verify_sprint39.mjs`)
+- [ ] Build `scratch/verify_sprint39.mjs` asserting:
+  - 100% valid JSON-LD schema on `index.html` and `success-stories.html`.
+  - Zero 404 asset paths in `/insights/`.
+  - Ingestion and schema conformity of client codebase context files.
+  - Cloud auth passkey and session token validation.
+  - Zero production build regressions (`npm run build`, `scratch/audit_pages.js`, `scratch/audit_links.js`).
+
