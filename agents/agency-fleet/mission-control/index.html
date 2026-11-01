@@ -1925,8 +1925,8 @@
         <label for="client-selector">🏢 <span>Client:</span></label>
         <select class="client-select-dropdown" id="client-selector">
           <option value="lumilore">LumiLore Technologies Inc. (lumilore.ca)</option>
-          <option value="my-choice-auto">My Choice Auto Services (mychoiceautoservices.com)</option>
-          <option value="fiscalx">FiscalX Advisory Services (fiscalx.ca)</option>
+          <option value="my-choice-auto">My Choice Auto Service (mychoiceautoservices.com)</option>
+          <option value="fiscalx">FiscalX Professional Corporation (fiscalx.ca)</option>
         </select>
         <button class="btn btn-outline" style="padding: 0.2rem 0.5rem; font-size: 0.72rem;" id="btn-new-client" title="Add New Client / Project Context">+ New</button>
       </div>
@@ -1967,7 +1967,7 @@
   <div id="inbound-alert-banner">
     <div class="alert-info">
       <span class="alert-pill" id="inbound-source-badge">INBOUND LEAD</span>
-      <span style="font-weight: 700;" id="inbound-company-text">My Choice Auto Services</span>
+      <span style="font-weight: 700;" id="inbound-company-text">My Choice Auto Service</span>
       <span style="color: var(--text-dim);">|</span>
       <span style="font-size: 0.85rem; color: var(--text-muted);" id="inbound-contact-text">Emergency Roadside Triage</span>
       <span style="color: var(--text-dim);">|</span>
@@ -3878,28 +3878,28 @@
         {
           id: "my-choice-auto",
           slug: "my-choice-auto",
-          name: "My Choice Auto Services",
-          companyName: "My Choice Auto Services",
+          name: "My Choice Auto Service",
+          companyName: "My Choice Auto Service",
           websiteUrl: "https://www.mychoiceautoservices.com/",
           domain: "mychoiceautoservices.com",
-          phone: "+1-416-555-AUTO",
-          industry: "Automotive Mechanical Repair & Fleet Services",
+          phone: "+1-416-556-2424",
+          industry: "Automotive Mechanical Repair, Safety Inspection & Fleet Services",
           lens: "trades",
           tier: "growth",
-          notes: "Automotive trades & dispatch. Sub-second booking routing to lead mechanic SMS, 24/7 emergency roadside voice triage, eliminating front-desk friction."
+          notes: "Scarborough automotive repair & maintenance facility led by Shafiq Patel. Located at 112 Select Ave Unit# 5. Specialized in mechanical diagnostics, brake repairs, oil services, and fleet maintenance."
         },
         {
           id: "fiscalx",
           slug: "fiscalx",
-          name: "FiscalX Advisory Services",
-          companyName: "FiscalX Advisory Services",
+          name: "FiscalX Professional Corporation",
+          companyName: "FiscalX Professional Corporation",
           websiteUrl: "https://www.fiscalx.ca/",
           domain: "fiscalx.ca",
-          phone: "+1-416-555-FISC",
-          industry: "Corporate Accounting, Tax Consulting & Fractional CFO Advisory",
+          phone: "+1-647-450-9235",
+          industry: "Corporate Tax Advisory, Professional Accounting & Fractional CFO Services",
           lens: "corporate",
           tier: "scale",
-          notes: "Enterprise client portal, digital intake forms, project Kanban, autonomous invoice recovery, Canadian PIPEDA compliance."
+          notes: "North York corporate tax & accounting firm led by Wasim Kadri, CPA. Located at 255 Duncan Mill Rd, Suite 205. Specializes in corporate tax advisory, year-end financial reporting, and fractional CFO services."
         }
       ];
       fleetState.activeClient = fleetState.clients[0];
@@ -3986,8 +3986,8 @@
       if (client.slug === 'my-choice-auto' || client.domain?.includes('mychoice')) {
         if (ttfbEl) ttfbEl.textContent = '120 ms';
         if (ttfbSub) ttfbSub.textContent = 'Sub-second mobile roadside booking on LTE';
-        if (teleEl) teleEl.textContent = '+1-416-555-AUTO';
-        if (teleSub) teleSub.textContent = '24/7 Roadside Voice Concierge · SMS Dispatch';
+        if (teleEl) teleEl.textContent = '+1-416-556-2424';
+        if (teleSub) teleSub.textContent = 'Shafiq Patel Direct · 112 Select Ave Unit# 5';
         if (radarEl) radarEl.textContent = '96 / 100';
         if (radarSub) radarSub.textContent = 'Google Maps 3-Pack & Local NAP Authority';
         if (revEl) revEl.textContent = '$21,500 /mo';
@@ -3995,8 +3995,8 @@
       } else if (client.slug === 'fiscalx' || client.domain?.includes('fiscalx')) {
         if (ttfbEl) ttfbEl.textContent = '118 ms';
         if (ttfbSub) ttfbSub.textContent = 'KMS Encrypted Client Lobby in ca-central-1';
-        if (teleEl) teleEl.textContent = '+1-416-555-FISC';
-        if (teleSub) teleSub.textContent = 'Corporate Consultation Hotline & Sync';
+        if (teleEl) teleEl.textContent = '+1-647-450-9235';
+        if (teleSub) teleSub.textContent = 'Wasim Kadri, CPA Line · 255 Duncan Mill Rd';
         if (radarEl) radarEl.textContent = '97 / 100';
         if (radarSub) radarSub.textContent = 'Canadian PIPEDA Sovereign Compliance';
         if (revEl) revEl.textContent = '15+ hrs /wk';
@@ -5335,7 +5335,7 @@
 
     function generateSlideDeckCards(client, audit) {
       const slug = client?.slug || (client?.domain?.includes('mychoice') ? 'my-choice-auto' : client?.domain?.includes('fiscalx') ? 'fiscalx' : 'lumilore');
-      const clientName = client?.name || (slug === 'my-choice-auto' ? 'My Choice Auto Services' : slug === 'fiscalx' ? 'FiscalX' : 'LumiLore Technologies Inc.');
+      const clientName = client?.name || (slug === 'my-choice-auto' ? 'My Choice Auto Service' : slug === 'fiscalx' ? 'FiscalX Professional Corporation' : 'LumiLore Technologies Inc.');
       const domain = client?.domain || (slug === 'my-choice-auto' ? 'mychoiceautoservices.com' : slug === 'fiscalx' ? 'fiscalx.ca' : 'lumilore.ca');
       const industry = client?.industry || (slug === 'my-choice-auto' ? 'Automotive Trades & Emergency Repair' : slug === 'fiscalx' ? 'Corporate Accounting & Tax Advisory' : 'Autonomous AI Agency & Cloud Architecture');
 

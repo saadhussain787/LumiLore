@@ -2425,8 +2425,8 @@ export async function handleFleetDispatch(routePath, method, body = {}, event = 
       activeClientSlug: 'lumilore',
       clients: [
         { id: 'lumilore', slug: 'lumilore', name: 'LumiLore Technologies Inc.', domain: 'lumilore.ca', phone: '+1-437-786-5864', industry: 'Autonomous AI Systems & Serverless Cloud Architecture', lens: 'corporate', tier: 'enterprise' },
-        { id: 'my-choice-auto', slug: 'my-choice-auto', name: 'My Choice Auto Services', domain: 'mychoiceautoservices.com', phone: '+1-416-555-AUTO', industry: 'Automotive Mechanical Repair & Fleet Services', lens: 'trades', tier: 'growth' },
-        { id: 'fiscalx', slug: 'fiscalx', name: 'FiscalX Advisory Services', domain: 'fiscalx.ca', phone: '+1-416-555-FISC', industry: 'Corporate Accounting, Tax Consulting & Fractional CFO Advisory', lens: 'corporate', tier: 'scale' }
+        { id: 'my-choice-auto', slug: 'my-choice-auto', name: 'My Choice Auto Service', domain: 'mychoiceautoservices.com', phone: '+1-416-556-2424', industry: 'Automotive Mechanical Repair, Safety Inspection & Fleet Services', lens: 'trades', tier: 'growth' },
+        { id: 'fiscalx', slug: 'fiscalx', name: 'FiscalX Professional Corporation', domain: 'fiscalx.ca', phone: '+1-647-450-9235', industry: 'Corporate Tax Advisory, Professional Accounting & Fractional CFO Services', lens: 'corporate', tier: 'scale' }
       ]
     };
     if (fs.existsSync(clientsFile)) {

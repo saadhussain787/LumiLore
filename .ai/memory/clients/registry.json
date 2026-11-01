@@ -20,32 +20,38 @@
     {
       "id": "my-choice-auto",
       "slug": "my-choice-auto",
-      "name": "My Choice Auto Services",
-      "companyName": "My Choice Auto Services",
+      "name": "My Choice Auto Service",
+      "companyName": "My Choice Auto Service",
       "domain": "mychoiceautoservices.com",
       "websiteUrl": "https://www.mychoiceautoservices.com/",
-      "phone": "+1-416-555-AUTO",
-      "industry": "Automotive Mechanical Repair & Fleet Services",
+      "phone": "+1-416-556-2424",
+      "address": "112 Select Ave Unit# 5, Scarborough, ON M1V 4A7",
+      "email": "Mychoiceautoservice@gmail.com",
+      "leadContact": "Shafiq Patel",
+      "industry": "Automotive Mechanical Repair, Safety Inspection & Fleet Services",
       "lens": "trades",
       "tier": "growth",
-      "notes": "Automotive trades & dispatch. Sub-second booking routing to lead mechanic SMS, 24/7 emergency roadside voice triage, eliminating front-desk friction.",
+      "notes": "Scarborough automotive repair & maintenance facility led by Shafiq Patel. Located at 112 Select Ave Unit# 5. Specialized in mechanical diagnostics, brake repairs, oil services, and fleet maintenance.",
       "createdAt": "2026-11-01T15:00:00.000Z",
-      "updatedAt": "2026-11-01T15:00:00.000Z"
+      "updatedAt": "2026-11-01T17:35:00.000Z"
     },
     {
       "id": "fiscalx",
       "slug": "fiscalx",
-      "name": "FiscalX Advisory Services",
-      "companyName": "FiscalX Advisory Services",
+      "name": "FiscalX Professional Corporation",
+      "companyName": "FiscalX Professional Corporation",
       "domain": "fiscalx.ca",
       "websiteUrl": "https://www.fiscalx.ca/",
-      "phone": "+1-416-555-FISC",
-      "industry": "Corporate Accounting, Tax Consulting & Fractional CFO Advisory",
+      "phone": "+1-647-450-9235",
+      "address": "255 Duncan Mill Rd, Suite 205, North York, ON M3B 3H9",
+      "leadContact": "Wasim Kadri, CPA",
+      "businessHours": "Monday - Friday: 11:00 AM - 6:00 PM",
+      "industry": "Corporate Tax Advisory, Professional Accounting & Fractional CFO Services",
       "lens": "corporate",
       "tier": "scale",
-      "notes": "Enterprise client portal, digital intake forms, project Kanban, autonomous invoice recovery, Canadian PIPEDA compliance.",
+      "notes": "North York corporate tax & accounting firm led by Wasim Kadri, CPA. Located at 255 Duncan Mill Rd, Suite 205. Specializes in corporate tax advisory, year-end financial reporting, and fractional CFO services.",
       "createdAt": "2026-11-01T15:00:00.000Z",
-      "updatedAt": "2026-11-01T15:00:00.000Z"
+      "updatedAt": "2026-11-01T17:35:00.000Z"
     }
   ]
 }
