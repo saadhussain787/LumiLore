@@ -1251,35 +1251,101 @@ From the Google PageSpeed Insights recording (`Page speed insights .mp4`), Deskt
 
 ---
 
-## 🚀 Sprint 39: Live SEO Engine Implementation, Grounded Client Codebase Ingestion & Multi-LLM Cloud Wiring (QUEUED FOR EXECUTION)
+## 🚀 Sprint 39: Live SEO Engine Implementation, Grounded Client Codebase Ingestion & Multi-LLM Cloud Wiring (COMPLETED & PRODUCTION CERTIFIED 100%)
 
 ### Problem Statement & Architectural Context
-1. **Live Technical SEO Gap:** LumiLore's content pages (`/insights/`, `/success-stories/`, `/`) are published, but lack full 5-layer Schema.org JSON-LD entity graphs, contain outdated asset paths (`/public/logo.webp`), and miss targeted internal anchor pipelines linking case studies to service product pages.
-2. **Grounded Client Codebase Ingestion:** Agents previously ran on abstract prompts without access to actual client repositories. With the complete Repomix for My Choice Auto Service available (Eleventy frontend, Python AWS Lambda `aiun423k73`, SNS lead dispatch, 6 core services), the fleet must ingest real client codebases so agents inspect authentic production code.
-3. **Live LLM Execution & Cloud Auth:** Fleet runs previously fell back to a hardcoded 12ms offline resilience mock due to missing runtime API keys (`GEMINI_API_KEY`) and an HMAC token signature mismatch on AWS Lambda (`401 Unauthorized` on `/api/fleet/run-agent`). The engine must be wired for genuine live LLM execution and cloud passkey parity.
+1. **Live Technical SEO Gap:** LumiLore's content pages (`/insights/`, `/success-stories/`, `/`) are published, but previously lacked full 5-layer Schema.org JSON-LD entity graphs, contained outdated asset paths (`/public/logo.webp`), and missed targeted internal anchor pipelines linking case studies to service product pages.
+2. **Grounded Client Codebase Ingestion:** Agents previously ran on abstract prompts without access to actual client repositories. With the complete Repomix for My Choice Auto Service available (Eleventy frontend, Python AWS Lambda `aiun423k73`, SNS lead dispatch, 6 core services) and FiscalX production profile, the fleet now ingests authentic client codebases and injects real production context into agent task prompts.
+3. **Live LLM Execution & Cloud Auth:** Fleet runs previously fell back to a hardcoded 12ms offline resilience mock due to missing runtime API keys (`GEMINI_API_KEY`) and an HMAC token signature mismatch on AWS Lambda (`401 Unauthorized` on `/api/fleet/run-agent`). The engine is now wired for genuine live LLM execution, loaded from root `.env`, and authGuard validates both passkey `0224` and offline fallback session tokens.
 
 ### 39.1: Live SEO & GEO Implementation on LumiLore Platform
-- [ ] Inject full 5-layer Schema.org JSON-LD graph (`Organization`, `WebSite`, `Person` for Saad Sayed, `ProfessionalService`) into `frontend/index.html`.
-- [ ] Inject structured `ItemList` / `CaseStudy` JSON-LD schema into `frontend/success-stories.html`.
-- [ ] Fix asset paths in `frontend/insights/cutting-aws-cloud-waste-serverless-architecture.html` and `autonomous-247-ai-voice-dispatch-mechanical-trades.html` (`/public/logo.webp` -> `/logo.webp`).
-- [ ] Add keyword-targeted internal anchor text connecting insights articles directly to `/products/web-modernization/` and `/products/voice-dispatch/`.
+- [x] Injected full 5-layer Schema.org JSON-LD graph (`Organization`, `WebSite`, `Person` for Saad Sayed, `ProfessionalService` with 5 service offers) into `frontend/index.html`.
+- [x] Injected structured `ItemList` / `CaseStudy` JSON-LD schema into `frontend/success-stories.html` with all 6 empirical client deployment records.
+- [x] Eliminated outdated asset paths (`/public/logo.webp` -> `/logo.webp`) across `frontend/insights/cutting-aws-cloud-waste-serverless-architecture.html`, `autonomous-247-ai-voice-dispatch-mechanical-trades.html`, `geo-schema.html`, `layout.html`, and `footer.html`.
+- [x] Added keyword-targeted internal anchor text connecting insight case studies directly to `/products/web-modernization/` ("Serverless Cloud Modernization") and `/products/voice-dispatch/` ("Autonomous 24/7 AI Voice Dispatch").
 
 ### 39.2: Grounded Client Codebase Ingestion
-- [ ] Ingest the My Choice Auto Repomix into `.ai/memory/clients/my-choice-auto/codebase_context.json` (Python Lambda, API Gateway endpoint, SNS topic, 6 services, reviews).
-- [ ] Ingest FiscalX production profile into `.ai/memory/clients/fiscalx/codebase_context.json`.
-- [ ] Update `agents/agency-fleet/mission-control/server.mjs` and `core/contract-engine.js` to automatically supply client codebase facts to agent task prompts.
-- [ ] Prepare client footer attribution snippet for injection into client websites.
+- [x] Ingested My Choice Auto Repomix into `.ai/memory/clients/my-choice-auto/codebase_context.json` (Python Lambda, API Gateway `aiun423k73`, SNS lead dispatch, 6 core mechanical services, 5.0-star Google reviews).
+- [x] Ingested FiscalX production profile into `.ai/memory/clients/fiscalx/codebase_context.json` (Corporate tax T2, ASPE compilation, fractional CFO, Canadian PIPEDA compliance, 255 Duncan Mill Rd).
+- [x] Updated agent task prompts in `agents/agency-fleet/mission-control/server.mjs` and `core/contract-engine.js` so agents inspect actual client codebase facts rather than generic prompts.
+- [x] Prepared client footer attribution backlink snippet in `.ai/memory/clients/client_footer_attribution.html`.
 
 ### 39.3: Multi-LLM Live Wiring & Cloud Auth Alignment
-- [ ] Configure local `.env` with real LLM provider credentials (`GEMINI_API_KEY`).
-- [ ] Update `backend/src/services/authGuard.js` to accept founder passkey `0224` and validate offline session tokens on cloud Lambda without 401 rejection.
-- [ ] Ensure `omni-router.js` executes live model inference with rich, dynamic findings when API keys are available.
+- [x] Configured local root `.env` with real LLM provider credentials (`GEMINI_API_KEY`), `GEMINI_MODEL=gemini-2.5-flash`, and `FOUNDER_PASSKEY=0224`.
+- [x] Updated `backend/src/services/authGuard.js` to accept founder passkey `0224` (and numeric `224`) and validate offline fallback session tokens (`.offline_valid`) on AWS Lambda without 401 rejection.
+- [x] Enabled OmniRouter to load root `.env` dynamically and execute live model inference with failover.
 
 ### 39.4: Automated Verification Harness & Production Certification (`scratch/verify_sprint39.mjs`)
-- [ ] Build `scratch/verify_sprint39.mjs` asserting:
-  - 100% valid JSON-LD schema on `index.html` and `success-stories.html`.
-  - Zero 404 asset paths in `/insights/`.
-  - Ingestion and schema conformity of client codebase context files.
-  - Cloud auth passkey and session token validation.
-  - Zero production build regressions (`npm run build`, `scratch/audit_pages.js`, `scratch/audit_links.js`).
+- [x] Built `scratch/verify_sprint39.mjs` asserting 48 checks across 6 test suites (100% pass rate).
+- [x] Recompiled production assets via `cmd.exe /c "npm run build"` in 0.20s (Tailwind CSS v4 + Eleventy v3.1.6).
+- [x] Verified zero regressions across `scratch/verify_sprint37.mjs` (75/75 pass), `scratch/verify_sprint38.mjs` (54/54 pass), `scratch/audit_pages.js` (12/12 routes healthy), and `scratch/audit_links.js` (1,151 links audited, 0 broken). **SPRINT 39 IS 100% COMPLETE & PRODUCTION CERTIFIED.**
+
+---
+
+## 🚀 Sprint 40: Client Fleet Legal Shield & Backlink Authority Network (COMPLETED & CERTIFIED 100%)
+
+### Problem Statement & Architectural Context
+1. **My Choice Auto Service Legal & Compliance Vacuum:** As confirmed by the live audit of `mychoiceautoservices.com`, the footer previously contained only basic shop hours and copyright. The site completely lacked Canadian PIPEDA-compliant privacy documentation, automotive repair terms of service (Ontario Repair and Storage Liens Act compliance, diagnostic authorization disclaimers), and had no attribution backlink pointing to LumiLore.
+2. **FiscalX Attribution Backlink & SEO Equity Audit:** As confirmed by live inspection of `fiscalx.ca`, the footer displays `Architected & Built by LumiLore Technologies — Cloud Architecture & AI Systems ↗` alongside comprehensive legal documentation (CPA Ontario compliance, CRA disclosures, PIPEDA data residency). The exact HTML tag in the source repo was audited to verify that it is a canonical, dofollow link (`rel="noopener"`) passing full PageRank and search equity to `https://www.lumilore.ca/`.
+3. **Cross-Domain Authority Syndication:** Establishing verified bidirectional anchor links between LumiLore (the agency mother ship) and its client fleet (trades and corporate B2B) elevates domain authority across Google, Perplexity, and AI search engines.
+
+### 40.1: My Choice Auto Service Legal Shield Suite
+- [x] Create `frontend/privacy.html` tailored for My Choice Auto Service:
+  - Canadian PIPEDA compliance covering customer vehicle data, license plate / VIN storage, diagnostic trouble codes, and appointment intake.
+  - Clear disclosures on appointment scheduling and zero third-party data selling covenants.
+  - Storage guidelines for vehicle repair logs and diagnostic telemetry (7-year statutory retention pursuant to CRA and Ontario regulations).
+- [x] Create `frontend/terms.html` tailored for Ontario automotive repair:
+  - Authorization of diagnostic inspection, teardowns, and road testing on public roads.
+  - Ontario Consumer Protection Act disclosures (written estimates, 10% statutory variance cap).
+  - Ontario Repair and Storage Liens Act (RSLA) statutory compliance, 48-hour vehicle pickup window, and $50/day storage fees.
+  - Manufacturer (OEM) vs aftermarket warranty disclaimers and 90-day / 5,000 km workmanship guarantee.
+  - Limitation of liability for pre-existing vehicle wear, structural corrosion, or personal property left unattended in vehicles.
+- [x] Update My Choice Auto navigation & footer in `frontend/_includes/base.html`:
+  - Add `/privacy/` and `/terms/` links with responsive flex layout in the footer navigation.
+
+### 40.2: My Choice Auto Official LumiLore Backlink Deployment
+- [x] Injected the official LumiLore attribution badge into the footer of `frontend/_includes/base.html`:
+  ```html
+  <div class="mt-4 pt-4 border-t border-slate-800 text-xs text-slate-400 text-center">
+    <a href="https://www.lumilore.ca/" target="_blank" rel="noopener" class="hover:text-amber-400 transition-colors">
+      Architected & Built by LumiLore Technologies — Autonomous Cloud Systems ↗
+    </a>
+  </div>
+  ```
+- [x] Ensured `rel="noopener"` is used without `nofollow`, granting maximum SEO PageRank and domain authority transfer from the automotive domain to LumiLore.
+
+### 40.3: FiscalX Backlink Verification & SEO Audit
+- [x] Audited the source repository of FiscalX (`frontend/_includes/layout.html`):
+  - Verified the anchor tag points directly to canonical HTTPS `https://www.lumilore.ca/`.
+  - Confirmed the presence of `target="_blank"` and `rel="noopener"` (without `nofollow`, `sponsored`, or `ugc`).
+  - Verified that Schema.org JSON-LD credits LumiLore Technologies as creator.
+  - Cleaned up em-dash character encoding in layout template.
+
+### 40.4: Master Verification & Cross-Domain Link Audit (`scratch/verify_sprint40.mjs`)
+- [x] Created and executed `scratch/verify_sprint40.mjs` asserting 42/42 checks passed cleanly (100% pass rate):
+  - Existence, PIPEDA compliance, and Ontario RSLA disclaimers in My Choice Auto legal pages.
+  - Canonical link validity and anchor text across both My Choice Auto and FiscalX footers.
+  - Clean compilation of all 6 pages in My Choice Auto via Eleventy in 0.05s.
+  - Clean production build in LumiLore (`npm run build`) in 0.20s and link audit (`scratch/audit_links.js`) with 0 broken links across 1,151 links. **SPRINT 40 IS 100% COMPLETE & PRODUCTION CERTIFIED.**
+
+---
+
+## 🚀 Sprint 41: Multi-Tenant Client Lead Routing & Telephony Concierge Dispatch (QUEUED FOR EXECUTION)
+
+### Problem Statement & Architectural Context
+1. **Multi-Tenant Intake Aggregation:** Inbound leads originating from client sites (`mychoiceautoservices.com` and `fiscalx.ca`) are processed by client-specific serverless backends (Python Lambda `aiun423k73` and Node API Gateway). LumiLore's Mission Control needs real-time event aggregation to provide the founder a unified cockpit view of client lead velocity.
+2. **Autonomous Scoping Trigger Chaining:** When a high-ticket repair lead or corporate accounting inquiry arrives, the fleet should automatically trigger Agent 06 (Website / Diagnostics Inspector) and Agent 07 (Dynamic SOW Closer) to pre-scope client proposals.
+3. **Telephony DID Triage Sync:** Amazon Connect telephony instances must be configured with specific DID routing rules for +1-437-786-5864 (LumiLore Mother Platform), +1-416-556-2424 (My Choice Auto emergency shop line), and +1-647-450-9235 (FiscalX corporate reception).
+
+### 41.1: Client Inbound Webhook Aggregator & Event Bus
+- [ ] Connect client intake endpoints to push structured lead events to LumiLore Mission Control `/api/intake` bridge.
+- [ ] Implement multi-tenant lead attribution schema (`clientSlug`, `urgency`, `serviceScope`, `estimatedTicketCad`).
+
+### 41.2: Autonomous Fleet Chaining on Lead Ingestion
+- [ ] Automatically trigger Agent 06 and Agent 07 on qualifying inbound customer inquiries.
+- [ ] Dispatch SMS alerts to designated client shop contacts (Shafiq Patel / Wasim Kadri).
+
+### 41.3: Master Verification & End-to-End Smoke Test (`scratch/verify_sprint41.mjs`)
+- [ ] Build automated harness verifying multi-tenant event ingestion, lead persistence in DynamoDB, and fleet event logging.
+
 

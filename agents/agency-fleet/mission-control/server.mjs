@@ -29,6 +29,25 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '../../..');
 
+// Load root .env if present
+const rootEnvPath = path.join(rootDir, '.env');
+if (fs.existsSync(rootEnvPath)) {
+  try {
+    const raw = fs.readFileSync(rootEnvPath, 'utf8');
+    for (const line of raw.split('\n')) {
+      const trimmed = line.trim();
+      if (trimmed && !trimmed.startsWith('#') && trimmed.includes('=')) {
+        const idx = trimmed.indexOf('=');
+        const k = trimmed.slice(0, idx).trim();
+        const v = trimmed.slice(idx + 1).trim().replace(/^["']|["']$/g, '');
+        if (k && !process.env[k]) {
+          process.env[k] = v;
+        }
+      }
+    }
+  } catch {}
+}
+
 export class MissionControlServer {
   /**
    * @param {Object} [options]
@@ -179,6 +198,24 @@ export class MissionControlServer {
       fs.mkdirSync(dir, { recursive: true });
     }
     return dir;
+  }
+
+  /**
+   * Load grounded client codebase context if available on disk
+   * @param {string} slug 
+   * @returns {Object|null}
+   */
+  getClientCodebaseContext(slug) {
+    if (!slug) return null;
+    const contextPath = path.join(this.clientsDir, slug, 'codebase_context.json');
+    if (fs.existsSync(contextPath)) {
+      try {
+        return JSON.parse(fs.readFileSync(contextPath, 'utf8'));
+      } catch (err) {
+        console.warn(`[MissionControl] Failed to parse codebase_context.json for ${slug}:`, err.message);
+      }
+    }
+    return null;
   }
 
   /**
@@ -440,7 +477,12 @@ export class MissionControlServer {
           return;
         }
 
+        const clientSlug = payload.clientSlug || (payload.client ? payload.client.slug : null) || this.getActiveClient()?.slug;
+        const clientContext = this.getClientCodebaseContext(clientSlug);
         const taskInput = payload.taskInput || payload.input || {};
+        if (clientContext && !taskInput.codebaseContext) {
+          taskInput.codebaseContext = clientContext;
+        }
         const isDryRun = payload.dryRun !== undefined ? !!payload.dryRun : false;
         const triggerSource = payload.triggerSource || 'GUI';
         const preferredProvider = payload.preferredProvider;
@@ -463,7 +505,8 @@ export class MissionControlServer {
         try {
           execResult = await this.engine.executeAgent(agentObj.id, taskInput, {
             dryRun: isDryRun,
-            preferredProvider
+            preferredProvider,
+            codebaseContext: clientContext
           });
         } catch (err) {
           execError = err;
@@ -482,7 +525,6 @@ export class MissionControlServer {
           : `Failed: ${currentState.lastError}`;
         this.agentStates.set(agentObj.id, currentState);
 
-        const clientSlug = payload.clientSlug || (payload.client ? payload.client.slug : null) || this.getActiveClient()?.slug;
         let deliverableRelPath = agentObj.deliverables?.[0] ? `.ai/memory/${agentObj.id}.json` : null;
 
         if (clientSlug) {
@@ -683,6 +725,7 @@ export class MissionControlServer {
         const isDryRun = payload.dryRun !== undefined ? !!payload.dryRun : true;
         const preferredProvider = payload.preferredProvider;
         const clientDir = this._getClientOutputDir(clientSlug);
+        const clientContext = this.getClientCodebaseContext(clientSlug);
 
         this.broadcastSSE('sequence_start', {
           sequenceId,
@@ -704,8 +747,9 @@ export class MissionControlServer {
           const res06 = await this.engine.executeAgent(agent06.id, {
             targetUrl: client.domain || 'lumilore.ca',
             businessType: client.industry,
-            auditDepth: payload.auditDepth || 'full'
-          }, { dryRun: isDryRun, preferredProvider });
+            auditDepth: payload.auditDepth || 'full',
+            codebaseContext: clientContext
+          }, { dryRun: isDryRun, preferredProvider, codebaseContext: clientContext });
           const dur06 = Date.now() - t06;
 
           const file06Rel = `.ai/memory/clients/${clientSlug}/${agent06.id}.json`;
@@ -739,8 +783,9 @@ export class MissionControlServer {
           const res07 = await this.engine.executeAgent(agent07.id, {
             clientName: client.name,
             auditFindings: res06.output,
-            tier: client.tier || 'growth'
-          }, { dryRun: isDryRun, preferredProvider });
+            tier: client.tier || 'growth',
+            codebaseContext: clientContext
+          }, { dryRun: isDryRun, preferredProvider, codebaseContext: clientContext });
           const dur07 = Date.now() - t07;
 
           const file07Rel = `.ai/memory/clients/${clientSlug}/${agent07.id}.json`;
@@ -775,8 +820,9 @@ export class MissionControlServer {
             clientName: client.name,
             domain: client.domain,
             targetAudience: client.industry,
-            template: payload.template || '9:16 Kinetic Short'
-          }, { dryRun: isDryRun, preferredProvider });
+            template: payload.template || '9:16 Kinetic Short',
+            codebaseContext: clientContext
+          }, { dryRun: isDryRun, preferredProvider, codebaseContext: clientContext });
           const dur04 = Date.now() - t04;
 
           const file04Rel = `.ai/memory/clients/${clientSlug}/${agent04.id}.json`;
@@ -855,8 +901,9 @@ export class MissionControlServer {
           const t01 = Date.now();
           const res01 = await this.engine.executeAgent(agent01.id, {
             domain: client.domain || 'lumilore.ca',
-            industry: client.industry
-          }, { dryRun: isDryRun, preferredProvider });
+            industry: client.industry,
+            codebaseContext: clientContext
+          }, { dryRun: isDryRun, preferredProvider, codebaseContext: clientContext });
           const dur01 = Date.now() - t01;
 
           const file01Rel = `.ai/memory/clients/${clientSlug}/${agent01.id}.json`;
@@ -889,8 +936,9 @@ export class MissionControlServer {
           const t02 = Date.now();
           const res02 = await this.engine.executeAgent(agent02.id, {
             topic: `${client.name} Cloud Modernization and AI Automation`,
-            clientName: client.name
-          }, { dryRun: isDryRun, preferredProvider });
+            clientName: client.name,
+            codebaseContext: clientContext
+          }, { dryRun: isDryRun, preferredProvider, codebaseContext: clientContext });
           const dur02 = Date.now() - t02;
 
           const file02Rel = `.ai/memory/clients/${clientSlug}/${agent02.id}.json`;
@@ -923,8 +971,9 @@ export class MissionControlServer {
           const t03 = Date.now();
           const res03 = await this.engine.executeAgent(agent03.id, {
             industry: client.industry,
-            keywords: [client.domain || 'hvac', 'cloud automation', 'sub-150ms']
-          }, { dryRun: isDryRun, preferredProvider });
+            keywords: [client.domain || 'hvac', 'cloud automation', 'sub-150ms'],
+            codebaseContext: clientContext
+          }, { dryRun: isDryRun, preferredProvider, codebaseContext: clientContext });
           const dur03 = Date.now() - t03;
 
           const file03Rel = `.ai/memory/clients/${clientSlug}/${agent03.id}.json`;

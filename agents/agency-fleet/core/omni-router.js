@@ -15,7 +15,30 @@
  *   - Unified interface for all agency fleet divisions
  */
 
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import { createRequire } from 'module';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const rootEnvPath = path.resolve(__dirname, '../../../.env');
+if (fs.existsSync(rootEnvPath)) {
+  try {
+    const raw = fs.readFileSync(rootEnvPath, 'utf8');
+    for (const line of raw.split('\n')) {
+      const trimmed = line.trim();
+      if (trimmed && !trimmed.startsWith('#') && trimmed.includes('=')) {
+        const idx = trimmed.indexOf('=');
+        const k = trimmed.slice(0, idx).trim();
+        const v = trimmed.slice(idx + 1).trim().replace(/^["']|["']$/g, '');
+        if (k && !process.env[k]) {
+          process.env[k] = v;
+        }
+      }
+    }
+  } catch {}
+}
 
 let BedrockRuntimeClient = null;
 let ConverseCommand = null;

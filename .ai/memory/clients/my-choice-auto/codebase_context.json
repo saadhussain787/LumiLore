@@ -1,0 +1,126 @@
+{
+  "client": {
+    "id": "my-choice-auto",
+    "slug": "my-choice-auto",
+    "companyName": "My Choice Auto Service",
+    "legalName": "My Choice Auto Service Inc.",
+    "domain": "mychoiceautoservices.com",
+    "websiteUrl": "https://www.mychoiceautoservices.com/",
+    "phone": "+1-416-556-2424",
+    "address": "112 Select Ave Unit# 5, Scarborough, ON M1V 4A7",
+    "email": "Mychoiceautoservice@gmail.com",
+    "leadContact": "Shafiq Patel",
+    "industry": "Automotive Mechanical Repair, Safety Inspection & Fleet Services",
+    "lens": "trades",
+    "tier": "growth"
+  },
+  "architecture": {
+    "frontend": {
+      "framework": "Eleventy (11ty) Jamstack",
+      "cssEngine": "Tailwind CSS",
+      "edgeDistribution": "AWS CloudFront CDN + Amazon S3 Origin",
+      "ttfbBenchmark": "Sub-135ms edge latency across southern Ontario",
+      "mobileOptimization": "Mobile-first 320px-480px touch target certified"
+    },
+    "backend": {
+      "runtime": "AWS Lambda (Python 3.12)",
+      "handler": "lambda_function.lambda_handler",
+      "apiGatewayId": "aiun423k73",
+      "apiGatewayUrl": "https://aiun423k73.execute-api.ca-central-1.amazonaws.com/prod/intake",
+      "region": "ca-central-1",
+      "leadDispatchEngine": "Amazon SNS (Simple Notification Service)",
+      "snsTopicArn": "arn:aws:sns:ca-central-1:303238378489:mychoice-emergency-lead-dispatch",
+      "dispatchChannels": [
+        "SMS to Lead Technician Shafiq Patel (+1-416-556-2424)",
+        "Instant Email Dispatch to Mychoiceautoservice@gmail.com"
+      ],
+      "intakePayloadSchema": {
+        "customerName": "string (required)",
+        "phoneNumber": "string (E.164 format, required)",
+        "vehicle": "string (Year Make Model, required)",
+        "serviceCategory": "string (enum of 6 core services)",
+        "urgencyLevel": "string (emergency | routine | fleet)",
+        "symptoms": "string (customer description)",
+        "preferredDate": "string (YYYY-MM-DD)",
+        "timestamp": "string (ISO8601)"
+      }
+    }
+  },
+  "coreServices": [
+    {
+      "index": 1,
+      "name": "Mechanical & Computer Diagnostics",
+      "slug": "diagnostics",
+      "description": "OEM-level OBD-II computer diagnostics, check engine light diagnostics, powertrain electrical troubleshooting, and sensor fault isolation.",
+      "estimatedDurationHours": "1 - 2 hrs",
+      "averageTicketCad": 185
+    },
+    {
+      "index": 2,
+      "name": "Brake System Repair & Replacement",
+      "slug": "brakes",
+      "description": "Comprehensive brake service including ceramic/semi-metallic pads, precision rotors, caliper rebuilds, hydraulic fluid bleeding, and ABS sensor testing.",
+      "estimatedDurationHours": "1.5 - 3 hrs",
+      "averageTicketCad": 480
+    },
+    {
+      "index": 3,
+      "name": "Safety Inspection & Certification",
+      "slug": "safety-inspection",
+      "description": "Official Ontario Ministry of Transportation (MTO) motor vehicle safety inspection standard, 36-point inspection, and digital safety certificate issuance.",
+      "estimatedDurationHours": "1.5 hrs",
+      "averageTicketCad": 140
+    },
+    {
+      "index": 4,
+      "name": "Scheduled Oil, Lube & Filter Maintenance",
+      "slug": "oil-change",
+      "description": "Full synthetic and synthetic-blend engine oil service, OEM oil filter replacement, chassis lubrication, multi-point fluid top-up, and safety check.",
+      "estimatedDurationHours": "0.75 hrs",
+      "averageTicketCad": 95
+    },
+    {
+      "index": 5,
+      "name": "Suspension, Steering & Wheel Alignment",
+      "slug": "suspension-alignment",
+      "description": "Struts, shock absorbers, control arms, ball joints, tie rod ends, power steering racks, and computerized 4-wheel laser alignment.",
+      "estimatedDurationHours": "2 - 4 hrs",
+      "averageTicketCad": 620
+    },
+    {
+      "index": 6,
+      "name": "Commercial Fleet Maintenance & Light Trucks",
+      "slug": "fleet-services",
+      "description": "Commercial contractor van and light truck fleet maintenance agreements, scheduled preventive servicing, prioritized same-day turnaround, and fleet log management.",
+      "estimatedDurationHours": "Variable",
+      "averageTicketCad": 1250
+    }
+  ],
+  "reputation": {
+    "googleReviewRating": 5.0,
+    "totalReviews": 48,
+    "topKeywords": [
+      "honest mechanic Scarborough",
+      "brake repair 112 Select Ave",
+      "Shafiq auto service",
+      "safety inspection Scarborough ON",
+      "fleet van maintenance Markham Toronto"
+    ],
+    "customerSentiment": "High trust, transparent pricing with zero unnecessary upsells, fast turnaround on repairs."
+  },
+  "businessOperations": {
+    "operatingHours": {
+      "mondayFriday": "8:30 AM - 6:00 PM",
+      "saturday": "9:00 AM - 3:00 PM",
+      "sunday": "Closed (Emergency Telephony Intake Active)"
+    },
+    "serviceRadiusKm": 25,
+    "coverageAreas": [
+      "Scarborough (M1V, M1S, M1P, M1W)",
+      "Markham",
+      "Toronto East",
+      "North York",
+      "Pickering"
+    ]
+  }
+}

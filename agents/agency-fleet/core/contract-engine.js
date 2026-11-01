@@ -93,12 +93,13 @@ export class ContractEngine {
 
   /**
    * Synthesize system prompt and execution trigger for an agent
-   * Merges agency-agents role contract + prompts.chat trigger structure
+   * Merges agency-agents role contract + prompts.chat trigger structure + grounded client codebase facts
    * @param {Object} agent 
    * @param {Object} [taskInput] 
+   * @param {Object|null} [codebaseContext]
    * @returns {{ systemPrompt: string, taskPrompt: string }}
    */
-  buildPrompts(agent, taskInput = {}) {
+  buildPrompts(agent, taskInput = {}, codebaseContext = null) {
     // 1. Build msitarzewski/agency-agents system prompt
     const systemPrompt = [
       `### OPERATIVE IDENTITY`,
@@ -124,19 +125,32 @@ export class ContractEngine {
       `You must formulate your output as structured JSON or rigorous Markdown conforming strictly to these boundaries and deliverables.`
     ].join('\n');
 
-    // 2. Build task execution prompt
+    // 2. Build task execution prompt with grounded client codebase facts
     const inputFormatted = Object.keys(taskInput).length > 0
       ? JSON.stringify(taskInput, null, 2)
       : '{"mode": "autonomous_sprint_evaluation", "scope": "default"}';
 
-    const taskPrompt = [
+    const promptParts = [
       `Execute mission parameters for ${agent.name}.`,
-      ``,
+      ``
+    ];
+
+    if (codebaseContext && typeof codebaseContext === 'object') {
+      promptParts.push(
+        `### GROUNDED CLIENT CODEBASE FACTS (AUTHENTIC REPOSITORY CONTEXT)`,
+        JSON.stringify(codebaseContext, null, 2),
+        ``
+      );
+    }
+
+    promptParts.push(
       `Task Input Parameters:`,
       inputFormatted,
       ``,
       `Formulate complete deliverables adhering to all boundaries and KPIs.`
-    ].join('\n');
+    );
+
+    const taskPrompt = promptParts.join('\n');
 
     return { systemPrompt, taskPrompt };
   }
@@ -204,7 +218,8 @@ export class ContractEngine {
   async executeAgent(identifier, taskInput = {}, options = {}) {
     const startTime = Date.now();
     const agent = this.getAgent(identifier);
-    const { systemPrompt, taskPrompt } = this.buildPrompts(agent, taskInput);
+    const codebaseContext = options.codebaseContext || taskInput.codebaseContext || null;
+    const { systemPrompt, taskPrompt } = this.buildPrompts(agent, taskInput, codebaseContext);
 
     // Route through OmniRoute Multi-LLM Gateway
     const routeResult = await this.router.routePrompt({

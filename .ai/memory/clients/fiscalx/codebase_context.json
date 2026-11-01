@@ -1,0 +1,88 @@
+{
+  "client": {
+    "id": "fiscalx",
+    "slug": "fiscalx",
+    "companyName": "FiscalX Professional Corporation",
+    "legalName": "FiscalX Professional Corporation",
+    "domain": "fiscalx.ca",
+    "websiteUrl": "https://www.fiscalx.ca/",
+    "phone": "+1-647-450-9235",
+    "address": "255 Duncan Mill Rd, Suite 205, North York, ON M3B 3H9",
+    "email": "info@fiscalx.ca",
+    "leadContact": "Wasim Kadri, CPA",
+    "designation": "Chartered Professional Accountant (CPA, Ontario)",
+    "industry": "Corporate Tax Advisory, Professional Accounting & Fractional CFO Services",
+    "lens": "corporate",
+    "tier": "scale"
+  },
+  "architecture": {
+    "frontend": {
+      "framework": "Modern Jamstack Architecture",
+      "cssEngine": "Tailwind CSS",
+      "edgeDistribution": "AWS CloudFront CDN + Amazon S3 Origin",
+      "ttfbBenchmark": "Sub-120ms edge latency in Ontario",
+      "securityHeaders": "Strict CSP, HSTS, X-Content-Type-Options: nosniff"
+    },
+    "backend": {
+      "runtime": "AWS Serverless (Node.js 22.x LTS)",
+      "region": "ca-central-1 (Canada Central - Sovereign Data Boundary)",
+      "compliance": "Canadian PIPEDA & CPA Professional Code of Conduct Compliant",
+      "encryption": "AWS KMS 256-bit encryption at rest, TLS 1.3 in transit",
+      "zeroTrainingCovenant": "Zero client financial data exposed to third-party frontier AI model training",
+      "intakeEndpoint": "https://api.fiscalx.ca/v1/intake",
+      "documentVault": "Private Amazon S3 bucket with client-specific KMS keys and pre-signed expiring upload URLs"
+    }
+  },
+  "corePractices": [
+    {
+      "index": 1,
+      "name": "Corporate Tax Advisory & T2 Compliance",
+      "slug": "corporate-tax-t2",
+      "description": "Comprehensive Canadian corporate tax planning, CCPC small business deduction optimization, Capital Dividend Account (CDA) tracking, and T2 return preparation.",
+      "targetAudience": "Canadian Controlled Private Corporations (CCPCs) earning $500k - $15M revenue",
+      "averageEngagementCad": 4500
+    },
+    {
+      "index": 2,
+      "name": "Notice to Reader & Compilation Engagements (CSRS 4200)",
+      "slug": "compilation-engagements",
+      "description": "Year-end financial statement preparation under Canadian CSRS 4200 standards, ASPE compliance, balance sheet analysis, and bank covenant reporting.",
+      "targetAudience": "Privately held corporations requiring verified financial statements for lenders and shareholders",
+      "averageEngagementCad": 3500
+    },
+    {
+      "index": 3,
+      "name": "Fractional CFO & Strategic Financial Modeling",
+      "slug": "fractional-cfo",
+      "description": "Executive financial leadership on retainer: dynamic cash runway modeling, unit economics analysis, board deck preparation, and working capital optimization.",
+      "targetAudience": "Fast-scaling tech, logistics, and professional service companies ($2M - $25M ARR)",
+      "averageEngagementCad": 6500
+    },
+    {
+      "index": 4,
+      "name": "HST, Payroll & CRA Audit Representation",
+      "slug": "cra-audit-defense",
+      "description": "Proactive HST/GST reconciliation, payroll source deduction compliance, and formal representation during Canada Revenue Agency (CRA) reviews and audits.",
+      "targetAudience": "Businesses facing CRA inquiries or requiring specialized sales tax filing",
+      "averageEngagementCad": 2800
+    },
+    {
+      "index": 5,
+      "name": "Corporate Restructuring & Section 85 Rollovers",
+      "slug": "section-85-restructuring",
+      "description": "Tax-deferred transfers of property to corporations under Income Tax Act Section 85, holding company structuring, estate freezes, and partnership dissolutions.",
+      "targetAudience": "Business founders structuring holding companies or planning tax-efficient exits",
+      "averageEngagementCad": 7500
+    }
+  ],
+  "businessOperations": {
+    "officeLocation": "255 Duncan Mill Rd, Suite 205, North York, ON M3B 3H9",
+    "operatingHours": "Monday - Friday: 11:00 AM - 6:00 PM",
+    "consultationModel": "Hybrid: In-person boardroom sessions at North York office & encrypted virtual consultations",
+    "targetMarkets": [
+      "Greater Toronto Area (GTA)",
+      "North York & Markham Professional Corridors",
+      "Ontario-wide Canadian corporations"
+    ]
+  }
+}

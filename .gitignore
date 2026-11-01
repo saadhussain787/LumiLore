@@ -11,3 +11,6 @@ google-service-account.json
 backend/google-service-account.json
 backend/src/google-service-account.json
 credentials/
+.env
+.env.*
+*.env

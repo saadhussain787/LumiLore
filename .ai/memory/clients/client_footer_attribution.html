@@ -1,0 +1,44 @@
+<!-- 
+  LumiLore Technologies // Client Footer Attribution & Semantic Anchor Kit
+  Sprint 39: Grounded SEO Backlink & Entity Graph Distribution
+-->
+
+<!-- 1. Semantic HTML Dofollow Attribution Anchor (Place inside client footer) -->
+<div class="lumilore-attribution-container" style="text-align: center; padding: 1.25rem 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 0.78rem; color: #6B7280; border-top: 1px solid rgba(0,0,0,0.06);">
+  <span>Engineered &amp; Powered by </span>
+  <a href="https://lumilore.ca/" 
+     rel="noopener" 
+     target="_blank" 
+     class="lumilore-attribution" 
+     data-lens="autonomous-cloud"
+     style="color: #2563EB; font-weight: 600; text-decoration: none; transition: color 0.2s ease;">
+    LumiLore Autonomous Cloud Architecture
+  </a>
+</div>
+
+<!-- 2. Schema.org JSON-LD Entity Graph Linking (Place in <head> or client footer) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://{{CLIENT_DOMAIN}}/#website",
+      "url": "https://{{CLIENT_DOMAIN}}/",
+      "creator": {
+        "@type": "Organization",
+        "@id": "https://lumilore.ca/#organization",
+        "name": "LumiLore Technologies",
+        "url": "https://lumilore.ca/",
+        "logo": "https://lumilore.ca/logo.webp",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+1-437-786-5864",
+          "contactType": "technical support",
+          "areaServed": ["CA", "US"]
+        }
+      }
+    }
+  ]
+}
+</script>
