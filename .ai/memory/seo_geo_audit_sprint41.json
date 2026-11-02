@@ -1,0 +1,942 @@
+{
+  "auditSprint": 41,
+  "auditTimestamp": "2026-11-02T00:52:00.997Z",
+  "platform": "LumiLore Technologies (https://lumilore.ca)",
+  "auditor": "Agent 01 — Search Console Dominator & SEO/GEO Search Discovery Auditor",
+  "routesAuditedCount": 12,
+  "averageRouteHealthScore": 85.4,
+  "totalSchemasExtracted": 82,
+  "totalHeadingsParsed": 364,
+  "aiCrawlerReadiness": {
+    "status": "100% PERMITTED & ACTIVE",
+    "crawlers": [
+      {
+        "crawler": "GPTBot",
+        "declared": true,
+        "allowed": true,
+        "status": "ACTIVE_PERMITTED"
+      },
+      {
+        "crawler": "OAI-SearchBot",
+        "declared": true,
+        "allowed": true,
+        "status": "ACTIVE_PERMITTED"
+      },
+      {
+        "crawler": "ClaudeBot",
+        "declared": true,
+        "allowed": true,
+        "status": "ACTIVE_PERMITTED"
+      },
+      {
+        "crawler": "anthropic-ai",
+        "declared": true,
+        "allowed": true,
+        "status": "ACTIVE_PERMITTED"
+      },
+      {
+        "crawler": "PerplexityBot",
+        "declared": true,
+        "allowed": true,
+        "status": "ACTIVE_PERMITTED"
+      },
+      {
+        "crawler": "Google-Extended",
+        "declared": true,
+        "allowed": true,
+        "status": "ACTIVE_PERMITTED"
+      }
+    ],
+    "llmsTxtManifest": {
+      "llmsTxtExists": true,
+      "llmsTxtBytes": 3388,
+      "llmsFullTxtExists": true,
+      "llmsFullTxtBytes": 5206,
+      "hasFlagshipSystems": true,
+      "hasCaseStudies": true,
+      "hasTelephonyLine": true,
+      "hasFounderBio": true
+    }
+  },
+  "routeDetails": [
+    {
+      "slug": "/",
+      "title": "Home",
+      "compiledPath": "_site/index.html",
+      "sourcePath": "frontend/index.html",
+      "pageSizeBytes": 583932,
+      "pageSizeKb": 570.2,
+      "metadata": {
+        "title": "LumiLore Technologies — Cloud & Autonomous AI Systems",
+        "titleLength": 53,
+        "titleOptimal": true,
+        "description": "Custom AWS serverless cloud architecture and autonomous AI agents that eliminate operational bottlenecks and scale enterprises without adding headcount.",
+        "descriptionLength": 152,
+        "descriptionOptimal": true,
+        "canonicalUrl": "https://lumilore.ca/",
+        "hasCanonical": true
+      },
+      "openGraph": {
+        "ogTitle": "LumiLore Technologies — Cloud Architecture & AI Systems",
+        "ogDescription": "Pairing certified cloud architecture with multi-step AI agents to eliminate manual tasks and scale your enterprise infinitely.",
+        "ogImage": "https://lumilore.ca/og-preview.png",
+        "twitterCard": "summary_large_image",
+        "valid": true
+      },
+      "headings": {
+        "total": 41,
+        "h1Count": 1,
+        "h1Optimal": true,
+        "h1Text": "Intelligent Autonomy. Engineered Operations.",
+        "skippedLevelsCount": 0,
+        "skippedLevels": [],
+        "structureSummary": [
+          "H1: Intelligent Autonomy. Engineered Operations....",
+          "H2: Does ChatGPT &amp; Perplexity cite your brand...",
+          "H3: 24/7 Voice Dispatch &amp; Job Proof Engine...",
+          "H3: AWS Edge Telemetry &amp; FinOps Engine...",
+          "H2: We don't build websites. We engineer autonomo...",
+          "H2: Everything You Need to Run Your Business on A...",
+          "H3: Autonomous Calendar &amp; Booking Agent...",
+          "H3: 24/7 AI Voice Dispatch &amp; Receptionist...",
+          "H3: Autonomous SEO &amp; GEO Engine...",
+          "H3: Sub-150ms Web Modernization Engine..."
+        ]
+      },
+      "schemaOrg": {
+        "scriptBlocksCount": 2,
+        "entitiesFoundCount": 10,
+        "types": [
+          "Organization",
+          "Person",
+          "ProfessionalService",
+          "SoftwareApplication",
+          "FAQPage",
+          "BreadcrumbList",
+          "WebSite"
+        ],
+        "hasBreadcrumbs": true,
+        "hasOrganization": true,
+        "hasServiceOrLocalBusiness": true
+      },
+      "assets": {
+        "totalImages": 6,
+        "imagesWithoutAlt": 0,
+        "imagesAccessible": true
+      },
+      "healthScore": 100
+    },
+    {
+      "slug": "/products/geo-engine/",
+      "title": "GEO Engine",
+      "compiledPath": "_site/products/geo-engine/index.html",
+      "sourcePath": "frontend/products/geo-engine.html",
+      "pageSizeBytes": 266841,
+      "pageSizeKb": 260.6,
+      "metadata": {
+        "title": "Autonomous SEO & GEO Engine — Generative Engine Optimization | LumiLore Technologies",
+        "titleLength": 84,
+        "titleOptimal": false,
+        "description": "Deploy an autonomous SEO & GEO system that guarantees your brand is cited and recommended first by ChatGPT, Perplexity, Claude, and Google Search.",
+        "descriptionLength": 146,
+        "descriptionOptimal": true,
+        "canonicalUrl": "https://lumilore.ca/products/geo-engine/",
+        "hasCanonical": true
+      },
+      "openGraph": {
+        "ogTitle": "Autonomous SEO & GEO Engine — Generative Engine Optimization | LumiLore Technologies",
+        "ogDescription": "Deploy an autonomous SEO & GEO system that guarantees your brand is cited and recommended first by ChatGPT, Perplexity, Claude, and Google Search.",
+        "ogImage": "https://lumilore.ca/og-preview.png",
+        "twitterCard": "summary_large_image",
+        "valid": true
+      },
+      "headings": {
+        "total": 32,
+        "h1Count": 1,
+        "h1Optimal": true,
+        "h1Text": "Dominate AI Search. Be the #1 Recommended Contractor. Win Every Citation in ChatGPT &amp; Perplexity. When Local Homeowners Ask \"Who is the best contractor near me?\"",
+        "skippedLevelsCount": 0,
+        "skippedLevels": [],
+        "structureSummary": [
+          "H1: Dominate AI Search. Be the #1 Recommended Con...",
+          "H2: Why 95% of Companies Are Invisible to Generat...",
+          "H3: The 2016 Playbook...",
+          "H3: The Generative Future...",
+          "H2: How Generative Search Differs Across Your Mar...",
+          "H3: B2B SaaS &amp; Enterprise Authority...",
+          "H3: Dominating Local AI Search &amp; Emergency Ma...",
+          "H2: Engineered for LLM Consensus &amp; Authority...",
+          "H3: 1. Entity Graph Triangulation 1. Feeding AI Y...",
+          "H3: 2. Frontier AI Bot Crawler Protocol 2. Beat C..."
+        ]
+      },
+      "schemaOrg": {
+        "scriptBlocksCount": 1,
+        "entitiesFoundCount": 6,
+        "types": [
+          "Organization",
+          "Person",
+          "ProfessionalService",
+          "SoftwareApplication",
+          "FAQPage",
+          "BreadcrumbList"
+        ],
+        "hasBreadcrumbs": true,
+        "hasOrganization": true,
+        "hasServiceOrLocalBusiness": true
+      },
+      "assets": {
+        "totalImages": 6,
+        "imagesWithoutAlt": 0,
+        "imagesAccessible": true
+      },
+      "healthScore": 90
+    },
+    {
+      "slug": "/products/autonomous-booking/",
+      "title": "Autonomous Booking",
+      "compiledPath": "_site/products/autonomous-booking/index.html",
+      "sourcePath": "frontend/products/autonomous-booking.html",
+      "pageSizeBytes": 286488,
+      "pageSizeKb": 279.8,
+      "metadata": {
+        "title": "Autonomous Calendar & Booking Agent — 24/7 Inbound Qualification & Scheduling | LumiLore Technologies",
+        "titleLength": 101,
+        "titleOptimal": false,
+        "description": "Deploy an autonomous AI booking agent that qualifies inbound prospects, calculates live calendar availability, and locks in high-value meetings 24/7 without manual email tag.",
+        "descriptionLength": 174,
+        "descriptionOptimal": false,
+        "canonicalUrl": "https://lumilore.ca/products/autonomous-booking/",
+        "hasCanonical": true
+      },
+      "openGraph": {
+        "ogTitle": "Autonomous Calendar & Booking Agent — 24/7 Inbound Qualification & Scheduling | LumiLore Technologies",
+        "ogDescription": "Deploy an autonomous AI booking agent that qualifies inbound prospects, calculates live calendar availability, and locks in high-value meetings 24/7 without manual email tag.",
+        "ogImage": "https://lumilore.ca/og-preview.png",
+        "twitterCard": "summary_large_image",
+        "valid": true
+      },
+      "headings": {
+        "total": 42,
+        "h1Count": 1,
+        "h1Optimal": true,
+        "h1Text": "Stop Burning Leads in Email Tag. Stop Playing Phone Tag With Homeowners. Autonomous AI Booking That Converts 24/7. Customers Pick a Time &amp; Book Straight Into Your Schedule.",
+        "skippedLevelsCount": 0,
+        "skippedLevels": [],
+        "structureSummary": [
+          "H1: Stop Burning Leads in Email Tag. Stop Playing...",
+          "H2: Why Static Scheduling Links Lose 52% of High-...",
+          "H3: The Passive Link Drop...",
+          "H3: Active Inbound Closing 24/7 Contractor Field ...",
+          "H2: Engineered for Both Boardrooms &amp; Field Di...",
+          "H3: B2B SaaS &amp; Executive Scheduling...",
+          "H3: Commercial Trades &amp; Emergency Dispatch...",
+          "H2: How LumiLore Runs on This Exact Pipeline...",
+          "H3: Zero Workflow Disruption: Native Bidirectiona...",
+          "H2: Engineered for Maximum Show-Up Velocity..."
+        ]
+      },
+      "schemaOrg": {
+        "scriptBlocksCount": 1,
+        "entitiesFoundCount": 6,
+        "types": [
+          "Organization",
+          "Person",
+          "ProfessionalService",
+          "SoftwareApplication",
+          "FAQPage",
+          "BreadcrumbList"
+        ],
+        "hasBreadcrumbs": true,
+        "hasOrganization": true,
+        "hasServiceOrLocalBusiness": true
+      },
+      "assets": {
+        "totalImages": 6,
+        "imagesWithoutAlt": 0,
+        "imagesAccessible": true
+      },
+      "healthScore": 80
+    },
+    {
+      "slug": "/products/voice-dispatch/",
+      "title": "Voice Dispatch",
+      "compiledPath": "_site/products/voice-dispatch/index.html",
+      "sourcePath": "frontend/products/voice-dispatch.html",
+      "pageSizeBytes": 321979,
+      "pageSizeKb": 314.4,
+      "metadata": {
+        "title": "24/7 AI Voice Dispatch & Inbound Receptionist — Zero Missed Calls | LumiLore Technologies",
+        "titleLength": 89,
+        "titleOptimal": false,
+        "description": "Deploy an ultra-low latency (<800ms) conversational AI voice agent answering calls 24/7. Triages emergencies, books appointments, and syncs directly with ServiceTitan, Jobber, and enterprise CRMs.",
+        "descriptionLength": 196,
+        "descriptionOptimal": false,
+        "canonicalUrl": "https://lumilore.ca/products/voice-dispatch/",
+        "hasCanonical": true
+      },
+      "openGraph": {
+        "ogTitle": "24/7 AI Voice Dispatch & Inbound Receptionist — Zero Missed Calls | LumiLore Technologies",
+        "ogDescription": "Deploy an ultra-low latency (<800ms) conversational AI voice agent answering calls 24/7. Triages emergencies, books appointments, and syncs directly with ServiceTitan, Jobber, and enterprise CRMs.",
+        "ogImage": "https://lumilore.ca/og-preview.png",
+        "twitterCard": "summary_large_image",
+        "valid": true
+      },
+      "headings": {
+        "total": 39,
+        "h1Count": 1,
+        "h1Optimal": true,
+        "h1Text": "Never Miss a $15,000 Emergency Call. 24/7 AI Voice Dispatch That Converts 24/7/365. Picks Up on the First Ring &amp; Texts Your On-Call Tech.",
+        "skippedLevelsCount": 0,
+        "skippedLevels": [],
+        "structureSummary": [
+          "H1: Never Miss a $15,000 Emergency Call. 24/7 AI ...",
+          "H2: Hear How Natural &amp; Responsive It Sounds...",
+          "H2: Why Legacy Answering Services Destroy Your Re...",
+          "H3: The 1990s Call Center...",
+          "H3: Real-Time Enterprise Telephony 24/7 Contracto...",
+          "H2: Calculate Your Recoverable Call Revenue...",
+          "H2: Calibrated for High-Volume Trade Fleets &amp;...",
+          "H3: HVAC, Plumbing, Electrical &amp; Roofing Disp...",
+          "H3: Enterprise Front-Desk &amp; IVR Replacement...",
+          "H3: Zero Workflow Disruption: Native Bidirectiona..."
+        ]
+      },
+      "schemaOrg": {
+        "scriptBlocksCount": 1,
+        "entitiesFoundCount": 6,
+        "types": [
+          "Organization",
+          "Person",
+          "ProfessionalService",
+          "SoftwareApplication",
+          "FAQPage",
+          "BreadcrumbList"
+        ],
+        "hasBreadcrumbs": true,
+        "hasOrganization": true,
+        "hasServiceOrLocalBusiness": true
+      },
+      "assets": {
+        "totalImages": 6,
+        "imagesWithoutAlt": 0,
+        "imagesAccessible": true
+      },
+      "healthScore": 80
+    },
+    {
+      "slug": "/products/web-modernization/",
+      "title": "Web Modernization",
+      "compiledPath": "_site/products/web-modernization/index.html",
+      "sourcePath": "frontend/products/web-modernization.html",
+      "pageSizeBytes": 329241,
+      "pageSizeKb": 321.5,
+      "metadata": {
+        "title": "High-Conversion Web Redevelopment & Sub-150ms Speed Engine | LumiLore Technologies",
+        "titleLength": 82,
+        "titleOptimal": false,
+        "description": "Eliminate WordPress bloat and slow databases. We re-architect enterprise and trades websites into blazing sub-150ms serverless static edge platforms on AWS CloudFront, achieving 100/100 Core Web Vitals and doubling conversion rates.",
+        "descriptionLength": 232,
+        "descriptionOptimal": false,
+        "canonicalUrl": "https://lumilore.ca/products/web-modernization/",
+        "hasCanonical": true
+      },
+      "openGraph": {
+        "ogTitle": "High-Conversion Web Redevelopment & Sub-150ms Speed Engine | LumiLore Technologies",
+        "ogDescription": "Eliminate WordPress bloat and slow databases. We re-architect enterprise and trades websites into blazing sub-150ms serverless static edge platforms on AWS CloudFront, achieving 100/100 Core Web Vitals and doubling conversion rates.",
+        "ogImage": "https://lumilore.ca/og-preview.png",
+        "twitterCard": "summary_large_image",
+        "valid": true
+      },
+      "headings": {
+        "total": 40,
+        "h1Count": 1,
+        "h1Optimal": true,
+        "h1Text": "Eliminate WordPress Bloat. Stop Losing Calls to Slow Websites. Sub-150ms Websites Engineered to Double Conversions. Loads in Under 1 Second on Mobile at the Job Site.",
+        "skippedLevelsCount": 0,
+        "skippedLevels": [],
+        "structureSummary": [
+          "H1: Eliminate WordPress Bloat. Stop Losing Calls ...",
+          "H2: Why Legacy Monoliths Cost You Half Your Conve...",
+          "H3: The Sluggish Stack The Sluggish Contractor Si...",
+          "H3: The Sub-150ms Standard The Sub-1 Second Job-S...",
+          "H2: Drag to Compare: 3.8s WordPress Lag vs 120ms ...",
+          "H2: Tailored Architecture: Corporate Prestige vs....",
+          "H3: Enterprise B2B SaaS &amp; Professional Servic...",
+          "H3: Commercial Trades &amp; Regional Field Contra...",
+          "H2: How We Eliminate Latency at the Network Edge...",
+          "H2: Six Pillars of High-Velocity Web Modernizatio..."
+        ]
+      },
+      "schemaOrg": {
+        "scriptBlocksCount": 1,
+        "entitiesFoundCount": 6,
+        "types": [
+          "Organization",
+          "Person",
+          "ProfessionalService",
+          "SoftwareApplication",
+          "FAQPage",
+          "BreadcrumbList"
+        ],
+        "hasBreadcrumbs": true,
+        "hasOrganization": true,
+        "hasServiceOrLocalBusiness": true
+      },
+      "assets": {
+        "totalImages": 6,
+        "imagesWithoutAlt": 0,
+        "imagesAccessible": true
+      },
+      "healthScore": 80
+    },
+    {
+      "slug": "/products/content-engine/",
+      "title": "Content Engine",
+      "compiledPath": "_site/products/content-engine/index.html",
+      "sourcePath": "frontend/products/content-engine.html",
+      "pageSizeBytes": 293773,
+      "pageSizeKb": 286.9,
+      "metadata": {
+        "title": "Autonomous Content & Omnichannel Distribution Engine | LumiLore Technologies",
+        "titleLength": 76,
+        "titleOptimal": false,
+        "description": "Turn deep technical case studies into viral LinkedIn leadership posts, 8-tweet technical breakdowns, and syndicated high-DA publications across Dev.to & Medium on autopilot.",
+        "descriptionLength": 173,
+        "descriptionOptimal": false,
+        "canonicalUrl": "https://lumilore.ca/products/content-engine/",
+        "hasCanonical": true
+      },
+      "openGraph": {
+        "ogTitle": "Autonomous Content & Omnichannel Distribution Engine | LumiLore Technologies",
+        "ogDescription": "Turn deep technical case studies into viral LinkedIn leadership posts, 8-tweet technical breakdowns, and syndicated high-DA publications across Dev.to & Medium on autopilot.",
+        "ogImage": "https://lumilore.ca/og-preview.png",
+        "twitterCard": "summary_large_image",
+        "valid": true
+      },
+      "headings": {
+        "total": 29,
+        "h1Count": 1,
+        "h1Optimal": true,
+        "h1Text": "Engineered for Thought Leadership. Rank #1 on Google Maps in Your Town. One Technical Blueprint. Infinite High-DA Reach. Automated Project Photos, 5-Star Reviews &amp; Local Updates.",
+        "skippedLevelsCount": 0,
+        "skippedLevels": [],
+        "structureSummary": [
+          "H1: Engineered for Thought Leadership. Rank #1 on...",
+          "H2: Live Social Hook &amp; Proof Engine Live Loca...",
+          "H2: How the Autonomous Content Engine Works How C...",
+          "H3: 1. WeKnora Knowledge Extractor 1. Turn Comple...",
+          "H3: 2. LinkedIn B2B Story Engine 2. Automated 5-S...",
+          "H3: 3. Twitter/X Architecture Threader 3. Seasona...",
+          "H3: 4. Community Radar (Agent-Reach) 4. Neighborh...",
+          "H3: 5. High-DA Syndication Publisher 5. Multi-Pla...",
+          "H3: 6. Local Vault &amp; Master Orchestrator 6. Z...",
+          "H2: Why Traditional Content Agencies Fail Technic..."
+        ]
+      },
+      "schemaOrg": {
+        "scriptBlocksCount": 2,
+        "entitiesFoundCount": 8,
+        "types": [
+          "Organization",
+          "Person",
+          "ProfessionalService",
+          "SoftwareApplication",
+          "FAQPage",
+          "BreadcrumbList"
+        ],
+        "hasBreadcrumbs": true,
+        "hasOrganization": true,
+        "hasServiceOrLocalBusiness": true
+      },
+      "assets": {
+        "totalImages": 6,
+        "imagesWithoutAlt": 0,
+        "imagesAccessible": true
+      },
+      "healthScore": 80
+    },
+    {
+      "slug": "/products/enterprise-catalog/",
+      "title": "Enterprise Catalog",
+      "compiledPath": "_site/products/enterprise-catalog/index.html",
+      "sourcePath": "frontend/products/enterprise-catalog.html",
+      "pageSizeBytes": 291736,
+      "pageSizeKb": 284.9,
+      "metadata": {
+        "title": "High-Ticket Enterprise AI Service Catalog | LumiLore Technologies",
+        "titleLength": 65,
+        "titleOptimal": true,
+        "description": "Deploy sovereign B2B lead radar, 100+ rule zero-trust AI penetration audits, WeKnora corporate AI brains, self-hosted Chatwoot helpdesks, VoiceStudio viral reel engines, and OmniRoute FinOps.",
+        "descriptionLength": 191,
+        "descriptionOptimal": false,
+        "canonicalUrl": "https://lumilore.ca/products/enterprise-catalog/",
+        "hasCanonical": true
+      },
+      "openGraph": {
+        "ogTitle": "High-Ticket Enterprise AI Service Catalog | LumiLore Technologies",
+        "ogDescription": "Deploy sovereign B2B lead radar, 100+ rule zero-trust AI penetration audits, WeKnora corporate AI brains, self-hosted Chatwoot helpdesks, VoiceStudio viral reel engines, and OmniRoute FinOps.",
+        "ogImage": "https://lumilore.ca/og-preview.png",
+        "twitterCard": "summary_large_image",
+        "valid": true
+      },
+      "headings": {
+        "total": 22,
+        "h1Count": 1,
+        "h1Optimal": true,
+        "h1Text": "High-Ticket Enterprise Contractor Fleet &amp; Operations AI Systems &amp; Commercial Suite. Automation Suite Built for Multi-Truck Fleets.",
+        "skippedLevelsCount": 0,
+        "skippedLevels": [],
+        "structureSummary": [
+          "H1: High-Ticket Enterprise Contractor Fleet &amp;...",
+          "H2: 📡 Autonomous B2B Lead Radar &amp; Social Lis...",
+          "H2: 🛡️ Zero-Trust AI Security &amp; Penetration ...",
+          "H2: 🧠 Private Corporate \"AI Brain\" &amp; Self-Ma...",
+          "H2: 💬 Self-Hosted Omnichannel WhatsApp &amp; Cus...",
+          "H2: 🎬 Autonomous Video Repurposing &amp; Viral R...",
+          "H2: 📉 Enterprise AI Inference &amp; Cloud FinOps...",
+          "H2: Enterprise Catalog FAQ...",
+          "H2: Ready to Deploy Sovereign Enterprise AI?...",
+          "H3: Solutions..."
+        ]
+      },
+      "schemaOrg": {
+        "scriptBlocksCount": 2,
+        "entitiesFoundCount": 7,
+        "types": [
+          "Organization",
+          "Person",
+          "ProfessionalService",
+          "SoftwareApplication",
+          "FAQPage",
+          "BreadcrumbList",
+          "Service"
+        ],
+        "hasBreadcrumbs": true,
+        "hasOrganization": true,
+        "hasServiceOrLocalBusiness": true
+      },
+      "assets": {
+        "totalImages": 6,
+        "imagesWithoutAlt": 0,
+        "imagesAccessible": true
+      },
+      "healthScore": 90
+    },
+    {
+      "slug": "/privacy/",
+      "title": "Privacy Policy",
+      "compiledPath": "_site/privacy/index.html",
+      "sourcePath": "frontend/privacy.html",
+      "pageSizeBytes": 227615,
+      "pageSizeKb": 222.3,
+      "metadata": {
+        "title": "Privacy Policy | LumiLore Technologies — Canadian PIPEDA & Data Protection",
+        "titleLength": 74,
+        "titleOptimal": false,
+        "description": "LumiLore Technologies",
+        "descriptionLength": 21,
+        "descriptionOptimal": false,
+        "canonicalUrl": "https://lumilore.ca/privacy/",
+        "hasCanonical": true
+      },
+      "openGraph": {
+        "ogTitle": "Privacy Policy | LumiLore Technologies — Canadian PIPEDA & Data Protection",
+        "ogDescription": "LumiLore Technologies",
+        "ogImage": "https://lumilore.ca/og-preview.png",
+        "twitterCard": "summary_large_image",
+        "valid": true
+      },
+      "headings": {
+        "total": 24,
+        "h1Count": 1,
+        "h1Optimal": true,
+        "h1Text": "Privacy Policy",
+        "skippedLevelsCount": 0,
+        "skippedLevels": [],
+        "structureSummary": [
+          "H1: Privacy Policy...",
+          "H2: 1. Introduction & Statutory Framework...",
+          "H2: 2. Categories of Information We Collect...",
+          "H2: 3. Legal Bases & Purposes for Data Processing...",
+          "H2: 4. Data Residency & Cryptographic Security Ar...",
+          "H2: 5. Cookies, Local Storage & Audience Lens Pre...",
+          "H2: 6. Third-Party Infrastructure Subprocessors...",
+          "H2: 7. Data Retention & Deletion Protocols...",
+          "H2: 8. Your Statutory Rights Under PIPEDA...",
+          "H2: 9. Policy Updates & Material Modifications..."
+        ]
+      },
+      "schemaOrg": {
+        "scriptBlocksCount": 2,
+        "entitiesFoundCount": 7,
+        "types": [
+          "Organization",
+          "Person",
+          "ProfessionalService",
+          "SoftwareApplication",
+          "FAQPage",
+          "BreadcrumbList",
+          "WebPage"
+        ],
+        "hasBreadcrumbs": true,
+        "hasOrganization": true,
+        "hasServiceOrLocalBusiness": true
+      },
+      "assets": {
+        "totalImages": 6,
+        "imagesWithoutAlt": 0,
+        "imagesAccessible": true
+      },
+      "healthScore": 80
+    },
+    {
+      "slug": "/terms/",
+      "title": "Terms of Service",
+      "compiledPath": "_site/terms/index.html",
+      "sourcePath": "frontend/terms.html",
+      "pageSizeBytes": 228274,
+      "pageSizeKb": 222.9,
+      "metadata": {
+        "title": "Terms & Conditions | LumiLore Technologies — Cloud & AI Systems Agreement",
+        "titleLength": 73,
+        "titleOptimal": false,
+        "description": "Terms and conditions of service, AI probabilistic disclaimers, liability caps, intellectual property rights, and Canadian legal governing terms for LumiLore Technologies.",
+        "descriptionLength": 170,
+        "descriptionOptimal": false,
+        "canonicalUrl": "https://lumilore.ca/terms/",
+        "hasCanonical": true
+      },
+      "openGraph": {
+        "ogTitle": "Terms & Conditions | LumiLore Technologies — Cloud & AI Systems Agreement",
+        "ogDescription": "Terms and conditions of service, AI probabilistic disclaimers, liability caps, intellectual property rights, and Canadian legal governing terms for LumiLore Technologies.",
+        "ogImage": "https://lumilore.ca/og-preview.png",
+        "twitterCard": "summary_large_image",
+        "valid": true
+      },
+      "headings": {
+        "total": 26,
+        "h1Count": 1,
+        "h1Optimal": true,
+        "h1Text": "Terms & Conditions",
+        "skippedLevelsCount": 0,
+        "skippedLevels": [],
+        "structureSummary": [
+          "H1: Terms & Conditions...",
+          "H2: 1. Acceptance of Terms & Scope of Services...",
+          "H2: 2. Nature of Agentic AI & Cloud Architecture ...",
+          "H2: 3. Autonomous AI Operational Boundaries & Dis...",
+          "H2: 4. Upstream Cloud & Foundation Model Vendor B...",
+          "H2: 5. Intellectual Property Rights & Client Data...",
+          "H2: 6. Acceptable Use Policy...",
+          "H2: 7. Retainers, Invoicing & Commercial Terms...",
+          "H2: 8. Strict Limitation of Liability...",
+          "H2: 9. Indemnification..."
+        ]
+      },
+      "schemaOrg": {
+        "scriptBlocksCount": 2,
+        "entitiesFoundCount": 7,
+        "types": [
+          "Organization",
+          "Person",
+          "ProfessionalService",
+          "SoftwareApplication",
+          "FAQPage",
+          "BreadcrumbList",
+          "WebPage"
+        ],
+        "hasBreadcrumbs": true,
+        "hasOrganization": true,
+        "hasServiceOrLocalBusiness": true
+      },
+      "assets": {
+        "totalImages": 6,
+        "imagesWithoutAlt": 0,
+        "imagesAccessible": true
+      },
+      "healthScore": 80
+    },
+    {
+      "slug": "/contact/",
+      "title": "Contact & Intake",
+      "compiledPath": "_site/contact/index.html",
+      "sourcePath": "frontend/contact.html",
+      "pageSizeBytes": 393593,
+      "pageSizeKb": 384.4,
+      "metadata": {
+        "title": "Schedule Deployment | LumiLore Technologies",
+        "titleLength": 43,
+        "titleOptimal": true,
+        "description": "Scope your serverless cloud architecture, agentic AI systems, or fiscal operations engine and reserve a dedicated engineering session.",
+        "descriptionLength": 134,
+        "descriptionOptimal": true,
+        "canonicalUrl": "https://lumilore.ca/contact/",
+        "hasCanonical": true
+      },
+      "openGraph": {
+        "ogTitle": "Schedule Deployment | LumiLore Technologies",
+        "ogDescription": "Scope your serverless cloud architecture, agentic AI systems, or fiscal operations engine and reserve a dedicated engineering session.",
+        "ogImage": "https://lumilore.ca/og-preview.png",
+        "twitterCard": "summary_large_image",
+        "valid": true
+      },
+      "headings": {
+        "total": 24,
+        "h1Count": 1,
+        "h1Optimal": true,
+        "h1Text": "Initialize Your System Architecture.",
+        "skippedLevelsCount": 1,
+        "skippedLevels": [
+          {
+            "from": "H1",
+            "to": "H3",
+            "fromText": "Initialize Your System Architecture.",
+            "toText": "Domain: domain.com • Score: --/100 GEO"
+          }
+        ],
+        "structureSummary": [
+          "H1: Initialize Your System Architecture....",
+          "H3: Domain: domain.com • Score: --/100 GEO...",
+          "H3: 🎯 Target Architecture: Autonomous Calendar &...",
+          "H2: What are we building?...",
+          "H3: Target Scope: Autonomous Calendar &amp; Booki...",
+          "H4: 🎙️ Prefer to speak directly? Call our Dedica...",
+          "H2: Current Tech Stack &amp; Integrations...",
+          "H2: Identity &amp; Direct Telemetry...",
+          "H3: Select Consultation Window...",
+          "H3: Prefer Direct Communication Over Structured I..."
+        ]
+      },
+      "schemaOrg": {
+        "scriptBlocksCount": 1,
+        "entitiesFoundCount": 6,
+        "types": [
+          "Organization",
+          "Person",
+          "ProfessionalService",
+          "SoftwareApplication",
+          "FAQPage",
+          "BreadcrumbList"
+        ],
+        "hasBreadcrumbs": true,
+        "hasOrganization": true,
+        "hasServiceOrLocalBusiness": true
+      },
+      "assets": {
+        "totalImages": 7,
+        "imagesWithoutAlt": 0,
+        "imagesAccessible": true
+      },
+      "healthScore": 95
+    },
+    {
+      "slug": "/about/",
+      "title": "About",
+      "compiledPath": "_site/about/index.html",
+      "sourcePath": "frontend/about.html",
+      "pageSizeBytes": 260442,
+      "pageSizeKb": 254.3,
+      "metadata": {
+        "title": "About LumiLore | Cloud Architecture & Autonomous AI Systems",
+        "titleLength": 59,
+        "titleOptimal": true,
+        "description": "Bridging the gap between bleeding-edge Artificial Intelligence (Lumi) and rock-solid, production-tested Cloud Architecture (Lore).",
+        "descriptionLength": 130,
+        "descriptionOptimal": true,
+        "canonicalUrl": "https://lumilore.ca/about/",
+        "hasCanonical": true
+      },
+      "openGraph": {
+        "ogTitle": "About LumiLore | Cloud Architecture & Autonomous AI Systems",
+        "ogDescription": "Bridging the gap between bleeding-edge Artificial Intelligence (Lumi) and rock-solid, production-tested Cloud Architecture (Lore).",
+        "ogImage": "https://lumilore.ca/og-preview.png",
+        "twitterCard": "summary_large_image",
+        "valid": true
+      },
+      "headings": {
+        "total": 29,
+        "h1Count": 1,
+        "h1Optimal": true,
+        "h1Text": "We Don't Build Websites. We Build Business Engines.",
+        "skippedLevelsCount": 0,
+        "skippedLevels": [],
+        "structureSummary": [
+          "H1: We Don't Build Websites. We Build Business En...",
+          "H2: The Architects Behind LumiLore....",
+          "H3: Saad Sayed...",
+          "H3: Arfa Sayeed Syeda...",
+          "H2: The Three Engineering Laws....",
+          "H3: Speed is a Feature....",
+          "H3: Security by Default....",
+          "H3: Autonomous Outcomes....",
+          "H2: Inside the Autonomous Operating System.Our 6-...",
+          "H3: Organic Growth &amp; Displacement Radar Local..."
+        ]
+      },
+      "schemaOrg": {
+        "scriptBlocksCount": 1,
+        "entitiesFoundCount": 6,
+        "types": [
+          "Organization",
+          "Person",
+          "ProfessionalService",
+          "SoftwareApplication",
+          "FAQPage",
+          "BreadcrumbList"
+        ],
+        "hasBreadcrumbs": true,
+        "hasOrganization": true,
+        "hasServiceOrLocalBusiness": true
+      },
+      "assets": {
+        "totalImages": 8,
+        "imagesWithoutAlt": 0,
+        "imagesAccessible": true
+      },
+      "healthScore": 100
+    },
+    {
+      "slug": "/success-stories/",
+      "title": "Success Stories",
+      "compiledPath": "_site/success-stories/index.html",
+      "sourcePath": "frontend/success-stories.html",
+      "pageSizeBytes": 292330,
+      "pageSizeKb": 285.5,
+      "metadata": {
+        "title": "Success Stories & AI Citations — LumiLore Technologies",
+        "titleLength": 54,
+        "titleOptimal": true,
+        "description": "Verified client outcomes, cloud waste reductions, emergency trade dispatch recapture, and AI search citation benchmarks across healthcare, trades, and enterprise systems.",
+        "descriptionLength": 170,
+        "descriptionOptimal": false,
+        "canonicalUrl": "https://lumilore.ca/success-stories/",
+        "hasCanonical": true
+      },
+      "openGraph": {
+        "ogTitle": "Success Stories & AI Citations — LumiLore Technologies",
+        "ogDescription": "Verified client outcomes, cloud waste reductions, emergency trade dispatch recapture, and AI search citation benchmarks across healthcare, trades, and enterprise systems.",
+        "ogImage": "https://lumilore.ca/og-preview.png",
+        "twitterCard": "summary_large_image",
+        "valid": true
+      },
+      "headings": {
+        "total": 16,
+        "h1Count": 2,
+        "h1Optimal": false,
+        "h1Text": "Autonomous Systems. Uncompromised Results.",
+        "skippedLevelsCount": 1,
+        "skippedLevels": [
+          {
+            "from": "H1",
+            "to": "H3",
+            "fromText": "Emergency Dispatch. Zero Missed Revenue.",
+            "toText": "Ready to Automate Your Operations &amp; Elevate AI Visibility? Ready to Recapture Every High-Ticket Emergency Call?"
+          }
+        ],
+        "structureSummary": [
+          "H1: Autonomous Systems. Uncompromised Results....",
+          "H1: Emergency Dispatch. Zero Missed Revenue....",
+          "H3: Ready to Automate Your Operations &amp; Eleva...",
+          "H3: Solutions...",
+          "H3: Platform...",
+          "H3: Case Studies...",
+          "H3: Company...",
+          "H3: Legal...",
+          "H3: LumiBot AI...",
+          "H2: Google Search Technical Diagnostic..."
+        ]
+      },
+      "schemaOrg": {
+        "scriptBlocksCount": 2,
+        "entitiesFoundCount": 7,
+        "types": [
+          "Organization",
+          "Person",
+          "ProfessionalService",
+          "SoftwareApplication",
+          "FAQPage",
+          "BreadcrumbList",
+          "ItemList"
+        ],
+        "hasBreadcrumbs": true,
+        "hasOrganization": true,
+        "hasServiceOrLocalBusiness": true
+      },
+      "assets": {
+        "totalImages": 6,
+        "imagesWithoutAlt": 0,
+        "imagesAccessible": true
+      },
+      "healthScore": 70
+    }
+  ],
+  "keywordGapAnalysis": {
+    "totalTrackedGaps": 4,
+    "criticalGapsCount": 1,
+    "gaps": [
+      {
+        "targetTopic": "Generative Engine Optimization (GEO) Enterprise Strategy",
+        "priority": "P0_CRITICAL_PILLAR",
+        "targetQuery": "generative engine optimization enterprise guide",
+        "secondaryQueries": [
+          "why enterprise brands are invisible to chatgpt and perplexity search",
+          "generative engine optimization framework 2026",
+          "how to get cited in perplexity search and chatgpt",
+          "schema org microdata for llm search engines"
+        ],
+        "searchVolumeTrend": "+480% YoY Enterprise Search",
+        "intent": "Commercial & High-Ticket Enterprise Architecture Consultation",
+        "currentCoverageState": "GAP_IDENTIFIED (No dedicated flagship 2,000+ word publication; referenced only as short service page)",
+        "recommendedAction": "Synthesize comprehensive flagship publication via Agent 06 with 5-layer Schema.org JSON-LD and grounded client proofs (FiscalX, My Choice Auto)."
+      },
+      {
+        "targetTopic": "Event-Driven Serverless FinOps & Cloud Waste Elimination",
+        "priority": "P1_MAINTAINED",
+        "targetQuery": "cutting aws cloud waste serverless architecture",
+        "secondaryQueries": [
+          "aws lambda graviton3 finops cost reduction",
+          "dynamodb single table design cost optimization"
+        ],
+        "searchVolumeTrend": "+65% YoY FinOps Advisory",
+        "intent": "Commercial B2B",
+        "currentCoverageState": "ACTIVE_PUBLISHED (cutting-aws-cloud-waste-serverless-architecture.html)",
+        "recommendedAction": "Maintain canonical backlink syndication on Dev.to and Medium."
+      },
+      {
+        "targetTopic": "Autonomous AI Voice Dispatch & Telephony Triage for Trades",
+        "priority": "P1_MAINTAINED",
+        "targetQuery": "autonomous 24/7 ai voice dispatch mechanical trades",
+        "secondaryQueries": [
+          "ai voice receptionist hvac plumbing contractors ontario",
+          "amazon connect servicetitan integration"
+        ],
+        "searchVolumeTrend": "+120% YoY Field Operations AI",
+        "intent": "Transactional Commercial Trades",
+        "currentCoverageState": "ACTIVE_PUBLISHED (autonomous-247-ai-voice-dispatch-mechanical-trades.html)",
+        "recommendedAction": "Weave reciprocal internal links from new GEO pillar to /products/voice-dispatch/."
+      },
+      {
+        "targetTopic": "Sub-150ms Jamstack & Core Web Vitals Optimization",
+        "priority": "P1_EXPANSION",
+        "targetQuery": "sub 150ms ttfb enterprise web modernization jamstack",
+        "secondaryQueries": [
+          "replace bloated wordpress with serverless jamstack",
+          "zero cumulative layout shift three js hydration"
+        ],
+        "searchVolumeTrend": "+90% YoY Enterprise Web Vitals",
+        "intent": "Commercial B2B SaaS",
+        "currentCoverageState": "ACTIVE_SERVICE_PAGE (products/web-modernization.html)",
+        "recommendedAction": "Weave reciprocal internal links from new GEO pillar to /products/web-modernization/."
+      }
+    ]
+  },
+  "actionableDirectivesForAgent06": [
+    "Synthesize flagship 2,000+ word publication: frontend/insights/generative-engine-optimization-enterprise-guide.html",
+    "Headline: \"Generative Engine Optimization (GEO): Why Enterprise Brands Are Invisible to ChatGPT and Perplexity Search\"",
+    "Embed complete 5-layer Schema.org JSON-LD microdata: BreadcrumbList, TechArticle with SpeakableSpecification, FAQPage, Person (Saad Sayed), and Organization (LumiLore)",
+    "Anchor internal link 1 to /products/web-modernization/ using keyword \"sub-150ms TTFB serverless edge architecture\"",
+    "Anchor internal link 2 to /products/voice-dispatch/ using keyword \"autonomous 24/7 AI voice dispatch system\"",
+    "Ground empirical proof with verified client fleets: My Choice Auto (+1-416-556-2424) and FiscalX (Wasim Kadri, CPA)"
+  ]
+}
