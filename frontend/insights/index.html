@@ -1,0 +1,391 @@
+---
+layout: layout.html
+title: "Engineering Insights, Architecture Blueprints & Technical Guides | LumiLore Technologies"
+description: "In-depth engineering whitepapers, Generative Engine Optimization (GEO) guides, serverless cloud architecture blueprints, and autonomous voice dispatch teardowns."
+permalink: /insights/
+---
+
+<!-- Schema.org CollectionPage & ItemList Microdata -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://lumilore.ca/insights/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://lumilore.ca"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Insights & Technical Hub",
+          "item": "https://lumilore.ca/insights/"
+        }
+      ]
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://lumilore.ca/insights/#collection",
+      "url": "https://lumilore.ca/insights/",
+      "name": "LumiLore Engineering Insights & Technical Architecture Hub",
+      "description": "Peer-reviewed technical blueprints, Generative Engine Optimization (GEO) guides, and serverless FinOps architectures engineered by Principal Systems Architect Saad Sayed.",
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://lumilore.ca/#organization",
+        "name": "LumiLore Technologies",
+        "url": "https://lumilore.ca",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://lumilore.ca/logo.webp"
+        }
+      },
+      "mainEntity": {
+        "@type": "ItemList",
+        "numberOfItems": 3,
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "url": "https://lumilore.ca/insights/generative-engine-optimization-enterprise-guide/",
+            "name": "Generative Engine Optimization (GEO): Why Enterprise Brands Are Invisible to ChatGPT and Perplexity Search"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "url": "https://lumilore.ca/insights/cutting-aws-cloud-waste-serverless-architecture/",
+            "name": "Cutting AWS Cloud Waste by 68%: Enterprise Serverless Architecture Blueprint"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "url": "https://lumilore.ca/insights/autonomous-247-ai-voice-dispatch-mechanical-trades/",
+            "name": "24/7 AI Voice Dispatch for Mechanical Trades: Production Telephony Blueprint"
+          }
+        ]
+      }
+    }
+  ]
+}
+</script>
+
+<!-- Editorial Daylight Section -->
+<div class="relative z-10 min-h-screen pt-28 pb-32">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Breadcrumb Trail -->
+    <nav aria-label="Breadcrumb" class="mb-8 flex items-center gap-2 text-xs font-mono text-[#6B7280]">
+      <a href="/" class="hover:text-[#2563EB] transition-colors">Home</a>
+      <span class="text-[#9CA3AF]">/</span>
+      <span class="text-[#0D1520] font-semibold">Insights &amp; Architecture Hub</span>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="text-center max-w-3xl mx-auto mb-16">
+      
+      <!-- Eyebrow Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-200 bg-blue-50 shadow-xs mb-6">
+        <span class="w-2 h-2 rounded-full bg-[#2563EB] animate-pulse"></span>
+        <span class="text-xs font-mono font-bold tracking-widest text-blue-900 uppercase">
+          LUMILORE ENGINEERING INSIGHTS // PEER-REVIEWED ARCHITECTURE
+        </span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="font-headline text-3xl min-[380px]:text-4xl sm:text-5xl md:text-6xl font-bold text-[#0D1520] tracking-tight mb-6">
+        Technical Insights &amp; <br/>
+        <span class="text-[#2563EB]">Architecture Blueprints.</span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="text-base sm:text-lg text-[#4B5563] font-normal leading-relaxed">
+        Deep-dive technical whitepapers, Generative Engine Optimization (GEO) guides, serverless FinOps benchmarks, and real-time voice telephony blueprints engineered by Principal Architect Saad Sayed.
+      </p>
+    </header>
+
+    <!-- Interactive Dual-Lens Filter Switcher -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-12 pb-6 border-b border-[#EAE6DF]">
+      <div class="flex items-center gap-2 text-xs font-mono text-[#6B7280]">
+        <span class="w-2 h-2 rounded-full bg-emerald-600"></span>
+        <span class="font-semibold text-[#0D1520]">Publication Lens:</span>
+        <span id="insights-count-label" class="bg-[#F3EFE6] px-2 py-0.5 rounded-full border border-[#EAE6DF] font-bold text-[#0D1520]">
+          3 Publications Available
+        </span>
+      </div>
+
+      <!-- Interactive Tab Buttons -->
+      <div class="inline-flex items-center p-1 rounded-full bg-[#F3EFE6] border border-[#EAE6DF] select-none shadow-xs" role="tablist" aria-label="Insights Category Filter">
+        <button 
+          type="button" 
+          id="insights-filter-all" 
+          class="insights-filter-btn px-4 py-2 rounded-full text-xs font-mono font-semibold tracking-wider transition-all duration-200 cursor-pointer min-h-[40px] flex items-center gap-1.5 bg-white text-[#0D1520] shadow-xs border border-[#E5E2DC]"
+          data-category="all"
+          role="tab"
+          aria-selected="true"
+        >
+          <span>All Publications (3)</span>
+        </button>
+        <button 
+          type="button" 
+          id="insights-filter-trades" 
+          class="insights-filter-btn px-4 py-2 rounded-full text-xs font-mono font-semibold tracking-wider transition-all duration-200 cursor-pointer min-h-[40px] flex items-center gap-1.5 text-[#4B5563] hover:text-[#0D1520]"
+          data-category="trades"
+          role="tab"
+          aria-selected="false"
+        >
+          <span>🛠️</span> <span>Trade Field Operations (1)</span>
+        </button>
+        <button 
+          type="button" 
+          id="insights-filter-cloud" 
+          class="insights-filter-btn px-4 py-2 rounded-full text-xs font-mono font-semibold tracking-wider transition-all duration-200 cursor-pointer min-h-[40px] flex items-center gap-1.5 text-[#4B5563] hover:text-[#0D1520]"
+          data-category="cloud"
+          role="tab"
+          aria-selected="false"
+        >
+          <span>⚡</span> <span>Cloud &amp; AI Systems (2)</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Publications Grid -->
+    <div id="insights-articles-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+
+      <!-- Publication 1: Generative Engine Optimization (GEO) -->
+      <article 
+        class="insight-card flex flex-col justify-between rounded-3xl bg-white border border-[#EAE6DF] p-6 sm:p-8 shadow-xs hover:shadow-lg hover:border-[#2563EB]/40 transition-all duration-300 group"
+        data-category="cloud"
+      >
+        <div>
+          <!-- Badge Strip -->
+          <div class="flex items-center justify-between gap-2 mb-4">
+            <span class="px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider text-blue-900 bg-blue-50 border border-blue-200">
+              ⚡ Cloud &amp; AI Systems
+            </span>
+            <span class="text-xs font-mono text-[#6B7280]">14 min read</span>
+          </div>
+
+          <!-- Publication Title -->
+          <h2 class="font-headline text-xl sm:text-2xl font-bold tracking-tight text-[#0D1520] group-hover:text-[#2563EB] transition-colors mb-3 leading-snug">
+            <a href="/insights/generative-engine-optimization-enterprise-guide/" class="focus:outline-none focus:underline">
+              Generative Engine Optimization (GEO): Why Enterprise Brands Are Invisible to ChatGPT and Perplexity Search
+            </a>
+          </h2>
+
+          <!-- Abstract -->
+          <p class="text-sm text-[#4B5563] leading-relaxed font-normal mb-6">
+            An exhaustive technical guide for enterprise CTOs on engineering multi-LLM citation graphs, 5-layer Schema.org microdata, and sub-150ms RAG retrieval pipelines.
+          </p>
+
+          <!-- Benchmarks Pill Grid -->
+          <div class="grid grid-cols-2 gap-2 pt-4 border-t border-[#EAE6DF] mb-6 font-mono text-xs">
+            <div class="p-2.5 rounded-xl bg-[#FAF8F3] border border-[#EAE6DF]">
+              <span class="text-[10px] text-[#6B7280] uppercase block">LLM Blind Spot</span>
+              <span class="font-bold text-[#0D1520] text-sm">89%</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-[#FAF8F3] border border-[#EAE6DF]">
+              <span class="text-[10px] text-[#6B7280] uppercase block">Edge Latency</span>
+              <span class="font-bold text-[#2563EB] text-sm">&lt; 150ms</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Footer -->
+        <div class="pt-4 border-t border-[#EAE6DF] flex items-center justify-between text-xs font-mono">
+          <span class="text-[#6B7280]">Published Nov 1, 2026</span>
+          <a href="/insights/generative-engine-optimization-enterprise-guide/" class="inline-flex items-center gap-1 font-bold text-[#2563EB] hover:text-[#1D4ED8]">
+            <span>Read Blueprint</span>
+            <span>→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Publication 2: Cutting AWS Cloud Waste by 68% -->
+      <article 
+        class="insight-card flex flex-col justify-between rounded-3xl bg-white border border-[#EAE6DF] p-6 sm:p-8 shadow-xs hover:shadow-lg hover:border-[#2563EB]/40 transition-all duration-300 group"
+        data-category="cloud"
+      >
+        <div>
+          <!-- Badge Strip -->
+          <div class="flex items-center justify-between gap-2 mb-4">
+            <span class="px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider text-indigo-900 bg-indigo-50 border border-indigo-200">
+              ⚡ Cloud &amp; FinOps
+            </span>
+            <span class="text-xs font-mono text-[#6B7280]">12 min read</span>
+          </div>
+
+          <!-- Publication Title -->
+          <h2 class="font-headline text-xl sm:text-2xl font-bold tracking-tight text-[#0D1520] group-hover:text-[#2563EB] transition-colors mb-3 leading-snug">
+            <a href="/insights/cutting-aws-cloud-waste-serverless-architecture/" class="focus:outline-none focus:underline">
+              Cutting AWS Cloud Waste by 68%: Enterprise Serverless Architecture Blueprint
+            </a>
+          </h2>
+
+          <!-- Abstract -->
+          <p class="text-sm text-[#4B5563] leading-relaxed font-normal mb-6">
+            Detailed case study on re-architecting always-on EC2 instances into an event-driven AWS serverless cluster, eliminating $42,000/yr in idle compute overhead.
+          </p>
+
+          <!-- Benchmarks Pill Grid -->
+          <div class="grid grid-cols-2 gap-2 pt-4 border-t border-[#EAE6DF] mb-6 font-mono text-xs">
+            <div class="p-2.5 rounded-xl bg-[#FAF8F3] border border-[#EAE6DF]">
+              <span class="text-[10px] text-[#6B7280] uppercase block">Spend Reduction</span>
+              <span class="font-bold text-emerald-700 text-sm">68%</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-[#FAF8F3] border border-[#EAE6DF]">
+              <span class="text-[10px] text-[#6B7280] uppercase block">Idle Hourly Cost</span>
+              <span class="font-bold text-[#0D1520] text-sm">$0.00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Footer -->
+        <div class="pt-4 border-t border-[#EAE6DF] flex items-center justify-between text-xs font-mono">
+          <span class="text-[#6B7280]">Published Oct 21, 2026</span>
+          <a href="/insights/cutting-aws-cloud-waste-serverless-architecture/" class="inline-flex items-center gap-1 font-bold text-[#2563EB] hover:text-[#1D4ED8]">
+            <span>Read Blueprint</span>
+            <span>→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Publication 3: 24/7 AI Voice Dispatch for Mechanical Trades -->
+      <article 
+        class="insight-card flex flex-col justify-between rounded-3xl bg-white border border-[#EAE6DF] p-6 sm:p-8 shadow-xs hover:shadow-lg hover:border-[#D97706]/40 transition-all duration-300 group"
+        data-category="trades"
+      >
+        <div>
+          <!-- Badge Strip -->
+          <div class="flex items-center justify-between gap-2 mb-4">
+            <span class="px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider text-amber-900 bg-amber-50 border border-amber-200">
+              🛠️ Trade Field Operations
+            </span>
+            <span class="text-xs font-mono text-[#6B7280]">11 min read</span>
+          </div>
+
+          <!-- Publication Title -->
+          <h2 class="font-headline text-xl sm:text-2xl font-bold tracking-tight text-[#0D1520] group-hover:text-[#B45309] transition-colors mb-3 leading-snug">
+            <a href="/insights/autonomous-247-ai-voice-dispatch-mechanical-trades/" class="focus:outline-none focus:underline">
+              24/7 AI Voice Dispatch for Mechanical Trades: Production Telephony Blueprint
+            </a>
+          </h2>
+
+          <!-- Abstract -->
+          <p class="text-sm text-[#4B5563] leading-relaxed font-normal mb-6">
+            Technical blueprint on architecting real-time WebSocket speech pipelines, carrier PSTN telephony, and automated ServiceTitan dispatch for HVAC, plumbing, and mechanical contractors.
+          </p>
+
+          <!-- Benchmarks Pill Grid -->
+          <div class="grid grid-cols-2 gap-2 pt-4 border-t border-[#EAE6DF] mb-6 font-mono text-xs">
+            <div class="p-2.5 rounded-xl bg-[#FAF8F3] border border-[#EAE6DF]">
+              <span class="text-[10px] text-[#6B7280] uppercase block">Emergency Triage</span>
+              <span class="font-bold text-[#B45309] text-sm">&lt; 60s</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-[#FAF8F3] border border-[#EAE6DF]">
+              <span class="text-[10px] text-[#6B7280] uppercase block">Missed Calls</span>
+              <span class="font-bold text-[#0D1520] text-sm">0</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Footer -->
+        <div class="pt-4 border-t border-[#EAE6DF] flex items-center justify-between text-xs font-mono">
+          <span class="text-[#6B7280]">Published Oct 28, 2026</span>
+          <a href="/insights/autonomous-247-ai-voice-dispatch-mechanical-trades/" class="inline-flex items-center gap-1 font-bold text-[#B45309] hover:text-[#92400E]">
+            <span>Read Blueprint</span>
+            <span>→</span>
+          </a>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Conversion Banner -->
+    <div class="rounded-3xl p-8 sm:p-12 bg-[#FAF6EC] border-2 border-[#D97706]/30 text-center max-w-4xl mx-auto shadow-xs">
+      <h3 class="text-2xl sm:text-3xl font-bold text-[#0D1520] mb-4 font-headline">
+        Need Custom Architecture or a Production Telephony Audit?
+      </h3>
+      <p class="text-sm sm:text-base text-[#4B5563] max-w-2xl mx-auto mb-8 font-normal leading-relaxed">
+        Directly consult with Principal Systems Architect Saad Sayed. We inspect your AWS serverless workloads or trade dispatch telephony with zero sales fluff and full code-level transparency.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a 
+          href="/contact/?source=insights_hub" 
+          class="w-full sm:w-auto min-h-[48px] inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-[#0D1520] hover:bg-[#1A2536] text-white font-bold font-mono text-xs uppercase tracking-wider shadow-sm transition-all transform hover:-translate-y-0.5"
+        >
+          <span>Schedule Architecture Consultation</span>
+          <svg class="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+        <a 
+          href="/success-stories/" 
+          class="w-full sm:w-auto min-h-[48px] inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-white hover:bg-[#F3EFE6] border border-[#EAE6DF] hover:border-[#D97706]/40 text-[#0D1520] font-bold font-mono text-xs uppercase tracking-wider transition-all"
+        >
+          <span>Explore Verified Client Case Studies</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Interactive Category Filter Script -->
+<script>
+(function() {
+  document.addEventListener('DOMContentLoaded', function() {
+    var buttons = document.querySelectorAll('.insights-filter-btn');
+    var cards = document.querySelectorAll('.insight-card');
+    var countLabel = document.getElementById('insights-count-label');
+
+    function setFilter(category) {
+      var visibleCount = 0;
+      cards.forEach(function(card) {
+        var cardCat = card.getAttribute('data-category');
+        if (category === 'all' || cardCat === category) {
+          card.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      buttons.forEach(function(btn) {
+        var isMatch = btn.getAttribute('data-category') === category;
+        btn.setAttribute('aria-selected', isMatch ? 'true' : 'false');
+        if (isMatch) {
+          btn.className = 'insights-filter-btn px-4 py-2 rounded-full text-xs font-mono font-semibold tracking-wider transition-all duration-200 cursor-pointer min-h-[40px] flex items-center gap-1.5 bg-white text-[#0D1520] shadow-xs border border-[#E5E2DC]';
+        } else {
+          btn.className = 'insights-filter-btn px-4 py-2 rounded-full text-xs font-mono font-semibold tracking-wider transition-all duration-200 cursor-pointer min-h-[40px] flex items-center gap-1.5 text-[#4B5563] hover:text-[#0D1520]';
+        }
+      });
+
+      if (countLabel) {
+        countLabel.textContent = visibleCount + ' Publication' + (visibleCount === 1 ? '' : 's') + ' Shown';
+      }
+    }
+
+    buttons.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var cat = btn.getAttribute('data-category');
+        setFilter(cat);
+      });
+    });
+
+    // Check URL query param for default filter
+    try {
+      var urlParams = new URLSearchParams(window.location.search);
+      var categoryParam = urlParams.get('category') || urlParams.get('lens');
+      if (categoryParam === 'trades' || categoryParam === 'trade') {
+        setFilter('trades');
+      } else if (categoryParam === 'cloud' || categoryParam === 'corporate') {
+        setFilter('cloud');
+      }
+    } catch(e) {}
+  });
+})();
+</script>

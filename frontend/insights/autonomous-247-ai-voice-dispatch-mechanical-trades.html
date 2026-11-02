@@ -10,6 +10,30 @@ description: "A deep-dive technical blueprint on architecting real-time WebSocke
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "BreadcrumbList",
+      "@id": "https://lumilore.ca/insights/autonomous-247-ai-voice-dispatch-mechanical-trades/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://lumilore.ca"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Insights",
+          "item": "https://lumilore.ca/insights/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "24/7 AI Voice Dispatch for Mechanical Trades",
+          "item": "https://lumilore.ca/insights/autonomous-247-ai-voice-dispatch-mechanical-trades/"
+        }
+      ]
+    },
+    {
       "@type": "TechArticle",
       "@id": "https://lumilore.ca/insights/autonomous-247-ai-voice-dispatch-mechanical-trades/#article",
       "url": "https://lumilore.ca/insights/autonomous-247-ai-voice-dispatch-mechanical-trades/",
@@ -89,13 +113,14 @@ description: "A deep-dive technical blueprint on architecting real-time WebSocke
 <article class="relative z-10 min-h-screen pt-28 pb-32 overflow-hidden">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
 
-    <!-- Back to Insights / Products Breadcrumb -->
-    <div class="mb-8">
-      <a href="/products/voice-dispatch/" class="inline-flex items-center gap-2 text-xs font-mono text-[#2563EB] hover:text-[#0D1520] transition-colors">
-        <span>←</span>
-        <span>Back to 24/7 AI Voice Dispatch</span>
-      </a>
-    </div>
+    <!-- Breadcrumb Trail -->
+    <nav aria-label="Breadcrumb" class="mb-8 flex items-center gap-2 text-xs font-mono text-[#6B7280]">
+      <a href="/" class="hover:text-[#2563EB] transition-colors">Home</a>
+      <span class="text-[#9CA3AF]">/</span>
+      <a href="/insights/" class="hover:text-[#2563EB] transition-colors">Insights</a>
+      <span class="text-[#9CA3AF]">/</span>
+      <span class="text-[#0D1520] font-medium truncate">24/7 AI Voice Dispatch for Mechanical Trades</span>
+    </nav>
 
     <!-- Article Header -->
     <header class="mb-12 border-b border-[#EAE6DF] pb-10">

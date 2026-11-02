@@ -9,7 +9,7 @@ eleventyExcludeFromCollections: true
   <url>
     <loc>https://lumilore.ca{{ page.url | url }}</loc>
     <changefreq>{% if page.url == '/terms/' or page.url == '/privacy/' %}monthly{% else %}weekly{% endif %}</changefreq>
-    <priority>{% if page.url == '/' %}1.0{% elif page.url == '/terms/' or page.url == '/privacy/' %}0.4{% else %}0.8{% endif %}</priority>
+    <priority>{% if page.url == '/' %}1.0{% elif page.url == '/terms/' or page.url == '/privacy/' %}0.4{% elif '/insights/' in page.url %}0.9{% else %}0.8{% endif %}</priority>
   </url>
   {%- endif %}
 {%- endfor %}

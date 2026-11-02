@@ -10,6 +10,30 @@ description: "How LumiLore Technologies re-architected legacy always-on cloud in
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "BreadcrumbList",
+      "@id": "https://lumilore.ca/insights/cutting-aws-cloud-waste-serverless-architecture/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://lumilore.ca"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Insights",
+          "item": "https://lumilore.ca/insights/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Cutting AWS Cloud Waste by 68%",
+          "item": "https://lumilore.ca/insights/cutting-aws-cloud-waste-serverless-architecture/"
+        }
+      ]
+    },
+    {
       "@type": "TechArticle",
       "@id": "https://lumilore.ca/insights/cutting-aws-cloud-waste-serverless-architecture/#article",
       "url": "https://lumilore.ca/insights/cutting-aws-cloud-waste-serverless-architecture/",
@@ -89,13 +113,14 @@ description: "How LumiLore Technologies re-architected legacy always-on cloud in
 <article class="relative z-10 min-h-screen pt-28 pb-32 overflow-hidden">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
 
-    <!-- Back to Insights / Products Breadcrumb -->
-    <div class="mb-8">
-      <a href="/products/web-modernization/" class="inline-flex items-center gap-2 text-xs font-mono text-[#2563EB] hover:text-[#0D1520] transition-colors">
-        <span>←</span>
-        <span>Back to Sub-150ms Web Modernization Engine</span>
-      </a>
-    </div>
+    <!-- Breadcrumb Trail -->
+    <nav aria-label="Breadcrumb" class="mb-8 flex items-center gap-2 text-xs font-mono text-[#6B7280]">
+      <a href="/" class="hover:text-[#2563EB] transition-colors">Home</a>
+      <span class="text-[#9CA3AF]">/</span>
+      <a href="/insights/" class="hover:text-[#2563EB] transition-colors">Insights</a>
+      <span class="text-[#9CA3AF]">/</span>
+      <span class="text-[#0D1520] font-medium truncate">Cutting AWS Cloud Waste by 68%</span>
+    </nav>
 
     <!-- Article Header -->
     <header class="mb-12 border-b border-[#EAE6DF] pb-10">

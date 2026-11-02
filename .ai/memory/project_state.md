@@ -680,7 +680,30 @@
 
 ---
 
-## 🚀 Next Strategic Horizon: Sprint 42 (Multi-Tenant Client Lead Routing & Telephony Concierge Dispatch)
+## 🚀 Sprint 42 Completed: Editorial & SEO Architecture Overhaul: Dedicated Insights Hub, Light-Theme Editorial Design System & Pure Client Proof Decoupling
+- **Pure Client Proof Decoupling:**
+  * Cleaned up `Case Studies ▾` in navigation: reserved strictly for verified customer proof (`/success-stories/`, My Choice Auto, FiscalX, ROI Ledger).
+  * Removed educational whitepapers from the Case Studies dropdown.
+  * Added dedicated grounded customer teardown cards on `frontend/success-stories.html`: `#my-choice-auto` (+180k/yr recaptured, 100% call capture), `#fiscalx` (118ms edge TTFB, 99.4% onboarding completion), and `#metrics` (Verified Production ROI Ledger).
+- **Dedicated Insights & Knowledge Hub (`/insights/`):**
+  * Created `/insights/index.html` hub with Dual-Lens filtering (`All Publications`, `🛠️ Trade Field Operations`, `⚡ Cloud & AI Systems`), expanding active production routes from 13 to 14.
+  * Injected `CollectionPage` and `ItemList` Schema.org microdata indexing all 3 flagship published guides.
+- **Global Navigation Harmonization:**
+  * Added dedicated `Insights ▾` mega-menu dropdown in desktop navigation with 2-column categorization (Trades Operations vs Cloud & AI Systems) and direct hub link.
+  * Added dedicated expandable `Insights` accordion to `#mobile-menu` with WCAG AA 48×48px minimum touch targets and zero JS errors.
+- **Light-Theme Editorial Design System Calibration:**
+  * Overhauled `frontend/insights/generative-engine-optimization-enterprise-guide.html`: eliminated all white-on-white text violations, applying `#0D1520` Space Grotesk bold headings, `#334155` body text on `#FAF8F5`, white card containers with `#EAE6DF` borders, and high-contrast dark navy `#0B132B` code blocks.
+  * Standardized breadcrumb hierarchy across all articles: `Home / Insights / [Article Title]` in both visual DOM and Schema.org `BreadcrumbList`.
+- **Technical SEO & AI Engine Citation Optimization:**
+  * Assigned high sitemap priority (0.9) to `/insights/` and all `/insights/*` publication routes in `frontend/sitemap.njk`.
+  * Synchronized `frontend/llms.txt.njk` and `frontend/llms-full.txt.njk` with dedicated categorized links.
+  * Link audit passed with 0 broken links across 1,481 analyzed links.
+- **Master Verification Harness (`scratch/verify_sprint42.mjs`):**
+  * 37/37 automated checks passing with 100% success rate. **SPRINT 42 IS 100% COMPLETE & PRODUCTION CERTIFIED.**
+
+---
+
+## 🚀 Next Strategic Horizon: Sprint 43 (Multi-Tenant Client Lead Routing & Telephony Concierge Dispatch)
 - **Bidirectional Inbound Lead Ingestion:**
   * Connect My Choice Auto intake form (`POST https://aiun423k73.execute-api.ca-central-1.amazonaws.com/prod/intake`) and FiscalX inquiry portal to push live lead events to LumiLore Mission Control event bus.
   * Trigger automated Agent 06 (Diagnostic Inspector) and Agent 07 (SOW Closer) scoping runs upon real customer inquiry.

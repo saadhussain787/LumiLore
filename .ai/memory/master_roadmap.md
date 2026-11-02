@@ -1367,22 +1367,62 @@ From the Google PageSpeed Insights recording (`Page speed insights .mp4`), Deskt
 
 ---
 
-## 🚀 Sprint 42: Multi-Tenant Client Lead Routing & Telephony Concierge Dispatch (QUEUED)
+## 🚀 Sprint 42: Editorial & SEO Architecture Overhaul: Dedicated Insights Hub, Light-Theme Editorial Design System & Pure Client Proof Decoupling (COMPLETED)
+
+### Problem Statement & Architectural Context
+1. **Visual Contrast Breakdown (White-on-White):** While the LumiLore global layout uses an Editorial Light Theme (`#FAF8F5` cream/off-white), generated insight articles utilized dark-mode CSS tokens (`text-white`, `text-slate-200`, `bg-black/60`), producing nearly invisible white-on-white text and harsh black rectangular blocks that clash with the site.
+2. **Information Architecture Confusion:** In-depth technical whitepapers were previously jammed under the `Case Studies ▾` dropdown. A *Case Study* is strictly customer proof (e.g. My Choice Auto, FiscalX), whereas an *Insight / Whitepaper* is an educational technical guide (e.g. Generative Engine Optimization, AWS Serverless FinOps).
+3. **Topical Authority & SEO Expansion:** Establish a dedicated `/insights/` publication hub with Dual-Lens taxonomy (Mechanical Trades Operations vs Enterprise Cloud & AI Engineering) to maximize Google page indexation, organic keyword rankings, and multi-LLM citations (ChatGPT Search, Perplexity Sonar).
+
+### 42.1: Pure Client Proof Decoupling (Clean Up "Case Studies")
+- [x] Audit `frontend/_includes/layout.html` and `#mobile-menu`, removing educational whitepapers from the `Case Studies ▾` dropdown.
+- [x] Restructure `Case Studies ▾` strictly for customer proof: Verified ROI & Proof Dashboard (`/success-stories/`), My Choice Auto Teardown (`/success-stories/#my-choice-auto`), FiscalX Corporate Advisory (`/success-stories/#fiscalx`), and Live Proof Ledger (`/success-stories/#metrics`).
+
+### 42.2: Dedicated Insights & Technical Hub Architecture (`/insights/`)
+- [x] Create `frontend/insights/index.html` featuring Dual-Lens filter switcher (`All Publications`, `🛠️ Trade Field Operations`, `⚡ Cloud & AI Systems`), expanding compiled routes from 13 to 14.
+- [x] Inject `CollectionPage` and `ItemList` Schema.org JSON-LD microdata referencing all published guides.
+
+### 42.3: Global Header Navigation & Mobile Menu Harmonization
+- [x] Add dedicated `Insights ▾` mega-menu dropdown to desktop navigation in `frontend/_includes/layout.html` with 2-column categorization (Trades vs Cloud/AI).
+- [x] Add expandable `Insights` accordion to `#mobile-menu` maintaining 100% WCAG AA 48×48px touch targets.
+
+### 42.4: Light-Theme Editorial Design System Calibration
+- [x] Overhaul `frontend/insights/generative-engine-optimization-enterprise-guide.html`: replace dark-mode text classes with `#0D1520` Space Grotesk bold headings and `#334155` body text on `#FAF8F5`, convert dark cards to white glassmorphic containers with `#EAE6DF` borders, and restyle code blocks in high-contrast dark navy `#0B132B`.
+- [x] Harmonize `cutting-aws-cloud-waste-serverless-architecture.html` and `autonomous-247-ai-voice-dispatch-mechanical-trades.html` with identical light-mode design tokens and Schema.org BreadcrumbList microdata.
+- [x] Standardize breadcrumbs across all articles: `Home / Insights / [Article Title]`.
+
+### 42.5: Technical SEO, Google Indexing & Multi-LLM Citation Optimization
+- [x] Calibrate `frontend/sitemap.njk` to assign high priority (0.9) to `/insights/` and all publication routes.
+- [x] Synchronize `frontend/llms.txt.njk` and `frontend/llms-full.txt.njk` with dedicated categorized links.
+- [x] Verify all internal keyword anchors resolve with 0 broken links (1,481 links checked, 0 broken).
+
+### 42.6: Master Verification Harness & Production Certification (`scratch/verify_sprint42.mjs`)
+- [x] Build automated verification suite asserting:
+  - Valid compilation of `/insights/index.html` (expanding compiled routes from 13 to 14).
+  - Zero white-on-white text violations in `/insights/*.html`.
+  - Clean separation of Case Studies vs Insights in `layout.html`.
+  - 14/14 healthy routes in `audit_pages.js`.
+  - 0 broken links across all routes in `audit_links.js`.
+  - 37/37 automated checks passing with 100% success rate.
+
+---
+
+## 🚀 Sprint 43: Multi-Tenant Client Lead Routing & Telephony Concierge Dispatch (QUEUED)
 
 ### Problem Statement & Architectural Context
 1. **Multi-Tenant Intake Aggregation:** Inbound leads originating from client sites (`mychoiceautoservices.com` and `fiscalx.ca`) are processed by client-specific serverless backends (Python Lambda `aiun423k73` and Node API Gateway). LumiLore's Mission Control needs real-time event aggregation to provide the founder a unified cockpit view of client lead velocity.
 2. **Autonomous Scoping Trigger Chaining:** When a high-ticket repair lead or corporate accounting inquiry arrives, the fleet should automatically trigger Agent 06 (Website / Diagnostics Inspector) and Agent 07 (Dynamic SOW Closer) to pre-scope client proposals.
 3. **Telephony DID Triage Sync:** Amazon Connect telephony instances must be configured with specific DID routing rules for +1-437-786-5864 (LumiLore Mother Platform), +1-416-556-2424 (My Choice Auto emergency shop line), and +1-647-450-9235 (FiscalX corporate reception).
 
-### 42.1: Client Inbound Webhook Aggregator & Event Bus
+### 43.1: Client Inbound Webhook Aggregator & Event Bus
 - [ ] Connect client intake endpoints to push structured lead events to LumiLore Mission Control `/api/intake` bridge.
 - [ ] Implement multi-tenant lead attribution schema (`clientSlug`, `urgency`, `serviceScope`, `estimatedTicketCad`).
 
-### 42.2: Autonomous Fleet Chaining on Lead Ingestion
+### 43.2: Autonomous Fleet Chaining on Lead Ingestion
 - [ ] Automatically trigger Agent 06 and Agent 07 on qualifying inbound customer inquiries.
 - [ ] Dispatch SMS alerts to designated client shop contacts (Shafiq Patel / Wasim Kadri).
 
-### 42.3: Master Verification & End-to-End Smoke Test (`scratch/verify_sprint42.mjs`)
+### 43.3: Master Verification & End-to-End Smoke Test (`scratch/verify_sprint43.mjs`)
 - [ ] Build automated harness verifying multi-tenant event ingestion, lead persistence in DynamoDB, and fleet event logging.
 
 
