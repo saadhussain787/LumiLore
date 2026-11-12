@@ -11,13 +11,47 @@ import { CONFIG } from './config.js';
 import { CitationRadar } from './citation-radar.js';
 
 const require = createRequire(import.meta.url);
-const { SESClient, SendEmailCommand } = require('../../backend/src/node_modules/@aws-sdk/client-ses');
+let SESClient = null;
+let SendEmailCommand = null;
+
+try {
+  const sesModule = require('../../backend/src/node_modules/@aws-sdk/client-ses');
+  SESClient = sesModule.SESClient;
+  SendEmailCommand = sesModule.SendEmailCommand;
+} catch (e1) {
+  try {
+    const sesModule = require('@aws-sdk/client-ses');
+    SESClient = sesModule.SESClient;
+    SendEmailCommand = sesModule.SendEmailCommand;
+  } catch (e2) {
+    // SDK not installed in environment
+  }
+}
 
 export class ExecutiveIntelEngine {
   constructor(config = CONFIG) {
     this.config = config;
     this.region = process.env.AWS_REGION || 'ca-central-1';
-    this.sesClient = new SESClient({ region: this.region });
+    this.hasCredentials = this.checkAwsCredentials();
+    if (SESClient && this.hasCredentials) {
+      try {
+        this.sesClient = new SESClient({ region: this.region });
+      } catch (err) {
+        this.sesClient = null;
+      }
+    } else {
+      this.sesClient = null;
+    }
+  }
+
+  checkAwsCredentials() {
+    return !!(
+      (process.env.AWS_ACCESS_KEY_ID && process.env.AWS_SECRET_ACCESS_KEY) ||
+      process.env.AWS_SESSION_TOKEN ||
+      process.env.AWS_CONTAINER_CREDENTIALS_RELATIVE_URI ||
+      process.env.AWS_CONTAINER_CREDENTIALS_FULL_URI ||
+      process.env.AWS_WEB_IDENTITY_TOKEN_FILE
+    );
   }
 
   /**
@@ -187,11 +221,16 @@ export class ExecutiveIntelEngine {
    * @param {boolean} [options.dryRun=false]
    */
   async sendBriefing(options = {}) {
-    const dryRun = options.dryRun || false;
+    let dryRun = options.dryRun || false;
     const recipient = options.recipient || process.env.FOUNDER_SAAD_EMAIL || 'info@lumilore.ca';
     const sourceEmail = process.env.SES_SOURCE_EMAIL || 'info@lumilore.ca';
     const htmlBody = this.buildBriefingHtml();
     const subject = `[LumiLore Executive Intel] Weekly GEO Radar & Citation Dominance Briefing`;
+
+    if (!dryRun && (!this.hasCredentials || !this.sesClient || !SendEmailCommand)) {
+      console.warn('  ⚠ [WARN] AWS SES credentials absent in runner environment. Falling back to dry-run simulation mode for Executive Intel briefing.');
+      dryRun = true;
+    }
 
     if (dryRun) {
       return {

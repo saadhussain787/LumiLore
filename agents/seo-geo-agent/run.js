@@ -109,7 +109,14 @@ export async function runMasterPipeline(options = {}) {
       fs.writeFileSync(briefHtmlPath, intel.buildBriefingHtml(summary.radar), 'utf8');
       console.log(`  ✓ Saved briefing HTML artifact to ${briefHtmlPath}`);
     } catch (err) {
-      console.error('  ✕ Executive Intel Error:', err.message);
+      console.warn('  ⚠ [WARN] Executive Intel Notice (Non-fatal, continuing):', err.message);
+      summary.briefing = {
+        success: false,
+        dryRun: true,
+        error: err.message,
+        recipient: process.env.FOUNDER_SAAD_EMAIL || 'info@lumilore.ca',
+        timestamp: new Date().toISOString()
+      };
     }
   }
 

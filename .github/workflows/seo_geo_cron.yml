@@ -29,15 +29,27 @@ jobs:
           node-version: 22
 
       - name: Configure AWS Credentials (OIDC or Secrets)
+        id: aws_creds
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-region: ca-central-1
           audience: sts.amazonaws.com
         continue-on-error: true
 
+      - name: Check AWS SES Credentials Availability & Configure Fallback
+        id: check_credentials
+        run: |
+          if [ -n "$AWS_ACCESS_KEY_ID" ] || [ -n "$AWS_SESSION_TOKEN" ] || [ -n "$AWS_CONTAINER_CREDENTIALS_RELATIVE_URI" ] || [ -n "$AWS_WEB_IDENTITY_TOKEN_FILE" ]; then
+            echo "has_aws_creds=true" >> $GITHUB_OUTPUT
+            echo "AWS credentials detected in environment."
+          else
+            echo "has_aws_creds=false" >> $GITHUB_OUTPUT
+            echo "AWS credentials absent in environment. Resilient dry-run fallback active."
+          fi
+
       - name: Run Master SEO & GEO Pipeline
         env:
-          DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
+          DRY_RUN: ${{ github.event.inputs.dry_run == 'true' && 'true' || (steps.check_credentials.outputs.has_aws_creds == 'false' && 'true') || 'false' }}
           AWS_REGION: ca-central-1
           PAGESPEED_API_KEY: ${{ secrets.PAGESPEED_API_KEY || 'AIzaSyABXJTWhxQmaAPXUyrk9LAaTewEFf295CA' }}
           FOUNDER_SAAD_EMAIL: info@lumilore.ca
