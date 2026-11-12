@@ -180,6 +180,10 @@
         "Errors": [
           {
             "NextAction": "6c123456-7777-4777-8777-777777777777",
+            "ErrorType": "NoMatchingError"
+          },
+          {
+            "NextAction": "6c123456-7777-4777-8777-777777777777",
             "ErrorType": "UnhandledException"
           }
         ],

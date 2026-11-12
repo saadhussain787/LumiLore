@@ -335,6 +335,12 @@ export class VoiceExecutiveConciergeService {
         case VOICE_STATES.TURN_2_DISCOVERY: {
           session.turns.push({ turn: 2, user: cleanTranscript, timestamp: new Date().toISOString() });
 
+          if (!cleanTranscript || cleanTranscript.length < 2) {
+            reply = "I didn't quite catch that. Could you describe your project or what you need assistance with?";
+            nextState = VOICE_STATES.TURN_2_DISCOVERY;
+            break;
+          }
+
           // Pricing or rates inquiry
           if (/\b(?:how much|price|costs?|pricing|rates?|fees?)\b/i.test(lower)) {
             reply = "Our pricing is completely transparent. For 24/7 AI Voice Dispatch, deployments start at $1,800 for the launch sprint and $3,500 monthly for full 24/7 coverage. For Enterprise Cloud and FinOps Re-Architecture, our audit sprints start at $1,800, cutting cloud spend by sixty-eight percent. I can schedule a twenty-minute scoping session directly with Saad Sayed to examine your numbers. Would you like me to look at his calendar?";
@@ -466,6 +472,55 @@ export class VoiceExecutiveConciergeService {
   }
 
   /**
+   * Handle Amazon Lex V2 Direct Lambda Invocation
+   * @param {object} event Raw Amazon Lex V2 event payload
+   * @returns {Promise<object>} Standard Lex V2 response format
+   */
+  async handleLexV2Event(event = {}) {
+    const sessionId = event.sessionId || `lex-${Date.now()}`;
+    const transcript = (event.inputTranscript || '').trim();
+    const sessionAttrs = event.sessionState?.sessionAttributes || {};
+    const callerPhone = sessionAttrs.callerPhone || '+1-XXX-XXX-XXXX';
+
+    const turnResult = await this.processTurn(sessionId, transcript, {
+      callerPhone,
+      callerName: sessionAttrs.callerName || 'Inbound Caller'
+    });
+
+    const reply = (turnResult.agentReply || '').replace(/[*_#`\[\]<>]/g, '').trim();
+    const isConfirmed = turnResult.action === 'CALENDAR_LOCKED_AND_CONFIRMED';
+    const isEmergency = turnResult.action === 'EMERGENCY_DISPATCH_NOTIFIED';
+
+    return {
+      sessionState: {
+        sessionAttributes: {
+          ...sessionAttrs,
+          UserTranscript: transcript,
+          AgentReply: reply,
+          BookingStatus: isConfirmed ? 'CONFIRMED' : (isEmergency ? 'EMERGENCY_DISPATCHED' : 'PENDING'),
+          SessionState: String(turnResult.state || ''),
+          TradeCategory: String(turnResult.triage?.tradeCategory || 'None'),
+          EmergencySeverity: String(turnResult.triage?.severity || 'GENERAL_INQUIRY'),
+          ExtractedAddress: String(turnResult.triage?.address || 'Unlisted')
+        },
+        dialogAction: {
+          type: (isConfirmed || isEmergency) ? 'Close' : 'ElicitIntent'
+        },
+        intent: {
+          name: event.sessionState?.intent?.name || 'FallbackIntent',
+          state: (isConfirmed || isEmergency) ? 'Fulfilled' : 'InProgress'
+        }
+      },
+      messages: [
+        {
+          contentType: 'PlainText',
+          content: reply
+        }
+      ]
+    };
+  }
+
+  /**
    * Handle Amazon Connect Direct Lambda Invocation
    * @param {object} event Raw Amazon Connect contact flow execution event
    * @returns {Promise<object>} Flat string key-value attributes for Connect Contact Flow
@@ -479,22 +534,44 @@ export class VoiceExecutiveConciergeService {
     const lexData = event?.Details?.Lex || {};
 
     // Aggressively capture user transcript across all Amazon Connect & Lex V2 payload structures
-    const userTranscript = (
-      parameters.UserTranscript ||
-      parameters.StoredCustomerInput ||
-      parameters.SpeechCapture ||
-      parameters.LexTranscript ||
-      parameters.CustomerInput ||
-      contactData.StoredCustomerInput ||
-      event?.Details?.ContactData?.StoredCustomerInput ||
-      lexData.InputTranscript ||
-      lexData.inputTranscript ||
-      contactAttrs.UserTranscript ||
-      contactAttrs.StoredCustomerInput ||
-      contactAttrs.Transcript ||
-      event?.inputTranscript ||
-      ''
-    ).trim();
+    // Filter out unevaluated JSONPath strings like '$.Lex.InputTranscript' caused by 'Set manually' misconfiguration
+    const candidates = [
+      parameters.UserTranscript,
+      parameters.userTranscript,
+      parameters.transcript,
+      parameters.Transcript,
+      parameters.StoredCustomerInput,
+      parameters.SpeechCapture,
+      parameters.LexTranscript,
+      parameters.CustomerInput,
+      parameters.Text,
+      lexData.SessionAttributes?.UserTranscript,
+      lexData.SessionAttributes?.userTranscript,
+      event?.Details?.Lex?.SessionAttributes?.UserTranscript,
+      event?.Details?.Lex?.SessionAttributes?.userTranscript,
+      lexData.InputTranscript,
+      lexData.inputTranscript,
+      contactData.StoredCustomerInput,
+      event?.Details?.ContactData?.StoredCustomerInput,
+      contactAttrs.UserTranscript,
+      contactAttrs.userTranscript,
+      contactAttrs.StoredCustomerInput,
+      contactAttrs.Transcript,
+      contactAttrs.transcript,
+      event?.inputTranscript
+    ];
+
+    let userTranscript = '';
+    for (const item of candidates) {
+      if (typeof item === 'string') {
+        const trimmed = item.trim();
+        // Ignore literal JSONPath strings (e.g. $.Lex.InputTranscript, $.StoredCustomerInput)
+        if (trimmed.length > 0 && !trimmed.startsWith('$.')) {
+          userTranscript = trimmed;
+          break;
+        }
+      }
+    }
 
     const turnResult = await this.processTurn(contactId, userTranscript, {
       callerPhone,
@@ -505,13 +582,12 @@ export class VoiceExecutiveConciergeService {
     const isEmergency = turnResult.action === 'EMERGENCY_DISPATCH_NOTIFIED';
     const rawReply = String(turnResult.agentReply || '');
 
-    // Generate humanized SSML with natural breathing and prosody for Amazon Polly Neural
-    const cleanSpoken = rawReply.replace(/[*_#`\[\]]/g, '').trim();
-    const ssmlReply = `<speak><amazon:auto-breaths volume="soft" frequency="low"><prosody rate="97%">${cleanSpoken}</prosody></amazon:auto-breaths></speak>`;
+    // Generate clean spoken text safe for both Plain Text and SSML modes
+    const cleanSpoken = rawReply.replace(/[*_#`\[\]<>]/g, '').trim();
 
     return {
-      AgentReply: rawReply,
-      AgentReplySSML: ssmlReply,
+      AgentReply: cleanSpoken,
+      AgentReplySSML: cleanSpoken,
       NextTurn: String(turnResult.turnNumber + 1),
       BookingStatus: isConfirmed ? 'CONFIRMED' : (isEmergency ? 'EMERGENCY_DISPATCHED' : 'PENDING'),
       SessionState: String(turnResult.state || ''),

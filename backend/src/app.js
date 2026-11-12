@@ -2488,9 +2488,14 @@ export async function handleFleetDispatch(routePath, method, body = {}, event = 
  * Main Lambda Handler & Router
  */
 export const lambdaHandler = async (event, context) => {
-  // 0. Direct Amazon Connect Telephony Invocation Detector (Sprint 34)
+  // 0a. Direct Amazon Connect Telephony Invocation Detector (Sprint 34)
   if (event?.Details?.ContactData || event?.Name === 'ContactFlowExecution') {
     return await voiceExecutiveConciergeService.handleConnectEvent(event);
+  }
+
+  // 0b. Direct Amazon Lex V2 Bot Invocation Detector (Sprint 45)
+  if (event?.bot && (event?.inputTranscript !== undefined || event?.invocationSource)) {
+    return await voiceExecutiveConciergeService.handleLexV2Event(event);
   }
 
   // Extract normalized HTTP Method and Path across API Gateway v1 & v2 formats
