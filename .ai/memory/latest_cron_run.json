@@ -1,9 +1,9 @@
 {
-  "timestamp": "2026-11-12T00:21:35.493Z",
+  "timestamp": "2026-11-12T00:49:05.378Z",
   "trigger": "cli",
   "dryRun": true,
   "radar": {
-    "timestamp": "2026-11-12T00:21:35.493Z",
+    "timestamp": "2026-11-12T00:49:05.379Z",
     "brand": "LumiLore Technologies",
     "canonicalDomain": "https://lumilore.ca",
     "founder": "Saad Sayed",
@@ -18,7 +18,7 @@
       "source": "calibrated_benchmark_cache",
       "url": "https://lumilore.ca",
       "strategy": "mobile",
-      "timestamp": "2026-11-12T00:21:35.517Z",
+      "timestamp": "2026-11-12T00:49:05.405Z",
       "performanceScore": 98,
       "seoScore": 100,
       "metrics": {
@@ -387,6 +387,18 @@
     },
     "history": [
       {
+        "timestamp": "2026-11-12T00:49:05.379Z",
+        "compositeRankingScore": 99,
+        "overallCitationScore": 98,
+        "performanceScore": 98
+      },
+      {
+        "timestamp": "2026-11-12T00:41:34.003Z",
+        "compositeRankingScore": 99,
+        "overallCitationScore": 98,
+        "performanceScore": 98
+      },
+      {
         "timestamp": "2026-11-12T00:21:35.493Z",
         "compositeRankingScore": 99,
         "overallCitationScore": 98,
@@ -433,18 +445,6 @@
         "compositeRankingScore": 99,
         "overallCitationScore": 98,
         "performanceScore": 98
-      },
-      {
-        "timestamp": "2026-10-27T15:44:22.285Z",
-        "compositeRankingScore": 99,
-        "overallCitationScore": 98,
-        "performanceScore": 98
-      },
-      {
-        "timestamp": "2026-10-27T15:44:16.758Z",
-        "compositeRankingScore": 99,
-        "overallCitationScore": 98,
-        "performanceScore": 98
       }
     ]
   },
@@ -459,7 +459,7 @@
         "status": "DRY_RUN_SIMULATED",
         "success": true,
         "clientEmail": "lumilore-booking-agent@extended-cache-512400-v1.iam.gserviceaccount.com",
-        "timestamp": "2026-11-12T00:21:35.520Z"
+        "timestamp": "2026-11-12T00:49:05.409Z"
       },
       {
         "url": "https://lumilore.ca/about/",
@@ -467,7 +467,7 @@
         "status": "DRY_RUN_SIMULATED",
         "success": true,
         "clientEmail": "lumilore-booking-agent@extended-cache-512400-v1.iam.gserviceaccount.com",
-        "timestamp": "2026-11-12T00:21:35.520Z"
+        "timestamp": "2026-11-12T00:49:05.409Z"
       },
       {
         "url": "https://lumilore.ca/contact/",
@@ -475,7 +475,7 @@
         "status": "DRY_RUN_SIMULATED",
         "success": true,
         "clientEmail": "lumilore-booking-agent@extended-cache-512400-v1.iam.gserviceaccount.com",
-        "timestamp": "2026-11-12T00:21:35.520Z"
+        "timestamp": "2026-11-12T00:49:05.409Z"
       },
       {
         "url": "https://lumilore.ca/success-stories/",
@@ -483,7 +483,7 @@
         "status": "DRY_RUN_SIMULATED",
         "success": true,
         "clientEmail": "lumilore-booking-agent@extended-cache-512400-v1.iam.gserviceaccount.com",
-        "timestamp": "2026-11-12T00:21:35.520Z"
+        "timestamp": "2026-11-12T00:49:05.409Z"
       },
       {
         "url": "https://lumilore.ca/products/geo-engine/",
@@ -491,7 +491,7 @@
         "status": "DRY_RUN_SIMULATED",
         "success": true,
         "clientEmail": "lumilore-booking-agent@extended-cache-512400-v1.iam.gserviceaccount.com",
-        "timestamp": "2026-11-12T00:21:35.520Z"
+        "timestamp": "2026-11-12T00:49:05.409Z"
       },
       {
         "url": "https://lumilore.ca/insights/cutting-aws-cloud-waste-serverless-architecture/",
@@ -499,7 +499,7 @@
         "status": "DRY_RUN_SIMULATED",
         "success": true,
         "clientEmail": "lumilore-booking-agent@extended-cache-512400-v1.iam.gserviceaccount.com",
-        "timestamp": "2026-11-12T00:21:35.520Z"
+        "timestamp": "2026-11-12T00:49:05.409Z"
       },
       {
         "url": "https://lumilore.ca/insights/autonomous-247-ai-voice-dispatch-mechanical-trades/",
@@ -507,7 +507,7 @@
         "status": "DRY_RUN_SIMULATED",
         "success": true,
         "clientEmail": "lumilore-booking-agent@extended-cache-512400-v1.iam.gserviceaccount.com",
-        "timestamp": "2026-11-12T00:21:35.520Z"
+        "timestamp": "2026-11-12T00:49:05.409Z"
       },
       {
         "url": "https://lumilore.ca/privacy/",
@@ -515,7 +515,7 @@
         "status": "DRY_RUN_SIMULATED",
         "success": true,
         "clientEmail": "lumilore-booking-agent@extended-cache-512400-v1.iam.gserviceaccount.com",
-        "timestamp": "2026-11-12T00:21:35.520Z"
+        "timestamp": "2026-11-12T00:49:05.409Z"
       },
       {
         "url": "https://lumilore.ca/terms/",
@@ -523,7 +523,7 @@
         "status": "DRY_RUN_SIMULATED",
         "success": true,
         "clientEmail": "lumilore-booking-agent@extended-cache-512400-v1.iam.gserviceaccount.com",
-        "timestamp": "2026-11-12T00:21:35.520Z"
+        "timestamp": "2026-11-12T00:49:05.409Z"
       },
       {
         "url": "https://lumilore.ca/products/autonomous-booking/",
@@ -531,12 +531,12 @@
         "status": "DRY_RUN_SIMULATED",
         "success": true,
         "clientEmail": "lumilore-booking-agent@extended-cache-512400-v1.iam.gserviceaccount.com",
-        "timestamp": "2026-11-12T00:21:35.520Z"
+        "timestamp": "2026-11-12T00:49:05.409Z"
       }
     ]
   },
   "seeder": {
-    "timestamp": "2026-11-12T00:21:35.518Z",
+    "timestamp": "2026-11-12T00:49:05.407Z",
     "totalBlueprints": 4,
     "blueprints": [
       {
@@ -612,6 +612,6 @@
     "recipient": "info@lumilore.ca",
     "subject": "[LumiLore Executive Intel] Weekly GEO Radar & Citation Dominance Briefing",
     "htmlLength": 8499,
-    "timestamp": "2026-11-12T00:21:35.532Z"
+    "timestamp": "2026-11-12T00:49:05.421Z"
   }
 }

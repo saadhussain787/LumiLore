@@ -23,6 +23,15 @@ import {
   buildSessionCookie,
   buildLogoutCookie
 } from './services/authGuard.js';
+import {
+  invokeConverse,
+  AUTONOMOUS_BOOKING_TOOLS,
+  DEFAULT_TOOL_CONFIG,
+  BEDROCK_MODELS,
+  formatToolResult,
+  buildFollowUpToolMessages,
+  normalizeBedrockConversation
+} from './services/bedrockGateway.js';
 
 export const CORS_HEADERS = {
   'Access-Control-Allow-Origin': '*',
@@ -165,87 +174,9 @@ BEHAVIORAL DIRECTIVES:
 
 /**
  * Amazon Bedrock Converse Tool Specifications for Autonomous Scheduling
+ * Sourced from centralized bedrockGateway service (Sprint 44)
  */
-export const LUMIBOT_TOOLS = [
-  {
-    toolSpec: {
-      name: 'check_calendar_availability',
-      description: 'Checks real-time available consultation time slots on Saad Sayed\'s Google Calendar for a target date and audience lens.',
-      inputSchema: {
-        json: {
-          type: 'object',
-          properties: {
-            date: {
-              type: 'string',
-              description: 'Target date in YYYY-MM-DD format (e.g. 2026-10-22). If user asks for "tomorrow" or a day name, compute the YYYY-MM-DD date.'
-            },
-            lens: {
-              type: 'string',
-              enum: ['corporate', 'trades'],
-              description: 'Audience lens: "corporate" for enterprise cloud architecture (45-min slots) or "trades" for contractor dispatch audit (30-min slots).'
-            }
-          },
-          required: ['date']
-        }
-      }
-    }
-  },
-  {
-    toolSpec: {
-      name: 'book_calendar_session',
-      description: 'Autonomously books a confirmed consultation session on Saad Sayed\'s Google Calendar, generates a distinct Google Meet video conference link, persists client dossier into DynamoDB, and dispatches confirmation emails with invite.ics.',
-      inputSchema: {
-        json: {
-          type: 'object',
-          properties: {
-            fullName: {
-              type: 'string',
-              description: 'Client\'s full name.'
-            },
-            email: {
-              type: 'string',
-              description: 'Client\'s valid email address for receiving Google Meet coordinates and calendar invite.'
-            },
-            phone: {
-              type: 'string',
-              description: 'Client\'s phone number (optional).'
-            },
-            organization: {
-              type: 'string',
-              description: 'Company or organization name (optional).'
-            },
-            date: {
-              type: 'string',
-              description: 'Session date in YYYY-MM-DD format (e.g. 2026-10-22).'
-            },
-            timeSlot: {
-              type: 'string',
-              description: 'The selected time slot (e.g. "2:00 PM – 2:45 PM EDT" or "2:00 PM").'
-            },
-            slotStart: {
-              type: 'string',
-              description: 'ISO 8601 start timestamp (optional).'
-            },
-            slotEnd: {
-              type: 'string',
-              description: 'ISO 8601 end timestamp (optional).'
-            },
-            lens: {
-              type: 'string',
-              enum: ['corporate', 'trades'],
-              description: 'Audience lens ("corporate" or "trades").'
-            },
-            notes: {
-              type: 'string',
-              description: 'Client project requirements or notes.'
-            }
-          },
-          required: ['fullName', 'email', 'date', 'timeSlot']
-        }
-      }
-    }
-  }
-];
+export const LUMIBOT_TOOLS = AUTONOMOUS_BOOKING_TOOLS;
 
 /**
  * Deterministic Architect Resilience Fallback Engine
@@ -313,50 +244,13 @@ How can we assist your technology goals today? You can select your focus below t
 
 /**
  * Format conversation history and incoming message for Amazon Bedrock Converse schema
+ * Validates alternating turns (user <-> assistant) and sanitizes whitespace via bedrockGateway
  * @param {Array<{ role: string, content: string }>} [history] 
  * @param {string} [newMessage] 
  * @returns {Array<{ role: 'user'|'assistant', content: Array<{ text: string }> }>}
  */
 export function formatBedrockMessages(history = [], newMessage = '') {
-  const formatted = [];
-
-  if (Array.isArray(history)) {
-    for (const item of history) {
-      if (!item || !item.content) continue;
-      const role = item.role === 'assistant' ? 'assistant' : 'user';
-      const text = typeof item.content === 'string' ? item.content.trim() : String(item.content).trim();
-      if (text) {
-        formatted.push({
-          role,
-          content: [{ text }]
-        });
-      }
-    }
-  }
-
-  if (newMessage && typeof newMessage === 'string' && newMessage.trim()) {
-    const lastItem = formatted[formatted.length - 1];
-    if (!lastItem || lastItem.role !== 'user' || lastItem.content[0].text !== newMessage.trim()) {
-      formatted.push({
-        role: 'user',
-        content: [{ text: newMessage.trim() }]
-      });
-    }
-  }
-
-  // Bedrock Converse requires the first message to have role 'user'
-  while (formatted.length > 0 && formatted[0].role !== 'user') {
-    formatted.shift();
-  }
-
-  if (formatted.length === 0) {
-    formatted.push({
-      role: 'user',
-      content: [{ text: 'Hello LumiBot, how can LumiLore assist our infrastructure or operations?' }]
-    });
-  }
-
-  return formatted;
+  return normalizeBedrockConversation(history, newMessage);
 }
 
 /**
@@ -1499,6 +1393,7 @@ export async function handleChatConversation(body, event) {
   const message = body?.message || body?.prompt || '';
   const history = Array.isArray(body?.history) ? body.history : [];
   const lens = body?.lens === 'trades' ? 'trades' : 'corporate';
+  const modelPreference = body?.modelId || body?.modelTier || process.env.BEDROCK_MODEL_ID || BEDROCK_MODELS.FAST_EXECUTION;
 
   if (!message && history.length === 0) {
     return {
@@ -1512,31 +1407,24 @@ export async function handleChatConversation(body, event) {
     };
   }
 
-  const formattedMessages = formatBedrockMessages(history, message);
-  const modelId = process.env.BEDROCK_MODEL_ID || 'us.anthropic.claude-3-haiku-20240307-v1:0';
-
-  const command = new ConverseCommand({
-    modelId,
-    system: [{ text: LUMIBOT_SYSTEM_PROMPT }],
-    messages: formattedMessages,
-    inferenceConfig: {
-      maxTokens: 600,
-      temperature: 0.7,
-      topP: 0.9
-    },
-    toolConfig: {
-      tools: LUMIBOT_TOOLS
-    }
-  });
+  const formattedMessages = normalizeBedrockConversation(history, message);
 
   try {
-    const response = await bedrockClient.send(command);
+    const gatewayResponse = await invokeConverse({
+      messages: formattedMessages,
+      systemPrompt: LUMIBOT_SYSTEM_PROMPT,
+      modelId: modelPreference,
+      toolConfig: DEFAULT_TOOL_CONFIG,
+      inferenceConfig: {
+        maxTokens: 600,
+        temperature: 0.7,
+        topP: 0.9
+      }
+    });
 
     // Autonomous Tool Calling Interceptor
-    if (response?.stopReason === 'tool_use') {
-      const contentBlocks = response?.output?.message?.content || [];
-      const toolUseBlocks = contentBlocks.filter(b => b.toolUse);
-
+    if (gatewayResponse?.stopReason === 'tool_use' && gatewayResponse.toolUseBlocks?.length > 0) {
+      const toolUseBlocks = gatewayResponse.toolUseBlocks;
       const toolResults = [];
       let lastBookingData = null;
 
@@ -1545,13 +1433,16 @@ export async function handleChatConversation(body, event) {
         let toolOutputJson = {};
         let status = 'success';
 
-        if (name === 'check_calendar_availability') {
+        // 1. Availability check: handles 'checkAvailability' or legacy 'check_calendar_availability'
+        if (name === 'checkAvailability' || name === 'check_calendar_availability') {
           try {
-            const targetDate = input.date;
+            const targetDate = input.startDate || input.date || new Date().toISOString().split('T')[0];
             const targetLens = input.lens || lens;
             const availabilityData = await queryAvailableSlots(targetDate, targetLens);
             toolOutputJson = {
               date: targetDate,
+              startDate: input.startDate || targetDate,
+              endDate: input.endDate || targetDate,
               lens: targetLens,
               availableSlots: availabilityData.availableSlots.map(s => s.display || s.timeSlot),
               totalSlots: availabilityData.totalSlots,
@@ -1561,18 +1452,42 @@ export async function handleChatConversation(body, event) {
             status = 'error';
             toolOutputJson = { error: err.message };
           }
-        } else if (name === 'book_calendar_session') {
+        } 
+        // 2. Booking consultation: handles 'bookConsultation' or legacy 'book_calendar_session'
+        else if (name === 'bookConsultation' || name === 'book_calendar_session') {
           try {
+            const fullName = input.name || input.fullName || 'Valued Client';
+            const email = input.email;
+            const rawDateTime = input.dateTime || '';
+            let targetDate = input.date;
+            let targetTimeSlot = input.timeSlot;
+
+            // Extract date and time from dateTime if provided in ISO or string format
+            if (rawDateTime && (!targetDate || !targetTimeSlot)) {
+              if (rawDateTime.includes('T')) {
+                const parts = rawDateTime.split('T');
+                targetDate = targetDate || parts[0];
+                targetTimeSlot = targetTimeSlot || parts[1]?.substring(0, 5);
+              } else if (rawDateTime.includes(' ')) {
+                const parts = rawDateTime.split(' ');
+                targetDate = targetDate || parts[0];
+                targetTimeSlot = targetTimeSlot || parts.slice(1).join(' ');
+              } else if (!targetDate && /^\d{4}-\d{2}-\d{2}$/.test(rawDateTime)) {
+                targetDate = rawDateTime;
+              }
+            }
+
             let slotStart = input.slotStart || null;
             let slotEnd = input.slotEnd || null;
+            const targetLens = input.lens || lens;
 
             // Resolve and validate slot against real-time availability to prevent double booking
-            const availabilityData = await queryAvailableSlots(input.date, input.lens || lens);
+            const availabilityData = await queryAvailableSlots(targetDate, targetLens);
             const openSlots = availabilityData.availableSlots || [];
 
             if (!slotStart || !slotEnd) {
               const matched = openSlots.find(s => {
-                const normReq = String(input.timeSlot || '').toLowerCase().replace(/[^0-9apm:]/g, '');
+                const normReq = String(targetTimeSlot || '').toLowerCase().replace(/[^0-9apm:]/g, '');
                 const sDisplay = String(s.display || '').toLowerCase().replace(/[^0-9apm:]/g, '');
                 const sTime = String(s.time || '').toLowerCase().replace(/[^0-9apm:]/g, '');
                 return sDisplay.includes(normReq) || sTime.includes(normReq) || normReq.includes(sTime);
@@ -1581,40 +1496,43 @@ export async function handleChatConversation(body, event) {
               if (matched) {
                 slotStart = matched.start;
                 slotEnd = matched.end;
+                targetTimeSlot = matched.display;
+              } else if (openSlots.length > 0) {
+                slotStart = openSlots[0].start;
+                slotEnd = openSlots[0].end;
+                targetTimeSlot = openSlots[0].display;
               } else {
                 status = 'error';
                 toolOutputJson = {
                   error: 'SLOT_UNAVAILABLE',
-                  message: `The time slot "${input.timeSlot}" on ${input.date} is not available or conflicts with an existing booking. Available times: ${openSlots.map(s => s.display).join(', ')}`,
+                  message: `No available slots on ${targetDate}. Available times: ${openSlots.map(s => s.display).join(', ')}`,
                   availableSlots: openSlots.map(s => s.display)
                 };
-                toolResults.push({
-                  toolResult: { toolUseId, content: [{ json: toolOutputJson }], status }
-                });
+                toolResults.push(formatToolResult({ toolUseId, output: toolOutputJson, status }));
                 continue;
               }
             }
 
             const bookingRes = await handleLeadIntake({
               clientProfile: {
-                fullName: input.fullName,
-                email: input.email,
+                fullName,
+                email,
                 phone: input.phone || '',
                 organization: input.organization || '',
-                notes: input.notes || 'Booked autonomously via LumiBot AI Chat'
+                notes: input.notes || `Booked autonomously via LumiBot AI Chat (${input.serviceInterest || 'Consultation'})`
               },
               sessionSchedule: {
-                bookingDate: input.date,
-                timeSlot: input.timeSlot,
-                display: input.timeSlot,
+                bookingDate: targetDate,
+                timeSlot: targetTimeSlot,
+                display: targetTimeSlot,
                 slotStart,
                 slotEnd,
                 assignedArchitect: 'Saad Sayed (Principal Systems Architect)'
               },
-              audienceLens: input.lens || lens,
+              audienceLens: targetLens,
               attribution: {
                 source: 'lumibot_chat',
-                service: (input.lens || lens) === 'trades' ? 'field_audit' : 'general_intake'
+                service: input.serviceInterest || (targetLens === 'trades' ? 'field_audit' : 'general_intake')
               }
             }, event);
 
@@ -1626,8 +1544,8 @@ export async function handleChatConversation(body, event) {
                 success: true,
                 intakeId: intakeData.intakeId,
                 meetingUrl: intakeData.meetingUrl,
-                timeSlot: input.timeSlot,
-                date: input.date,
+                timeSlot: targetTimeSlot,
+                date: targetDate,
                 consultingHost: 'Saad Sayed (Principal Systems Architect)',
                 message: 'Session confirmed, Google Meet room created, and invite.ics calendar invite sent to client inbox.'
               };
@@ -1646,29 +1564,20 @@ export async function handleChatConversation(body, event) {
           }
         }
 
-        toolResults.push({
-          toolResult: {
-            toolUseId,
-            content: [{ json: toolOutputJson }],
-            status
-          }
-        });
+        toolResults.push(formatToolResult({ toolUseId, output: toolOutputJson, status }));
       }
 
-      // Send tool results back to Bedrock for natural conversational conclusion
-      const followUpMessages = [
-        ...formattedMessages,
-        response.output.message,
-        {
-          role: 'user',
-          content: toolResults
-        }
-      ];
+      // Send tool results back to Bedrock Converse Gateway for conversational wrap-up
+      const followUpMessages = buildFollowUpToolMessages({
+        messages: formattedMessages,
+        assistantMessage: gatewayResponse.outputMessage,
+        toolResults
+      });
 
-      const followUpCommand = new ConverseCommand({
-        modelId,
-        system: [{ text: LUMIBOT_SYSTEM_PROMPT }],
+      const followUpResponse = await invokeConverse({
         messages: followUpMessages,
+        systemPrompt: LUMIBOT_SYSTEM_PROMPT,
+        modelId: modelPreference,
         inferenceConfig: {
           maxTokens: 600,
           temperature: 0.7,
@@ -1676,8 +1585,7 @@ export async function handleChatConversation(body, event) {
         }
       });
 
-      const followUpResponse = await bedrockClient.send(followUpCommand);
-      const replyText = followUpResponse?.output?.message?.content?.[0]?.text || 'Session successfully scheduled.';
+      const replyText = followUpResponse?.replyText || 'Session successfully scheduled.';
 
       return {
         statusCode: 200,
@@ -1685,16 +1593,22 @@ export async function handleChatConversation(body, event) {
         body: JSON.stringify({
           success: true,
           reply: replyText,
-          toolCallsExecuted: toolUseBlocks.map(b => b.toolUse.name),
+          toolCallsExecuted: gatewayResponse.toolCallsExecuted,
           booking: lastBookingData,
           mode: 'bedrock_tool_use',
-          modelId,
+          modelId: gatewayResponse.modelId,
+          finOps: {
+            inputTokens: gatewayResponse.usage.inputTokens + (followUpResponse.usage?.inputTokens || 0),
+            outputTokens: gatewayResponse.usage.outputTokens + (followUpResponse.usage?.outputTokens || 0),
+            totalCostUsd: gatewayResponse.finOpsCost.totalCostUsd + (followUpResponse.finOpsCost?.totalCostUsd || 0),
+            totalCostCad: gatewayResponse.finOpsCost.totalCostCad + (followUpResponse.finOpsCost?.totalCostCad || 0)
+          },
           timestamp: new Date().toISOString()
         })
       };
     }
 
-    const replyText = response?.output?.message?.content?.[0]?.text || 'LumiBot is ready to assist your systems architecture.';
+    const replyText = gatewayResponse?.replyText || 'LumiBot is ready to assist your systems architecture.';
 
     return {
       statusCode: 200,
@@ -1703,7 +1617,9 @@ export async function handleChatConversation(body, event) {
         success: true,
         reply: replyText,
         mode: 'bedrock_converse',
-        modelId,
+        modelId: gatewayResponse.modelId,
+        finOps: gatewayResponse.finOpsCost,
+        usage: gatewayResponse.usage,
         timestamp: new Date().toISOString()
       })
     };

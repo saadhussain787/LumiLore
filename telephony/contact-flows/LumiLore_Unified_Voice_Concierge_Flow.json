@@ -1,187 +1,242 @@
 {
   "Version": "2019-10-30",
-  "StartAction": "SetVoice_PollyNeural",
+  "StartAction": "6c123456-1111-4111-8111-111111111111",
   "Metadata": {
-    "FlowName": "LumiLore_Unified_Voice_Concierge_Flow",
-    "Description": "LumiLore Technologies Autonomous Conversational AI Voice Concierge. Dual-intent discovery (Enterprise Cloud & Mechanical Trades), live Google Calendar slot negotiation, and SES executive dispatch. Powered by Amazon Polly Neural en-CA.",
-    "InstanceAlias": "lumilore-voice.my.connect.aws",
-    "TargetPhoneNumber": "+1-437-786-5864",
+    "TargetPhoneNumber": "+1-416-915-4636",
     "Region": "ca-central-1",
-    "LanguageCode": "en-CA",
     "VoiceId": "Liam",
+    "LanguageCode": "en-CA",
     "VoiceType": "Neural",
-    "Engine": "Debpalash-VoiceStudio-DSP-Warmth",
-    "MaxTurnLatencyMs": 800
+    "EntryPointPosition": {
+      "x": 20,
+      "y": 20
+    },
+    "ActionMetadata": {
+      "6c123456-1111-4111-8111-111111111111": {
+        "position": {
+          "x": 160,
+          "y": 20
+        }
+      },
+      "6c123456-2222-4222-8222-222222222222": {
+        "position": {
+          "x": 380,
+          "y": 20
+        }
+      },
+      "6c123456-3333-4333-8333-333333333333": {
+        "position": {
+          "x": 600,
+          "y": 20
+        }
+      },
+      "6c123456-4444-4444-8444-444444444444": {
+        "position": {
+          "x": 820,
+          "y": 20
+        }
+      },
+      "6c123456-4444-4444-8444-444444444445": {
+        "position": {
+          "x": 930,
+          "y": 20
+        }
+      },
+      "6c123456-5555-4555-8555-555555555555": {
+        "position": {
+          "x": 1040,
+          "y": 20
+        }
+      },
+      "6c123456-6666-4666-8666-666666666666": {
+        "position": {
+          "x": 1260,
+          "y": 20
+        }
+      },
+      "6c123456-6666-4666-8666-777777777777": {
+        "position": {
+          "x": 1370,
+          "y": 20
+        }
+      },
+      "6c123456-7777-4777-8777-777777777777": {
+        "position": {
+          "x": 1480,
+          "y": 20
+        }
+      },
+      "6c123456-8888-4888-8888-888888888888": {
+        "position": {
+          "x": 1700,
+          "y": 20
+        }
+      }
+    }
   },
   "Actions": [
     {
-      "Identifier": "SetVoice_PollyNeural",
+      "Identifier": "6c123456-1111-4111-8111-111111111111",
       "Type": "UpdateContactTextToSpeechVoice",
       "Parameters": {
         "TextToSpeechEngine": "Neural",
-        "TextToSpeechVoice": "Liam",
-        "LanguageCode": "en-CA"
+        "TextToSpeechVoice": "Liam"
       },
       "Transitions": {
-        "NextAction": "SetContactAttributes_Init"
+        "NextAction": "6c123456-2222-4222-8222-222222222222",
+        "Errors": [],
+        "Conditions": []
       }
     },
     {
-      "Identifier": "SetContactAttributes_Init",
-      "Type": "UpdateContactAttributes",
+      "Identifier": "6c123456-2222-4222-8222-222222222222",
+      "Type": "UpdateContactData",
       "Parameters": {
         "Attributes": {
-          "SessionChannel": "VOICE_HOTLINE_4377865864",
-          "TriageStatus": "INITIALIZED",
-          "CurrentTurn": "1"
+          "SessionChannel": "VOICE_HOTLINE_TORONTO"
         }
       },
       "Transitions": {
-        "NextAction": "PlayPrompt_WelcomeGreeting"
+        "NextAction": "6c123456-3333-4333-8333-333333333333",
+        "Errors": [],
+        "Conditions": []
       }
     },
     {
-      "Identifier": "PlayPrompt_WelcomeGreeting",
+      "Identifier": "6c123456-3333-4333-8333-333333333333",
       "Type": "MessageParticipant",
       "Parameters": {
-        "Text": "Hello, and thank you for calling LumiLore Technologies. I'm the AI Executive Assistant to Principal Systems Architect Saad Sayed and Operations Lead Arfa Sayeed. How can I help you today?"
+        "Text": "Hello, and thank you for calling LumiLore Technologies. I am the AI Executive Assistant to Principal Systems Architect Saad Sayed and Operations Lead Arfa Sayeed. How can I help you today?"
       },
       "Transitions": {
-        "NextAction": "GetCustomerInput_TurnLoop"
+        "NextAction": "6c123456-4444-4444-8444-444444444444",
+        "Errors": [],
+        "Conditions": []
       }
     },
     {
-      "Identifier": "GetCustomerInput_TurnLoop",
-      "Type": "GetCustomerInput",
+      "Identifier": "6c123456-4444-4444-8444-444444444444",
+      "Type": "GetParticipantInput",
       "Parameters": {
-        "TimeoutSeconds": 6,
-        "MaxDigits": 0,
-        "SpeechCapture": {
-          "Enabled": true,
-          "LanguageCode": "en-CA",
-          "MaxSpeechDurationSeconds": 25,
-          "SilenceTimeoutSeconds": 2
-        }
+        "Text": "I'm listening, please go ahead.",
+        "BotType": "LexV2",
+        "BotName": "LumiLoreVoiceBot",
+        "BotRegion": "ca-central-1",
+        "BotAliasArn": "arn:aws:lex:ca-central-1:303238378489:bot-alias/JK9QAZGZFM/YOUR_ALIAS_ID"
       },
       "Transitions": {
-        "NextAction": "InvokeLambda_ProcessConversationalTurn",
+        "NextAction": "6c123456-5555-4555-8555-555555555555",
         "Errors": [
           {
-            "NextAction": "PlayPrompt_TimeoutClarification",
+            "NextAction": "6c123456-4444-4444-8444-444444444445",
             "ErrorType": "InputTimeOut"
           },
           {
-            "NextAction": "PlayPrompt_FallbackAssistance",
+            "NextAction": "6c123456-4444-4444-8444-444444444445",
             "ErrorType": "NoMatchingCondition"
           }
-        ]
+        ],
+        "Conditions": []
       }
     },
     {
-      "Identifier": "InvokeLambda_ProcessConversationalTurn",
-      "Type": "InvokeLambdaFunction",
+      "Identifier": "6c123456-4444-4444-8444-444444444445",
+      "Type": "GetCustomerInput",
       "Parameters": {
-        "LambdaFunctionARN": "arn:aws:lambda:ca-central-1:303238378489:function:lumilore-backend-LumiLoreFunction-JCxBNzZ7VJCO",
-        "InvocationTimeLimitSeconds": 8,
-        "InvocationType": "RequestResponse",
-        "ResponseValidation": {
-          "ResponseType": "JSON"
+        "Text": "Please describe your project or trade emergency.",
+        "SpeechRecognition": {
+          "MaxSpeechTime": "8"
         }
       },
       "Transitions": {
-        "NextAction": "CheckAttribute_IsBookingCompleted",
+        "NextAction": "6c123456-5555-4555-8555-555555555555",
         "Errors": [
           {
-            "NextAction": "PlayPrompt_LambdaServiceFallback",
+            "NextAction": "6c123456-7777-4777-8777-777777777777",
+            "ErrorType": "InputTimeOut"
+          }
+        ],
+        "Conditions": []
+      }
+    },
+    {
+      "Identifier": "6c123456-5555-4555-8555-555555555555",
+      "Type": "InvokeLambdaFunction",
+      "Parameters": {
+        "LambdaFunctionARN": "arn:aws:lambda:ca-central-1:303238378489:function:lumilore-backend-LumiLoreFunction-JCxBNzZ7VJCO",
+        "InvocationTimeLimitSeconds": "8"
+      },
+      "Transitions": {
+        "NextAction": "6c123456-6666-4666-8666-666666666666",
+        "Errors": [
+          {
+            "NextAction": "6c123456-7777-4777-8777-777777777777",
             "ErrorType": "UnhandledException"
           }
-        ]
+        ],
+        "Conditions": []
       }
     },
     {
-      "Identifier": "CheckAttribute_IsBookingCompleted",
-      "Type": "CheckContactAttributes",
+      "Identifier": "6c123456-6666-4666-8666-666666666666",
+      "Type": "MessageParticipant",
       "Parameters": {
-        "AttributeName": "BookingStatus",
-        "Comparison": "EQUALS",
-        "Value": "CONFIRMED"
+        "Text": "$.External.AgentReply"
       },
       "Transitions": {
-        "NextAction": "PlayPrompt_ConfirmedBookingWrapup",
+        "NextAction": "6c123456-6666-4666-8666-777777777777",
+        "Errors": [],
+        "Conditions": []
+      }
+    },
+    {
+      "Identifier": "6c123456-6666-4666-8666-777777777777",
+      "Type": "CheckContactAttributes",
+      "Parameters": {
+        "Attribute": "$.External.BookingStatus"
+      },
+      "Transitions": {
+        "NextAction": "6c123456-7777-4777-8777-777777777777",
+        "Errors": [],
         "Conditions": [
           {
-            "NextAction": "PlayPrompt_DynamicAgentReply",
-            "Condition": "NOT_EQUALS",
-            "Value": "CONFIRMED"
+            "NextAction": "6c123456-7777-4777-8777-777777777777",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "CONFIRMED"
+              ]
+            }
+          },
+          {
+            "NextAction": "6c123456-7777-4777-8777-777777777777",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "EMERGENCY_DISPATCHED"
+              ]
+            }
           }
         ]
       }
     },
     {
-      "Identifier": "PlayPrompt_DynamicAgentReply",
+      "Identifier": "6c123456-7777-4777-8777-777777777777",
       "Type": "MessageParticipant",
       "Parameters": {
-        "Text": "$.External.AgentReply"
+        "Text": "Thank you for contacting LumiLore Technologies. You can review system details anytime at lumilore.ca. Have a productive day!"
       },
       "Transitions": {
-        "NextAction": "GetCustomerInput_TurnLoop"
+        "NextAction": "6c123456-8888-4888-8888-888888888888",
+        "Errors": [],
+        "Conditions": []
       }
     },
     {
-      "Identifier": "PlayPrompt_ConfirmedBookingWrapup",
-      "Type": "MessageParticipant",
-      "Parameters": {
-        "Text": "$.External.AgentReply"
-      },
-      "Transitions": {
-        "NextAction": "PlayPrompt_WarmSignoff"
-      }
-    },
-    {
-      "Identifier": "PlayPrompt_WarmSignoff",
-      "Type": "MessageParticipant",
-      "Parameters": {
-        "Text": "We look forward to speaking with you. Have a productive day!"
-      },
-      "Transitions": {
-        "NextAction": "DisconnectCall_Normal"
-      }
-    },
-    {
-      "Identifier": "PlayPrompt_TimeoutClarification",
-      "Type": "MessageParticipant",
-      "Parameters": {
-        "Text": "I'm still here. Are you looking to modernize your enterprise cloud architecture, or inquiring about 24/7 AI voice dispatch for a trades business?"
-      },
-      "Transitions": {
-        "NextAction": "GetCustomerInput_TurnLoop"
-      }
-    },
-    {
-      "Identifier": "PlayPrompt_LambdaServiceFallback",
-      "Type": "MessageParticipant",
-      "Parameters": {
-        "Text": "Thank you for calling LumiLore Technologies. I've recorded your caller ID and our leadership team will reach out directly. You can also view live calendar openings and reserve a session anytime at lumilore.ca/contact."
-      },
-      "Transitions": {
-        "NextAction": "DisconnectCall_Normal"
-      }
-    },
-    {
-      "Identifier": "PlayPrompt_FallbackAssistance",
-      "Type": "MessageParticipant",
-      "Parameters": {
-        "Text": "I want to ensure we address your exact needs. Feel free to describe your project or questions in your own words, and I'll match you with Saad Sayed's schedule."
-      },
-      "Transitions": {
-        "NextAction": "GetCustomerInput_TurnLoop"
-      }
-    },
-    {
-      "Identifier": "DisconnectCall_Normal",
+      "Identifier": "6c123456-8888-4888-8888-888888888888",
       "Type": "DisconnectParticipant",
-      "Parameters": {}
+      "Parameters": {},
+      "Transitions": {}
     }
   ]
 }
-

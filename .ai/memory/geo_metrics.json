@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-12T00:21:35.493Z",
+  "timestamp": "2026-11-12T00:49:05.379Z",
   "brand": "LumiLore Technologies",
   "canonicalDomain": "https://lumilore.ca",
   "founder": "Saad Sayed",
@@ -14,7 +14,7 @@
     "source": "calibrated_benchmark_cache",
     "url": "https://lumilore.ca",
     "strategy": "mobile",
-    "timestamp": "2026-11-12T00:21:35.517Z",
+    "timestamp": "2026-11-12T00:49:05.405Z",
     "performanceScore": 98,
     "seoScore": 100,
     "metrics": {
@@ -383,6 +383,18 @@
   },
   "history": [
     {
+      "timestamp": "2026-11-12T00:49:05.379Z",
+      "compositeRankingScore": 99,
+      "overallCitationScore": 98,
+      "performanceScore": 98
+    },
+    {
+      "timestamp": "2026-11-12T00:41:34.003Z",
+      "compositeRankingScore": 99,
+      "overallCitationScore": 98,
+      "performanceScore": 98
+    },
+    {
       "timestamp": "2026-11-12T00:21:35.493Z",
       "compositeRankingScore": 99,
       "overallCitationScore": 98,
@@ -426,18 +438,6 @@
     },
     {
       "timestamp": "2026-10-27T16:24:09.304Z",
-      "compositeRankingScore": 99,
-      "overallCitationScore": 98,
-      "performanceScore": 98
-    },
-    {
-      "timestamp": "2026-10-27T15:44:22.285Z",
-      "compositeRankingScore": 99,
-      "overallCitationScore": 98,
-      "performanceScore": 98
-    },
-    {
-      "timestamp": "2026-10-27T15:44:16.758Z",
       "compositeRankingScore": 99,
       "overallCitationScore": 98,
       "performanceScore": 98
