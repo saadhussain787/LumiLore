@@ -106,7 +106,8 @@
       "Identifier": "6c123456-3333-4333-8333-333333333333",
       "Type": "MessageParticipant",
       "Parameters": {
-        "Text": "Hello, and thank you for calling LumiLore Technologies. I am the AI Executive Assistant to Principal Systems Architect Saad Sayed and Operations Lead Arfa Sayeed. How can I help you today?"
+        "Text": "<speak><amazon:auto-breaths volume=\"soft\" frequency=\"low\"><prosody rate=\"97%\">Hello, and thank you for calling LumiLore Technologies. I am the AI Executive Assistant to Principal Systems Architect Saad Sayed and Operations Lead Arfa Sayeed. How can I help you today?</prosody></amazon:auto-breaths></speak>",
+        "TextToSpeechType": "ssml"
       },
       "Transitions": {
         "NextAction": "6c123456-4444-4444-8444-444444444444",
@@ -122,7 +123,7 @@
         "BotType": "LexV2",
         "BotName": "LumiLoreVoiceBot",
         "BotRegion": "ca-central-1",
-        "BotAliasArn": "arn:aws:lex:ca-central-1:303238378489:bot-alias/JK9QAZGZFM/YOUR_ALIAS_ID"
+        "BotAliasArn": "arn:aws:lex:ca-central-1:303238378489:bot-alias/JK9QAZGZFM/TSTALIASID"
       },
       "Transitions": {
         "NextAction": "6c123456-5555-4555-8555-555555555555",
@@ -134,6 +135,10 @@
           {
             "NextAction": "6c123456-4444-4444-8444-444444444445",
             "ErrorType": "NoMatchingCondition"
+          },
+          {
+            "NextAction": "6c123456-4444-4444-8444-444444444445",
+            "ErrorType": "NoMatchingError"
           }
         ],
         "Conditions": []
@@ -164,7 +169,11 @@
       "Type": "InvokeLambdaFunction",
       "Parameters": {
         "LambdaFunctionARN": "arn:aws:lambda:ca-central-1:303238378489:function:lumilore-backend-LumiLoreFunction-JCxBNzZ7VJCO",
-        "InvocationTimeLimitSeconds": "8"
+        "InvocationTimeLimitSeconds": "8",
+        "UserTranscript": "$.StoredCustomerInput",
+        "StoredCustomerInput": "$.StoredCustomerInput",
+        "SpeechCapture": "$.StoredCustomerInput",
+        "LexTranscript": "$.Lex.InputTranscript"
       },
       "Transitions": {
         "NextAction": "6c123456-6666-4666-8666-666666666666",
@@ -181,7 +190,8 @@
       "Identifier": "6c123456-6666-4666-8666-666666666666",
       "Type": "MessageParticipant",
       "Parameters": {
-        "Text": "$.External.AgentReply"
+        "Text": "$.External.AgentReplySSML",
+        "TextToSpeechType": "ssml"
       },
       "Transitions": {
         "NextAction": "6c123456-6666-4666-8666-777777777777",
@@ -196,8 +206,13 @@
         "Attribute": "$.External.BookingStatus"
       },
       "Transitions": {
-        "NextAction": "6c123456-7777-4777-8777-777777777777",
-        "Errors": [],
+        "NextAction": "6c123456-4444-4444-8444-444444444444",
+        "Errors": [
+          {
+            "NextAction": "6c123456-4444-4444-8444-444444444444",
+            "ErrorType": "NoMatchingCondition"
+          }
+        ],
         "Conditions": [
           {
             "NextAction": "6c123456-7777-4777-8777-777777777777",
@@ -224,7 +239,8 @@
       "Identifier": "6c123456-7777-4777-8777-777777777777",
       "Type": "MessageParticipant",
       "Parameters": {
-        "Text": "Thank you for contacting LumiLore Technologies. You can review system details anytime at lumilore.ca. Have a productive day!"
+        "Text": "<speak><amazon:auto-breaths volume=\"soft\" frequency=\"low\"><prosody rate=\"97%\">Thank you for contacting LumiLore Technologies. You can review system details anytime at lumilore.ca. Have a productive day!</prosody></amazon:auto-breaths></speak>",
+        "TextToSpeechType": "ssml"
       },
       "Transitions": {
         "NextAction": "6c123456-8888-4888-8888-888888888888",

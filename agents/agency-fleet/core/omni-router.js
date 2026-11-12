@@ -43,6 +43,90 @@ if (fs.existsSync(rootEnvPath)) {
 let BedrockRuntimeClient = null;
 let ConverseCommand = null;
 
+export const OMNI_TIERS = {
+  FAST: 'fast',
+  BACKGROUND: 'background',
+  DEEP: 'deep',
+  SYNTHESIS: 'synthesis'
+};
+
+export const TIER_MODELS = {
+  FAST: {
+    tier: 'fast',
+    primary: 'amazon.nova-micro-v1:0',
+    fallback: 'us.anthropic.claude-3-haiku-20240307-v1:0',
+    ratePerMillionTokens: 0.12, // $0.12 / 1M tokens ($0.035 in / $0.14 out blended)
+    description: 'Fast/Background Tasks (Bedrock Nova Micro / Claude Haiku)'
+  },
+  DEEP: {
+    tier: 'deep',
+    primary: 'us.anthropic.claude-3-5-sonnet-20241022-v2:0',
+    fallback: 'anthropic.claude-3-5-sonnet-20240620-v1:0',
+    ratePerMillionTokens: 3.00, // $3.00 / 1M tokens ($3.00 in / $15.00 out base)
+    description: 'Deep Synthesis/Proposals (Claude 3.5 Sonnet)'
+  }
+};
+
+export const USD_TO_CAD_RATE = 1.38;
+
+/**
+ * Resolves tier or task type to appropriate Bedrock model configuration
+ * @param {string} [tierOrModel]
+ * @param {string} [taskType]
+ * @returns {{ tier: string, primaryModel: string, fallbackModel: string, ratePerMillionTokens: number }}
+ */
+export function resolveTierModel(tierOrModel = '', taskType = '') {
+  const cleanTier = String(tierOrModel || '').toLowerCase().trim();
+  const cleanTask = String(taskType || '').toLowerCase().trim();
+
+  const isDeep = cleanTier === 'deep' || cleanTier === 'synthesis' || cleanTier === 'proposal' ||
+    ['proposal', 'sow', 'architecture', 'audit', 'deep_synthesis'].includes(cleanTask);
+
+  if (isDeep) {
+    return {
+      tier: 'deep',
+      primaryModel: TIER_MODELS.DEEP.primary,
+      fallbackModel: TIER_MODELS.DEEP.fallback,
+      ratePerMillionTokens: TIER_MODELS.DEEP.ratePerMillionTokens
+    };
+  }
+
+  // Default: Fast/Background Tier
+  return {
+    tier: 'fast',
+    primaryModel: TIER_MODELS.FAST.primary,
+    fallbackModel: TIER_MODELS.FAST.fallback,
+    ratePerMillionTokens: TIER_MODELS.FAST.ratePerMillionTokens
+  };
+}
+
+/**
+ * Calculate FinOps cost for given token consumption and tier
+ * @param {Object} params
+ * @param {string} [params.tier='fast']
+ * @param {string} [params.modelId]
+ * @param {number} [params.inputTokens=0]
+ * @param {number} [params.outputTokens=0]
+ * @returns {Object}
+ */
+export function calculateFinOpsCost({ tier = 'fast', modelId = '', inputTokens = 0, outputTokens = 0 }) {
+  const resolved = resolveTierModel(tier || modelId);
+  const totalTokens = Math.max(0, inputTokens) + Math.max(0, outputTokens);
+  const costUsd = Number(((totalTokens / 1_000_000) * resolved.ratePerMillionTokens).toFixed(6));
+  const costCad = Number((costUsd * USD_TO_CAD_RATE).toFixed(6));
+
+  return {
+    tier: resolved.tier,
+    modelId: modelId || resolved.primaryModel,
+    inputTokens,
+    outputTokens,
+    totalTokens,
+    ratePerMillionTokens: resolved.ratePerMillionTokens,
+    costUsd,
+    costCad
+  };
+}
+
 // Lazy-load AWS Bedrock Runtime if available
 async function initBedrockClasses() {
   if (BedrockRuntimeClient && ConverseCommand) return true;
@@ -72,7 +156,9 @@ export class OmniRouter {
     this.options = options;
     this.timeoutMs = options.timeoutMs || 8000;
     this.primaryRegion = options.bedrockRegion || process.env.BEDROCK_REGION || 'us-east-1';
-    this.defaultModelId = options.modelId || process.env.BEDROCK_MODEL_ID || 'us.anthropic.claude-3-haiku-20240307-v1:0';
+    this.secondaryRegion = options.secondaryRegion || 'ca-central-1';
+    this.defaultTier = options.defaultTier || OMNI_TIERS.FAST;
+    this.defaultModelId = options.modelId || process.env.BEDROCK_MODEL_ID || TIER_MODELS.FAST.primary;
     
     // Circuit Breakers: provider -> { failureCount, trippedUntil, lastError }
     this.circuitBreakers = new Map([
@@ -82,21 +168,35 @@ export class OmniRouter {
       ['offline_resilience', { failureCount: 0, trippedUntil: 0, lastError: null }]
     ]);
 
-    // Lazily initialize Bedrock client
-    this._bedrockClient = null;
+    // FinOps cumulative execution metrics
+    this.finOpsTelemetry = {
+      totalCalls: 0,
+      totalInputTokens: 0,
+      totalOutputTokens: 0,
+      totalTokens: 0,
+      totalCostUsd: 0,
+      totalCostCad: 0,
+      byTier: {
+        fast: { calls: 0, tokens: 0, costUsd: 0, costCad: 0 },
+        deep: { calls: 0, tokens: 0, costUsd: 0, costCad: 0 }
+      }
+    };
+
+    // Lazily initialize Bedrock client cache by region
+    this._bedrockClients = new Map();
   }
 
-  async getBedrockClient() {
-    if (!this._bedrockClient) {
+  async getBedrockClient(region = this.primaryRegion) {
+    if (!this._bedrockClients.has(region)) {
       const available = await initBedrockClasses();
       if (!available) {
         throw new Error('BedrockRuntimeClient package not installed in environment.');
       }
-      this._bedrockClient = new BedrockRuntimeClient({
-        region: this.primaryRegion
-      });
+      this._bedrockClients.set(region, new BedrockRuntimeClient({
+        region
+      }));
     }
-    return this._bedrockClient;
+    return this._bedrockClients.get(region);
   }
 
   /**
@@ -210,7 +310,10 @@ export class OmniRouter {
    * @param {number} [params.maxTokens=1500]
    * @param {string} [params.preferredProvider]
    * @param {Object} [params.contract]
-   * @returns {Promise<{ reply: string, provider: string, model: string, compressed: Object, latencyMs: number }>}
+   * @param {string} [params.tier] 'fast' | 'deep' | 'background' | 'synthesis'
+   * @param {string} [params.taskType] e.g. 'scout', 'sow', 'heartbeat', 'proposal'
+   * @param {string} [params.modelId]
+   * @returns {Promise<{ reply: string, provider: string, model: string, tier: string, finOpsCost: Object, compressed: Object, latencyMs: number }>}
    */
   async routePrompt(params = {}) {
     const startTime = Date.now();
@@ -221,12 +324,19 @@ export class OmniRouter {
       temperature = 0.3,
       maxTokens = 1500,
       preferredProvider,
-      contract = null
+      contract = null,
+      tier = null,
+      taskType = null,
+      modelId = null
     } = params;
 
     if (!prompt) {
       throw new Error('OmniRouter: prompt parameter is required.');
     }
+
+    // Resolve Tier (Fast/Background vs Deep Synthesis)
+    const resolvedTierConfig = resolveTierModel(tier || modelId || this.defaultTier, taskType);
+    const selectedTier = resolvedTierConfig.tier;
 
     // 1. Run Token Compression
     const compressedPrompt = this.compressPrompt(prompt);
@@ -257,7 +367,10 @@ export class OmniRouter {
               prompt: compressedPrompt.compressedText,
               history,
               temperature,
-              maxTokens
+              maxTokens,
+              tier: selectedTier,
+              taskType,
+              modelId: modelId || resolvedTierConfig.primaryModel
             });
             break;
 
@@ -283,17 +396,27 @@ export class OmniRouter {
           default:
             result = this._callOfflineResilience({
               prompt: compressedPrompt.compressedText,
-              contract
+              contract,
+              tier: selectedTier
             });
             break;
         }
 
         if (result && result.reply) {
           this.recordSuccess(provider);
+          const finOpsCost = result.finOpsCost || calculateFinOpsCost({
+            tier: selectedTier,
+            modelId: result.model,
+            inputTokens: compressedPrompt.compressedTokens + compressedSystem.compressedTokens,
+            outputTokens: Math.max(1, Math.round(result.reply.length / 4))
+          });
+
           return {
             reply: result.reply,
             provider,
             model: result.model || 'autonomous-default',
+            tier: result.tier || selectedTier,
+            finOpsCost,
             latencyMs: Date.now() - startTime,
             compressed: {
               promptTokensSaved: compressedPrompt.tokensSaved,
@@ -313,13 +436,23 @@ export class OmniRouter {
     // Guaranteed fallback if loop somehow finishes without reply
     const finalFallback = this._callOfflineResilience({
       prompt: compressedPrompt.compressedText,
-      contract
+      contract,
+      tier: selectedTier
+    });
+
+    const fallbackFinOps = calculateFinOpsCost({
+      tier: selectedTier,
+      modelId: 'resilience-deterministic-v1',
+      inputTokens: compressedPrompt.compressedTokens + compressedSystem.compressedTokens,
+      outputTokens: 250
     });
 
     return {
       reply: finalFallback.reply,
       provider: 'offline_resilience',
       model: 'resilience-deterministic-v1',
+      tier: selectedTier,
+      finOpsCost: fallbackFinOps,
       latencyMs: Date.now() - startTime,
       fallbackTriggered: true,
       reason: lastError?.message || 'All providers tripped',
@@ -336,8 +469,20 @@ export class OmniRouter {
    * Provider 1: AWS Bedrock Runtime Converse
    * @private
    */
-  async _callBedrock({ system, prompt, history = [], temperature, maxTokens }) {
-    const client = await this.getBedrockClient();
+  async _callBedrock({ system, prompt, history = [], temperature, maxTokens, tier = 'fast', taskType = '', modelId = null }) {
+    const tierConfig = resolveTierModel(tier || modelId, taskType);
+    const candidateModels = [];
+
+    if (modelId) {
+      candidateModels.push(modelId);
+    }
+    if (!candidateModels.includes(tierConfig.primaryModel)) {
+      candidateModels.push(tierConfig.primaryModel);
+    }
+    if (!candidateModels.includes(tierConfig.fallbackModel)) {
+      candidateModels.push(tierConfig.fallbackModel);
+    }
+
     const messages = [];
 
     // History formatting
@@ -360,34 +505,79 @@ export class OmniRouter {
       content: [{ text: prompt }]
     });
 
-    const command = new ConverseCommand({
-      modelId: this.defaultModelId,
-      messages,
-      system: [{ text: system }],
-      inferenceConfig: {
-        maxTokens,
-        temperature
-      }
-    });
+    const regions = [this.primaryRegion, this.secondaryRegion].filter(Boolean);
+    let lastErr = null;
 
-    // Enforce strict timeout
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), this.timeoutMs);
-
-    try {
-      const response = await client.send(command, { abortSignal: controller.signal });
-      clearTimeout(timeoutId);
-      const text = response?.output?.message?.content?.[0]?.text;
-      if (!text) {
-        throw new Error('Bedrock returned empty response.');
+    for (const region of regions) {
+      let client;
+      try {
+        client = await this.getBedrockClient(region);
+      } catch (clientErr) {
+        lastErr = clientErr;
+        continue;
       }
-      return {
-        reply: text,
-        model: this.defaultModelId
-      };
-    } finally {
-      clearTimeout(timeoutId);
+
+      for (const targetModel of candidateModels) {
+        const command = new ConverseCommand({
+          modelId: targetModel,
+          messages,
+          system: [{ text: system }],
+          inferenceConfig: {
+            maxTokens,
+            temperature
+          }
+        });
+
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), this.timeoutMs);
+
+        try {
+          const response = await client.send(command, { abortSignal: controller.signal });
+          clearTimeout(timeoutId);
+          const text = response?.output?.message?.content?.[0]?.text;
+          if (!text) {
+            throw new Error(`Bedrock (${targetModel}) returned empty response.`);
+          }
+
+          const inTokens = response?.usage?.inputTokens || Math.max(1, Math.round((system.length + prompt.length) / 4));
+          const outTokens = response?.usage?.outputTokens || Math.max(1, Math.round(text.length / 4));
+          const finOpsCost = calculateFinOpsCost({
+            tier: tierConfig.tier,
+            modelId: targetModel,
+            inputTokens: inTokens,
+            outputTokens: outTokens
+          });
+
+          // Accumulate telemetry
+          this.finOpsTelemetry.totalCalls++;
+          this.finOpsTelemetry.totalInputTokens += inTokens;
+          this.finOpsTelemetry.totalOutputTokens += outTokens;
+          this.finOpsTelemetry.totalTokens += inTokens + outTokens;
+          this.finOpsTelemetry.totalCostUsd = Number((this.finOpsTelemetry.totalCostUsd + finOpsCost.costUsd).toFixed(6));
+          this.finOpsTelemetry.totalCostCad = Number((this.finOpsTelemetry.totalCostCad + finOpsCost.costCad).toFixed(6));
+
+          const tierBucket = this.finOpsTelemetry.byTier[tierConfig.tier] || this.finOpsTelemetry.byTier.fast;
+          tierBucket.calls++;
+          tierBucket.tokens += inTokens + outTokens;
+          tierBucket.costUsd = Number((tierBucket.costUsd + finOpsCost.costUsd).toFixed(6));
+          tierBucket.costCad = Number((tierBucket.costCad + finOpsCost.costCad).toFixed(6));
+
+          return {
+            reply: text,
+            model: targetModel,
+            tier: tierConfig.tier,
+            finOpsCost,
+            region
+          };
+        } catch (err) {
+          clearTimeout(timeoutId);
+          lastErr = err;
+          // Continue to attempt fallback model or secondary region
+        }
+      }
     }
+
+    throw lastErr || new Error('All Bedrock model and region candidates failed.');
   }
 
   /**
@@ -500,7 +690,7 @@ export class OmniRouter {
    * Generates structured schema-valid output based on the agent contract
    * @private
    */
-  _callOfflineResilience({ prompt, contract }) {
+  _callOfflineResilience({ prompt, contract, tier = 'fast' }) {
     const agentName = contract?.name || 'Autonomous Operative';
     const division = contract?.division || 'core';
     const role = contract?.role || 'Principal Solutions Architect';
@@ -513,6 +703,7 @@ export class OmniRouter {
     const reply = JSON.stringify({
       status: 'SUCCESS',
       mode: 'OFFLINE_RESILIENCE',
+      tier,
       timestamp: new Date().toISOString(),
       agent: {
         id: contract?.id || 'agent-core',
@@ -549,6 +740,7 @@ export class OmniRouter {
 
     return {
       reply,
+      tier,
       model: 'resilience-deterministic-v1'
     };
   }
@@ -570,7 +762,11 @@ export class OmniRouter {
     return {
       timestamp: new Date().toISOString(),
       defaultRegion: this.primaryRegion,
+      secondaryRegion: this.secondaryRegion,
       defaultModel: this.defaultModelId,
+      defaultTier: this.defaultTier,
+      supportedTiers: TIER_MODELS,
+      finOpsTelemetry: this.finOpsTelemetry,
       providers: status
     };
   }

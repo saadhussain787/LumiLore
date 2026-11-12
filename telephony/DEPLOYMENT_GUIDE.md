@@ -1,7 +1,32 @@
 # LumiLore Technologies — Telephony Deployment Guide
 ## Amazon Connect ca-central-1 (`lumilore-voice.my.connect.aws`)
 
-This guide provides **exact, click-by-click instructions** in the **AWS Console** and **Amazon Connect Admin Portal** for deploying your Conversational AI Voice Agent on **`+1-437-786-5864`**.
+This guide provides **exact, click-by-click instructions** in the **AWS Console** and **Amazon Connect Admin Portal** for deploying your Conversational AI Voice Agent on **`+1-416-915-4636`**.
+
+---
+
+### Phase 0: Deploy the Updated Lambda Function to AWS (1 Minute)
+
+> **Goal:** Ensure your AWS Lambda function has the Sprint 45 Generative Voice & Bedrock Claude engine running in the cloud.
+
+Choose **Option A (AWS Console Upload - Fastest)** or **Option B (SAM CLI)**:
+
+#### Option A: AWS Console (Drag & Drop ZIP)
+1. Open [AWS Lambda Console](https://console.aws.amazon.com/lambda) and ensure region is **Canada (Central) `ca-central-1`**.
+2. Click on your function: **`lumilore-backend-LumiLoreFunction-JCxBNzZ7VJCO`**.
+3. Under the **Code** tab, look at the **Code source** section on the right.
+4. Click the **Upload from** dropdown button and select **.zip file**.
+5. Click **Upload** and choose the pre-packaged zip from this repository:  
+   `scratch/lambda-deployment.zip` (6.4 MB).
+6. Click **Save**.
+   - ✅ *Status confirmation:* AWS Lambda will show *"Successfully updated the function"*. Your cloud function is now running the Bedrock Claude 3 Haiku conversational engine!
+
+#### Option B: SAM CLI Deployment
+If you have AWS credentials configured in your terminal:
+```bash
+sam build
+sam deploy
+```
 
 ---
 
@@ -51,7 +76,7 @@ This guide provides **exact, click-by-click instructions** in the **AWS Console*
 
 ### Phase C: Claim & Bind Your Canadian Inbound Number (1 Minute)
 
-> **Goal:** Connect your Canadian phone number `+1-437-786-5864` to the published voice flow.
+> **Goal:** Connect your Canadian phone number `+1-416-915-4636` to the published voice flow.
 
 1. In the Amazon Connect left sidebar, hover over the **Channels** icon (phone icon: `📞`).
 2. Click **Phone numbers**.
@@ -62,7 +87,7 @@ This guide provides **exact, click-by-click instructions** in the **AWS Console*
      Click **Claim a number** in the top-right corner.  
      - Select **DID (Direct Inward Dialing)**.
      - Country: **Canada (+1)**.
-     - In the number selector, locate or pick your target number (e.g., `(437) 786-5864` or available GTA `437`/`647` DID).
+     - In the number selector, locate or pick your target number (e.g., `(416) 915-4636` or available GTA `437`/`647` DID).
 4. In the phone number settings panel:
    - **Flow / IVR:** Click the dropdown and select:  
      **`LumiLore_Unified_Voice_Concierge_Flow`**.
@@ -74,7 +99,7 @@ This guide provides **exact, click-by-click instructions** in the **AWS Console*
 
 ### Phase D: Live Verification & Testing (1 Minute)
 
-1. Pick up your mobile phone and dial the number: **`+1-437-786-5864`**.
+1. Pick up your mobile phone and dial the number: **`+1-416-915-4636`**.
 2. **Test Scenario 1 (Natural Greeting):**
    - Listen to the warm Canadian Polly Neural voice greet you:  
      *"Hello, and thank you for calling LumiLore Technologies. I'm the AI Executive Assistant to Principal Systems Architect Saad Sayed and Operations Lead Arfa Sayeed. How can I help you today?"*

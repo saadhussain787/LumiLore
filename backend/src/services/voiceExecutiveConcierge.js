@@ -306,7 +306,9 @@ export class VoiceExecutiveConciergeService {
         case VOICE_STATES.TURN_1_GREETING: {
           session.turns.push({ turn: 1, user: cleanTranscript, timestamp: new Date().toISOString() });
 
-          if (cleanTranscript.length > 5) {
+          const isSimpleGreeting = !cleanTranscript || /^(hello|hi|hey|good morning|good afternoon)[.!]?$/i.test(cleanTranscript.trim());
+
+          if (!isSimpleGreeting && cleanTranscript.length > 3) {
             // Attempt Bedrock Generative Spoken Response with Sub-800ms Latency Budget
             const generativeReply = await this._generateSpokenResponseWithBudget([
               { role: 'user', content: cleanTranscript }
@@ -473,7 +475,26 @@ export class VoiceExecutiveConciergeService {
     const contactId = contactData.ContactId || `connect-${Date.now()}`;
     const callerPhone = contactData.CustomerEndpoint?.Address || '+1-XXX-XXX-XXXX';
     const parameters = event?.Details?.Parameters || {};
-    const userTranscript = parameters.UserTranscript || parameters.Transcript || parameters.SpeechCapture || '';
+    const contactAttrs = contactData.Attributes || {};
+    const lexData = event?.Details?.Lex || {};
+
+    // Aggressively capture user transcript across all Amazon Connect & Lex V2 payload structures
+    const userTranscript = (
+      parameters.UserTranscript ||
+      parameters.StoredCustomerInput ||
+      parameters.SpeechCapture ||
+      parameters.LexTranscript ||
+      parameters.CustomerInput ||
+      contactData.StoredCustomerInput ||
+      event?.Details?.ContactData?.StoredCustomerInput ||
+      lexData.InputTranscript ||
+      lexData.inputTranscript ||
+      contactAttrs.UserTranscript ||
+      contactAttrs.StoredCustomerInput ||
+      contactAttrs.Transcript ||
+      event?.inputTranscript ||
+      ''
+    ).trim();
 
     const turnResult = await this.processTurn(contactId, userTranscript, {
       callerPhone,
@@ -482,9 +503,15 @@ export class VoiceExecutiveConciergeService {
 
     const isConfirmed = turnResult.action === 'CALENDAR_LOCKED_AND_CONFIRMED';
     const isEmergency = turnResult.action === 'EMERGENCY_DISPATCH_NOTIFIED';
+    const rawReply = String(turnResult.agentReply || '');
+
+    // Generate humanized SSML with natural breathing and prosody for Amazon Polly Neural
+    const cleanSpoken = rawReply.replace(/[*_#`\[\]]/g, '').trim();
+    const ssmlReply = `<speak><amazon:auto-breaths volume="soft" frequency="low"><prosody rate="97%">${cleanSpoken}</prosody></amazon:auto-breaths></speak>`;
 
     return {
-      AgentReply: String(turnResult.agentReply || ''),
+      AgentReply: rawReply,
+      AgentReplySSML: ssmlReply,
       NextTurn: String(turnResult.turnNumber + 1),
       BookingStatus: isConfirmed ? 'CONFIRMED' : (isEmergency ? 'EMERGENCY_DISPATCHED' : 'PENDING'),
       SessionState: String(turnResult.state || ''),

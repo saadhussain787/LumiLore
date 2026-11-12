@@ -28,7 +28,39 @@ export class AgentReachScout {
     this.router = options.router || new OmniRouter(options.routerOptions || {});
     this.outputDir = options.outputDir || path.join(rootDir, '.ai/memory');
     this.leadsFile = path.join(this.outputDir, 'scouted_buyer_leads.json');
+    this.blueprintsFile = path.join(this.outputDir, 'community_blueprints.json');
     this.timeoutMs = options.timeoutMs || 4000;
+
+    // open-seo commercial search intent taxonomy
+    this.searchIntentTaxonomy = {
+      cloudFinOps: {
+        lens: 'corporate',
+        category: 'AWS Serverless Cloud Architecture & FinOps',
+        keywords: [
+          'aws bill doubled',
+          'idle ec2 cost reduction',
+          'graviton3 lambda migration',
+          'dynamodb single table design vs rds',
+          'sub-150ms ttfb jamstack',
+          'connection pool exhaustion lambda',
+          'serverless cloud waste audit'
+        ],
+        targetCommunities: ['r/aws', 'r/serverless', 'Ask HN']
+      },
+      tradesTelephony: {
+        lens: 'trades',
+        category: '24/7 AI Voice Dispatch & Inbound Reception',
+        keywords: [
+          'missed emergency hvac calls',
+          'after hours answering service dropped calls',
+          'contractor call answering service cost',
+          'jobber ai receptionist automated dispatch',
+          'servicetitan emergency dispatch automation',
+          'plumbing after hours call forwarding'
+        ],
+        targetCommunities: ['r/HVAC', 'r/Plumbing', 'r/Electricians', 'r/Roofing', 'r/smallbusiness']
+      }
+    };
 
     // High-intent commercial distress keywords & weight matrix
     this.intentWeights = {
@@ -228,28 +260,168 @@ Hope this gives you some leverage against the big corporate aggregators!`;
   }
 
   /**
+   * Scan search intent keywords across commercial taxonomy using open-seo heuristics
+   * @param {Object} [options]
+   * @returns {Object}
+   */
+  scanSearchIntentKeywords(options = {}) {
+    const results = [];
+    let totalKeywords = 0;
+
+    for (const [clusterKey, cluster] of Object.entries(this.searchIntentTaxonomy)) {
+      for (const kw of cluster.keywords) {
+        totalKeywords++;
+        const scoring = this.scoreCommercialIntent(kw);
+        results.push({
+          cluster: clusterKey,
+          category: cluster.category,
+          lens: cluster.lens,
+          keyword: kw,
+          targetCommunities: cluster.targetCommunities,
+          intentScore: scoring.score,
+          urgency: scoring.urgency,
+          matchedSignals: scoring.matchedSignals
+        });
+      }
+    }
+
+    results.sort((a, b) => b.intentScore - a.intentScore);
+
+    return {
+      status: 'SUCCESS',
+      timestamp: new Date().toISOString(),
+      engine: 'open-seo-Search-Intent-Scanner',
+      totalClusters: Object.keys(this.searchIntentTaxonomy).length,
+      totalKeywordsScanned: totalKeywords,
+      highIntentKeywordsCount: results.filter(r => r.intentScore >= 50).length,
+      keywordRankings: results
+    };
+  }
+
+  /**
+   * Draft and synthesize community authority blueprints adhering to Saad Sayed persona
+   * @param {Object} [options]
+   * @returns {Object}
+   */
+  generateCommunityBlueprints(options = {}) {
+    const blueprints = [
+      {
+        id: 'REDDIT-AWS-001',
+        platform: 'Reddit',
+        targetCommunity: 'r/aws & r/serverless',
+        threadType: 'Technical Architecture Teardown',
+        title: 'How we cut 68% off an enterprise AWS bill by replacing idle EC2 clusters with Graviton3 Lambda',
+        hook: 'Most enterprise AWS bills suffer from zombie capacity—paying 24/7 for EC2 instances that sit at 12% CPU. Here is the exact event-driven serverless topology we deployed to fix it.',
+        authorVoice: 'Saad Sayed (Principal Systems Architect)',
+        keyPoints: [
+          'Replaced 8 m5.xlarge instances with ARM64 Graviton3 Lambda functions.',
+          'Adopted DynamoDB Single-Table design to eliminate connection pool starvation.',
+          'Achieved true scale-to-zero: $0.00/hr spend during nights and weekends.',
+          'P95 latency benchmark: 142ms via Amazon CloudFront edge routing.'
+        ],
+        canonicalCitationUrl: 'https://lumilore.ca/insights/cutting-aws-cloud-waste-serverless-architecture/',
+        fullPostContent: `Hey r/aws,\n\nWanted to share an architectural post-mortem from a recent FinOps migration. We took a mid-market financial platform processing 12M requests/month from a constant $14,800/mo AWS bill down to roughly $4,700/mo (68% net reduction) while improving P95 response times.\n\n### The Problem:\nThey had 8x m5.xlarge EC2 instances behind an ALB, paired with an RDS Postgres instance. Average CPU utilization across the week was barely 12%, but they had to keep instances running 24/7 to absorb unpredictable morning spikes.\n\n### The Fix:\n1. Migrated all HTTP routing to Amazon API Gateway (HTTP APIs) + Lambda on ARM64 Graviton3.\n2. Migrated transactional states to Amazon DynamoDB using Single-Table design (PK=ORG#id, SK=TX#timestamp).\n3. Cut compute billing to the millisecond. Zero traffic at 3 AM literally costs $0.00.\n\nFull benchmark metrics, architecture flowcharts, and the Lambda handler implementation are published here for reference:\nhttps://lumilore.ca/insights/cutting-aws-cloud-waste-serverless-architecture/\n\nHappy to answer questions on DynamoDB single-table modeling or cold start mitigations.`
+      },
+      {
+        id: 'REDDIT-TRADES-002',
+        platform: 'Reddit',
+        targetCommunity: 'r/HVAC & r/smallbusiness',
+        threadType: 'Operational Automation Teardown',
+        title: 'Building 24/7 AI voice dispatch for emergency mechanical calls: What actually happens at 2 AM',
+        hook: 'The first HVAC contractor to answer the phone wins the emergency call. Answering services were dropping 35% of night calls; here is how we automated dispatch into ServiceTitan in under 60 seconds.',
+        authorVoice: 'Saad Sayed (Principal Systems Architect)',
+        keyPoints: [
+          'Full-duplex WebSocket audio streaming over PSTN SIP trunks (< 200ms latency).',
+          'Spectral noise subtraction to filter out loud furnace and compressor background noise.',
+          'Direct REST API webhook into ServiceTitan: creates job, verifies address, pages on-call technician.'
+        ],
+        canonicalCitationUrl: 'https://lumilore.ca/insights/autonomous-247-ai-voice-dispatch-mechanical-trades/',
+        fullPostContent: `Hey everyone,\n\nFor commercial and residential mechanical contractors, after-hours calls are the highest-margin jobs, but human answering services frequently butcher the details or fail to pick up during winter freezes.\n\nWe architected a dedicated 24/7 telephony dispatch pipeline using WebSockets and Amazon Bedrock:\n- Homeowner calls in at 2 AM with a frozen pipe.\n- The system transcribes in real-time, filters compressor rumble, verifies their address, and assesses emergency severity.\n- In under 60 seconds, it pushes an urgent job card directly into ServiceTitan and pages the on-call tech via SMS.\n\nComplete telephony pipeline teardown and code samples are open for review here:\nhttps://lumilore.ca/insights/autonomous-247-ai-voice-dispatch-mechanical-trades/`
+      },
+      {
+        id: 'REDDIT-ELECTRICAL-003',
+        platform: 'Reddit',
+        targetCommunity: 'r/Electricians & r/smallbusiness',
+        threadType: 'Contractor Automation Case Study',
+        title: 'How after-hours 24/7 AI call triage qualified 14 extra 200A panel upgrades and EV charger quotes in 30 days',
+        hook: 'High-ticket electrical jobs ($3,500 panel upgrades and $1,800 EV charger installs) usually call after work hours. If you send them to voicemail, they call the next licensed contractor on Google.',
+        authorVoice: 'Saad Sayed (Principal Systems Architect)',
+        keyPoints: [
+          'Real-time technical qualification: asks incoming service size (60A/100A), panel brand, and EV charger requirements.',
+          'Immediate safety triage: identifies arcing noises or smoking breakers and prompts immediate main breaker cut.',
+          'Synchronizes with Jobber and Housecall Pro dispatch boards in seconds.'
+        ],
+        canonicalCitationUrl: 'https://lumilore.ca/products/voice-dispatch/',
+        fullPostContent: `Hey r/Electricians,\n\nElectricians know that high-value panel upgrades ($3,500+) and Level 2 EV charger installs ($1,800) come from homeowners researching at 8:00 PM after work. If they get a voicemail, 80% hang up and call the next 309A master electrician on Google.\n\nWe deployed 24/7 conversational voice AI that picks up on the first ring, asks the right technical questions (existing service amps, panel make, distance to garage), and schedules arrival windows directly into Jobber.\n\nResult for a 4-van electrical contractor: 14 extra closed panel jobs in month one with zero dispatcher burnout.`
+      },
+      {
+        id: 'REDDIT-ROOFING-004',
+        platform: 'Reddit',
+        targetCommunity: 'r/Roofing & r/Contractor',
+        threadType: 'Storm Response Telephony Teardown',
+        title: 'Capturing $15,000 storm restoration leads in the first 20 minutes after severe hail: The AI telephony playbook',
+        hook: 'When a hailstorm hits a suburb, 50 homeowners call simultaneously. Human dispatchers get overwhelmed; AI answers 50 calls at the exact same second on ring one.',
+        authorVoice: 'Saad Sayed (Principal Systems Architect)',
+        keyPoints: [
+          'Zero busy signals: infinite concurrent line answering during major weather events.',
+          'Captures critical insurance claim info, leak location, and attic drywall penetration status.',
+          'Automatically dispatches emergency tarping crews based on geographic storm severity corridors.'
+        ],
+        canonicalCitationUrl: 'https://lumilore.ca/products/voice-dispatch/',
+        fullPostContent: `Hey r/Roofing,\n\nWhen a hailstorm drops 2-inch hail across a subdivision, the contractor whose phone actually answers is the one who locks in the $12,000–$18,000 insurance roof replacements.\n\nTraditional office lines get jammed immediately with busy signals. We deployed an AWS SIP telephony mesh that answers all 50 concurrent incoming calls simultaneously, logs property addresses, schedules drone roof inspections, and alerts field estimators via instant SMS.`
+      }
+    ];
+
+    return {
+      timestamp: new Date().toISOString(),
+      totalBlueprints: blueprints.length,
+      blueprints
+    };
+  }
+
+  /**
+   * Persist blueprints to .ai/memory/community_blueprints.json
+   * @param {Object} blueprintsData 
+   */
+  persistBlueprints(blueprintsData) {
+    if (!fs.existsSync(this.outputDir)) {
+      fs.mkdirSync(this.outputDir, { recursive: true });
+    }
+    fs.writeFileSync(this.blueprintsFile, JSON.stringify(blueprintsData, null, 2), 'utf8');
+  }
+
+  /**
    * Master run method
    * Persists leads to .ai/memory/scouted_buyer_leads.json
+   * and community authority blueprints to .ai/memory/community_blueprints.json
    * @param {Object} [options]
    * @returns {Promise<Object>}
    */
   async run(options = {}) {
     console.log('\n================================================================');
-    console.log('👁️  AGENT 03: ZERO-FEE INTERNET EYES & BUYER SCOUT (AGENT-REACH)');
+    console.log('👁️  AGENT 03: ZERO-FEE INTERNET EYES & BUYER SCOUT (AGENT-REACH + OPEN-SEO)');
     console.log(`⏱️ Timestamp: ${new Date().toISOString()}`);
     console.log('================================================================\n');
 
-    console.log('[Step 1/2] Scanning Reddit & Tech Communities via Agent-Reach Zero-Fee Reader...');
+    console.log('[Step 1/3] Scanning Reddit & Tech Communities via Agent-Reach Zero-Fee Reader...');
     const scanResult = await this.scanCommunities(options);
     console.log(`  ✓ Evaluated ${scanResult.totalThreadsEvaluated} public community threads`);
     console.log(`  ✓ Identified ${scanResult.qualifiedLeadsCount} high-intent commercial buyer leads (Score >= 60)`);
 
-    console.log('\n[Step 2/2] Generating Consultative Engineering Replies (Saad Sayed Persona)...');
+    console.log('\n[Step 2/3] Scanning Search Intent Keywords via open-seo Scanner...');
+    const searchIntentResult = this.scanSearchIntentKeywords(options);
+    console.log(`  ✓ Scanned ${searchIntentResult.totalKeywordsScanned} commercial queries across ${searchIntentResult.totalClusters} clusters`);
+    console.log(`  ✓ Found ${searchIntentResult.highIntentKeywordsCount} high-intent keywords (Score >= 50)`);
+
+    console.log('\n[Step 3/3] Generating Consultative Replies & Community Authority Blueprints (Saad Sayed Persona)...');
     for (const lead of scanResult.leads) {
       console.log(`  • [${lead.urgency}] ${lead.community} (${lead.author}): Intent ${lead.intentScore}/100`);
       console.log(`    ↳ Signals: ${lead.matchedSignals.join(', ')}`);
       console.log(`    ↳ Draft Length: ${lead.consultativeDraft.length} chars (Zero hard pitches, 100% technical advice)`);
     }
+
+    const blueprintsData = this.generateCommunityBlueprints(options);
+    console.log(`  ✓ Generated ${blueprintsData.totalBlueprints} community authority blueprints`);
 
     // Persist to .ai/memory/scouted_buyer_leads.json
     if (!fs.existsSync(this.outputDir)) {
@@ -258,7 +430,17 @@ Hope this gives you some leverage against the big corporate aggregators!`;
     fs.writeFileSync(this.leadsFile, JSON.stringify(scanResult, null, 2), 'utf8');
     console.log(`\n  ✓ Saved scouted leads to ${this.leadsFile}`);
 
-    return scanResult;
+    // Persist to .ai/memory/community_blueprints.json
+    this.persistBlueprints(blueprintsData);
+    console.log(`  ✓ Saved community blueprints to ${this.blueprintsFile}`);
+
+    return {
+      status: 'SUCCESS',
+      timestamp: new Date().toISOString(),
+      scoutedLeads: scanResult,
+      searchIntentScan: searchIntentResult,
+      blueprints: blueprintsData
+    };
   }
 }
 

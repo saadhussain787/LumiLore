@@ -14,8 +14,8 @@
  */
 
 export const CONCIERGE_CHANNELS = {
-  EXECUTIVE_LINE: '437-786-5864', // Dedicated Amazon Connect Unified AI Voice Hotline
-  DEMO_LINE: '437-786-5864'      // 24/7 Client Demo & Intake Line
+  EXECUTIVE_LINE: '416-915-4636', // Dedicated Amazon Connect Unified AI Voice Hotline
+  DEMO_LINE: '416-915-4636'      // 24/7 Client Demo & Intake Line
 };
 
 export const ACOUSTIC_PROFILE = {

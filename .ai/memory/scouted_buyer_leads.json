@@ -1,6 +1,6 @@
 {
   "status": "SUCCESS",
-  "timestamp": "2026-10-30T17:25:56.735Z",
+  "timestamp": "2026-11-12T02:13:13.677Z",
   "engine": "Agent-Reach-Zero-Fee-Scout",
   "totalCommunitiesScanned": 5,
   "totalThreadsEvaluated": 4,
@@ -26,7 +26,7 @@
       ],
       "consultativeDraft": "Hey u/cloud_lead_dev, senior cloud architect here. We solved this exact bottleneck recently on an AWS enterprise workload.\n\nThe core reason you're seeing idle bill spikes is that provisioned compute clusters (like m5.large instances) charge you 100% capacity even when idling at 5% CPU utilization at 3 AM.\n\nHere is the clean engineering path:\n1. Don't rewrite your whole stack: Start by decomposing bursty API read routes into ARM64 Graviton3 Lambda functions running Node.js 22. Graviton delivers a 20% price-performance gain out of the box.\n2. For Postgres connection exhaustion, put AWS RDS Proxy in front of your database or migrate high-throughput read telemetry to a single-table DynamoDB pattern.\n3. Put CloudFront L2 edge caching in front of your APIs with stale-while-revalidate headers—this typically serves 85%+ of read requests directly from the edge at <50ms without hitting compute at all.\n\nWe published our full open architecture teardown and CloudFormation template here if you want to look at the numbers: https://lumilore.ca/insights/cutting-aws-cloud-waste-serverless-architecture/\n\nHappy to share our connection-pooling configs if you get stuck on the RDS side.",
       "status": "READY_FOR_FOUNDER_REVIEW",
-      "scoutedAt": "2026-10-30T17:25:56.734Z"
+      "scoutedAt": "2026-11-12T02:13:13.677Z"
     },
     {
       "leadId": "reddit-hvac-202",
@@ -48,7 +48,7 @@
       ],
       "consultativeDraft": "Hey u/ontario_trades_boss, I work on telephony systems and voice dispatch automation for commercial trade contractors across Ontario.\n\nWhat you're experiencing is the single biggest revenue leak in the trades: 64% of homeowners facing emergency freeze-ups or plumbing backups hang up the moment they hear a voicemail beep or get placed on hold. They immediately dial the next Google Maps 3-pack listing.\n\nThe modern solution isn't hiring another night operator—it's sub-800ms AI Voice Dispatch:\n1. The AI answers on Ring 1 (24/7/365) with natural human voice cadence and telephony acoustic warmth.\n2. It triages emergency jobs vs routine callbacks in 2 to 3 conversational turns.\n3. It integrates directly with Jobber via two-way webhooks: books the slot, tags the on-call tech, and sends an immediate SMS confirmation to the homeowner so they stop calling other contractors.\n\nWe built an interactive browser sandbox where you can actually listen to and test these call scenarios live: https://lumilore.ca/products/voice-dispatch/\n\nHope this gives you some leverage against the big corporate aggregators!",
       "status": "READY_FOR_FOUNDER_REVIEW",
-      "scoutedAt": "2026-10-30T17:25:56.735Z"
+      "scoutedAt": "2026-11-12T02:13:13.677Z"
     },
     {
       "leadId": "hn-ask-303",
@@ -67,7 +67,7 @@
       ],
       "consultativeDraft": "Hey techfounder99, senior cloud architect here. We solved this exact bottleneck recently on an AWS enterprise workload.\n\nThe core reason you're seeing idle bill spikes is that provisioned compute clusters (like m5.large instances) charge you 100% capacity even when idling at 5% CPU utilization at 3 AM.\n\nHere is the clean engineering path:\n1. Don't rewrite your whole stack: Start by decomposing bursty API read routes into ARM64 Graviton3 Lambda functions running Node.js 22. Graviton delivers a 20% price-performance gain out of the box.\n2. For Postgres connection exhaustion, put AWS RDS Proxy in front of your database or migrate high-throughput read telemetry to a single-table DynamoDB pattern.\n3. Put CloudFront L2 edge caching in front of your APIs with stale-while-revalidate headers—this typically serves 85%+ of read requests directly from the edge at <50ms without hitting compute at all.\n\nWe published our full open architecture teardown and CloudFormation template here if you want to look at the numbers: https://lumilore.ca/insights/cutting-aws-cloud-waste-serverless-architecture/\n\nHappy to share our connection-pooling configs if you get stuck on the RDS side.",
       "status": "READY_FOR_FOUNDER_REVIEW",
-      "scoutedAt": "2026-10-30T17:25:56.735Z"
+      "scoutedAt": "2026-11-12T02:13:13.677Z"
     },
     {
       "leadId": "reddit-plumbing-404",
@@ -87,7 +87,7 @@
       ],
       "consultativeDraft": "Hey u/commercial_plumb_ca, I work on telephony systems and voice dispatch automation for commercial trade contractors across Ontario.\n\nWhat you're experiencing is the single biggest revenue leak in the trades: 64% of homeowners facing emergency freeze-ups or plumbing backups hang up the moment they hear a voicemail beep or get placed on hold. They immediately dial the next Google Maps 3-pack listing.\n\nThe modern solution isn't hiring another night operator—it's sub-800ms AI Voice Dispatch:\n1. The AI answers on Ring 1 (24/7/365) with natural human voice cadence and telephony acoustic warmth.\n2. It triages emergency jobs vs routine callbacks in 2 to 3 conversational turns.\n3. It integrates directly with Jobber via two-way webhooks: books the slot, tags the on-call tech, and sends an immediate SMS confirmation to the homeowner so they stop calling other contractors.\n\nWe built an interactive browser sandbox where you can actually listen to and test these call scenarios live: https://lumilore.ca/products/voice-dispatch/\n\nHope this gives you some leverage against the big corporate aggregators!",
       "status": "READY_FOR_FOUNDER_REVIEW",
-      "scoutedAt": "2026-10-30T17:25:56.735Z"
+      "scoutedAt": "2026-11-12T02:13:13.677Z"
     }
   ]
 }

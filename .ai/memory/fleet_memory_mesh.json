@@ -1,0 +1,198 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-11-12T02:18:37.606Z",
+  "totalEntities": 2,
+  "totalTouchpoints": 8,
+  "entities": {
+    "+14165551122": {
+      "customerId": "+14165551122",
+      "lens": "trades",
+      "createdAt": "2026-11-12T02:11:47.548Z",
+      "lastUpdated": "2026-11-12T02:11:47.549Z",
+      "root": {
+        "customerId": "+14165551122",
+        "primaryPhone": "+14165551122",
+        "primaryEmail": null,
+        "companyName": null,
+        "lens": "trades",
+        "qualificationStage": "EMERGENCY_DISPATCHED",
+        "painPoints": [
+          "HVAC"
+        ],
+        "activeBooking": "2026-11-15 10:00 AM",
+        "lastAuditDomain": null,
+        "totalTouchpoints": 2
+      },
+      "touchpoints": [
+        {
+          "PK": "CUSTOMER#+14165551122",
+          "SK": "TOUCHPOINT#VOICE#2026-11-12T02:11:47.548Z",
+          "customerId": "+14165551122",
+          "channel": "voice",
+          "type": "EMERGENCY_AFTER_HOURS",
+          "lens": "trades",
+          "timestamp": "2026-11-12T02:11:47.548Z",
+          "payload": {
+            "callerPhone": "+14165551122",
+            "tradeCategory": "HVAC",
+            "address": "128 Maple Ave",
+            "urgency": "CRITICAL",
+            "summary": "Emergency furnace repair"
+          },
+          "GSI1PK": "LENS#trades",
+          "GSI1SK": "TIMESTAMP#2026-11-12T02:11:47.548Z",
+          "createdAt": "2026-11-12T02:11:47.548Z"
+        },
+        {
+          "PK": "CUSTOMER#+14165551122",
+          "SK": "TOUCHPOINT#CHAT#sess-999#2026-11-12T02:11:47.549Z",
+          "customerId": "+14165551122",
+          "channel": "chat",
+          "type": "DISCOVERY_CHAT",
+          "lens": "trades",
+          "timestamp": "2026-11-12T02:11:47.549Z",
+          "payload": {
+            "sessionId": "sess-999",
+            "bookedSlot": "2026-11-15 10:00 AM",
+            "lastMessage": "Confirming appointment"
+          },
+          "GSI1PK": "LENS#trades",
+          "GSI1SK": "TIMESTAMP#2026-11-12T02:11:47.549Z",
+          "createdAt": "2026-11-12T02:11:47.549Z"
+        }
+      ]
+    },
+    "+14169154636": {
+      "customerId": "+14169154636",
+      "lens": "trades",
+      "createdAt": "2026-11-12T02:17:38.156Z",
+      "lastUpdated": "2026-11-12T02:18:37.606Z",
+      "root": {
+        "customerId": "+14169154636",
+        "primaryPhone": "+14169154636",
+        "primaryEmail": null,
+        "companyName": null,
+        "lens": "trades",
+        "qualificationStage": "SOW_PENDING",
+        "painPoints": [
+          "HVAC"
+        ],
+        "activeBooking": "2026-11-18 14:00 EST",
+        "lastAuditDomain": "mychoiceautoservices.com",
+        "totalTouchpoints": 6,
+        "notes": "Client pre-qualified by voice & chat",
+        "lastUpdated": "2026-11-12T02:18:37.606Z"
+      },
+      "touchpoints": [
+        {
+          "PK": "CUSTOMER#+14169154636",
+          "SK": "TOUCHPOINT#VOICE#2026-11-12T02:17:38.156Z",
+          "customerId": "+14169154636",
+          "channel": "voice",
+          "type": "EMERGENCY_AFTER_HOURS",
+          "lens": "trades",
+          "timestamp": "2026-11-12T02:17:38.156Z",
+          "payload": {
+            "callerPhone": "+14169154636",
+            "tradeCategory": "HVAC",
+            "address": "250 University Ave",
+            "unitNumber": "Suite 400",
+            "urgency": "CRITICAL",
+            "summary": "No heat emergency during freeze warning"
+          },
+          "GSI1PK": "LENS#trades",
+          "GSI1SK": "TIMESTAMP#2026-11-12T02:17:38.156Z",
+          "createdAt": "2026-11-12T02:17:38.156Z"
+        },
+        {
+          "PK": "CUSTOMER#+14169154636",
+          "SK": "TOUCHPOINT#CHAT#session-sprint46-test#2026-11-12T02:17:38.157Z",
+          "customerId": "+14169154636",
+          "channel": "chat",
+          "type": "DISCOVERY_CHAT",
+          "lens": "trades",
+          "timestamp": "2026-11-12T02:17:38.157Z",
+          "payload": {
+            "sessionId": "session-sprint46-test",
+            "bookedSlot": "2026-11-18 14:00 EST",
+            "lastMessage": "Looking forward to the scoping consultation."
+          },
+          "GSI1PK": "LENS#trades",
+          "GSI1SK": "TIMESTAMP#2026-11-12T02:17:38.157Z",
+          "createdAt": "2026-11-12T02:17:38.157Z"
+        },
+        {
+          "PK": "CUSTOMER#+14169154636",
+          "SK": "TOUCHPOINT#AUDIT#mychoiceautoservices.com#2026-11-12T02:17:38.157Z",
+          "customerId": "+14169154636",
+          "channel": "audit",
+          "type": "GEO_AUDIT",
+          "lens": "trades",
+          "timestamp": "2026-11-12T02:17:38.157Z",
+          "payload": {
+            "domain": "mychoiceautoservices.com",
+            "mobileScore": 98,
+            "ttfbMs": 112
+          },
+          "GSI1PK": "LENS#trades",
+          "GSI1SK": "TIMESTAMP#2026-11-12T02:17:38.157Z",
+          "createdAt": "2026-11-12T02:17:38.157Z"
+        },
+        {
+          "PK": "CUSTOMER#+14169154636",
+          "SK": "TOUCHPOINT#VOICE#2026-11-12T02:18:37.605Z",
+          "customerId": "+14169154636",
+          "channel": "voice",
+          "type": "EMERGENCY_AFTER_HOURS",
+          "lens": "trades",
+          "timestamp": "2026-11-12T02:18:37.605Z",
+          "payload": {
+            "callerPhone": "+14169154636",
+            "tradeCategory": "HVAC",
+            "address": "250 University Ave",
+            "unitNumber": "Suite 400",
+            "urgency": "CRITICAL",
+            "summary": "No heat emergency during freeze warning"
+          },
+          "GSI1PK": "LENS#trades",
+          "GSI1SK": "TIMESTAMP#2026-11-12T02:18:37.605Z",
+          "createdAt": "2026-11-12T02:18:37.605Z"
+        },
+        {
+          "PK": "CUSTOMER#+14169154636",
+          "SK": "TOUCHPOINT#CHAT#session-sprint46-test#2026-11-12T02:18:37.605Z",
+          "customerId": "+14169154636",
+          "channel": "chat",
+          "type": "DISCOVERY_CHAT",
+          "lens": "trades",
+          "timestamp": "2026-11-12T02:18:37.605Z",
+          "payload": {
+            "sessionId": "session-sprint46-test",
+            "bookedSlot": "2026-11-18 14:00 EST",
+            "lastMessage": "Looking forward to the scoping consultation."
+          },
+          "GSI1PK": "LENS#trades",
+          "GSI1SK": "TIMESTAMP#2026-11-12T02:18:37.605Z",
+          "createdAt": "2026-11-12T02:18:37.605Z"
+        },
+        {
+          "PK": "CUSTOMER#+14169154636",
+          "SK": "TOUCHPOINT#AUDIT#mychoiceautoservices.com#2026-11-12T02:18:37.606Z",
+          "customerId": "+14169154636",
+          "channel": "audit",
+          "type": "GEO_AUDIT",
+          "lens": "trades",
+          "timestamp": "2026-11-12T02:18:37.606Z",
+          "payload": {
+            "domain": "mychoiceautoservices.com",
+            "mobileScore": 98,
+            "ttfbMs": 112
+          },
+          "GSI1PK": "LENS#trades",
+          "GSI1SK": "TIMESTAMP#2026-11-12T02:18:37.606Z",
+          "createdAt": "2026-11-12T02:18:37.606Z"
+        }
+      ]
+    }
+  }
+}
