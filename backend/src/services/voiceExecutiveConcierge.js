@@ -559,12 +559,7 @@ export class VoiceExecutiveConciergeService {
           state: 'Fulfilled'
         }
       },
-      messages: [
-        {
-          contentType: 'PlainText',
-          content: reply
-        }
-      ]
+      messages: []
     };
   }
 
