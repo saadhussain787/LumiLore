@@ -16,7 +16,8 @@ import { BedrockRuntimeClient, ConverseCommand } from '@aws-sdk/client-bedrock-r
 export const BEDROCK_MODELS = {
   FAST_EXECUTION: 'us.anthropic.claude-3-haiku-20240307-v1:0',
   DEEP_REASONING: 'us.anthropic.claude-3-5-sonnet-20241022-v2:0',
-  DEFAULT: 'us.anthropic.claude-3-haiku-20240307-v1:0'
+  DEFAULT: 'us.anthropic.claude-3-haiku-20240307-v1:0',
+  NOVA_LITE: 'ca.amazon.nova-lite-v1:0'
 };
 
 /**
@@ -35,7 +36,10 @@ export function resolveModelId(modelIdOrTier = '') {
   if (clean === 'reasoning' || clean === 'deep' || clean === 'sonnet' || clean === 'deep_reasoning') {
     return BEDROCK_MODELS.DEEP_REASONING;
   }
-  if (modelIdOrTier.includes('anthropic.claude')) {
+  if (clean === 'nova' || clean === 'nova-lite' || clean === 'nova_lite') {
+    return BEDROCK_MODELS.NOVA_LITE;
+  }
+  if (modelIdOrTier.includes('anthropic.claude') || modelIdOrTier.includes('amazon.nova')) {
     return modelIdOrTier.trim();
   }
   return BEDROCK_MODELS.DEFAULT;
@@ -289,6 +293,10 @@ export const FINOPS_PRICING = {
   [BEDROCK_MODELS.DEEP_REASONING]: {
     inputPer1k: 0.00300,   // $3.00 per 1M tokens
     outputPer1k: 0.01500  // $15.00 per 1M tokens
+  },
+  [BEDROCK_MODELS.NOVA_LITE]: {
+    inputPer1k: 0.00006,   // $0.06 per 1M tokens
+    outputPer1k: 0.00024  // $0.24 per 1M tokens
   }
 };
 
@@ -510,6 +518,7 @@ export async function invokeConverse({
   region = DEFAULT_PRIMARY_REGION
 }) {
   const resolvedModelId = resolveModelId(modelId);
+  const targetModelId = (region === 'ca-central-1') ? resolvedModelId.replace(/^us\./, '') : resolvedModelId;
   const runtimeClient = client || getBedrockClient({ region });
 
   // 1. Sanitize & Normalize Messages
@@ -548,7 +557,7 @@ export async function invokeConverse({
 
   // 5. Build Converse Command
   const commandInput = {
-    modelId: resolvedModelId,
+    modelId: targetModelId,
     messages: compressedMessages,
     inferenceConfig: resolvedInferenceConfig
   };
@@ -566,16 +575,27 @@ export async function invokeConverse({
   try {
     response = await runtimeClient.send(command);
   } catch (primaryErr) {
-    // If region connection fault or fallback requested, attempt fallback region
+    // If region connection fault, access denied, or unsupported model ID, attempt fallback region
     if (
       region !== DEFAULT_FALLBACK_REGION &&
       (primaryErr?.name === 'EndpointConnectionError' ||
        primaryErr?.message?.includes('ENOTFOUND') ||
-       primaryErr?.code === 'NetworkingError')
+       primaryErr?.code === 'NetworkingError' ||
+       primaryErr?.name === 'AccessDeniedException' ||
+       primaryErr?.name === 'ValidationException' ||
+       primaryErr?.name === 'ResourceNotFoundException')
     ) {
-      console.warn(`[BedrockGateway] Primary region ${region} failed with ${primaryErr.message}. Attempting fallback to ${DEFAULT_FALLBACK_REGION}...`);
+      console.warn(`[BedrockGateway] Primary region ${region} (${resolvedModelId}) failed with ${primaryErr.name}: ${primaryErr.message}. Attempting fallback to ${DEFAULT_FALLBACK_REGION}...`);
+      const fallbackModelId = (DEFAULT_FALLBACK_REGION === 'ca-central-1')
+        ? resolvedModelId.replace(/^us\./, '')
+        : (resolvedModelId.startsWith('anthropic.') ? `us.${resolvedModelId}` : resolvedModelId);
+      const fallbackCommandInput = {
+        ...commandInput,
+        modelId: fallbackModelId
+      };
+      const fallbackCommand = new ConverseCommand(fallbackCommandInput);
       const fallbackClient = getBedrockClient({ region: DEFAULT_FALLBACK_REGION });
-      response = await fallbackClient.send(command);
+      response = await fallbackClient.send(fallbackCommand);
     } else {
       throw primaryErr;
     }

@@ -61,17 +61,24 @@ export const SEVERITY_LEVELS = {
 
 export const VOICE_TELEPHONY_SYSTEM_PROMPT = `You are LumiLore's AI Executive Telephony Concierge (+1-416-915-4636).
 You represent Principal Systems Architect Saad Sayed and Operations Lead Arfa Sayeed.
-Your role is to handle inbound telephone calls from:
-1. Enterprise leaders seeking AWS cloud modernization, FinOps cost reduction, or agentic AI solutions.
-2. Property owners and contractors with after-hours trade emergencies (HVAC, Plumbing, Electrical, Roofing).
+Your role is to handle inbound telephone calls conversationally from:
+1. Enterprise leaders seeking AWS cloud modernization, FinOps cost reduction, microservices, or agentic AI solutions.
+2. Property owners and contractors seeking 24/7 AI voice dispatch, emergency triage, or trade management (HVAC, Plumbing, Electrical, Roofing).
 
-STRICT VOICE AUDIO RULES (Amazon Polly Neural Liam):
+LUMILORE SERVICES & PRICING:
+- Enterprise Cloud & FinOps: AWS Serverless architecture, cutting cloud spend by up to 68%, sub-150ms APIs, SOC-2 readiness. 48-Hour Bespoke Roadmap or 2-Week POC Sprint. Scoping sprints start at $1,800. Host: Saad Sayed.
+- Trades & Contractor Voice Dispatch: 24/7 AI call answering, CRM integration with ServiceTitan and Jobber, zero missed emergency night calls. Launch sprint $1,800 + $3,500 monthly for full 24/7 coverage. Operations: Arfa Sayeed.
+- Scheduling: Scoping briefings with Saad Sayed are available next business day at 11:00 AM Eastern or 2:30 PM Eastern.
+
+STRICT VOICE AUDIO RULES (Amazon Polly Neural):
 - Respond in 1 to 2 spoken sentences maximum (under 35 words).
-- Speak naturally and conversationally.
+- Speak naturally, warmly, and conversationally like an elite human executive assistant.
 - Never use markdown formatting (no asterisks, bullet points, headers, or brackets).
 - Never mention URLs or technical code.
-- If this is an after-hours trade emergency (e.g. burst pipe, no heat, sparking electrical, roof leak), immediately reassure the caller that their emergency is flagged, confirm their address if provided, and state that the on-call technician is being dispatched immediately.
-- If this is a corporate cloud inquiry, acknowledge their challenge and offer a scoping briefing with Saad Sayed.`;
+- If the caller asks about services, pricing, architecture, or work, answer their question directly and conversationally.
+- If the caller is having an after-hours trade emergency (burst pipe, no heat, electrical fire), immediately reassure them that an on-call tech is being alerted.
+- Do NOT push or force appointments or say you confirmed a meeting unless the caller explicitly agrees to an offered time.
+- Only offer available meeting times when the caller expresses interest in scheduling or asks for availability.`;
 
 const ddbClient = new DynamoDBClient({ region: process.env.AWS_REGION || 'ca-central-1' });
 const docClient = DynamoDBDocumentClient.from(ddbClient, {
@@ -216,6 +223,9 @@ export class VoiceExecutiveConciergeService {
     let session = this.sessions.get(sessionId);
     if (!session) {
       session = this.startSession(sessionId, context);
+      if (Array.isArray(context.history) && context.history.length > 0) {
+        session.turns = [...context.history];
+      }
     }
 
     const cleanTranscript = (userTranscript || '').trim();
@@ -300,147 +310,173 @@ export class VoiceExecutiveConciergeService {
       });
     } else {
       // ------------------------------------------------------------------------
-      // STANDARD CONVERSATIONAL STATE MACHINE (Corporate Scoping & General Inquiries)
+      // DYNAMIC GENERATIVE CONVERSATIONAL ENGINE (Amazon Bedrock Claude 3 Haiku)
       // ------------------------------------------------------------------------
-      switch (session.state) {
-        case VOICE_STATES.TURN_1_GREETING: {
-          session.turns.push({ turn: 1, user: cleanTranscript, timestamp: new Date().toISOString() });
+      session.turns.push({ turn: turnNumber, user: cleanTranscript, timestamp: new Date().toISOString() });
 
-          const isSimpleGreeting = !cleanTranscript || /^(hello|hi|hey|good morning|good afternoon)[.!]?$/i.test(cleanTranscript.trim());
+      // Booking confirmation only occurs if:
+      // 1. Available slots were previously offered (or explicit time mentioned)
+      // 2. Caller expresses affirmative slot choice or confirmation
+      // 3. Caller is NOT expressing hesitation, refusal, or asking further questions
+      const isNegative = /\b(?:no|not now|don't|dont|nevermind|cancel|neither|just asking|tell me more|nothing|not ready|later)\b/i.test(lower);
+      const isExplicitSlotChoice = /\b(?:tomorrow at 11|11 am|11:00|2:30|2:30 pm|first slot|second slot|the first|the second|earlier|later|morning|afternoon)\b/i.test(lower);
+      const isSlotAgreementInTurn3 = session.state === VOICE_STATES.TURN_3_SLOT_NEGOTIATION && 
+        session.availableSlotsOffered?.length > 0 && 
+        /\b(?:that works|sounds good|yes|sure|confirm|perfect|lock it in|book it|first one|second one)\b/i.test(lower);
 
-          if (!isSimpleGreeting && cleanTranscript.length > 3) {
-            // Attempt Bedrock Generative Spoken Response with Sub-800ms Latency Budget
-            const generativeReply = await this._generateSpokenResponseWithBudget([
-              { role: 'user', content: cleanTranscript }
-            ]);
+      const isBookingConfirmation = !isNegative && (isExplicitSlotChoice || isSlotAgreementInTurn3);
 
-            if (generativeReply) {
-              reply = generativeReply;
+      if (isBookingConfirmation && (session.state === VOICE_STATES.TURN_3_SLOT_NEGOTIATION || session.availableSlotsOffered?.length > 0 || isExplicitSlotChoice)) {
+        let chosenSlot = session.availableSlotsOffered?.[0];
+        if (/second|later|afternoon|2:30|2|pm/i.test(lower) && session.availableSlotsOffered?.[1]) {
+          chosenSlot = session.availableSlotsOffered[1];
+        } else if (/first|morning|10|11|am|earlier/i.test(lower) && session.availableSlotsOffered?.[0]) {
+          chosenSlot = session.availableSlotsOffered[0];
+        }
+
+        if (!chosenSlot) {
+          chosenSlot = {
+            date: new Date(Date.now() + 86400000).toISOString().split('T')[0],
+            timeSlot: '11:00 AM EDT',
+            display: 'tomorrow at 11:00 AM EDT'
+          };
+        }
+
+        session.bookedSlot = {
+          date: chosenSlot.date,
+          timeSlot: chosenSlot.timeSlot,
+          lens: session.lens || 'corporate',
+          host: 'Saad Sayed (Principal Systems Architect)'
+        };
+
+        const intakeId = `LUMI-VOICE-${Math.floor(100000 + Math.random() * 900000)}`;
+        session.intakeRecord = {
+          intakeId,
+          source: 'voice_hotline_4169154636',
+          channel: 'UNIFIED_AI_VOICE_HOTLINE',
+          carrierNumber: this.channel,
+          callerPhone: session.callerPhone,
+          callerName: session.callerName,
+          audienceLens: session.lens || 'corporate',
+          status: 'CONFIRMED',
+          urgency: session.discoveryDetails.urgency || 'NORMAL',
+          tradeCategory: triage.tradeCategory || null,
+          address: triage.address || null,
+          summary: session.discoveryDetails.notes || cleanTranscript || 'Consultative scoping briefing',
+          discoveryDetails: session.discoveryDetails,
+          transcriptSummary: session.turns.map(t => `[Turn ${t.turn}] Caller: "${t.user || 'N/A'}" | AI: "${t.agent || 'N/A'}"`).join('\n'),
+          bookedSlot: session.bookedSlot,
+          createdAt: new Date().toISOString()
+        };
+
+        // Fire-and-forget persistence and SES alert
+        Promise.allSettled([
+          this._persistIntakeRecord(session.intakeRecord),
+          this._dispatchExecutiveSESAlert(session)
+        ]).catch(err => {
+          console.warn(`[LumiLore Telephony Async Alert Error]: ${err.message}`);
+        });
+
+        reply = `Fantastic! I have confirmed your appointment with Principal Architect Saad Sayed for ${chosenSlot.display}. Your Google Meet video coordinates and agenda have been created. If you need to make any adjustments, our portal is live at lumilore.ca/contact. We look forward to speaking with you!`;
+        nextState = VOICE_STATES.TURN_4_BOOKING_CONFIRMED;
+        action = 'CALENDAR_LOCKED_AND_CONFIRMED';
+      } else {
+        // Build conversational message history for Bedrock Claude Converse API
+        const conversationMessages = [];
+        for (let i = 0; i < session.turns.length - 1; i++) {
+          const t = session.turns[i];
+          if (t.user && t.user.length > 1) {
+            conversationMessages.push({ role: 'user', content: t.user });
+          }
+          if (t.agent && t.agent.length > 1) {
+            conversationMessages.push({ role: 'assistant', content: t.agent });
+          }
+        }
+        conversationMessages.push({ role: 'user', content: cleanTranscript || 'Hello' });
+
+        // Attempt Dynamic Bedrock Claude Spoken Response with 3500ms budget
+        const isSimpleGreeting = !cleanTranscript || /^(hello|hi|hey|good morning|good afternoon)[.!]?$/i.test(cleanTranscript.trim());
+
+        if (isSimpleGreeting && session.turns.length === 1) {
+          reply = "Hello, and thank you for calling LumiLore Technologies. I am the AI Executive Assistant to Principal Systems Architect Saad Sayed and Operations Lead Arfa Sayeed. How can I help you today?";
+          nextState = VOICE_STATES.TURN_2_DISCOVERY;
+          action = 'PROCEED';
+        } else {
+          const generativeReply = await this._generateSpokenResponseWithBudget(conversationMessages);
+
+          if (generativeReply) {
+            reply = generativeReply;
+            action = 'PROCEED';
+            if (/available|slot|schedule|calendar|tomorrow|briefing/i.test(reply)) {
+              nextState = VOICE_STATES.TURN_3_SLOT_NEGOTIATION;
+              action = 'SLOTS_PRESENTED';
             } else {
-              // Local Acoustic Fallback
-              if (session.lens === 'trades') {
+              nextState = VOICE_STATES.TURN_2_DISCOVERY;
+            }
+          } else {
+            // Intelligent Contextual Acoustic Fallback
+            // 1. Pricing questions
+            if (/\b(?:how much|price|costs?|pricing|rates?|fees?)\b/i.test(lower)) {
+              reply = "Our pricing is completely transparent. For 24/7 AI Voice Dispatch, deployments start at $1,800 for the launch sprint and $3,500 monthly for full coverage. For Enterprise Cloud, our audit sprints start at $1,800, cutting cloud spend by sixty-eight percent. Would you like to schedule a twenty-minute scoping session with Saad Sayed?";
+              nextState = VOICE_STATES.TURN_3_SLOT_NEGOTIATION;
+              action = 'PRICING_EXPLAINED';
+            }
+            // 2. Explicit Scheduling / Availability Requests
+            else if (/\b(?:schedule|book|appointment|calendar|when is saad|availability|available times|meet with saad)\b/i.test(lower)) {
+              const candidateSlots = await this._fetchNextAvailableSlots(session.lens);
+              session.availableSlotsOffered = candidateSlots;
+              const slot1 = candidateSlots[0]?.display || 'tomorrow at 11:00 AM Eastern';
+              const slot2 = candidateSlots[1]?.display || 'the following day at 2:30 PM Eastern';
+              reply = `Saad Sayed has availability ${slot1}, or ${slot2}. Which of those works better for you?`;
+              nextState = VOICE_STATES.TURN_3_SLOT_NEGOTIATION;
+              action = 'SLOTS_PRESENTED';
+            }
+            // 3. Trades inquiries
+            else if (session.lens === 'trades') {
+              if (/\b(?:trucks|servicetitan|jobber|crm|technicians|on call)\b/i.test(lower)) {
+                const candidateSlots = await this._fetchNextAvailableSlots(session.lens);
+                session.availableSlotsOffered = candidateSlots;
+                const slot1 = candidateSlots[0]?.display || 'tomorrow at 11:00 AM Eastern';
+                const slot2 = candidateSlots[1]?.display || 'the following day at 2:30 PM Eastern';
+                reply = `That makes total sense. We can configure our 24/7 voice dispatcher to pick up on the first ring, capture customer addresses, and text your on-call tech directly. Saad Sayed has an opening ${slot1}, or ${slot2}. Which of those works better for you?`;
+                nextState = VOICE_STATES.TURN_3_SLOT_NEGOTIATION;
+                action = 'SLOTS_PRESENTED';
+              } else if (session.turns.length <= 1) {
                 reply = "I understand completely. Missing after-hours calls can cost a contractor over fifteen thousand dollars a week. What trade do you specialize in, and how many technicians do you have on call?";
+                nextState = VOICE_STATES.TURN_2_DISCOVERY;
+                action = 'PROCEED';
               } else {
-                reply = "Understood. Unoptimized cloud infrastructure and legacy server clusters frequently drive sixty percent in AWS waste. What does your current architecture look like, and are you looking for FinOps cost reduction?";
+                reply = "Our 24/7 voice dispatcher connects directly into your field service CRM and dispatches emergency calls on the first ring. Would you like to review how the setup works for your company?";
+                nextState = VOICE_STATES.TURN_2_DISCOVERY;
+                action = 'PROCEED';
               }
             }
-            nextState = VOICE_STATES.TURN_2_DISCOVERY;
-          } else {
-            reply = "Hello, and thank you for calling LumiLore Technologies. I am the AI Executive Assistant to Principal Systems Architect Saad Sayed and Operations Lead Arfa Sayeed. How can I help you today?";
-            nextState = VOICE_STATES.TURN_2_DISCOVERY;
+            // 4. Corporate & General inquiries
+            else {
+              // If mentioning EC2, bills, spending $40k, serverless, modernize
+              if (/\b(?:spending|bills?|\$40k|ec2|serverless|waste|moderniz|legacy|migrate)\b/i.test(lower)) {
+                const candidateSlots = await this._fetchNextAvailableSlots(session.lens);
+                session.availableSlotsOffered = candidateSlots;
+                const slot1 = candidateSlots[0]?.display || 'tomorrow at 11:00 AM Eastern';
+                const slot2 = candidateSlots[1]?.display || 'the following day at 2:30 PM Eastern';
+                reply = `Excellent. We specialize in serverless AWS architecture, cutting cloud spend while scaling automatically. Saad Sayed has availability ${slot1}, or ${slot2}. Which one fits your schedule?`;
+                nextState = VOICE_STATES.TURN_3_SLOT_NEGOTIATION;
+                action = 'SLOTS_PRESENTED';
+              } else if (/\b(?:services?|work|help|about|capabilities|what do you do)\b/i.test(lower)) {
+                reply = "At LumiLore, we design resilient AWS serverless cloud architectures, reduce cloud spend by up to sixty-eight percent, and build 24/7 autonomous AI voice dispatchers for trade contractors. What area are you looking to explore?";
+                nextState = VOICE_STATES.TURN_2_DISCOVERY;
+                action = 'PROCEED';
+              } else if (session.turns.length <= 1) {
+                reply = "Understood. Unoptimized cloud infrastructure and legacy server clusters frequently drive sixty percent in AWS waste. What does your current architecture look like, and are you looking for FinOps cost reduction?";
+                nextState = VOICE_STATES.TURN_2_DISCOVERY;
+                action = 'PROCEED';
+              } else {
+                reply = "We collaborate directly with founders and engineering leaders on cloud systems, AI automation, and trade operations. What specific project or challenge is your team focusing on right now?";
+                nextState = VOICE_STATES.TURN_2_DISCOVERY;
+                action = 'PROCEED';
+              }
+            }
           }
-          break;
-        }
-
-        case VOICE_STATES.TURN_2_DISCOVERY: {
-          session.turns.push({ turn: 2, user: cleanTranscript, timestamp: new Date().toISOString() });
-
-          if (!cleanTranscript || cleanTranscript.length < 2) {
-            reply = "I didn't quite catch that. Could you describe your project or what you need assistance with?";
-            nextState = VOICE_STATES.TURN_2_DISCOVERY;
-            break;
-          }
-
-          // Pricing or rates inquiry
-          if (/\b(?:how much|price|costs?|pricing|rates?|fees?)\b/i.test(lower)) {
-            reply = "Our pricing is completely transparent. For 24/7 AI Voice Dispatch, deployments start at $1,800 for the launch sprint and $3,500 monthly for full 24/7 coverage. For Enterprise Cloud and FinOps Re-Architecture, our audit sprints start at $1,800, cutting cloud spend by sixty-eight percent. I can schedule a twenty-minute scoping session directly with Saad Sayed to examine your numbers. Would you like me to look at his calendar?";
-            nextState = VOICE_STATES.TURN_3_SLOT_NEGOTIATION;
-            action = 'PRICING_EXPLAINED';
-            break;
-          }
-
-          session.discoveryDetails.notes = cleanTranscript;
-          if (/urgent|emergency|asap|today|now/i.test(lower)) {
-            session.discoveryDetails.urgency = 'CRITICAL';
-          }
-
-          // Query real-time calendar availability
-          const candidateSlots = await this._fetchNextAvailableSlots(session.lens);
-          session.availableSlotsOffered = candidateSlots;
-
-          const slot1 = candidateSlots[0]?.display || 'tomorrow at 11:00 AM Eastern';
-          const slot2 = candidateSlots[1]?.display || 'the following day at 2:30 PM Eastern';
-
-          if (session.lens === 'trades') {
-            reply = `That makes total sense. We can configure our 24/7 voice dispatcher to pick up on the first ring, capture customer addresses, and text your on-call tech directly. I can lock in a fifteen-minute operational briefing with Saad Sayed. Looking at his live schedule, he has an opening ${slot1}, or ${slot2}. Which of those works better for you?`;
-          } else {
-            reply = `Excellent. We specialize in serverless AWS architecture, sub-150 millisecond web systems, and autonomous multi-agent swarms. I can reserve a dedicated engineering briefing directly with Saad Sayed. Looking at his live calendar right now, he has availability ${slot1}, or ${slot2}. Which one fits your schedule?`;
-          }
-
-          nextState = VOICE_STATES.TURN_3_SLOT_NEGOTIATION;
-          action = 'SLOTS_PRESENTED';
-          break;
-        }
-
-        case VOICE_STATES.TURN_3_SLOT_NEGOTIATION: {
-          session.turns.push({ turn: 3, user: cleanTranscript, timestamp: new Date().toISOString() });
-
-          let chosenSlot = session.availableSlotsOffered[0];
-          if (/second|later|afternoon|2:30|2|pm/i.test(lower) && session.availableSlotsOffered[1]) {
-            chosenSlot = session.availableSlotsOffered[1];
-          } else if (/first|morning|10|11|am|earlier/i.test(lower)) {
-            chosenSlot = session.availableSlotsOffered[0];
-          }
-
-          if (!chosenSlot) {
-            chosenSlot = {
-              date: new Date(Date.now() + 86400000).toISOString().split('T')[0],
-              timeSlot: '11:00 AM EDT',
-              display: 'tomorrow at 11:00 AM EDT'
-            };
-          }
-
-          session.bookedSlot = {
-            date: chosenSlot.date,
-            timeSlot: chosenSlot.timeSlot,
-            lens: session.lens || 'corporate',
-            host: 'Saad Sayed (Principal Systems Architect)'
-          };
-
-          const intakeId = `LUMI-VOICE-${Math.floor(100000 + Math.random() * 900000)}`;
-          session.intakeRecord = {
-            intakeId,
-            source: 'voice_hotline_4169154636',
-            channel: 'UNIFIED_AI_VOICE_HOTLINE',
-            carrierNumber: this.channel,
-            callerPhone: session.callerPhone,
-            callerName: session.callerName,
-            audienceLens: session.lens || 'corporate',
-            status: 'CONFIRMED',
-            urgency: session.discoveryDetails.urgency || 'NORMAL',
-            tradeCategory: triage.tradeCategory || null,
-            address: triage.address || null,
-            summary: session.discoveryDetails.notes || 'Consultative scoping briefing',
-            discoveryDetails: session.discoveryDetails,
-            transcriptSummary: session.turns.map(t => `[Turn ${t.turn}] Caller: "${t.user || 'N/A'}" | AI: "${t.agent || 'N/A'}"`).join('\n'),
-            bookedSlot: session.bookedSlot,
-            createdAt: new Date().toISOString()
-          };
-
-          // Fire-and-forget persistence and SES alert
-          Promise.allSettled([
-            this._persistIntakeRecord(session.intakeRecord),
-            this._dispatchExecutiveSESAlert(session)
-          ]).catch(err => {
-            console.warn(`[LumiLore Telephony Async Alert Error]: ${err.message}`);
-          });
-
-          reply = `Fantastic! I have confirmed your appointment with Principal Architect Saad Sayed for ${chosenSlot.display}. Your Google Meet video coordinates and agenda have been created. If you need to make any adjustments, our portal is live at lumilore.ca/contact. We look forward to speaking with you!`;
-          nextState = VOICE_STATES.TURN_4_BOOKING_CONFIRMED;
-          action = 'CALENDAR_LOCKED_AND_CONFIRMED';
-          break;
-        }
-
-        case VOICE_STATES.TURN_4_BOOKING_CONFIRMED:
-        case VOICE_STATES.EMERGENCY_DISPATCH_TRIGGERED:
-        default: {
-          if (session.state === VOICE_STATES.EMERGENCY_DISPATCH_TRIGGERED) {
-            reply = "Our on-call technician is en route or calling you right away. If you have any new urgent details, please stay near your phone. Thank you for calling LumiLore 24/7 Dispatch.";
-          } else {
-            reply = "Your session with Principal Architect Saad Sayed is confirmed. You can reach our engineering team anytime at info@lumilore.ca or review your system roadmap at lumilore.ca. Have a wonderful and productive day!";
-          }
-          nextState = VOICE_STATES.COMPLETED;
-          break;
         }
       }
     }
@@ -482,14 +518,25 @@ export class VoiceExecutiveConciergeService {
     const sessionAttrs = event.sessionState?.sessionAttributes || {};
     const callerPhone = sessionAttrs.callerPhone || '+1-XXX-XXX-XXXX';
 
+    let history = [];
+    if (sessionAttrs.ConversationHistory) {
+      try {
+        history = JSON.parse(sessionAttrs.ConversationHistory);
+      } catch (_) {}
+    }
+
     const turnResult = await this.processTurn(sessionId, transcript, {
       callerPhone,
-      callerName: sessionAttrs.callerName || 'Inbound Caller'
+      callerName: sessionAttrs.callerName || 'Inbound Caller',
+      history
     });
 
     const reply = (turnResult.agentReply || '').replace(/[*_#`\[\]<>]/g, '').trim();
     const isConfirmed = turnResult.action === 'CALENDAR_LOCKED_AND_CONFIRMED';
     const isEmergency = turnResult.action === 'EMERGENCY_DISPATCH_NOTIFIED';
+
+    const currentSession = this.sessions.get(sessionId);
+    const updatedHistory = JSON.stringify((currentSession?.turns || []).slice(-6));
 
     return {
       sessionState: {
@@ -501,14 +548,15 @@ export class VoiceExecutiveConciergeService {
           SessionState: String(turnResult.state || ''),
           TradeCategory: String(turnResult.triage?.tradeCategory || 'None'),
           EmergencySeverity: String(turnResult.triage?.severity || 'GENERAL_INQUIRY'),
-          ExtractedAddress: String(turnResult.triage?.address || 'Unlisted')
+          ExtractedAddress: String(turnResult.triage?.address || 'Unlisted'),
+          ConversationHistory: updatedHistory
         },
         dialogAction: {
-          type: (isConfirmed || isEmergency) ? 'Close' : 'ElicitIntent'
+          type: 'Close'
         },
         intent: {
           name: event.sessionState?.intent?.name || 'FallbackIntent',
-          state: (isConfirmed || isEmergency) ? 'Fulfilled' : 'InProgress'
+          state: 'Fulfilled'
         }
       },
       messages: [
@@ -607,19 +655,28 @@ export class VoiceExecutiveConciergeService {
    */
   async _generateSpokenResponseWithBudget(messages = []) {
     try {
+      let targetModel = process.env.BEDROCK_MODEL_ID || 'ca.amazon.nova-lite-v1:0';
+      let targetRegion = process.env.BEDROCK_REGION || 'ca-central-1';
+      // Automatically sanitize legacy or deprecated Claude 3 Haiku env vars to high-speed Canadian Nova Lite
+      if (targetModel.includes('claude-3-haiku')) {
+        targetModel = 'ca.amazon.nova-lite-v1:0';
+        targetRegion = 'ca-central-1';
+      }
+      console.log(`[LumiLore Voice Concierge] Requesting Bedrock Converse on ${targetModel} in ${targetRegion} (${messages.length} messages)...`);
       const bedrockPromise = invokeConverse({
         messages,
         systemPrompt: VOICE_TELEPHONY_SYSTEM_PROMPT,
-        modelId: BEDROCK_MODELS.FAST_EXECUTION,
+        modelId: targetModel,
+        region: targetRegion,
         inferenceConfig: {
           maxTokens: 120,
-          temperature: 0.2
+          temperature: 0.3
         }
       });
 
-      // Enforce 650ms strict internal budget ceiling
+      // 3500ms realistic cross-region telephony budget ceiling
       const timeoutPromise = new Promise((_, reject) => {
-        setTimeout(() => reject(new Error('Turn latency budget exceeded')), 650);
+        setTimeout(() => reject(new Error('Turn latency budget exceeded (3500ms)')), 3500);
       });
 
       const result = await Promise.race([bedrockPromise, timeoutPromise]);
@@ -627,14 +684,17 @@ export class VoiceExecutiveConciergeService {
 
       // Clean audio text for Polly Neural
       spoken = spoken
-        .replace(/[*_#`\[\]]/g, '')
+        .replace(/[*_#`\[\]<>]/g, '')
         .replace(/\n+/g, ' ')
         .replace(/\s+/g, ' ')
         .trim();
 
+      if (spoken) {
+        console.log(`[LumiLore Voice Concierge] Bedrock Spoken Generation Success: "${spoken}"`);
+      }
       return spoken || null;
     } catch (err) {
-      console.warn(`[LumiLore Voice Concierge] Bedrock generative response bypassed (${err.message}). Using local acoustic fallback.`);
+      console.warn(`[LumiLore Voice Concierge] Bedrock generative response bypassed (${err.name || 'Error'}: ${err.message}). Using local acoustic fallback.`);
       return null;
     }
   }
