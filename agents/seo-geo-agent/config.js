@@ -16,9 +16,9 @@ export const CONFIG = {
     author: 'Saad Sayed',
     authorTitle: 'Principal Cloud & AI Systems Architect',
     authorBio: 'Principal Systems Architect and Founder of LumiLore Technologies. Specializes in event-driven AWS serverless infrastructure, autonomous multi-agent systems, and generative engine optimization.',
-    authorUrl: 'https://lumilore.ca/about/',
+    authorUrl: 'https://www.lumilore.ca/about/',
     company: 'LumiLore Technologies',
-    canonicalDomain: 'https://lumilore.ca',
+    canonicalDomain: 'https://www.lumilore.ca',
     contactEmail: 'info@lumilore.ca',
     location: {
       city: 'Markham',
@@ -29,7 +29,7 @@ export const CONFIG = {
     sameAs: [
       'https://www.linkedin.com/in/saadhussainsayed',
       'https://github.com/saadhussain787',
-      'https://lumilore.ca'
+      'https://www.lumilore.ca'
     ],
     // Voice & Editorial Guidelines
     voice: {
@@ -72,7 +72,7 @@ export const CONFIG = {
   pageSpeed: {
     apiKey: process.env.PAGESPEED_API_KEY || 'AIzaSyABXJTWhxQmaAPXUyrk9LAaTewEFf295CA',
     endpoint: 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed',
-    targetUrl: 'https://lumilore.ca',
+    targetUrl: 'https://www.lumilore.ca',
     fallbackAuditEndpoint: 'https://bhsahnzaqb.execute-api.ca-central-1.amazonaws.com/api/status',
     budgets: {
       lcpMs: 2500, // < 2.5s Good
@@ -120,8 +120,8 @@ export const CONFIG = {
     publisher: {
       '@type': 'Organization',
       name: 'LumiLore Technologies',
-      url: 'https://lumilore.ca',
-      logo: 'https://lumilore.ca/public/logo.webp'
+      url: 'https://www.lumilore.ca',
+      logo: 'https://www.lumilore.ca/public/logo.webp'
     }
   }
 };

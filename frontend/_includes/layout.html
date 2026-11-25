@@ -7,7 +7,7 @@
   <title>{% if title %}{{ title }}{% else %}LumiLore Technologies — Cloud & Autonomous AI Systems{% endif %}</title>
   <meta name="description"
     content="{% if description %}{{ description }}{% else %}Custom AWS serverless cloud architecture and autonomous AI agents that eliminate operational bottlenecks and scale enterprises without adding headcount.{% endif %}">
-  <link rel="canonical" href="https://lumilore.ca{{ page.url }}">
+  <link rel="canonical" href="https://www.lumilore.ca{{ page.url }}">
   <meta name="google-site-verification" content="S590ENsUVNg5tL3iKx2ZlWETQ_q_sn7Tb5zYscYaksA" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" href="/favicon.png">
@@ -57,43 +57,66 @@
   <!-- Open Graph / WhatsApp / Facebook / LinkedIn -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="LumiLore Technologies">
-  <meta property="og:url" content="https://lumilore.ca/">
+  <meta property="og:url" content="https://www.lumilore.ca{{ page.url }}">
   <meta property="og:title"
     content="{% if title %}{{ title }}{% else %}LumiLore Technologies — Cloud Architecture & AI Systems{% endif %}">
   <meta property="og:description"
     content="{% if description %}{{ description }}{% else %}Pairing certified cloud architecture with multi-step AI agents to eliminate manual tasks and scale your enterprise infinitely.{% endif %}">
-  <meta property="og:image" content="https://lumilore.ca/og-preview.png">
-  <meta property="og:image:secure_url" content="https://lumilore.ca/og-preview.png">
+  <meta property="og:image" content="https://www.lumilore.ca/og-preview.png">
+  <meta property="og:image:secure_url" content="https://www.lumilore.ca/og-preview.png">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="LumiLore Technologies — Cloud Architecture & AI Intelligent Systems">
 
   <!-- Fallback & Mobile Messaging Meta Tags (WhatsApp, iMessage, SMS, RCS, Google) -->
-  <link rel="image_src" href="https://lumilore.ca/og-preview.png">
-  <meta itemprop="image" content="https://lumilore.ca/og-preview.png">
+  <link rel="image_src" href="https://www.lumilore.ca/og-preview.png">
+  <meta itemprop="image" content="https://www.lumilore.ca/og-preview.png">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://lumilore.ca/">
+  <meta name="twitter:url" content="https://www.lumilore.ca{{ page.url }}">
   <meta name="twitter:title"
     content="{% if title %}{{ title }}{% else %}LumiLore Technologies — Cloud Architecture & AI Systems{% endif %}">
   <meta name="twitter:description"
     content="{% if description %}{{ description }}{% else %}Pairing certified cloud architecture with multi-step AI agents to eliminate manual tasks and scale your enterprise infinitely.{% endif %}">
-  <meta name="twitter:image" content="https://lumilore.ca/og-preview.png">
+  <meta name="twitter:image" content="https://www.lumilore.ca/og-preview.png">
 
   <!-- Enterprise Content Security Policy (Layer 3: DOM Hardening) -->
   <meta http-equiv="Content-Security-Policy"
     content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https:; media-src 'self' data: blob:; connect-src 'self' https://*.amazonaws.com; object-src 'none'; base-uri 'self';">
 
-  <!-- Stitch Design System Fonts -->
+  <!-- Stitch Design System Fonts (Non-Blocking Async Load + Critical Metric Fallbacks) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap">
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
-    rel="stylesheet">
+    rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet">
+  </noscript>
+  <style>
+    @font-face {
+      font-family: 'Space Grotesk Fallback';
+      src: local('Arial'), local('Helvetica');
+      ascent-override: 95%;
+      descent-override: 25%;
+      line-gap-override: 0%;
+      size-adjust: 102%;
+    }
+    @font-face {
+      font-family: 'Inter Fallback';
+      src: local('Arial'), local('Helvetica');
+      ascent-override: 90%;
+      descent-override: 22%;
+      line-gap-override: 0%;
+      size-adjust: 100%;
+    }
+    body { font-size-adjust: from-font; }
+    .font-headline { font-size-adjust: from-font; }
+  </style>
 
   <link rel="preload" href="/style.css?v=2.0" as="style">
   <link rel="stylesheet" href="/style.css?v=2.0">
@@ -1708,14 +1731,18 @@
       var currentLens = document.documentElement.getAttribute('data-lens') || 'corporate';
 
       function updateSwitcherUI(lens) {
-        // 1. Desktop Switcher elements
+        // 1. Desktop Switcher elements (Batch geometric reads before DOM writes to prevent forced reflow)
         var corpBtn = document.getElementById('master-btn-corporate');
         var tradeBtn = document.getElementById('master-btn-trades');
         var indicator = document.getElementById('master-lens-indicator');
 
         if (corpBtn && tradeBtn && indicator) {
-          indicator.classList.remove('opacity-0');
           var isCorp = lens === 'corporate';
+          var targetBtn = isCorp ? corpBtn : tradeBtn;
+          var targetLeft = targetBtn.offsetLeft + 'px';
+          var targetWidth = targetBtn.offsetWidth + 'px';
+
+          indicator.classList.remove('opacity-0');
           corpBtn.setAttribute('aria-pressed', isCorp ? 'true' : 'false');
           tradeBtn.setAttribute('aria-pressed', isCorp ? 'false' : 'true');
 
@@ -1724,16 +1751,14 @@
             corpBtn.classList.remove('lens-btn-gold-inactive');
             tradeBtn.classList.add('lens-btn-gold-inactive');
             tradeBtn.classList.remove('lens-btn-gold-active');
-            indicator.style.left = corpBtn.offsetLeft + 'px';
-            indicator.style.width = corpBtn.offsetWidth + 'px';
           } else {
             tradeBtn.classList.add('lens-btn-gold-active');
             tradeBtn.classList.remove('lens-btn-gold-inactive');
             corpBtn.classList.add('lens-btn-gold-inactive');
             corpBtn.classList.remove('lens-btn-gold-active');
-            indicator.style.left = tradeBtn.offsetLeft + 'px';
-            indicator.style.width = tradeBtn.offsetWidth + 'px';
           }
+          indicator.style.left = targetLeft;
+          indicator.style.width = targetWidth;
         }
 
         // 2. Mobile Switcher elements
@@ -1923,10 +1948,16 @@
           updateSwitcherUI(currentLens);
         }, { passive: true });
 
-        // Initial UI alignment
-        requestAnimationFrame(function () {
-          updateSwitcherUI(currentLens);
-        });
+        // Initial UI alignment deferred post-LCP paint
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(function () {
+            requestAnimationFrame(function () { updateSwitcherUI(currentLens); });
+          }, { timeout: 500 });
+        } else {
+          setTimeout(function () {
+            requestAnimationFrame(function () { updateSwitcherUI(currentLens); });
+          }, 120);
+        }
       }
 
       if (document.readyState === 'loading') {

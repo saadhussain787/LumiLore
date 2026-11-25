@@ -1595,3 +1595,11 @@ From the Google PageSpeed Insights recording (`Page speed insights .mp4`), Deskt
 
 
 
+
+
+### Sprint 47: Google Search Console Indexing Fix, PageSpeed 95+ Remediation & Token Optimization (COMPLETED — 100%)
+- [x] **Phase 1 — Canonical Domain Unification (`https://www.lumilore.ca`):** Unified `layout.html` canonical/OG/Twitter tags, `sitemap.njk`, `robots.njk`, `llms.txt.njk`, `llms-full.txt.njk`, `geo-schema.html`, all `frontend/**/*.html` JSON-LD graphs, and `agents/seo-geo-agent/config.js`.
+- [x] **Phase 2 — Crawl Budget Protection & Duplicate HTML Elimination:** Scoped `.eleventy.js` passthrough copy to static images/icons only (0 leaked `_site/public/*.html`), mapped `favicon.png`/`favicon.svg` to root, and added parameterized query guards (`/*?service=`, `/*?lens=`, `/*?tier=`, `/*?calc_revenue=`) to `robots.njk`.
+- [x] **Phase 3 — PageSpeed 95+ Core Web Vitals Remediation:** Non-blocking Google Fonts (`media="print" onload="this.media='all'"`) + inline font metric fallbacks (`font-size-adjust: from-font`), forced-reflow elimination in `updateSwitcherUI` & `applyViewMode`, composited-only CSS keyframes (`panGlow`, `mesh-move`, `gridMove`), and AWS Amplify `customHeaders` in `amplify.yml`.
+- [x] **Phase 4 — Token & Quota Optimization:** Created `.agent/rules/token-optimization.md` and audited global skills/plugins.
+- [x] **Phase 5 — Build & Certification:** Verified `npm run build`, `scratch/audit_pages.js`, `scratch/audit_links.js`, and `scratch/verify_sprint47.mjs`.

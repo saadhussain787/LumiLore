@@ -838,3 +838,13 @@
 - **Client Presentation Alignment:** 1-tap pitch deck generates domain-tailored 5-slide decks for automotive trades, corporate accounting, and enterprise AI agency swarms.
 - **Verification Harness:** `scratch/verify_sprint38.mjs` passed 54/54 automated checks (100%).
 - **Zero Regressions:** `scratch/verify_sprint37.mjs` (75/75 pass), `scratch/audit_pages.js` (12/12 pass), `scratch/audit_links.js` (1,149 links, 0 broken).
+
+
+---
+
+## Sprint 47 Certification Summary (GSC Indexing Fix, PageSpeed 95+ Remediation & Token Optimization)
+- **Status:** COMPLETED & PRODUCTION CERTIFIED (100%)
+- **Canonical Domain Unification:** Aligned 100% of HTML `<link rel="canonical">`, `og:url`, `twitter:url`, `og:image`, `sitemap.xml`, `robots.txt`, `llms.txt`, `llms-full.txt`, Schema.org JSON-LD entity graphs, and `agents/seo-geo-agent/config.js` to `https://www.lumilore.ca`.
+- **Crawl Budget & Duplicate Elimination:** Updated `.eleventy.js` passthrough copy to exclude `public/preview.html` and duplicate `public/google98dbdcc435af4f77.html`, mapped `favicon.png` & `favicon.svg` to root `_site/`, and added parameterized query exclusions (`/*?service=`, `/*?lens=`, `/*?tier=`, `/*?calc_revenue=`) in `frontend/robots.njk`.
+- **Core Web Vitals Remediation:** Converted Google Fonts stylesheet in `layout.html` to non-blocking async load (`media="print" onload="this.media='all'"`) with inlined `@font-face` metric fallbacks & `font-size-adjust: from-font`; batched DOM reads before writes in `updateSwitcherUI` and `applyViewMode` and deferred initial switcher alignment via `requestIdleCallback`; converted CSS keyframes (`panGlow`, `mesh-move`, `gridMove`) to GPU-composited `transform`/`opacity`; added `customHeaders` in `amplify.yml` (`max-age=31536000, immutable` for static assets, `max-age=0, must-revalidate` for HTML).
+- **Token Optimization:** Created `.agent/rules/token-optimization.md` and audited global skills/plugins.

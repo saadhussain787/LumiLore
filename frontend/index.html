@@ -11,23 +11,23 @@ description: "Enterprise AWS serverless cloud architecture, autonomous AI agent 
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://lumilore.ca/#organization",
+      "@id": "https://www.lumilore.ca/#organization",
       "name": "LumiLore Technologies Inc.",
       "alternateName": ["LumiLore", "LumiLore Cloud & AI", "LumiLore Technologies"],
-      "url": "https://lumilore.ca/",
+      "url": "https://www.lumilore.ca/",
       "logo": {
         "@type": "ImageObject",
-        "@id": "https://lumilore.ca/#logo",
-        "url": "https://lumilore.ca/logo.webp",
+        "@id": "https://www.lumilore.ca/#logo",
+        "url": "https://www.lumilore.ca/logo.webp",
         "caption": "LumiLore Technologies Logo",
         "width": 512,
         "height": 512
       },
-      "image": "https://lumilore.ca/logo.webp",
+      "image": "https://www.lumilore.ca/logo.webp",
       "description": "Premier enterprise cloud architecture, serverless systems engineering, and autonomous agentic AI solutions.",
       "foundingDate": "2024",
       "founder": {
-        "@id": "https://lumilore.ca/#saad-sayed"
+        "@id": "https://www.lumilore.ca/#saad-sayed"
       },
       "customer": [
         {
@@ -90,9 +90,9 @@ description: "Enterprise AWS serverless cloud architecture, autonomous AI agent 
     },
     {
       "@type": "Review",
-      "@id": "https://lumilore.ca/#review-fiscalx",
+      "@id": "https://www.lumilore.ca/#review-fiscalx",
       "itemReviewed": {
-        "@id": "https://lumilore.ca/#organization"
+        "@id": "https://www.lumilore.ca/#organization"
       },
       "author": {
         "@type": "Organization",
@@ -108,9 +108,9 @@ description: "Enterprise AWS serverless cloud architecture, autonomous AI agent 
     },
     {
       "@type": "Review",
-      "@id": "https://lumilore.ca/#review-mychoice",
+      "@id": "https://www.lumilore.ca/#review-mychoice",
       "itemReviewed": {
-        "@id": "https://lumilore.ca/#organization"
+        "@id": "https://www.lumilore.ca/#organization"
       },
       "author": {
         "@type": "AutoRepair",
@@ -126,24 +126,24 @@ description: "Enterprise AWS serverless cloud architecture, autonomous AI agent 
     },
     {
       "@type": "WebSite",
-      "@id": "https://lumilore.ca/#website",
-      "url": "https://lumilore.ca/",
+      "@id": "https://www.lumilore.ca/#website",
+      "url": "https://www.lumilore.ca/",
       "name": "LumiLore Technologies",
       "description": "Autonomous AI Agents & Enterprise Serverless Cloud Architecture",
       "publisher": {
-        "@id": "https://lumilore.ca/#organization"
+        "@id": "https://www.lumilore.ca/#organization"
       },
       "inLanguage": "en-CA"
     },
     {
       "@type": "Person",
-      "@id": "https://lumilore.ca/#saad-sayed",
+      "@id": "https://www.lumilore.ca/#saad-sayed",
       "name": "Saad Sayed",
       "jobTitle": "Principal Cloud & AI Systems Architect",
       "worksFor": {
-        "@id": "https://lumilore.ca/#organization"
+        "@id": "https://www.lumilore.ca/#organization"
       },
-      "url": "https://lumilore.ca/",
+      "url": "https://www.lumilore.ca/",
       "description": "Principal Cloud & AI Systems Architect specializing in AWS serverless microservices, enterprise FinOps cost elimination, and autonomous agentic AI swarms.",
       "sameAs": [
         "https://github.com/saadhussain787",
@@ -161,13 +161,13 @@ description: "Enterprise AWS serverless cloud architecture, autonomous AI agent 
     },
     {
       "@type": "ProfessionalService",
-      "@id": "https://lumilore.ca/#professionalservice",
+      "@id": "https://www.lumilore.ca/#professionalservice",
       "name": "LumiLore Enterprise Cloud & AI Architecture Practice",
-      "url": "https://lumilore.ca/contact/",
+      "url": "https://www.lumilore.ca/contact/",
       "telephone": "+1-416-915-4636",
       "priceRange": "$$$$",
       "provider": {
-        "@id": "https://lumilore.ca/#organization"
+        "@id": "https://www.lumilore.ca/#organization"
       },
       "areaServed": [
         {
@@ -186,31 +186,31 @@ description: "Enterprise AWS serverless cloud architecture, autonomous AI agent 
           {
             "@type": "Offer",
             "name": "Autonomous SEO & GEO Visibility Engine",
-            "url": "https://lumilore.ca/products/geo-engine/",
+            "url": "https://www.lumilore.ca/products/geo-engine/",
             "category": "Artificial Intelligence / Organic Search"
           },
           {
             "@type": "Offer",
             "name": "Sub-150ms Web Modernization & FinOps Re-Architecture",
-            "url": "https://lumilore.ca/products/web-modernization/",
+            "url": "https://www.lumilore.ca/products/web-modernization/",
             "category": "Cloud Architecture & Jamstack"
           },
           {
             "@type": "Offer",
             "name": "24/7 AI Voice Dispatch for Mechanical Trades",
-            "url": "https://lumilore.ca/products/voice-dispatch/",
+            "url": "https://www.lumilore.ca/products/voice-dispatch/",
             "category": "Voice AI Telephony"
           },
           {
             "@type": "Offer",
             "name": "Autonomous Calendar & Booking Agent",
-            "url": "https://lumilore.ca/products/autonomous-booking/",
+            "url": "https://www.lumilore.ca/products/autonomous-booking/",
             "category": "Autonomous Scheduling"
           },
           {
             "@type": "Offer",
             "name": "Autonomous Content & Social Engine",
-            "url": "https://lumilore.ca/products/content-engine/",
+            "url": "https://www.lumilore.ca/products/content-engine/",
             "category": "Content Marketing & Authority"
           }
         ]
@@ -3572,9 +3572,13 @@ description: "Enterprise AWS serverless cloud architecture, autonomous AI agent 
         const isOrbit = mode === 'orbit';
         const activeBtn = isOrbit ? orbitBtn : gridBtn;
 
+        // Read geometric layout metrics before mutating classes/styles to avoid forced reflow
+        const targetLeft = activeBtn.offsetLeft + 'px';
+        const targetWidth = activeBtn.offsetWidth + 'px';
+
         // Animate glider pill indicator
-        indicator.style.left = activeBtn.offsetLeft + 'px';
-        indicator.style.width = activeBtn.offsetWidth + 'px';
+        indicator.style.left = targetLeft;
+        indicator.style.width = targetWidth;
 
         // Update ARIA and styling
         orbitBtn.setAttribute('aria-pressed', isOrbit ? 'true' : 'false');
